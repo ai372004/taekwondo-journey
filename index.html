@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Learn Taekwondo Ap Chagi through interactive games.">
+  <meta name="theme-color" content="#ff6b35">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Taekwondo Journey">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🥋 Taekwondo Journey - Educational Taekwondo Game</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Loading screen shown while JS initializes -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="loading-inner">
+      <div class="loading-logo">🥋</div>
+      <h2 class="loading-title">Taekwondo Journey</h2>
+      <div class="loading-bar-wrap">
+        <div class="loading-bar-fill" id="loading-bar"></div>
+      </div>
+      <p class="loading-text" id="loading-text">Loading...</p>
+    </div>
+  </div>
+
+  <div id="language-modal" class="modal">
+    <div class="modal-content">
+      <div class="language-selection">
+        <h2>🌍 Select Language / اختر اللغة</h2>
+        <div class="language-options">
+          <button class="language-btn" data-lang="en">
+            <span class="flag">🇺🇸</span>
+            <span class="language-name">English</span>
+          </button>
+          <button class="language-btn" data-lang="ar">
+            <span class="flag">🇸🇦</span>
+            <span class="language-name">العربية</span>
+          </button>
+        </div>
+        <p class="language-note">You can change language anytime from navigation / يمكنك تغيير اللغة في أي وقت من شريط
+          التنقل</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="character-modal" class="modal">
+    <div class="modal-content">
+      <div class="character-selection">
+        <h2 data-i18n="selectCharacter">Choose Your Character</h2>
+        <div class="character-options">
+          <div class="character-option" data-character="boy">
+            <div class="character-preview">
+              <div class="character-visual" id="preview-boy"></div>
+            </div>
+            <h3 data-i18n="boy">Boy</h3>
+            <p data-i18n="boyDesc">Beginner Taekwondo Player</p>
+          </div>
+          <div class="character-option" data-character="girl">
+            <div class="character-preview">
+              <div class="character-visual" id="preview-girl"></div>
+            </div>
+            <h3 data-i18n="girl">Girl</h3>
+            <p data-i18n="girlDesc">Beginner Taekwondo Player</p>
+          </div>
+        </div>
+        <div class="character-controls">
+          <button class="btn btn-success" id="confirm-character-btn" data-i18n="confirmSelect">Confirm
+            Selection</button>
+          <p class="character-note" data-i18n="characterNote">Selected character will appear in all games and activities
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Toggle Button for Navigation -->
+    <button class="nav-toggle-btn" id="navToggleBtn" onclick="navToggle()" aria-label="Toggle Menu">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Overlay for closing menu when clicking outside -->
+    <div class="nav-overlay" id="navOverlay" onclick="navClose()"></div>
+
+    <!-- Collapsible Navigation -->
+    <div class="navigation collapsible" id="collapsibleNav">
+      <button class="nav-btn nav-btn-warmup" onclick="switchScreen('warmup')">
+        <i class="fas fa-fire"></i> <span data-i18n="warmup">Warm Up</span>
+      </button>
+      <button class="nav-btn" onclick="switchScreen('home')">
+        <i class="fas fa-home"></i> <span data-i18n="home">Home</span>
+      </button>
+      <button class="nav-btn" onclick="switchScreen('apchagi-menu')">
+        <i class="fas fa-graduation-cap"></i> <span data-i18n="learning">Learning</span>
+      </button>
+      <button class="nav-btn" onclick="switchScreen('games')">
+        <i class="fas fa-gamepad"></i> <span data-i18n="games">Games</span>
+      </button>
+      <button class="nav-btn" onclick="switchScreen('character-change')">
+        <i class="fas fa-users"></i> <span data-i18n="changeCharacter">Change Character</span>
+      </button>
+      <button class="nav-btn" onclick="switchScreen('quiz')">
+        <i class="fas fa-question-circle"></i> <span data-i18n="quiz">Quiz</span>
+      </button>
+      <div class="nav-divider"></div>
+      <button class="nav-btn nav-btn-reset" onclick="hardResetGame()">
+        <i class="fas fa-trash"></i> <span data-i18n="resetData">Reset Data</span>
+      </button>
+    </div>
+
+    <div class="header">
+      <div class="logo">🥋</div>
+      <h1 data-i18n="gameTitle">Taekwondo Journey</h1>
+      <h2 data-i18n="gameSubtitle">Educational Taekwondo Adventure</h2>
+      <div class="header-controls">
+        <div class="language-switcher">
+          <button class="lang-switch-btn" onclick="toggleLanguage()">
+            <span id="current-lang">EN</span>
+            <i class="fas fa-globe"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="home-screen" class="screen active">
+      <div class="game-container">
+        <h2 data-i18n="welcome">👋 Welcome to Taekwondo Journey</h2>
+        <p class="description" data-i18n="homeDescription">Start your journey to master Taekwondo techniques. Complete
+          each skill to unlock the next!</p>
+
+        <div class="skills-grid">
+          <!-- Ap Chagi — always visible, opens intermediate menu -->
+          <div class="skill-card active" onclick="switchScreen('apchagi-menu')">
+            <div class="skill-icon">🥋</div>
+            <h3 data-i18n="apChagi">Ap Chagi</h3>
+            <p data-i18n="frontKick">Front Kick</p>
+            <div class="skill-progress">
+              <div class="progress-bar" id="learning-progress-bar" style="width: 0%"></div>
+            </div>
+            <span class="skill-status" id="apchagi-status" data-i18n="startLearning">Start Learning</span>
+          </div>
+
+          <!-- Locked cards — no name shown -->
+          <div class="skill-card locked" id="dolyo-card">
+            <div class="skill-icon">🔒</div>
+            <div class="lock-overlay">
+              <i class="fas fa-lock"></i>
+            </div>
+          </div>
+
+          <div class="skill-card locked" id="yeop-card">
+            <div class="skill-icon">🔒</div>
+            <div class="lock-overlay">
+              <i class="fas fa-lock"></i>
+            </div>
+          </div>
+
+          <div class="skill-card locked" id="dwi-card">
+            <div class="skill-icon">🔒</div>
+            <div class="lock-overlay">
+              <i class="fas fa-lock"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="center-buttons">
+          <button class="btn btn-success" onclick="switchScreen('apchagi-menu')">
+            <i class="fas fa-play"></i> <span data-i18n="startLearning">Start Learning</span>
+          </button>
+          <button class="btn" onclick="switchScreen('games')">
+            <i class="fas fa-gamepad"></i> <span data-i18n="practiceGames">Practice Games</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- AP CHAGI MENU SCREEN                                         -->
+    <!-- ============================================================ -->
+    <div id="apchagi-menu-screen" class="screen">
+      <div class="game-container">
+        <h2 data-i18n="apChagiMenu">🥋 Ap Chagi</h2>
+        <p class="description" data-i18n="apChagiMenuDesc">Choose where to go in your Ap Chagi journey</p>
+
+        <!-- Character display -->
+        <div class="apchagi-menu-char-wrap">
+          <div class="apchagi-menu-char" id="apchagi-menu-character"></div>
+        </div>
+
+        <div class="apchagi-menu-grid">
+
+          <!-- Square 1: Learning Stage -->
+          <div class="apchagi-menu-card" onclick="switchScreen('learning')">
+            <div class="apchagi-menu-icon">🎓</div>
+            <h3 data-i18n="learningStage">Learning Stage</h3>
+            <p data-i18n="learningStageDesc">Watch tutorials and study the 5 phases of Ap Chagi</p>
+            <div class="apchagi-menu-progress-wrap">
+              <div class="progress-bar" id="apchagi-learn-progress" style="width:0%"></div>
+            </div>
+          </div>
+
+          <!-- Square 2: Games -->
+          <div class="apchagi-menu-card" onclick="switchScreen('games')">
+            <div class="apchagi-menu-icon">🎮</div>
+            <h3 data-i18n="games">Games</h3>
+            <p data-i18n="gamesMenuDesc">Practice with interactive training games</p>
+            <div class="apchagi-menu-progress-wrap">
+              <div class="progress-bar" id="apchagi-games-progress" style="width:0%"></div>
+            </div>
+          </div>
+
+          <!-- Square 3: Warm Up -->
+          <div class="apchagi-menu-card" onclick="switchScreen('warmup')">
+            <div class="apchagi-menu-icon">🔥</div>
+            <h3 data-i18n="warmup">Warm Up</h3>
+            <p data-i18n="warmupMenuDesc">Prepare your body with warm-up exercises before training</p>
+            <div class="apchagi-menu-progress-wrap">
+              <div class="progress-bar" id="apchagi-warmup-progress" style="width:0%"></div>
+            </div>
+          </div>
+
+          <!-- Square 4: Tests / Quiz -->
+          <div class="apchagi-menu-card" onclick="switchScreen('quiz')">
+            <div class="apchagi-menu-icon">📝</div>
+            <h3 data-i18n="tests">Tests</h3>
+            <p data-i18n="testsDesc">Test your knowledge and earn your achievement</p>
+            <div class="apchagi-menu-progress-wrap">
+              <div class="progress-bar" id="apchagi-quiz-progress" style="width:0%"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="center-buttons">
+          <button class="btn back-btn" onclick="switchScreen('home')">
+            <i class="fas fa-arrow-left"></i> <span data-i18n="backToHome">Back to Home</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="learning-screen" class="screen">
+      <div class="game-container">
+        <h2 data-i18n="learningTitle">🎓 Learn Ap Chagi</h2>
+        <p class="description" data-i18n="learningSubtitle">Watch the complete tutorial video to master the front kick
+        </p>
+
+        <div class="learning-character-display">
+          <div class="selected-character-animation" id="learning-character-animation"></div>
+          <div class="coach-instruction">
+            <div class="coach-visual" id="coach-learning"></div>
+            <div class="instruction-bubble">
+              <p data-i18n="coachInstruction1">Watch the video carefully and focus on the key techniques!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="learning-steps"></div>
+
+        <div class="center-buttons">
+          <button class="btn" onclick="switchScreen('apchagi-menu')">
+            <i class="fas fa-home"></i> <span data-i18n="backToHome">Back to Home</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="games-screen" class="screen">
+      <div class="game-container">
+        <h2 data-i18n="gamesCenter">🎮 Games Center</h2>
+        <p class="description" data-i18n="chooseGame">Choose a game to start training</p>
+
+        <div class="game-cards">
+          <div class="game-card" data-game="form-control">
+            <div class="game-icon">🎭</div>
+            <h3 data-i18n="formControl">Form Control</h3>
+            <p data-i18n="formControlDesc">Drag player joints to create perfect Ap Chagi stance</p>
+            <div class="progress-container">
+              <div class="progress-bar" id="form-control-progress-bar" style="width: 0%"></div>
+            </div>
+            <span class="game-status" id="form-status" data-i18n="notStarted">Not Started</span>
+          </div>
+
+          <div class="game-card" data-game="puzzle">
+            <div class="game-icon">🧩</div>
+            <h3 data-i18n="puzzleAssembly">Puzzle Assembly</h3>
+            <p data-i18n="puzzleDesc">Arrange puzzle pieces to create Ap Chagi kick sequence</p>
+            <div class="progress-container">
+              <div class="progress-bar" id="puzzle-progress-bar" style="width: 0%"></div>
+            </div>
+            <span class="game-status" id="puzzle-status" data-i18n="notStarted">Not Started</span>
+          </div>
+
+          <div class="game-card" data-game="performance">
+            <div class="game-icon">👁️</div>
+            <h3 data-i18n="performanceRecognition">Performance Recognition</h3>
+            <p data-i18n="performanceDesc">Identify correct from incorrect kick performance</p>
+            <div class="progress-container">
+              <div class="progress-bar" id="performance-progress-bar" style="width: 0%"></div>
+            </div>
+            <span class="game-status" id="performance-status" data-i18n="notStarted">Not Started</span>
+          </div>
+
+          <div class="game-card" data-game="quiz">
+            <div class="game-icon">❓</div>
+            <h3 data-i18n="quiz">Quiz</h3>
+            <p data-i18n="quizDesc">Test your Taekwondo knowledge</p>
+            <div class="progress-container">
+              <div class="progress-bar" id="quiz-progress-bar" style="width: 0%"></div>
+            </div>
+            <span class="game-status" id="quiz-status" data-i18n="notStarted">Not Started</span>
+          </div>
+        </div>
+
+        <div class="center-buttons">
+          <button class="btn back-btn" onclick="switchScreen('home')">
+            <i class="fas fa-home"></i> <span data-i18n="backToHome">Back to Home</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="form-control-screen" class="screen">
+      <div class="game-container">
+        <h2 data-i18n="formControlGame">🎭 Form Control - Creating Ap Chagi</h2>
+        <p class="description" data-i18n="formControlInstructions">Drag the control points to create perfect Ap Chagi
+          form</p>
+
+        <div class="game-layout">
+          <div class="game-area">
+            <div class="character-stage" id="form-stage">
+              <div class="character-reference" id="reference-character"></div>
+              <div class="character" id="form-character"></div>
+            </div>
+            <div class="accuracy-display">
+              <span data-i18n="accuracy">Accuracy:</span>
+              <span id="form-accuracy" class="accuracy-value">0%</span>
+            </div>
+          </div>
+
+          <div class="game-instructions">
+            <h3 data-i18n="instructions">🎯 Instructions:</h3>
+            <div class="coach-message">
+              <div class="coach-visual-small" id="coach-form"></div>
+              <div class="message-content">
+                <h3 data-i18n="coachYang">👴 Coach YANG:</h3>
+                <div class="instructions-list">
+                  <p><span class="instruction-number">1</span> <span data-i18n="instruction1">Lift knee to chest
+                      height</span></p>
+                  <p><span class="instruction-number">2</span> <span data-i18n="instruction2">Extend foot straight
+                      forward</span></p>
+                  <p><span class="instruction-number">3</span> <span data-i18n="instruction3">Keep back straight and
+                      upright</span></p>
+                  <p><span class="instruction-number">4</span> <span data-i18n="instruction4">Balance on standing
+                      leg</span></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="game-controls">
+              <button class="btn" id="reset-form-btn">
+                <i class="fas fa-redo"></i> <span data-i18n="reset">Reset</span>
+              </button>
+              <button class="btn btn-success" id="check-form-btn">
+                <i class="fas fa-check"></i> <span data-i18n="checkForm">Check Form</span>
+              </button>
+              <button class="btn" id="auto-position-btn">
+                <i class="fas fa-magic"></i> <span data-i18n="autoPosition">Auto Position</span>
+              </button>
+            </div>
+
+            <div class="progress-display">
+              <div class="progress-container">
+                <div class="progress-bar" id="form-progress" style="width: 0%"></div>
+              </div>
+              <span class="progress-text" data-i18n="formProgress">Form Progress: 0%</span>
+            </div>
+
+            <div id="form-feedback" class="feedback-message" style="display: none;"></div>
+          </div>
+        </div>
+
+        <button class="btn back-btn" onclick="switchScreen('games')">
+          <i class="fas fa-arrow-left"></i> <span data-i18n="backToGames">Back to Games</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="puzzle-screen" class="screen">
+      <div class="game-container">
+        <h2 data-i18n="puzzleGame">🧩 Puzzle Assembly - Ap Chagi Sequence</h2>
+        <p class="description" data-i18n="puzzleInstructions">Arrange the stages in correct order from preparation to
+          completion</p>
+
+        <div class="puzzle-container">
+          <div class="puzzle-board">
+            <div class="puzzle-slot" data-step="1">
+              <span class="slot-label" data-i18n="preparation">Preparation</span>
+              <div class="slot-content" id="slot-1"></div>
+            </div>
+            <div class="puzzle-slot" data-step="2">
+              <span class="slot-label" data-i18n="chamber">Chamber</span>
+              <div class="slot-content" id="slot-2"></div>
+            </div>
+            <div class="puzzle-slot" data-step="3">
+              <span class="slot-label" data-i18n="extension">Extension</span>
+              <div class="slot-content" id="slot-3"></div>
+            </div>
+            <div class="puzzle-slot" data-step="4">
+              <span class="slot-label" data-i18n="recoil">Recoil</span>
+              <div class="slot-content" id="slot-4"></div>
+            </div>
+            <div class="puzzle-slot" data-step="5">
+              <span class="slot-label" data-i18n="return">Return</span>
+              <div class="slot-content" id="slot-5"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="puzzle-pieces-container">
+          <h3 data-i18n="puzzlePieces">Drag pieces to slots:</h3>
+          <div class="puzzle-pieces"></div>
+        </div>
+
+        <div class="game-controls">
+          <button class="btn" id="reset-puzzle-btn">
+            <i class="fas fa-redo"></i> <span data-i18n="reset">Reset</span>
+          </button>
+          <button class="btn btn-success" id="check-puzzle-btn">
+            <i class="fas fa-check-double"></i> <span data-i18n="checkPuzzle">Check Sequence</span>
+          </button>
+          <button class="btn" id="hint-puzzle-btn">
+            <i class="fas fa-lightbulb"></i> <span data-i18n="hint">Hint</span>
+          </button>
+        </div>
+
+        <div class="progress-display">
+          <div class="progress-container">
+            <div class="progress-bar" id="puzzle-progress" style="width: 0%"></div>
+          </div>
+          <span class="progress-text" data-i18n="puzzleProgress">Puzzle Progress: 0%</span>
+        </div>
+
+        <div class="center-buttons">
+          <button class="btn back-btn" onclick="switchScreen('games')">
+            <i class="fas fa-arrow-left"></i> <span data-i18n="backToGames">Back to Games</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="performance-screen" class="screen">
+      <div class="game-container">
+        <h2 data-i18n="performanceGame">👁️ Performance Recognition</h2>
+        <p class="description" data-i18n="performanceInstructions">Identify which demonstration shows correct Ap Chagi
+          form</p>
+
+        <div class="performance-question">
+          <h3 data-i18n="whichIsCorrect">Which of these shows correct Ap Chagi technique?</h3>
+        </div>
+
+        <div class="performance-cards"></div>
+
+        <div id="performance-feedback" class="feedback-container hidden">
+          <div class="coach-message">
+            <div class="coach-visual-small" id="coach-performance"></div>
+            <div class="message-content">
+              <h3 id="feedback-title"></h3>
+              <p id="feedback-message"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="game-controls">
+          <button class="btn" id="next-performance-btn" disabled>
+            <i class="fas fa-forward"></i> <span data-i18n="nextQuestion">Next Question</span>
+          </button>
+          <button class="btn back-btn" onclick="switchScreen('games')">
+            <i class="fas fa-arrow-left"></i> <span data-i18n="backToGames">Back to Games</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="quiz-screen" class="screen">
+      <div class="game-container">
+        <h2 data-i18n="taekwondoQuiz">❓ Taekwondo Knowledge Quiz</h2>
+        <p class="description" data-i18n="quizDescription">Test your understanding of Taekwondo techniques and
+          terminology</p>
+
+        <div class="quiz-container">
+          <div class="quiz-header">
+            <div class="quiz-progress">
+              <span data-i18n="question">Question</span> <span id="current-question">1</span>/<span
+                id="total-questions">3</span>
+            </div>
+            <div class="quiz-score">
+              <span data-i18n="score">Score:</span> <span id="quiz-score">0</span>
+            </div>
+          </div>
+
+          <div class="quiz-question">
+            <h3 id="question-text">What is the Korean name for front kick?</h3>
+            <div class="question-image" id="question-image"></div>
+          </div>
+
+          <div class="quiz-options">
+            <button class="btn quiz-option" data-answer="1">
+              <span class="option-letter">A</span>
+              <span class="option-text" id="option1-text">Ap Chagi</span>
+            </button>
+            <button class="btn quiz-option" data-answer="2">
+              <span class="option-letter">B</span>
+              <span class="option-text" id="option2-text">Dolyo Chagi</span>
+            </button>
+            <button class="btn quiz-option" data-answer="3">
+              <span class="option-letter">C</span>
+              <span class="option-text" id="option3-text">Yeop Chagi</span>
+            </button>
+            <button class="btn quiz-option" data-answer="4">
+              <span class="option-letter">D</span>
+              <span class="option-text" id="option4-text">Dwi Chagi</span>
+            </button>
+          </div>
+
+          <div class="quiz-feedback hidden" id="quiz-feedback">
+            <div class="coach-message">
+              <div class="coach-visual-small" id="coach-quiz"></div>
+              <div class="message-content">
+                <h3 id="quiz-result-title"></h3>
+                <p id="quiz-explanation"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz-controls">
+            <button class="btn" id="next-question-btn" disabled>
+              <i class="fas fa-forward"></i> <span data-i18n="nextQuestion">Next Question</span>
+            </button>
+            <button class="btn" onclick="switchScreen('games')">
+              <i class="fas fa-home"></i> <span data-i18n="backToGames">Back to Games</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="character-change-screen" class="screen">
+      <div class="game-container">
+        <h2 data-i18n="changeCharacterTitle">👤 Change Character</h2>
+        <div class="character-change-content">
+          <div class="current-character-section">
+            <h3 data-i18n="currentCharacter">Current Character:</h3>
+            <div class="character-display-large" id="current-character-large"></div>
+          </div>
+          <div class="character-selection-section">
+            <h3 data-i18n="selectNewCharacter">Select New Character:</h3>
+            <div class="character-change-options">
+              <div class="character-change-option" data-character="boy">
+                <div class="character-change-visual" id="change-boy"></div>
+                <h4 data-i18n="boy">Boy</h4>
+                <button class="btn btn-small select-character-btn" data-character="boy"
+                  data-i18n="select">Select</button>
+              </div>
+              <div class="character-change-option" data-character="girl">
+                <div class="character-change-visual" id="change-girl"></div>
+                <h4 data-i18n="girl">Girl</h4>
+                <button class="btn btn-small select-character-btn" data-character="girl"
+                  data-i18n="select">Select</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="character-change-controls">
+          <button class="btn back-btn" onclick="switchScreen('home')">
+            <i class="fas fa-arrow-left"></i> <span data-i18n="backToHome">Back to Home</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="winner-screen" class="screen">
+      <div class="game-container winner-container">
+        <h2 class="winner-title" data-i18n="winner">🏆 Congratulations!</h2>
+        <div class="winner-visual">
+          <div class="character-celebration" id="winner-character"></div>
+          <div class="celebration-effects">
+            <span class="celebration-icon">🎉</span>
+            <span class="celebration-icon">✨</span>
+            <span class="celebration-icon">⭐</span>
+          </div>
+        </div>
+
+        <h3 class="winner-message" id="winner-message">Excellent! You have completed the challenge successfully!</h3>
+        <h4 style="color: var(--primary-color); text-align: center; margin-bottom: 20px;">Score: <span
+            id="winner-accuracy">100%</span></h4>
+
+        <div class="achievements">
+          <h3 data-i18n="achievementsUnlocked">Achievements Unlocked:</h3>
+          <div class="achievement-list">
+            <div class="achievement-item">
+              <span class="achievement-icon">🥇</span>
+              <span class="achievement-text" data-i18n="firstCompletion">First Game Completed</span>
+            </div>
+            <div class="achievement-item">
+              <span class="achievement-icon">🎯</span>
+              <span class="achievement-text" data-i18n="perfectForm">Perfect Form Mastered</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="winner-controls">
+          <button class="btn btn-success" id="next-level-btn">
+            <i class="fas fa-arrow-up"></i> <span data-i18n="nextLevel">Next Level</span>
+          </button>
+          <button class="btn" id="try-again-btn">
+            <i class="fas fa-redo"></i> <span data-i18n="tryAgain">Try Again</span>
+          </button>
+          <button class="btn" id="back-to-home-btn">
+            <i class="fas fa-home"></i> <span data-i18n="backToMenu">Back to Home</span>
+          </button>
+        </div>
+
+        <div class="coach-message">
+          <div class="coach-visual-small" id="coach-winner"></div>
+          <div class="message-content">
+            <h3 data-i18n="coachYang">👴 Coach YANG:</h3>
+            <p data-i18n="coachCongrats">Well done champion! Your dedication to mastering Ap Chagi is impressive. Keep
+              training!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- WARM UP SCREEN                                               -->
+    <!-- ============================================================ -->
+    <div id="warmup-screen" class="screen">
+      <div class="game-container">
+
+        <!-- Header -->
+        <h2 id="warmup-title">🔥 Warm Up Time!</h2>
+        <p class="description" id="warmup-subtitle">Get your body ready before training</p>
+
+        <!-- Overall progress (exercise dots) -->
+        <div class="warmup-dots" id="warmup-dots"></div>
+
+        <!-- Main card -->
+        <div class="warmup-card" id="warmup-card">
+
+          <!-- Exercise name + description -->
+          <div class="warmup-card-header">
+            <div class="warmup-exercise-icon" id="warmup-ex-icon">🏃</div>
+            <div>
+              <h3 class="warmup-ex-name" id="warmup-ex-name">Neck Rolls</h3>
+              <p class="warmup-ex-desc" id="warmup-ex-desc">Slowly roll your neck in a circle to loosen up</p>
+            </div>
+          </div>
+
+          <!-- Character + circular timer side by side -->
+          <div class="warmup-body">
+
+            <!-- Character animation area -->
+            <div class="warmup-char-wrap">
+              <div class="warmup-char-stage">
+                <div class="warmup-character" id="warmup-character"></div>
+              </div>
+              <p class="warmup-char-tip" id="warmup-char-tip">Keep your spine straight!</p>
+            </div>
+
+            <!-- Circular countdown timer -->
+            <div class="warmup-timer-wrap">
+              <div class="warmup-timer-ring">
+                <svg class="warmup-ring-svg" viewBox="0 0 120 120">
+                  <circle class="ring-bg" cx="60" cy="60" r="52" />
+                  <circle class="ring-fill" cx="60" cy="60" r="52" id="warmup-ring-fill" />
+                </svg>
+                <div class="warmup-timer-center">
+                  <span class="warmup-timer-num" id="warmup-timer-num">20</span>
+                  <span class="warmup-timer-label" id="warmup-timer-label">sec</span>
+                </div>
+              </div>
+              <p class="warmup-ex-counter" id="warmup-ex-counter">Exercise 1 of 6</p>
+            </div>
+
+          </div><!-- /warmup-body -->
+
+          <!-- Controls -->
+          <div class="warmup-controls">
+            <button class="btn" id="warmup-pause-btn">
+              <i class="fas fa-pause" id="warmup-pause-icon"></i>
+              <span id="warmup-pause-label">Pause</span>
+            </button>
+            <button class="btn btn-success" id="warmup-next-btn">
+              <i class="fas fa-forward"></i>
+              <span id="warmup-next-label">Skip</span>
+            </button>
+            <button class="btn btn-danger" id="warmup-exit-btn">
+              <i class="fas fa-times"></i>
+              <span id="warmup-exit-label">Exit</span>
+            </button>
+          </div>
+
+        </div><!-- /warmup-card -->
+
+        <!-- Completion screen (hidden initially) -->
+        <div class="warmup-complete" id="warmup-complete" style="display:none;">
+          <div class="warmup-complete-char" id="warmup-complete-char"></div>
+          <h2 class="warmup-complete-title" id="warmup-complete-title">🎉 Warm Up Done!</h2>
+          <p class="warmup-complete-sub" id="warmup-complete-sub">Great job! Your body is ready to train.</p>
+          <div class="warmup-complete-btns">
+            <button class="btn btn-success" onclick="switchScreen('learning')">
+              <i class="fas fa-graduation-cap"></i>
+              <span id="warmup-go-learn">Start Learning</span>
+            </button>
+            <button class="btn" onclick="WarmupSystem.restart()">
+              <i class="fas fa-redo"></i>
+              <span id="warmup-go-repeat">Repeat Warm Up</span>
+            </button>
+            <button class="btn" onclick="switchScreen('home')">
+              <i class="fas fa-home"></i>
+              <span id="warmup-go-home">Home</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <!-- Flash notification container required by GameState.showNotification() -->
+    <div id="flash-container"></div>
+
+    <script src="game.js"></script>
+
+</body>
+
+</html>
