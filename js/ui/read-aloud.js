@@ -12,7 +12,7 @@ const ReadAloud = {
   key() { return `taekwondoJourneyReadAloud:${TKD.pid() || 'guest'}`; },
   auto() { return !!TKD.read(this.key(), false); },
   setAuto(on) { TKD.write(this.key(), !!on); this.paintBtn(); if (on) this.say(TKD.t('I will read everything to you!', 'هقرالك كل حاجة!')); },
-  clean(s) { return String(s || '').replace(/[\u{1F000}-\u{1FAFF}☀-➿️]/gu, '').replace(/\s+/g, ' ').trim(); },
+  clean(s) { return String(s || '').replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, '').replace(/\u{FE0F}/gu, '').replace(/\s+/g, ' ').trim(); },
   say(text, btn = null) {
     const t = this.clean(text); if (!t) return;
     if (TKD.gs()?.soundEnabled === false) { TKD.toast(TKD.t('Sound is off — turn it on with 🔊 at the top', 'الصوت مقفول — شغّله من 🔊 اللي فوق'), 'info'); return; }

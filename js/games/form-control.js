@@ -9,12 +9,6 @@ class FormControlSystem {
     const frames = {};
     skill.phases.forEach(p => { frames[p.key] = character === 'boy' ? p.image.boy : p.image.girl; });
     if (!frames.recoil) frames.recoil = frames.return;
-    return frames;}
-  static getKickFrames(skillId, character) {
-    const skill = GameConfig.SKILLS[skillId] || GameConfig.SKILLS.apchagi;
-    const frames = {};
-    skill.phases.forEach(p => { frames[p.key] = character === 'boy' ? p.image.boy : p.image.girl; });
-    if (!frames.recoil) frames.recoil = frames.return;
     return frames;
   }
 

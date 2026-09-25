@@ -9,7 +9,7 @@ class PuzzleSystem {
     skill.phases.forEach(p => {
       data[`step${p.num}`] = {
         image: isBoy ? p.image.boy : p.image.girl,
-        label: ar ? p.title.ar.replace(/^[0-9️⃣]+\s*/u, '') : p.title.en.replace(/^[0-9️⃣]+\s*/u, ''),
+        label: ar ? p.title.ar.replace(/^[0-9]+[\u{FE0F}\u{20E3}]*\s*/u, '') : p.title.en.replace(/^[0-9]+[\u{FE0F}\u{20E3}]*\s*/u, ''),
         desc:  ar ? p.focus.ar : p.focus.en,
         color: p.color
       };
@@ -21,7 +21,7 @@ class PuzzleSystem {
     const labelPhase = skill.phases[0];
     data.distractor = {
       image: isBoy ? imgPhase.image.boy : imgPhase.image.girl,
-      label: (ar ? labelPhase.title.ar : labelPhase.title.en).replace(/^[0-9️⃣]+\s*/u, ''),
+      label: (ar ? labelPhase.title.ar : labelPhase.title.en).replace(/^[0-9]+[\u{FE0F}\u{20E3}]*\s*/u, ''),
       desc:  ar ? '⚠️ القطعة دي مش من الترتيب الصح — خلي بالك إن في قطعة تانية بنفس الاسم في المجموعة!'
                 : "⚠️ This piece doesn't belong in the sequence — notice another piece already shares its name!",
       color: imgPhase.color

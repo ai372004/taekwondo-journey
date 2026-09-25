@@ -20,15 +20,22 @@
     "audit": "node tests/audit.mjs ar && node tests/kid-flow.mjs",
     "css:snapshot": "node tools/css-snapshot.mjs",
     "css:check": "node tools/css-snapshot.mjs --check",
-    "perf": "node tests/perf.mjs"
+    "perf": "node tests/perf.mjs",
+    "lint": "eslint js tests tools sw.js",
+    "format": "prettier --write js tests tools sw.js *.html *.css",
+    "format:check": "prettier --check js tests tools sw.js *.html *.css"
   },
   "devDependencies": {
+    "@capacitor/cli": "^6.1.0",
+    "@eslint/js": "^9.39.5",
+    "esbuild": "^0.25.12",
+    "eslint": "^9.39.5",
     "playwright": "^1.47.0",
-    "@capacitor/cli": "^6.1.0"
+    "prettier": "^3.9.9"
   },
   "dependencies": {
-    "@capacitor/core": "^6.1.0",
     "@capacitor/android": "^6.1.0",
+    "@capacitor/core": "^6.1.0",
     "@capacitor/ios": "^6.1.0"
   }
 }

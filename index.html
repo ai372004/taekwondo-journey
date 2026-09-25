@@ -192,7 +192,7 @@
         <button class="nav-btn" onclick="triggerImportProgress()">
           <i class="fas fa-upload"></i> <span data-i18n="backupImport">Restore Backup</span>
         </button>
-        <input type="file" id="import-progress-input" accept="application/json,.json" style="display:none;" onchange="importProgress(this)">
+        <input type="file" id="import-progress-input" class="hidden" accept="application/json,.json" onchange="importProgress(this)">
 
         <div class="nav-divider"></div>
         <button class="nav-btn nav-btn-reset" onclick="hardResetGame()">
@@ -425,7 +425,7 @@
             <h3 data-i18n="warmup">Warm Up</h3>
             <p data-i18n="warmupMenuDesc">Prepare your body with warm-up exercises</p>
             <div class="apchagi-menu-progress-wrap">
-              <div class="progress-bar" id="skill-warmup-progress" style="width:0%"></div>
+              <div class="progress-bar" id="skill-warmup-progress"></div>
             </div>
           </div>
 
@@ -436,7 +436,7 @@
             <h3 data-i18n="learningStage">Learning Stage</h3>
             <p data-i18n="learningStageDesc">Watch tutorials and study the phases</p>
             <div class="apchagi-menu-progress-wrap">
-              <div class="progress-bar" id="skill-learn-progress" style="width:0%"></div>
+              <div class="progress-bar" id="skill-learn-progress"></div>
             </div>
             <div class="stage-lock-overlay"><i class="fas fa-lock"></i></div>
           </div>
@@ -448,7 +448,7 @@
             <h3 data-i18n="games">Games</h3>
             <p data-i18n="gamesMenuDesc">Practice with interactive training games</p>
             <div class="apchagi-menu-progress-wrap">
-              <div class="progress-bar" id="skill-games-progress" style="width:0%"></div>
+              <div class="progress-bar" id="skill-games-progress"></div>
             </div>
             <div class="stage-lock-overlay"><i class="fas fa-lock"></i></div>
           </div>
@@ -460,7 +460,7 @@
             <h3 data-i18n="tests">Tests</h3>
             <p data-i18n="testsDesc">Test your knowledge and earn your achievement</p>
             <div class="apchagi-menu-progress-wrap">
-              <div class="progress-bar" id="skill-quiz-progress" style="width:0%"></div>
+              <div class="progress-bar" id="skill-quiz-progress"></div>
             </div>
             <div class="stage-lock-overlay"><i class="fas fa-lock"></i></div>
           </div>
@@ -519,7 +519,7 @@
             <h3 data-i18n="formControl">Form Control</h3>
             <p data-i18n="formControlDesc">Drag player joints to create perfect stance</p>
             <div class="progress-container">
-              <div class="progress-bar" id="form-control-progress-bar" style="width: 0%"></div>
+              <div class="progress-bar" id="form-control-progress-bar"></div>
             </div>
             <span class="game-status" id="form-status" data-i18n="notStarted">Not Started</span>
           </div>
@@ -529,7 +529,7 @@
             <h3 data-i18n="puzzleAssembly">Puzzle Assembly</h3>
             <p data-i18n="puzzleDesc">Arrange puzzle pieces to create kick sequence</p>
             <div class="progress-container">
-              <div class="progress-bar" id="puzzle-progress-bar" style="width: 0%"></div>
+              <div class="progress-bar" id="puzzle-progress-bar"></div>
             </div>
             <span class="game-status" id="puzzle-status" data-i18n="notStarted">Not Started</span>
           </div>
@@ -539,7 +539,7 @@
             <h3 data-i18n="performanceRecognition">Performance Recognition</h3>
             <p data-i18n="performanceDesc">Identify correct from incorrect kick performance</p>
             <div class="progress-container">
-              <div class="progress-bar" id="performance-progress-bar" style="width: 0%"></div>
+              <div class="progress-bar" id="performance-progress-bar"></div>
             </div>
             <span class="game-status" id="performance-status" data-i18n="notStarted">Not Started</span>
           </div>
@@ -549,7 +549,7 @@
             <h3 data-i18n="actionTitle">Action Challenge</h3>
             <p data-i18n="actionDesc">A different hands-on challenge for every kick</p>
             <div class="progress-container">
-              <div class="progress-bar" id="action-progress-bar" style="width: 0%"></div>
+              <div class="progress-bar" id="action-progress-bar"></div>
             </div>
             <span class="game-status" id="action-status" data-i18n="notStarted">Not Started</span>
           </div>
@@ -563,7 +563,7 @@
             <h3 data-i18n="errorHuntTitle">Error Hunt</h3>
             <p data-i18n="errorHuntDesc">Find the hidden mistake in an Ap Chagi kick</p>
             <div class="progress-container">
-              <div class="progress-bar" id="error-hunt-progress-bar" style="width: 0%"></div>
+              <div class="progress-bar" id="error-hunt-progress-bar"></div>
             </div>
             <span class="game-status" id="error-hunt-status" data-i18n="notStarted">Not Started</span>
           </div>
@@ -573,7 +573,7 @@
             <h3 data-i18n="quizBlastTitle">Quiz Blast</h3>
             <p data-i18n="quizBlastDesc">Shoot the right answer - new questions for every kick</p>
             <div class="progress-container">
-              <div class="progress-bar" id="quiz-blast-progress-bar" style="width: 0%"></div>
+              <div class="progress-bar" id="quiz-blast-progress-bar"></div>
             </div>
             <span class="game-status" id="quiz-blast-status" data-i18n="notStarted">Not Started</span>
           </div>
@@ -583,7 +583,7 @@
             <h3 data-i18n="boardBreakTitle">Board Break</h3>
             <p data-i18n="boardBreakDesc">Pick the right part of the foot, aim and smash the boards</p>
             <div class="progress-container">
-              <div class="progress-bar" id="board-break-progress-bar" style="width: 0%"></div>
+              <div class="progress-bar" id="board-break-progress-bar"></div>
             </div>
             <span class="game-status" id="board-break-status" data-i18n="notStarted">Not Started</span>
           </div>
@@ -593,7 +593,7 @@
             <h3 data-i18n="paddleTitle">Target Paddles</h3>
             <p data-i18n="paddleDesc">Hit only the paddle at a real target for this kick — fast!</p>
             <div class="progress-container">
-              <div class="progress-bar" id="paddle-reflex-progress-bar" style="width: 0%"></div>
+              <div class="progress-bar" id="paddle-reflex-progress-bar"></div>
             </div>
             <span class="game-status" id="paddle-reflex-status" data-i18n="notStarted">Not Started</span>
           </div>
@@ -603,7 +603,7 @@
             <h3 data-i18n="rhythmTitle">Kick Rhythm</h3>
             <p data-i18n="rhythmDesc">Tap the 5 phases in order, right on the beat</p>
             <div class="progress-container">
-              <div class="progress-bar" id="phase-rhythm-progress-bar" style="width: 0%"></div>
+              <div class="progress-bar" id="phase-rhythm-progress-bar"></div>
             </div>
             <span class="game-status" id="phase-rhythm-status" data-i18n="notStarted">Not Started</span>
           </div>
@@ -614,7 +614,7 @@
             <h3 data-i18n="sparringTitle">Sparring Duel</h3>
             <p data-i18n="sparringDesc">Score on a real opponent — kick only when a legal target opens</p>
             <div class="progress-container">
-              <div class="progress-bar" id="sparring-duel-progress-bar" style="width: 0%"></div>
+              <div class="progress-bar" id="sparring-duel-progress-bar"></div>
             </div>
             <span class="game-status" id="sparring-duel-status" data-i18n="notStarted">Not Started</span>
           </div>
@@ -625,7 +625,7 @@
             <h3 data-i18n="balanceTitle">Balance Hold</h3>
             <p data-i18n="balanceDesc">Hold every phase of the kick on one leg without falling</p>
             <div class="progress-container">
-              <div class="progress-bar" id="balance-hold-progress-bar" style="width: 0%"></div>
+              <div class="progress-bar" id="balance-hold-progress-bar"></div>
             </div>
             <span class="game-status" id="balance-hold-status" data-i18n="notStarted">Not Started</span>
           </div>
@@ -636,7 +636,7 @@
             <h3 data-i18n="heavyBagTitle">Heavy Bag</h3>
             <p data-i18n="heavyBagDesc">Time your kick to the swinging bag for maximum power</p>
             <div class="progress-container">
-              <div class="progress-bar" id="heavy-bag-progress-bar" style="width: 0%"></div>
+              <div class="progress-bar" id="heavy-bag-progress-bar"></div>
             </div>
             <span class="game-status" id="heavy-bag-status" data-i18n="notStarted">Not Started</span>
           </div>
@@ -717,7 +717,7 @@
 
             <div class="progress-display">
               <div class="progress-container">
-                <div class="progress-bar" id="form-progress" style="width: 0%"></div>
+                <div class="progress-bar" id="form-progress"></div>
               </div>
               <span class="progress-text" data-i18n="formProgress">Form Progress: 0%</span>
             </div>
@@ -782,7 +782,7 @@
 
         <div class="progress-display">
           <div class="progress-container">
-            <div class="progress-bar" id="puzzle-progress" style="width: 0%"></div>
+            <div class="progress-bar" id="puzzle-progress"></div>
           </div>
           <span class="progress-text" data-i18n="puzzleProgress">Puzzle Progress: 0%</span>
         </div>
@@ -1246,7 +1246,7 @@
 
         <div class="winner-stars" id="winner-stars" aria-live="polite"></div>
         <h3 class="winner-message" id="winner-message">Excellent! You have completed the challenge successfully!</h3>
-        <h4 class="winner-score" style="color: var(--primary-color); text-align: center; margin-bottom: 20px;"><span data-i18n="score">Score:</span> <span
+        <h4 class="winner-score"><span data-i18n="score">Score:</span> <span
             id="winner-accuracy">100%</span></h4>
 
         <div class="achievements">
