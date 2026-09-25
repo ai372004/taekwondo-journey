@@ -5384,8 +5384,9 @@ body[dir="rtl"] .db-bar-track i { border-radius: 4px 0 0 4px; }
 /* heat map + tables */
 .db-table-wrap { overflow-x: auto; }
 .db-heat-table, .db-table { width: 100%; border-collapse: separate; border-spacing: 2px; font-size: .82rem; }
-.db-heat-table th { font-weight: 600; color: var(--db-ink-2); text-align: start; padding: 4px 6px; white-space: nowrap; }
-.db-heat-table thead th { text-align: center; }
+.db-heat-table th { font-weight: 600; color: var(--db-ink-2); text-align: start; padding: 4px 6px; }
+.db-heat-table thead th { text-align: center; white-space: nowrap; }
+.db-heat-table tbody th { max-width: 120px; white-space: normal; line-height: 1.25; }
 .db-cell { background: var(--c); color: #fff; text-align: center; border-radius: 4px; padding: 6px 4px; font-weight: 700; font-variant-numeric: tabular-nums; min-width: 56px; }
 .db-cell.empty { background: rgba(255,255,255,0.04); color: var(--db-ink-3); font-weight: 400; }
 .db-heat-scale { display: flex; align-items: center; gap: 8px; margin-top: 8px; font-size: .74rem; color: var(--db-ink-3); }
