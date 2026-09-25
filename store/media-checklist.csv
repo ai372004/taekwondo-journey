@@ -1,0 +1,212 @@
+﻿belt,id,name,kind,type,path,exists
+white,gyeongnye,Charyeot · Gyeongnye,basics,image,assets/images/curriculum/gyeongnye_boy.webp,False
+white,gyeongnye,Charyeot · Gyeongnye,basics,image,assets/images/curriculum/gyeongnye_girl.webp,False
+white,gyeongnye,Charyeot · Gyeongnye,basics,video,assets/videos/curriculum/gyeongnye.mp4,False
+white,junbi,Junbi,basics,image,assets/images/curriculum/junbi_boy.webp,False
+white,junbi,Junbi,basics,image,assets/images/curriculum/junbi_girl.webp,False
+white,junbi,Junbi,basics,video,assets/videos/curriculum/junbi.mp4,False
+white,gihap,Gihap,basics,image,assets/images/curriculum/gihap_boy.webp,False
+white,gihap,Gihap,basics,image,assets/images/curriculum/gihap_girl.webp,False
+white,gihap,Gihap,basics,video,assets/videos/curriculum/gihap.mp4,False
+white,counting,Hana · Dul · Set …,basics,image,assets/images/curriculum/counting_boy.webp,False
+white,counting,Hana · Dul · Set …,basics,image,assets/images/curriculum/counting_girl.webp,False
+white,counting,Hana · Dul · Set …,basics,video,assets/videos/curriculum/counting.mp4,False
+white,naranhi-seogi,Naranhi Seogi,stance,image,assets/images/curriculum/naranhi-seogi_boy.webp,False
+white,naranhi-seogi,Naranhi Seogi,stance,image,assets/images/curriculum/naranhi-seogi_girl.webp,False
+white,naranhi-seogi,Naranhi Seogi,stance,video,assets/videos/curriculum/naranhi-seogi.mp4,False
+white,ap-seogi,Ap Seogi,stance,image,assets/images/curriculum/ap-seogi_boy.webp,False
+white,ap-seogi,Ap Seogi,stance,image,assets/images/curriculum/ap-seogi_girl.webp,False
+white,ap-seogi,Ap Seogi,stance,video,assets/videos/curriculum/ap-seogi.mp4,False
+white,ap-kubi,Ap Kubi,stance,image,assets/images/curriculum/ap-kubi_boy.webp,False
+white,ap-kubi,Ap Kubi,stance,image,assets/images/curriculum/ap-kubi_girl.webp,False
+white,ap-kubi,Ap Kubi,stance,video,assets/videos/curriculum/ap-kubi.mp4,False
+white,arae-makki,Arae Makki,block,image,assets/images/curriculum/arae-makki_boy.webp,False
+white,arae-makki,Arae Makki,block,image,assets/images/curriculum/arae-makki_girl.webp,False
+white,arae-makki,Arae Makki,block,video,assets/videos/curriculum/arae-makki.mp4,False
+white,momtong-an-makki,Momtong An Makki,block,image,assets/images/curriculum/momtong-an-makki_boy.webp,False
+white,momtong-an-makki,Momtong An Makki,block,image,assets/images/curriculum/momtong-an-makki_girl.webp,False
+white,momtong-an-makki,Momtong An Makki,block,video,assets/videos/curriculum/momtong-an-makki.mp4,False
+white,momtong-jireugi,Momtong Jireugi,strike,image,assets/images/curriculum/momtong-jireugi_boy.webp,False
+white,momtong-jireugi,Momtong Jireugi,strike,image,assets/images/curriculum/momtong-jireugi_girl.webp,False
+white,momtong-jireugi,Momtong Jireugi,strike,video,assets/videos/curriculum/momtong-jireugi.mp4,False
+white,ap-ollyeo-chagi,Ap Ollyeo Chagi,kick,image,assets/images/characters/boy_char/ap-ollyeo-chagi/ready_boy.webp,False
+white,ap-ollyeo-chagi,Ap Ollyeo Chagi,kick,image,assets/images/characters/girl_char/ap-ollyeo-chagi/ready_girl.webp,False
+white,ap-ollyeo-chagi,Ap Ollyeo Chagi,kick,image,assets/images/characters/boy_char/ap-ollyeo-chagi/chamber_boy.webp,False
+white,ap-ollyeo-chagi,Ap Ollyeo Chagi,kick,image,assets/images/characters/girl_char/ap-ollyeo-chagi/chamber_girl.webp,False
+white,ap-ollyeo-chagi,Ap Ollyeo Chagi,kick,image,assets/images/characters/boy_char/ap-ollyeo-chagi/extension_boy.webp,False
+white,ap-ollyeo-chagi,Ap Ollyeo Chagi,kick,image,assets/images/characters/girl_char/ap-ollyeo-chagi/extension_girl.webp,False
+white,ap-ollyeo-chagi,Ap Ollyeo Chagi,kick,image,assets/images/characters/boy_char/ap-ollyeo-chagi/recoil_boy.webp,False
+white,ap-ollyeo-chagi,Ap Ollyeo Chagi,kick,image,assets/images/characters/girl_char/ap-ollyeo-chagi/recoil_girl.webp,False
+white,ap-ollyeo-chagi,Ap Ollyeo Chagi,kick,image,assets/images/characters/boy_char/ap-ollyeo-chagi/return_boy.webp,False
+white,ap-ollyeo-chagi,Ap Ollyeo Chagi,kick,image,assets/images/characters/girl_char/ap-ollyeo-chagi/return_girl.webp,False
+white,ap-ollyeo-chagi,Ap Ollyeo Chagi,kick,video,assets/videos/ap-ollyeo-chagi-tutorial.mp4,False
+white,taegeuk-1,Taegeuk Il Jang,poomsae,image,assets/images/curriculum/taegeuk-1_diagram.webp,False
+white,taegeuk-1,Taegeuk Il Jang,poomsae,video,assets/videos/curriculum/taegeuk-1.mp4,False
+yellow,olgul-makki,Eolgul Makki,block,image,assets/images/curriculum/olgul-makki_boy.webp,False
+yellow,olgul-makki,Eolgul Makki,block,image,assets/images/curriculum/olgul-makki_girl.webp,False
+yellow,olgul-makki,Eolgul Makki,block,video,assets/videos/curriculum/olgul-makki.mp4,False
+yellow,bakkat-makki,Momtong Bakkat Makki,block,image,assets/images/curriculum/bakkat-makki_boy.webp,False
+yellow,bakkat-makki,Momtong Bakkat Makki,block,image,assets/images/curriculum/bakkat-makki_girl.webp,False
+yellow,bakkat-makki,Momtong Bakkat Makki,block,video,assets/videos/curriculum/bakkat-makki.mp4,False
+yellow,dubeon-jireugi,Dubeon Jireugi,strike,image,assets/images/curriculum/dubeon-jireugi_boy.webp,False
+yellow,dubeon-jireugi,Dubeon Jireugi,strike,image,assets/images/curriculum/dubeon-jireugi_girl.webp,False
+yellow,dubeon-jireugi,Dubeon Jireugi,strike,video,assets/videos/curriculum/dubeon-jireugi.mp4,False
+yellow,sonnal-mok-chigi,Sonnal Mok Chigi,strike,image,assets/images/curriculum/sonnal-mok-chigi_boy.webp,False
+yellow,sonnal-mok-chigi,Sonnal Mok Chigi,strike,image,assets/images/curriculum/sonnal-mok-chigi_girl.webp,False
+yellow,sonnal-mok-chigi,Sonnal Mok Chigi,strike,video,assets/videos/curriculum/sonnal-mok-chigi.mp4,False
+yellow,dollyo-chagi,Dollyeo Chagi,kick,image,assets/images/characters/boy_char/dollyo-chagi/ready_boy.webp,False
+yellow,dollyo-chagi,Dollyeo Chagi,kick,image,assets/images/characters/girl_char/dollyo-chagi/ready_girl.webp,False
+yellow,dollyo-chagi,Dollyeo Chagi,kick,image,assets/images/characters/boy_char/dollyo-chagi/chamber_boy.webp,False
+yellow,dollyo-chagi,Dollyeo Chagi,kick,image,assets/images/characters/girl_char/dollyo-chagi/chamber_girl.webp,False
+yellow,dollyo-chagi,Dollyeo Chagi,kick,image,assets/images/characters/boy_char/dollyo-chagi/extension_boy.webp,False
+yellow,dollyo-chagi,Dollyeo Chagi,kick,image,assets/images/characters/girl_char/dollyo-chagi/extension_girl.webp,False
+yellow,dollyo-chagi,Dollyeo Chagi,kick,image,assets/images/characters/boy_char/dollyo-chagi/recoil_boy.webp,False
+yellow,dollyo-chagi,Dollyeo Chagi,kick,image,assets/images/characters/girl_char/dollyo-chagi/recoil_girl.webp,False
+yellow,dollyo-chagi,Dollyeo Chagi,kick,image,assets/images/characters/boy_char/dollyo-chagi/return_boy.webp,False
+yellow,dollyo-chagi,Dollyeo Chagi,kick,image,assets/images/characters/girl_char/dollyo-chagi/return_girl.webp,False
+yellow,dollyo-chagi,Dollyeo Chagi,kick,video,assets/videos/dollyo-chagi-tutorial.mp4,False
+yellow,bandal-chagi,Bandal Chagi,kick,image,assets/images/characters/boy_char/bandal-chagi/ready_boy.webp,False
+yellow,bandal-chagi,Bandal Chagi,kick,image,assets/images/characters/girl_char/bandal-chagi/ready_girl.webp,False
+yellow,bandal-chagi,Bandal Chagi,kick,image,assets/images/characters/boy_char/bandal-chagi/chamber_boy.webp,False
+yellow,bandal-chagi,Bandal Chagi,kick,image,assets/images/characters/girl_char/bandal-chagi/chamber_girl.webp,False
+yellow,bandal-chagi,Bandal Chagi,kick,image,assets/images/characters/boy_char/bandal-chagi/extension_boy.webp,False
+yellow,bandal-chagi,Bandal Chagi,kick,image,assets/images/characters/girl_char/bandal-chagi/extension_girl.webp,False
+yellow,bandal-chagi,Bandal Chagi,kick,image,assets/images/characters/boy_char/bandal-chagi/recoil_boy.webp,False
+yellow,bandal-chagi,Bandal Chagi,kick,image,assets/images/characters/girl_char/bandal-chagi/recoil_girl.webp,False
+yellow,bandal-chagi,Bandal Chagi,kick,image,assets/images/characters/boy_char/bandal-chagi/return_boy.webp,False
+yellow,bandal-chagi,Bandal Chagi,kick,image,assets/images/characters/girl_char/bandal-chagi/return_girl.webp,False
+yellow,bandal-chagi,Bandal Chagi,kick,video,assets/videos/bandal-chagi-tutorial.mp4,False
+yellow,taegeuk-2,Taegeuk I Jang,poomsae,image,assets/images/curriculum/taegeuk-2_diagram.webp,False
+yellow,taegeuk-2,Taegeuk I Jang,poomsae,video,assets/videos/curriculum/taegeuk-2.mp4,False
+yellow,taegeuk-3,Taegeuk Sam Jang,poomsae,image,assets/images/curriculum/taegeuk-3_diagram.webp,False
+yellow,taegeuk-3,Taegeuk Sam Jang,poomsae,video,assets/videos/curriculum/taegeuk-3.mp4,False
+green,dwit-kubi,Dwit Kubi,stance,image,assets/images/curriculum/dwit-kubi_boy.webp,False
+green,dwit-kubi,Dwit Kubi,stance,image,assets/images/curriculum/dwit-kubi_girl.webp,False
+green,dwit-kubi,Dwit Kubi,stance,video,assets/videos/curriculum/dwit-kubi.mp4,False
+green,beom-seogi,Beom Seogi,stance,image,assets/images/curriculum/beom-seogi_boy.webp,False
+green,beom-seogi,Beom Seogi,stance,image,assets/images/curriculum/beom-seogi_girl.webp,False
+green,beom-seogi,Beom Seogi,stance,video,assets/videos/curriculum/beom-seogi.mp4,False
+green,juchum-seogi,Juchum Seogi,stance,image,assets/images/curriculum/juchum-seogi_boy.webp,False
+green,juchum-seogi,Juchum Seogi,stance,image,assets/images/curriculum/juchum-seogi_girl.webp,False
+green,juchum-seogi,Juchum Seogi,stance,video,assets/videos/curriculum/juchum-seogi.mp4,False
+green,sonnal-makki,Sonnal Makki,block,image,assets/images/curriculum/sonnal-makki_boy.webp,False
+green,sonnal-makki,Sonnal Makki,block,image,assets/images/curriculum/sonnal-makki_girl.webp,False
+green,sonnal-makki,Sonnal Makki,block,video,assets/videos/curriculum/sonnal-makki.mp4,False
+green,deung-jumeok,Deung Jumeok Ap Chigi,strike,image,assets/images/curriculum/deung-jumeok_boy.webp,False
+green,deung-jumeok,Deung Jumeok Ap Chigi,strike,image,assets/images/curriculum/deung-jumeok_girl.webp,False
+green,deung-jumeok,Deung Jumeok Ap Chigi,strike,video,assets/videos/curriculum/deung-jumeok.mp4,False
+green,palkup-chigi,Palkup Dollyeo Chigi,strike,image,assets/images/curriculum/palkup-chigi_boy.webp,False
+green,palkup-chigi,Palkup Dollyeo Chigi,strike,image,assets/images/curriculum/palkup-chigi_girl.webp,False
+green,palkup-chigi,Palkup Dollyeo Chigi,strike,video,assets/videos/curriculum/palkup-chigi.mp4,False
+green,mireo-chagi,Mireo Chagi,kick,image,assets/images/characters/boy_char/mireo-chagi/ready_boy.webp,False
+green,mireo-chagi,Mireo Chagi,kick,image,assets/images/characters/girl_char/mireo-chagi/ready_girl.webp,False
+green,mireo-chagi,Mireo Chagi,kick,image,assets/images/characters/boy_char/mireo-chagi/chamber_boy.webp,False
+green,mireo-chagi,Mireo Chagi,kick,image,assets/images/characters/girl_char/mireo-chagi/chamber_girl.webp,False
+green,mireo-chagi,Mireo Chagi,kick,image,assets/images/characters/boy_char/mireo-chagi/extension_boy.webp,False
+green,mireo-chagi,Mireo Chagi,kick,image,assets/images/characters/girl_char/mireo-chagi/extension_girl.webp,False
+green,mireo-chagi,Mireo Chagi,kick,image,assets/images/characters/boy_char/mireo-chagi/recoil_boy.webp,False
+green,mireo-chagi,Mireo Chagi,kick,image,assets/images/characters/girl_char/mireo-chagi/recoil_girl.webp,False
+green,mireo-chagi,Mireo Chagi,kick,image,assets/images/characters/boy_char/mireo-chagi/return_boy.webp,False
+green,mireo-chagi,Mireo Chagi,kick,image,assets/images/characters/girl_char/mireo-chagi/return_girl.webp,False
+green,mireo-chagi,Mireo Chagi,kick,video,assets/videos/mireo-chagi-tutorial.mp4,False
+green,taegeuk-4,Taegeuk Sa Jang,poomsae,image,assets/images/curriculum/taegeuk-4_diagram.webp,False
+green,taegeuk-4,Taegeuk Sa Jang,poomsae,video,assets/videos/curriculum/taegeuk-4.mp4,False
+green,taegeuk-5,Taegeuk O Jang,poomsae,image,assets/images/curriculum/taegeuk-5_diagram.webp,False
+green,taegeuk-5,Taegeuk O Jang,poomsae,video,assets/videos/curriculum/taegeuk-5.mp4,False
+blue,hecheo-makki,Hecheo Makki,block,image,assets/images/curriculum/hecheo-makki_boy.webp,False
+blue,hecheo-makki,Hecheo Makki,block,image,assets/images/curriculum/hecheo-makki_girl.webp,False
+blue,hecheo-makki,Hecheo Makki,block,video,assets/videos/curriculum/hecheo-makki.mp4,False
+blue,pyeonsonkkeut,Pyeonsonkkeut Sewo Jjireugi,strike,image,assets/images/curriculum/pyeonsonkkeut_boy.webp,False
+blue,pyeonsonkkeut,Pyeonsonkkeut Sewo Jjireugi,strike,image,assets/images/curriculum/pyeonsonkkeut_girl.webp,False
+blue,pyeonsonkkeut,Pyeonsonkkeut Sewo Jjireugi,strike,video,assets/videos/curriculum/pyeonsonkkeut.mp4,False
+blue,dwi-chagi,Dwi Chagi,kick,image,assets/images/characters/boy_char/dwi-chagi/ready_boy.webp,False
+blue,dwi-chagi,Dwi Chagi,kick,image,assets/images/characters/girl_char/dwi-chagi/ready_girl.webp,False
+blue,dwi-chagi,Dwi Chagi,kick,image,assets/images/characters/boy_char/dwi-chagi/chamber_boy.webp,False
+blue,dwi-chagi,Dwi Chagi,kick,image,assets/images/characters/girl_char/dwi-chagi/chamber_girl.webp,False
+blue,dwi-chagi,Dwi Chagi,kick,image,assets/images/characters/boy_char/dwi-chagi/extension_boy.webp,False
+blue,dwi-chagi,Dwi Chagi,kick,image,assets/images/characters/girl_char/dwi-chagi/extension_girl.webp,False
+blue,dwi-chagi,Dwi Chagi,kick,image,assets/images/characters/boy_char/dwi-chagi/recoil_boy.webp,False
+blue,dwi-chagi,Dwi Chagi,kick,image,assets/images/characters/girl_char/dwi-chagi/recoil_girl.webp,False
+blue,dwi-chagi,Dwi Chagi,kick,image,assets/images/characters/boy_char/dwi-chagi/return_boy.webp,False
+blue,dwi-chagi,Dwi Chagi,kick,image,assets/images/characters/girl_char/dwi-chagi/return_girl.webp,False
+blue,dwi-chagi,Dwi Chagi,kick,video,assets/videos/dwi-chagi-tutorial.mp4,False
+blue,huryeo-chagi,Huryeo Chagi,kick,image,assets/images/characters/boy_char/huryeo-chagi/ready_boy.webp,False
+blue,huryeo-chagi,Huryeo Chagi,kick,image,assets/images/characters/girl_char/huryeo-chagi/ready_girl.webp,False
+blue,huryeo-chagi,Huryeo Chagi,kick,image,assets/images/characters/boy_char/huryeo-chagi/chamber_boy.webp,False
+blue,huryeo-chagi,Huryeo Chagi,kick,image,assets/images/characters/girl_char/huryeo-chagi/chamber_girl.webp,False
+blue,huryeo-chagi,Huryeo Chagi,kick,image,assets/images/characters/boy_char/huryeo-chagi/extension_boy.webp,False
+blue,huryeo-chagi,Huryeo Chagi,kick,image,assets/images/characters/girl_char/huryeo-chagi/extension_girl.webp,False
+blue,huryeo-chagi,Huryeo Chagi,kick,image,assets/images/characters/boy_char/huryeo-chagi/recoil_boy.webp,False
+blue,huryeo-chagi,Huryeo Chagi,kick,image,assets/images/characters/girl_char/huryeo-chagi/recoil_girl.webp,False
+blue,huryeo-chagi,Huryeo Chagi,kick,image,assets/images/characters/boy_char/huryeo-chagi/return_boy.webp,False
+blue,huryeo-chagi,Huryeo Chagi,kick,image,assets/images/characters/girl_char/huryeo-chagi/return_girl.webp,False
+blue,huryeo-chagi,Huryeo Chagi,kick,video,assets/videos/huryeo-chagi-tutorial.mp4,False
+blue,twio-ap-chagi,Twio Ap Chagi,kick,image,assets/images/characters/boy_char/twio-ap-chagi/ready_boy.webp,False
+blue,twio-ap-chagi,Twio Ap Chagi,kick,image,assets/images/characters/girl_char/twio-ap-chagi/ready_girl.webp,False
+blue,twio-ap-chagi,Twio Ap Chagi,kick,image,assets/images/characters/boy_char/twio-ap-chagi/chamber_boy.webp,False
+blue,twio-ap-chagi,Twio Ap Chagi,kick,image,assets/images/characters/girl_char/twio-ap-chagi/chamber_girl.webp,False
+blue,twio-ap-chagi,Twio Ap Chagi,kick,image,assets/images/characters/boy_char/twio-ap-chagi/extension_boy.webp,False
+blue,twio-ap-chagi,Twio Ap Chagi,kick,image,assets/images/characters/girl_char/twio-ap-chagi/extension_girl.webp,False
+blue,twio-ap-chagi,Twio Ap Chagi,kick,image,assets/images/characters/boy_char/twio-ap-chagi/recoil_boy.webp,False
+blue,twio-ap-chagi,Twio Ap Chagi,kick,image,assets/images/characters/girl_char/twio-ap-chagi/recoil_girl.webp,False
+blue,twio-ap-chagi,Twio Ap Chagi,kick,image,assets/images/characters/boy_char/twio-ap-chagi/return_boy.webp,False
+blue,twio-ap-chagi,Twio Ap Chagi,kick,image,assets/images/characters/girl_char/twio-ap-chagi/return_girl.webp,False
+blue,twio-ap-chagi,Twio Ap Chagi,kick,video,assets/videos/twio-ap-chagi-tutorial.mp4,False
+blue,hanbeon-kyorugi,Hanbeon Kyorugi,sparring,image,assets/images/curriculum/hanbeon-kyorugi_boy.webp,False
+blue,hanbeon-kyorugi,Hanbeon Kyorugi,sparring,image,assets/images/curriculum/hanbeon-kyorugi_girl.webp,False
+blue,hanbeon-kyorugi,Hanbeon Kyorugi,sparring,video,assets/videos/curriculum/hanbeon-kyorugi.mp4,False
+blue,taegeuk-6,Taegeuk Yuk Jang,poomsae,image,assets/images/curriculum/taegeuk-6_diagram.webp,False
+blue,taegeuk-6,Taegeuk Yuk Jang,poomsae,video,assets/videos/curriculum/taegeuk-6.mp4,False
+blue,taegeuk-7,Taegeuk Chil Jang,poomsae,image,assets/images/curriculum/taegeuk-7_diagram.webp,False
+blue,taegeuk-7,Taegeuk Chil Jang,poomsae,video,assets/videos/curriculum/taegeuk-7.mp4,False
+red,dwi-huryeo-chagi,Dwi Huryeo Chagi,kick,image,assets/images/characters/boy_char/dwi-huryeo-chagi/ready_boy.webp,False
+red,dwi-huryeo-chagi,Dwi Huryeo Chagi,kick,image,assets/images/characters/girl_char/dwi-huryeo-chagi/ready_girl.webp,False
+red,dwi-huryeo-chagi,Dwi Huryeo Chagi,kick,image,assets/images/characters/boy_char/dwi-huryeo-chagi/chamber_boy.webp,False
+red,dwi-huryeo-chagi,Dwi Huryeo Chagi,kick,image,assets/images/characters/girl_char/dwi-huryeo-chagi/chamber_girl.webp,False
+red,dwi-huryeo-chagi,Dwi Huryeo Chagi,kick,image,assets/images/characters/boy_char/dwi-huryeo-chagi/extension_boy.webp,False
+red,dwi-huryeo-chagi,Dwi Huryeo Chagi,kick,image,assets/images/characters/girl_char/dwi-huryeo-chagi/extension_girl.webp,False
+red,dwi-huryeo-chagi,Dwi Huryeo Chagi,kick,image,assets/images/characters/boy_char/dwi-huryeo-chagi/recoil_boy.webp,False
+red,dwi-huryeo-chagi,Dwi Huryeo Chagi,kick,image,assets/images/characters/girl_char/dwi-huryeo-chagi/recoil_girl.webp,False
+red,dwi-huryeo-chagi,Dwi Huryeo Chagi,kick,image,assets/images/characters/boy_char/dwi-huryeo-chagi/return_boy.webp,False
+red,dwi-huryeo-chagi,Dwi Huryeo Chagi,kick,image,assets/images/characters/girl_char/dwi-huryeo-chagi/return_girl.webp,False
+red,dwi-huryeo-chagi,Dwi Huryeo Chagi,kick,video,assets/videos/dwi-huryeo-chagi-tutorial.mp4,False
+red,twio-dollyo-chagi,Twio Dollyeo Chagi,kick,image,assets/images/characters/boy_char/twio-dollyo-chagi/ready_boy.webp,False
+red,twio-dollyo-chagi,Twio Dollyeo Chagi,kick,image,assets/images/characters/girl_char/twio-dollyo-chagi/ready_girl.webp,False
+red,twio-dollyo-chagi,Twio Dollyeo Chagi,kick,image,assets/images/characters/boy_char/twio-dollyo-chagi/chamber_boy.webp,False
+red,twio-dollyo-chagi,Twio Dollyeo Chagi,kick,image,assets/images/characters/girl_char/twio-dollyo-chagi/chamber_girl.webp,False
+red,twio-dollyo-chagi,Twio Dollyeo Chagi,kick,image,assets/images/characters/boy_char/twio-dollyo-chagi/extension_boy.webp,False
+red,twio-dollyo-chagi,Twio Dollyeo Chagi,kick,image,assets/images/characters/girl_char/twio-dollyo-chagi/extension_girl.webp,False
+red,twio-dollyo-chagi,Twio Dollyeo Chagi,kick,image,assets/images/characters/boy_char/twio-dollyo-chagi/recoil_boy.webp,False
+red,twio-dollyo-chagi,Twio Dollyeo Chagi,kick,image,assets/images/characters/girl_char/twio-dollyo-chagi/recoil_girl.webp,False
+red,twio-dollyo-chagi,Twio Dollyeo Chagi,kick,image,assets/images/characters/boy_char/twio-dollyo-chagi/return_boy.webp,False
+red,twio-dollyo-chagi,Twio Dollyeo Chagi,kick,image,assets/images/characters/girl_char/twio-dollyo-chagi/return_girl.webp,False
+red,twio-dollyo-chagi,Twio Dollyeo Chagi,kick,video,assets/videos/twio-dollyo-chagi-tutorial.mp4,False
+red,narae-chagi,Narae Chagi,kick,image,assets/images/characters/boy_char/narae-chagi/ready_boy.webp,False
+red,narae-chagi,Narae Chagi,kick,image,assets/images/characters/girl_char/narae-chagi/ready_girl.webp,False
+red,narae-chagi,Narae Chagi,kick,image,assets/images/characters/boy_char/narae-chagi/chamber_boy.webp,False
+red,narae-chagi,Narae Chagi,kick,image,assets/images/characters/girl_char/narae-chagi/chamber_girl.webp,False
+red,narae-chagi,Narae Chagi,kick,image,assets/images/characters/boy_char/narae-chagi/extension_boy.webp,False
+red,narae-chagi,Narae Chagi,kick,image,assets/images/characters/girl_char/narae-chagi/extension_girl.webp,False
+red,narae-chagi,Narae Chagi,kick,image,assets/images/characters/boy_char/narae-chagi/recoil_boy.webp,False
+red,narae-chagi,Narae Chagi,kick,image,assets/images/characters/girl_char/narae-chagi/recoil_girl.webp,False
+red,narae-chagi,Narae Chagi,kick,image,assets/images/characters/boy_char/narae-chagi/return_boy.webp,False
+red,narae-chagi,Narae Chagi,kick,image,assets/images/characters/girl_char/narae-chagi/return_girl.webp,False
+red,narae-chagi,Narae Chagi,kick,video,assets/videos/narae-chagi-tutorial.mp4,False
+red,kyorugi,Kyorugi,sparring,image,assets/images/curriculum/kyorugi_boy.webp,False
+red,kyorugi,Kyorugi,sparring,image,assets/images/curriculum/kyorugi_girl.webp,False
+red,kyorugi,Kyorugi,sparring,video,assets/videos/curriculum/kyorugi.mp4,False
+red,gyeokpa,Gyeokpa,sparring,image,assets/images/curriculum/gyeokpa_boy.webp,False
+red,gyeokpa,Gyeokpa,sparring,image,assets/images/curriculum/gyeokpa_girl.webp,False
+red,gyeokpa,Gyeokpa,sparring,video,assets/videos/curriculum/gyeokpa.mp4,False
+red,taegeuk-8,Taegeuk Pal Jang,poomsae,image,assets/images/curriculum/taegeuk-8_diagram.webp,False
+red,taegeuk-8,Taegeuk Pal Jang,poomsae,video,assets/videos/curriculum/taegeuk-8.mp4,False
+black,hakdari-seogi,Hakdari Seogi,stance,image,assets/images/curriculum/hakdari-seogi_boy.webp,False
+black,hakdari-seogi,Hakdari Seogi,stance,image,assets/images/curriculum/hakdari-seogi_girl.webp,False
+black,hakdari-seogi,Hakdari Seogi,stance,video,assets/videos/curriculum/hakdari-seogi.mp4,False
+black,koryo,Koryo,poomsae,image,assets/images/curriculum/koryo_diagram.webp,False
+black,koryo,Koryo,poomsae,video,assets/videos/curriculum/koryo.mp4,False
+black,taegeuk-review,Taegeuk 1–8,poomsae,image,assets/images/curriculum/taegeuk-review_diagram.webp,False
+black,taegeuk-review,Taegeuk 1–8,poomsae,video,assets/videos/curriculum/taegeuk-review.mp4,False
+black,free-kyorugi,Jayu Kyorugi,sparring,image,assets/images/curriculum/free-kyorugi_boy.webp,False
+black,free-kyorugi,Jayu Kyorugi,sparring,image,assets/images/curriculum/free-kyorugi_girl.webp,False
+black,free-kyorugi,Jayu Kyorugi,sparring,video,assets/videos/curriculum/free-kyorugi.mp4,False

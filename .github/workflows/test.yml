@@ -1,0 +1,23 @@
+name: tests
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm install
+      - run: npx playwright install --with-deps chromium
+      - name: Service-worker lists match the files
+        run: python3 tools/update-sw.py --keep-version --check
+      - name: Curriculum data is valid
+        run: python3 tools/check-curriculum.py --strict-data
+      - run: npm test

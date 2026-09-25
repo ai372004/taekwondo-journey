@@ -5,18 +5,23 @@
   <meta charset="UTF-8" />
   <meta name="description" content="Learn Taekwondo Ap Chagi through interactive games.">
   <meta name="theme-color" content="#ff6b35">
+  <!-- No favicon file was included, so browser tabs, bookmarks and the
+       history list all showed a blank/default page icon. An inline emoji
+       SVG needs no extra asset file or network request. -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥋</text></svg>">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Taekwondo Journey">
   <meta name="mobile-web-app-capable" content="yes">
   <link rel="manifest" href="manifest.json">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>🥋 Taekwondo Journey - Educational Taekwondo Game</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <!-- Everything is local: the game works offline from the very first launch
+       and ships in app stores with no CDN. Icons: tools/build-icons.py -->
+  <link rel="stylesheet" href="assets/icons/icons.css" />
   <link rel="stylesheet" href="style.css" />
+
 </head>
 
 <body>
@@ -33,10 +38,13 @@
     </div>
   </div>
 
+  <!-- v23: "who's training?" — the first thing every visit shows (competition.js) -->
+  <div id="start-screen" class="start-screen" hidden></div>
+
   <div id="language-modal" class="modal">
     <div class="modal-content">
       <div class="language-selection">
-        <h2>🌍 Select Language / اختر اللغة</h2>
+        <h2>🌍 Select Language / اختار اللغة</h2>
         <div class="language-options">
           <button class="language-btn" data-lang="en">
             <span class="flag">🇺🇸</span>
@@ -47,8 +55,7 @@
             <span class="language-name">العربية</span>
           </button>
         </div>
-        <p class="language-note">You can change language anytime from navigation / يمكنك تغيير اللغة في أي وقت من شريط
-          التنقل</p>
+        <p class="language-note">You can change language anytime from navigation / تقدر تغيّر اللغة في أي وقت من القايمة</p>
       </div>
     </div>
   </div>
@@ -83,6 +90,25 @@
     </div>
   </div>
 
+  <!-- Player identity — a username the player registers so their scores
+       count in the leaderboard. Skipped automatically for a returning
+       player already recognized on this device; reachable again any time
+       from the Leaderboard screen's "Switch Player" button. -->
+  <div id="player-modal" class="modal">
+    <div class="modal-content">
+      <div class="player-selection">
+        <h2 data-i18n="playerModalTitle">🏆 Who's Playing?</h2>
+        <p class="player-modal-note" data-i18n="playerModalDesc">Enter a name to save your scores and join the leaderboard.</p>
+        <div class="player-name-row">
+          <input type="text" id="player-name-input" class="player-name-input" maxlength="18"
+            data-i18n-placeholder="playerNamePlaceholder" placeholder="Your name">
+          <button class="btn btn-success" id="player-name-confirm-btn" data-i18n="playerNameConfirm">Let's Go</button>
+        </div>
+        <div id="player-existing-list" class="player-existing-list"></div>
+      </div>
+    </div>
+  </div>
+
   <div class="container">
     <!-- Toggle Button for Navigation -->
     <button class="nav-toggle-btn" id="navToggleBtn" onclick="navToggle()" aria-label="Toggle Menu">
@@ -93,29 +119,86 @@
     <div class="nav-overlay" id="navOverlay" onclick="navClose()"></div>
 
     <!-- Collapsible Navigation -->
-    <div class="navigation collapsible" id="collapsibleNav">
-      <button class="nav-btn nav-btn-warmup" onclick="switchScreen('warmup')">
-        <i class="fas fa-fire"></i> <span data-i18n="warmup">Warm Up</span>
-      </button>
-      <button class="nav-btn" onclick="switchScreen('home')">
-        <i class="fas fa-home"></i> <span data-i18n="home">Home</span>
-      </button>
-      <button class="nav-btn" onclick="switchScreen('apchagi-menu')">
-        <i class="fas fa-graduation-cap"></i> <span data-i18n="learning">Learning</span>
-      </button>
-      <button class="nav-btn" onclick="switchScreen('games')">
-        <i class="fas fa-gamepad"></i> <span data-i18n="games">Games</span>
-      </button>
-      <button class="nav-btn" onclick="switchScreen('character-change')">
-        <i class="fas fa-users"></i> <span data-i18n="changeCharacter">Change Character</span>
-      </button>
-      <button class="nav-btn" onclick="switchScreen('quiz')">
-        <i class="fas fa-question-circle"></i> <span data-i18n="quiz">Quiz</span>
-      </button>
-      <div class="nav-divider"></div>
-      <button class="nav-btn nav-btn-reset" onclick="hardResetGame()">
-        <i class="fas fa-trash"></i> <span data-i18n="resetData">Reset Data</span>
-      </button>
+    <div class="navigation collapsible" id="collapsibleNav" role="dialog" aria-label="Navigation Menu">
+      <div class="nav-panel-header">
+        <h3 class="nav-panel-title"><i class="fas fa-compass"></i> <span data-i18n="menuTitle">Menu</span></h3>
+        <button class="nav-close-btn" onclick="navClose()" aria-label="Close Menu">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="nav-panel-body">
+        <button class="nav-btn nav-btn-warmup" onclick="switchScreen('warmup')">
+          <i class="fas fa-fire"></i> <span data-i18n="warmup">Warm Up</span>
+        </button>
+        <button class="nav-btn" onclick="switchScreen('home')">
+          <i class="fas fa-home"></i> <span data-i18n="home">Home</span>
+        </button>
+
+        <div class="nav-section-label" data-i18n="navSectionTrain">Train</div>
+        <button class="nav-btn" onclick="switchScreen('skill-menu')">
+          <i class="fas fa-graduation-cap"></i> <span data-i18n="learning">Learning</span>
+        </button>
+        <button class="nav-btn" onclick="attemptStageNav('games')">
+          <i class="fas fa-gamepad"></i> <span data-i18n="games">Games</span>
+        </button>
+        <button class="nav-btn" onclick="switchScreen('curriculum')">
+          <i class="fas fa-book"></i> <span data-i18n="curriculumNav">Belt Syllabus</span>
+        </button>
+        <button class="nav-btn" onclick="switchScreen('character-change')">
+          <i class="fas fa-users"></i> <span data-i18n="changeCharacter">Change Character</span>
+        </button>
+
+        <div class="nav-section-label" data-i18n="navSectionProgress">Progress</div>
+        <button class="nav-btn" onclick="attemptStageNav('quiz')">
+          <i class="fas fa-question-circle"></i> <span data-i18n="quiz">Quiz</span>
+        </button>
+        <button class="nav-btn" onclick="switchScreen('trophy-room')">
+          <i class="fas fa-trophy"></i> <span data-i18n="trophyRoom">Trophy Room</span>
+        </button>
+        <button class="nav-btn" onclick="switchScreen('report')">
+          <i class="fas fa-chart-line"></i> <span data-i18n="reportNav">Progress Report</span>
+        </button>
+        <button class="nav-btn" onclick="switchScreen('dashboard')">
+          <i class="fas fa-chart-pie"></i> <span data-i18n="dashboardNav">Player Dashboard</span>
+        </button>
+
+        <button class="nav-btn" onclick="Profile.open()">
+          <i class="fas fa-id-badge"></i> <span data-i18n="profileNav">My Hero Page</span>
+        </button>
+        <button class="nav-btn" onclick="switchScreen('players')">
+          <i class="fas fa-users"></i> <span data-i18n="playersNav">All Players</span>
+        </button>
+        <button class="nav-btn" onclick="switchScreen('league')">
+          <i class="fas fa-medal"></i> <span data-i18n="leagueNav">League &amp; Challenges</span>
+        </button>
+        <button class="nav-btn" onclick="switchScreen('versus')">
+          <i class="fas fa-user-friends"></i> <span data-i18n="versusNav">Challenge a Friend</span>
+        </button>
+        <button class="nav-btn" onclick="StartScreen.show()">
+          <i class="fas fa-exchange-alt"></i> <span data-i18n="switchPlayerNav">Switch Player</span>
+        </button>
+        <button class="nav-btn" onclick="Coach.open()">
+          <i class="fas fa-user-lock"></i> <span data-i18n="coachNav">Coach Mode</span>
+        </button>
+
+        <div class="nav-section-label" data-i18n="navSectionData">Data</div>
+        <a class="nav-btn" href="privacy.html">
+          <i class="fas fa-user-lock"></i> <span data-i18n="privacyNav">Privacy</span>
+        </a>
+        <button class="nav-btn" onclick="exportProgress()">
+          <i class="fas fa-download"></i> <span data-i18n="backupExport">Save Backup</span>
+        </button>
+        <button class="nav-btn" onclick="triggerImportProgress()">
+          <i class="fas fa-upload"></i> <span data-i18n="backupImport">Restore Backup</span>
+        </button>
+        <input type="file" id="import-progress-input" accept="application/json,.json" style="display:none;" onchange="importProgress(this)">
+
+        <div class="nav-divider"></div>
+        <button class="nav-btn nav-btn-reset" onclick="hardResetGame()">
+          <i class="fas fa-trash"></i> <span data-i18n="resetData">Reset Data</span>
+        </button>
+      </div>
     </div>
 
     <div class="header">
@@ -123,6 +206,9 @@
       <h1 data-i18n="gameTitle">Taekwondo Journey</h1>
       <h2 data-i18n="gameSubtitle">Educational Taekwondo Adventure</h2>
       <div class="header-controls">
+        <button class="sound-toggle-btn" id="soundToggleBtn" onclick="toggleSound()" aria-label="Toggle Sound">
+          <i class="fas fa-volume-up" id="soundIcon"></i>
+        </button>
         <div class="language-switcher">
           <button class="lang-switch-btn" onclick="toggleLanguage()">
             <span id="current-lang">EN</span>
@@ -134,39 +220,59 @@
 
     <div id="home-screen" class="screen active">
       <div class="game-container">
+        <div class="home-hub" id="home-hub"></div>
         <h2 data-i18n="welcome">👋 Welcome to Taekwondo Journey</h2>
         <p class="description" data-i18n="homeDescription">Start your journey to master Taekwondo techniques. Complete
           each skill to unlock the next!</p>
 
+        <div class="belt-badge-wrap" id="home-belt-badge"></div>
+        <div class="streak-badge-wrap" id="home-streak-badge"></div>
+        <div class="resume-training-wrap" id="resume-training-wrap"></div>
+
         <div class="skills-grid">
-          <!-- Ap Chagi — always visible, opens intermediate menu -->
-          <div class="skill-card active" onclick="switchScreen('apchagi-menu')">
-            <div class="skill-icon">🥋</div>
+          <!-- Ap Chagi — always visible -->
+          <div class="skill-card active" data-skill="apchagi" onclick="switchToSkill('apchagi')">
+            <div class="skill-icon-ring-wrap">
+              <svg class="skill-icon-ring" viewBox="0 0 90 90">
+                <circle class="skill-ring-bg" cx="45" cy="45" r="38"></circle>
+                <circle class="skill-ring-fill" id="apchagi-icon-ring" cx="45" cy="45" r="38"></circle>
+              </svg>
+              <div class="skill-icon">🥋</div>
+            </div>
             <h3 data-i18n="apChagi">Ap Chagi</h3>
             <p data-i18n="frontKick">Front Kick</p>
-            <div class="skill-progress">
-              <div class="progress-bar" id="learning-progress-bar" style="width: 0%"></div>
-            </div>
             <span class="skill-status" id="apchagi-status" data-i18n="startLearning">Start Learning</span>
           </div>
 
-          <!-- Locked cards — no name shown -->
-          <div class="skill-card locked" id="dolyo-card">
-            <div class="skill-icon">🔒</div>
+          <!-- Naro Chagi -->
+          <div class="skill-card locked" data-skill="narochagi" onclick="switchToSkill('narochagi')">
+            <div class="skill-icon-ring-wrap">
+              <svg class="skill-icon-ring" viewBox="0 0 90 90">
+                <circle class="skill-ring-bg" cx="45" cy="45" r="38"></circle>
+                <circle class="skill-ring-fill" id="narochagi-icon-ring" cx="45" cy="45" r="38"></circle>
+              </svg>
+              <div class="skill-icon">🥋</div>
+            </div>
+            <h3 data-i18n="naroChagi">Naeryeo Chagi</h3>
+            <p data-i18n="completePrevious">Complete previous skill to unlock</p>
+            <span class="skill-status" data-i18n="locked">Locked</span>
             <div class="lock-overlay">
               <i class="fas fa-lock"></i>
             </div>
           </div>
 
-          <div class="skill-card locked" id="yeop-card">
-            <div class="skill-icon">🔒</div>
-            <div class="lock-overlay">
-              <i class="fas fa-lock"></i>
+          <!-- Bik Chagi -->
+          <div class="skill-card locked" data-skill="bakchagi3" onclick="switchToSkill('bakchagi3')">
+            <div class="skill-icon-ring-wrap">
+              <svg class="skill-icon-ring" viewBox="0 0 90 90">
+                <circle class="skill-ring-bg" cx="45" cy="45" r="38"></circle>
+                <circle class="skill-ring-fill" id="bakchagi3-icon-ring" cx="45" cy="45" r="38"></circle>
+              </svg>
+              <div class="skill-icon">🥋</div>
             </div>
-          </div>
-
-          <div class="skill-card locked" id="dwi-card">
-            <div class="skill-icon">🔒</div>
+            <h3 data-i18n="bakChagi3">Bik Chagi</h3>
+            <p data-i18n="completePrevious">Complete previous skill to unlock</p>
+            <span class="skill-status" data-i18n="locked">Locked</span>
             <div class="lock-overlay">
               <i class="fas fa-lock"></i>
             </div>
@@ -174,69 +280,189 @@
         </div>
 
         <div class="center-buttons">
-          <button class="btn btn-success" onclick="switchScreen('apchagi-menu')">
+          <button class="btn btn-success" onclick="switchToSkill('apchagi')">
             <i class="fas fa-play"></i> <span data-i18n="startLearning">Start Learning</span>
           </button>
-          <button class="btn" onclick="switchScreen('games')">
-            <i class="fas fa-gamepad"></i> <span data-i18n="practiceGames">Practice Games</span>
+          <button class="btn" onclick="switchScreen('trophy-room')">
+            <i class="fas fa-trophy"></i> <span data-i18n="trophyRoom">Trophy Room</span>
+          </button>
+          <button class="btn" onclick="switchScreen('dashboard')">
+            <i class="fas fa-chart-pie"></i> <span data-i18n="dashboardNav">Player Dashboard</span>
           </button>
         </div>
       </div>
     </div>
 
     <!-- ============================================================ -->
-    <!-- AP CHAGI MENU SCREEN                                         -->
+    <!-- DOJANG TROPHY ROOM — permanent achievements display           -->
     <!-- ============================================================ -->
-    <div id="apchagi-menu-screen" class="screen">
+    <div id="trophy-room-screen" class="screen">
       <div class="game-container">
-        <h2 data-i18n="apChagiMenu">🥋 Ap Chagi</h2>
-        <p class="description" data-i18n="apChagiMenuDesc">Choose where to go in your Ap Chagi journey</p>
+        <h2 data-i18n="trophyRoomTitle">🏆 Dojang Trophy Room</h2>
+        <p class="description" data-i18n="trophyRoomDesc">Every medal, cup, and certificate you've earned on your journey</p>
+        <p class="trophy-room-counter" id="trophy-room-counter"></p>
+
+        <div class="trophy-room-grid" id="trophy-room-grid"></div>
+
+        <div class="center-buttons">
+          <button class="btn back-btn" onclick="switchScreen('home')">
+            <i class="fas fa-arrow-left"></i> <span data-i18n="backToHome">Back to Home</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- COOL DOWN — quick stretch routine shown after finishing kicks -->
+    <!-- ============================================================ -->
+    <div id="cooldown-screen" class="screen">
+      <div class="game-container">
+        <h2 data-i18n="coolDownTitle">🧘 Cool Down Time</h2>
+        <p class="description" data-i18n="coolDownDesc">Great training! Stretch these muscles for 20 seconds each to finish safely.</p>
+
+        <div class="cooldown-list" id="cooldown-list"></div>
+
+        <div class="center-buttons">
+          <button class="btn btn-success" onclick="switchScreen('skill-menu')">
+            <i class="fas fa-check"></i> <span data-i18n="coolDownDone">Done Stretching</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- PARENT / COACH PROGRESS REPORT — read-only summary screen     -->
+    <!-- ============================================================ -->
+    <div id="report-screen" class="screen">
+      <div class="game-container">
+        <h2 data-i18n="reportTitle">📊 Progress Report</h2>
+        <p class="description" data-i18n="reportDesc">A quick read-only summary for parents and coaches.</p>
+
+        <div id="report-belt" class="belt-badge-wrap"></div>
+        <p class="report-line" id="report-streak"></p>
+        <p class="report-line" id="report-last-played"></p>
+
+        <div class="report-skills-grid" id="report-skills-grid"></div>
+
+        <!-- ============================================================ -->
+        <!-- LEADERBOARD — personal stats + every player on this device    -->
+        <!-- ============================================================ -->
+        <div class="leaderboard-section">
+          <h2 data-i18n="leaderboardTitle">🏆 Leaderboard</h2>
+          <p class="description" data-i18n="leaderboardDesc">See how every player on this device ranks.</p>
+
+          <div class="leaderboard-tabs">
+            <button class="leaderboard-tab active" id="lb-tab-mine" data-i18n="leaderboardMyStats">My Stats</button>
+            <button class="leaderboard-tab" id="lb-tab-all" data-i18n="leaderboardAllPlayers">All Players</button>
+          </div>
+
+          <div id="lb-panel-mine" class="leaderboard-panel"></div>
+          <div id="lb-panel-all" class="leaderboard-panel" style="display:none;"></div>
+
+          <div class="center-buttons leaderboard-actions">
+            <button class="btn btn-secondary" id="lb-switch-player-btn" data-i18n="leaderboardSwitchPlayer">🔁 Switch Player</button>
+            <button class="btn btn-success" id="lb-export-btn" data-i18n="leaderboardExport">⬇️ Export Scores (CSV)</button>
+            <button class="btn" onclick="switchScreen('dashboard')"><i class="fas fa-chart-pie"></i> <span data-i18n="dashboardOpen">Open Player Dashboard</span></button>
+          </div>
+        </div>
+
+        <div class="center-buttons">
+          <button class="btn back-btn" onclick="switchScreen('home')">
+            <i class="fas fa-arrow-left"></i> <span data-i18n="backToHome">Back to Home</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- PLAYER DASHBOARD — scores + insights for every player (dashboard.js) -->
+    <!-- ============================================================ -->
+    <div id="dashboard-screen" class="screen">
+      <div class="game-container db-container">
+        <div class="db-head">
+          <div>
+            <h2 data-i18n="dashboardTitle">📊 Player Dashboard</h2>
+            <p class="description" data-i18n="dashboardDesc">Scores and insights for every player on this device.</p>
+          </div>
+          <div class="db-head-actions">
+            <button type="button" class="btn btn-small" id="db-export-player"><i class="fas fa-file-csv"></i> <span data-i18n="dashboardExportPlayer">This player (CSV)</span></button>
+            <button type="button" class="btn btn-small btn-success" id="db-export-all"><i class="fas fa-download"></i> <span data-i18n="dashboardExportAll">All players (CSV)</span></button>
+          </div>
+        </div>
+        <div id="dashboard-root" class="db-root" aria-live="polite"></div>
+        <div class="center-buttons">
+          <button class="btn back-btn" onclick="switchScreen('home')">
+            <i class="fas fa-home"></i> <span data-i18n="backToHome">Back to Home</span>
+          </button>
+          <button class="btn" onclick="attemptStageNav('games')">
+            <i class="fas fa-gamepad"></i> <span data-i18n="games">Games</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SKILL MENU SCREEN - Dynamic hub for each skill               -->
+    <!-- ============================================================ -->
+    <div id="skill-menu-screen" class="screen">
+      <div class="game-container">
+        <h2 id="skill-menu-title">🥋 Skill Name</h2>
+        <p class="description" id="skill-menu-desc">Skill description</p>
+
+        <div class="belt-badge-wrap" id="skillmenu-belt-badge"></div>
 
         <!-- Character display -->
         <div class="apchagi-menu-char-wrap">
-          <div class="apchagi-menu-char" id="apchagi-menu-character"></div>
+          <div class="apchagi-menu-char" id="skill-menu-character"></div>
         </div>
 
-        <div class="apchagi-menu-grid">
+        <div class="apchagi-menu-grid skill-menu-grid">
 
-          <!-- Square 1: Learning Stage -->
-          <div class="apchagi-menu-card" onclick="switchScreen('learning')">
-            <div class="apchagi-menu-icon">🎓</div>
-            <h3 data-i18n="learningStage">Learning Stage</h3>
-            <p data-i18n="learningStageDesc">Watch tutorials and study the 5 phases of Ap Chagi</p>
+          <!-- Stage 1: Warm Up -->
+          <div class="apchagi-menu-card skill-menu-card" id="stage-warmup-card" data-stage="warmup"
+            onclick="attemptStageNav('warmup')">
+            <div class="apchagi-menu-icon">🔥</div>
+            <h3 data-i18n="warmup">Warm Up</h3>
+            <p data-i18n="warmupMenuDesc">Prepare your body with warm-up exercises</p>
             <div class="apchagi-menu-progress-wrap">
-              <div class="progress-bar" id="apchagi-learn-progress" style="width:0%"></div>
+              <div class="progress-bar" id="skill-warmup-progress" style="width:0%"></div>
             </div>
           </div>
 
-          <!-- Square 2: Games -->
-          <div class="apchagi-menu-card" onclick="switchScreen('games')">
+          <!-- Stage 2+3: Learning (video + breakdown cards) -->
+          <div class="apchagi-menu-card skill-menu-card" id="stage-learning-card" data-stage="learning"
+            onclick="attemptStageNav('learning')">
+            <div class="apchagi-menu-icon">🎓</div>
+            <h3 data-i18n="learningStage">Learning Stage</h3>
+            <p data-i18n="learningStageDesc">Watch tutorials and study the phases</p>
+            <div class="apchagi-menu-progress-wrap">
+              <div class="progress-bar" id="skill-learn-progress" style="width:0%"></div>
+            </div>
+            <div class="stage-lock-overlay"><i class="fas fa-lock"></i></div>
+          </div>
+
+          <!-- Stage 4: Mini-Games -->
+          <div class="apchagi-menu-card skill-menu-card" id="stage-games-card" data-stage="games"
+            onclick="attemptStageNav('games')">
             <div class="apchagi-menu-icon">🎮</div>
             <h3 data-i18n="games">Games</h3>
             <p data-i18n="gamesMenuDesc">Practice with interactive training games</p>
             <div class="apchagi-menu-progress-wrap">
-              <div class="progress-bar" id="apchagi-games-progress" style="width:0%"></div>
+              <div class="progress-bar" id="skill-games-progress" style="width:0%"></div>
             </div>
+            <div class="stage-lock-overlay"><i class="fas fa-lock"></i></div>
           </div>
 
-          <!-- Square 3: Warm Up -->
-          <div class="apchagi-menu-card" onclick="switchScreen('warmup')">
-            <div class="apchagi-menu-icon">🔥</div>
-            <h3 data-i18n="warmup">Warm Up</h3>
-            <p data-i18n="warmupMenuDesc">Prepare your body with warm-up exercises before training</p>
-            <div class="apchagi-menu-progress-wrap">
-              <div class="progress-bar" id="apchagi-warmup-progress" style="width:0%"></div>
-            </div>
-          </div>
-
-          <!-- Square 4: Tests / Quiz -->
-          <div class="apchagi-menu-card" onclick="switchScreen('quiz')">
+          <!-- Stage 5: Quiz / Assessment -->
+          <div class="apchagi-menu-card skill-menu-card" id="stage-quiz-card" data-stage="quiz"
+            onclick="attemptStageNav('quiz')">
             <div class="apchagi-menu-icon">📝</div>
             <h3 data-i18n="tests">Tests</h3>
             <p data-i18n="testsDesc">Test your knowledge and earn your achievement</p>
             <div class="apchagi-menu-progress-wrap">
-              <div class="progress-bar" id="apchagi-quiz-progress" style="width:0%"></div>
+              <div class="progress-bar" id="skill-quiz-progress" style="width:0%"></div>
             </div>
+            <div class="stage-lock-overlay"><i class="fas fa-lock"></i></div>
           </div>
 
         </div>
@@ -249,10 +475,13 @@
       </div>
     </div>
 
+    <!-- ============================================================ -->
+    <!-- AP CHAGI MENU SCREEN (Legacy - kept for compatibility)        -->
+    <!-- ============================================================ -->
     <div id="learning-screen" class="screen">
       <div class="game-container">
-        <h2 data-i18n="learningTitle">🎓 Learn Ap Chagi</h2>
-        <p class="description" data-i18n="learningSubtitle">Watch the complete tutorial video to master the front kick
+        <h2 data-i18n="learningTitle">🎓 Learn Your Skill</h2>
+        <p class="description" data-i18n="learningSubtitle">Watch the complete tutorial video to master the technique
         </p>
 
         <div class="learning-character-display">
@@ -260,7 +489,10 @@
           <div class="coach-instruction">
             <div class="coach-visual" id="coach-learning"></div>
             <div class="instruction-bubble">
-              <p data-i18n="coachInstruction1">Watch the video carefully and focus on the key techniques!</p>
+              <p id="learning-coach-text" data-i18n="coachInstruction1">Watch the video carefully and focus on the key techniques!</p>
+              <button type="button" class="speak-btn" title="Listen" aria-label="Listen" onclick="speakElementText('learning-coach-text')">
+                <i class="fas fa-volume-up"></i>
+              </button>
             </div>
           </div>
         </div>
@@ -268,7 +500,7 @@
         <div class="learning-steps"></div>
 
         <div class="center-buttons">
-          <button class="btn" onclick="switchScreen('apchagi-menu')">
+          <button class="btn" onclick="switchScreen('skill-menu')">
             <i class="fas fa-home"></i> <span data-i18n="backToHome">Back to Home</span>
           </button>
         </div>
@@ -280,11 +512,12 @@
         <h2 data-i18n="gamesCenter">🎮 Games Center</h2>
         <p class="description" data-i18n="chooseGame">Choose a game to start training</p>
 
+        <h3 class="games-section-title" data-i18n="coreGames">Main games (unlock the test)</h3>
         <div class="game-cards">
           <div class="game-card" data-game="form-control">
             <div class="game-icon">🎭</div>
             <h3 data-i18n="formControl">Form Control</h3>
-            <p data-i18n="formControlDesc">Drag player joints to create perfect Ap Chagi stance</p>
+            <p data-i18n="formControlDesc">Drag player joints to create perfect stance</p>
             <div class="progress-container">
               <div class="progress-bar" id="form-control-progress-bar" style="width: 0%"></div>
             </div>
@@ -294,7 +527,7 @@
           <div class="game-card" data-game="puzzle">
             <div class="game-icon">🧩</div>
             <h3 data-i18n="puzzleAssembly">Puzzle Assembly</h3>
-            <p data-i18n="puzzleDesc">Arrange puzzle pieces to create Ap Chagi kick sequence</p>
+            <p data-i18n="puzzleDesc">Arrange puzzle pieces to create kick sequence</p>
             <div class="progress-container">
               <div class="progress-bar" id="puzzle-progress-bar" style="width: 0%"></div>
             </div>
@@ -311,14 +544,101 @@
             <span class="game-status" id="performance-status" data-i18n="notStarted">Not Started</span>
           </div>
 
-          <div class="game-card" data-game="quiz">
-            <div class="game-icon">❓</div>
-            <h3 data-i18n="quiz">Quiz</h3>
-            <p data-i18n="quizDesc">Test your Taekwondo knowledge</p>
+          <div class="game-card" data-game="action">
+            <div class="game-icon">⚡</div>
+            <h3 data-i18n="actionTitle">Action Challenge</h3>
+            <p data-i18n="actionDesc">A different hands-on challenge for every kick</p>
             <div class="progress-container">
-              <div class="progress-bar" id="quiz-progress-bar" style="width: 0%"></div>
+              <div class="progress-bar" id="action-progress-bar" style="width: 0%"></div>
             </div>
-            <span class="game-status" id="quiz-status" data-i18n="notStarted">Not Started</span>
+            <span class="game-status" id="action-status" data-i18n="notStarted">Not Started</span>
+          </div>
+
+        </div>
+
+        <h3 class="games-section-title" data-i18n="bonusGames">Bonus games</h3>
+        <div class="game-cards game-cards-bonus">
+          <div class="game-card hidden" data-game="error-hunt" data-skill-only="apchagi">
+            <div class="game-icon">🔍</div>
+            <h3 data-i18n="errorHuntTitle">Error Hunt</h3>
+            <p data-i18n="errorHuntDesc">Find the hidden mistake in an Ap Chagi kick</p>
+            <div class="progress-container">
+              <div class="progress-bar" id="error-hunt-progress-bar" style="width: 0%"></div>
+            </div>
+            <span class="game-status" id="error-hunt-status" data-i18n="notStarted">Not Started</span>
+          </div>
+
+          <div class="game-card" data-game="quiz-blast">
+            <div class="game-icon">🚀</div>
+            <h3 data-i18n="quizBlastTitle">Quiz Blast</h3>
+            <p data-i18n="quizBlastDesc">Shoot the right answer - new questions for every kick</p>
+            <div class="progress-container">
+              <div class="progress-bar" id="quiz-blast-progress-bar" style="width: 0%"></div>
+            </div>
+            <span class="game-status" id="quiz-blast-status" data-i18n="notStarted">Not Started</span>
+          </div>
+
+          <div class="game-card" data-game="board-break">
+            <div class="game-icon">🪵</div>
+            <h3 data-i18n="boardBreakTitle">Board Break</h3>
+            <p data-i18n="boardBreakDesc">Pick the right part of the foot, aim and smash the boards</p>
+            <div class="progress-container">
+              <div class="progress-bar" id="board-break-progress-bar" style="width: 0%"></div>
+            </div>
+            <span class="game-status" id="board-break-status" data-i18n="notStarted">Not Started</span>
+          </div>
+
+          <div class="game-card" data-game="paddle-reflex">
+            <div class="game-icon">🎯</div>
+            <h3 data-i18n="paddleTitle">Target Paddles</h3>
+            <p data-i18n="paddleDesc">Hit only the paddle at a real target for this kick — fast!</p>
+            <div class="progress-container">
+              <div class="progress-bar" id="paddle-reflex-progress-bar" style="width: 0%"></div>
+            </div>
+            <span class="game-status" id="paddle-reflex-status" data-i18n="notStarted">Not Started</span>
+          </div>
+
+          <div class="game-card" data-game="phase-rhythm">
+            <div class="game-icon">🥁</div>
+            <h3 data-i18n="rhythmTitle">Kick Rhythm</h3>
+            <p data-i18n="rhythmDesc">Tap the 5 phases in order, right on the beat</p>
+            <div class="progress-container">
+              <div class="progress-bar" id="phase-rhythm-progress-bar" style="width: 0%"></div>
+            </div>
+            <span class="game-status" id="phase-rhythm-status" data-i18n="notStarted">Not Started</span>
+          </div>
+
+          <div class="game-card game-card-new" data-game="sparring-duel">
+            <span class="game-new-badge">NEW</span>
+            <div class="game-icon">🥊</div>
+            <h3 data-i18n="sparringTitle">Sparring Duel</h3>
+            <p data-i18n="sparringDesc">Score on a real opponent — kick only when a legal target opens</p>
+            <div class="progress-container">
+              <div class="progress-bar" id="sparring-duel-progress-bar" style="width: 0%"></div>
+            </div>
+            <span class="game-status" id="sparring-duel-status" data-i18n="notStarted">Not Started</span>
+          </div>
+
+          <div class="game-card game-card-new" data-game="balance-hold">
+            <span class="game-new-badge">NEW</span>
+            <div class="game-icon">⚖️</div>
+            <h3 data-i18n="balanceTitle">Balance Hold</h3>
+            <p data-i18n="balanceDesc">Hold every phase of the kick on one leg without falling</p>
+            <div class="progress-container">
+              <div class="progress-bar" id="balance-hold-progress-bar" style="width: 0%"></div>
+            </div>
+            <span class="game-status" id="balance-hold-status" data-i18n="notStarted">Not Started</span>
+          </div>
+
+          <div class="game-card game-card-new" data-game="heavy-bag">
+            <span class="game-new-badge">NEW</span>
+            <div class="game-icon">🥋</div>
+            <h3 data-i18n="heavyBagTitle">Heavy Bag</h3>
+            <p data-i18n="heavyBagDesc">Time your kick to the swinging bag for maximum power</p>
+            <div class="progress-container">
+              <div class="progress-bar" id="heavy-bag-progress-bar" style="width: 0%"></div>
+            </div>
+            <span class="game-status" id="heavy-bag-status" data-i18n="notStarted">Not Started</span>
           </div>
         </div>
 
@@ -330,11 +650,11 @@
       </div>
     </div>
 
+
     <div id="form-control-screen" class="screen">
       <div class="game-container">
-        <h2 data-i18n="formControlGame">🎭 Form Control - Creating Ap Chagi</h2>
-        <p class="description" data-i18n="formControlInstructions">Drag the control points to create perfect Ap Chagi
-          form</p>
+        <h2 id="form-control-title" data-i18n="formControlGame">🎭 Form Control - Creating Perfect Form</h2>
+        <p class="description" id="form-control-desc" data-i18n="formControlInstructions">Drag the control points to create perfect form</p>
 
         <div class="game-layout">
           <div class="game-area">
@@ -346,7 +666,35 @@
               <span data-i18n="accuracy">Accuracy:</span>
               <span id="form-accuracy" class="accuracy-value">0%</span>
             </div>
+
+            <div class="kids-hud">
+              <div class="kids-stars">
+                <span class="star-slot" id="star-1">⭐</span>
+                <span class="star-slot" id="star-2">⭐</span>
+                <span class="star-slot" id="star-3">⭐</span>
+              </div>
+              <div class="kids-energy-bar-wrap">
+                <div class="kids-energy-track">
+                  <div class="kids-energy-fill" id="kids-energy-fill"></div>
+                </div>
+              </div>
+            </div>
           </div>
+          <div class="game-controls">
+              <button class="btn" id="reset-form-btn">
+                <i class="fas fa-redo"></i> <span data-i18n="reset">Reset</span>
+              </button>
+              <button class="btn btn-success" id="check-form-btn">
+                <i class="fas fa-check"></i> <span data-i18n="checkForm">Check Form</span>
+              </button>
+              <button class="btn" id="auto-position-btn">
+                <i class="fas fa-magic"></i> <span data-i18n="autoPosition">Auto Position</span>
+              </button>
+              <!-- الزر الجديد للتحكم في الهيكل العظمي -->
+              <button class="btn btn-skeleton-toggle" id="toggle-skeleton-btn">
+                <i class="fas fa-bone"></i> <span id="toggle-skel-text">Skeleton: ON</span>
+              </button>
+            </div>
 
           <div class="game-instructions">
             <h3 data-i18n="instructions">🎯 Instructions:</h3>
@@ -365,18 +713,6 @@
                       leg</span></p>
                 </div>
               </div>
-            </div>
-
-            <div class="game-controls">
-              <button class="btn" id="reset-form-btn">
-                <i class="fas fa-redo"></i> <span data-i18n="reset">Reset</span>
-              </button>
-              <button class="btn btn-success" id="check-form-btn">
-                <i class="fas fa-check"></i> <span data-i18n="checkForm">Check Form</span>
-              </button>
-              <button class="btn" id="auto-position-btn">
-                <i class="fas fa-magic"></i> <span data-i18n="autoPosition">Auto Position</span>
-              </button>
             </div>
 
             <div class="progress-display">
@@ -398,9 +734,9 @@
 
     <div id="puzzle-screen" class="screen">
       <div class="game-container">
-        <h2 data-i18n="puzzleGame">🧩 Puzzle Assembly - Ap Chagi Sequence</h2>
-        <p class="description" data-i18n="puzzleInstructions">Arrange the stages in correct order from preparation to
-          completion</p>
+        <h2 data-i18n="puzzleGame">🧩 Puzzle Assembly</h2>
+        <p class="description" data-i18n="puzzleInstructions">Arrange the 5 real stages in order — one piece is an
+          imposter, leave it out!</p>
 
         <div class="puzzle-container">
           <div class="puzzle-board">
@@ -462,11 +798,14 @@
     <div id="performance-screen" class="screen">
       <div class="game-container">
         <h2 data-i18n="performanceGame">👁️ Performance Recognition</h2>
-        <p class="description" data-i18n="performanceInstructions">Identify which demonstration shows correct Ap Chagi
-          form</p>
+        <p class="description" data-i18n="performanceInstructions">Tap the ONE statement that is technically wrong about
+          the image shown</p>
 
         <div class="performance-question">
-          <h3 data-i18n="whichIsCorrect">Which of these shows correct Ap Chagi technique?</h3>
+          <h3 id="performance-question-text" data-i18n="whichIsCorrect">Look at the image and find the incorrect statement</h3>
+          <button type="button" class="speak-btn" title="Listen" aria-label="Listen" onclick="speakElementText('performance-question-text')">
+            <i class="fas fa-volume-up"></i>
+          </button>
         </div>
 
         <div class="performance-cards"></div>
@@ -492,6 +831,307 @@
       </div>
     </div>
 
+    <div id="action-screen" class="screen">
+      <div class="game-container">
+        <h2 id="act-title">⚡ Action Challenge</h2>
+        <p class="description" id="act-how"></p>
+
+        <div class="eh-hud" aria-live="polite">
+          <span class="eh-chip" id="act-round"></span>
+          <span class="eh-chip" id="act-score"></span>
+        </div>
+
+        <div class="act-layout">
+          <div class="act-stage" id="act-stage">
+            <img id="act-fighter" class="act-fighter" alt="">
+            <div class="act-target" id="act-target" aria-hidden="true"></div>
+            <div class="act-callout" id="act-callout" role="status" aria-live="polite"></div>
+          </div>
+          <div class="act-panel" id="act-panel"></div>
+        </div>
+
+        <div class="game-controls">
+          <button class="btn back-btn" onclick="switchScreen('games')">
+            <i class="fas fa-arrow-left"></i> <span data-i18n="backToGames">Back to Games</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="error-hunt-screen" class="screen">
+      <div class="game-container">
+        <h2 data-i18n="errorHuntGame">🔍 Error Hunt</h2>
+        <p class="description" data-i18n="errorHuntInstructions">Tap the body part that has the hidden technical mistake in this Ap Chagi kick</p>
+
+        <div class="eh-hud" aria-live="polite">
+          <span class="eh-chip" id="eh-level-badge"></span>
+          <span class="eh-chip eh-chip-danger" id="eh-mistakes"></span>
+        </div>
+
+        <div class="eh-layout">
+          <div class="eh-panel">
+            <div id="eh-instruction">
+              <h3 class="eh-level-title" id="eh-level-title"></h3>
+              <p class="eh-level-desc" id="eh-level-desc"></p>
+              <button type="button" class="speak-btn" title="Listen" aria-label="Listen" onclick="speakElementText('eh-level-desc')">
+                <i class="fas fa-volume-up"></i>
+              </button>
+            </div>
+
+            <div id="eh-feedback" class="eh-feedback hidden" role="status" aria-live="polite">
+              <div class="eh-fb-icon" id="eh-fb-icon"></div>
+              <div class="eh-fb-body">
+                <h4 id="eh-fb-title"></h4>
+                <p id="eh-fb-msg"></p>
+                <button type="button" class="btn hidden" id="eh-next-btn">
+                  <i class="fas fa-forward"></i> <span id="eh-next-label">Next Level</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="eh-board" id="eh-board" dir="ltr"></div>
+        </div>
+
+        <div class="game-controls">
+          <button class="btn back-btn" onclick="switchScreen('games')">
+            <i class="fas fa-arrow-left"></i> <span data-i18n="backToGames">Back to Games</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="quiz-blast-screen" class="screen">
+      <div class="game-container">
+        <h2 data-i18n="quizBlastGame">🚀 Quiz Blast</h2>
+        <p class="description" data-i18n="quizBlastInstructions">Move the helmet with the arrow keys (or drag), fire with Space (or 🔥) and hit the correct answer. Three lives!</p>
+
+        <div class="eh-hud" aria-live="polite">
+          <span class="eh-chip" id="qb-round-badge"></span>
+          <span class="eh-chip" id="qb-points"></span>
+          <span class="eh-chip eh-chip-danger" id="qb-lives" role="img"></span>
+        </div>
+
+        <div class="qb-question-box">
+          <h3 id="qb-question"></h3>
+          <button type="button" class="speak-btn" title="Listen" aria-label="Listen" onclick="speakElementText('qb-question')">
+            <i class="fas fa-volume-up"></i>
+          </button>
+        </div>
+
+        <div class="qb-arena" id="qb-arena" dir="ltr" tabindex="0" role="application">
+          <div class="qb-field" id="qb-field"></div>
+          <div class="qb-player" id="qb-player" aria-hidden="true"></div>
+          <div class="qb-toast" id="qb-toast" role="status" aria-live="polite"></div>
+          <div class="qb-overlay hidden" id="qb-overlay"></div>
+        </div>
+
+        <div class="qb-controls" dir="ltr">
+          <button type="button" class="qb-pad" id="qb-left">◀</button>
+          <button type="button" class="qb-pad qb-fire" id="qb-fire">🔥</button>
+          <button type="button" class="qb-pad" id="qb-right">▶</button>
+        </div>
+
+        <div class="game-controls">
+          <button class="btn back-btn" onclick="switchScreen('games')">
+            <i class="fas fa-arrow-left"></i> <span data-i18n="backToGames">Back to Games</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="board-break-screen" class="screen arena-screen">
+      <div class="game-container">
+        <h2 id="bb-title">🪵 Board Break</h2>
+        <p class="description" id="bb-how"></p>
+        <div class="eh-hud" aria-live="polite">
+          <span class="eh-chip" id="bb-round"></span>
+          <span class="eh-chip" id="bb-score"></span>
+        </div>
+        <div class="arena-wrap" id="bb-wrap">
+          <canvas class="arena-canvas" id="bb-canvas" aria-label="🪵 Board Break"></canvas>
+          <div class="arena-ui" id="bb-ui"></div>
+          <button type="button" class="btn btn-success arena-action" id="bb-action" hidden><span>KICK!</span></button>
+        </div>
+        <div class="game-controls">
+          <button class="btn back-btn" onclick="switchScreen('games')">
+            <i class="fas fa-arrow-left"></i> <span data-i18n="backToGames">Back to Games</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="paddle-reflex-screen" class="screen arena-screen">
+      <div class="game-container">
+        <h2 id="pr-title">🎯 Target Paddles</h2>
+        <p class="description" id="pr-how"></p>
+        <div class="eh-hud" aria-live="polite">
+          <span class="eh-chip" id="pr-round"></span>
+          <span class="eh-chip" id="pr-score"></span>
+        </div>
+        <div class="arena-wrap" id="pr-wrap">
+          <canvas class="arena-canvas" id="pr-canvas" aria-label="🎯 Target Paddles"></canvas>
+          <div class="arena-ui" id="pr-ui"></div>
+        </div>
+        <div class="game-controls">
+          <button class="btn back-btn" onclick="switchScreen('games')">
+            <i class="fas fa-arrow-left"></i> <span data-i18n="backToGames">Back to Games</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="phase-rhythm-screen" class="screen arena-screen">
+      <div class="game-container">
+        <h2 id="rh-title">🥁 Kick Rhythm</h2>
+        <p class="description" id="rh-how"></p>
+        <div class="eh-hud" aria-live="polite">
+          <span class="eh-chip" id="rh-round"></span>
+          <span class="eh-chip" id="rh-score"></span>
+        </div>
+        <div class="arena-wrap" id="rh-wrap">
+          <canvas class="arena-canvas" id="rh-canvas" aria-label="🥁 Kick Rhythm"></canvas>
+          <div class="arena-ui" id="rh-ui"></div>
+        </div>
+        <div class="rh-pads" id="rh-pads" dir="ltr"></div>
+        <div class="game-controls">
+          <button class="btn back-btn" onclick="switchScreen('games')">
+            <i class="fas fa-arrow-left"></i> <span data-i18n="backToGames">Back to Games</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="sparring-duel-screen" class="screen arena-screen">
+      <div class="game-container">
+        <h2 id="sd-title">🥊 Sparring Duel</h2>
+        <p class="description" id="sd-how"></p>
+        <div class="eh-hud" aria-live="polite">
+          <span class="eh-chip" id="sd-round"></span>
+          <span class="eh-chip" id="sd-score"></span>
+        </div>
+        <div class="arena-wrap" id="sd-wrap">
+          <canvas class="arena-canvas" id="sd-canvas" aria-label="🥊 Sparring Duel"></canvas>
+          <div class="arena-ui" id="sd-ui"></div>
+          <button type="button" class="btn btn-success arena-action" id="sd-action" hidden><span>KICK!</span></button>
+        </div>
+        <div class="game-controls">
+          <button class="btn back-btn" onclick="switchScreen('games')">
+            <i class="fas fa-arrow-left"></i> <span data-i18n="backToGames">Back to Games</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="balance-hold-screen" class="screen arena-screen">
+      <div class="game-container">
+        <h2 id="bh-title">⚖️ Balance Hold</h2>
+        <p class="description" id="bh-how"></p>
+        <div class="eh-hud" aria-live="polite">
+          <span class="eh-chip" id="bh-round"></span>
+          <span class="eh-chip" id="bh-score"></span>
+        </div>
+        <div class="arena-wrap" id="bh-wrap">
+          <canvas class="arena-canvas" id="bh-canvas" aria-label="⚖️ Balance Hold"></canvas>
+          <div class="arena-ui" id="bh-ui"></div>
+        </div>
+        <div class="bh-pads" id="bh-pads" dir="ltr"></div>
+        <div class="game-controls">
+          <button class="btn back-btn" onclick="switchScreen('games')">
+            <i class="fas fa-arrow-left"></i> <span data-i18n="backToGames">Back to Games</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="heavy-bag-screen" class="screen arena-screen">
+      <div class="game-container">
+        <h2 id="hb-title">🥋 Heavy Bag</h2>
+        <p class="description" id="hb-how"></p>
+        <div class="eh-hud" aria-live="polite">
+          <span class="eh-chip" id="hb-round"></span>
+          <span class="eh-chip" id="hb-score"></span>
+        </div>
+        <div class="arena-wrap" id="hb-wrap">
+          <canvas class="arena-canvas" id="hb-canvas" aria-label="🥋 Heavy Bag"></canvas>
+          <div class="arena-ui" id="hb-ui"></div>
+          <button type="button" class="btn btn-success arena-action" id="hb-action" hidden><span>KICK!</span></button>
+        </div>
+        <div class="game-controls">
+          <button class="btn back-btn" onclick="switchScreen('games')">
+            <i class="fas fa-arrow-left"></i> <span data-i18n="backToGames">Back to Games</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- v23: league & challenges -->
+    <div id="league-screen" class="screen">
+      <div class="game-container lg-container">
+        <h2 data-i18n="leagueTitle">🏅 League &amp; Challenges</h2>
+        <p class="description" data-i18n="leagueDesc">Play today's challenge, climb the weekly league and win awards.</p>
+        <div id="league-root"></div>
+        <div class="center-buttons">
+          <button class="btn back-btn" onclick="switchScreen('home')"><i class="fas fa-home"></i> <span data-i18n="backToHome">Back to Home</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- v24: hero page for one player -->
+    <div id="profile-screen" class="screen">
+      <div class="game-container pf-container">
+        <div id="profile-root"></div>
+        <div class="center-buttons">
+          <button class="btn back-btn" onclick="switchScreen('home')"><i class="fas fa-home"></i> <span data-i18n="backToHome">Back to Home</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- v24: all players -->
+    <div id="players-screen" class="screen">
+      <div class="game-container pf-container">
+        <h2 data-i18n="playersTitle">👥 All Players</h2>
+        <p class="description" data-i18n="playersDesc">Everyone training on this device — tap a player to see their hero page.</p>
+        <div id="players-root"></div>
+        <div class="center-buttons">
+          <button class="btn back-btn" onclick="switchScreen('home')"><i class="fas fa-home"></i> <span data-i18n="backToHome">Back to Home</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- v26: the full belt syllabus (media slots wait for pictures/videos) -->
+    <div id="curriculum-screen" class="screen">
+      <div class="game-container cu-container">
+        <h2 data-i18n="curriculumTitle">📚 Belt Syllabus</h2>
+        <p class="description" data-i18n="curriculumDesc">Every belt, every technique and every poomsae — tap one to learn it.</p>
+        <div id="curriculum-root"></div>
+        <div class="center-buttons">
+          <button class="btn back-btn" onclick="switchScreen('home')"><i class="fas fa-home"></i> <span data-i18n="backToHome">Back to Home</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- v23: two players on one screen + tournament -->
+    <div id="versus-screen" class="screen">
+      <div class="game-container vs-container">
+        <h2 data-i18n="versusTitle">⚔️ Challenge a Friend</h2>
+        <p class="description" data-i18n="versusDesc">Two players, one screen: the first to kick a legal target scores.</p>
+        <div id="vs-root"></div>
+        <div class="center-buttons">
+          <button class="btn back-btn" onclick="switchScreen('home')"><i class="fas fa-home"></i> <span data-i18n="backToHome">Back to Home</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- v23: coach mode (PIN) -->
+    <div id="coach-screen" class="screen">
+      <div class="game-container co-container">
+        <h2 data-i18n="coachTitle">👩‍🏫 Coach Mode</h2>
+        <div id="coach-root"></div>
+      </div>
+    </div>
+
     <div id="quiz-screen" class="screen">
       <div class="game-container">
         <h2 data-i18n="taekwondoQuiz">❓ Taekwondo Knowledge Quiz</h2>
@@ -511,6 +1151,9 @@
 
           <div class="quiz-question">
             <h3 id="question-text">What is the Korean name for front kick?</h3>
+            <button type="button" class="speak-btn" title="Listen" aria-label="Listen" onclick="speakElementText('question-text')">
+              <i class="fas fa-volume-up"></i>
+            </button>
             <div class="question-image" id="question-image"></div>
           </div>
 
@@ -601,27 +1244,29 @@
           </div>
         </div>
 
+        <div class="winner-stars" id="winner-stars" aria-live="polite"></div>
         <h3 class="winner-message" id="winner-message">Excellent! You have completed the challenge successfully!</h3>
-        <h4 style="color: var(--primary-color); text-align: center; margin-bottom: 20px;">Score: <span
+        <h4 class="winner-score" style="color: var(--primary-color); text-align: center; margin-bottom: 20px;"><span data-i18n="score">Score:</span> <span
             id="winner-accuracy">100%</span></h4>
 
         <div class="achievements">
           <h3 data-i18n="achievementsUnlocked">Achievements Unlocked:</h3>
-          <div class="achievement-list">
-            <div class="achievement-item">
-              <span class="achievement-icon">🥇</span>
-              <span class="achievement-text" data-i18n="firstCompletion">First Game Completed</span>
-            </div>
-            <div class="achievement-item">
-              <span class="achievement-icon">🎯</span>
-              <span class="achievement-text" data-i18n="perfectForm">Perfect Form Mastered</span>
-            </div>
+          <div class="achievement-list" id="winner-achievement-list">
+            <!-- Populated dynamically by WinnerSystem.show() based on the
+                 actual game just completed, whether it's a first-time clear,
+                 and the accuracy achieved. -->
           </div>
         </div>
 
         <div class="winner-controls">
+          <button class="btn btn-warning" id="download-cert-btn" onclick="CertificateSystem.generate()">
+            <i class="fas fa-certificate"></i> <span id="cert-btn-text" data-i18n="downloadCertificate">Download Certificate 📜</span>
+          </button>
           <button class="btn btn-success" id="next-level-btn">
             <i class="fas fa-arrow-up"></i> <span data-i18n="nextLevel">Next Level</span>
+          </button>
+          <button class="btn" id="cooldown-btn" style="display:none;">
+            <i class="fas fa-spa"></i> <span data-i18n="coolDown">Cool Down</span>
           </button>
           <button class="btn" id="try-again-btn">
             <i class="fas fa-redo"></i> <span data-i18n="tryAgain">Try Again</span>
@@ -635,7 +1280,7 @@
           <div class="coach-visual-small" id="coach-winner"></div>
           <div class="message-content">
             <h3 data-i18n="coachYang">👴 Coach YANG:</h3>
-            <p data-i18n="coachCongrats">Well done champion! Your dedication to mastering Ap Chagi is impressive. Keep
+            <p data-i18n="coachCongrats">Well done champion! Your dedication to mastering is impressive. Keep
               training!</p>
           </div>
         </div>
@@ -643,106 +1288,160 @@
     </div>
 
     <!-- ============================================================ -->
-    <!-- WARM UP SCREEN                                               -->
+    <!-- WARM UP SCREEN — full-screen overlay (WarmupSystem in game.js) -->
     <!-- ============================================================ -->
     <div id="warmup-screen" class="screen">
-      <div class="game-container">
-
-        <!-- Header -->
-        <h2 id="warmup-title">🔥 Warm Up Time!</h2>
-        <p class="description" id="warmup-subtitle">Get your body ready before training</p>
-
-        <!-- Overall progress (exercise dots) -->
-        <div class="warmup-dots" id="warmup-dots"></div>
-
-        <!-- Main card -->
-        <div class="warmup-card" id="warmup-card">
-
-          <!-- Exercise name + description -->
-          <div class="warmup-card-header">
-            <div class="warmup-exercise-icon" id="warmup-ex-icon">🏃</div>
-            <div>
-              <h3 class="warmup-ex-name" id="warmup-ex-name">Neck Rolls</h3>
-              <p class="warmup-ex-desc" id="warmup-ex-desc">Slowly roll your neck in a circle to loosen up</p>
-            </div>
+      <div class="wu2">
+        <header class="wu2-top">
+          <div class="wu2-titles">
+            <h2 id="wu2-title">🔥 Warm Up Time!</h2>
+            <p id="wu2-subtitle">8 short exercises to get your body ready</p>
           </div>
+          <span class="wu2-kick-chip" id="wu2-kick-chip"></span>
+          <button type="button" class="wu2-close" id="warmup-exit-btn" aria-label="Exit"><i class="fas fa-times"></i></button>
+        </header>
 
-          <!-- Character + circular timer side by side -->
-          <div class="warmup-body">
-
-            <!-- Character animation area -->
-            <div class="warmup-char-wrap">
-              <div class="warmup-char-stage">
-                <div class="warmup-character" id="warmup-character"></div>
-              </div>
-              <p class="warmup-char-tip" id="warmup-char-tip">Keep your spine straight!</p>
-            </div>
-
-            <!-- Circular countdown timer -->
-            <div class="warmup-timer-wrap">
-              <div class="warmup-timer-ring">
-                <svg class="warmup-ring-svg" viewBox="0 0 120 120">
-                  <circle class="ring-bg" cx="60" cy="60" r="52" />
-                  <circle class="ring-fill" cx="60" cy="60" r="52" id="warmup-ring-fill" />
-                </svg>
-                <div class="warmup-timer-center">
-                  <span class="warmup-timer-num" id="warmup-timer-num">20</span>
-                  <span class="warmup-timer-label" id="warmup-timer-label">sec</span>
-                </div>
-              </div>
-              <p class="warmup-ex-counter" id="warmup-ex-counter">Exercise 1 of 6</p>
-            </div>
-
-          </div><!-- /warmup-body -->
-
-          <!-- Controls -->
-          <div class="warmup-controls">
-            <button class="btn" id="warmup-pause-btn">
-              <i class="fas fa-pause" id="warmup-pause-icon"></i>
-              <span id="warmup-pause-label">Pause</span>
-            </button>
-            <button class="btn btn-success" id="warmup-next-btn">
-              <i class="fas fa-forward"></i>
-              <span id="warmup-next-label">Skip</span>
-            </button>
-            <button class="btn btn-danger" id="warmup-exit-btn">
-              <i class="fas fa-times"></i>
-              <span id="warmup-exit-label">Exit</span>
-            </button>
-          </div>
-
-        </div><!-- /warmup-card -->
-
-        <!-- Completion screen (hidden initially) -->
-        <div class="warmup-complete" id="warmup-complete" style="display:none;">
-          <div class="warmup-complete-char" id="warmup-complete-char"></div>
-          <h2 class="warmup-complete-title" id="warmup-complete-title">🎉 Warm Up Done!</h2>
-          <p class="warmup-complete-sub" id="warmup-complete-sub">Great job! Your body is ready to train.</p>
-          <div class="warmup-complete-btns">
-            <button class="btn btn-success" onclick="switchScreen('learning')">
-              <i class="fas fa-graduation-cap"></i>
-              <span id="warmup-go-learn">Start Learning</span>
-            </button>
-            <button class="btn" onclick="WarmupSystem.restart()">
-              <i class="fas fa-redo"></i>
-              <span id="warmup-go-repeat">Repeat Warm Up</span>
-            </button>
-            <button class="btn" onclick="switchScreen('home')">
-              <i class="fas fa-home"></i>
-              <span id="warmup-go-home">Home</span>
-            </button>
-          </div>
+        <ol class="wu2-steps" id="warmup-dots" aria-label="Exercises"></ol>
+        <div class="wu2-progress" aria-live="polite">
+          <span id="warmup-energy-label">⚡ Readiness</span>
+          <div class="wu2-bar"><i id="warmup-energy-fill"></i></div>
+          <b id="warmup-energy-pct">0%</b>
         </div>
 
+        <section class="wu2-card" id="warmup-card">
+          <div class="wu2-media" id="wu2-media">
+            <div class="wu2-drawn" id="warmup-character" aria-hidden="true"></div>
+            <video class="wu2-video" id="warmup-video" muted loop playsinline preload="auto" aria-hidden="true"></video>
+            <span class="wu2-media-tag" id="wu2-media-tag"></span>
+            <div class="wu2-flash" id="wu2-flash" role="status" aria-live="assertive"></div>
+            <div class="wu2-rest" id="wu2-rest" hidden>
+              <p class="wu2-rest-title" id="wu2-rest-title">Quick rest</p>
+              <div class="wu2-rest-ring" id="wu2-rest-ring"><span id="wu2-rest-count">6</span></div>
+              <p class="wu2-rest-next"><span id="wu2-rest-next-label">Next up:</span> <b id="wu2-rest-next-name"></b></p>
+              <p class="wu2-rest-desc" id="wu2-rest-next-desc"></p>
+              <button type="button" class="btn btn-success btn-small" id="wu2-rest-skip"><i class="fas fa-bolt"></i> <span id="wu2-rest-skip-label">I'm ready</span></button>
+            </div>
+          </div>
+
+          <div class="wu2-info">
+            <div class="wu2-ex-head">
+              <span class="wu2-ex-icon" id="warmup-ex-icon">🤸</span>
+              <div>
+                <p class="wu2-ex-count" id="warmup-ex-counter">Exercise 1 of 8</p>
+                <h3 class="wu2-ex-name" id="warmup-ex-name">Jumping Jacks</h3>
+              </div>
+            </div>
+            <span class="wu2-key" id="wu2-key" hidden></span>
+            <p class="wu2-desc" id="warmup-ex-desc"></p>
+
+            <div class="wu2-timer">
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <circle class="wu2-ring-bg" cx="60" cy="60" r="52" />
+                <circle class="wu2-ring-fill" cx="60" cy="60" r="52" id="warmup-ring-fill" />
+              </svg>
+              <div class="wu2-timer-center">
+                <span class="wu2-timer-num" id="warmup-timer-num">15</span>
+                <span class="wu2-timer-label" id="warmup-timer-label">sec</span>
+              </div>
+            </div>
+
+            <div class="wu2-coach">
+              <div class="wu2-coach-img" id="warmup-coach-badge"></div>
+              <p id="warmup-char-tip"></p>
+            </div>
+
+            <div class="wu2-controls">
+              <button type="button" class="btn" id="warmup-pause-btn">
+                <i class="fas fa-pause" id="warmup-pause-icon"></i> <span id="warmup-pause-label">Pause</span>
+              </button>
+              <button type="button" class="btn btn-success" id="warmup-next-btn">
+                <i class="fas fa-forward"></i> <span id="warmup-next-label">Skip</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="wu2-done" id="warmup-complete" hidden>
+          <div class="wu-confetti" id="warmup-confetti"></div>
+          <div class="wu2-done-char" id="warmup-complete-char"></div>
+          <h2 id="warmup-complete-title">🎉 Warm-up done!</h2>
+          <p id="warmup-complete-sub"></p>
+          <ul class="wu2-done-list" id="wu2-done-list"></ul>
+          <div class="wu2-done-btns">
+            <button class="btn btn-success" onclick="switchScreen('learning')">
+              <i class="fas fa-graduation-cap"></i> <span id="warmup-go-learn">Start Learning</span>
+            </button>
+            <button class="btn" onclick="WarmupSystem.restart()">
+              <i class="fas fa-redo"></i> <span id="warmup-go-repeat">Repeat Warm Up</span>
+            </button>
+            <button class="btn" onclick="switchScreen('home')">
+              <i class="fas fa-home"></i> <span id="warmup-go-home">Home</span>
+            </button>
+          </div>
+        </section>
       </div>
     </div>
 
-
-
-    <!-- Flash notification container required by GameState.showNotification() -->
+    <!-- Flash notification container -->
     <div id="flash-container"></div>
 
-    <script src="game.js"></script>
+    <!-- v26: the app is split into modules; order matters (classic scripts share one global scope) -->
+    <script src="js/core/sprite-engine.js"></script>
+    <script src="js/core/config.js"></script>
+    <script src="js/data/curriculum.js"></script>
+    <script src="js/core/helpers.js"></script>
+    <script src="js/core/state.js"></script>
+    <script src="js/core/screens.js"></script>
+    <script src="js/learn/learning.js"></script>
+    <script src="js/games/form-control.js"></script>
+    <script src="js/games/puzzle.js"></script>
+    <script src="js/games/performance.js"></script>
+    <script src="js/games/action.js"></script>
+    <script src="js/games/error-hunt.js"></script>
+    <script src="js/games/quiz-blast.js"></script>
+    <script src="js/games/quiz.js"></script>
+    <script src="js/ui/winner.js"></script>
+    <script src="js/ui/trophy-room.js"></script>
+    <script src="js/ui/cooldown.js"></script>
+    <script src="js/core/players.js"></script>
+    <script src="js/ui/report.js"></script>
+    <script src="js/ui/skill-menu.js"></script>
+    <script src="js/learn/warmup.js"></script>
+    <script src="js/app/main.js"></script>
+    <script src="js/ui/certificate.js"></script>
+    <script src="js/ui/effects.js"></script>
+    <script src="js/games/arena-engine.js"></script>
+    <script src="js/games/arena-games-2.js"></script>
+    <script src="js/anim/skeleton.js"></script>
+    <script src="js/anim/rig-views.js"></script>
+    <script src="js/ui/dashboard.js"></script>
+    <script src="js/lib/qr.js"></script>
+    <script src="js/social/competition.js"></script>
+    <script src="js/social/versus.js"></script>
+    <script src="js/social/profile.js"></script>
+    <script src="js/learn/curriculum-screen.js"></script>
+    <script src="js/learn/review.js"></script>
+    <script src="js/ui/journey.js"></script>
+    <script src="js/ui/tabbar.js"></script>
+    <script src="js/audio/audio.js"></script>
+    <script src="js/audio/voice-record.js"></script>
+    <script src="js/ui/read-aloud.js"></script>
+    <script src="js/ui/shop.js"></script>
+    <script src="js/ui/mission.js"></script>
+    <script>
+      // Register the service worker for offline play (kids can keep training
+      // in the gym even if the wifi/data drops).
+      // Inside the store app (Capacitor) every file is already on the device,
+      // so the service worker is not needed there.
+      const isNativeApp = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
+      if ('serviceWorker' in navigator && !isNativeApp) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js').catch((err) => {
+            console.warn('Service worker registration failed:', err);
+          });
+        });
+      }
+    </script>
 
 </body>
 

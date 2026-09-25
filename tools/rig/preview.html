@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rig preview</title>
+<style>
+  body { margin: 0; font: 14px system-ui, sans-serif; background: #1d2b36; color: #eee; }
+  header { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; padding: 10px; background: #111a22; }
+  select, button, input { font: inherit; }
+  canvas { display: block; margin: 0 auto; background: linear-gradient(#5b6f82, #3a4a5a); }
+  #strip { display: flex; gap: 4px; overflow-x: auto; padding: 8px; }
+</style>
+</head>
+<body>
+<header>
+  <b>Rig preview</b>
+  <select id="ch"><option>boy</option><option>girl</option></select>
+  <select id="anim"></select>
+  <label>speed <input id="speed" type="range" min="0.1" max="2" step="0.1" value="1"></label>
+  <label><input id="bones" type="checkbox"> bones</label>
+  <label><input id="loop" type="checkbox" checked> loop</label>
+  <span id="info"></span>
+</header>
+<canvas id="c" width="900" height="620"></canvas>
+<script src="../../js/anim/skeleton.js"></script>
+<script>
+TKDAnim.base = '../../';
+const $ = id => document.getElementById(id);
+const c = $('c'), g = c.getContext('2d');
+let rig = null, last = 0;
+async function setChar(ch) {
+  rig = await TKDAnim.character(ch);
+  if (!rig) { $('info').textContent = 'could not load'; return; }
+  const cur = $('anim').value;
+  $('anim').innerHTML = Object.keys(rig.data.animations).map(n => `<option>${n}</option>`).join('');
+  if (cur && rig.data.animations[cur]) $('anim').value = cur;
+  play();
+}
+function play() { rig.player.play($('anim').value, { loop: $('loop').checked, mix: 0.2, speed: +$('speed').value }); }
+$('ch').onchange = e => setChar(e.target.value);
+$('anim').onchange = play; $('loop').onchange = play; $('speed').oninput = () => rig && (rig.player.speed = +$('speed').value);
+rig && rig.player;
+function frame(t) {
+  const dt = last ? Math.min(0.05, (t - last) / 1000) : 0; last = t;
+  g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, c.width, c.height);
+  g.fillStyle = 'rgba(0,0,0,.25)'; g.fillRect(0, 560, c.width, 60);
+  if (rig) {
+    rig.player.update(dt);
+    const s = 520 / (rig.data.extra.ground || 1100);
+    rig.skeleton.draw(g, 450, 560, s);
+    if ($('bones').checked) {
+      rig.data.bones.forEach((b, i) => { const p = rig.skeleton.point(b.name), q = rig.skeleton.boneTip(b.name);
+        g.strokeStyle = '#ff0'; g.lineWidth = 2; g.beginPath(); g.moveTo(450 + p.x * s, 560 - p.y * s); g.lineTo(450 + q.x * s, 560 - q.y * s); g.stroke();
+        g.fillStyle = '#f0f'; g.fillRect(450 + p.x * s - 3, 560 - p.y * s - 3, 6, 6); });
+    }
+    $('info').textContent = `${rig.player.curName || ''} t=${rig.player.time.toFixed(2)}`;
+  }
+  requestAnimationFrame(frame);
+}
+setChar('boy'); requestAnimationFrame(frame);
+// bake one pose to a transparent image (used by tools/rig/bake.mjs)
+window.bakePose = async (ch, anim, time, W, H, unitsTall, ankleX, groundY, type = 'image/webp', only = null) => {
+  const r = await TKDAnim.character(ch);
+  const cv = document.createElement('canvas'); cv.width = W; cv.height = H; const x = cv.getContext('2d');
+  r.player.pose(anim, time, 0); r.player.update(0);
+  const s = unitsTall / (r.data.extra.height || r.data.extra.ground);
+  r.skeleton.draw(x, ankleX - (r.data.extra.ankleB?.[0] || 0) * s, groundY, s, false, 1, only);
+  return cv.toDataURL(type, 0.9);
+};
+window.phaseTimes = async (ch, anim) => { const r = await TKDAnim.character(ch); return r.player.phaseTimes(anim); };
+// for automated film-strips: window.strip(ch, anim, n) -> dataURLs
+window.strip = async (ch, anim, n = 8, w = 260, h = 300) => {
+  const r = await TKDAnim.character(ch); const out = [];
+  const D = r.data.animations[anim].duration;
+  const cv = document.createElement('canvas'); cv.width = w; cv.height = h; const x = cv.getContext('2d');
+  r.player.play(anim, { mix: 0 });
+  let t = 0;
+  for (let i = 0; i < n; i++) {
+    const target = D * i / (n - 1);
+    r.player.update(target - t); t = target;
+    x.setTransform(1, 0, 0, 1, 0, 0); x.fillStyle = '#5b6f82'; x.fillRect(0, 0, w, h);
+    const s = (h - 20) / (r.data.extra.ground || 1100);
+    r.skeleton.draw(x, w * 0.45, h - 10, s);
+    x.fillStyle = '#fff'; x.fillText(`${anim} ${target.toFixed(2)}s`, 4, 12);
+    out.push(cv.toDataURL());
+  }
+  return out;
+};
+</script>
+</body>
+</html>

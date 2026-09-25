@@ -1,0 +1,9 @@
+{
+  "appId": "com.example.taekwondojourney",
+  "appName": "Taekwondo Journey",
+  "webDir": "www",
+  "backgroundColor": "#0f0f1a",
+  "server": { "androidScheme": "https" },
+  "android": { "allowMixedContent": false, "captureInput": true, "webContentsDebuggingEnabled": false },
+  "ios": { "contentInset": "never", "backgroundColor": "#0f0f1a", "limitsNavigationsToAppBoundDomains": true }
+}

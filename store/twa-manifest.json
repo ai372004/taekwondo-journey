@@ -1,0 +1,23 @@
+{
+  "_comment": "Option B (Android only, lightest): wrap the hosted PWA with Bubblewrap. Replace YOUR-DOMAIN, then: npx @bubblewrap/cli init --manifest https://YOUR-DOMAIN/taekwondo-journey/manifest.json",
+  "packageId": "com.example.taekwondojourney",
+  "host": "YOUR-DOMAIN",
+  "name": "Taekwondo Journey – رحلة التايكوندو",
+  "launcherName": "Taekwondo",
+  "display": "standalone",
+  "orientation": "default",
+  "themeColor": "#ff6b35",
+  "navigationColor": "#0f0f1a",
+  "backgroundColor": "#0f0f1a",
+  "enableNotifications": false,
+  "startUrl": "/taekwondo-journey/index.html?source=twa",
+  "iconUrl": "https://YOUR-DOMAIN/taekwondo-journey/assets/icons/icon-512.png",
+  "maskableIconUrl": "https://YOUR-DOMAIN/taekwondo-journey/assets/icons/icon-maskable-512.png",
+  "webManifestUrl": "https://YOUR-DOMAIN/taekwondo-journey/manifest.json",
+  "appVersionName": "34.3.0",
+  "appVersionCode": 37,
+  "minSdkVersion": 21,
+  "signingKey": { "path": "./android.keystore", "alias": "taekwondo" },
+  "features": {},
+  "shortcuts": []
+}

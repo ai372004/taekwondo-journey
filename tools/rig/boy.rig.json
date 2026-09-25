@@ -1,0 +1,184 @@
+{
+  "name": "boy",
+  "source": "assets/images/characters/_originals/boy_char/narochagi/rise_boy.webp",
+  "facing": "right",
+  "notes": "Side view, kicking (front) leg raised. Cut lines are in source-image pixels (y down).",
+  "joints": {
+    "pelvis": [
+      312,
+      592
+    ],
+    "hipF": [
+      322,
+      578
+    ],
+    "kneeF": [
+      488,
+      392
+    ],
+    "ankleF": [
+      648,
+      206
+    ],
+    "toeF": [
+      708,
+      48
+    ],
+    "hipB": [
+      306,
+      612
+    ],
+    "kneeB": [
+      296,
+      860
+    ],
+    "ankleB": [
+      264,
+      1068
+    ],
+    "toeB": [
+      352,
+      1112
+    ],
+    "neck": [
+      230,
+      300
+    ],
+    "head": [
+      215,
+      170
+    ]
+  },
+  "cuts": {
+    "front_leg_left_edge": [
+      [
+        378,
+        250
+      ],
+      [
+        362,
+        420
+      ],
+      [
+        338,
+        445
+      ],
+      [
+        352,
+        520
+      ],
+      [
+        366,
+        640
+      ],
+      [
+        420,
+        700
+      ]
+    ],
+    "front_leg_max_y": 645,
+    "hem": [
+      [
+        100,
+        708
+      ],
+      [
+        220,
+        706
+      ],
+      [
+        262,
+        692
+      ],
+      [
+        300,
+        674
+      ],
+      [
+        340,
+        652
+      ],
+      [
+        372,
+        640
+      ],
+      [
+        420,
+        640
+      ]
+    ]
+  },
+  "widths": {
+    "thighF": 64,
+    "shinF": 60,
+    "ankleF": 28,
+    "thighB": 60,
+    "shinB": 55,
+    "ankleB": 26
+  },
+  "ground": 1128,
+  "footcutF": [
+    628,
+    236
+  ],
+  "footcutB": [
+    270,
+    1046
+  ],
+  "tubeF": 72,
+  "tubeB": 80,
+  "extras": [
+    {
+      "name": "head",
+      "parent": "body",
+      "behind": true,
+      "at": [
+        205,
+        300
+      ],
+      "tip": [
+        215,
+        120
+      ],
+      "fill": 24,
+      "poly": [
+        [
+          30,
+          0
+        ],
+        [
+          380,
+          0
+        ],
+        [
+          380,
+          288
+        ],
+        [
+          300,
+          298
+        ],
+        [
+          250,
+          310
+        ],
+        [
+          200,
+          318
+        ],
+        [
+          150,
+          318
+        ],
+        [
+          110,
+          300
+        ],
+        [
+          30,
+          292
+        ]
+      ]
+    }
+  ]
+}
