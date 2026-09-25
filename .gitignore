@@ -1,0 +1,14 @@
+.claude/
+.vscode/
+*.log
+Thumbs.db
+.DS_Store
+node_modules/
+android/
+ios/
+*.zip
+www/
+__pycache__/
+tests/audit-out/
+tests/kid-out/
+tests/perf-last.json

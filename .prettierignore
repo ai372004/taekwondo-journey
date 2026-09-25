@@ -1,0 +1,8 @@
+www/
+node_modules/
+android/
+ios/
+assets/
+store/
+*.min.js
+*.min.css

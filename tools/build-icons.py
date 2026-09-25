@@ -1,0 +1,77 @@
+#!/usr/bin/env python3
+"""Builds assets/icons/icons.css - the app's own icon set (replaces Font Awesome
+so the game needs no internet and ships in app stores without a CDN).
+
+Each icon is a small 24x24 line drawing used as a CSS mask, so it takes the
+text colour and size of wherever it sits, exactly like the old icon font:
+    <i class="fas fa-home"></i>
+To add an icon: add an entry to ICONS and run  python3 tools/build-icons.py
+"""
+import os, urllib.parse
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+S = 'fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"'
+F = 'fill="#000"'
+ICONS = {
+  'arrow-left':  f'<path {S} d="M19 12H5M11 5l-7 7 7 7"/>',
+  'arrow-up':    f'<path {S} d="M12 19V5M5 11l7-7 7 7"/>',
+  'chevron-up':  f'<path {S} d="M5 15l7-7 7 7"/>',
+  'chevron-down':f'<path {S} d="M5 9l7 7 7-7"/>',
+  'home':        f'<path {S} d="M3 11l9-8 9 8M5 9.5V21h5v-6h4v6h5V9.5"/>',
+  'volume-up':   f'<path {F} d="M3 9h4l5-5v16l-5-5H3z"/><path {S} d="M16 8.5a5 5 0 010 7M18.8 5.7a9 9 0 010 12.6"/>',
+  'volume-mute': f'<path {F} d="M3 9h4l5-5v16l-5-5H3z"/><path {S} d="M16 9l6 6M22 9l-6 6"/>',
+  'redo':        f'<path {S} d="M20 5v5h-5"/><path {S} d="M19.5 10A8 8 0 1018 17"/>',
+  'lock':        f'<rect {S} x="4.5" y="10.5" width="15" height="10.5" rx="2"/><path {S} d="M8 10.5V7a4 4 0 018 0v3.5"/>',
+  'play':        f'<path {F} d="M6 3.5v17a1 1 0 001.5.9l13-8.5a1 1 0 000-1.8l-13-8.5A1 1 0 006 3.5z"/>',
+  'pause':       f'<rect {F} x="5" y="3.5" width="5" height="17" rx="1.2"/><rect {F} x="14" y="3.5" width="5" height="17" rx="1.2"/>',
+  'play-circle': f'<circle {S} cx="12" cy="12" r="9.5"/><path {F} d="M10 8v8l6-4z"/>',
+  'forward':     f'<path {F} d="M2.5 5v14l9-7zM12.5 5v14l9-7z"/>',
+  'trophy':      f'<path {S} d="M7 4h10v5a5 5 0 01-10 0zM7 6H3.5v1.5A3.5 3.5 0 007 11M17 6h3.5v1.5A3.5 3.5 0 0117 11M12 14v4M8 21h8M9 18h6"/>',
+  'medal':       f'<path {S} d="M8 3l3 6M16 3l-3 6"/><circle {S} cx="12" cy="15" r="6"/><path {F} d="M12 12l.9 1.9 2 .2-1.5 1.4.4 2-1.8-1-1.8 1 .4-2-1.5-1.4 2-.2z"/>',
+  'certificate': f'<circle {S} cx="12" cy="9" r="6"/><path {S} d="M8.5 13.8L7 22l5-3 5 3-1.5-8.2"/><path {S} d="M9.6 9l1.6 1.6 3.2-3.2"/>',
+  'times':       f'<path {S} d="M6 6l12 12M18 6L6 18"/>',
+  'check':       f'<path {S} d="M4 12.5l5 5L20 6.5"/>',
+  'check-double':f'<path {S} d="M1.5 12.5l5 5L17 7M11 17l1 1L22.5 7"/>',
+  'check-circle':f'<circle {S} cx="12" cy="12" r="9.5"/><path {S} d="M7.5 12.5l3 3 6-6.5"/>',
+  'chart-pie':   f'<path {S} d="M12 3a9 9 0 109 9h-9z"/><path {S} d="M15 2.5A7 7 0 0121.5 9H15z"/>',
+  'chart-line':  f'<path {S} d="M3 3v18h18"/><path {S} d="M7 15l4-4 3 3 6-7"/>',
+  'users':       f'<circle {S} cx="9" cy="8" r="3.5"/><path {S} d="M2.5 20a6.5 6.5 0 0113 0"/><path {S} d="M15.5 4.8a3.5 3.5 0 010 6.4M18 14.5a6.5 6.5 0 013.5 5.5"/>',
+  'user-friends':f'<circle {S} cx="8" cy="8.5" r="3.5"/><circle {S} cx="17" cy="9.5" r="2.8"/><path {S} d="M1.5 20.5a6.5 6.5 0 0113 0M15 14.3a5 5 0 017.5 4.7"/>',
+  'user-lock':   f'<circle {S} cx="9" cy="8" r="4"/><path {S} d="M2.5 21a6.5 6.5 0 0110-5.5"/><rect {F} x="14" y="15" width="8" height="6.5" rx="1.2"/><path {S} d="M15.8 15v-1.5a2.2 2.2 0 014.4 0V15"/>',
+  'id-badge':    f'<rect {S} x="4.5" y="3" width="15" height="18" rx="2"/><circle {S} cx="12" cy="10" r="2.6"/><path {S} d="M8 17a4 4 0 018 0M10 3v2h4V3"/>',
+  'shoe-prints': f'<path {F} d="M6.5 3C4.6 3 3.5 5 3.5 7.5S4.3 12 6 12s3-1.6 3-4.4C9 5 8.4 3 6.5 3zM4.3 13.5h3.8v1.8a1.9 1.9 0 01-3.8 0zM17.5 9c-1.9 0-3 2-3 4.5s.8 4.5 2.5 4.5 3-1.6 3-4.4C20 11 19.4 9 17.5 9zM15.3 19.5h3.8v.6a1.9 1.9 0 01-3.8 0z"/>',
+  'graduation-cap': f'<path {F} d="M12 3.5L1 9l11 5.5L23 9z"/><path {S} d="M6 11.8V16c0 1.6 2.7 3 6 3s6-1.4 6-3v-4.2M21 9.5v6"/>',
+  'gamepad':     f'<path {S} d="M7 7h10a5 5 0 015 5.2l-.4 4a2.8 2.8 0 01-4.9 1.5L14.5 15h-5l-2.2 2.7a2.8 2.8 0 01-4.9-1.5L2 12.2A5 5 0 017 7z"/><path {S} d="M7.5 10v4M5.5 12h4"/><circle {F} cx="16" cy="11" r="1.2"/><circle {F} cx="18.2" cy="13.2" r="1.2"/>',
+  'download':    f'<path {S} d="M12 3v12M7 10l5 5 5-5M4 17v3h16v-3"/>',
+  'upload':      f'<path {S} d="M12 16V4M7 9l5-5 5 5M4 17v3h16v-3"/>',
+  'bars':        f'<path {S} d="M4 6h16M4 12h16M4 18h16"/>',
+  'trash':       f'<path {S} d="M3.5 6h17M9 6V3.5h6V6M6 6l1 15h10l1-15M10 10v7M14 10v7"/>',
+  'spa':         f'<path {S} d="M12 21c-4-2-6-5.5-6-10 2.6.5 4.6 1.8 6 4 1.4-2.2 3.4-3.5 6-4 0 4.5-2 8-6 10zM12 15c-1-3-1-7 0-12 1 5 1 9 0 12M12 21c-4 0-8.5-1.5-10-6 1.5-.5 3-.5 4.3 0M12 21c4 0 8.5-1.5 10-6-1.5-.5-3-.5-4.3 0"/>',
+  'question-circle': f'<circle {S} cx="12" cy="12" r="9.5"/><path {S} d="M9.2 9.2a2.9 2.9 0 015.6 1c0 2-2.8 2.5-2.8 4.3"/><circle {F} cx="12" cy="17.6" r="1.3"/>',
+  'magic':       f'<path {S} d="M4 20L15 9M13.5 7.5l3 3"/><path {F} d="M18 2l.9 2.1L21 5l-2.1.9L18 8l-.9-2.1L15 5l2.1-.9zM8 2.5l.6 1.4L10 4.5l-1.4.6L8 6.5l-.6-1.4L6 4.5l1.4-.6zM20 13l.6 1.4 1.4.6-1.4.6-.6 1.4-.6-1.4-1.4-.6 1.4-.6z"/>',
+  'lightbulb':   f'<path {S} d="M9 18h6M10 21.5h4M12 2.5a6.5 6.5 0 00-4 11.6c.8.7 1 1.4 1 2.4v1.5h6v-1.5c0-1 .2-1.7 1-2.4a6.5 6.5 0 00-4-11.6z"/>',
+  'keyboard':    f'<rect {S} x="2" y="5.5" width="20" height="13" rx="2"/><path {S} d="M6 9.5h.01M10 9.5h.01M14 9.5h.01M18 9.5h.01M6 12.5h.01M18 12.5h.01M8 15.5h8"/><path {S} d="M10 12.5h4"/>',
+  'globe':       f'<circle {S} cx="12" cy="12" r="9.5"/><path {S} d="M2.5 12h19M12 2.5c2.6 2.6 3.8 6 3.8 9.5s-1.2 6.9-3.8 9.5c-2.6-2.6-3.8-6-3.8-9.5S9.4 5.1 12 2.5z"/>',
+  'fire':        f'<path {F} d="M12 22c-4.4 0-7.5-3-7.5-7.2 0-3.4 2.1-5.6 3.9-7.6.5 1.7 1.3 3 2.6 3.7C11 7.3 12.3 4.3 14.8 2c.3 3.3 1.8 5.3 3.2 7.1 1 1.4 1.5 3 1.5 5 0 4.6-3.1 7.9-7.5 7.9zm0-2.5c1.9 0 3.2-1.3 3.2-3.2 0-1.6-1-2.8-2.3-4-.4 1.4-1.2 2.3-2.4 2.8-.9.4-1.7 1.1-1.7 2 0 1.4 1.4 2.4 3.2 2.4z" fill-rule="evenodd"/>',
+  'file-csv':    f'<path {S} d="M14 2.5H6.5A1.5 1.5 0 005 4v16a1.5 1.5 0 001.5 1.5h11A1.5 1.5 0 0019 20V7.5zM14 2.5v5h5"/><path {S} d="M8.5 12.5h7M8.5 15.5h7M8.5 18.5h7M12 12.5v6"/>',
+  'exchange-alt':f'<path {S} d="M4 8h15M15 4l4 4-4 4M20 16H5M9 12l-4 4 4 4"/>',
+  'compass':     f'<circle {S} cx="12" cy="12" r="9.5"/><path {F} d="M16.5 7.5l-2.6 6.4-6.4 2.6 2.6-6.4z"/>',
+  'bone':        f'<path {S} d="M8.5 15.5l7-7M7.3 14.3a2.5 2.5 0 10-3.4 3.4 2.5 2.5 0 102.4 2.4 2.5 2.5 0 103.4-3.4M16.7 9.7a2.5 2.5 0 103.4-3.4 2.5 2.5 0 10-2.4-2.4 2.5 2.5 0 10-3.4 3.4"/>',
+  'bolt':        f'<path {F} d="M13.5 1.5L4 13.5h6.5L9.5 22.5 20 9.5h-6.5z"/>',
+  'star':        f'<path {F} d="M12 2l3 6.3 6.9.9-5 4.8 1.2 6.9L12 17.6l-6.1 3.3 1.2-6.9-5-4.8 6.9-.9z"/>',
+  'book':        f'<path {S} d="M4 4.5A2 2 0 016 2.5h14v16H6a2 2 0 00-2 2zM4 20.5a2 2 0 002 2h14v-4"/><path {S} d="M8 7h8M8 10.5h6"/>',
+}
+
+def uri(svg):
+    doc = f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">{svg}</svg>'
+    return 'url("data:image/svg+xml,' + urllib.parse.quote(doc, safe=" =:/,.-'") .replace('"', "'") + '")'
+
+css = ['/* Generated by tools/build-icons.py - do not edit by hand. */',
+       '.fas, .fa, .fa-solid { display: inline-block; width: 1em; height: 1em; vertical-align: -0.125em; flex: none;',
+       '  background-color: currentColor; -webkit-mask: var(--i) center / contain no-repeat; mask: var(--i) center / contain no-repeat; }',
+       '.fas::before, .fa::before { content: none !important; }']
+for name, svg in ICONS.items():
+    css.append(f'.fa-{name} {{ --i: {uri(svg)}; }}')
+out = os.path.join(ROOT, 'assets', 'icons', 'icons.css')
+open(out, 'w', encoding='utf-8', newline='\n').write('\n'.join(css) + '\n')
+print(f'{out}: {len(ICONS)} icons')
