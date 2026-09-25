@@ -237,15 +237,15 @@
 const GameConfig = {
   ANIMATIONS: {
     BOY: {
-      IDLE: { frames: ['assets/images/characters/boy_char/boy_idle.png'], fps: 1, loop: true },
+      IDLE: { frames: ['boy_char/boy_idle.png'], fps: 1, loop: true },
       KICK: { frames: [
-          'assets/images/characters/boy_char/Ready Stance boy.png',
-          'assets/images/characters/boy_char/Ready Stance boy.png',
-          'assets/images/characters/boy_char/Knee Lift (Chamber Position) boy.png',
-          'assets/images/characters/boy_char/Kick Extension (Strike Moment) boy (2).png',
-          'assets/images/characters/boy_char/Kick Extension (Strike Moment) boy (2).png',
-          'assets/images/characters/boy_char/Recoil (Pull Back) boy.png',
-          'assets/images/characters/boy_char/boy_idle.png'
+          'boy_char/Ready Stance boy.png',
+          'boy_char/Ready Stance boy.png',
+          'boy_char/Knee Lift (Chamber Position) boy.png',
+          'boy_char/Kick Extension (Strike Moment) boy (2).png',
+          'boy_char/Kick Extension (Strike Moment) boy (2).png',
+          'boy_char/Recoil (Pull Back) boy.png',
+          'boy_char/boy_idle.png'
         ], fps: 8, loop: false, holdLast: 800,
         onComplete: (animator) => {
           if (animator.element) animator.element.classList.remove('is-kicking');
@@ -253,21 +253,21 @@ const GameConfig = {
         }
       },
       WIN: { frames: [
-          'assets/images/characters/boy_char/boy_win_1.png',
-          'assets/images/characters/boy_char/boy_win_2.png',
-          'assets/images/characters/boy_char/boy_win_1.png',
-          'assets/images/characters/boy_char/boy_win_2.png'
+          'boy_char/boy_win_1.png',
+          'boy_char/boy_win_2.png',
+          'boy_char/boy_win_1.png',
+          'boy_char/boy_win_2.png'
         ], fps: 4, loop: true }
     },
     GIRL: {
-      IDLE: { frames: ['assets/images/characters/girl_char/girl_idle.png'], fps: 1, loop: true },
+      IDLE: { frames: ['girl_char/girl_idle.png'], fps: 1, loop: true },
       KICK: { frames: [
-          'assets/images/characters/girl_char/Ready Stance_girl.png',
-          'assets/images/characters/girl_char/Ready Stance_girl.png',
-          'assets/images/characters/girl_char/Knee Lift (Chamber Position)_girl.png',
-          'assets/images/characters/girl_char/Kick Extension (Strike Moment)_girl.png',
-          'assets/images/characters/girl_char/Kick Extension (Strike Moment)_girl.png',
-          'assets/images/characters/girl_char/girl_idle.png'
+          'girl_char/Ready Stance_girl.png',
+          'girl_char/Ready Stance_girl.png',
+          'girl_char/Knee Lift (Chamber Position)_girl.png',
+          'girl_char/Kick Extension (Strike Moment)_girl.png',
+          'girl_char/Kick Extension (Strike Moment)_girl.png',
+          'girl_char/girl_idle.png'
         ], fps: 8, loop: false, holdLast: 800,
         onComplete: (animator) => {
           if (animator.element) animator.element.classList.remove('is-kicking');
@@ -275,21 +275,21 @@ const GameConfig = {
         }
       },
       WIN: { frames: [
-          'assets/images/characters/girl_char/girl_win_1.png',
-          'assets/images/characters/girl_char/girl_win_1.png'
+          'girl_char/girl_win_1.png',
+          'girl_char/girl_win_1.png'
         ], fps: 3, loop: true }
     },
     COACH: {
-      IDLE: { frames: ['assets/images/characters/coach_yang/coach_idle.png'], fps: 1, loop: true },
+      IDLE: { frames: ['coach_yang/coach_idle.png'], fps: 1, loop: true },
       DEMO: { frames: [
-          'assets/images/characters/coach_yang/Ready Stance (Junbi)_coach.png',
-          'assets/images/characters/coach_yang/Ready Stance (Junbi)_coach.png',
-          'assets/images/characters/coach_yang/Knee Lift (Chamber Position)_coach.png',
-          'assets/images/characters/coach_yang/Kick Extension (Strike Moment)_coach.png',
-          'assets/images/characters/coach_yang/Kick Extension (Strike Moment)_coach.png',
-          'assets/images/characters/coach_yang/Recoil (Pull Back)_coach.png',
-          'assets/images/characters/coach_yang/Return to Stance_coach.png',
-          'assets/images/characters/coach_yang/Return to Stance_coach.png'
+          'coach_yang/Ready Stance (Junbi)_coach.png',
+          'coach_yang/Ready Stance (Junbi)_coach.png',
+          'coach_yang/Knee Lift (Chamber Position)_coach.png',
+          'coach_yang/Kick Extension (Strike Moment)_coach.png',
+          'coach_yang/Kick Extension (Strike Moment)_coach.png',
+          'coach_yang/Recoil (Pull Back)_coach.png',
+          'coach_yang/Return to Stance_coach.png',
+          'coach_yang/Return to Stance_coach.png'
         ], fps: 6, loop: false,
         onComplete: (animator) => { animator.play('IDLE'); }
       }
@@ -297,12 +297,12 @@ const GameConfig = {
   },
 
   BACKGROUNDS: {
-    HOME: 'assets/images/backgrounds/main_menu_bg.jpg',
-    DOJO: 'assets/images/backgrounds/dojo_interior_bg.jpg'
+    HOME: 'backgrounds/main_menu_bg.jpg',
+    DOJO: 'backgrounds/dojo_interior_bg.jpg'
   },
 
   VIDEOS: {
-    AP_CHAGI_TUTORIAL: 'assets/videos/apchagi-tutorial.mp4'
+    AP_CHAGI_TUTORIAL: 'videos/apchagi-tutorial.mp4'
   },
 
   SKILLS: {
@@ -791,11 +791,13 @@ class GameState {
   }
 
   completeGame(gameId) {
-    if (!this.completedGames.has(gameId)) {
+    const skillProgress = this.skillProgress[this.currentSkill];
+    const alreadyDoneForSkill = skillProgress ? skillProgress.has(gameId) : this.completedGames.has(gameId);
+    if (!alreadyDoneForSkill) {
       this.completedGames.add(gameId);
-      if (this.skillProgress[this.currentSkill]) {
-        this.skillProgress[this.currentSkill].add(gameId);
-        if (this.skillProgress[this.currentSkill].size >= GameConfig.SETTINGS.GAMES_REQUIRED_PER_SKILL) {
+      if (skillProgress) {
+        skillProgress.add(gameId);
+        if (skillProgress.size >= GameConfig.SETTINGS.GAMES_REQUIRED_PER_SKILL) {
           this.completeSkill(this.currentSkill);
         }
       }
@@ -963,8 +965,8 @@ class LearningSystem {
       {
         num: 1,
         title:   ar ? '1️⃣ وضعية الاستعداد (جونبي)' : '1️⃣ Ready Stance (Junbi)',
-        image:   b  ? 'assets/images/characters/boy_char/Ready Stance boy.png'
-                    : 'assets/images/characters/girl_char/Ready Stance_girl.png',
+        image:   b  ? 'boy_char/Ready Stance boy.png'
+                    : 'girl_char/Ready Stance_girl.png',
         focus:   ar ? '👀 ركّز على: قدماك على بُعد عرض كتفيك — جسمك مستقيم'
                     : '👀 Focus: Feet shoulder-width apart — body straight',
         tips: ar
@@ -975,8 +977,8 @@ class LearningSystem {
       {
         num: 2,
         title:   ar ? '2️⃣ رفع الركبة (التجهيز)' : '2️⃣ Knee Lift (Chamber)',
-        image:   b  ? 'assets/images/characters/boy_char/Knee Lift (Chamber Position) boy.png'
-                    : 'assets/images/characters/girl_char/Knee Lift (Chamber Position)_girl.png',
+        image:   b  ? 'boy_char/Knee Lift (Chamber Position) boy.png'
+                    : 'girl_char/Knee Lift (Chamber Position)_girl.png',
         focus:   ar ? '👀 ركّز على: الركبة ترتفع لمستوى الصدر بقوة وسرعة'
                     : '👀 Focus: Drive the knee up to chest height powerfully',
         tips: ar
@@ -987,8 +989,8 @@ class LearningSystem {
       {
         num: 3,
         title:   ar ? '3️⃣ تمديد الركلة (الضربة)' : '3️⃣ Kick Extension (Strike)',
-        image:   b  ? 'assets/images/characters/boy_char/Kick Extension (Strike Moment) boy (2).png'
-                    : 'assets/images/characters/girl_char/Kick Extension (Strike Moment)_girl.png',
+        image:   b  ? 'boy_char/Kick Extension (Strike Moment) boy (2).png'
+                    : 'girl_char/Kick Extension (Strike Moment)_girl.png',
         focus:   ar ? '👀 ركّز على: مد الرجل بالكامل — اضرب بكرة القدم'
                     : '👀 Focus: Fully extend the leg — strike with the ball of your foot',
         tips: ar
@@ -999,8 +1001,8 @@ class LearningSystem {
       {
         num: 4,
         title:   ar ? '4️⃣ سحب الرجل (الارتداد)' : '4️⃣ Recoil (Pull Back)',
-        image:   b  ? 'assets/images/characters/boy_char/Recoil (Pull Back) boy.png'
-                    : 'assets/images/characters/girl_char/Knee Lift (Chamber Position)_girl.png',
+        image:   b  ? 'boy_char/Recoil (Pull Back) boy.png'
+                    : 'girl_char/Knee Lift (Chamber Position)_girl.png',
         focus:   ar ? '👀 ركّز على: اسحب الرجل للخلف بسرعة بعد الضربة'
                     : '👀 Focus: Snap the leg back immediately after the strike',
         tips: ar
@@ -1011,8 +1013,8 @@ class LearningSystem {
       {
         num: 5,
         title:   ar ? '5️⃣ العودة للوضعية' : '5️⃣ Return to Stance',
-        image:   b  ? 'assets/images/characters/boy_char/boy_idle.png'
-                    : 'assets/images/characters/girl_char/girl_idle.png',
+        image:   b  ? 'boy_char/boy_idle.png'
+                    : 'girl_char/girl_idle.png',
         focus:   ar ? '👀 ركّز على: أعد قدمك للأرض بهدوء وحافظ على توازنك'
                     : '👀 Focus: Step down smoothly and regain your ready stance',
         tips: ar
@@ -1252,8 +1254,7 @@ class LearningSystem {
   // Called after user reads all 5 phase cards — unlocks games without needing video
   static unlockGamesFromPhases() {
     if (!this.gameState) return;
-    if (this.gameState.completedGames.has('learning')) return; // already unlocked
-    this.gameState.completedGames.add('learning');
+    if (this.gameState.learningProgress >= 80) return; // already unlocked
     this.gameState.learningProgress = 80;
     this.gameState.saveToStorage();
     this.gameState.updateHomeProgress();
@@ -1272,17 +1273,17 @@ class LearningSystem {
 class FormControlSystem {
   static kickFrames = {
     boy: {
-      ready:    'assets/images/characters/boy_char/Ready Stance boy.png',
-      chamber:  'assets/images/characters/boy_char/Knee Lift (Chamber Position) boy.png',
-      extension:'assets/images/characters/boy_char/Kick Extension (Strike Moment) boy (2).png',
-      recoil:   'assets/images/characters/boy_char/Recoil (Pull Back) boy.png',
-      return:   'assets/images/characters/boy_char/boy_idle.png'
+      ready:    'boy_char/Ready Stance boy.png',
+      chamber:  'boy_char/Knee Lift (Chamber Position) boy.png',
+      extension:'boy_char/Kick Extension (Strike Moment) boy (2).png',
+      recoil:   'boy_char/Recoil (Pull Back) boy.png',
+      return:   'boy_char/boy_idle.png'
     },
     girl: {
-      ready:    'assets/images/characters/girl_char/Ready Stance_girl.png',
-      chamber:  'assets/images/characters/girl_char/Knee Lift (Chamber Position)_girl.png',
-      extension:'assets/images/characters/girl_char/Kick Extension (Strike Moment)_girl.png',
-      return:   'assets/images/characters/girl_char/girl_idle.png'
+      ready:    'girl_char/Ready Stance_girl.png',
+      chamber:  'girl_char/Knee Lift (Chamber Position)_girl.png',
+      extension:'girl_char/Kick Extension (Strike Moment)_girl.png',
+      return:   'girl_char/girl_idle.png'
     }
   };
 
@@ -1401,12 +1402,12 @@ class FormControlSystem {
         <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
           <label class="char-radio-label">
             <input type="radio" name="form-character" value="boy" ${this.selectedCharacter==='boy'?'checked':''}>
-            <div class="char-radio-thumb" style="background-image:url('assets/images/characters/boy_char/boy_idle.png')"></div>
+            <div class="char-radio-thumb" style="background-image:url('boy_char/boy_idle.png')"></div>
             <span>${ar ? 'الصبي' : 'Boy'}</span>
           </label>
           <label class="char-radio-label">
             <input type="radio" name="form-character" value="girl" ${this.selectedCharacter==='girl'?'checked':''}>
-            <div class="char-radio-thumb" style="background-image:url('assets/images/characters/girl_char/girl_idle.png')"></div>
+            <div class="char-radio-thumb" style="background-image:url('girl_char/girl_idle.png')"></div>
             <span>${ar ? 'الفتاة' : 'Girl'}</span>
           </label>
         </div>
@@ -1428,8 +1429,8 @@ class FormControlSystem {
     const b = this.selectedCharacter === 'boy';
     const refEl  = document.getElementById('reference-character');
     const charEl = document.getElementById('form-character');
-    if (refEl)  refEl.style.backgroundImage  = `url('${(b ? 'assets/images/characters/boy_char/Kick Extension (Strike Moment) boy (2).png' : 'assets/images/characters/girl_char/Kick Extension (Strike Moment)_girl.png').replace(/ /g,'%20')}')`;
-    if (charEl) charEl.style.backgroundImage = `url('${(b ? 'assets/images/characters/boy_char/Ready Stance boy.png' : 'assets/images/characters/girl_char/Ready Stance_girl.png').replace(/ /g,'%20')}')`;
+    if (refEl)  refEl.style.backgroundImage  = `url('${(b ? 'boy_char/Kick Extension (Strike Moment) boy (2).png' : 'girl_char/Kick Extension (Strike Moment)_girl.png').replace(/ /g,'%20')}')`;
+    if (charEl) charEl.style.backgroundImage = `url('${(b ? 'boy_char/Ready Stance boy.png' : 'girl_char/Ready Stance_girl.png').replace(/ /g,'%20')}')`;
   }
 
   static createTargetZones() {
@@ -1809,36 +1810,36 @@ class PuzzleSystem {
     const b = isBoy;
     return {
       step1: {
-        image:   b ? 'assets/images/characters/boy_char/Ready Stance boy.png'
-                   : 'assets/images/characters/girl_char/Ready Stance_girl.png',
+        image:   b ? 'boy_char/Ready Stance boy.png'
+                   : 'girl_char/Ready Stance_girl.png',
         label:   ar ? 'وضعية الاستعداد' : 'Ready Stance',
         desc:    ar ? '🥋 قف بثبات، قدماك على بُعد الكتفين، يديك أمام الصدر للحماية.'
                     : '🥋 Stand firm, feet shoulder-width apart, hands up to guard your chest.'
       },
       step2: {
-        image:   b ? 'assets/images/characters/boy_char/Knee Lift (Chamber Position) boy.png'
-                   : 'assets/images/characters/girl_char/Knee Lift (Chamber Position)_girl.png',
+        image:   b ? 'boy_char/Knee Lift (Chamber Position) boy.png'
+                   : 'girl_char/Knee Lift (Chamber Position)_girl.png',
         label:   ar ? 'رفع الركبة' : 'Knee Lift',
         desc:    ar ? '⬆️ ارفع ركبة الرجل الضاربة بقوة حتى مستوى الصدر — هذا يولّد الطاقة للركلة.'
                     : '⬆️ Drive your kicking knee up powerfully to chest height — this generates kick power.'
       },
       step3: {
-        image:   b ? 'assets/images/characters/boy_char/Kick Extension (Strike Moment) boy (2).png'
-                   : 'assets/images/characters/girl_char/Kick Extension (Strike Moment)_girl.png',
+        image:   b ? 'boy_char/Kick Extension (Strike Moment) boy (2).png'
+                   : 'girl_char/Kick Extension (Strike Moment)_girl.png',
         label:   ar ? 'التمديد الكامل' : 'Full Extension',
         desc:    ar ? '💥 مد رجلك بالكامل للأمام واضرب بكرة القدم — الرجل مستقيمة تماماً!'
                     : '💥 Fully extend your leg forward and strike with the ball of the foot — leg fully straight!'
       },
       step4: {
-        image:   b ? 'assets/images/characters/boy_char/Recoil (Pull Back) boy.png'
-                   : 'assets/images/characters/girl_char/Knee Lift (Chamber Position)_girl.png',
+        image:   b ? 'boy_char/Recoil (Pull Back) boy.png'
+                   : 'girl_char/Knee Lift (Chamber Position)_girl.png',
         label:   ar ? 'سحب الرجل' : 'Leg Retract',
         desc:    ar ? '↩️ اسحب ركبتك للخلف بسرعة بعد الضربة مباشرة — يحمي من الإمساك بقدمك.'
                     : '↩️ Snap your knee back immediately after the strike — prevents leg grabs.'
       },
       step5: {
-        image:   b ? 'assets/images/characters/boy_char/boy_idle.png'
-                   : 'assets/images/characters/girl_char/girl_idle.png',
+        image:   b ? 'boy_char/boy_idle.png'
+                   : 'girl_char/girl_idle.png',
         label:   ar ? 'العودة للوضعية' : 'Return to Stance',
         desc:    ar ? '🔄 أعد قدمك للأرض بهدوء وعد فوراً لوضعية الاستعداد — جاهز للضربة القادمة!'
                     : '🔄 Step down smoothly and return to ready stance immediately — ready for the next move!'
@@ -2107,20 +2108,20 @@ class PerformanceSystem {
         cards: [
           {
             correct: true,
-            image: b ? 'assets/images/characters/boy_char/Kick Extension (Strike Moment) boy (2).png'
-                     : 'assets/images/characters/girl_char/Kick Extension (Strike Moment)_girl.png',
+            image: b ? 'boy_char/Kick Extension (Strike Moment) boy (2).png'
+                     : 'girl_char/Kick Extension (Strike Moment)_girl.png',
             label: ar ? 'الصورة أ' : 'Image A'
           },
           {
             correct: false,
-            image: b ? 'assets/images/characters/boy_char/Knee Lift (Chamber Position) boy.png'
-                     : 'assets/images/characters/girl_char/Knee Lift (Chamber Position)_girl.png',
+            image: b ? 'boy_char/Knee Lift (Chamber Position) boy.png'
+                     : 'girl_char/Knee Lift (Chamber Position)_girl.png',
             label: ar ? 'الصورة ب' : 'Image B'
           },
           {
             correct: false,
-            image: b ? 'assets/images/characters/boy_char/Ready Stance boy.png'
-                     : 'assets/images/characters/girl_char/Ready Stance_girl.png',
+            image: b ? 'boy_char/Ready Stance boy.png'
+                     : 'girl_char/Ready Stance_girl.png',
             label: ar ? 'الصورة ج' : 'Image C'
           }
         ],
@@ -2135,20 +2136,20 @@ class PerformanceSystem {
         cards: [
           {
             correct: false,
-            image: b ? 'assets/images/characters/boy_char/Kick Extension (Strike Moment) boy (2).png'
-                     : 'assets/images/characters/girl_char/Kick Extension (Strike Moment)_girl.png',
+            image: b ? 'boy_char/Kick Extension (Strike Moment) boy (2).png'
+                     : 'girl_char/Kick Extension (Strike Moment)_girl.png',
             label: ar ? 'الصورة أ' : 'Image A'
           },
           {
             correct: true,
-            image: b ? 'assets/images/characters/boy_char/Knee Lift (Chamber Position) boy.png'
-                     : 'assets/images/characters/girl_char/Knee Lift (Chamber Position)_girl.png',
+            image: b ? 'boy_char/Knee Lift (Chamber Position) boy.png'
+                     : 'girl_char/Knee Lift (Chamber Position)_girl.png',
             label: ar ? 'الصورة ب' : 'Image B'
           },
           {
             correct: false,
-            image: b ? 'assets/images/characters/boy_char/boy_idle.png'
-                     : 'assets/images/characters/girl_char/girl_idle.png',
+            image: b ? 'boy_char/boy_idle.png'
+                     : 'girl_char/girl_idle.png',
             label: ar ? 'الصورة ج' : 'Image C'
           }
         ],
@@ -2163,20 +2164,20 @@ class PerformanceSystem {
         cards: [
           {
             correct: false,
-            image: b ? 'assets/images/characters/boy_char/Knee Lift (Chamber Position) boy.png'
-                     : 'assets/images/characters/girl_char/Knee Lift (Chamber Position)_girl.png',
+            image: b ? 'boy_char/Knee Lift (Chamber Position) boy.png'
+                     : 'girl_char/Knee Lift (Chamber Position)_girl.png',
             label: ar ? 'الصورة أ' : 'Image A'
           },
           {
             correct: false,
-            image: b ? 'assets/images/characters/boy_char/Recoil (Pull Back) boy.png'
-                     : 'assets/images/characters/girl_char/Kick Extension (Strike Moment)_girl.png',
+            image: b ? 'boy_char/Recoil (Pull Back) boy.png'
+                     : 'girl_char/Kick Extension (Strike Moment)_girl.png',
             label: ar ? 'الصورة ب' : 'Image B'
           },
           {
             correct: true,
-            image: b ? 'assets/images/characters/boy_char/Ready Stance boy.png'
-                     : 'assets/images/characters/girl_char/Ready Stance_girl.png',
+            image: b ? 'boy_char/Ready Stance boy.png'
+                     : 'girl_char/Ready Stance_girl.png',
             label: ar ? 'الصورة ج' : 'Image C'
           }
         ],
@@ -2191,20 +2192,20 @@ class PerformanceSystem {
         cards: [
           {
             correct: true,
-            image: b ? 'assets/images/characters/boy_char/Recoil (Pull Back) boy.png'
-                     : 'assets/images/characters/girl_char/Knee Lift (Chamber Position)_girl.png',
+            image: b ? 'boy_char/Recoil (Pull Back) boy.png'
+                     : 'girl_char/Knee Lift (Chamber Position)_girl.png',
             label: ar ? 'الصورة أ' : 'Image A'
           },
           {
             correct: false,
-            image: b ? 'assets/images/characters/boy_char/Kick Extension (Strike Moment) boy (2).png'
-                     : 'assets/images/characters/girl_char/Kick Extension (Strike Moment)_girl.png',
+            image: b ? 'boy_char/Kick Extension (Strike Moment) boy (2).png'
+                     : 'girl_char/Kick Extension (Strike Moment)_girl.png',
             label: ar ? 'الصورة ب' : 'Image B'
           },
           {
             correct: false,
-            image: b ? 'assets/images/characters/boy_char/Ready Stance boy.png'
-                     : 'assets/images/characters/girl_char/Ready Stance_girl.png',
+            image: b ? 'boy_char/Ready Stance boy.png'
+                     : 'girl_char/Ready Stance_girl.png',
             label: ar ? 'الصورة ج' : 'Image C'
           }
         ],
@@ -2515,7 +2516,7 @@ class PerformanceSystem {
         ? `⚠️ أجبت صح على ${this.correctCount} من ${this.totalRounds} (${accuracy}%). حاول مرة أخرى!`
         : `⚠️ ${this.correctCount}/${this.totalRounds} correct (${accuracy}%). Try again!`;
       this.gameState.showNotification(msg, 'error');
-      this.gameState.trackFailure();
+      if (this.gameState.trackFailure()) return;
       setTimeout(() => this.initialize(this.gameState), 2000);
     }
   }
@@ -2533,7 +2534,7 @@ class QuizSystem {
       options: ['Ap Chagi', 'Dolyo Chagi', 'Yeop Chagi', 'Dwi Chagi'],
       optionsAr: ['آب تشاجي', 'دوليو تشاجي', 'يوب تشاجي', 'دوي تشاجي'],
       correctText: 'Ap Chagi',
-      image: 'assets/images/characters/boy_char/Kick Extension (Strike Moment) boy (2).png',
+      image: 'boy_char/Kick Extension (Strike Moment) boy (2).png',
       explanation: 'Ap Chagi (앞차기) literally means "front kick" in Korean.',
       explanationAr: 'آب تشاجي تعني "الركلة الأمامية" باللغة الكورية.'
     },
@@ -2543,7 +2544,7 @@ class QuizSystem {
       options: ['Toes', 'Heel', 'Ball of foot', 'Side of foot'],
       optionsAr: ['أصابع القدم', 'الكعب', 'كرة القدم (الجزء الأمامي)', 'جانب القدم'],
       correctText: 'Ball of foot',
-      image: 'assets/images/characters/girl_char/Kick Extension (Strike Moment)_girl.png',
+      image: 'girl_char/Kick Extension (Strike Moment)_girl.png',
       explanation: 'The ball of the foot is the striking surface for Ap Chagi.',
       explanationAr: 'الجزء الأمامي من باطن القدم هو نقطة الاتصال في الآب تشاجي.'
     },
@@ -2553,7 +2554,7 @@ class QuizSystem {
       options: ['Kick extension', 'Knee lift', 'Ready stance', 'Recoil'],
       optionsAr: ['مد الرجل', 'رفع الركبة', 'وضعية الاستعداد', 'السحب'],
       correctText: 'Ready stance',
-      image: 'assets/images/characters/girl_char/Ready Stance_girl.png',
+      image: 'girl_char/Ready Stance_girl.png',
       explanation: 'The ready stance (Junbi) is always the first step.',
       explanationAr: 'وضعية الاستعداد (جونبي) هي دائماً الخطوة الأولى.'
     },
@@ -2563,7 +2564,7 @@ class QuizSystem {
       options: ['3', '4', '5', '6'],
       optionsAr: ['3', '4', '5', '6'],
       correctText: '5',
-      image: 'assets/images/characters/boy_char/Knee Lift (Chamber Position) boy.png',
+      image: 'boy_char/Knee Lift (Chamber Position) boy.png',
       explanation: 'Ap Chagi has 5 phases: Ready Stance → Knee Lift → Extension → Recoil → Return.',
       explanationAr: 'الآب تشاجي لها 5 مراحل: الاستعداد ← رفع الركبة ← التمديد ← السحب ← العودة.'
     },
@@ -2573,7 +2574,7 @@ class QuizSystem {
       options: ['Attack', 'Ready', 'Stop', 'Kick'],
       optionsAr: ['هجوم', 'استعداد', 'توقف', 'ركلة'],
       correctText: 'Ready',
-      image: 'assets/images/characters/boy_char/Ready Stance boy.png',
+      image: 'boy_char/Ready Stance boy.png',
       explanation: 'Junbi (준비) means "ready" — the preparation position.',
       explanationAr: 'جونبي تعني "استعداد" — وضعية التحضير.'
     },
@@ -2583,7 +2584,7 @@ class QuizSystem {
       options: ['Return to stance', 'Ready stance', 'Kick extension', 'Recoil'],
       optionsAr: ['العودة للوضعية', 'الاستعداد', 'مد الرجل', 'السحب'],
       correctText: 'Kick extension',
-      image: 'assets/images/characters/boy_char/Kick Extension (Strike Moment) boy (2).png',
+      image: 'boy_char/Kick Extension (Strike Moment) boy (2).png',
       explanation: 'After the knee lift (chamber), you extend the leg forward to strike.',
       explanationAr: 'بعد رفع الركبة تمد الرجل للأمام للضرب.'
     },
@@ -2593,7 +2594,7 @@ class QuizSystem {
       options: ['To score more points', 'To maintain balance and guard', 'To kick faster', 'To look better'],
       optionsAr: ['لتسجيل نقاط أكثر', 'للحفاظ على التوازن والحراسة', 'للركل بشكل أسرع', 'لمظهر أفضل'],
       correctText: 'To maintain balance and guard',
-      image: 'assets/images/characters/boy_char/Recoil (Pull Back) boy.png',
+      image: 'boy_char/Recoil (Pull Back) boy.png',
       explanation: 'Pulling the leg back quickly restores balance and protects against counter-attacks.',
       explanationAr: 'سحب الرجل للخلف بسرعة يعيد التوازن ويحمي من الهجمات المضادة.'
     },
@@ -2603,7 +2604,7 @@ class QuizSystem {
       options: ['Black', 'Red', 'Blue', 'White'],
       optionsAr: ['أسود', 'أحمر', 'أزرق', 'أبيض'],
       correctText: 'White',
-      image: 'assets/images/characters/girl_char/girl_idle.png',
+      image: 'girl_char/girl_idle.png',
       explanation: 'White belt represents the beginning of the Taekwondo journey.',
       explanationAr: 'الحزام الأبيض يمثل بداية رحلة التايكوندو.'
     },
@@ -2613,7 +2614,7 @@ class QuizSystem {
       options: ['Hip height', 'Chest height', 'Head height', 'Knee height'],
       optionsAr: ['مستوى الورك', 'مستوى الصدر', 'مستوى الرأس', 'مستوى الركبة'],
       correctText: 'Chest height',
-      image: 'assets/images/characters/girl_char/Knee Lift (Chamber Position)_girl.png',
+      image: 'girl_char/Knee Lift (Chamber Position)_girl.png',
       explanation: 'The knee should lift to chest height to generate maximum kick power.',
       explanationAr: 'يجب أن ترتفع الركبة لمستوى الصدر لتوليد أقصى قوة للركلة.'
     },
@@ -2623,7 +2624,7 @@ class QuizSystem {
       options: ['Block', 'Punch', 'Kick', 'Stance'],
       optionsAr: ['حجب', 'لكمة', 'ركلة', 'وضعية'],
       correctText: 'Kick',
-      image: 'assets/images/characters/boy_char/Kick Extension (Strike Moment) boy (2).png',
+      image: 'boy_char/Kick Extension (Strike Moment) boy (2).png',
       explanation: 'Chagi (차기) means "kick" in Korean — used in all kick names.',
       explanationAr: 'تشاجي تعني "ركلة" بالكورية وتُستخدم في أسماء جميع الركلات.'
     }
@@ -3499,8 +3500,8 @@ class WarmupSystem {
       const isBoy = this.gameState.playerCharacter === 'boy';
       completeChar.style.backgroundImage = `url('${(
         isBoy
-          ? 'assets/images/characters/boy_char/boy_idle.png'
-          : 'assets/images/characters/girl_char/girl_idle.png'
+          ? 'boy_char/boy_idle.png'
+          : 'girl_char/girl_idle.png'
         ).replace(/ /g,'%20')}')`;
       completeChar.classList.add('wu-complete-bounce');
     }
