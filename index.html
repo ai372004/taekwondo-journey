@@ -5,6 +5,18 @@
   <meta charset="UTF-8" />
   <meta name="description" content="Learn Taekwondo Ap Chagi through interactive games.">
   <meta name="theme-color" content="#ff6b35">
+  <!-- Share preview: the link is public (GitHub Pages), so a chat/social
+       card needs its own tags — the plain <title>/description above don't
+       drive those. Reuses an existing store screenshot; no new art. -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="🥋 Taekwondo Journey - Educational Taekwondo Game">
+  <meta property="og:description" content="Learn real taekwondo kicks, belts and poomsae with games, a weekly league and challenges with friends. Arabic & English, works offline, no ads.">
+  <meta property="og:image" content="https://ai372004.github.io/taekwondo-journey/assets/store/tablet-en-home.jpg">
+  <meta property="og:url" content="https://ai372004.github.io/taekwondo-journey/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="🥋 Taekwondo Journey - Educational Taekwondo Game">
+  <meta name="twitter:description" content="Learn real taekwondo kicks, belts and poomsae with games, a weekly league and challenges with friends. Arabic & English, works offline, no ads.">
+  <meta name="twitter:image" content="https://ai372004.github.io/taekwondo-journey/assets/store/tablet-en-home.jpg">
   <!-- No favicon file was included, so browser tabs, bookmarks and the
        history list all showed a blank/default page icon. An inline emoji
        SVG needs no extra asset file or network request. -->
@@ -1391,6 +1403,7 @@
     </div>
 
     <!-- v26: the app is split into modules; order matters (classic scripts share one global scope) -->
+    <script src="js/core/error-log.js"></script>
     <script src="js/core/sprite-engine.js"></script>
     <script src="js/core/config.js"></script>
     <script src="js/data/curriculum.js"></script>

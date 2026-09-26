@@ -152,6 +152,41 @@ test('unit: progress rebuilt from a player\'s own attempts', async () => {
   await close();
 });
 
+test('unit: skill overall progress = avg(learning, games-avg, quiz)', async () => {
+  const { page, close } = await open();
+  const r = await page.evaluate(() => {
+    const gs = new GameState();
+    gs.skillGameScores.apchagi = { learning: 100, formControl: 80, puzzle: 60, performance: 100, action: 80, quiz: 90 };
+    return gs.calculateSkillOverallProgress('apchagi');
+  });
+  eq(r, 90, 'overall progress'); // learning 100, gamesAvg (80+60+100+80)/4=80, quiz 90 -> (100+80+90)/3
+  await close();
+});
+
+test('unit: allGamesDone requires all four required games attempted', async () => {
+  const { page, close } = await open();
+  const r = await page.evaluate(() => [
+    GameState.allGamesDone({ formControl: 10, puzzle: 10, performance: 10, action: 10 }),
+    GameState.allGamesDone({ formControl: 10, puzzle: 10, performance: 10 }),
+    GameState.allGamesDone({}),
+  ]);
+  eq(r, [true, false, false], 'allGamesDone');
+  await close();
+});
+
+test('unit: dashboard masteryFor matches SKILL_ORDER shape and stays in range', async () => {
+  const { page, close } = await open();
+  const r = await page.evaluate(() => {
+    const rows = DashboardSystem.masteryFor('p1');
+    const okShape = rows.length === GameConfig.SKILL_ORDER.length && rows.every(row => row.sk && typeof row.overall === 'number');
+    const okRange = rows.every(row => [row.overall, row.learning, row.gamesAvg, row.quiz].every(v => v >= 0 && v <= 100));
+    const overallMatchesFormula = rows.every(row => row.overall === Math.round((row.learning + row.gamesAvg + row.quiz) / 3));
+    return { okShape, okRange, overallMatchesFormula };
+  });
+  assert(r.okShape && r.okRange && r.overallMatchesFormula, 'masteryFor shape/range/formula');
+  await close();
+});
+
 // ================================================================== FLOWS
 test('flow: first visit on an Arabic phone → start screen in Arabic → new player → home hub', async () => {
   const { page, errors, close } = await open({ seed: false, locale: 'ar-EG', viewport: { width: 390, height: 844 } });
