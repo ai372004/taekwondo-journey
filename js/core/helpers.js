@@ -40,6 +40,22 @@ function setBgWithFallback(el, url, color) {
   scanAndVerifyImages(el);
 }
 
+// Lesson/warm-up videos are lazy (preload="metadata", fetched only when the
+// player reaches that screen — see sw.js's precacheVideos()). On slow gym
+// wifi that left a blank frozen player with nothing telling a kid whether
+// it was still loading or broken. This puts a spinner over the video's
+// parent while it isn't ready to play yet.
+function watchVideoLoading(video) {
+  if (!video || video.dataset.loadingWatched) return;
+  video.dataset.loadingWatched = '1';
+  const wrap = video.parentElement;
+  if (!wrap) return;
+  wrap.classList.add('tkd-video-wrap');
+  const mark = () => wrap.classList.toggle('tkd-video-loading', video.readyState < 3 && !video.error);
+  ['loadstart', 'waiting', 'canplay', 'playing', 'error', 'emptied'].forEach(ev => video.addEventListener(ev, mark));
+  mark();
+}
+
 // =====================================================================
 // SPEECH / AUDIO DICTIONARY — uses the browser's built-in Web Speech API
 // (no audio files needed) to (a) pronounce Korean Taekwondo terms and

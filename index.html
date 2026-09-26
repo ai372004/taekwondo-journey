@@ -1384,6 +1384,11 @@
 
     <!-- Flash notification container -->
     <div id="flash-container"></div>
+    <div id="sw-update-banner" class="sw-update-banner hidden" role="status">
+      <span id="sw-update-text">A new version is ready!</span>
+      <button type="button" id="sw-update-refresh" class="btn btn-small">Refresh</button>
+      <button type="button" id="sw-update-dismiss" class="sw-update-dismiss" aria-label="Dismiss">✕</button>
+    </div>
 
     <!-- v26: the app is split into modules; order matters (classic scripts share one global scope) -->
     <script src="js/core/sprite-engine.js"></script>
@@ -1436,11 +1441,40 @@
       const isNativeApp = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
       if ('serviceWorker' in navigator && !isNativeApp) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('sw.js').catch((err) => {
+          navigator.serviceWorker.register('sw.js').then((reg) => {
+            // A worker installing while we already have a controller means
+            // this is an UPDATE (not the first-ever install) — tell the
+            // player instead of silently swapping assets under them.
+            const notifyIfUpdate = (worker) => {
+              if (!navigator.serviceWorker.controller) return;
+              worker.addEventListener('statechange', () => {
+                if (worker.state === 'installed') showUpdateBanner();
+              });
+            };
+            if (reg.installing) notifyIfUpdate(reg.installing);
+            reg.addEventListener('updatefound', () => { if (reg.installing) notifyIfUpdate(reg.installing); });
+          }).catch((err) => {
             console.warn('Service worker registration failed:', err);
           });
         });
       }
+
+      function showUpdateBanner() {
+        const banner = document.getElementById('sw-update-banner');
+        const text = document.getElementById('sw-update-text');
+        if (!banner || banner.dataset.shown) return;
+        banner.dataset.shown = '1';
+        const ar = (typeof TKD !== 'undefined' && TKD.ar) || (typeof GameStateInstance !== 'undefined' && GameStateInstance.currentLanguage === 'ar');
+        text.textContent = ar ? '🎉 فيه نسخة جديدة من اللعبة جاهزة!' : '🎉 A new version of the game is ready!';
+        document.getElementById('sw-update-refresh').textContent = ar ? 'حدّث دلوقتي' : 'Refresh now';
+        banner.classList.remove('hidden');
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('sw-update-refresh')?.addEventListener('click', () => location.reload());
+        document.getElementById('sw-update-dismiss')?.addEventListener('click', () => {
+          document.getElementById('sw-update-banner')?.classList.add('hidden');
+        });
+      });
     </script>
 
 </body>

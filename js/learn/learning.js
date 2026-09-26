@@ -178,6 +178,7 @@ class LearningSystem {
     `;
 
     this.videoElement = document.getElementById('learning-video');
+    watchVideoLoading(this.videoElement);
     this.videoElement.addEventListener('timeupdate', () => this.checkVideoProgress());
     this.videoElement.addEventListener('ended',      () => this.onVideoEnded());
     this.videoElement.addEventListener('play',  () => { this.isVideoPlaying = true;  this.updatePlayButton(); });

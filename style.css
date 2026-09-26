@@ -311,6 +311,20 @@ p {
   position: relative;
   overflow: hidden;
   min-height: 48px;
+  /* white text on the lighter end of the orange gradient measures under
+     WCAG AA's 4.5:1 on its own (~2.8:1) — the shadow adds real edge
+     contrast without changing the brand color. */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Stronger borders/edges for players who asked their OS for more contrast —
+   color alone (our normal cue) isn't enough for them. */
+@media (prefers-contrast: more) {
+  .btn, .game-card, .skill-card {
+    outline: 2px solid rgba(0, 0, 0, 0.6);
+    outline-offset: -2px;
+  }
+  .btn { text-shadow: 0 1px 3px rgba(0, 0, 0, 0.75); }
 }
 
 .btn::before {
@@ -1560,6 +1574,33 @@ html[dir="rtl"] #flash-container {
 .flash-message.warning { background: var(--warning-color); border-left: 4px solid var(--warning-dark); }
 .flash-message.info { background: var(--info-color); border-left: 4px solid #3a6a8c; }
 
+/* New app version installed in the background (see index.html's SW
+   registration): unlike .flash-message this never auto-dismisses, so a kid
+   mid-game isn't force-refreshed — they (or a parent) choose when. */
+.sw-update-banner {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-lg);
+  padding-bottom: calc(var(--space-sm) + env(safe-area-inset-bottom));
+  background: var(--info-color);
+  color: white;
+  font-weight: 600;
+  font-size: var(--font-sm);
+  box-shadow: 0 -4px 16px var(--shadow-color);
+  animation: slideInUp 0.3s ease;
+}
+.sw-update-dismiss {
+  background: none; border: none; color: inherit; font-size: 1.1em;
+  cursor: pointer; padding: 4px 8px; opacity: 0.8; min-height: 32px;
+}
+.sw-update-dismiss:hover { opacity: 1; }
+@keyframes slideInUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+
 /* v29: on a phone a toast used to land on top of the round header buttons */
 @media (max-width: 760px) {
   #flash-container, body[dir="rtl"] #flash-container, html[dir="rtl"] #flash-container {
@@ -2219,6 +2260,27 @@ html[dir="rtl"] .navigation.collapsible {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+/* Lazy-loaded lesson/warm-up video still buffering (see watchVideoLoading()
+   in js/core/helpers.js) — dim it and spin, so slow wifi doesn't look like
+   a broken/frozen player. */
+.tkd-video-wrap { position: relative; }
+.tkd-video-wrap.tkd-video-loading video { opacity: .35; transition: opacity .2s ease; }
+.tkd-video-wrap.tkd-video-loading::after {
+  content: '';
+  position: absolute;
+  top: 32px; left: 50%;
+  width: 40px; height: 40px;
+  margin-left: -20px;
+  border: 4px solid rgba(255,255,255,.25);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: jrSpin .8s linear infinite;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .tkd-video-wrap.tkd-video-loading::after { animation: none; }
 }
 
 #learning-video {
