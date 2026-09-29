@@ -197,8 +197,8 @@ const Shop = {
     if (this._photoCache[cacheKey]) return this._photoCache[cacheKey];
     this._photoCache[cacheKey] = (async () => {
       // Needs the rig's data purely as a measuring stick for where cosmetics
-      // sit on the PHOTO — unrelated to whether the live skeleton is drawn
-      // on screen (TKDAnim.enabled()), which stays off by default.
+      // sit on the PHOTO — used even for a skill whose live rendering stays
+      // on picture frames (e.g. bakchagi3, which has no KICK_ANIM entry).
       if (!window.TKDAnim) return null;
       const rig = await TKDAnim.character(ch);
       const anim = rig && TKDAnim.kickAnim(rig.data, skillId);

@@ -83,6 +83,21 @@ To replace a picture, save the new one (transparent WebP, figure facing right)
 with the same name, then run `python tools/update-sw.py` (it updates `sw.js`,
 fails if any path in the code points at a missing file, and bumps `CACHE_VERSION`).
 
+## What changed in v39 — the skeleton is the live default again, rebuilt from art that matches
+
+- **🦴 Skeleton animation is back on by default**: v34 turned it off (`localStorage.taekwondoJourneyAnim`
+  became an opt-in) because the rig's single-photo cutout read noticeably thinner than the character's real
+  body everywhere else. Both the boy and girl skeletons have now been rebuilt (`tools/rig/build-rig.py`,
+  `boy.rig.json`, `girl.rig.json`) from new reference photos that match, and re-verified frame-by-frame for
+  all 14 baked animations — clean stances, no seams, no foot-sliding. `TKDAnim.enabled()` no longer checks
+  `localStorage` at all: lessons, the six arena games, 1×1 duels and the sparring partner all use the live
+  skeleton for the front kick (Ap Chagi) and axe kick (Naeryeo Chagi) unconditionally.
+- **The side kick (Bik Chagi) still uses its picture frames.** It's not a gap in the new art — Bik Chagi is a
+  full 180° body pivot (the fighter turns to show their side/back to the camera and strikes with the heel),
+  which the current rig fundamentally can't produce: it's cut from one flat photo in profile, so every kick it
+  animates has to stay a forward/back leg swing in that same profile view. Animating the pivot for real needs a
+  turned/back-view photo to cut a second rig from, not a code change.
+
 ## What changed in v34.3 — Torso Twists dropped, videos only in warm-up
 
 - **🎥 Warm-up is now 7 exercises, all with a real clip**: Torso Twists was the one exercise with no filmed
