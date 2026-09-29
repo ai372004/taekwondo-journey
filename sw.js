@@ -106,7 +106,7 @@
    - Our own JS/CSS use stale-while-revalidate too, so code updates arrive.
    ===================================================================== */
 
-const CACHE_VERSION = 'tkd-v40';
+const CACHE_VERSION = 'tkd-v41';
 const APP_SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const ASSET_CACHE = `${CACHE_VERSION}-assets`;     // precached images + videos, never trimmed
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;  // anything else same-origin, trimmed
