@@ -36,8 +36,14 @@ def capsule(a, b, r):
 
 cuts = cfg['cuts']
 masks = {}
+# legDir: which side of its edge line the raised/kicking leg sits on. Existing
+# rigs (leg raised toward the character's own facing direction) keep pixels
+# to the right of the line ('right', the default); a leg raised the other
+# way (e.g. rising up behind/across the body) needs the mirror comparison.
+leg_dir = cfg.get('legDir', 'right')
 if cfg.get('mode', 'raised') == 'raised' or True:
-    front = A & (xx > interp_x(cuts['front_leg_left_edge'], yy)) & (yy < cuts['front_leg_max_y'])
+    edge_x = interp_x(cuts['front_leg_left_edge'], yy)
+    front = A & ((xx > edge_x) if leg_dir == 'right' else (xx < edge_x)) & (yy < cuts['front_leg_max_y'])
     if 'front_leg_exclude' in cuts:
         for poly in cuts['front_leg_exclude']:
             m = np.zeros((H, W), np.uint8); cv2.fillPoly(m, [np.array(poly, np.int32)], 1); front &= ~m.astype(bool)

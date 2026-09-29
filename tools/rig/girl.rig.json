@@ -1,252 +1,177 @@
 {
   "name": "girl",
-  "source": "assets/images/characters/_originals/girl_char/narochagi/drop_girl.webp",
+  "source": "assets/images/characters/_originals/girl_char/newart/side_kick_girl.png",
   "facing": "right",
-  "notes": "Side view, kicking (front) leg horizontal. Ponytail is its own bone for secondary motion.",
+  "legDir": "right",
+  "notes": "New reference art (side kick), leg raised toward the right, same direction as the original template.",
   "joints": {
     "pelvis": [
-      398,
-      622
+      475,
+      255
     ],
     "hipF": [
-      402,
-      596
+      571,
+      254
     ],
     "kneeF": [
-      556,
-      594
+      623,
+      214
     ],
     "ankleF": [
-      712,
-      600
+      675,
+      175
     ],
     "toeF": [
-      800,
-      572
+      724,
+      138
     ],
     "hipB": [
-      402,
-      648
+      480,
+      278
     ],
     "kneeB": [
-      406,
-      808
+      480,
+      390
     ],
     "ankleB": [
-      394,
-      954
+      480,
+      478
     ],
     "toeB": [
-      466,
-      986
+      475,
+      525
     ]
   },
   "cuts": {
     "front_leg_left_edge": [
       [
-        450,
-        480
+        711,
+        140
       ],
       [
-        436,
-        520
+        699,
+        150
       ],
       [
-        422,
-        560
+        687,
+        160
       ],
       [
-        420,
-        600
+        672,
+        170
       ],
       [
-        428,
-        648
+        650,
+        180
       ],
       [
-        440,
-        700
+        630,
+        190
+      ],
+      [
+        611,
+        200
+      ],
+      [
+        590,
+        210
+      ],
+      [
+        574,
+        220
+      ],
+      [
+        554,
+        230
+      ],
+      [
+        545,
+        235
       ]
     ],
-    "front_leg_max_y": 650,
-    "front_leg_exclude": [
-      [
-        [
-          462,
-          626
-        ],
-        [
-          512,
-          626
-        ],
-        [
-          518,
-          710
-        ],
-        [
-          466,
-          710
-        ]
-      ]
-    ],
+    "front_leg_max_y": 238,
     "hem": [
       [
-        250,
-        692
+        420,
+        288
       ],
       [
-        380,
-        690
+        450,
+        298
       ],
       [
-        432,
-        680
+        480,
+        303
       ],
       [
-        470,
-        656
+        510,
+        293
       ],
       [
         540,
-        650
+        273
       ]
     ]
   },
-  "tubeF": 62,
-  "tubeB": 62,
+  "widths": {
+    "thighF": 30,
+    "shinF": 24,
+    "ankleF": 14,
+    "thighB": 30,
+    "shinB": 24,
+    "ankleB": 14
+  },
+  "ground": 545,
   "footcutF": [
-    698,
-    600
+    675,
+    175
   ],
   "footcutB": [
-    398,
-    934
+    478,
+    468
   ],
-  "widths": {
-    "thighF": 46,
-    "shinF": 44,
-    "ankleF": 21,
-    "thighB": 48,
-    "shinB": 42,
-    "ankleB": 20
-  },
+  "tubeF": 45,
+  "tubeB": 45,
   "extras": [
-    {
-      "name": "ponytail",
-      "parent": "head",
-      "behind": true,
-      "at": [
-        296,
-        214
-      ],
-      "tip": [
-        232,
-        392
-      ],
-      "fill": 10,
-      "poly": [
-        [
-          312,
-          196
-        ],
-        [
-          284,
-          186
-        ],
-        [
-          246,
-          196
-        ],
-        [
-          214,
-          252
-        ],
-        [
-          200,
-          320
-        ],
-        [
-          206,
-          390
-        ],
-        [
-          232,
-          412
-        ],
-        [
-          270,
-          402
-        ],
-        [
-          276,
-          352
-        ],
-        [
-          278,
-          300
-        ],
-        [
-          296,
-          252
-        ],
-        [
-          314,
-          226
-        ]
-      ]
-    },
     {
       "name": "head",
       "parent": "body",
       "behind": true,
       "at": [
-        352,
-        386
+        450,
+        110
       ],
       "tip": [
-        360,
-        230
+        450,
+        20
       ],
-      "fill": 22,
+      "fill": 18,
       "poly": [
         [
-          190,
-          150
+          335,
+          20
         ],
         [
-          480,
-          150
+          560,
+          20
         ],
         [
-          480,
-          378
+          560,
+          210
         ],
         [
-          410,
-          388
+          420,
+          210
         ],
         [
-          360,
-          400
+          350,
+          190
         ],
         [
-          322,
-          404
-        ],
-        [
-          296,
-          398
-        ],
-        [
-          260,
-          380
-        ],
-        [
-          190,
-          380
+          332,
+          120
         ]
       ]
     }
-  ],
-  "ground": 992
+  ]
 }
