@@ -364,14 +364,11 @@ const TKDAnim = (() => {
   const KICK_ANIM = { apchagi: 'apchagi', narochagi: 'naeryeo', 'ap-ollyeo-chagi': 'ap-ollyeo', 'mireo-chagi': 'mireo' };
   // the animations below exist only with frames? — checked at runtime
   function kickAnim(data, skillId) { const n = KICK_ANIM[skillId]; return n && data?.animations[n] ? n : null; }
-  // The skeleton is rebuilt from a single sliced photo, so every joint is
-  // exactly as wide as that one photo's limb was — on the front and hammer
-  // kicks this reads thinner ("lean") than the character's real, chubbier
-  // body everywhere else (menus, celebrations, the puzzle game's pictures).
-  // Until the rig is re-sliced from art that matches, picture frames (the
-  // same correct photos used everywhere else) are the default; the
-  // skeleton is opt-in only, for whoever wants to test it.
-  const enabled = () => { try { return localStorage.getItem('taekwondoJourneyAnim') === 'skeleton'; } catch (e) { return false; } };
+  // Skeleton animation is the default rendering path wherever a rig exists for
+  // the character/kick. bakchagi3 (the side kick) has no entry in KICK_ANIM —
+  // it's a full 180° body pivot that a flat single-photo cutout can't produce,
+  // so it keeps its picture frames; everything with a rig uses the skeleton.
+  const enabled = () => true;
 
   const api = { base: '', poseAt, parseAtlas, SkeletonData, Skeleton, Player, load, character, kickAnim, KICK_ANIM, enabled, sample, bezierY };
   return api;
