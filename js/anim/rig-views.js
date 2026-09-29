@@ -141,7 +141,7 @@ class RigFighter extends ArenaFighter {
     if (!this.rig) return super.setPose(i, fadeDur, ghost);
     if (i === this.pose && this._settled) return;
     const P = this.rig.player;
-    if (ghost && !AG.reduced()) this.rigGhosts.push({ pose: Float32Array.from(this.rig.skeleton.local), a: 0.18, x: this.lunge });
+    if (ghost && !AG.reduced()) this.rigGhosts.push({ pose: Float32Array.from(this.rig.skeleton.local), a: 0.3, x: this.lunge });
     const from = this.pose;
     this.prev = this.pose; this.pose = i; this.fade = 1; this._settled = false;
     const t0 = P.curName === this.anim && P.cur ? P.time : (this.times[from] ?? 0);
@@ -158,7 +158,7 @@ class RigFighter extends ArenaFighter {
     super.update(dt);
     if (!this.rig) return;
     this.rig.player.update(dt);
-    this.rigGhosts.forEach(g => (g.a -= dt * 3.5));
+    this.rigGhosts.forEach(g => (g.a -= dt * 1.6));
     this.rigGhosts = this.rigGhosts.filter(g => g.a > 0);
   }
   drawRig(c, local, alpha, lungeOverride) {

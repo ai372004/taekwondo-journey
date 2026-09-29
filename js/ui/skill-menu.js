@@ -18,7 +18,7 @@ class SkillMenuSystem {
     }
     if (descEl)  descEl.textContent  = ar ? skill.description.ar : skill.description.en;
 
-    gameState.createLiveCharacterVisual('skill-menu-character', gameState.playerCharacter, 'IDLE');
+    gameState.createCharacterVisual('skill-menu-character', gameState.playerCharacter, 'IDLE');
     // v29: mark the stage the journey wants next, so the child never guesses
     const step = window.Journey?.next?.()?.stage;
     document.querySelectorAll('.skill-menu-card[data-stage]').forEach(card => {

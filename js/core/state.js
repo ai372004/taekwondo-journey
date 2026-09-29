@@ -44,7 +44,6 @@ class GameState {
     this.audioContext = null;
     this.audioGain = null;
     this.animators = new Map();
-    this.rigSprites = new Map();
   }
 
   async init() {
@@ -621,24 +620,6 @@ class GameState {
     return animator;
   }
 
-  // Same idea as createCharacterVisual, but tries the live skeleton first
-  // (idle-breathing / win-jump) and only falls back to the picture-frame
-  // animator if the rig genuinely can't load for this character.
-  createLiveCharacterVisual(elementId, characterType, animationType = 'IDLE') {
-    const element = document.getElementById(elementId);
-    if (!element) return null;
-    if (!window.RigSprite) return this.createCharacterVisual(elementId, characterType, animationType);
-    const prev = this.rigSprites.get(elementId);
-    if (prev) { prev.stop = true; this.rigSprites.delete(elementId); }
-    element.innerHTML = '';
-    const sp = new RigSprite(element, { ch: characterType, anim: animationType === 'WIN' ? 'win' : 'idle', tap: 'win' });
-    this.rigSprites.set(elementId, sp);
-    sp.start().then(ok => {
-      if (!ok) { this.rigSprites.delete(elementId); this.createCharacterVisual(elementId, characterType, animationType); }
-    });
-    return sp;
-  }
-
   updateUI() {
     this.updateCharacterDisplays();
     this.updateGameProgress();
@@ -757,23 +738,16 @@ class GameState {
   }
 
   updateCharacterDisplays() {
-    // winner-character is left to updateCharacterDisplays's plain picture animator here —
-    // WinnerSystem.show() sets up its own dedicated RigSprite for that screen.
-    ['current-character-large', 'learning-character-animation']
-      .forEach(id => this.createLiveCharacterVisual(id, this.playerCharacter, 'IDLE'));
-    this.createCharacterVisual('winner-character', this.playerCharacter, 'IDLE');
+    ['current-character-large', 'learning-character-animation', 'winner-character']
+      .forEach(id => this.createCharacterVisual(id, this.playerCharacter, 'IDLE'));
 
-    // preview-boy/preview-girl live inside #character-modal (a .modal, not a
-    // .screen) — RigSprite's "stop when the screen goes inactive" check only
-    // looks for a .screen ancestor, so a live rig here would never stop
-    // ticking once the modal is dismissed. Picture frames only.
     this.createCharacterVisual('preview-boy', 'boy', 'IDLE');
     this.createCharacterVisual('preview-girl', 'girl', 'IDLE');
-    this.createLiveCharacterVisual('change-boy', 'boy', 'IDLE');
-    this.createLiveCharacterVisual('change-girl', 'girl', 'IDLE');
-
+    this.createCharacterVisual('change-boy', 'boy', 'IDLE');
+    this.createCharacterVisual('change-girl', 'girl', 'IDLE');
+    
     ['coach-learning', 'coach-form', 'coach-performance', 'coach-quiz', 'coach-winner']
-      .forEach(id => this.createLiveCharacterVisual(id, 'coach', 'IDLE'));
+      .forEach(id => this.createCharacterVisual(id, 'coach', 'IDLE'));
   }
 
   // Quiz is a "Test", not a mini-game — its own progress bar lives on the

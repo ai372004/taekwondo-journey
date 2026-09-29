@@ -525,8 +525,41 @@ test('anim: both rigs load, every kick has 5 phases and the standing foot never 
   await close();
 });
 
-test('anim: skeleton animation is the default — lessons, arena games and the sparring partner all use the rig; the side kick keeps its pictures (no 180° pivot rig yet)', async () => {
+test('anim: by default every kick shows the correct-body picture frames — lessons, arena games and the sparring partner alike', async () => {
   const { page, errors, close } = await open();
+  await page.evaluate(() => { GameStateInstance.currentSkill = 'apchagi'; switchScreen('learning'); });
+  await page.waitForTimeout(900);
+  await page.evaluate(() => { LearningSystem.currentPhase = 2; LearningSystem.render(); TKDHints.hide(); });
+  await page.waitForTimeout(900);
+  // no live rig mounted — the phase's own correct-body photo shows through
+  eq(await page.evaluate(() => !!document.querySelector('.phase-image-col.has-rig')), false, 'front kick lesson uses its picture, not the thinner rig');
+  await page.evaluate(() => { GameStateInstance.currentSkill = 'bakchagi3'; switchScreen('learning'); });
+  await page.waitForTimeout(900);
+  eq(await page.evaluate(() => !!document.querySelector('.phase-image-col.has-rig')), false, 'side kick keeps pictures too');
+  await page.evaluate(() => { GameStateInstance.currentSkill = 'apchagi'; switchScreen('sparring-duel'); });
+  await page.waitForTimeout(900);
+  await page.evaluate(() => SparringDuelGame.begin && SparringDuelGame.begin());
+  await page.waitForTimeout(1200);
+  const k = await page.evaluate(() => {
+    const f = SparringDuelGame.fighter, o = SparringDuelGame.opp, sp = f.strikePoint(2);
+    return [f.constructor.name, o.constructor.name, sp.x > f.x, sp.y < f.floor];
+  });
+  // v34.2 swapped in the child's own new art "as is" (their explicit call, risk
+  // disclosed beforehand): the front-kick boy pictures now kick the other way,
+  // so the arena's measured strike point sits behind the fighter instead of
+  // toward the opponent. Documented here rather than hidden — a future art
+  // pass that fixes the facing direction should flip this back to true.
+  eq(k, ['ArenaFighter', 'ArenaOpponent', false, true], 'front kick arena uses the same picture-based fighter as the side kick (new art currently faces the wrong way)');
+  await page.evaluate(() => { GameStateInstance.currentSkill = 'bakchagi3'; switchScreen('board-break'); });
+  await page.waitForTimeout(1200);
+  eq(await page.evaluate(() => BoardBreakGame.fighter.constructor.name), 'ArenaFighter', 'side kick → pictures');
+  eq(errors, [], 'errors');
+  await close();
+});
+
+test('anim: the skeleton rig still works when explicitly turned on (opt-in, off by default)', async () => {
+  const { page, errors, close } = await open();
+  await page.evaluate(() => localStorage.setItem('taekwondoJourneyAnim', 'skeleton'));
   await page.evaluate(() => { GameStateInstance.currentSkill = 'apchagi'; switchScreen('learning'); });
   await page.waitForTimeout(900);
   await page.evaluate(() => { LearningSystem.currentPhase = 2; LearningSystem.render(); TKDHints.hide(); });
@@ -536,7 +569,7 @@ test('anim: skeleton animation is the default — lessons, arena games and the s
   eq(await page.evaluate(() => LearningSystem.rigView.mode), 'full', 'whole kick plays');
   await page.evaluate(() => { GameStateInstance.currentSkill = 'bakchagi3'; switchScreen('learning'); });
   await page.waitForTimeout(900);
-  eq(await page.evaluate(() => !!document.querySelector('.phase-image-col.has-rig')), false, 'side kick keeps pictures (a 180° pivot needs a rig the current flat cutout can\'t produce)');
+  eq(await page.evaluate(() => !!document.querySelector('.phase-image-col.has-rig')), false, 'side kick keeps pictures even with the rig on');
   await page.evaluate(() => { GameStateInstance.currentSkill = 'apchagi'; switchScreen('sparring-duel'); });
   await page.waitForTimeout(900);
   await page.evaluate(() => SparringDuelGame.begin && SparringDuelGame.begin());
@@ -546,9 +579,6 @@ test('anim: skeleton animation is the default — lessons, arena games and the s
     return [f.constructor.name, o.constructor.name, sp.x > f.x, sp.y < f.floor];
   });
   eq(k, ['RigFighter', 'RigOpponent', true, true], 'arena');
-  await page.evaluate(() => { GameStateInstance.currentSkill = 'bakchagi3'; switchScreen('board-break'); });
-  await page.waitForTimeout(1200);
-  eq(await page.evaluate(() => BoardBreakGame.fighter.constructor.name), 'ArenaFighter', 'side kick → pictures');
   eq(errors, [], 'errors');
   await close();
 });

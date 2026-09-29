@@ -83,20 +83,30 @@ To replace a picture, save the new one (transparent WebP, figure facing right)
 with the same name, then run `python tools/update-sw.py` (it updates `sw.js`,
 fails if any path in the code points at a missing file, and bumps `CACHE_VERSION`).
 
-## What changed in v39 — the skeleton is the live default again, rebuilt from art that matches
+## What changed in v34.4 — update banner, loading spinner, code cleanup + lint/format tooling
 
-- **🦴 Skeleton animation is back on by default**: v34 turned it off (`localStorage.taekwondoJourneyAnim`
-  became an opt-in) because the rig's single-photo cutout read noticeably thinner than the character's real
-  body everywhere else. Both the boy and girl skeletons have now been rebuilt (`tools/rig/build-rig.py`,
-  `boy.rig.json`, `girl.rig.json`) from new reference photos that match, and re-verified frame-by-frame for
-  all 14 baked animations — clean stances, no seams, no foot-sliding. `TKDAnim.enabled()` no longer checks
-  `localStorage` at all: lessons, the six arena games, 1×1 duels and the sparring partner all use the live
-  skeleton for the front kick (Ap Chagi) and axe kick (Naeryeo Chagi) unconditionally.
-- **The side kick (Bik Chagi) still uses its picture frames.** It's not a gap in the new art — Bik Chagi is a
-  full 180° body pivot (the fighter turns to show their side/back to the camera and strikes with the heel),
-  which the current rig fundamentally can't produce: it's cut from one flat photo in profile, so every kick it
-  animates has to stay a forward/back leg swing in that same profile view. Animating the pivot for real needs a
-  turned/back-view photo to cut a second rig from, not a code change.
+- **🔄 A visible "new version ready" banner**: the app already updates itself silently in the background
+  (the service worker), but a kid mid-game had no idea the app underneath them had just changed. A small
+  banner at the bottom now says a new version is ready and offers a "Refresh now" button (or dismiss) —
+  it never auto-refreshes on its own, so nothing interrupts what they're doing.
+- **⏳ Lesson/warm-up videos show a spinner while they load**: on slow gym wifi, a video that hadn't
+  finished buffering used to look identical to a broken, frozen player. It now dims and spins until it's
+  ready to actually play.
+- **🔗 Link previews for the app's public URL**: sharing the game's link in a chat or on social media now
+  shows a real title, description and preview image instead of a bare link.
+- **♿ Stronger contrast for players who ask their OS for it**: buttons and cards get a firmer outline and
+  text shadow under `prefers-contrast: more`, for kids or parents who already turned that on system-wide.
+- **🧹 Small correctness/cleanup fixes**: a duplicate copy of `getKickFrames` in the pose game was removed;
+  the emoji-stripping used by the puzzle game's labels and read-aloud now also handles variation-selector
+  and keycap emoji sequences it used to miss; a few stray inline `style="width:0%"` attributes were moved
+  to CSS, matching how the rest of the app already sets progress-bar widths.
+- **🧰 Lint, format and a smaller build**: added ESLint + Prettier (`npm run lint` / `format` / `format:check`)
+  and a client-side error log (`window.TKDErrorLog`, kept only on-device — there's no backend to send it to)
+  so a crash on a real kid's tablet is at least visible to whoever has the device in hand. `tools/build-web.py`
+  now minifies the shipped `.js`/`.css` with esbuild when it's available. CI runs the linter and the kid-flow
+  audit alongside the existing test suite.
+- Three new unit tests cover the skill-progress formula, the "all games done" check and the dashboard's
+  mastery rows — logic that was already shipping but wasn't directly tested before.
 
 ## What changed in v34.3 — Torso Twists dropped, videos only in warm-up
 
