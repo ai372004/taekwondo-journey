@@ -1,182 +1,159 @@
 {
   "name": "boy",
-  "source": "assets/images/characters/_originals/boy_char/narochagi/rise_boy.webp",
+  "source": "assets/images/characters/_originals/boy_char/newart/side_kick_boy.png",
   "facing": "right",
-  "notes": "Side view, kicking (front) leg raised. Cut lines are in source-image pixels (y down).",
+  "legDir": "left",
+  "notes": "New reference art (side kick), leg raised toward the LEFT (opposite of the original template) while the head still faces right.",
   "joints": {
     "pelvis": [
-      312,
-      592
+      290,
+      495
     ],
     "hipF": [
-      322,
-      578
+      290,
+      440
     ],
     "kneeF": [
-      488,
-      392
+      195,
+      385
     ],
     "ankleF": [
-      648,
-      206
+      105,
+      335
     ],
     "toeF": [
-      708,
-      48
+      55,
+      275
     ],
     "hipB": [
-      306,
-      612
+      310,
+      510
     ],
     "kneeB": [
-      296,
-      860
+      310,
+      660
     ],
     "ankleB": [
-      264,
-      1068
+      300,
+      820
     ],
     "toeB": [
-      352,
-      1112
-    ],
-    "neck": [
-      230,
-      300
-    ],
-    "head": [
-      215,
-      170
+      295,
+      858
     ]
   },
   "cuts": {
     "front_leg_left_edge": [
       [
-        378,
-        250
+        140,
+        275
       ],
       [
-        362,
-        420
+        175,
+        300
       ],
       [
-        338,
-        445
+        200,
+        340
       ],
       [
-        352,
-        520
-      ],
-      [
-        366,
-        640
-      ],
-      [
-        420,
-        700
-      ]
-    ],
-    "front_leg_max_y": 645,
-    "hem": [
-      [
-        100,
-        708
-      ],
-      [
-        220,
-        706
-      ],
-      [
-        262,
-        692
+        250,
+        390
       ],
       [
         300,
-        674
+        430
+      ]
+    ],
+    "front_leg_max_y": 450,
+    "hem": [
+      [
+        150,
+        560
       ],
       [
-        340,
-        652
+        200,
+        570
       ],
       [
-        372,
-        640
+        250,
+        585
+      ],
+      [
+        290,
+        592
+      ],
+      [
+        330,
+        585
+      ],
+      [
+        380,
+        570
       ],
       [
         420,
-        640
+        555
       ]
     ]
   },
   "widths": {
-    "thighF": 64,
-    "shinF": 60,
-    "ankleF": 28,
-    "thighB": 60,
-    "shinB": 55,
-    "ankleB": 26
+    "thighF": 55,
+    "shinF": 45,
+    "ankleF": 24,
+    "thighB": 55,
+    "shinB": 45,
+    "ankleB": 24
   },
-  "ground": 1128,
+  "ground": 875,
   "footcutF": [
-    628,
-    236
+    145,
+    325
   ],
   "footcutB": [
-    270,
-    1046
+    300,
+    800
   ],
-  "tubeF": 72,
-  "tubeB": 80,
+  "tubeF": 60,
+  "tubeB": 65,
   "extras": [
     {
       "name": "head",
       "parent": "body",
       "behind": true,
       "at": [
-        205,
-        300
+        400,
+        250
       ],
       "tip": [
-        215,
-        120
+        400,
+        140
       ],
-      "fill": 24,
+      "fill": 20,
       "poly": [
         [
-          30,
-          0
+          330,
+          150
         ],
         [
-          380,
-          0
+          572,
+          150
         ],
         [
-          380,
-          288
+          572,
+          400
         ],
         [
-          300,
-          298
+          400,
+          400
         ],
         [
-          250,
-          310
+          340,
+          380
         ],
         [
-          200,
-          318
-        ],
-        [
-          150,
-          318
-        ],
-        [
-          110,
+          330,
           300
-        ],
-        [
-          30,
-          292
         ]
       ]
     }
