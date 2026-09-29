@@ -352,9 +352,9 @@ const TKDAnim = (() => {
     })();
     return cache[base];
   }
-  const CHAR = { boy: 'assets/anim/boy/boy', girl: 'assets/anim/girl/girl' };
+  const CHAR = { boy: 'assets/anim/boy/boy', girl: 'assets/anim/girl/girl', coach: 'assets/anim/coach/coach' };
   async function character(ch) {
-    const data = await load(api.base + CHAR[ch === 'girl' ? 'girl' : 'boy']);
+    const data = await load(api.base + CHAR[CHAR[ch] ? ch : 'boy']);
     if (!data) return null;
     const sk = new Skeleton(data);
     if (data.boneIndex.ponytail !== undefined) sk.addSpring('ponytail', { stiffness: 70, damping: 8, gain: 0.05 });

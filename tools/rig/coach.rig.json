@@ -1,0 +1,63 @@
+{
+  "name": "coach",
+  "source": "assets/images/characters/coach_yang/extension_coach.webp",
+  "facing": "right",
+  "legDir": "right",
+  "notes": "Coach Yang, existing front-kick extension photo (same style/pipeline as boy/girl new art). Leg raised toward the right, same direction as facing.",
+  "joints": {
+    "pelvis": [200, 1010],
+    "hipF": [250, 975],
+    "kneeF": [475, 918],
+    "ankleF": [494, 876],
+    "toeF": [487, 784],
+    "hipB": [232, 985],
+    "kneeB": [232, 1300],
+    "ankleB": [232, 1690],
+    "toeB": [250, 1750]
+  },
+  "cuts": {
+    "front_leg_left_edge": [
+      [471, 784],
+      [458, 828],
+      [451, 876],
+      [428, 900],
+      [407, 924],
+      [397, 936],
+      [386, 948],
+      [378, 960]
+    ],
+    "front_leg_max_y": 963,
+    "hem": [
+      [100, 1085],
+      [150, 1090],
+      [200, 1095],
+      [250, 1090],
+      [300, 1080],
+      [350, 1075]
+    ]
+  },
+  "widths": {
+    "thighF": 70,
+    "shinF": 55,
+    "ankleF": 28,
+    "thighB": 75,
+    "shinB": 50,
+    "ankleB": 26
+  },
+  "ground": 1770,
+  "footcutF": [494, 876],
+  "footcutB": [232, 1690],
+  "tubeF": 90,
+  "tubeB": 90,
+  "extras": [
+    {
+      "name": "head",
+      "parent": "body",
+      "behind": true,
+      "at": [210, 740],
+      "tip": [210, 630],
+      "fill": 20,
+      "poly": [[95, 655], [330, 655], [330, 850], [260, 850], [200, 800], [130, 760], [100, 700]]
+    }
+  ]
+}

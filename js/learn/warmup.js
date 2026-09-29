@@ -109,7 +109,7 @@ class WarmupSystem {
 
     this.localise();
     this.buildDots();
-    this.gameState.createCharacterVisual('warmup-coach-badge', 'coach', 'IDLE');
+    this.gameState.createLiveCharacterVisual('warmup-coach-badge', 'coach', 'IDLE');
 
     const done = this.$('warmup-complete');
     if (done) done.hidden = true;
@@ -497,7 +497,7 @@ class WarmupSystem {
       }).join('');
     }
     const completeChar = this.$('warmup-complete-char');
-    if (completeChar) gs.createCharacterVisual('warmup-complete-char', gs.playerCharacter, 'WIN');
+    if (completeChar) gs.createLiveCharacterVisual('warmup-complete-char', gs.playerCharacter, 'WIN');
     this.spawnConfetti();
     gs.showNotification(ar ? '🔥 الإحماء خلص! جسمك جاهز للتمرين!' : '🔥 Warm-up complete! Body is ready!', 'success');
   }
