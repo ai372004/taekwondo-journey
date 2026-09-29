@@ -455,7 +455,7 @@ class ArenaFighter {
   }
   setPose(i, fadeDur = 0.09, ghost = false) {
     if (i === this.pose && this.fade >= 1) return;
-    if (ghost && !AG.reduced()) this.ghosts.push({ pose: this.pose, a: 0.18, x: this.lunge });
+    if (ghost && !AG.reduced()) this.ghosts.push({ pose: this.pose, a: 0.32, x: this.lunge });
     this.prev = this.pose; this.pose = i; this.fade = fadeDur > 0 ? 0 : 1; this.fadeDur = fadeDur;
   }
   // steps: [{pose, hold (s), fade (s), lunge (px), hit: fn}]
@@ -479,7 +479,7 @@ class ArenaFighter {
     this.squash = Math.max(0, this.squash - dt * 4);
     this.wobble = Math.max(0, this.wobble - dt * 1.4);
     this.bob += dt;
-    this.ghosts.forEach(g => (g.a -= dt * 3.5));
+    this.ghosts.forEach(g => (g.a -= dt * 1.6));
     this.ghosts = this.ghosts.filter(g => g.a > 0);
     if (this._seq) { this._seq.t -= dt; if (this._seq.t <= 0) this._next(); }
   }
