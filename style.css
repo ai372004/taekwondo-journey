@@ -346,10 +346,8 @@ p {
 .btn-success { background: linear-gradient(135deg, var(--success-color), var(--success-dark)); }
 .btn-success:hover { box-shadow: 0 10px 20px var(--glow-success); }
 .btn-warning { background: linear-gradient(135deg, var(--warning-color), var(--warning-dark)); }
-.btn-danger { background: linear-gradient(135deg, var(--danger-color), var(--danger-dark)); }
 
 .btn-small { padding: var(--space-sm) var(--space-md); font-size: var(--font-sm); min-height: 40px; }
-
 
 .center-buttons {
   text-align: center;
@@ -443,7 +441,6 @@ p {
   background: rgba(0, 0, 0, 0.92);
   display: none;
   justify-content: center;
-  align-items: center;
   z-index: 10000;
   padding: var(--space-lg);
   backdrop-filter: blur(8px);
@@ -516,7 +513,7 @@ p {
 }
 .character-option:hover { background: rgba(255, 107, 53, 0.1); transform: scale(1.05); border-color: var(--primary-color); }
 .character-option.selected { background: rgba(255, 107, 53, 0.15); border-color: var(--primary-color); box-shadow: 0 10px 30px var(--glow-primary); }
-.character-preview { width: 220px; height: 280px; margin: 0 auto var(--space-lg); position: relative; }
+.character-preview { width: 220px; margin: 0 auto var(--space-lg); position: relative; }
 
 /* --- Player name / identity modal --- */
 .player-selection { text-align: center; padding: var(--space-xl); }
@@ -561,8 +558,6 @@ p {
 /* 5. HEADER & NAVIGATION                                                */
 /* ===================================================================== */
 .header {
-  text-align: center;
-  padding: calc(var(--space-xl) + 20px) var(--space-lg) var(--space-xl);
   position: relative;
   background: rgba(0, 0, 0, 0.75);
   border-bottom: 3px solid var(--primary-color);
@@ -574,7 +569,7 @@ p {
 .logo { font-size: 4.5rem; margin-bottom: var(--space-md); animation: bounce 2s infinite; display: inline-block; }
 @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-.header-controls { display: flex; justify-content: center; align-items: center; margin-top: var(--space-lg); }
+.header-controls { margin-top: var(--space-lg); }
 
 .lang-switch-btn {
   padding: var(--space-sm) var(--space-lg);
@@ -636,12 +631,6 @@ p {
     0 0 0 1px var(--border-color),
     0 0 30px rgba(255,107,53,0.35),
     inset 0 1px 0 var(--surface-tint) !important;
-  animation: activeCardGlow 2.5s ease-in-out infinite;
-}
-
-@keyframes activeCardGlow {
-  0%, 100% { box-shadow: 0 0 20px var(--border-color), 0 0 0 1px var(--border-color), inset 0 1px 0 var(--surface-tint); }
-  50%       { box-shadow: 0 0 40px rgba(255,107,53,0.55), 0 0 0 2px rgba(255,107,53,0.5), inset 0 1px 0 var(--surface-tint); }
 }
 
 .skill-card.active:hover {
@@ -661,13 +650,9 @@ p {
 .skill-card:not(.locked):hover .skill-icon { transform: scale(1.2) translateY(-4px); }
 
 .skill-card.locked {
-  opacity: 0.45;
-  cursor: not-allowed;
   pointer-events: none;
-  filter: grayscale(0.3);
 }
 .skill-card h3 { color: var(--text-white); font-size: var(--font-xl); }
-
 
 .skill-status { font-size: var(--font-md); color: var(--primary-color); font-weight: bold; }
 
@@ -685,23 +670,15 @@ p {
 }
 
 .video-controls {
-  display: flex;
-  justify-content: center;
-  gap: var(--space-md);
   margin: var(--space-lg) 0;
-  flex-wrap: wrap;
 }
-
-
-
-
 
 /* ===================================================================== */
 /* 8. GAMES CENTER HUB                                                   */
 /* ===================================================================== */
 .game-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));   /* v55: the 4 main games fit one row on a laptop */
   gap: var(--space-xl);
   margin: var(--space-xl) auto;
   max-width: var(--max-width-ultra);
@@ -715,10 +692,9 @@ p {
   box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05);
   cursor: pointer;
   text-align: center;
-  position: relative; overflow: hidden;
+  overflow: hidden;
   min-height: 320px;
   display: flex; flex-direction: column; align-items: center; justify-content: space-between;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   animation: cardEntrance 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
@@ -734,7 +710,6 @@ p {
   top: 0; left: 0; right: 0; height: 3px;
   background: linear-gradient(90deg, var(--primary-color), var(--accent-color), var(--primary-color));
   background-size: 200%;
-  animation: shimmerBorder 3s linear infinite;
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -754,7 +729,6 @@ p {
   transform: translateY(-8px) scale(1.01);
   box-shadow: 0 20px 48px rgba(0,0,0,0.45), 0 0 30px rgba(255,107,53,0.2);
   border-color: var(--primary-color);
-  background-size: 112%;
 }
 /* Each mini-game card previews the actual background art of the screen it
    opens (same image setBackground() shows once you're inside) — a real
@@ -771,7 +745,6 @@ p {
 /* Re-asserted after the per-card background-image rules above (equal
    selector specificity, so source order decides) so the hover zoom still
    wins over their own explicit background-size: cover. */
-.game-card:hover { background-size: 112%; }
 
 .game-card.completed { border-color: var(--success-color); box-shadow: 0 8px 32px rgba(0,0,0,0.35), 0 0 20px rgba(42,157,143,0.2); }
 .game-card.completed::after {
@@ -795,15 +768,10 @@ p {
   width: 0;
   height: 100%;
   background: linear-gradient(90deg, var(--secondary-color), var(--primary-color), var(--accent-color));
-  background-size: 200%;
   border-radius: 5px;
   transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-  animation: progressShimmer 2.5s linear infinite;
 }
-@keyframes progressShimmer {
-  0%   { background-position: 0% 0%; }
-  100% { background-position: 200% 0%; }
-}
+
 .game-status { font-size: var(--font-md); color: var(--text-gray); font-weight: 500; }
 
 /* ===================================================================== */
@@ -837,7 +805,6 @@ p {
 
 .character-stage {
   width: 100%;
-  height: 500px;
   /* Dojo mat look: dark floor with subtle grid */
   background: 
     repeating-linear-gradient(
@@ -868,7 +835,6 @@ p {
 .character-stage::after {
   content: '';
   position: absolute;
-  bottom: 60px;
   left: 10%;
   right: 10%;
   height: 20px;
@@ -883,8 +849,6 @@ p {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 250px;
-  height: 350px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center bottom;
@@ -921,14 +885,9 @@ p {
 
 .control-point {
   position: absolute;
-  width: 40px;
-  height: 40px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.95);
   border: 3px solid rgba(255,255,255,0.7);
-  box-shadow: 
-    0 0 0 2px rgba(0,0,0,0.4),
-    0 4px 12px rgba(0,0,0,0.6);
   cursor: grab;
   pointer-events: auto;
   transform: translate(-50%, -50%);
@@ -996,15 +955,6 @@ p {
 }
 #cp-knee::after { background: #ffaa8a; }
 
-
-
-
-
-
-
-
-
-
 .accuracy-display {
   text-align: center;
   margin: var(--space-lg) 0;
@@ -1051,12 +1001,6 @@ p {
 .keyboard-controls {
   background: rgba(0, 0, 0, 0.4);
   border-left: 4px solid var(--primary-color);
-  animation: pulse-glow 2s infinite;
-}
-
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 5px var(--primary-color); }
-  50% { box-shadow: 0 0 15px var(--primary-color); }
 }
 
 /* ===================================================================== */
@@ -1071,7 +1015,6 @@ p {
   padding: var(--space-lg); text-align: center; min-height: 180px;
   display: flex; flex-direction: column; align-items: center; justify-content: center; transition: all var(--transition-medium);
 }
-.puzzle-slot.filled { border-style: solid; border-color: var(--primary-color); background: rgba(255, 107, 53, 0.1); }
 .slot-content { width: 100%; height: 120px; background-size: contain; background-repeat: no-repeat; background-position: center; }
 
 .puzzle-pieces { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-lg); margin: var(--space-xl) 0; }
@@ -1272,16 +1215,6 @@ p {
   box-shadow: 0 0 40px rgba(230, 57, 70, 0.5);
 }
 
-
-
-
-
-
-
-
-
-
-
 .select-card-btn {
   width: 100%;
   margin-top: 15px;
@@ -1325,7 +1258,6 @@ p {
 }
 .question-image {
   width: 240px;
-  height: 300px;
   margin: 0 auto;
   background-size: contain;
   background-repeat: no-repeat;
@@ -1412,15 +1344,6 @@ body[lang="ar"] .quiz-option { text-align: right; }
   color: var(--gold-color);
   font-size: var(--font-xxxl);
   margin-bottom: var(--space-xl);
-  text-shadow: 
-    0 0 20px rgba(255,215,0,0.7),
-    0 0 60px rgba(255,215,0,0.3);
-  animation: titlePulse 1.5s ease-in-out infinite;
-}
-
-@keyframes titlePulse {
-  0%, 100% { text-shadow: 0 0 20px rgba(255,215,0,0.6), 0 0 40px rgba(255,215,0,0.2); }
-  50%       { text-shadow: 0 0 30px rgba(255,215,0,0.9), 0 0 80px rgba(255,215,0,0.4); }
 }
 
 .winner-visual {
@@ -1475,7 +1398,6 @@ body[lang="ar"] .quiz-option { text-align: right; }
   left: 50%;
   transform: translate(-50%, -50%);
   width: 280px;
-  height: 340px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center bottom;
@@ -1742,7 +1664,7 @@ html[dir="rtl"] #flash-container {
   .puzzle-board { grid-template-columns: 1fr; }
   .quiz-options { grid-template-columns: 1fr; }
   .winner-controls { flex-direction: column; align-items: center; }
-  .winner-controls .btn { width: 100%; max-width: 300px; }
+  .winner-controls .btn { width: 100%; }
   .control-point { width: 30px; height: 30px; }
   .character-selector-form label { width: 100%; justify-content: center; }
   .puzzle-pieces { grid-template-columns: repeat(2, 1fr); }
@@ -2681,8 +2603,6 @@ html[dir="rtl"] .navigation.collapsible {
   box-shadow: 0 0 40px rgba(42,157,143,0.5);
 }
 
-
-
 .zoom-overlay-msg {
   text-align: center;
   font-size: var(--font-lg);
@@ -2695,7 +2615,6 @@ html[dir="rtl"] .navigation.collapsible {
   from { transform: scale(0.5); opacity: 0; }
   to   { transform: scale(1);   opacity: 1; }
 }
-
 
 /* ===================================================================== */
 /* 22. WARM UP SYSTEM                                                    */
@@ -2713,24 +2632,6 @@ html[dir="rtl"] .navigation.collapsible {
 }
 
 /* Connecting track behind the dots, with a fill that grows as exercises complete */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@keyframes dotPulse {
-  0%, 100% { box-shadow: 0 0 16px rgba(255,107,53,0.5); }
-  50%       { box-shadow: 0 0 28px rgba(255,107,53,0.85); }
-}
 
 /* Main card */
 .warmup-card {
@@ -2752,9 +2653,6 @@ html[dir="rtl"] .navigation.collapsible {
 
 /* Card header */
 
-
-
-
 @keyframes iconBob {
   0%,100% { transform: translateY(0); }
   50%     { transform: translateY(-6px); }
@@ -2775,22 +2673,11 @@ html[dir="rtl"] .navigation.collapsible {
 
 /* Body: character + timer */
 
-
 /* Character stage */
-
-
-
 
 /* Floor line */
 
-
 /* Ambient spotlight glow pulsing behind the animated character */
-
-
-@keyframes wuGlowPulse {
-  0%, 100% { opacity: 0.45; transform: scale(1);   }
-  50%      { opacity: 0.85; transform: scale(1.18); }
-}
 
 .warmup-character {
   width: 160px;
@@ -2815,10 +2702,8 @@ html[dir="rtl"] .navigation.collapsible {
 
 /* Pause stops all SVG animations */
 
-
 /* 3D renderer canvas sits on top of the 2D stage; kept empty (and so
    invisible) until Warmup3D successfully mounts a <canvas> into it. */
-
 
 /* Real warm-up demo clip — sits above the SVG/3D character (z-index 2 for
    .warmup-3d-host) and is only shown when JS adds .wu-active for an
@@ -2838,18 +2723,11 @@ html[dir="rtl"] .navigation.collapsible {
   transition: opacity 0.25s ease;
 }
 
-
-
 /* Mirror for the "_right" variants that reuse a "_left"-shot clip */
-
 
 /* Pause icon/state also freezes the video, not just the SVG animation */
 
-
 /* Crossfade when swapping to a new exercise's character animation */
-
-
-
 
 .warmup-char-tip {
   font-size: var(--font-sm);
@@ -2862,30 +2740,6 @@ html[dir="rtl"] .navigation.collapsible {
 }
 
 /* Circular timer */
-
-
-
-
-
-
-.ring-bg {
-  fill: none;
-  stroke: var(--surface-tint);
-  stroke-width: 10;
-}
-
-.ring-fill {
-  fill: none;
-  stroke: var(--primary-color);
-  stroke-width: 10;
-  stroke-linecap: round;
-  stroke-dasharray: 326.7;   /* 2πr = 2×π×52 ≈ 326.7 */
-  stroke-dashoffset: 0;
-  transition: stroke-dashoffset 0.9s linear, stroke 0.4s ease;
-  filter: drop-shadow(0 0 8px currentColor);
-}
-
-
 
 .warmup-timer-num {
   font-size: 3.2rem;
@@ -2908,12 +2762,6 @@ html[dir="rtl"] .navigation.collapsible {
 
 /* Ring glows harder and pulses once time is critical (last few seconds) */
 
-
-@keyframes wuRingPulse {
-  0%, 100% { filter: drop-shadow(0 0 8px currentColor);  }
-  50%      { filter: drop-shadow(0 0 22px currentColor); }
-}
-
 .warmup-timer-label {
   font-size: var(--font-sm);
   color: var(--text-gray);
@@ -2928,61 +2776,19 @@ html[dir="rtl"] .navigation.collapsible {
 
 /* Controls */
 
-
 /* ── Character exercise animations ────────────────────────────────── */
 
 /* Neck rolls — gentle head tilt */
 
-@keyframes wuNeck {
-  0%   { transform: rotate(0deg)   translateY(0); }
-  25%  { transform: rotate(-12deg) translateY(-3px); }
-  50%  { transform: rotate(0deg)   translateY(0); }
-  75%  { transform: rotate(12deg)  translateY(-3px); }
-  100% { transform: rotate(0deg)   translateY(0); }
-}
-
 /* Shoulder rolls — up-down shrug */
-
-@keyframes wuShoulder {
-  0%,100% { transform: translateY(0) scaleX(1); }
-  30%     { transform: translateY(-10px) scaleX(1.04); }
-  60%     { transform: translateY(4px)  scaleX(0.97); }
-}
 
 /* Arm circles — wide side rotation */
 
-@keyframes wuArms {
-  0%   { transform: rotate(0deg)   scaleX(1); }
-  25%  { transform: rotate(-6deg)  scaleX(1.06); }
-  50%  { transform: rotate(0deg)   scaleX(1); }
-  75%  { transform: rotate(6deg)   scaleX(1.06); }
-  100% { transform: rotate(0deg)   scaleX(1); }
-}
-
 /* Leg swings — pendulum side rock */
-
-@keyframes wuLegs {
-  0%,100% { transform: rotate(0deg); }
-  30%     { transform: rotate(-8deg) translateX(-6px); }
-  70%     { transform: rotate(8deg)  translateX(6px);  }
-}
 
 /* Jumping jacks — bounce up-down with scale */
 
-@keyframes wuJumping {
-  0%,100% { transform: translateY(0)    scale(1);    }
-  40%     { transform: translateY(-20px) scale(1.06); }
-  60%     { transform: translateY(-14px) scale(1.04); }
-}
-
 /* High knees — alternating fast bounce */
-
-@keyframes wuKnees {
-  0%,100% { transform: translateY(0)    scaleY(1);    }
-  25%     { transform: translateY(-14px) scaleY(1.05) scaleX(0.97); }
-  50%     { transform: translateY(-4px)  scaleY(0.98); }
-  75%     { transform: translateY(-14px) scaleY(1.05) scaleX(1.03); }
-}
 
 /* ── Completion screen ─────────────────────────────────────────────── */
 .warmup-complete {
@@ -3030,15 +2836,6 @@ html[dir="rtl"] .navigation.collapsible {
   filter: drop-shadow(0 0 20px rgba(255,215,0,0.5));
 }
 
-
-
-@keyframes wuCompleteBounce {
-  0%, 100% { transform: translateY(0)     scale(1, 1); }
-  15%      { transform: translateY(0)     scale(1.04, 0.96); }
-  45%      { transform: translateY(-18px) scale(0.98, 1.03) rotate(-2deg); }
-  70%      { transform: translateY(-6px)  scale(1.01, 0.99) rotate(2deg); }
-}
-
 .warmup-complete-title {
   font-size: var(--font-xxxl);
   color: var(--gold-color);
@@ -3052,27 +2849,15 @@ html[dir="rtl"] .navigation.collapsible {
   margin-bottom: 32px;
 }
 
-
-
 /* Rest-period ring (conic-gradient, no SVG needed) */
-
-
-
-
-
-
-
 
 /* Responsive */
 @media (max-width: 768px) {
-  
-  
+
   .warmup-character  { width: 130px; height: 180px; }
-  
-  
+
   .warmup-timer-num  { font-size: 2.5rem; }
-  
-  
+
 }
 
 /* ===================================================================== */
@@ -3097,22 +2882,6 @@ html[dir="rtl"] .navigation.collapsible {
 .navigation.collapsible .nav-btn.nav-btn-warmup i {
   font-size: 1.2rem;
   color: #fff;
-}
-
-@keyframes warmupNavGlow {
-  0%, 100% { box-shadow: 0 4px 20px rgba(255,107,53,0.5); }
-  50%       { box-shadow: 0 6px 30px rgba(255,107,53,0.9), 0 0 0 3px rgba(255,140,0,0.3); }
-}
-
-@keyframes shimmerBg {
-  0%   { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
-}
-
-@keyframes fireShake {
-  0%, 100% { transform: rotate(0deg)   scale(1);    }
-  25%       { transform: rotate(-12deg) scale(1.15); }
-  75%       { transform: rotate(12deg)  scale(1.15); }
 }
 
 /* Shine sweep on hover */
@@ -3149,12 +2918,6 @@ html[dir="rtl"] .navigation.collapsible {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}
-
-@keyframes wuPop {
-  0%   { transform: scale(0.5) rotate(-5deg); opacity: 0; }
-  60%  { transform: scale(1.12) rotate(2deg); opacity: 1; }
-  100% { transform: scale(1)   rotate(0deg); opacity: 1; }
 }
 
 /* ===================================================================== */
@@ -3223,7 +2986,6 @@ body[dir="rtl"] .skill-card.locked .lock-overlay {
   border-radius: 20px;
   padding: 32px 24px 24px;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -3306,11 +3068,6 @@ body[dir="rtl"] .skill-card.locked .lock-overlay {
 
 /* Completed state */
 
-
-
-
-
-
 /* Mobile */
 @media (max-width: 600px) {
   .apchagi-menu-grid {
@@ -3374,9 +3131,6 @@ body[dir="rtl"] .skill-card.locked .lock-overlay {
 
 /* Title */
 
-
-
-
 /* Dots */
 #warmup-screen .warmup-dots {
   margin-bottom: 16px;
@@ -3386,7 +3140,6 @@ body[dir="rtl"] .skill-card.locked .lock-overlay {
 #warmup-screen .warmup-card {
   width: 100%;
   max-width: 1140px;
-  flex: 1;
   display: flex;
   flex-direction: column;
   border-radius: 20px;
@@ -3395,9 +3148,7 @@ body[dir="rtl"] .skill-card.locked .lock-overlay {
 
 /* Body stretches */
 
-
 /* Bigger character */
-
 
 #warmup-screen .warmup-character {
   width:  clamp(170px, 18vw, 280px);
@@ -3405,7 +3156,6 @@ body[dir="rtl"] .skill-card.locked .lock-overlay {
 }
 
 /* Bigger timer */
-
 
 #warmup-screen .warmup-timer-num  { font-size: clamp(3.2rem, 5.5vw, 6rem); }
 #warmup-screen .warmup-timer-label { font-size: clamp(0.9rem, 1.4vw, 1.2rem); }
@@ -3418,9 +3168,6 @@ body[dir="rtl"] .skill-card.locked .lock-overlay {
 #warmup-screen .warmup-char-tip      { font-size: clamp(0.9rem, 1.3vw, 1.05rem); max-width: 260px; }
 
 /* Bigger controls */
-
-
-
 
 /* Completion */
 #warmup-screen .warmup-complete {
@@ -3435,8 +3182,6 @@ body[dir="rtl"] .skill-card.locked .lock-overlay {
 
 #warmup-screen .warmup-complete-title { font-size: clamp(2rem, 3.5vw, 3rem); }
 #warmup-screen .warmup-complete-sub   { font-size: clamp(1rem, 1.6vw, 1.25rem); }
-
-
 
 /* Mobile */
 
@@ -3652,8 +3397,6 @@ body[dir="rtl"] .warmup-coach-badge {
   color: var(--secondary-color);
 }
 
-
-
 .warmup-energy-label {
   display: flex;
   justify-content: space-between;
@@ -3662,8 +3405,6 @@ body[dir="rtl"] .warmup-coach-badge {
   color: var(--text-white);
   margin-bottom: 6px;
 }
-
-
 
 .warmup-energy-fill {
   height: 100%;
@@ -3913,9 +3654,6 @@ body[dir="rtl"] .warmup-coach-badge {
 
 /* شارة زر النطق الصوتي */
 
-
-
-
 /* تأثير اهتزاز الشاشة عند الركل القوي */
 .screen-kick-shake {
   animation: kickShake 0.25s cubic-bezier(.36,.07,.19,.97) both;
@@ -3997,8 +3735,6 @@ body[dir="rtl"] .warmup-coach-badge {
   max-width: 260px;
   text-align: center;
 }
-
-
 
 .kids-energy-track {
   height: 16px;
@@ -4307,8 +4043,15 @@ body[dir="rtl"] .warmup-coach-badge {
   box-shadow: 0 6px 20px rgba(255, 215, 0, 0.2);
 }
 .trophy-card.trophy-unlocked:hover { transform: scale(1.045); }
-.trophy-card.trophy-locked { opacity: 0.55; filter: grayscale(0.4); }
-
+.trophy-card.trophy-locked { opacity: 0.9; }
+/* v55: a locked trophy shows its own (greyed) icon, how to win it and a progress bar */
+.trophy-card.trophy-locked .trophy-icon { position: relative; display: inline-block; }
+.trophy-card .trophy-ghost { filter: grayscale(1); opacity: 0.45; }
+.trophy-card .trophy-lock { position: absolute; inset-inline-end: -10px; bottom: -4px; font-size: 1rem; filter: drop-shadow(0 1px 2px rgba(0,0,0,.5)); }
+.trophy-card .trophy-how { font-weight: 700; opacity: 1; color: #ffe2b8; }
+.trophy-card .trophy-prog { height: 7px; border-radius: 99px; background: rgba(255,255,255,.12); margin: 8px 6px 2px; overflow: hidden; }
+.trophy-card .trophy-prog i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #f4a261, #ffd166); }
+.trophy-card .trophy-pct { font-size: .72rem; opacity: .8; }
 
 /* =====================================================================
    COOL DOWN STAGE
@@ -4619,16 +4362,11 @@ h1, h2, h3, .btn, .description, .coach-message { overflow-wrap: anywhere; }
 
   /* Warm-up: compact header, character and timer next to each other. */
   #warmup-screen .game-container { padding-top: max(8px, env(safe-area-inset-top)); }
-  
-  
+
   #warmup-screen .warmup-dots { margin-bottom: 6px; }
-  
-  
-  
-  
+
   #warmup-screen .warmup-ex-name { font-size: 1.2rem; }
-  
-  
+
   #warmup-screen .warmup-complete { padding: 16px; }
   #warmup-screen .warmup-complete-char { width: 120px; height: 150px; margin-bottom: 8px; }
 
@@ -4699,11 +4437,10 @@ h1, h2, h3, .btn, .description, .coach-message { overflow-wrap: anywhere; }
   filter: grayscale(0.4);
 }
 
-
 /* ===================================================================== */
 /* ERROR HUNT — Ap Chagi bonus game (tap the body part with the mistake) */
 /* ===================================================================== */
-.eh-hud { display: flex; justify-content: center; gap: var(--space-sm); flex-wrap: wrap; margin: var(--space-md) auto; }
+.eh-hud { display: flex; justify-content: center; gap: var(--space-sm); margin: var(--space-md) auto; }
 .eh-chip {
   padding: 6px 16px; border-radius: 999px; font-weight: 700;
   background: rgba(38, 70, 83, 0.85); border: 1px solid var(--border-color); color: var(--text-white);
@@ -4772,7 +4509,6 @@ h1, h2, h3, .btn, .description, .coach-message { overflow-wrap: anywhere; }
   .eh-feedback { animation: none; }
   .eh-zone.eh-wrong { animation: none; fill: rgba(230, 57, 70, 0.3); stroke: var(--danger-color); stroke-width: 3px; }
 }
-
 
 /* ===================================================================== */
 /* ACTION CHALLENGE — a different hands-on mechanic for every kick       */
@@ -5219,14 +4955,13 @@ h1, h2, h3, .btn, .description, .coach-message { overflow-wrap: anywhere; }
 
 @media (max-width: 860px) {
   .wu2-card { grid-template-columns: minmax(0, 1fr); position: relative; }
-  .wu2-media { aspect-ratio: 16 / 11; }
   .wu2-info { padding: 14px 16px 16px; }
-  .wu2-timer { position: absolute; width: 96px; top: 12px; inset-inline-end: 12px; margin: 0; background: rgba(8,18,24,0.72); border-radius: 50%; z-index: 7; }
+  .wu2-timer { position: absolute; top: 12px; inset-inline-end: 12px; margin: 0; background: rgba(8,18,24,0.72); border-radius: 50%; z-index: 7; }
 }
 @media (max-width: 520px) {
   .wu2 { padding-left: 10px; padding-right: 10px; gap: 8px; }
   .wu2-kick-chip { order: 3; }
-  .wu2-step { min-width: 36px; height: 38px; }
+  .wu2-step { height: 38px; }
   .wu2-step-num { display: none; }
   .wu2-done-list { grid-template-columns: 1fr; }
   .wu2-coach-img { width: 40px; height: 50px; }
@@ -5374,7 +5109,7 @@ body[dir="rtl"] .db-player { padding: 8px 8px 8px 14px; }
 
 .db-filters { display: flex; gap: 10px; flex-wrap: wrap; }
 .db-seg { display: inline-flex; background: var(--db-surface); border: 1px solid var(--db-line); border-radius: 12px; padding: 3px; gap: 2px; flex-wrap: wrap; }
-.db-seg button { border: 0; background: transparent; color: var(--db-ink-2); font: inherit; font-size: .88rem; font-weight: 600; padding: 7px 12px; border-radius: 9px; cursor: pointer; min-height: 36px; }
+.db-seg button { border: 0; background: transparent; color: var(--db-ink-2); font: inherit; font-size: .88rem; font-weight: 600; padding: 7px 12px; border-radius: 9px; cursor: pointer; }
 .db-seg button:hover { color: var(--db-ink); }
 .db-seg button.on { background: var(--db-surface-2); color: var(--db-ink); box-shadow: inset 0 -2px 0 var(--primary-color); }
 
@@ -5501,7 +5236,7 @@ body[dir="rtl"] .db-bar-track i { border-radius: 4px 0 0 4px; }
 /* ===================================================================== */
 :root { --tkd-surface: #15232c; --tkd-surface-2: #1d3140; --tkd-line: rgba(255,255,255,0.1); --tkd-ink: #f2f5f7; --tkd-ink-2: #b9c6cf; --tkd-ink-3: #8497a4; }
 .tkd-avatar { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; flex: 0 0 auto; display: inline-grid; place-items: end center; background: radial-gradient(circle at 50% 35%, #2f5563, #16303b); border: 2px solid rgba(255,255,255,0.18); vertical-align: middle; }
-.tkd-avatar img { width: 118%; height: auto; transform: translateY(18%); }
+.tkd-avatar img { width: 100%; height: 100%; object-fit: cover; }   /* v47: a head-and-shoulders render of the 3D character */
 .tkd-avatar[data-ch="girl"] { background: radial-gradient(circle at 50% 35%, #6b3b5a, #2d1b2a); }
 .tkd-avatar.lg { width: 84px; height: 84px; border-width: 3px; }
 .tkd-muted { color: var(--tkd-ink-3); font-size: .9rem; }
@@ -5752,6 +5487,10 @@ body[dir="rtl"] .vs-chip { padding: 6px 6px 6px 12px; }
 @media (max-width: 520px) { .header { padding: 8px 64px; } .header h1 { font-size: 1rem; } }
 #home-screen.has-hub .game-container > h2[data-i18n="welcome"],
 #home-screen.has-hub .game-container > p.description { display: none; }
+/* v55: the journey map already leads to every kick — the old kick cards and the three
+   buttons under it only repeated it, so they go once the map is there */
+#home-screen.has-hub .game-container > .skills-grid,
+#home-screen.has-hub .game-container > .center-buttons { display: none; }
 body.start-open .nav-toggle-btn, body.start-open #collapsibleNav, body.start-open .nav-overlay { display: none !important; }
 .tkd-hint-bubble p { color: #1d3557 !important; text-shadow: none !important; }
 
@@ -5807,7 +5546,7 @@ body.start-open .nav-toggle-btn, body.start-open #collapsibleNav, body.start-ope
 .pf-a-body .pf-a-next { color: var(--tkd-ink-3); }
 .pf-a-bar { height: 6px; border-radius: 4px; background: var(--surface-tint); overflow: hidden; margin: 2px 0; }
 .pf-a-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--secondary-color), #7ee0cf); border-radius: 4px; }
-.pf-a.t3 .pf-a-bar i { background: linear-gradient(90deg, var(--warning-color), var(--star-gold)); }
+
 /* trophies */
 .pf-troph { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
 .pf-trophy { background: var(--tkd-surface-2); border-radius: 12px; padding: 10px; text-align: center; display: flex; flex-direction: column; gap: 2px; opacity: .55; }
@@ -5948,7 +5687,7 @@ a.nav-btn { text-decoration: none; box-sizing: border-box; }
 .phase-image-col.has-rig .phase-char-img { display: none; }
 .phase-rig { width: 100%; height: 300px; display: block; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.45)); }
 .rig-controls { position: absolute; inset-inline: 8px; bottom: 8px; display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
-.rig-btn { font: inherit; font-size: .8rem; font-weight: 700; color: #fff; background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.25); border-radius: 999px; padding: 5px 12px; cursor: pointer; }
+.rig-btn { font: inherit; font-size: .8rem; font-weight: 700; color: #fff; background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.25); border-radius: 999px; cursor: pointer; }
 .rig-btn:hover, .rig-btn:focus-visible { background: rgba(0,0,0,0.65); }
 .rig-btn.on { background: var(--primary-color); border-color: transparent; }
 .phase-image-col.has-rig { padding: 8px 8px 44px; }
@@ -6020,7 +5759,7 @@ body.tab-hidden { padding-bottom: env(safe-area-inset-bottom); }   /* the bar is
 
 /* v28: long instructions fold to two lines on phones — the game stays on screen */
 .desc-fold { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 2px !important; }
-.desc-more { font: inherit; font-size: .85rem; font-weight: 800; color: var(--star-gold); background: none; border: 0; min-height: 36px; padding: 0 10px; cursor: pointer; display: block; margin: 0 auto 6px; }
+.desc-more { font: inherit; font-size: .85rem; font-weight: 800; color: var(--star-gold); background: none; border: 0; padding: 0 10px; cursor: pointer; display: block; margin: 0 auto 6px; }
 .desc-more { min-height: 44px; }
 @media (max-width: 520px) { #warmup-dots { overflow-x: auto; scrollbar-width: none; flex-wrap: nowrap; } #warmup-dots::-webkit-scrollbar { display: none; } .wu2-step { min-width: 44px; flex: 0 0 auto; } }
 html { scroll-padding-bottom: 96px; }
@@ -6038,8 +5777,7 @@ html { scroll-padding-bottom: 96px; }
 .pf-review li { margin: 4px 0; }
 
 /* v29: the "start here" card and quiet secondary buttons */
-.btn.is-next { animation: btnNext 1.3s ease-in-out infinite; }
-@keyframes btnNext { 0%,100% { box-shadow: 0 0 0 3px rgba(255,209,102,.40), 0 10px 22px rgba(0,0,0,.35); } 50% { box-shadow: 0 0 0 7px rgba(255,209,102,.18), 0 14px 30px rgba(0,0,0,.45); } }
+
 @media (prefers-reduced-motion: reduce) { .btn.is-next { animation: none; } }
 .game-card.is-next, .skill-menu-card.is-next { border-color: var(--star-gold) !important; box-shadow: 0 0 0 3px rgba(255,209,102,.35), 0 12px 30px rgba(0,0,0,.4); position: relative; }
 .card-next-tag { position: absolute; top: -10px; inset-inline-start: 12px; background: var(--star-gold); color: #1d2b36; font-weight: 900; font-size: .78rem; padding: 4px 10px; border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,.35); }
@@ -6225,7 +5963,6 @@ button, .btn, a, input, .cu-item, .game-card, .tab-tile { scroll-margin-bottom: 
 .jr-stage .rig-sprite { width: 100%; height: 100%; pointer-events: auto; cursor: pointer; }
 .jr-stage.hop .rig-sprite { animation: jrHop .8s cubic-bezier(.3,.7,.4,1); }
 @keyframes jrHop { 0% { transform: none; } 45% { transform: translateY(-34px) rotate(-8deg); } 100% { transform: none; } }
-.jr-stage.no-rig::after { content: '👇'; position: absolute; bottom: 4px; left: 50%; font-size: 1.6rem; transform: translateX(-50%); animation: jrBob 1.2s ease-in-out infinite; }
 
 /* ---- the big "next step" button ---- */
 .jr-go { position: relative; isolation: isolate; display: flex; align-items: center; gap: 12px; width: 100%; min-height: 70px; padding: 12px 16px;
@@ -6392,3 +6129,560 @@ html.lite .winner-visual::before, html.lite .celebration-icon { animation-iterat
 @media (max-width: 768px) { .winner-controls { gap: 10px; margin: 10px 0 18px; } .winner-controls .btn:not(#next-level-btn) { min-height: 48px; font-size: .95rem; } }
 @media (prefers-reduced-motion: reduce) { .winner-stars i.on { animation: none; transform: none; } }
 @media (min-width: 700px) { .jr-board { max-width: 520px; } .jr-dot { width: 66px; height: 66px; } .jr-step.is-now .jr-dot { width: 78px; height: 78px; } .jr-lbl { font-size: .82rem; } .jr-stage { width: 70px; height: 92px; } }
+
+
+/* =====================================================================
+   v41 — Find the mistake (Performance) on phones: the picture, the question
+   and the three statements fit on ONE screen, so the child never scrolls up
+   and down while the timer runs.
+   ===================================================================== */
+@media (max-width: 760px) {
+  #performance-screen .game-container > h2 { font-size: 1.15rem; margin: 2px 0 0; }
+  #performance-screen .game-container > .description { display: none; }
+  #performance-screen .performance-question { margin: 4px 0 6px; padding: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px 8px; }
+  #performance-screen .performance-question h3 { font-size: .98rem; line-height: 1.35; margin: 0; flex: 1 1 100%; }
+  #performance-screen .performance-question .speak-btn { width: 34px; height: 34px; min-height: 0; font-size: .85rem; }
+  #performance-screen #perf-round-counter { margin: 0 !important; font-size: .85rem !important; }
+  #performance-screen .perf-ref-image { height: min(28vh, 210px) !important; max-width: 230px; margin: 0 auto 4px; }
+  #performance-screen #perf-hud { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 4px 10px; padding: 6px 10px; margin: 0 0 8px; min-height: 0; }
+  #performance-screen #perf-hud .perf-streak { grid-column: 1 / -1; font-size: .8rem; min-height: 0; }
+  #performance-screen #perf-hud .perf-streak:empty { display: none; }
+  #performance-screen #perf-hud .perf-score-display { font-size: .9rem; margin: 0; }
+  #performance-screen #perf-hud .perf-timer-text { font-size: 1rem; margin: 0; grid-column: 3; grid-row: 2; }
+  #performance-screen #perf-hud .perf-timer-bar-wrap { grid-column: 2; grid-row: 2; margin: 0; }
+  #performance-screen .performance-cards { gap: 8px; margin: 0; }
+  #performance-screen .performance-card.text-only { min-height: 0 !important; padding: 8px 10px; display: flex; flex-direction: row; align-items: center; gap: 10px; }
+  #performance-screen .performance-card.text-only .card-content { flex: 1; min-width: 0; padding: 0; text-align: start; }
+  #performance-screen .performance-card .claim-icon { display: none; }
+  #performance-screen .performance-card.text-only p { margin: 0 !important; font-size: .9rem !important; line-height: 1.35 !important; text-align: start; }
+  #performance-screen .performance-card .select-card-btn { flex: 0 0 auto; width: auto; margin: 0; padding: 8px 10px; font-size: .8rem; min-height: 40px; white-space: nowrap; }
+  #performance-screen .game-controls { margin-top: 8px; }
+}
+
+/* v42 — Coach Yang in 3D inside the coach boxes */
+.coach-instruction:has(.has-3d-coach) { display: flex; align-items: center; gap: 12px; }
+.coach-visual.has-3d-coach { flex: 0 0 auto; width: 120px; height: 160px; }
+.coach-visual-small.has-3d-coach { flex: 0 0 auto; width: 74px; height: 100px; }
+.has-3d-coach .rig-sprite { width: 100%; height: 100%; display: block; cursor: pointer; }
+@media (max-width: 760px) { .coach-visual.has-3d-coach { width: 92px; height: 128px; } }
+/* v42 — the two 3D buttons (turn / angles) sit in the top corner, clear of the feet */
+.rig-controls.rig-controls-3d { top: 8px; bottom: auto; inset-inline: auto 8px; flex-direction: column; align-items: stretch; gap: 6px; }
+.rig-controls-3d .rig-btn { min-height: 38px; padding: 6px 12px; font-size: .78rem; }
+
+/* v42 — Error Hunt in 3D */
+.eh-3d { position: relative; width: 100%; }
+.eh-3d-cv { display: block; width: 100%; aspect-ratio: 1 / 1; max-height: min(58vh, 520px); max-width: 100%; margin: 0 auto; touch-action: pan-y; cursor: grab; }
+.eh-3d-cv:active { cursor: grabbing; }
+.eh-3d-hint { position: absolute; inset-inline: 8px; top: 6px; margin: 0; text-align: center; font-size: .8rem; font-weight: 700; color: rgba(255,255,255,.85); pointer-events: none; text-shadow: 0 1px 3px rgba(0,0,0,.6); }
+.eh-3d-parts { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; padding: 8px 6px 10px; }
+.eh-3d-part { font: inherit; font-size: .82rem; font-weight: 700; color: #fff; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.22); border-radius: 999px; padding: 8px 12px; min-height: 40px; cursor: pointer; }
+.eh-3d-part:hover, .eh-3d-part:focus-visible { background: rgba(255,255,255,.18); }
+.eh-3d-part.eh-correct { background: #2a9d8f; border-color: transparent; }
+.eh-board:has(.eh-3d) { aspect-ratio: auto; max-height: none; display: flex; flex-direction: column; }
+.eh-board:has(.eh-3d) .eh-3d-cv { aspect-ratio: 1 / 1.02; max-height: min(52vh, 520px); }
+
+/* v43 — pace for each player (coach settings) */
+.co-pace-players { margin: 4px 0 12px; }
+.co-pace-players summary { cursor: pointer; font-weight: 700; padding: 6px 0; }
+.co-pace-list { display: grid; gap: 6px; }
+.co-pace-row { display: flex; align-items: center; gap: 10px; padding: 6px 10px; border-radius: 12px; background: rgba(255,255,255,.05); }
+.co-pace-row > span:not(.tkd-avatar) { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* v43 — 3D coach in the home welcome card */
+.jr-coach-3d { width: 84px; height: 112px; flex: 0 0 auto; }
+.jr-coach-3d .rig-sprite { width: 100%; height: 100%; display: block; cursor: pointer; }
+
+/* v43 — Korean dojang commands */
+.ko-call { position: absolute; inset-inline: 0; top: 24%; margin: 0 auto; width: max-content; max-width: 90%; z-index: 30; pointer-events: none;
+  display: grid; justify-items: center; gap: 0; padding: 8px 22px 10px; border-radius: 18px;
+  background: rgba(12, 16, 32, .82); border: 2px solid #ffd166; box-shadow: 0 10px 30px rgba(0,0,0,.45);
+  animation: koIn .28s cubic-bezier(.2,1.4,.4,1) both; }
+.ko-call b { font-size: 2.1rem; line-height: 1.1; color: #ffd166; font-weight: 900; letter-spacing: .04em; }
+.ko-call span { font-size: 1.1rem; font-weight: 800; color: #fff; }
+.ko-call small { font-size: .82rem; color: rgba(255,255,255,.75); }
+.ko-call.out { opacity: 0; transform: translateY(-8px); transition: opacity .35s, transform .35s; }
+@keyframes koIn { from { opacity: 0; transform: scale(.6); } to { opacity: 1; transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .ko-call { animation: none; } }
+
+/* v43 — slow-motion replay window in the arenas */
+.kick-replay { position: absolute; top: 10px; inset-inline-start: 10px; width: min(38%, 220px); aspect-ratio: 4 / 5; z-index: 25;
+  border-radius: 16px; overflow: hidden; border: 2px solid #ffd166; background: radial-gradient(ellipse at 50% 30%, rgba(40,60,90,.92), rgba(8,10,22,.95));
+  box-shadow: 0 12px 30px rgba(0,0,0,.5); cursor: pointer; animation: koIn .3s cubic-bezier(.2,1.3,.4,1) both; }
+.kick-replay canvas { width: 100%; height: 100%; display: block; }
+.kick-replay span { position: absolute; inset-inline: 0; top: 6px; text-align: center; font-size: .72rem; font-weight: 800; color: #ffd166; text-shadow: 0 1px 3px #000; }
+.kick-replay.out { opacity: 0; transform: scale(.9); transition: opacity .3s, transform .3s; }
+/* v43 — Error Hunt: compare with the correct form */
+.eh-3d-ghost { font: inherit; font-size: .82rem; font-weight: 800; color: #0b2a1f; background: #7ee0b0; border: 0; border-radius: 999px; padding: 8px 14px; min-height: 40px; cursor: pointer; }
+.eh-3d-ghost:not(.on) { background: rgba(126,224,176,.2); color: #7ee0b0; }
+
+/* ===== v45 ===== */
+.co-pace-row { flex-wrap: wrap; }
+.co-pace-row > span.co-rt { flex: 1 0 100%; white-space: normal; font-size: .82rem; opacity: .92; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding-inline-start: 42px; }
+.co-pace-row > span.co-rt.muted { opacity: .6; }
+.co-pace-row > span.co-rt small { opacity: .7; }
+.co-rt-apply { border: 0; border-radius: 999px; padding: 3px 10px; font: inherit; font-weight: 700; background: #ffd166; color: #2a2140; cursor: pointer; }
+.co-pace-row select[data-leg-pid] { max-width: 110px; }
+.ag-practice { position: absolute; bottom: 10px; inset-inline-start: 50%; transform: translateX(-50%); z-index: 6; display: flex; align-items: center; gap: 8px;
+  padding: 6px 8px 6px 14px; border-radius: 999px; background: rgba(20,16,40,.82); color: #ffe7a8; font-weight: 800; font-size: .86rem;
+  box-shadow: 0 4px 14px rgba(0,0,0,.25); white-space: nowrap; pointer-events: auto; animation: agPracIn .4s ease-out both; }
+[dir="rtl"] .ag-practice { transform: translateX(50%); }
+.ag-practice button { border: 0; border-radius: 999px; padding: 4px 10px; font: inherit; font-size: .8rem; background: rgba(255,255,255,.14); color: #fff; cursor: pointer; }
+@keyframes agPracIn { from { opacity: 0; margin-bottom: -10px; } to { opacity: 1; margin-bottom: 0; } }
+.ag-practice-done .ag-big { font-size: 3rem; }
+@media (max-width: 520px) { .ag-practice { font-size: .74rem; bottom: 6px; } }
+@media (prefers-reduced-motion: reduce) { .ag-practice { animation: none; } }
+
+.ag-practice.in-hud { position: static; transform: none; animation: none; box-shadow: none; padding: 3px 4px 3px 10px; font-size: .78rem; }
+[dir="rtl"] .ag-practice.in-hud { transform: none; }
+.ag-practice.in-hud > span { display: none; }
+
+/* v50 — the 3D lesson's angle panel: every angle of the phase, live, against its target */
+.rig-angles { margin: 6px 0 4px; background: rgba(10,14,30,0.72); border: 1px solid rgba(255,255,255,0.14); border-radius: 14px; padding: 8px 10px; color: #fff; font-size: .82rem; text-align: start; }
+.rig-angles[hidden] { display: none; }
+.rig-angles .ra-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 4px; }
+.rig-angles .ra-head span { font-weight: 800; color: #ffb3a0; }
+.rig-angles .ra-head span.ok { color: #7ee0cf; }
+.rig-angles ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; }
+.rig-angles li { display: grid; grid-template-columns: 1fr auto auto 1.2em; gap: 8px; align-items: baseline; padding: 3px 6px; border-radius: 8px; background: rgba(255,255,255,0.05); }
+.rig-angles li b { font-variant-numeric: tabular-nums; }
+.rig-angles li small { color: #b9c6cf; white-space: nowrap; }
+.rig-angles li i { font-style: normal; font-weight: 900; text-align: center; }
+.rig-angles li.ok i { color: #7ee0cf; }
+.rig-angles li.bad { background: rgba(230,57,70,0.16); }
+.rig-angles li.bad i { color: #ff9f8a; }
+/* v50 — scrub through the kick */
+.rig-scrub { position: absolute; inset-inline: 12px; bottom: 58px; display: flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.4); border-radius: 999px; padding: 4px 12px; }
+.rig-scrub input { flex: 1; accent-color: var(--primary-color); min-height: 28px; }
+.phase-image-col.has-rig { padding-bottom: 96px; }
+@media (max-width: 760px) {
+  .rig-controls-3d .rig-btn { min-height: 32px; padding: 4px 10px; font-size: .72rem; }
+  .rig-controls.rig-controls-3d { gap: 4px; }
+}
+
+
+/* ===== v51 — 4D: the kick through time ===== */
+/* the lesson's 3D column: the character on top, then the time slider, the 4D tools and the
+   play buttons in normal flow (they wrap on a narrow phone instead of covering each other) */
+.phase-image-col.has-rig { flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 6px; padding: 8px 8px 10px; }
+.phase-image-col.has-rig > .rig-scrub,
+.phase-image-col.has-rig > .rig-controls.rig-main,
+.phase-image-col.has-rig > .rig-controls.rig-4d { position: static; inset: auto; }
+.rig-controls.rig-4d { gap: 6px; }
+.rig-controls.rig-4d .rig-btn { min-height: 36px; padding: 5px 12px; font-size: .76rem; }
+.rig-controls.rig-4d .rig-btn.on { background: linear-gradient(135deg, #7b5cff, #ff6b9a); }
+.rig-controls.rig-main .rig-btn { min-height: 42px; }
+/* the impact jolt — the picture jumps a few pixels and settles */
+.tkd-jolt { animation: tkdJolt .26s cubic-bezier(.36,.07,.19,.97) both; }
+.tkd-jolt-strong { --j: 6px; animation: tkdJolt .34s cubic-bezier(.36,.07,.19,.97) both; }
+@keyframes tkdJolt {
+  12% { transform: translate(calc(var(--j, 3px) * -1), 1px) rotate(-.4deg); }
+  30% { transform: translate(var(--j, 3px), -1px) rotate(.3deg); }
+  50% { transform: translate(calc(var(--j, 3px) * -.55), 0); }
+  72% { transform: translate(calc(var(--j, 3px) * .3), 0); }
+  100% { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { .tkd-jolt, .tkd-jolt-strong { animation: none; } }
+@media (max-width: 760px) {
+  .rig-controls.rig-4d .rig-btn { min-height: 34px; padding: 4px 10px; font-size: .72rem; }
+}
+/* the curriculum card: a kick's five phases in one stroboscope picture */
+.cu-media.is-strobe { height: 250px; background: radial-gradient(ellipse at 50% 40%, rgba(60,80,120,.55), rgba(10,14,30,.85)); }
+.cu-media.is-strobe img { max-height: calc(100% - 30px); margin-top: 22px; }
+.cu-strobe-tag { position: absolute; top: 8px; inset-inline-start: 10px; font-size: .74rem; font-weight: 800; color: #ffd166; background: rgba(10,14,30,.72); padding: 3px 10px; border-radius: 999px; }
+/* v51 — the 3D buttons sit in a row ABOVE the character (as a column they covered the kick on
+   phones and in the narrow desktop column); the column is wider and the character bigger */
+.phase-image-col.has-rig > .rig-controls.rig-controls-3d { position: static; inset: auto; order: -1; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; gap: 5px; }
+.phase-image-col.has-rig > .rig-controls-3d .rig-btn { min-height: 32px; padding: 4px 10px; font-size: .74rem; }
+@media (min-width: 761px) {
+  .phase-image-col.has-rig { flex: 0 0 clamp(320px, 44%, 470px); }
+  .phase-image-col.has-rig .phase-rig { height: 340px; }
+}
+@media (max-width: 760px) { .phase-image-col.has-rig .phase-rig { height: 260px; } }
+/* v51 — the picture always fits its box (a tall kick picture used to show only the head) */
+.cu-media img { position: absolute; inset: 6px; width: calc(100% - 12px); height: calc(100% - 12px); max-width: none; max-height: none; object-fit: contain; }
+.cu-media.is-strobe img { inset: 34px 6px 6px; height: calc(100% - 40px); margin: 0; }
+
+/* ===== v53 ===== */
+/* the lesson's Coach Yang line: text and its 🔊 side by side (the button used to drop onto the phase dots) */
+#learning-screen .instruction-bubble { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: nowrap; }
+#learning-screen .instruction-bubble p { margin: 0; }
+#learning-screen .instruction-bubble .speak-btn { margin: 0; flex: 0 0 auto; }
+#learning-screen .learning-character-display { margin-bottom: 12px; }
+/* the 3D lesson character can be turned with the keyboard — show where the focus is */
+.phase-rig:focus-visible { outline: 3px solid var(--primary-color); outline-offset: -3px; border-radius: 14px; }
+
+/* v53 — Form Control in 3D: the goal (faint) and the moving character are one canvas under the
+   joints; the picture characters step aside */
+.character-stage .fc-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; display: block; }
+.character-stage.fc-3d #form-character, .character-stage.fc-3d #reference-character { display: none; }
+.character-stage.fc-3d::after { display: none; }
+/* the standing-foot dial on the floor */
+.fc-dial { fill: rgba(0, 245, 212, 0.07); stroke: rgba(0, 245, 212, 0.55); stroke-width: 1.6; stroke-dasharray: 3 3; vector-effect: non-scaling-stroke; }
+.fc-dial-goal { stroke: rgba(42, 157, 143, 0.95); stroke-width: 2.4; stroke-dasharray: 4 3; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.fc-dial-heel { stroke: var(--danger-color); stroke-width: 3; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.character-stage .pivot-angle-badge { transform: translate(-50%, 0); white-space: nowrap; z-index: 104; }
+.joint-hint { border-left: 0; border-inline-start: 4px solid var(--danger-color); }
+/* over the 3D character the skeleton is a light drawing: no head ring, small joints, thin bones */
+.form-skeleton-svg.fc3d .skel-head-joint, .form-skeleton-svg.fc3d .skel-head-visor,
+.form-skeleton-svg.fc3d #skel-joint-neck, .form-skeleton-svg.fc3d #skel-joint-shoulder-l, .form-skeleton-svg.fc3d #skel-joint-shoulder-r { display: none; }
+.form-skeleton-svg.fc3d .skel-bone { stroke-width: 2.6; opacity: .9; filter: drop-shadow(0 0 3px var(--bone-color, rgba(230, 57, 70, 0.6))); }
+.form-skeleton-svg.fc3d .skel-bone-core { stroke-width: 3; }
+.form-skeleton-svg.fc3d .skel-joint { stroke-width: 2; }
+.form-skeleton-svg.fc3d .skel-ghost-bone { stroke: rgba(0, 245, 212, 0.45); }
+/* smaller touch points so the character shows between them (the invisible ring keeps them easy to grab) */
+.character-stage.fc-3d .control-point { width: clamp(30px, 7.2cqw, 44px) !important; height: clamp(30px, 7.2cqw, 44px) !important; font-size: clamp(0.85rem, 3cqw, 1.2rem); }
+.character-stage.fc-3d .control-point::before { inset: -9px; }
+.character-stage.fc-3d .target-zone { width: clamp(24px, 6.4cqw, 40px); height: clamp(24px, 6.4cqw, 40px); }
+/* the emoji on each point says what it moves — the old inner dot was painted over it */
+.character-stage .control-point::after { display: none; }
+.fc-dial-range { fill: rgba(42, 157, 143, 0.38); stroke: rgba(42, 157, 143, 0.9); stroke-width: 1.2; vector-effect: non-scaling-stroke; }
+/* the "🔒 Locked!" pop sized to the stage (on a phone it covered the whole foot dial) */
+.character-stage .comic-badge { font-size: clamp(0.85rem, 3.6cqw, 1.5rem); padding: 0.3em 0.9em; border-width: 3px; white-space: nowrap; }
+/* toasts are read-only: a finger dragging a joint under one goes straight through to the joint */
+.flash-message { pointer-events: none; }
+/* boy / girl side by side on a phone too (stacked they pushed Coach Yang's steps a screen down) */
+@media (max-width: 760px) { .character-selector-form label { width: auto; flex: 1 1 0; max-width: 150px; padding: 8px 10px; } }
+.char-radio-label:has(input:checked) { border-color: var(--primary-color); }
+/* phone: the pinned buttons in two rows (Check · then Reset / Show me / Skeleton) — three rows hid the stars */
+@media (max-width: 1024px) {
+  body.has-tabbar #form-control-screen .game-controls { display: flex; flex-wrap: wrap; }
+  body.has-tabbar #form-control-screen .game-controls .btn-success { flex: 1 1 100%; }
+  body.has-tabbar #form-control-screen .game-controls .btn:not(.btn-success) { flex: 1 1 0; min-width: 0; min-height: 42px; padding: 6px; font-size: .8rem; gap: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+}
+#toggle-skeleton-btn[hidden] { display: none !important; }
+
+/* v54 — Puzzle: the places are numbered 1 → 5 (a round badge, always there), the pictures
+   are big enough to see the leg, and the six pieces fit one row on a computer */
+#puzzle-screen .slot-label { visibility: visible !important; display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; border-radius: 50%; margin: 0 0 8px; padding: 0; letter-spacing: 0; text-transform: none;
+  font-size: 1.05rem; font-weight: 900; color: #10142a; background: var(--gold-color, #ffd166); box-shadow: 0 2px 8px rgba(0,0,0,.35); flex: 0 0 auto; }
+#puzzle-screen .puzzle-slot.slot-correct .slot-label { background: var(--success-color); color: #fff; }
+#puzzle-screen .puzzle-slot.slot-wrong .slot-label { background: var(--danger-color); color: #fff; }
+#puzzle-screen .puzzle-slot { padding: 12px 10px; min-height: 200px; justify-content: flex-start; }
+#puzzle-screen .puzzle-slot:not(.filled) .slot-content { display: flex; align-items: center; justify-content: center; }
+#puzzle-screen .puzzle-slot:not(.filled) .slot-content::before { content: '?'; font-size: 2.4rem; font-weight: 900; color: rgba(255,255,255,.18); }
+#puzzle-screen .puzzle-slot .slot-content { height: auto; min-height: 120px; }
+#puzzle-screen .puzzle-slot.filled .piece-image-container { height: 120px; margin-bottom: 6px; }
+#puzzle-screen .puzzle-pieces { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+#puzzle-screen .puzzle-piece.integrated-piece { padding: 10px; min-height: 0; }
+#puzzle-screen .piece-image-container { height: 140px; }
+#puzzle-screen .piece-label { margin-top: 8px; font-weight: 700; text-align: center; line-height: 1.35; }
+@media (max-width: 768px) {
+  #puzzle-screen .puzzle-board { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  #puzzle-screen .puzzle-slot { min-height: 0; padding: 8px 6px; }
+  #puzzle-screen .puzzle-slot .slot-content { min-height: 96px; }
+  #puzzle-screen .puzzle-slot.filled .piece-image-container { height: 92px; }
+  #puzzle-screen .puzzle-slot .piece-label { font-size: .78rem; }
+  #puzzle-screen .puzzle-pieces { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  #puzzle-screen .piece-image-container { height: 104px; }
+  #puzzle-screen .piece-label { font-size: .8rem; }
+  #puzzle-screen .puzzle-pieces-container { padding: 12px 10px; margin-top: 14px; }
+}
+#puzzle-screen .puzzle-slot.filled .piece-label { color: var(--text-white, #fff); font-size: .85rem; }
+/* the five places stay in ONE row 1 → 5 on every screen, so on a phone the board, the
+   phase card and the pieces fit on about one screen (no scrolling up and down for each piece) */
+@media (max-width: 1200px) { #puzzle-screen .puzzle-board { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; } }
+@media (max-width: 560px) {
+  #puzzle-screen .puzzle-board { gap: 5px; margin-bottom: 12px; }
+  #puzzle-screen .puzzle-container { margin: 12px auto; }
+  #puzzle-screen .puzzle-slot { padding: 6px 2px; border-radius: 10px; }
+  #puzzle-screen .slot-label { width: 26px; height: 26px; font-size: .9rem; margin-bottom: 4px; }
+  #puzzle-screen .puzzle-slot .slot-content { min-height: 70px; }
+  #puzzle-screen .puzzle-slot:not(.filled) .slot-content::before { font-size: 1.6rem; }
+  #puzzle-screen .puzzle-slot.filled .piece-image-container { height: 70px; margin: 0; background: transparent; }
+  #puzzle-screen .puzzle-slot .piece-label { display: none; }
+  #puzzle-screen .piece-image-container { height: 92px; }
+  #puzzle-screen .step-description-box.visible { padding: 10px 12px; margin-top: 8px; }
+  #puzzle-screen .step-desc-inner { gap: 10px; }
+  #puzzle-screen .step-desc-img { flex-basis: 52px; height: 72px; }
+  #puzzle-screen .step-desc-text h4 { font-size: 1rem; margin-bottom: 4px; }
+  #puzzle-screen .step-desc-text p { font-size: .84rem; line-height: 1.45; }
+  #puzzle-screen .puzzle-pieces-container h3 { font-size: 1rem; margin-bottom: 10px; }
+}
+
+/* v54 — Performance: hovering a statement used to light the ANSWER green and the others red
+   (on a phone the last tap kept that "hover"), giving the round away — now every statement
+   lights the same until the child chooses */
+.performance-card[data-correct]:not(.selected):hover { border-color: var(--primary-color); box-shadow: 0 0 22px rgba(255, 107, 53, 0.35); }
+@media (hover: none) { .performance-card[data-correct]:not(.selected):hover { border-color: transparent; box-shadow: none; } }
+
+/* ===================================================================== */
+/* v55 — Strike Challenge on the live fighter                             */
+/* ===================================================================== */
+.act-cv { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; display: block; touch-action: manipulation; }
+.act-tap-hint { margin: 0; text-align: center; font-weight: 700; color: var(--text-gray); line-height: 1.5; }
+.act-timing { align-items: center; }
+.act-hint { left: auto; right: 3%; bottom: 44%; transform: none; animation-name: actHintBounce2; }   /* the fighter always stands on the left of the stage */
+@keyframes actHintBounce2 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.act-hint span { font-size: 0.74rem; max-width: 9.5em; white-space: normal; text-align: center; }
+.act-dial-wrap { position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.act-dial-target { font-size: 0.85rem; font-weight: 800; color: #ffd166; }
+.act-dial-away { font-size: 0.78rem; font-weight: 700; color: #b8f5ec; }
+.act-dial-zone { fill: none; stroke: var(--success-color); stroke-width: 10; stroke-linecap: round; opacity: 0.85; }
+.act-tick-180 { fill: #b8f5ec; font-weight: 800; }
+.act-summary { width: 100%; display: flex; flex-direction: column; gap: 10px; }
+.act-summary h3 { margin: 0; color: var(--warning-color); text-align: center; }
+.act-sum-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.act-sum-list li { padding: 8px 12px; border-radius: 12px; background: rgba(0,0,0,.25); border: 1px solid var(--border-color); font-size: 0.9rem; line-height: 1.45; }
+.act-sum-list li.ok b { color: #b8f5ec; }
+.act-sum-list li.bad b { color: #ffb3b9; }
+.act-sum-tip { margin: 0; padding: 10px 12px; border-radius: 12px; background: rgba(255, 209, 102, .12); border: 1px solid rgba(255, 209, 102, .4); line-height: 1.5; }
+.act-again { align-self: center; min-width: 180px; justify-content: center; }
+@media (prefers-reduced-motion: reduce) { .act-hint { animation: none; } }
+
+/* v55 — the Test: room for the answers on a phone, and a review card when a test is not passed */
+@media (max-width: 600px) {
+  /* picture beside the question, so all four answers fit on the screen */
+  #quiz-screen .quiz-question { display: grid; grid-template-columns: 1fr auto; grid-template-areas: "q img" "say img"; align-items: center; gap: 6px 12px; padding: 12px; margin: 10px 0; text-align: start; }
+  #quiz-screen .quiz-question .quiz-skill-badge { grid-column: 1 / -1; }
+  #quiz-screen .quiz-question h3 { grid-area: q; font-size: 1.02rem; margin: 0; }
+  #quiz-screen .quiz-question .speak-btn { grid-area: say; justify-self: start; margin: 0; }
+  #quiz-screen .question-image { grid-area: img; width: min(108px, 30vw); margin: 0; }
+  #quiz-screen .quiz-header { margin-bottom: 0; }
+  #quiz-screen .quiz-options { gap: 8px; }
+  #quiz-screen .quiz-option { padding: 10px 12px; min-height: 52px; }
+}
+#quiz-screen .quiz-container.quiz-done .quiz-question,
+#quiz-screen .quiz-container.quiz-done .quiz-options,
+#quiz-screen .quiz-container.quiz-done .quiz-feedback,
+#quiz-screen .quiz-container.quiz-done .quiz-controls #next-question-btn { display: none; }
+.quiz-result-card { margin-top: var(--space-md); padding: var(--space-lg); border-radius: var(--radius-large); border: 2px solid var(--warning-color); background: rgba(0, 0, 0, .35); }
+.quiz-result-card h3 { margin: 0 0 6px; color: var(--warning-color); }
+.quiz-result-card p { margin: 0 0 10px; opacity: .9; }
+.quiz-review { margin: 0 0 12px; padding-inline-start: 1.4em; display: flex; flex-direction: column; gap: 8px; }
+.quiz-review li span { display: block; font-weight: 600; }
+.quiz-review li b { color: #b8f5ec; }
+.quiz-result-btns { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+
+/* v55 — Star Shop: belt note, celebration / frame swatches, avatar frames */
+.shop-belt-note { margin: 4px 0 10px; padding: 8px 12px; border-radius: 12px; background: rgba(255, 209, 102, .12); border: 1px solid rgba(255, 209, 102, .45); font-size: .88rem; line-height: 1.5; }
+.shop-swatch.shop-swatch-party { width: auto; min-width: 54px; height: 30px; border-radius: 10px; background: rgba(0,0,0,.25); display: inline-flex; align-items: center; justify-content: center; font-size: 1.05rem; letter-spacing: 1px; border: none; }
+.shop-swatch.shop-swatch-frame { background: transparent; border: 4px solid var(--c); }
+.shop-swatch.shop-swatch-frame.rainbow { border: 4px solid transparent; background: linear-gradient(#1c2b36, #1c2b36) padding-box, conic-gradient(#e63946, #ffd166, #2a9d8f, #3d7dff, #8e5cd9, #e63946) border-box; }
+.tkd-avatar.tkd-framed { box-shadow: 0 0 0 3px var(--frame), 0 0 10px color-mix(in srgb, var(--frame) 60%, transparent); }
+.tkd-avatar.tkd-frame-rainbow { box-shadow: 0 0 0 3px transparent; background: conic-gradient(#e63946, #ffd166, #2a9d8f, #3d7dff, #8e5cd9, #e63946); padding: 3px; }
+.tkd-avatar.tkd-frame-rainbow img { border-radius: 50%; background: #16303b; }
+.jr-tr-gift { margin: 6px 0; padding: 6px 10px; border-radius: 12px; background: rgba(255, 209, 102, .15); font-weight: 700; }
+
+/* v55 — "Train for real" (kick in the room, Kihap counting, mirror) + the 20-minute break */
+.rp-modal { position: fixed; inset: 0; z-index: 4000; background: rgba(4, 10, 18, .82); display: grid; place-items: center; padding: 12px; overflow-y: auto; }
+.rp-card { position: relative; width: min(560px, 100%); padding: 18px 16px; border-radius: 22px; border: 2px solid var(--primary-color); background: linear-gradient(160deg, #1f3b4a, #13232e); display: flex; flex-direction: column; gap: 10px; align-items: center; text-align: center; }
+.rp-card h3 { margin: 0 28px; color: #ffd166; }
+.rp-sub { margin: 0; line-height: 1.6; }
+.rp-x { position: absolute; top: 10px; inset-inline-end: 10px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(255,255,255,.1); color: #fff; font-size: 1.1rem; cursor: pointer; }
+.rp-stage { width: 100%; display: flex; gap: 8px; align-items: stretch; }
+.rp-cv { flex: 1; min-width: 0; height: min(42vh, 280px); border-radius: 16px; background: radial-gradient(ellipse at 50% 0%, rgba(38,70,83,.6), rgba(3,7,18,.9)); }
+.rp-cam { flex: 1; min-width: 0; height: min(42vh, 280px); object-fit: cover; border-radius: 16px; transform: scaleX(-1); background: #000; }
+.rp-cam[hidden] { display: none; }
+.rp-count { display: flex; align-items: baseline; gap: 6px; justify-content: center; flex-wrap: wrap; }
+.rp-count b { font-size: 3.2rem; line-height: 1; color: #fff; }
+.rp-count span { font-size: 1.4rem; opacity: .8; }
+.rp-count small { width: 100%; opacity: .85; font-weight: 700; }
+.rp-meter { width: 70%; height: 8px; border-radius: 99px; background: rgba(255,255,255,.12); overflow: hidden; }
+.rp-meter i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #2a9d8f, #ffd166, #e63946); transition: width .08s linear; }
+.rp-btns { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.rp-btns .btn.on { box-shadow: 0 0 0 2px #ffd166 inset; }
+.rp-kick { font-size: 1.15rem; min-width: 200px; justify-content: center; }
+.rp-note { margin: 0; font-size: .78rem; opacity: .75; }
+.rp-open { display: block; margin: 12px auto; }
+.break-card { text-align: center; }
+.break-emoji { font-size: 2.6rem; }
+
+/* v55 — lesson card: one short sentence first (young kids), the full lesson one tap away */
+.phase-short { padding: 12px 14px; border-radius: 14px; background: rgba(255,255,255,.07); margin-bottom: 10px; }
+.phase-short p { margin: 0; font-size: 1.25rem; font-weight: 800; line-height: 1.6; }
+.phase-info-col:not(.is-short) .phase-short { display: none; }
+.phase-info-col.is-short .phase-focus-box, .phase-info-col.is-short .phase-tips-list { display: none; }
+.phase-more-btn { margin-top: 8px; min-height: 40px; padding: 6px 14px; border-radius: 99px; border: 1px dashed rgba(255,255,255,.35); background: transparent; color: #ffd166; font: inherit; font-weight: 800; cursor: pointer; }
+
+/* v55 — the hero page in three tabs */
+.pf-tabs { display: flex; gap: 6px; margin: 12px 0 4px; padding: 4px; border-radius: 16px; background: rgba(0,0,0,.25); position: sticky; top: 0; z-index: 5; }
+.pf-tabs button { flex: 1; min-height: 44px; border: 0; border-radius: 12px; background: transparent; color: var(--text-white); font: inherit; font-weight: 800; cursor: pointer; }
+.pf-tabs button.on { background: var(--primary-color); box-shadow: 0 4px 14px rgba(255, 107, 53, .35); }
+.pf-troph-row { display: flex; flex-wrap: wrap; gap: 8px; font-size: 1.8rem; margin: 6px 0 10px; }
+.pf-troph-row small { font-size: .9rem; opacity: .8; }
+/* v55 — fighter names for kids who can't type yet */
+.ss-names { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; justify-content: center; margin: -2px 0 6px; }
+.ss-names small { width: 100%; text-align: center; opacity: .8; font-size: .8rem; }
+.ss-name-chip { min-height: 38px; padding: 4px 12px; border-radius: 99px; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+.ss-name-chip:hover, .ss-name-chip:focus-visible { border-color: var(--primary-color); background: rgba(255,107,53,.18); }
+.game-cards-bonus.bonus-folded { display: none; }
+.bonus-unfold { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 10px; width: min(100%, 720px); margin: 10px auto 18px; padding: 14px 18px; border-radius: 18px; border: 2px dashed rgba(255, 209, 102, .5); background: rgba(255, 209, 102, .08); color: #fff; font: inherit; font-weight: 800; font-size: 1.05rem; cursor: pointer; }
+.bonus-unfold small { font-weight: 600; opacity: .85; font-size: .85rem; }
+.bonus-unfold b { color: #ffd166; }
+.bonus-unfold:hover, .bonus-unfold:focus-visible { background: rgba(255, 209, 102, .16); }
+/* v55 — lesson viewer: advanced tools folded away until asked for */
+.phase-rig-host:not(.rig-adv-open) .rig-adv, :not(.rig-adv-open) > .rig-controls .rig-adv, :not(.rig-adv-open) > .rig-adv { display: none !important; }
+.rig-btn.rig-more { border-style: dashed; }
+
+/* v55 — guided cool-down */
+.cd-card { max-width: 560px; margin: 0 auto; padding: 18px; border-radius: var(--radius-large); border: 2px solid var(--border-color); background: linear-gradient(145deg, rgba(38,70,83,.9), rgba(26,53,66,.95)); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.cd-card h3 { margin: 4px 0 0; color: var(--secondary-color); }
+.cd-card p { margin: 0; line-height: 1.6; }
+.cd-steps { display: flex; gap: 8px; font-size: 1.3rem; }
+.cd-steps span { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: rgba(0,0,0,.25); border: 2px solid transparent; opacity: .55; }
+.cd-steps span.on { opacity: 1; border-color: var(--primary-color); }
+.cd-steps span.done { opacity: 1; background: rgba(42,157,143,.35); }
+.cd-count { opacity: .8; }
+.cd-media { width: min(300px, 80vw); aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; background: rgba(0,0,0,.25); display: grid; place-items: center; }
+.cd-video { width: 100%; height: 100%; object-fit: cover; }
+.cd-emoji { font-size: 4.5rem; }
+.cd-timer { --p: 0; width: 92px; height: 92px; border-radius: 50%; display: grid; place-items: center; align-content: center; background: radial-gradient(closest-side, #183342 79%, transparent 80% 100%), conic-gradient(var(--primary-color) calc(var(--p) * 360deg), rgba(255,255,255,.12) 0); }
+.cd-timer b { font-size: 1.9rem; line-height: 1; }
+.cd-timer small { font-size: .75rem; opacity: .8; }
+.cd-btns { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.cd-breathe { position: relative; width: 100%; height: 100%; display: grid; place-items: center; }
+.cd-breathe-c { width: 40%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #b8f5ec, #2a9d8f); box-shadow: 0 0 30px rgba(42,157,143,.6); animation: cdBreathe 8s ease-in-out infinite; }
+.cd-breathe-t { position: absolute; bottom: 10px; font-size: 1.1rem; }
+.cd-breathe-t i { font-style: normal; animation: cdIn 8s steps(1) infinite; }
+.cd-breathe-t i.out { animation-name: cdOut; }
+@keyframes cdBreathe { 0%, 100% { transform: scale(.75); } 50% { transform: scale(1.6); } }
+@keyframes cdIn { 0% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes cdOut { 0% { opacity: 0; } 50% { opacity: 1; } }
+.cd-card.paused .cd-breathe-c, .cd-card.paused .cd-breathe-t i { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .cd-breathe-c { animation-duration: 16s; } }
+.cd-breathe-t { left: 0; right: 0; height: 1.6em; }
+.cd-breathe-t i { position: absolute; left: 50%; transform: translateX(-50%); white-space: nowrap; }
+/* v55 — quick / full warm-up switch */
+.wu2-quick { margin-inline-start: 8px; min-height: 36px; padding: 4px 12px; border-radius: 99px; border: 1px solid rgba(255,255,255,.3); background: rgba(255,255,255,.08); color: #fff; font: inherit; font-size: .85rem; font-weight: 800; cursor: pointer; }
+.wu2-quick[aria-pressed="true"] { border-color: var(--warning-color); }
+
+/* v55 — game screens on a phone: the title, how-to and HUD take less room, so the game itself
+   starts higher up the screen (arena games + the Strike Challenge + Mistake Hunter) */
+@media (max-width: 600px) {
+  .arena-screen .game-container > h2, #action-screen .game-container > h2, #error-hunt-screen .game-container > h2 { font-size: 1.3rem; margin-bottom: 4px; }
+  .arena-screen .description, #action-screen .description { margin: 2px 0 4px; font-size: .92rem; }
+  .arena-screen .eh-hud, #action-screen .eh-hud { gap: 6px; margin: 6px 0 8px; row-gap: 6px; }
+  .arena-screen .eh-chip, #action-screen .eh-chip { padding: 4px 10px; font-size: .8rem; }
+  .arena-screen .tkd-diff button, #action-screen .tkd-diff button { padding: 4px 9px; font-size: .78rem; min-height: 40px; }
+}
+/* v55 — puzzle solved: the slots flash in order like a flip-book */
+.puzzle-slot.pz-play { transform: scale(1.12); box-shadow: 0 0 0 3px #ffd166, 0 0 24px rgba(255, 209, 102, .7); z-index: 2; transition: transform .18s ease, box-shadow .18s ease; }
+@media (prefers-reduced-motion: reduce) { .puzzle-slot.pz-play { transform: none; } }
+.report-share { display: block; margin: 12px auto 18px; }
+.hub-backup { display: block; width: 100%; margin: 8px 0; padding: 10px 14px; border-radius: 14px; border: 1px dashed rgba(184,245,236,.5); background: rgba(42,157,143,.12); color: #e6fffa; font: inherit; font-weight: 700; cursor: pointer; }
+
+/* v55 — lesson video captions (WebVTT): big, rounded, readable on a phone */
+#learning-video::cue, .cu-video::cue {
+  font-family: Cairo, "Noto Sans Arabic", Roboto, system-ui, sans-serif;
+  font-size: 1.05em; line-height: 1.45; font-weight: 700;
+  color: #fff; background: rgba(12, 18, 28, .78);
+}
+#captions-btn.is-off { opacity: .6; text-decoration: line-through; }
+
+/* v55 — 🔊 on each lesson step (sits next to the step title, not floating over it) */
+.phase-card-header .phase-say {
+  position: static; flex: 0 0 auto; width: 40px; height: 40px; min-width: 40px;
+  font-size: 1.1rem; background: rgba(255,255,255,.14); margin-inline: 8px auto;
+}
+.phase-card-header .phase-title { margin: 0; }
+@media (max-width: 480px) {
+  .phase-card-header { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+  .phase-card-header .phase-title { flex: 1 1 100%; }
+  .phase-card-header .phase-say { margin-inline: 0 10px; }
+}
+
+/* v55 — coach page */
+.co-acts .co-act-l { display: none; }
+.co-pin-why { max-width: 340px; margin: 4px auto 8px; padding: 8px 12px; border-radius: 12px; background: rgba(255,107,53,.16); border: 1px solid rgba(255,107,53,.45); font-weight: 700; }
+.co-pin-what { list-style: none; max-width: 340px; margin: 0 auto 12px; padding: 0; display: grid; gap: 6px; text-align: start; color: var(--tkd-ink-2); font-size: .9rem; }
+.co-pin-what li { background: rgba(255,255,255,.05); border-radius: 10px; padding: 6px 10px; }
+.co-autosave { color: #8fe3c6; font-size: .88rem; margin: 6px 0 10px; }
+.co-data { margin: 12px 0; padding: 10px 14px; border-radius: 14px; background: rgba(255,255,255,.05); border: 1px solid var(--tkd-line); }
+.co-data h3 { margin: 0 0 8px; font-size: 1rem; }
+.co-data.co-flash { animation: coFlash 1.6s ease 2; }
+@keyframes coFlash { 50% { box-shadow: 0 0 0 4px rgba(255,107,53,.75); } }
+.co-file { position: relative; cursor: pointer; }
+/* phones: every player becomes a card — the action buttons are never hidden off-screen */
+@media (max-width: 640px) {
+  .co-table thead { display: none; }
+  .co-table, .co-table tbody { display: block; }
+  .co-table tr { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px 8px; padding: 10px 12px; margin-bottom: 10px; border: 1px solid var(--tkd-line); border-radius: 14px; background: rgba(255,255,255,.04); }
+  .co-table td { display: block; padding: 0; border: 0; white-space: normal; font-size: .9rem; }
+  .co-table td[data-l]::before { content: attr(data-l); display: block; margin-bottom: 2px; color: var(--tkd-ink-3); font-size: .72rem; font-weight: 600; }
+  .co-table td.co-who { grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; font-size: 1rem; }
+  .co-table td.co-acts { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+  .co-acts button { width: auto; height: auto; min-height: 40px; padding: 6px 10px; display: inline-flex; align-items: center; gap: 4px; font-size: .85rem; }
+  .co-acts .co-act-l { display: inline; }
+  .db-table-wrap:has(.co-table) { overflow: visible; }
+}
+
+/* =====================================================================
+   v56 — the online club
+   ===================================================================== */
+.club-status { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 12px; margin: 0 0 10px; padding: 8px 12px; border-radius: 12px; background: rgba(42,157,143,.14); border: 1px solid rgba(42,157,143,.4); font-size: .9rem; }
+.club-status small { color: var(--tkd-ink-3); }
+.club-status.club-offline, .club-status.club-connecting { background: rgba(233,196,106,.14); border-color: rgba(233,196,106,.45); }
+.club-status.club-error { background: rgba(230,57,70,.14); border-color: rgba(230,57,70,.45); }
+.club-setup { display: grid; gap: 12px; }
+.club-box { padding: 12px 14px; border-radius: 14px; background: rgba(255,255,255,.05); border: 1px solid var(--tkd-line); display: grid; gap: 8px; justify-items: start; }
+.club-box h3 { margin: 0; font-size: 1rem; }
+.club-box .player-name-input { width: 100%; max-width: 320px; }
+.club-code-in { text-transform: uppercase; letter-spacing: .3em; font-weight: 800; text-align: center; }
+.club-code-big { font: 900 2rem/1.2 ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; letter-spacing: .2em; padding: 8px 16px; border-radius: 12px; background: #0e1720; color: #ffd166; border: 2px dashed rgba(255,209,102,.5); justify-self: center; text-align: center; }
+.club-code-secret { font-size: 1.35rem; color: #b8f5ec; border-color: rgba(184,245,236,.5); }
+.club-created { text-align: center; display: grid; gap: 8px; }
+.club-msg { min-height: 1.2em; margin: 0; color: #8fe3c6; }
+.club-msg.bad { color: #ff9b8f; }
+.club-counts { display: flex; flex-wrap: wrap; gap: 6px; }
+.club-counts span { background: rgba(255,255,255,.07); border-radius: 999px; padding: 4px 10px; font-size: .85rem; }
+.club-local, .club-all { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; width: 100%; }
+.club-local li, .club-all li { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.club-local li > span, .club-all li > span { flex: 1 1 auto; }
+.club-hint { margin-top: 10px; padding: 8px 12px; border-radius: 12px; background: rgba(69,123,157,.18); font-size: .88rem; }
+.btn.is-busy { opacity: .6; pointer-events: none; }
+/* the heroes wall */
+.club-wall-sub { margin: 0 0 8px; }
+.club-wall { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+.club-hero-card { position: relative; display: grid; justify-items: center; gap: 4px; padding: 12px 8px 10px; border-radius: 16px; border: 1px solid var(--tkd-line); background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.02)); color: inherit; cursor: pointer; font: inherit; text-align: center; }
+.club-hero-card:hover, .club-hero-card:focus-visible { border-color: var(--primary-color); transform: translateY(-1px); }
+.club-hero-card.me { border-color: #ffd166; box-shadow: 0 0 0 2px rgba(255,209,102,.35); }
+.club-hero-card .tkd-avatar { width: 64px; height: 64px; }
+.club-hero-card b { font-size: 1rem; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.club-hero-card small { color: var(--tkd-ink-2); font-size: .78rem; }
+.chc-belt { width: 70%; height: 7px; border-radius: 4px; background: var(--belt); box-shadow: inset 0 0 0 1px var(--belt-2); }
+.chc-here { position: absolute; top: 6px; inset-inline-start: 6px; font-size: .62rem; padding: 1px 6px; border-radius: 999px; background: rgba(42,157,143,.35); }
+.lg-row.remote { cursor: pointer; }
+/* a club hero's card */
+.club-hero { max-width: 440px; position: relative; text-align: start; }
+.club-hero .rp-x { position: absolute; top: 8px; inset-inline-end: 8px; }
+.ch-top { display: flex; align-items: center; gap: 12px; }
+.ch-top .tkd-avatar { width: 76px; height: 76px; flex: 0 0 auto; }
+.ch-top h2 { margin: 0 0 4px; }
+.ch-top p { margin: 2px 0; color: var(--tkd-ink-2); display: flex; align-items: center; gap: 6px; }
+.ch-belt { display: inline-block; width: 34px; height: 8px; border-radius: 4px; background: var(--belt); box-shadow: inset 0 0 0 1px var(--belt-2); }
+.ch-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0; }
+.ch-stats div { background: rgba(255,255,255,.06); border-radius: 12px; padding: 8px; text-align: center; display: grid; }
+.ch-stats b { font-size: 1.15rem; }
+.ch-stats small { color: var(--tkd-ink-3); font-size: .72rem; }
+.club-hero h3 { margin: 10px 0 6px; font-size: 1rem; }
+.ch-kicks { display: grid; gap: 6px; }
+.ch-kick { display: grid; grid-template-columns: 7.5em 1fr 3em; align-items: center; gap: 8px; font-size: .88rem; }
+.ch-bar { height: 8px; border-radius: 4px; background: rgba(255,255,255,.12); overflow: hidden; }
+.ch-bar i { display: block; height: 100%; background: #2a9d8f; border-radius: 4px; }
+.ch-medals { display: flex; flex-wrap: wrap; gap: 6px; }
+.ch-medal { display: inline-flex; align-items: center; gap: 2px; padding: 4px 8px; border-radius: 999px; background: rgba(255,255,255,.07); font-size: 1rem; }
+.ch-medal i { font-style: normal; font-size: .72rem; color: var(--tkd-ink-2); margin-inline-start: 4px; }
+.ch-medal.t3 { background: rgba(233,196,106,.22); }
+.ch-foot { color: var(--tkd-ink-3); font-size: .78rem; margin: 10px 0 0; }
+@media (max-width: 480px) { .club-wall { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ch-kick { grid-template-columns: 6.5em 1fr 2.8em; } }
+
+/* v56 — phones turned sideways (short screens): a slim tab bar on the side edge, smaller titles,
+   so the game itself gets the height instead of the frame around it */
+@media (orientation: landscape) and (max-height: 500px) {
+  body.has-tabbar { padding-bottom: 0; padding-inline-end: calc(76px + env(safe-area-inset-right)); }
+  .tabbar { inset-inline: auto 0; inset-block: 0; width: 72px; bottom: 0; top: 0; transform: none !important; border-radius: 0;
+    grid-template-columns: 1fr; grid-auto-rows: 1fr; padding: max(6px, env(safe-area-inset-top)) 6px; border-top: 0;
+    border-inline-start: 1px solid rgba(255,255,255,0.12); box-shadow: -8px 0 24px rgba(0,0,0,0.35); }
+  [dir="rtl"] .tabbar { transform: none !important; }
+  .tab { min-height: 0; padding: 4px 2px; border-radius: 12px; }
+  .tab-ico { font-size: 1.25rem; }
+  .tab-lbl { font-size: .66rem; }
+  .screen > h2, .game-container > h2 { font-size: 1.25rem !important; margin: 2px 0 4px !important; }
+  .screen > h2::after, .game-container > h2::after { width: 44px; height: 3px; margin-top: 4px; }
+  .screen .description { font-size: .9rem; margin: 2px auto 6px; }
+  .say-fab { width: 38px; height: 38px; min-width: 38px; font-size: 1rem; }
+  .game-container { padding-top: 8px; }
+  .tab-sheet-card { max-height: 92vh; overflow-y: auto; }
+}
+/* the "practice round · Skip" tag of the arena games: a real, thumb-sized button */
+.ag-practice button { min-height: 40px; padding-inline: 14px; }

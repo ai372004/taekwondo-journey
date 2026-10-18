@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="description" content="Learn Taekwondo Ap Chagi through interactive games.">
+  <meta name="description" content="Learn real taekwondo kicks, belts and poomsae with games, a weekly league and challenges with friends. Arabic &amp; English, works offline.">
   <meta name="theme-color" content="#ff6b35">
   <!-- Share preview: the link is public (GitHub Pages), so a chat/social
        card needs its own tags — the plain <title>/description above don't
@@ -42,11 +42,11 @@
   <div id="loading-screen" class="loading-screen">
     <div class="loading-inner">
       <div class="loading-logo">🥋</div>
-      <h2 class="loading-title">Taekwondo Journey</h2>
+      <h2 class="loading-title">Taekwondo Journey <small lang="ar" dir="rtl" style="display:block;font-size:.6em;opacity:.8;margin-top:4px">رحلة التايكوندو</small></h2>
       <div class="loading-bar-wrap">
         <div class="loading-bar-fill" id="loading-bar"></div>
       </div>
-      <p class="loading-text" id="loading-text">Loading...</p>
+      <p class="loading-text" id="loading-text">بنحمّل… · Loading…</p>
     </div>
   </div>
 
@@ -63,7 +63,7 @@
             <span class="language-name">English</span>
           </button>
           <button class="language-btn" data-lang="ar">
-            <span class="flag">🇸🇦</span>
+            <span class="flag">🇪🇬</span>
             <span class="language-name">العربية</span>
           </button>
         </div>
@@ -527,9 +527,9 @@
         <h3 class="games-section-title" data-i18n="coreGames">Main games (unlock the test)</h3>
         <div class="game-cards">
           <div class="game-card" data-game="form-control">
-            <div class="game-icon">🎭</div>
-            <h3 data-i18n="formControl">Form Control</h3>
-            <p data-i18n="formControlDesc">Drag player joints to create perfect stance</p>
+            <div class="game-icon">🧍</div>
+            <h3 data-i18n="formControl">Fix the Pose</h3>
+            <p data-i18n="formControlDesc">Drag the joints until your fighter shows the key moment of the kick</p>
             <div class="progress-container">
               <div class="progress-bar" id="form-control-progress-bar"></div>
             </div>
@@ -538,8 +538,8 @@
 
           <div class="game-card" data-game="puzzle">
             <div class="game-icon">🧩</div>
-            <h3 data-i18n="puzzleAssembly">Puzzle Assembly</h3>
-            <p data-i18n="puzzleDesc">Arrange puzzle pieces to create kick sequence</p>
+            <h3 data-i18n="puzzleAssembly">Order the Phases</h3>
+            <p data-i18n="puzzleDesc">Put the 5 phases in order — and leave the odd piece out</p>
             <div class="progress-container">
               <div class="progress-bar" id="puzzle-progress-bar"></div>
             </div>
@@ -548,8 +548,8 @@
 
           <div class="game-card" data-game="performance">
             <div class="game-icon">👁️</div>
-            <h3 data-i18n="performanceRecognition">Performance Recognition</h3>
-            <p data-i18n="performanceDesc">Identify correct from incorrect kick performance</p>
+            <h3 data-i18n="performanceRecognition">Judge&#39;s Eye</h3>
+            <p data-i18n="performanceDesc">Look at the kick and spot the one wrong sentence about it</p>
             <div class="progress-container">
               <div class="progress-bar" id="performance-progress-bar"></div>
             </div>
@@ -558,7 +558,7 @@
 
           <div class="game-card" data-game="action">
             <div class="game-icon">⚡</div>
-            <h3 data-i18n="actionTitle">Action Challenge</h3>
+            <h3 data-i18n="actionTitle">Strike Challenge</h3>
             <p data-i18n="actionDesc">A different hands-on challenge for every kick</p>
             <div class="progress-container">
               <div class="progress-bar" id="action-progress-bar"></div>
@@ -570,10 +570,10 @@
 
         <h3 class="games-section-title" data-i18n="bonusGames">Bonus games</h3>
         <div class="game-cards game-cards-bonus">
-          <div class="game-card hidden" data-game="error-hunt" data-skill-only="apchagi">
+          <div class="game-card" data-game="error-hunt">
             <div class="game-icon">🔍</div>
-            <h3 data-i18n="errorHuntTitle">Error Hunt</h3>
-            <p data-i18n="errorHuntDesc">Find the hidden mistake in an Ap Chagi kick</p>
+            <h3 data-i18n="errorHuntTitle">Mistake Hunter</h3>
+            <p data-i18n="errorHuntDesc">Find the hidden mistake in the kick</p>
             <div class="progress-container">
               <div class="progress-bar" id="error-hunt-progress-bar"></div>
             </div>
@@ -623,7 +623,7 @@
           <div class="game-card game-card-new" data-game="sparring-duel">
             <span class="game-new-badge">NEW</span>
             <div class="game-icon">🥊</div>
-            <h3 data-i18n="sparringTitle">Sparring Duel</h3>
+            <h3 data-i18n="sparringTitle">Sparring</h3>
             <p data-i18n="sparringDesc">Score on a real opponent — kick only when a legal target opens</p>
             <div class="progress-container">
               <div class="progress-bar" id="sparring-duel-progress-bar"></div>
@@ -665,7 +665,7 @@
 
     <div id="form-control-screen" class="screen">
       <div class="game-container">
-        <h2 id="form-control-title" data-i18n="formControlGame">🎭 Form Control - Creating Perfect Form</h2>
+        <h2 id="form-control-title" data-i18n="formControlGame">🧍 Fix the Pose</h2>
         <p class="description" id="form-control-desc" data-i18n="formControlInstructions">Drag the control points to create perfect form</p>
 
         <div class="game-layout">
@@ -715,13 +715,13 @@
               <div class="message-content">
                 <h3 data-i18n="coachYang">👴 Coach YANG:</h3>
                 <div class="instructions-list">
-                  <p><span class="instruction-number">1</span> <span data-i18n="instruction1">Lift knee to chest
+                  <p><span class="instruction-number">1</span> <span id="instruction1-text" data-i18n="instruction1">Lift knee to chest
                       height</span></p>
-                  <p><span class="instruction-number">2</span> <span data-i18n="instruction2">Extend foot straight
+                  <p><span class="instruction-number">2</span> <span id="instruction2-text" data-i18n="instruction2">Extend foot straight
                       forward</span></p>
-                  <p><span class="instruction-number">3</span> <span data-i18n="instruction3">Keep back straight and
+                  <p><span class="instruction-number">3</span> <span id="instruction3-text" data-i18n="instruction3">Keep back straight and
                       upright</span></p>
-                  <p><span class="instruction-number">4</span> <span data-i18n="instruction4">Balance on standing
+                  <p><span class="instruction-number">4</span> <span id="instruction4-text" data-i18n="instruction4">Balance on standing
                       leg</span></p>
                 </div>
               </div>
@@ -746,30 +746,30 @@
 
     <div id="puzzle-screen" class="screen">
       <div class="game-container">
-        <h2 data-i18n="puzzleGame">🧩 Puzzle Assembly</h2>
-        <p class="description" data-i18n="puzzleInstructions">Arrange the 5 real stages in order — one piece is an
+        <h2 id="puzzle-title" data-i18n="puzzleGame">🧩 Puzzle Assembly</h2>
+        <p class="description" id="puzzle-desc" data-i18n="puzzleInstructions">Arrange the 5 real stages in order — one piece is an
           imposter, leave it out!</p>
 
         <div class="puzzle-container">
           <div class="puzzle-board">
             <div class="puzzle-slot" data-step="1">
-              <span class="slot-label" data-i18n="preparation">Preparation</span>
+              <span class="slot-label" aria-hidden="true">1</span>
               <div class="slot-content" id="slot-1"></div>
             </div>
             <div class="puzzle-slot" data-step="2">
-              <span class="slot-label" data-i18n="chamber">Chamber</span>
+              <span class="slot-label" aria-hidden="true">2</span>
               <div class="slot-content" id="slot-2"></div>
             </div>
             <div class="puzzle-slot" data-step="3">
-              <span class="slot-label" data-i18n="extension">Extension</span>
+              <span class="slot-label" aria-hidden="true">3</span>
               <div class="slot-content" id="slot-3"></div>
             </div>
             <div class="puzzle-slot" data-step="4">
-              <span class="slot-label" data-i18n="recoil">Recoil</span>
+              <span class="slot-label" aria-hidden="true">4</span>
               <div class="slot-content" id="slot-4"></div>
             </div>
             <div class="puzzle-slot" data-step="5">
-              <span class="slot-label" data-i18n="return">Return</span>
+              <span class="slot-label" aria-hidden="true">5</span>
               <div class="slot-content" id="slot-5"></div>
             </div>
           </div>
@@ -872,7 +872,7 @@
 
     <div id="error-hunt-screen" class="screen">
       <div class="game-container">
-        <h2 data-i18n="errorHuntGame">🔍 Error Hunt</h2>
+        <h2 data-i18n="errorHuntGame">🔍 Mistake Hunter</h2>
         <p class="description" data-i18n="errorHuntInstructions">Tap the body part that has the hidden technical mistake in this Ap Chagi kick</p>
 
         <div class="eh-hud" aria-live="polite">
@@ -1257,7 +1257,7 @@
         </div>
 
         <div class="winner-stars" id="winner-stars" aria-live="polite"></div>
-        <h3 class="winner-message" id="winner-message">Excellent! You have completed the challenge successfully!</h3>
+        <h3 class="winner-message" id="winner-message"></h3>
         <h4 class="winner-score"><span data-i18n="score">Score:</span> <span
             id="winner-accuracy">100%</span></h4>
 
@@ -1307,7 +1307,7 @@
         <header class="wu2-top">
           <div class="wu2-titles">
             <h2 id="wu2-title">🔥 Warm Up Time!</h2>
-            <p id="wu2-subtitle">8 short exercises to get your body ready</p>
+            <p id="wu2-subtitle">7 short exercises to get your body ready</p>
           </div>
           <span class="wu2-kick-chip" id="wu2-kick-chip"></span>
           <button type="button" class="wu2-close" id="warmup-exit-btn" aria-label="Exit"><i class="fas fa-times"></i></button>
@@ -1402,93 +1402,9 @@
       <button type="button" id="sw-update-dismiss" class="sw-update-dismiss" aria-label="Dismiss">✕</button>
     </div>
 
-    <!-- v26: the app is split into modules; order matters (classic scripts share one global scope) -->
-    <script src="js/core/error-log.js"></script>
-    <script src="js/core/sprite-engine.js"></script>
-    <script src="js/core/config.js"></script>
-    <script src="js/data/curriculum.js"></script>
-    <script src="js/core/helpers.js"></script>
-    <script src="js/core/state.js"></script>
-    <script src="js/core/screens.js"></script>
-    <script src="js/learn/learning.js"></script>
-    <script src="js/games/form-control.js"></script>
-    <script src="js/games/puzzle.js"></script>
-    <script src="js/games/performance.js"></script>
-    <script src="js/games/action.js"></script>
-    <script src="js/games/error-hunt.js"></script>
-    <script src="js/games/quiz-blast.js"></script>
-    <script src="js/games/quiz.js"></script>
-    <script src="js/ui/winner.js"></script>
-    <script src="js/ui/trophy-room.js"></script>
-    <script src="js/ui/cooldown.js"></script>
-    <script src="js/core/players.js"></script>
-    <script src="js/ui/report.js"></script>
-    <script src="js/ui/skill-menu.js"></script>
-    <script src="js/learn/warmup.js"></script>
-    <script src="js/app/main.js"></script>
-    <script src="js/ui/certificate.js"></script>
-    <script src="js/ui/effects.js"></script>
-    <script src="js/games/arena-engine.js"></script>
-    <script src="js/games/arena-games-2.js"></script>
-    <script src="js/anim/skeleton.js"></script>
-    <script src="js/anim/rig-views.js"></script>
-    <script src="js/ui/dashboard.js"></script>
-    <script src="js/lib/qr.js"></script>
-    <script src="js/social/competition.js"></script>
-    <script src="js/social/versus.js"></script>
-    <script src="js/social/profile.js"></script>
-    <script src="js/learn/curriculum-screen.js"></script>
-    <script src="js/learn/review.js"></script>
-    <script src="js/ui/journey.js"></script>
-    <script src="js/ui/tabbar.js"></script>
-    <script src="js/audio/audio.js"></script>
-    <script src="js/audio/voice-record.js"></script>
-    <script src="js/ui/read-aloud.js"></script>
-    <script src="js/ui/shop.js"></script>
-    <script src="js/ui/mission.js"></script>
-    <script>
-      // Register the service worker for offline play (kids can keep training
-      // in the gym even if the wifi/data drops).
-      // Inside the store app (Capacitor) every file is already on the device,
-      // so the service worker is not needed there.
-      const isNativeApp = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
-      if ('serviceWorker' in navigator && !isNativeApp) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('sw.js').then((reg) => {
-            // A worker installing while we already have a controller means
-            // this is an UPDATE (not the first-ever install) — tell the
-            // player instead of silently swapping assets under them.
-            const notifyIfUpdate = (worker) => {
-              if (!navigator.serviceWorker.controller) return;
-              worker.addEventListener('statechange', () => {
-                if (worker.state === 'installed') showUpdateBanner();
-              });
-            };
-            if (reg.installing) notifyIfUpdate(reg.installing);
-            reg.addEventListener('updatefound', () => { if (reg.installing) notifyIfUpdate(reg.installing); });
-          }).catch((err) => {
-            console.warn('Service worker registration failed:', err);
-          });
-        });
-      }
-
-      function showUpdateBanner() {
-        const banner = document.getElementById('sw-update-banner');
-        const text = document.getElementById('sw-update-text');
-        if (!banner || banner.dataset.shown) return;
-        banner.dataset.shown = '1';
-        const ar = (typeof TKD !== 'undefined' && TKD.ar) || (typeof GameStateInstance !== 'undefined' && GameStateInstance.currentLanguage === 'ar');
-        text.textContent = ar ? '🎉 فيه نسخة جديدة من اللعبة جاهزة!' : '🎉 A new version of the game is ready!';
-        document.getElementById('sw-update-refresh').textContent = ar ? 'حدّث دلوقتي' : 'Refresh now';
-        banner.classList.remove('hidden');
-      }
-      document.addEventListener('DOMContentLoaded', () => {
-        document.getElementById('sw-update-refresh')?.addEventListener('click', () => location.reload());
-        document.getElementById('sw-update-dismiss')?.addEventListener('click', () => {
-          document.getElementById('sw-update-banner')?.classList.add('hidden');
-        });
-      });
-    </script>
+    <!-- all app code lives in one classic script (app.js); its sections share one global scope -->
+    <script src="club-config.js"></script>
+    <script src="app.js"></script>
 
 </body>
 
