@@ -6686,3 +6686,14 @@ html.lite .winner-visual::before, html.lite .celebration-icon { animation-iterat
 }
 /* the "practice round · Skip" tag of the arena games: a real, thumb-sized button */
 .ag-practice button { min-height: 40px; padding-inline: 14px; }
+
+/* v56.2 — Form Control: a name tag under every touch point, so the child knows exactly
+   which leg / hand / foot each circle moves */
+.character-stage .control-point .cp-tag {
+  position: absolute; top: calc(100% + 2px); left: 50%; transform: translateX(-50%);
+  white-space: nowrap; pointer-events: none;
+  font-size: clamp(0.62rem, 2.6cqw, 0.8rem); font-weight: 800; line-height: 1.2;
+  color: #fff; background: rgba(10, 25, 35, 0.88); border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 8px; padding: 1px 6px;
+}
+.character-stage .control-point.dragging .cp-tag { opacity: 0.4; }

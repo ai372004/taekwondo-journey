@@ -48,6 +48,13 @@ function getRenderer() {
     renderer.setScissorTest(true);
     camera = new THREE.OrthographicCamera(-1, 1, 1, -1, .1, 30);
     camera.position.set(-10, 0, 0); camera.lookAt(0, 0, 0);    // looking along +X: screen-right = +Z (the way the fighter faces)
+    // v56.2: some phones hand back an opaque black picture when a WebGL frame is copied into a
+    // 2D canvas — every character then turns into a black box. Check once with a cleared
+    // (transparent) frame; if it comes back opaque, use the 2D characters instead.
+    const probe = document.createElement('canvas'); probe.width = probe.height = 4;
+    renderer.setViewport(0, 0, 4, 4); renderer.setScissor(0, 0, 4, 4); renderer.clear();
+    const pg = probe.getContext('2d'); pg.drawImage(canvas, 0, RT - 4, 4, 4, 0, 0, 4, 4);
+    if (pg.getImageData(1, 1, 1, 1).data[3] > 8) { renderer.dispose(); throw new Error('WebGL frames come back opaque'); }
   } catch (e) { console.warn('TKD3D: WebGL unavailable', e); renderer = null; failed = true; }
   return renderer;
 }
@@ -197,7 +204,7 @@ export class Skeleton3D {
     const fl = this.data.floor, y = v => v.y - fl;
     const sp = P('Spine'), sp1 = P('Spine1'), head = P('Head');
     const marks = [['knee', y(lknee)], ['belly', y(sp)], ['chest', y(sp1) + .1], ['shoulder', y(sp1) + .125], ['face', y(head) + .14], ['head', y(head) + .3]];
-    const hit = part === 'ball' ? P('RightToeBase') : ank;
+    const hit = part === 'ball' ? P('RightToeBase') : part === 'instep' ? P('RightFoot').add(P('RightToeBase')).multiplyScalar(0.5) : ank;   // v56.2: instep = the top of the foot
     let foot = 'floor'; for (const [k, h] of marks) if (y(hit) >= h - .05) foot = k;
     const sf = ltoe.clone().sub(lank); sf.y = 0;
     let pivot = Math.round(yaw(sf) - this.data.stanceFootYaw); if (pivot < -90) pivot += 360;

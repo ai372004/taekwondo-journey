@@ -499,7 +499,7 @@ const GameConfig = {
       video: 'assets/videos/naeryeochagi-tutorial.mp4',
       technical: {
         strikingSurface: { en: 'Heel', ar: 'الكعب' },
-        target: { en: 'Head / Shoulder / Collarbone', ar: 'الراس / الكتف / الترقوة' },
+        target: { en: 'Head / Shoulder / Collarbone', ar: 'الرأس / الكتف / الترقوة' },
         pivotAngle: { en: 'Minimal pivot (0°–45°)', ar: 'لفّة بسيطة (0° – 45°)' }
       },
       phases: [
@@ -522,11 +522,11 @@ const GameConfig = {
           tips: { en: ['✅ Strike with the heel — let the foot relax and fall freely', '✅ Drive downward, not forward, using the momentum of the drop', '⚠️ Do not strike with the toes or the ball of the foot'],
                   ar: ['✅ اضرب بالكعب — وسيب رجلك مرتخية تنزل براحتها', '✅ الضربة لتحت مش لقدام، وخلي قوة النزول تساعدك', '⚠️ ماتضربش بصوابع رجلك ولا بمشطها'] }, color: '#ff6b35' },
         { num: 4, key: 'recoil',
-          title: { en: '4️⃣ Recoil', ar: '4️⃣ السحب' },
+          title: { en: '4️⃣ Straight Leg Down', ar: '4️⃣ نزول الرجل مفرودة' },
           image: poseImg('narochagi', 3),
-          focus: { en: '👀 Focus: Pull the leg back up quickly after impact', ar: '👀 خلي بالك: اسحب رجلك لفوق بسرعة بعد الضربة' },
-          tips: { en: ['✅ Do not let the foot drop straight to the floor', '✅ Reset balance immediately', '⚠️ Avoid over-rotating the hips'],
-                  ar: ['✅ ماتسيبش رجلك تقع على الأرض على طول', '✅ ظبّط توازنك على طول', '⚠️ ماتلفّش وسطك زيادة عن اللزوم'] }, color: '#e9c46a' },
+          focus: { en: '👀 Focus: After the strike the leg keeps coming down straight until the foot lands on the floor in front', ar: '👀 خلي بالك: بعد الضربة رجلك تكمّل نزول وهي مفرودة لحد ما القدم توصل الأرض قدامك' },
+          tips: { en: ['✅ Keep the knee straight all the way down — do not bend it at the end', '✅ Land the foot under control, in front of you', '⚠️ Do not fold the knee or pull the leg back up after the strike'],
+                  ar: ['✅ خلي ركبتك مفرودة طول النزول — ماتثنيهاش في الآخر', '✅ نزّل قدمك على الأرض قدامك وإنت متحكم فيها', '⚠️ ماتثنيش ركبتك وماترفعش رجلك تاني بعد الضربة'] }, color: '#e9c46a' },
         { num: 5, key: 'return',
           title: { en: '5️⃣ Return to Stance', ar: '5️⃣ الرجوع للوضعية' },
           image: poseImg('narochagi', 4),
@@ -536,17 +536,17 @@ const GameConfig = {
       ]
     },
 
-    bakchagi3: { // Bik Chagi (Yeop Chagi / 옆차기) — the straight SIDE kick: body turns
-                 // side-on to the target, standing foot pivots up to 180°, strike lands
-                 // with the heel / outer blade edge of the foot (not the instep).
+    bakchagi3: { // Bik Chagi — body turns side-on to the target, standing foot pivots up to
+                 // 180°; v56.2 (coach's review): the strike lands with the INSTEP (the top of
+                 // the foot), not the heel.
       id: 'bakchagi3', nextSkill: null,
       name: { en: 'Bik Chagi (Side Kick)', ar: 'بيك تشاجي (الركلة الجانبية)' },
       description: { en: 'Straight Side Kick', ar: 'الركلة الجانبية المستقيمة' },
       assetFolder: 'bikchagi',
       video: 'assets/videos/bikchagi-tutorial.mp4',
       technical: {
-        strikingSurface: { en: 'Heel / outer blade (knife-edge) of the foot', ar: 'الكعب / حرف القدم الخارجي (سكينة القدم)' },
-        target: { en: 'Knee / Ribs / Chest / Head', ar: 'الركبة / الضلوع / الصدر / الراس' },
+        strikingSurface: { en: 'Instep (top of the foot)', ar: 'وش القدم (ظهر القدم من فوق)' },
+        target: { en: 'Ribs / Chest / Head', ar: 'الضلوع / الصدر / الرأس' },
         pivotAngle: { en: 'Full 180° pivot', ar: 'لفّة كاملة 180°' }
       },
       phases: [
@@ -563,11 +563,11 @@ const GameConfig = {
           tips: { en: ['✅ Pivot the standing foot toward 180° as the body turns sideways', '✅ Keep the back straight until the very last moment before kicking', '⚠️ Do not extend the leg before the knee has fully chambered'],
                   ar: ['✅ لف قدم الارتكاز (اللي واقف عليها) لحد 180° وإنت بتلف جسمك بجنبك', '✅ خلي ضهرك مفرود لحد آخر لحظة قبل الركلة', '⚠️ ماتفردش رجلك قبل ما ترفع ركبتك للآخر'] }, color: '#e76f51' },
         { num: 3, key: 'extension',
-          title: { en: '3️⃣ Straight Side Strike', ar: '3️⃣ الضربة الجانبية المستقيمة' },
+          title: { en: '3️⃣ Instep Strike', ar: '3️⃣ الضربة بوش القدم' },
           image: poseImg('bakchagi3', 2),
-          focus: { en: '👀 Focus: Complete the pivot to 180° and drive the leg out in a straight line, rotating the hip into the strike — hit with the heel / outer blade of the foot', ar: '👀 خلي بالك: كمّل اللفة لحد 180° وازق رجلك في خط مستقيم ولف وسطك عشان الضربة تبقى أقوى — اضرب بالكعب أو حرف القدم الخارجي' },
-          tips: { en: ['✅ Full 180° pivot on the standing foot, body/hip/knee/foot aligned toward the target in one straight line', '✅ Strike with the heel or the outer blade edge — toes pulled back', '⚠️ Never strike with the instep, and do not stop the rotation halfway'],
-                  ar: ['✅ لفّة كاملة 180° على قدم الارتكاز، وجسمك/وسطك/ركبتك/رجلك كلهم في خط واحد مستقيم ناحية الهدف', '✅ اضرب بالكعب أو حرف القدم الخارجي وصوابعك مسحوبة لورا', '⚠️ ماتضربش بمشط رجلك خالص، وماتوقفش اللفة في النص'] }, color: '#ff6b35' },
+          focus: { en: '👀 Focus: Complete the pivot to 180° and snap the lower leg into the target, rotating the hip into the strike — hit with the instep (top of the foot)', ar: '👀 خلي بالك: كمّل اللفّة لحد 180° واضرب برجلك ناحية الهدف وإنت بتلف وسطك عشان الضربة تبقى أقوى — اضرب بوش القدم (ظهرها من فوق)' },
+          tips: { en: ['✅ Full 180° pivot on the standing foot, hip turned into the kick', '✅ Strike with the instep — ankle stretched, toes pointed', '⚠️ Never strike with the heel or the toes, and do not stop the rotation halfway'],
+                  ar: ['✅ لفّة كاملة 180° على قدم الارتكاز ووسطك لافف مع الركلة', '✅ اضرب بوش القدم — والكاحل مفرود وصوابعك ممدودة', '⚠️ ماتضربش بالكعب ولا بالصوابع، وماتوقفش اللفّة في النص'] }, color: '#ff6b35' },
         { num: 4, key: 'recoil',
           title: { en: '4️⃣ Recoil', ar: '4️⃣ السحب' },
           image: poseImg('bakchagi3', 3),
@@ -2228,13 +2228,13 @@ class LearningSystem {
       { ar: 'إيديك فوق، ووزنك في النص.', en: 'Hands up, weight in the middle.' },
       { ar: 'ارفع رجلك وهي مفرودة لفوق خالص.', en: 'Swing your straight leg up high.' },
       { ar: 'نزّل الكعب لتحت بقوة.', en: 'Drop the heel down hard.' },
-      { ar: 'اسحب رجلك واتوازن.', en: 'Pull the leg back and find your balance.' },
+      { ar: 'كمّل نزول رجلك وهي مفرودة لحد الأرض.', en: 'Keep the leg straight all the way down to the floor.' },
       { ar: 'انزل بالراحة، وإيديك فوق.', en: 'Land softly, hands up.' }
     ],
     bakchagi3: [
       { ar: 'إيديك فوق، وعينك على الهدف.', en: 'Hands up, eyes on the target.' },
       { ar: 'لفّ بجنبك، وارفع ركبتك لصدرك.', en: 'Turn side-on, knee up to your chest.' },
-      { ar: 'اضرب جنب بالكعب، في خط مستقيم.', en: 'Kick out sideways with the heel, in a straight line.' },
+      { ar: 'اضرب بوش القدم وصوابعك ممدودة.', en: 'Strike with the instep, toes pointed.' },
       { ar: 'اسحب رجلك على نفس الخط.', en: 'Pull the leg back on the same line.' },
       { ar: 'انزل بالراحة، وإيديك فوق.', en: 'Land softly, hands up.' }
     ]
@@ -2670,7 +2670,7 @@ class FormControlSystem {
   static fcFromRaw(raw, part) {
     const L = this.fcLayout(), J = {};
     for (const k in raw) J[k] = { x: (L.x + raw[k][0] * L.s) / this.FC_W * 100, y: L.ground - raw[k][1] * L.s };
-    J.foot = part === 'ball' ? J.ball : J.heel;
+    J.foot = part === 'ball' ? J.ball : part === 'instep' ? { x: (J.ball.x + J.heel.x) / 2, y: (J.ball.y + J.heel.y) / 2 } : J.heel;   // v56.2: instep = the top of the foot
     return J;
   }
   static fcJoints(sk, part) { return this.fcFromRaw(this.fcRaw(sk), part); }
@@ -2682,14 +2682,14 @@ class FormControlSystem {
     'boy|apchagi|1': {raw:{head:[201,855],neck:[188,722],chest:[198,616],leftShoulder:[151,696],rightShoulder:[230,693],pelvis:[203,477],kickingHip:[231,452],standingHip:[175,452],standingKnee:[182,241],standingFoot:[174,37],standingBall:[205,13],knee:[372,544],ball:[550,663],heel:[521,598],handL:[249,730],handR:[332,695]},pivot:82,sfy:-35.84},
     'boy|narochagi|0': {raw:{head:[102,844],neck:[82,713],chest:[98,608],leftShoulder:[121,682],rightShoulder:[52,689],pelvis:[121,472],kickingHip:[100,447],standingHip:[142,447],standingKnee:[138,236],standingFoot:[135,33],standingBall:[192,13],knee:[176,641],ball:[219,863],heel:[268,839],handL:[229,692],handR:[126,689]},pivot:21,sfy:-35.84},
     'boy|narochagi|1': {raw:{head:[99,844],neck:[87,713],chest:[106,608],leftShoulder:[69,682],rightShoulder:[114,689],pelvis:[130,472],kickingHip:[137,447],standingHip:[123,447],standingKnee:[131,236],standingFoot:[139,33],standingBall:[205,13],knee:[221,641],ball:[256,863],heel:[327,839],handL:[170,692],handR:[195,689]},pivot:21,sfy:-35.84},
-    'boy|bakchagi3|0': {raw:{head:[108,828],neck:[137,699],chest:[189,606],leftShoulder:[67,621],rightShoulder:[234,727],pelvis:[262,492],kickingHip:[321,488],standingHip:[221,449],standingKnee:[220,239],standingFoot:[231,35],standingBall:[192,13],knee:[511,581],ball:[704,680],heel:[709,682],handL:[89,642],handR:[288,735]},pivot:179,sfy:-35.84},
-    'boy|bakchagi3|1': {raw:{head:[167,828],neck:[184,699],chest:[236,606],leftShoulder:[105,621],rightShoulder:[291,727],pelvis:[307,492],kickingHip:[355,488],standingHip:[273,449],standingKnee:[259,239],standingFoot:[266,35],standingBall:[205,13],knee:[524,581],ball:[668,680],heel:[713,682],handL:[65,642],handR:[291,735]},pivot:179,sfy:-35.84},
+    'boy|bakchagi3|0': {raw:{head:[108,828],neck:[137,699],chest:[189,606],leftShoulder:[67,621],rightShoulder:[234,727],pelvis:[262,492],kickingHip:[321,488],standingHip:[221,449],standingKnee:[220,239],standingFoot:[231,35],standingBall:[192,13],knee:[485,555],ball:[546,697],heel:[500,664],handL:[89,642],handR:[288,735]},pivot:179,sfy:-35.84},
+    'boy|bakchagi3|1': {raw:{head:[167,828],neck:[184,699],chest:[236,606],leftShoulder:[105,621],rightShoulder:[291,727],pelvis:[307,492],kickingHip:[355,488],standingHip:[273,449],standingKnee:[259,239],standingFoot:[266,35],standingBall:[205,13],knee:[555,555],ball:[723,697],heel:[655,664],handL:[65,642],handR:[291,735]},pivot:179,sfy:-35.84},
     'girl|apchagi|0': {raw:{head:[139,872],neck:[127,737],chest:[139,628],leftShoulder:[148,709],rightShoulder:[113,706],pelvis:[146,487],kickingHip:[146,461],standingHip:[145,461],standingKnee:[154,245],standingFoot:[139,38],standingBall:[195,13],knee:[337,554],ball:[579,677],heel:[536,610],handL:[263,745],handR:[217,709]},pivot:82,sfy:-35.84},
     'girl|apchagi|1': {raw:{head:[205,872],neck:[192,737],chest:[202,628],leftShoulder:[154,709],rightShoulder:[234,706],pelvis:[207,487],kickingHip:[236,461],standingHip:[179,461],standingKnee:[185,245],standingFoot:[177,38],standingBall:[209,13],knee:[379,554],ball:[561,677],heel:[531,610],handL:[254,745],handR:[338,709]},pivot:82,sfy:-35.84},
     'girl|narochagi|0': {raw:{head:[104,860],neck:[84,727],chest:[100,620],leftShoulder:[123,695],rightShoulder:[53,702],pelvis:[123,481],kickingHip:[102,456],standingHip:[145,456],standingKnee:[141,241],standingFoot:[137,34],standingBall:[195,13],knee:[179,654],ball:[223,880],heel:[273,856],handL:[234,706],handR:[128,702]},pivot:21,sfy:-35.84},
     'girl|narochagi|1': {raw:{head:[101,860],neck:[88,727],chest:[108,620],leftShoulder:[70,695],rightShoulder:[117,702],pelvis:[132,481],kickingHip:[140,456],standingHip:[125,456],standingKnee:[134,241],standingFoot:[142,34],standingBall:[209,13],knee:[226,654],ball:[261,880],heel:[333,856],handL:[173,706],handR:[199,702]},pivot:21,sfy:-35.84},
-    'girl|bakchagi3|0': {raw:{head:[110,844],neck:[140,712],chest:[193,618],leftShoulder:[69,633],rightShoulder:[239,741],pelvis:[268,502],kickingHip:[328,497],standingHip:[226,458],standingKnee:[224,244],standingFoot:[236,36],standingBall:[195,13],knee:[521,592],ball:[718,693],heel:[723,695],handL:[90,655],handR:[294,749]},pivot:179,sfy:-35.84},
-    'girl|bakchagi3|1': {raw:{head:[170,844],neck:[188,712],chest:[240,618],leftShoulder:[107,633],rightShoulder:[297,741],pelvis:[313,502],kickingHip:[362,497],standingHip:[278,458],standingKnee:[264,244],standingFoot:[271,36],standingBall:[209,13],knee:[535,592],ball:[681,693],heel:[727,695],handL:[66,655],handR:[296,749]},pivot:179,sfy:-35.84}
+    'girl|bakchagi3|0': {raw:{head:[110,844],neck:[140,712],chest:[193,618],leftShoulder:[69,633],rightShoulder:[239,741],pelvis:[268,502],kickingHip:[328,497],standingHip:[226,458],standingKnee:[224,244],standingFoot:[236,36],standingBall:[195,13],knee:[495,566],ball:[557,711],heel:[510,677],handL:[90,655],handR:[294,749]},pivot:179,sfy:-35.84},
+    'girl|bakchagi3|1': {raw:{head:[170,844],neck:[188,712],chest:[240,618],leftShoulder:[107,633],rightShoulder:[297,741],pelvis:[313,502],kickingHip:[362,497],standingHip:[278,458],standingKnee:[264,244],standingFoot:[271,36],standingBall:[209,13],knee:[566,566],ball:[737,711],heel:[668,677],handL:[66,655],handR:[296,749]},pivot:179,sfy:-35.84}
   };
   // FC_STATIC_END
   static async init3D() {
@@ -2803,23 +2803,53 @@ class FormControlSystem {
     F.rig.skeleton.draw(g, x, ground, s);
     window.Shop?.drawCosmetics(F.rig.skeleton, g, x, ground, s);
   }
-  static fcRedraw() { if (!this.fc3d || this._fcRaf) return; this._fcRaf = requestAnimationFrame(() => { this._fcRaf = null; this.draw3D(); }); }
+  static fcRedraw() {
+    if (!this.fc3d || this._fcRaf) return;
+    this._fcRaf = requestAnimationFrame(() => {
+      this._fcRaf = null;
+      // v56.2: if the 3D picture can't be drawn on this device, carry on with the skeleton as the fighter
+      try { this.draw3D(); } catch (e) { console.warn('Form Control: 3D drawing failed — using the skeleton', e); if (this.fc3d) { this.fc3d.still = true; this.setupCharacterImages(); } }
+    });
+  }
 
   // the name of a touch point, in the words of THIS kick (Ap Chagi hits with the ball of the
-  // foot, the other two with the heel)
+  // foot, Naeryeo Chagi with the heel, Bik Chagi with the instep) — v56.2: always says WHICH
+  // leg / hand, so a child knows exactly what to move (the kicking leg follows KickLeg)
   static partLabel(part, ar) {
-    const ball = (this.fc3d?.part || KickSpec[this.skillId]?.part) === 'ball';
+    const surf = this.fc3d?.part || KickSpec[this.skillId]?.part;
+    const left = KickLeg.isLeft(), mirror = !!this.fc3d && left;
+    const K = left ? ['الشمال', 'left'] : ['اليمين', 'right'], S = left ? ['اليمين', 'right'] : ['الشمال', 'left'];
+    const side = (isLeft) => (isLeft !== mirror) ? ['الشمال', 'Left'] : ['اليمين', 'Right'];
+    const F = { ball: ['مشط', 'ball'], instep: ['وش', 'instep'] }[surf] || ['كعب', 'heel'];
+    const hL = side(true), hR = side(false);
     const N = {
-      knee: ['الركبة', 'Knee'],
-      foot: ball ? ['مشط القدم', 'Ball of the foot'] : ['الكعب', 'Heel'],
-      guard: ['الحراسة (الإيدين)', 'Guard (both fists)'],
-      'hand-left': this.fc3d ? this.handRole('hand-left') : ['الإيد الشمال', 'Left hand'],
-      'hand-right': this.fc3d ? this.handRole('hand-right') : ['الإيد اليمين', 'Right hand'],
-      pivot: ['لفّة قدم الارتكاز', 'Standing-foot turn']
+      knee: [`ركبة الرجل ${K[0]}`, `${K[1]} knee`],
+      foot: [`${F[0]} الرجل ${K[0]}`, `${K[1]} ${F[1]}`],
+      guard: ['الإيدين (الحراسة)', 'Both fists (guard)'],
+      'hand-left': [`الإيد ${hL[0]}`, `${hL[1]} hand`],
+      'hand-right': [`الإيد ${hR[0]}`, `${hR[1]} hand`],
+      pivot: [`لفّة القدم ${S[0]} (قدم الارتكاز)`, `${S[1]} foot turn (standing foot)`]
     }[part];
-    return N ? N[ar ? 0 : 1] : part;
+    if (!N) return part;
+    const t = N[ar ? 0 : 1];
+    return ar ? t : t.charAt(0).toUpperCase() + t.slice(1);
   }
-  static handRole(part) { return part === this.fc3d.frontHand ? ['الإيد اللي قدّام', 'Front hand'] : ['الإيد اللي ورا', 'Back hand']; }
+  // the short tag printed under each touch point
+  static partTag(part, ar) {
+    const left = KickLeg.isLeft(), mirror = !!this.fc3d && left;
+    const K = left ? ['الشمال', 'L'] : ['اليمين', 'R'], S = left ? ['اليمين', 'R'] : ['الشمال', 'L'];
+    const surf = this.fc3d?.part || KickSpec[this.skillId]?.part;
+    const F = { ball: ['مشط', 'ball'], instep: ['وش القدم', 'instep'] }[surf] || ['الكعب', 'heel'];
+    const hand = (isLeft) => (isLeft !== mirror) ? ['إيد شمال', 'L hand'] : ['إيد يمين', 'R hand'];
+    const N = {
+      knee: [`ركبة ${K[0]}`, `${K[1]} knee`],
+      foot: [`${F[0]} ${K[0]}`, `${K[1]} ${F[1]}`],
+      guard: ['الإيدين', 'fists'],
+      'hand-left': hand(true), 'hand-right': hand(false),
+      pivot: [`قدم ${S[0]}`, `${S[1]} foot`]
+    }[part];
+    return N ? N[ar ? 0 : 1] : '';
+  }
   // v53 — what to do next with one touch point, in words a 6-year-old can follow. The
   // directions come from the stage itself: "forward" is the way the kick goes.
   static fcHint(part, cur, ideal, ar) {
@@ -2854,8 +2884,8 @@ class FormControlSystem {
       pivot: ['قدم الارتكاز بتلف شوية بس (من ٠° لـ ٤٥°) — الجسم يفضل مواجه للهدف.', 'The standing foot turns only a little (0°–45°) — the body stays facing the target.']
     },
     bakchagi3: {
-      knee:  ['الركبة والرجل في خط واحد مستقيم مع الهدف — كده الضربة بتمشي في خط واحد.', 'Knee and leg in one straight line to the target — the power travels in one line.'],
-      foot:  ['اضرب بالكعب (حرف القدم) والصوابع لتحت شوية مش لفوق.', 'Strike with the heel (the blade of the foot), toes angled down, not up.'],
+      knee:  ['الركبة بتوجّه الرجل ناحية الهدف — ومنها الجزء السفلي من الرجل بيضرب بسرعة.', 'The knee aims the leg at the target — then the lower leg snaps in fast.'],
+      foot:  ['اضرب بوش القدم (ظهرها من فوق)، والكاحل مفرود وصوابعك ممدودة.', 'Strike with the instep (the top of the foot), ankle stretched and toes pointed.'],
       front: ['الإيد اللي قدّام مرفوعة وبتحمي وشك وإنت جسمك جنب.', 'The front hand stays up and guards your face while your body is side-on.'],
       back:  ['الإيد اللي ورا قريبة من جسمك وبتحميك وبتوازنك.', 'The back hand stays close to your body — it guards you and keeps your balance.'],
       guard: ['الحراسة مرفوعة وإنت جسمك جنب.', 'Guard up while your body is side-on.'],
@@ -2877,6 +2907,8 @@ class FormControlSystem {
       point.innerHTML = FormControlSystem.KID_ICONS[part] || '🥋';
       const ar = this.gameState.currentLanguage === 'ar';
       point.title = this.partLabel(part, ar);
+      const tag = document.createElement('span'); tag.className = 'cp-tag'; tag.textContent = this.partTag(part, ar);
+      point.appendChild(tag);
       point.setAttribute('role', 'button'); point.setAttribute('aria-label', point.title); point.tabIndex = 0;   // v53
       wrap.appendChild(point);
     });
@@ -2993,8 +3025,8 @@ class FormControlSystem {
       why: {
         knee:         { en: 'Chambering the knee to chest height while turning side-on builds the momentum the strike depends on.',
                         ar: 'رفع الركبة لمستوى الصدر وإنت بتلف جنب هو اللي بيبني الزخم اللي الضربة معتمدة عليه.' },
-        foot:         { en: 'A full straight-line leg extension delivers the heel/blade strike with maximum reach and power.',
-                        ar: 'فرد الرجل على الآخر في خط مستقيم بيوصّل ضربة الكعب/الحافة لأقصى مدى وقوة.' },
+        foot:         { en: 'A stretched ankle lets the instep meet the target with full speed and power.',
+                        ar: 'لما الكاحل يبقى مفرود، وش القدم بيوصل للهدف بأقصى سرعة وقوة.' },
         'hand-left':  { en: 'Guard must stay up while the body turns side-on to the target.',
                         ar: 'لازم الحراسة تفضل مرفوعة وإنت بتلف جسمك جنب ناحية الهدف.' },
         'hand-right': { en: 'Guard must stay up while the body turns side-on to the target.',
@@ -3149,8 +3181,8 @@ class FormControlSystem {
         ar: ['طلّع رجلك لفوق وهي مفرودة خالص، لأعلى ما تقدر', 'الركبتين الاتنين مفرودين — والكعب يطلع لمستوى الوش أو أعلى', 'ميّل جسمك لورا سنة صغيرة بس، وقدم الارتكاز تلف شوية (من ٠° لـ ٤٥°)', 'الحراسة مرفوعة — وبعدها الكعب ينزل زي الفاس']
       },
       bakchagi3: {
-        en: ['Turn your body side-on to the target', 'Turn the standing foot to about 180° — toes pointing away from the target', 'Push the leg out sideways in one straight line and hit with the heel', 'Lean your body away a little and keep the guard up'],
-        ar: ['لفّ جسمك جنب ناحية الهدف', 'لفّ قدم الارتكاز لحد ١٨٠° تقريبًا — صوابعها عكس الهدف', 'افرد رجلك جنب في خط واحد مستقيم واضرب بالكعب', 'ميّل جسمك بعيد عن الهدف شوية وخلي الحراسة مرفوعة']
+        en: ['Turn your body side-on to the target', 'Turn the standing foot to about 180° — toes pointing away from the target', 'Snap the leg into the target and hit with the instep, toes pointed', 'Lean your body away a little and keep the guard up'],
+        ar: ['لفّ جسمك جنب ناحية الهدف', 'لفّ قدم الارتكاز لحد ١٨٠° تقريبًا — صوابعها عكس الهدف', 'اضرب برجلك ناحية الهدف بوش القدم وصوابعك ممدودة', 'ميّل جسمك بعيد عن الهدف شوية وخلي الحراسة مرفوعة']
       }
     };
     const iSet = INSTRUCTION_SETS[this.skillId] || INSTRUCTION_SETS.apchagi;
@@ -4762,7 +4794,7 @@ class PerformanceSystem {
       }
     ];
 
-    // bikchagi (side kick) — 180° pivot & heel/blade strike recognition
+    // bikchagi — 180° pivot & instep strike recognition (v56.2)
     return [
       {
         question: prompt,
@@ -4781,12 +4813,12 @@ class PerformanceSystem {
         question: prompt,
         refImage: img('extension'), refColor: colorOf('extension'),
         cards: [
-          { correct: false, text: ar ? 'الضربة بتبقى بالكعب أو بالحرف الخارجي للقدم' : 'The strike lands with the heel or the outer blade of the foot' },
+          { correct: false, text: ar ? 'الضربة بتبقى بوش القدم (ظهرها من فوق)' : 'The strike lands with the instep (top of the foot)' },
           { correct: false, text: ar ? 'اللفّة بتكمل لحد 180° قبل الضربة' : 'The rotation completes a full 180° before the strike' },
-          { correct: true,  text: ar ? 'الضربة بتبقى بوش القدم (ظهرها من فوق)' : 'The strike lands with the instep (top of the foot)' }
+          { correct: true,  text: ar ? 'الضربة بتبقى بالكعب' : 'The strike lands with the heel' }
         ],
-        correctFeedback: ar ? 'صح! بيك تشاجي بتضرب بالكعب أو حرف القدم مش بوش القدم — ده بتاع ركلة تانية خالص.'
-                            : 'Correct! Bik Chagi strikes with the heel or the blade edge, not the instep — that belongs to a different kick.',
+        correctFeedback: ar ? 'صح! بيك تشاجي بتضرب بوش القدم مش بالكعب.'
+                            : 'Correct! Bik Chagi strikes with the instep, not the heel.',
         wrongFeedback:   ar ? 'دي معلومة صح عن المرحلة دي. جرّب تاني.'
                             : 'That is true about this phase. Try again.'
       },
@@ -6069,7 +6101,7 @@ class ErrorHuntSystem {
         success: { en: 'Well done! The leg straightens on one line toward the target.', ar: 'برافو! الرجل لازم تتفرد في خط مستقيم ناحية الهدف.' } },
       { id: 'foot', zone: 'kick', topic: 'surface',
         hint:    { en: 'Look at the striking foot — which part leads?', ar: 'بص على القدم اللي بتضرب: بأنهي جزء؟' },
-        success: { en: 'Right! Bik Chagi hits with the heel or the outer edge of the foot — never with the toes or the ball of the foot.', ar: 'صح! بيك تشاجي بتضرب بالكعب أو حرف القدم الخارجي، مش بالصوابع ولا بمشط القدم.' } },
+        success: { en: 'Right! Bik Chagi hits with the instep (the top of the foot) — never with the heel or the toes.', ar: 'صح! بيك تشاجي بتضرب بوش القدم (ظهرها من فوق)، مش بالكعب ولا بالصوابع.' } },
       { id: 'guard', zone: 'torso', topic: 'guard' },
       { id: 'head', zone: 'head', topic: 'head',
         hint:    { en: 'Look at the head — is it facing the target?', ar: 'بص على الراس: باصة ناحية الهدف؟' },
@@ -6480,7 +6512,7 @@ class QuizBlastSystem {
         a: ['الكعب', 'The heel'],
         w: [['مشط القدم', 'Ball of the foot'], ['حرف القدم الخارجي', 'Blade of the foot'], ['وش القدم', 'Instep']] },
       { q: ['إيه الهدف الأساسي لركلة نارو تشاجي؟', 'What is the main target of Naeryeo Chagi?'],
-        a: ['الراس / الكتف / الترقوة', 'Head / shoulder / collarbone'],
+        a: ['الرأس / الكتف / الترقوة', 'Head / shoulder / collarbone'],
         w: [['الركبة', 'Knee'], ['البطن', 'Abdomen'], ['القدم', 'Foot']] },
       { q: ['قدم الارتكاز بتلف قد إيه في نارو تشاجي؟', 'How far does the standing foot pivot in Naeryeo Chagi?'],
         a: ['بسيطة (0° – 45°)', 'Minimal (0°–45°)'],
@@ -6508,10 +6540,10 @@ class QuizBlastSystem {
         a: ['بيك تشاجي', 'Bik Chagi'],
         w: [['آب تشاجي', 'Ap Chagi'], ['نارو تشاجي', 'Naeryeo Chagi'], ['دوي تشاجي', 'Dwi Chagi']] },
       { q: ['ضربة بيك تشاجي بتتعمل بأنهي جزء من القدم؟', 'Which part of the foot strikes in Bik Chagi?'],
-        a: ['الكعب / الحرف اللي برا في القدم', 'Heel / outer edge of the foot'],
-        w: [['مشط القدم', 'Ball of the foot'], ['وش القدم', 'Instep'], ['صوابع القدم', 'Toes']] },
+        a: ['وش القدم (ظهرها من فوق)', 'Instep (top of the foot)'],
+        w: [['مشط القدم', 'Ball of the foot'], ['الكعب', 'Heel'], ['صوابع القدم', 'Toes']] },
       { q: ['إيه الأهداف الأساسية لركلة بيك تشاجي؟', 'What are the main targets of Bik Chagi?'],
-        a: ['الركبة / الضلوع / الصدر / الراس', 'Knee / ribs / chest / head'],
+        a: ['الضلوع / الصدر / الرأس', 'Ribs / chest / head'],
         w: [['البطن بس', 'Abdomen only'], ['الضهر بس', 'Back only'], ['القدم بس', 'Foot only']] },
       { q: ['قدم الارتكاز بتلف قد إيه في بيك تشاجي؟', 'How far does the standing foot pivot in Bik Chagi?'],
         a: ['180° كاملين', 'A full 180°'],
@@ -6533,7 +6565,7 @@ class QuizBlastSystem {
         w: [['في حركة دايرية', 'In a circular sweep'], ['نسيبها متدلدلة', 'Let it dangle'], ['نخبطها جامد في الأرض', 'Stamp it down hard']] },
       { q: ['ركلة جانبية ضعيفة ومش متوازنة — إيه أكتر سبب محتمل؟', 'A side kick lands weak and off-balance. What is the most likely cause?'],
         a: ['الركبة ماترفعتش على الآخر قبل فرد الرجل', 'The knee was not fully chambered before extending'],
-        w: [['كمّل اللفّة 180°', 'He completed the 180° pivot'], ['ضرب بالكعب', 'He struck with the heel'], ['خلّى إيديه للحراسة', 'He kept his guard up']] },
+        w: [['كمّل اللفّة 180°', 'He completed the 180° pivot'], ['ضرب بوش القدم', 'He struck with the instep'], ['خلّى إيديه للحراسة', 'He kept his guard up']] },
       { q: ['بيك تشاجي الكاملة فيها كام مرحلة أساسية؟', 'How many main phases does a complete Bik Chagi have?'],
         a: ['5 مراحل', '5 phases'],
         w: [['3 مراحل', '3 phases'], ['4 مراحل', '4 phases'], ['6 مراحل', '6 phases']] }
@@ -7262,7 +7294,7 @@ class QuizSystem {
         correctText: "At the target",
         get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
         explanation: "Eyes stay on the target the whole time — looking down at your foot breaks your balance and your aim.",
-        explanationAr: "عينك تفضل على الهدف طول الوقت، لو بصّيت على رجلك هتبوّظ توازنك وتصويبك."
+        explanationAr: "عينك تفضل على الهدف طول الوقت، لو بصّيت على رجلك هتفقد توازنك وتصويبك."
       },
       {
         question: "Where are your hands while you kick?",
@@ -7351,11 +7383,11 @@ class QuizSystem {
         question: 'What is the main TARGET of Naeryeo Chagi?',
         questionAr: 'إيه الهدف الأساسي لركلة نارو تشاجي؟',
         options: ['Knee', 'Abdomen', 'Head / Shoulder / Collarbone', 'Foot'],
-        optionsAr: ['الركبة', 'البطن', 'الراس / الكتف / الترقوة', 'القدم'],
+        optionsAr: ['الركبة', 'البطن', 'الرأس / الكتف / الترقوة', 'القدم'],
         correctText: 'Head / Shoulder / Collarbone',
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 2); },
         explanation: 'The downward heel strike of Naeryeo Chagi is aimed at the head, shoulder, or collarbone.',
-        explanationAr: 'ضربة الكعب النازلة في نارو تشاجي بتستهدف الراس أو الكتف أو عضمة الترقوة.'
+        explanationAr: 'ضربة الكعب النازلة في نارو تشاجي بتستهدف الرأس أو الكتف أو عظمة الترقوة.'
       },
       {
         question: 'What pivot angle does Naeryeo Chagi use on the standing foot?',
@@ -7391,11 +7423,11 @@ class QuizSystem {
         question: 'A student\'s strike lands but feels weak and soft, not sharp. What is the likely cause?',
         questionAr: 'الطالب عمل الركلة بس الضربة جت خفيفة وناعمة مش حادة — إيه أرجح سبب؟',
         options: ['They pivoted 90° on the standing foot', 'Their knee bent slightly before the heel dropped', 'They struck with the heel', 'They kept the leg straight during the rise'],
-        optionsAr: ['لفّوا قدم الارتكاز 90°', 'الركبة اتثنت شوية قبل ما الكعب ينزل', 'ضربوا بالكعب', 'فضلوا فاردين الرجل وهما بيرفعوها'],
+        optionsAr: ['لفّ قدم الارتكاز 90°', 'ركبته اتثنت شوية قبل ما الكعب ينزل', 'ضرب بالكعب', 'فضل فارد رجله وهو بيرفعها'],
         correctText: 'Their knee bent slightly before the heel dropped',
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 2); },
         explanation: 'Any bend in the knee before the drop bleeds off the force the strike needed.',
-        explanationAr: 'أي ثنية في الركبة قبل النزول بتضيّع القوة اللي الضربة كانت محتاجاها.'
+        explanationAr: 'أي ثنية في الركبة قبل النزول بتضيّع جزء من قوة الضربة.'
       },
       {
         question: "Which way does Naeryeo Chagi travel to hit?",
@@ -7411,11 +7443,11 @@ class QuizSystem {
         question: "While the leg rises, it is…",
         questionAr: "وإنت بترفع رجلك، بتكون…",
         options: ["Straight (or almost straight)", "Folded tight", "Bent out to the side", "Loose and bent"],
-        optionsAr: ["مفرودة (أو تقريبًا مفرودة)", "مطوية خالص", "متنية على الجنب", "سايبة ومتنية"],
+        optionsAr: ["مفرودة (أو مفرودة تقريبًا)", "مطوية خالص", "مثنية على الجنب", "مرتخية ومثنية"],
         correctText: "Straight (or almost straight)",
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 1); },
         explanation: "Keep the leg straight on the way up — a bent knee steals the power of the drop.",
-        explanationAr: "خلّي رجلك مفرودة وهي طالعة، الركبة المتنية بتضيّع قوة النزول."
+        explanationAr: "خلّي رجلك مفرودة وهي طالعة، لأن الركبة المثنية بتضيّع قوة النزول."
       },
       {
         question: "The strongest strike comes when the leg is about … from vertical on the way down.",
@@ -7430,12 +7462,12 @@ class QuizSystem {
       {
         question: "On the drop, how far does your upper body lean back?",
         questionAr: "وإنت بتنزّل رجلك، جسمك بيميل لورا قد إيه؟",
-        options: ["A little — about 15–25°", "Not at all, exactly 0°", "Very far — about 45°", "Lying back — 90°"],
-        optionsAr: ["شوية بس — حوالي 15–25°", "خالص، صفر بالظبط", "كتير — حوالي 45°", "نايم لورا — 90°"],
-        correctText: "A little — about 15–25°",
+        options: ["Only a little — about 10°", "Not at all, exactly 0°", "Very far — about 45°", "Lying back — 90°"],
+        optionsAr: ["شوية صغيرين — حوالي 10°", "مابيميلش خالص — صفر بالظبط", "كتير — حوالي 45°", "نايم لورا — 90°"],
+        correctText: "Only a little — about 10°",
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 2); },
-        explanation: "A small lean back (about 15–25°) balances the heavy leg. Leaning further makes you fall.",
-        explanationAr: "ميلة صغيرة لورا (حوالي 15–25°) بتوازن الرجل التقيلة، أكتر من كده هتوقعك."
+        explanation: "A small lean back (about 10°) balances the leg. Leaning further makes you fall backward.",
+        explanationAr: "ميلة صغيرة لورا (حوالي 10°) بتوازن رجلك، وأكتر من كده ممكن تقع لورا."
       },
       {
         question: "What does “Naeryeo” mean?",
@@ -7468,47 +7500,47 @@ class QuizSystem {
         explanationAr: "الميل الكتير لورا هو أشهر غلطة: توازنك بيروح والكعب بينزل من غير قوة."
       },
       {
-        question: "After the heel lands, what comes next?",
-        questionAr: "بعد ما الكعب ينزل، بتعمل إيه؟",
-        options: ["Pull the leg back up and find your balance", "Leave the foot on the target", "Fall to the floor", "Spin around"],
-        optionsAr: ["تسحب رجلك لفوق بسرعة وتظبط توازنك", "تسيب رجلك على الهدف", "تقع على الأرض", "تلف حوالين نفسك"],
-        correctText: "Pull the leg back up and find your balance",
+        question: "After the heel strikes, what does the leg do?",
+        questionAr: "بعد ضربة الكعب، الرجل بتعمل إيه؟",
+        options: ["Keeps coming down straight until the foot lands", "Bends at the knee and goes back up", "Stays on the target", "Spins around"],
+        optionsAr: ["تكمّل نزول وهي مفرودة لحد ما القدم توصل الأرض", "الركبة تتثني والرجل تطلع لفوق تاني", "تفضل على الهدف", "تلف حوالين نفسها"],
+        correctText: "Keeps coming down straight until the foot lands",
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 3); },
-        explanation: "Pull the leg back up quickly, then land softly in your stance with the guard up.",
-        explanationAr: "اسحب رجلك لفوق بسرعة، وبعدين انزل بالراحة في وضعيتك وإيديك مرفوعة."
+        explanation: "The leg stays straight all the way down — no knee bend at the end — and the foot lands under control, guard up.",
+        explanationAr: "الرجل تفضل مفرودة طول النزول — من غير ما الركبة تتثني في الآخر — والقدم تنزل على الأرض وإنت متحكم فيها وإيديك مرفوعة."
       }
     ],
 
     bakchagi3: [
       {
-        question: 'What is the Korean name for this straight side kick?',
-        questionAr: 'إيه الاسم الكوري للركلة الجانبية المستقيمة دي؟',
+        question: 'What is the Korean name of this kick?',
+        questionAr: 'إيه الاسم الكوري للركلة دي؟',
         options: ['Bik Chagi', 'Ap Chagi', 'Naeryeo Chagi', 'Dwi Chagi'],
         optionsAr: ['بيك تشاجي', 'آب تشاجي', 'نارو تشاجي', 'دوي تشاجي'],
         correctText: 'Bik Chagi',
         get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 2); },
-        explanation: 'Bik Chagi (옆차기), also written Yeop Chagi, is a straight side kick — the body turns side-on to the target as the standing foot pivots up to 180°.',
-        explanationAr: 'بيك تشاجي (옆차기)، وبتتكتب كمان يوب تشاجي، هي ركلة جانبية مستقيمة — الجسم بيلف بجنبه ناحية الهدف وقدم الارتكاز بتلف لحد 180°.'
+        explanation: 'In Bik Chagi the body turns side-on to the target, the standing foot pivots up to 180°, and the instep strikes.',
+        explanationAr: 'في بيك تشاجي الجسم بيلف بجنبه ناحية الهدف، وقدم الارتكاز بتلف لحد 180°، والضربة بتبقى بوش القدم.'
       },
       {
         question: 'Which part of the foot strikes in Bik Chagi?',
         questionAr: 'أنهي جزء من الرجل بيضرب في بيك تشاجي؟',
-        options: ['Heel / outer blade of the foot', 'Instep / top of foot', 'Toes', 'Ball of the foot'],
-        optionsAr: ['الكعب / الحرف اللي برا في القدم', 'وش القدم (ظهرها)', 'صوابع القدم', 'مشط القدم'],
-        correctText: 'Heel / outer blade of the foot',
+        options: ['Instep / top of foot', 'Heel', 'Toes', 'Ball of the foot'],
+        optionsAr: ['وش القدم (ظهرها)', 'الكعب', 'صوابع القدم', 'مشط القدم'],
+        correctText: 'Instep / top of foot',
         get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 2); },
-        explanation: 'Bik Chagi strikes with the heel or the outer blade (knife-edge) of the foot, with the toes pulled back.',
-        explanationAr: 'بيك تشاجي بتضرب بالكعب أو بحرف القدم الخارجي (سكينة القدم)، وصوابعك مسحوبة لورا.'
+        explanation: 'Bik Chagi strikes with the instep (the top of the foot), with the ankle stretched and the toes pointed.',
+        explanationAr: 'بيك تشاجي بتضرب بوش القدم (ظهرها من فوق)، والكاحل مفرود وصوابعك ممدودة.'
       },
       {
         question: 'What are the main TARGETS of Bik Chagi?',
         questionAr: 'إيه الأهداف الأساسية لركلة بيك تشاجي؟',
-        options: ['Knee / ribs / chest / head', 'Only the abdomen', 'Only the groin', 'Only the foot'],
-        optionsAr: ['الركبة / الضلوع / الصدر / الراس', 'البطن بس', 'العانة بس', 'القدم بس'],
-        correctText: 'Knee / ribs / chest / head',
+        options: ['Ribs / chest / head', 'Only the back', 'Only the knee', 'Only the foot'],
+        optionsAr: ['الضلوع / الصدر / الرأس', 'الضهر بس', 'الركبة بس', 'القدم بس'],
+        correctText: 'Ribs / chest / head',
         get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 2); },
-        explanation: 'Thanks to its penetrating straight power, Bik Chagi can target the knee, belly, ribs, chest, or head.',
-        explanationAr: 'عشان قوتها المستقيمة بتخترق، بيك تشاجي بتستهدف ركبة الخصم أو بطنه أو ضلوعه أو صدره أو راسه.'
+        explanation: 'The instep of Bik Chagi is aimed at the ribs, the chest or the head.',
+        explanationAr: 'بيك تشاجي بتضرب بوش القدم في ضلوع الخصم أو صدره أو رأسه.'
       },
       {
         question: 'What pivot angle does Bik Chagi use on the standing foot?',
@@ -7541,10 +7573,10 @@ class QuizSystem {
         explanationAr: 'لما بتلف بجنبك بتشوف الخصم أقل لثواني، عشان كده الحراسة والتحكم مهمين طول اللفة.'
       },
       {
-        question: 'A student\'s side kick lands weak and off-balance. What is the most likely cause?',
-        questionAr: 'ركلة الطالب الجانبية وصلت ضعيفة وهو مش متوازن — إيه أرجح سبب؟',
-        options: ['They completed the full 180° pivot', 'The knee never fully chambered to chest height before extension', 'They struck with the heel', 'They kept their guard up'],
-        optionsAr: ['كمّل اللفة 180° كلها', 'الركبة ما ارتفعتش كويس لمستوى الصدر قبل فرد الرجل', 'ضرب بالكعب', 'فضل حارس بإيديه'],
+        question: 'A student\'s Bik Chagi lands weak and off-balance. What is the most likely cause?',
+        questionAr: 'ركلة بيك تشاجي بتاعة الطالب وصلت ضعيفة وهو مش متوازن — إيه أرجح سبب؟',
+        options: ['They completed the full 180° pivot', 'The knee never fully chambered to chest height before extension', 'They struck with the instep', 'They kept their guard up'],
+        optionsAr: ['كمّل اللفّة 180° كلها', 'ركبته ما ارتفعتش كويس لمستوى الصدر قبل فرد الرجل', 'ضرب بوش القدم', 'فضل رافع إيديه للحراسة'],
         correctText: 'The knee never fully chambered to chest height before extension',
         get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 1); },
         explanation: 'Without a full knee chamber to chest height, there is no stored energy for the hip to release into the strike.',
@@ -7568,7 +7600,7 @@ class QuizSystem {
         correctText: "Lifted to the chest, tightly folded",
         get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 1); },
         explanation: "Fold the knee tight up at chest height — that stored spring is what you release into the kick.",
-        explanationAr: "اطوي الركبة كويس عند الصدر، دي الزمبلك اللي بتطلّقه في الركلة."
+        explanationAr: "اطوي ركبتك كويس عند صدرك — الركبة المطوية بتخزّن القوة اللي بتطلع في الضربة."
       },
       {
         question: "The kicking leg travels to the target…",
@@ -7613,12 +7645,12 @@ class QuizSystem {
       {
         question: "Your toes on the kicking foot are…",
         questionAr: "صوابع رجل الركلة بتبقى…",
-        options: ["Pulled back (the heel / edge leads)", "Pointed at the target", "Pointing up to the sky", "Curled under"],
-        optionsAr: ["مسحوبة لورا (الكعب أو الحرف بيضرب)", "مفرودة ناحية الهدف", "بتبص لفوق", "مثنية لتحت"],
-        correctText: "Pulled back (the heel / edge leads)",
+        options: ["Pointed (the instep leads)", "Pulled back (the heel leads)", "Pointing up to the sky", "Curled under"],
+        optionsAr: ["ممدودة (وش القدم هو اللي بيضرب)", "مسحوبة لورا (الكعب هو اللي بيضرب)", "بتبص لفوق", "مثنية لتحت"],
+        correctText: "Pointed (the instep leads)",
         get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 2); },
-        explanation: "Pull the toes back so the heel and outer edge of the foot lead into the target.",
-        explanationAr: "اسحب صوابعك لورا عشان الكعب وحرف القدم الخارجي هما اللي يضربوا."
+        explanation: "Stretch the ankle and point the toes so the instep (the top of the foot) leads into the target.",
+        explanationAr: "افرد الكاحل ومدّ صوابعك عشان وش القدم (ظهرها من فوق) هو اللي يضرب الهدف."
       }
     ]
   };
@@ -11576,12 +11608,12 @@ class BoardBreakGame extends ArenaGameBase {
   static SURFACE_OK = {
     apchagi:   { ball: 1, instep: 0.6 },
     narochagi: { heel: 1 },
-    bakchagi3: { blade: 1, heel: 1 }
+    bakchagi3: { instep: 1 }
   };
   static SURFACE_WHY = {
     apchagi:   { en: 'Ap Chagi strikes with the ball of the foot — toes pulled back.', ar: 'آب تشاجي بيضرب بمشط القدم — والصوابع مشدودة لورا.' },
     narochagi: { en: 'Naeryeo Chagi drops the heel straight down onto the target.', ar: 'النارو تشاجي بينزّل الكعب لتحت على الهدف.' },
-    bakchagi3: { en: 'The side kick lands with the heel / outer blade of the foot.', ar: 'الركلة الجانبية بتضرب بالكعب أو حرف القدم الخارجي.' }
+    bakchagi3: { en: 'Bik Chagi lands with the instep (the top of the foot).', ar: 'بيك تشاجي بتضرب بوش القدم (ظهرها من فوق).' }
   };
 
   static setupUI() {
@@ -11899,7 +11931,7 @@ class PaddleReflexGame extends ArenaGameBase {
     how: {
       apchagi:   { en: 'Paddles pop up around you. Tap ONLY the one held at a real Ap Chagi target — the face or the abdomen — as fast as you can. Leave the others!', ar: 'مضارب بتظهر حواليك. دوس بس على المضرب اللي عند هدف حقيقي لركلة آب تشاجي — الوش أو البطن — بأسرع ما تقدر. سيب الباقي!' },
       narochagi: { en: 'Paddles pop up around you. Tap ONLY the one held flat above the head — the axe kick drops onto the head / shoulder from above.', ar: 'مضارب بتظهر حواليك. دوس بس على المضرب اللي متمسك بالعرض فوق الراس — الركلة المطرقية بتنزل على الراس / الكتف من فوق.' },
-      bakchagi3: { en: 'Paddles pop up around you. Tap ONLY the one at a real side-kick target — the ribs or the knee.', ar: 'مضارب بتظهر حواليك. دوس بس على المضرب اللي عند هدف حقيقي للركلة الجانبية — الضلوع أو الركبة.' }
+      bakchagi3: { en: 'Paddles pop up around you. Tap ONLY the one at a real Bik Chagi target — the ribs or the face.', ar: 'مضارب بتظهر حواليك. دوس بس على المضرب اللي عند هدف حقيقي لبيك تشاجي — الضلوع أو الوش.' }
     }
   };
 
@@ -11913,8 +11945,8 @@ class PaddleReflexGame extends ArenaGameBase {
     foot:     { dx: 1.12, dy: 0.15,  label: { en: 'Foot', ar: 'القدم' } },
     behind:   { dx: -0.55, dy: 0.62, label: { en: 'Behind you', ar: 'وراك' } }
   };
-  static VALID = { apchagi: ['face', 'abdomen'], narochagi: ['overhead'], bakchagi3: ['ribs', 'knee'] };
-  static DECOYS = { apchagi: ['overhead', 'knee', 'foot', 'behind'], narochagi: ['abdomen', 'knee', 'foot', 'behind'], bakchagi3: ['overhead', 'foot', 'behind', 'abdomen'] };
+  static VALID = { apchagi: ['face', 'abdomen'], narochagi: ['overhead'], bakchagi3: ['ribs', 'face'] };   // v56.2: Bik Chagi's instep goes to the ribs / chest / head
+  static DECOYS = { apchagi: ['overhead', 'knee', 'foot', 'behind'], narochagi: ['abdomen', 'knee', 'foot', 'behind'], bakchagi3: ['overhead', 'foot', 'behind', 'knee'] };
 
   static setupUI() {
     const canvas = this.$('canvas');
@@ -12140,9 +12172,9 @@ class PhaseRhythmGame extends ArenaGameBase {
   static SCREEN = 'phase-rhythm';
   static GAME_ID = 'phase-rhythm';
   static PREFIX = 'rh';
-  static COMBOS = [66, 74, 84, 94];           // BPM of each 5-note combo (v41: calmer — was 72/84/96/108; × the level speed)
-  static LEAD = 2.2;                          // seconds a note takes to fall to the line (v44: balanced — was 1.7, then 2.6)
-  static WIN = { perfect: 0.09, great: 0.17, good: 0.25 };
+  static COMBOS = [44, 48, 54, 60];           // BPM of each 5-note combo (v56.2: much calmer after play-testing — was 66/74/84/94; × the level speed)
+  static LEAD = 3.2;                          // seconds a note takes to fall to the line (v56.2: was 2.2 — children need time to see the note coming)
+  static WIN = { perfect: 0.13, great: 0.24, good: 0.36 };   // v56.2: wider — was .09 / .17 / .25
   static LANE_COLORS = ['#2a9d8f', '#e76f51', '#ff6b35', '#e9c46a', '#457b9d'];
   static totalRounds() { return this.COMBOS.length; }
 
@@ -13755,7 +13787,7 @@ if (typeof window !== 'undefined') window.RigBackend = RigBackend;
 // No WebGL → the 2D rig draws the same poses; nothing at all → a 🥋 card.
 // ============================================================================
 const PoseShots = (() => {
-  const VER = 'p9';                                  // v54: the reference look (faces, hair, dobok, soft light, head ×0.78) · v51: legs ×1.2, new stance · bump when the rig, the kicks or the framing change (p2: kicks re-posed)
+  const VER = 'p10';                                 // v56.2: Naeryeo lands with a straight leg, Bik Chagi hits with the instep · v54: the reference look (faces, hair, dobok, soft light, head ×0.78) · v51: legs ×1.2, new stance · bump when the rig, the kicks or the framing change (p2: kicks re-posed)
   const STORE = `tkdpose-${VER}`;
   const SIDE = -0.27, HERO = -0.95;                  // ¾ side view (like the games) · ¾ front view (portraits)
   const PX = 0.56;                                   // pixels per rig unit → a standing child ≈ 560 px tall
@@ -13868,8 +13900,8 @@ const PoseShots = (() => {
     RigBackend.poseAt(rig, sk, S.strobe, times[2]); fresh();
     sk.draw(g, ox, oy, s);
     // the path of the striking part, from the stance and back
-    const ball = (KickSpec[S.skill]?.part || 'heel') === 'ball';
-    const at = tt => { RigBackend.poseAt(rig, sk, S.strobe, tt); const w = ball ? sk.world('RightToeBase') : sk.world('RightFoot', 0, -0.03, -0.02); const p = sk.toScreen(w); return { x: ox + p.x * s, y: oy - p.y * s, t: tt }; };
+    const part = KickSpec[S.skill]?.part || 'heel';
+    const at = tt => { RigBackend.poseAt(rig, sk, S.strobe, tt); const w = KickSpec.strikePoint(sk, part); const p = sk.toScreen(w); return { x: ox + p.x * s, y: oy - p.y * s, t: tt }; };
     const N = 80, raw = [];
     for (let k = 0; k <= N; k++) raw.push(at(times[0] + (times[4] - times[0]) * k / N));
     const pts = Kick4D.lanes(raw, 6);
@@ -14142,14 +14174,24 @@ const KickSpec = {
     { lean: [-6, 6], supKnee: [150, 178] },
     { knee: [170, 180], supKnee: [170, 180], thigh: [55, 75], lean: [0, 12], pivot: [0, 45] },
     { knee: [165, 180], drop: [38, 52], lean: [-6, 6], pivot: [0, 45], foot: ['chest', 'shoulder', 'face'] },
-    { knee: [70, 110], foot: ['knee', 'belly'] },
+    { knee: [165, 180], foot: ['floor', 'knee'] },
     { lean: [-6, 6], supKnee: [150, 178] }] },
-  bakchagi3: { part: 'heel', phases: [
+  bakchagi3: { part: 'instep', phases: [     // v56.2: the instep strikes, the knee ~140° as the lower leg sweeps in
     { lean: [-6, 6], supKnee: [150, 178] },
     { knee: [25, 60], thigh: [10, 40], hips: [70, 100], pivot: [110, 160], tilt: [0, 15] },
-    { knee: [170, 180], pivot: [160, 200], hips: [100, 135], tilt: [28, 45], supKnee: [170, 180], toes: [30, 60], foot: ['belly', 'chest', 'shoulder'] },
+    { knee: [128, 160], pivot: [160, 200], hips: [100, 135], tilt: [28, 45], supKnee: [170, 180], foot: ['belly', 'chest', 'shoulder'] },
     { knee: [25, 85], thigh: [5, 40] },
     { lean: [-6, 6], supKnee: [150, 178] }] },
+  // v56.2 — the striking part of the foot on a 3D skeleton, in world space
+  // (ball = under the toes · instep = the top of the foot · heel)
+  strikePoint(sk, part) {
+    if (part === 'ball') return sk.world('RightToeBase');
+    if (part === 'instep') {
+      const a = sk.world('RightFoot'), b = sk.world('RightToeBase');
+      return a && b ? { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2, z: (a.z + b.z) / 2 } : a;
+    }
+    return sk.world('RightFoot', 0, -0.03, -0.02);
+  },
   // live rows for one phase: [key, label, valueText, targetText, ok]
   rows(skillId, phase, M, ar) {
     const S = this[skillId]; if (!S || !M) return [];
@@ -14533,13 +14575,13 @@ class RigView {
     if (this._path?.key === key) return this._path;
     const gh = this.ghostSk || (this.ghostSk = RigBackend.newSkeleton(this.rig));
     gh.mirror = sk.mirror;
-    const ball = (KickSpec[this.skillId]?.part || 'heel') === 'ball';
-    const at = t => { RigBackend.poseAt(this.rig, gh, this.anim, t); return ball ? gh.world('RightToeBase') : gh.world('RightFoot', 0, -0.03, -0.02); };
+    const part = KickSpec[this.skillId]?.part || 'heel', ball = part === 'ball';
+    const at = t => { RigBackend.poseAt(this.rig, gh, this.anim, t); return KickSpec.strikePoint(gh, part); };
     const N = 80, pts = [];
     for (let k = 0; k <= N; k++) { const t = T[0] + (T[4] - T[0]) * k / N, p = at(t); p.t = t; pts.push(p); }
     const marks = [0, 1, 2, 3, 4].map(i => at(Kick4D.phaseT(T, i)));
     if (gh._cache) gh._cache.stale = true;
-    return (this._path = { key, pts, marks, ball });
+    return (this._path = { key, pts, marks, ball, part });
   }
   drawPath(g, x, ground, s) {
     const D = this.pathData(); if (!D) return;
@@ -14586,7 +14628,7 @@ class RigView {
     });
     // the foot right now, while the kick moves
     if (live) {
-      const f = sk.world(D.ball ? 'RightToeBase' : 'RightFoot', 0, D.ball ? 0 : -0.03, D.ball ? 0 : -0.02);
+      const f = KickSpec.strikePoint(sk, D.part);
       if (f) { const p = S(f); g.globalAlpha = 1; g.fillStyle = '#fff'; g.strokeStyle = 'rgba(10,14,30,0.85)'; g.lineWidth = 2; g.beginPath(); g.arc(p.x, p.y, 5, 0, Math.PI * 2); g.fill(); g.stroke(); }
     }
     g.restore();
@@ -14747,8 +14789,8 @@ class RigFighter extends ArenaFighter {
     }
     if (!this._strike[i]) {
       RigBackend.poseAt(this.rig, this.scratch, this.anim, this.times[i] ?? 0);
-      // axe and side kicks land with the heel, the others with the ball / sole of the foot
-      this._strike[i] = this.scratch.boneTip('footF', (this.anim === 'naeryeo' || this.anim === 'yeop') ? 0.15 : 0.8);
+      // the axe kick lands with the heel, Bik Chagi with the instep (v56.2), the others with the ball of the foot
+      this._strike[i] = this.scratch.boneTip('footF', this.anim === 'naeryeo' ? 0.15 : this.anim === 'yeop' ? 0.5 : 0.8);
     }
     const p = this._strike[i], s = this.scale;
     const x = this.originX() + p.x * s, y = this.floor - p.y * s;
