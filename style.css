@@ -6686,3 +6686,76 @@ html.lite .winner-visual::before, html.lite .celebration-icon { animation-iterat
 }
 /* the "practice round · Skip" tag of the arena games: a real, thumb-sized button */
 .ag-practice button { min-height: 40px; padding-inline: 14px; }
+
+/* v56.2 — Form Control: a name tag under every touch point, so the child knows exactly
+   which leg / hand / foot each circle moves */
+.character-stage .control-point .cp-tag {
+  position: absolute; top: calc(100% + 2px); left: 50%; transform: translateX(-50%);
+  white-space: nowrap; pointer-events: none;
+  font-size: clamp(0.62rem, 2.6cqw, 0.8rem); font-weight: 800; line-height: 1.2;
+  color: #fff; background: rgba(10, 25, 35, 0.88); border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 8px; padding: 1px 6px;
+}
+.character-stage .control-point.dragging .cp-tag { opacity: 0.4; }
+
+/* v57 — the kick bar above the map: one tap moves between the kicks */
+.jr-kicks-top { margin: 4px 0 10px; gap: 8px; }
+.jr-kick { padding: 0; border: 0; background: none; }
+.jr-kick-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; min-height: 40px; border-radius: 999px; font: inherit; font-size: .86rem; font-weight: 900;
+  color: #a9c6d4; background: rgba(255,255,255,.07); border: 2px solid rgba(255,255,255,.14); cursor: pointer; -webkit-tap-highlight-color: transparent;
+  transition: transform .15s ease, background-color .15s ease; }
+.jr-kick-btn:active { transform: scale(.95); }
+.jr-kick.is-done .jr-kick-btn { color: #7ee8d6; border-color: rgba(99,224,205,.5); background: rgba(42,157,143,.2); }
+.jr-kick.is-open .jr-kick-btn { color: #ffe3a3; border-color: rgba(255,209,102,.5); }
+.jr-kick.is-view .jr-kick-btn { color: #1d2b36; background: var(--star-gold); border-color: var(--star-gold); box-shadow: 0 4px 12px rgba(255,209,102,.35); }
+.jr-kick.is-locked .jr-kick-btn { opacity: .55; }
+/* the warm-up is recommended, not required: an open station, a little smaller */
+.jr-step.is-open .jr-dot { border-style: dashed; border-color: rgba(255,209,102,.6); }
+.jr-step.is-open .jr-lbl::after { content: ' ✨'; }
+
+/* v57 — chances (❤️❤️❤️) in the 3 main games, and the "out of chances" card */
+.tkd-hearts { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 6px auto 10px; padding: 6px 14px; width: fit-content;
+  border-radius: 999px; background: rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.15); font-size: 1.35rem; line-height: 1; }
+.tkd-hearts .th-lbl { font-size: .85rem; font-weight: 900; color: #ffe3a3; margin-inline-end: 4px; }
+.tkd-hearts i { font-style: normal; transition: transform .2s ease, opacity .2s ease; }
+.tkd-hearts i.off { opacity: .45; }
+.tkd-hearts i.lose { animation: thLose .6s ease; }
+@keyframes thLose { 0% { transform: scale(1.5); } 40% { transform: scale(.7) rotate(-12deg); } 100% { transform: scale(1); } }
+.tkd-outcard { position: fixed; inset: 0; z-index: 9000; display: grid; place-items: center; padding: 16px; background: rgba(5,12,20,.72); }
+.tkd-outcard .toc-inner { width: min(380px, 100%); text-align: center; padding: 22px 18px; border-radius: 22px; color: #fff;
+  background: linear-gradient(170deg, #213a4a, #13232e); border: 2px solid rgba(255,107,53,.6); box-shadow: 0 18px 40px rgba(0,0,0,.5); animation: tocIn .35s ease; }
+.tkd-outcard .toc-big { font-size: 3rem; line-height: 1; }
+.tkd-outcard h3 { margin: 8px 0 6px; font-size: 1.4rem; color: #ffd166; }
+.tkd-outcard .toc-score { font-size: 1.15rem; margin: 4px 0; }
+.tkd-outcard .toc-score b { font-size: 1.6rem; color: #ff9a5c; }
+.tkd-outcard .toc-btns { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 12px; }
+@keyframes tocIn { from { transform: translateY(16px) scale(.96); opacity: 0; } to { transform: none; opacity: 1; } }
+
+/* v57 — the Test, cleaner: the goal up front, a dot per question, big answers */
+#quiz-screen .quiz-container { padding: var(--space-md); margin-top: var(--space-md); }
+#quiz-screen .quiz-header { padding: 10px 16px; font-weight: 900; font-size: 1.05rem; background: rgba(0,0,0,.35); }
+#quiz-screen .quiz-score { color: #7ee8d6; }
+.quiz-dots { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin: 12px 0 0; padding: 0; }
+.quiz-dots li { width: 27px; height: 27px; border-radius: 50%; display: grid; place-items: center; font-size: .8rem; font-weight: 900;
+  color: #a9c6d4; background: rgba(255,255,255,.07); border: 2px solid rgba(255,255,255,.15); }
+.quiz-dots li.now { color: #1d2b36; background: var(--star-gold, #ffd166); border-color: var(--star-gold, #ffd166); transform: scale(1.12); }
+.quiz-dots li.ok { color: #fff; background: #2a9d8f; border-color: #7ee8d6; }
+.quiz-dots li.bad { color: #fff; background: #c8414b; border-color: #ff9aa2; }
+#quiz-screen .quiz-question { padding: var(--space-lg) var(--space-md); margin: var(--space-md) 0; background: rgba(0,0,0,.4); }
+#quiz-screen #question-text { font-size: clamp(1.15rem, 4.6vw, 1.5rem); line-height: 1.5; margin: 0 0 10px; }
+#quiz-screen .quiz-options { gap: 10px; margin: var(--space-md) 0; }
+#quiz-screen .quiz-option { min-height: 62px; padding: 12px 14px; font-size: 1.05rem; font-weight: 800; background: rgba(0,0,0,.45); border-width: 3px; border-radius: 16px; }
+#quiz-screen .quiz-option .option-letter { flex: 0 0 auto; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--primary-color); color: #fff; font-weight: 900; }
+#quiz-screen .quiz-option.correct .option-letter { background: #2a9d8f; }
+#quiz-screen .quiz-option.incorrect .option-letter { background: #c8414b; }
+#quiz-screen .quiz-option:disabled { opacity: 1; cursor: default; }
+#quiz-screen .quiz-option:disabled:not(.correct):not(.incorrect) { opacity: .55; }
+#quiz-screen .quiz-controls { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+#quiz-screen #next-question-btn { width: min(360px, 100%); min-height: 54px; font-size: 1.1rem; font-weight: 900; background: linear-gradient(135deg, #2a9d8f, #1d7d72); border-color: #7ee8d6; color: #fff; }
+#quiz-screen #next-question-btn:disabled { opacity: .35; }
+@media (max-width: 640px) { #quiz-screen .quiz-options { grid-template-columns: 1fr; } }
+.quiz-result-card { text-align: center; }
+.qr-ring { --p: 0; width: 110px; height: 110px; margin: 0 auto 10px; border-radius: 50%; display: grid; place-items: center;
+  background: conic-gradient(var(--warning-color, #e9c46a) calc(var(--p) * 1%), rgba(255,255,255,.12) 0); }
+.qr-ring b { width: 84px; height: 84px; border-radius: 50%; display: grid; place-items: center; background: #13232e; font-size: 1.5rem; }

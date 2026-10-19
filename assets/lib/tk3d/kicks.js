@@ -47,8 +47,10 @@ const NR_UP = { Hips: [0, -8, 0], Spine: [-15, 11, 0], Spine1: [5, -6, 0], Neck:
 // strike: hips drive forward, upper body vertical, leg still straight, the heel (foot
 //         flexed, toes up) lands at ~45° from vertical on shoulder / collarbone height.
 const NR_HIT = { ...GUARD, Hips: [-6, -10, 0], Spine: [2, 0, 0], Spine1: [2, 4, 0], Neck: [0, 8, 0], Head: [4, 6, 0], LeftUpLeg: [-8, -6, -5], LeftLeg: [16, 0, 0], LeftFoot: [2, 0, 0], RightUpLeg: [-128, -5, 9], RightLeg: [6, 0, 0], RightFoot: [-20, 0, 0], RightToeBase: [-25, 0, 0], Ponytail: [12, 0, 0] };
-// recoil: the leg is pulled back UP, knee bent, foot well off the floor.
-const NR_REC = { ...GUARD, Hips: [0, -20, 0], Spine: [2, -4, 0], Spine1: [2, 10, 0], Neck: [0, 10, 0], Head: [-2, 12, 0], LeftUpLeg: [-10, 6, -4], LeftLeg: [9, 0, 0], LeftFoot: [4, 0, 0], RightUpLeg: [-80, 0, 8], RightLeg: [90, 0, 0], RightFoot: [10, 0, 0] };
+// v56.2 (coach's review): after the strike the leg keeps falling STRAIGHT — the knee does
+// not bend — until the foot lands on the mat in front; then a calm step back to the stance.
+const NR_FALL = { ...GUARD, Hips: [-4, -12, 0], Spine: [2, -2, 0], Spine1: [2, 6, 0], Neck: [0, 9, 0], Head: [0, 9, 0], LeftUpLeg: [-9, 0, -4], LeftLeg: [12, 0, 0], LeftFoot: [2, 0, 0], RightUpLeg: [-70, -3, 8], RightLeg: [3, 0, 0], RightFoot: [-10, 0, 0] };
+const NR_LAND = { ...GUARD, Hips: [0, -16, 0], Spine: [2, 0, 0], Spine1: [2, 8, 0], Neck: [0, 10, 0], Head: [-2, 10, 0], LeftUpLeg: [6, 2, 2], LeftLeg: [6, 0, 0], LeftFoot: [-14, 0, 0], RightUpLeg: [-14, 0, 4], RightLeg: [2, 0, 0], RightFoot: [12, 0, 0] };
 
 // --- Yeop chagi (the game's "Bik Chagi" side kick) --------------------------------
 // anticipation: the weight moves onto the front foot while the back foot still touches;
@@ -59,10 +61,11 @@ const YP_ANT = { Hips: [10, 10, -2], Spine: [-4, -2, 0], Spine1: [2, -2, 0], Nec
 //          "knee drop" below the foot); standing foot already pivoted ~140°; back straight.
 const YP_CH = { ...GUARD, Hips: [-10, 80, -14], Spine: [8, -10, 20], Spine1: [0, -12, -4], Neck: [0, -30, 8], Head: [0, -36, 6], LeftUpLeg: [12, 26, -6], LeftLeg: [10, 0, 0], LeftFoot: [-18, 0, 13], RightUpLeg: [-91, -1, -72], RightLeg: [146, 0, 0], RightFoot: [-35, 0, 0], RightToeBase: [-30, 0, 0] };
 // strike: the foot turns until its toes face away from the target (~180° pivot) with the
-//         heel down and the standing leg straight; hip rolled into the kick; leg straight
-//         at ribs / chest height, heel / blade leading, toes back and slightly down; head,
-//         hip, knee and foot on one line to the target; body leaning away ~32° to balance.
-const YP_EX = { ...GUARD, Hips: [-2, 110, -21], Spine: [12, -14, -17], Spine1: [0, -14, 10], Neck: [0, -34, 10], Head: [11, -40, 12], LeftUpLeg: [-17, 29, 24], LeftLeg: [6, 0, 0], LeftFoot: [2, 0, 5], RightUpLeg: [19, -8, -93], RightLeg: [4, 0, 0], RightFoot: [-12, -16, -2], RightToeBase: [-45, 0, 0], Ponytail: [30, 0, -25] };
+//         heel down and the standing leg straight; hip rolled into the kick; body leaning
+//         away ~32° to balance. v56.2 (coach's review): Bik Chagi hits with the INSTEP — the
+//         ankle is pointed and the lower leg sweeps in on a slant (knee ~140°), so the top of
+//         the foot meets the target at ribs / chest height, on nearly the same spot as before.
+const YP_EX = { ...GUARD, Hips: [-2, 110, -21], Spine: [12, -14, -17], Spine1: [0, -14, 10], Neck: [0, -34, 10], Head: [11, -40, 12], LeftUpLeg: [-17, 29, 24], LeftLeg: [6, 0, 0], LeftFoot: [2, 0, 5], RightUpLeg: [50, -28, -65], RightLeg: [40, 0, 0], RightFoot: [65, 0, 0], RightToeBase: [10, 0, 0], Ponytail: [30, 0, -25] };
 
 // --- Ap ollyeo chagi (front rising kick): a straight leg swings up and down -------
 const AO_UP = { Hips: [0, -14, 0], Spine: [-10, 4, 0], LeftUpLeg: [-4, 0, 4], LeftLeg: [4, 0, 0], LeftFoot: [14, 0, 0], RightUpLeg: [-92, 0, -4], RightLeg: [4, 0, 0], RightFoot: [20, 0, 0] };
@@ -126,15 +129,16 @@ export const ANIMS = {
     { t: .3, pose: S(NR_RISE) },
     { t: .42, pose: S(NR_UP) },
     { t: .52, ease: 'drop', pose: S(NR_HIT) },
-    { t: .66, pose: S(NR_REC) },
-    { t: .86, pose: S(ANTIC) }, { t: 1.08, pose: S() }],
-    events: [...phases(0, .42, .52, .66, 1.08), { time: .52, name: 'impact' }] },
+    { t: .62, pose: S(NR_FALL) },
+    { t: .74, pose: S(NR_LAND) },
+    { t: .86, pose: S(NR_LAND) }, { t: 1.08, pose: S() }],
+    events: [...phases(0, .42, .52, .74, 1.08), { time: .52, name: 'impact' }] },
 
   yeop: { keys: [
     { t: 0, pose: S() }, { t: .14, pose: S(YP_ANT) },
     { t: .34, pose: S(YP_CH) },
     { t: .48, ease: 'snap', pose: S(YP_EX) },
-    { t: .58, pose: S({ ...YP_EX, RightUpLeg: [YP_EX.RightUpLeg[0], YP_EX.RightUpLeg[1], YP_EX.RightUpLeg[2] + 3], RightLeg: [8, 0, 0] }) },
+    { t: .58, pose: S({ ...YP_EX, RightUpLeg: [YP_EX.RightUpLeg[0], YP_EX.RightUpLeg[1], YP_EX.RightUpLeg[2] + 3], RightLeg: [32, 0, 0] }) },
     { t: .72, pose: S(YP_CH) },
     { t: .9, pose: S({ ...YP_ANT, RightUpLeg: [14, 0, -6], RightLeg: [22, 0, 0] }) },
     { t: 1.08, pose: S() }],

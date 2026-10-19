@@ -499,7 +499,7 @@ const GameConfig = {
       video: 'assets/videos/naeryeochagi-tutorial.mp4',
       technical: {
         strikingSurface: { en: 'Heel', ar: 'الكعب' },
-        target: { en: 'Head / Shoulder / Collarbone', ar: 'الراس / الكتف / الترقوة' },
+        target: { en: 'Head / Shoulder / Collarbone', ar: 'الرأس / الكتف / الترقوة' },
         pivotAngle: { en: 'Minimal pivot (0°–45°)', ar: 'لفّة بسيطة (0° – 45°)' }
       },
       phases: [
@@ -522,11 +522,11 @@ const GameConfig = {
           tips: { en: ['✅ Strike with the heel — let the foot relax and fall freely', '✅ Drive downward, not forward, using the momentum of the drop', '⚠️ Do not strike with the toes or the ball of the foot'],
                   ar: ['✅ اضرب بالكعب — وسيب رجلك مرتخية تنزل براحتها', '✅ الضربة لتحت مش لقدام، وخلي قوة النزول تساعدك', '⚠️ ماتضربش بصوابع رجلك ولا بمشطها'] }, color: '#ff6b35' },
         { num: 4, key: 'recoil',
-          title: { en: '4️⃣ Recoil', ar: '4️⃣ السحب' },
+          title: { en: '4️⃣ Straight Leg Down', ar: '4️⃣ نزول الرجل مفرودة' },
           image: poseImg('narochagi', 3),
-          focus: { en: '👀 Focus: Pull the leg back up quickly after impact', ar: '👀 خلي بالك: اسحب رجلك لفوق بسرعة بعد الضربة' },
-          tips: { en: ['✅ Do not let the foot drop straight to the floor', '✅ Reset balance immediately', '⚠️ Avoid over-rotating the hips'],
-                  ar: ['✅ ماتسيبش رجلك تقع على الأرض على طول', '✅ ظبّط توازنك على طول', '⚠️ ماتلفّش وسطك زيادة عن اللزوم'] }, color: '#e9c46a' },
+          focus: { en: '👀 Focus: After the strike the leg keeps coming down straight until the foot lands on the floor in front', ar: '👀 خلي بالك: بعد الضربة رجلك تكمّل نزول وهي مفرودة لحد ما القدم توصل الأرض قدامك' },
+          tips: { en: ['✅ Keep the knee straight all the way down — do not bend it at the end', '✅ Land the foot under control, in front of you', '⚠️ Do not fold the knee or pull the leg back up after the strike'],
+                  ar: ['✅ خلي ركبتك مفرودة طول النزول — ماتثنيهاش في الآخر', '✅ نزّل قدمك على الأرض قدامك وإنت متحكم فيها', '⚠️ ماتثنيش ركبتك وماترفعش رجلك تاني بعد الضربة'] }, color: '#e9c46a' },
         { num: 5, key: 'return',
           title: { en: '5️⃣ Return to Stance', ar: '5️⃣ الرجوع للوضعية' },
           image: poseImg('narochagi', 4),
@@ -536,17 +536,17 @@ const GameConfig = {
       ]
     },
 
-    bakchagi3: { // Bik Chagi (Yeop Chagi / 옆차기) — the straight SIDE kick: body turns
-                 // side-on to the target, standing foot pivots up to 180°, strike lands
-                 // with the heel / outer blade edge of the foot (not the instep).
+    bakchagi3: { // Bik Chagi — body turns side-on to the target, standing foot pivots up to
+                 // 180°; v56.2 (coach's review): the strike lands with the INSTEP (the top of
+                 // the foot), not the heel.
       id: 'bakchagi3', nextSkill: null,
       name: { en: 'Bik Chagi (Side Kick)', ar: 'بيك تشاجي (الركلة الجانبية)' },
       description: { en: 'Straight Side Kick', ar: 'الركلة الجانبية المستقيمة' },
       assetFolder: 'bikchagi',
       video: 'assets/videos/bikchagi-tutorial.mp4',
       technical: {
-        strikingSurface: { en: 'Heel / outer blade (knife-edge) of the foot', ar: 'الكعب / حرف القدم الخارجي (سكينة القدم)' },
-        target: { en: 'Knee / Ribs / Chest / Head', ar: 'الركبة / الضلوع / الصدر / الراس' },
+        strikingSurface: { en: 'Instep (top of the foot)', ar: 'وش القدم (ظهر القدم من فوق)' },
+        target: { en: 'Ribs / Chest / Head', ar: 'الضلوع / الصدر / الرأس' },
         pivotAngle: { en: 'Full 180° pivot', ar: 'لفّة كاملة 180°' }
       },
       phases: [
@@ -563,11 +563,11 @@ const GameConfig = {
           tips: { en: ['✅ Pivot the standing foot toward 180° as the body turns sideways', '✅ Keep the back straight until the very last moment before kicking', '⚠️ Do not extend the leg before the knee has fully chambered'],
                   ar: ['✅ لف قدم الارتكاز (اللي واقف عليها) لحد 180° وإنت بتلف جسمك بجنبك', '✅ خلي ضهرك مفرود لحد آخر لحظة قبل الركلة', '⚠️ ماتفردش رجلك قبل ما ترفع ركبتك للآخر'] }, color: '#e76f51' },
         { num: 3, key: 'extension',
-          title: { en: '3️⃣ Straight Side Strike', ar: '3️⃣ الضربة الجانبية المستقيمة' },
+          title: { en: '3️⃣ Instep Strike', ar: '3️⃣ الضربة بوش القدم' },
           image: poseImg('bakchagi3', 2),
-          focus: { en: '👀 Focus: Complete the pivot to 180° and drive the leg out in a straight line, rotating the hip into the strike — hit with the heel / outer blade of the foot', ar: '👀 خلي بالك: كمّل اللفة لحد 180° وازق رجلك في خط مستقيم ولف وسطك عشان الضربة تبقى أقوى — اضرب بالكعب أو حرف القدم الخارجي' },
-          tips: { en: ['✅ Full 180° pivot on the standing foot, body/hip/knee/foot aligned toward the target in one straight line', '✅ Strike with the heel or the outer blade edge — toes pulled back', '⚠️ Never strike with the instep, and do not stop the rotation halfway'],
-                  ar: ['✅ لفّة كاملة 180° على قدم الارتكاز، وجسمك/وسطك/ركبتك/رجلك كلهم في خط واحد مستقيم ناحية الهدف', '✅ اضرب بالكعب أو حرف القدم الخارجي وصوابعك مسحوبة لورا', '⚠️ ماتضربش بمشط رجلك خالص، وماتوقفش اللفة في النص'] }, color: '#ff6b35' },
+          focus: { en: '👀 Focus: Complete the pivot to 180° and snap the lower leg into the target, rotating the hip into the strike — hit with the instep (top of the foot)', ar: '👀 خلي بالك: كمّل اللفّة لحد 180° واضرب برجلك ناحية الهدف وإنت بتلف وسطك عشان الضربة تبقى أقوى — اضرب بوش القدم (ظهرها من فوق)' },
+          tips: { en: ['✅ Full 180° pivot on the standing foot, hip turned into the kick', '✅ Strike with the instep — ankle stretched, toes pointed', '⚠️ Never strike with the heel or the toes, and do not stop the rotation halfway'],
+                  ar: ['✅ لفّة كاملة 180° على قدم الارتكاز ووسطك لافف مع الركلة', '✅ اضرب بوش القدم — والكاحل مفرود وصوابعك ممدودة', '⚠️ ماتضربش بالكعب ولا بالصوابع، وماتوقفش اللفّة في النص'] }, color: '#ff6b35' },
         { num: 4, key: 'recoil',
           title: { en: '4️⃣ Recoil', ar: '4️⃣ السحب' },
           image: poseImg('bakchagi3', 3),
@@ -585,11 +585,16 @@ const GameConfig = {
   },
 
   SETTINGS: {
-    PASSING_SCORE: 85,                 // per-activity "you passed this attempt" bar (used inside each mini-game)
+    // v57 — a simpler road, after play-testing: Learn → 3 main games → the Test. Every score
+    // counts (the best one is kept); a game is "passed" at 60% — enough to show the child
+    // understood it — instead of 85% on every game.
+    PASSING_SCORE: 60,                 // a game is passed (the child understood it)
+    QUIZ_PASS: 70,                     // the Test — passing it masters the kick and opens the next one
+    HEARTS: 3,                         // the chances (❤️) in each of the 3 main games
     SEVERE_FAIL_SCORE: 40,             // below this an attempt counts as a "real" struggle, not just missing the pass bar
-    SEVERE_FAIL_STREAK: 3,             // this many severe fails in a row (not just misses) sends the player back to Learning
-    SKILL_UNLOCK_THRESHOLD: 80,        // OVERALL weighted skill score needed to unlock the next skill
-    GAMES_REQUIRED_PER_SKILL: 4, // form-control, puzzle, performance, action — the 4 mini-games (Quiz is a separate "Test", not a game)
+    SEVERE_FAIL_STREAK: 3,             // this many severe fails in a row → a friendly tip to look at the lesson again
+    SKILL_UNLOCK_THRESHOLD: 80,        // (reports only) the overall % shown as "mastered"
+    GAMES_REQUIRED_PER_SKILL: 3, // puzzle, performance, action — the 3 main games (Quiz is a separate "Test", not a game)
     SKILL_UNLOCK_MESSAGE: {
       en: '🎉 New Skill Unlocked! You can now learn {skill}!',
       ar: '🎉 مهارة جديدة اتفتحت! دلوقتي تقدر تتعلم {skill}!'
@@ -1406,7 +1411,7 @@ class GameState {
         boardBreakTitle: 'Board Break', boardBreakDesc: 'Pick the right part of the foot, aim and smash the boards',
         paddleTitle: 'Target Paddles', paddleDesc: 'Hit only the paddle at a real target for this kick — fast!',
         rhythmTitle: 'Kick Rhythm', rhythmDesc: 'Tap the 5 phases in order, right on the beat',
-        coreGames: 'Main games (unlock the test)', bonusGames: 'Bonus games',
+        coreGames: 'The 3 main games — pass each once (60%) to open the test', bonusGames: 'Bonus games',
         dashboardNav: 'Player Dashboard', backToGames2: 'Back to Games',
         dashboardTitle: '📊 Player Dashboard', dashboardDesc: 'Scores and insights for every player on this device.',
         dashboardOpen: 'Open Player Dashboard', dashboardExportPlayer: 'This player (CSV)', dashboardExportAll: 'All players (CSV)',
@@ -1482,7 +1487,7 @@ class GameState {
         boardBreakTitle: 'كسر الألواح', boardBreakDesc: 'اختار جزء القدم الصح، صوّب، واكسر الألواح',
         paddleTitle: 'مضارب الأهداف', paddleDesc: 'اضرب بس المضرب اللي عند هدف حقيقي للركلة دي — بسرعة!',
         rhythmTitle: 'إيقاع الركلة', rhythmDesc: 'دوس على المراحل الخمسة بالترتيب وعلى الإيقاع',
-        coreGames: 'الألعاب الأساسية (بتفتح الاختبار)', bonusGames: 'ألعاب زيادة',
+        coreGames: 'الألعاب التلاتة الأساسية — عدّي كل واحدة مرة (٦٠٪) عشان يتفتح الاختبار', bonusGames: 'ألعاب زيادة',
         dashboardNav: 'لوحة اللاعبين', backToGames2: 'رجوع للألعاب',
         dashboardTitle: '📊 لوحة اللاعبين', dashboardDesc: 'النتائج والملاحظات لكل لاعب على الجهاز ده.',
         dashboardOpen: 'افتح لوحة اللاعبين', dashboardExportPlayer: 'اللاعب ده (CSV)', dashboardExportAll: 'كل اللاعبين (CSV)',
@@ -1882,7 +1887,8 @@ class GameState {
   // skill, decoupled from any single activity's pass/fail bar.
   calculateSkillOverallProgress(skillId) {
     const s = this.skillGameScores[skillId] || {};
-    const gamesAvg = ((s.formControl || 0) + (s.puzzle || 0) + (s.performance || 0) + (s.action || 0)) / 4;
+    const K = GameState.REQUIRED_GAME_KEYS;
+    const gamesAvg = K.reduce((a, k) => a + (s[k] || 0), 0) / K.length;
     return Math.round(((s.learning || 0) + gamesAvg + (s.quiz || 0)) / 3);
   }
 
@@ -1894,11 +1900,27 @@ class GameState {
 
   static GAME_KEY_MAP = { 'learning': 'learning', 'form-control': 'formControl', 'puzzle': 'puzzle', 'performance': 'performance', 'action': 'action', 'error-hunt': 'errorHunt', 'quiz-blast': 'quizBlast', 'board-break': 'boardBreak', 'paddle-reflex': 'paddleReflex', 'phase-rhythm': 'phaseRhythm', 'sparring-duel': 'sparringDuel', 'balance-hold': 'balanceHold', 'heavy-bag': 'heavyBag', 'quiz': 'quiz' };
 
-  // The mini-games that must all be cleared (score > 0 = passed at least once) before the Quiz unlocks.
-  static REQUIRED_GAME_KEYS = ['formControl', 'puzzle', 'performance', 'action'];
+  // v57: the 3 main games — the most teaching ones (order the phases, spot the mistake, the
+  // hands-on strike). Each must reach PASSING_SCORE once before the Test opens.
+  static REQUIRED_GAME_KEYS = ['puzzle', 'performance', 'action'];
+  static gamePassed(scores, key) { return ((scores || {})[key] || 0) >= GameConfig.SETTINGS.PASSING_SCORE; }
   static allGamesDone(scores) {
+    return GameState.REQUIRED_GAME_KEYS.every(k => GameState.gamePassed(scores, k));
+  }
+  static quizPassed(scores) { return ((scores || {}).quiz || 0) >= GameConfig.SETTINGS.QUIZ_PASS; }
+  // a kick is mastered when the lesson is done, the 3 main games are passed and the Test is passed
+  static skillMastered(scores) {
     const s = scores || {};
-    return GameState.REQUIRED_GAME_KEYS.every(k => (s[k] || 0) > 0);
+    return (s.learning || 0) > 0 && GameState.allGamesDone(s) && GameState.quizPassed(s);
+  }
+  // v57: every attempt's score is kept (the best one), passed or not — the child sees how
+  // far they got. Returns true when this is a new best.
+  recordScore(gameId, score) {
+    const key = GameState.GAME_KEY_MAP[gameId], sc = this.skillGameScores[this.currentSkill];
+    if (!key || !sc || !(score > 0)) return false;
+    const better = score > (sc[key] || 0);
+    if (better) { sc[key] = Math.round(score); this.saveToStorage(); this.updateGameProgress(); }
+    return better;
   }
 
   // gameId: 'learning' | 'form-control' | 'puzzle' | 'performance' | 'action' | 'error-hunt' (bonus, Ap Chagi) | 'quiz-blast' (bonus, every kick) | 'quiz'
@@ -1918,10 +1940,9 @@ class GameState {
     if (score >= GameConfig.SETTINGS.PASSING_SCORE && this.skillProgress[skillId]) {
       this.skillProgress[skillId].add(gameId);
     }
-    // Skill unlocks on OVERALL weighted mastery, not on requiring every single
-    // activity to individually clear the pass bar — one weak activity no
-    // longer blocks progression if the others carry the average past 80%.
-    if (this.calculateSkillOverallProgress(skillId) >= GameConfig.SETTINGS.SKILL_UNLOCK_THRESHOLD) {
+    // v57: the kick is mastered (and the next one opens) once the lesson, the 3 main games
+    // and the Test are passed
+    if (GameState.skillMastered(this.skillGameScores[skillId])) {
       this.completeSkill(skillId);
     }
 
@@ -1959,7 +1980,7 @@ class GameState {
   // sends the player back to Learning; anything better than that resets the
   // streak, since it shows they're not fundamentally struggling.
   trackFailure(score = 0, gameId = null, meta = null) {
-    if (gameId) PlayerSystem.logAttempt(gameId, this.currentSkill, score, false, meta);
+    if (gameId) { PlayerSystem.logAttempt(gameId, this.currentSkill, score, false, meta); this.recordScore(gameId, score); }
     if (score >= GameConfig.SETTINGS.SEVERE_FAIL_SCORE) {
       this.failureCount = 0;
       this.saveToStorage();
@@ -1967,17 +1988,16 @@ class GameState {
     }
     this.failureCount++;
     this.saveToStorage();
+    // v57: no forced trip back to the lesson any more — just a friendly tip
     if (this.failureCount >= GameConfig.SETTINGS.SEVERE_FAIL_STREAK) {
       this.failureCount = 0;
       this.saveToStorage();
-      ScreenManagerInstance.switchScreen('learning');
       this.showNotification(
         this.currentLanguage === 'ar'
-          ? `📚 دي المحاولة الصعبة رقم ${GameConfig.SETTINGS.SEVERE_FAIL_STREAK} ورا بعض. يلا نرجع للتعلم ونظبط حركتك!`
-          : `📚 That's ${GameConfig.SETTINGS.SEVERE_FAIL_STREAK} tough attempts in a row. Let's go back to learning and improve your technique!`,
-        'warning'
+          ? '💡 نصيحة: بص على الدرس تاني بسرعة، وبعدين جرّب — إنت قدها!'
+          : '💡 Tip: take a quick look at the lesson again, then try — you can do it!',
+        'info'
       );
-      return true;
     }
     return false;
   }
@@ -2228,13 +2248,13 @@ class LearningSystem {
       { ar: 'إيديك فوق، ووزنك في النص.', en: 'Hands up, weight in the middle.' },
       { ar: 'ارفع رجلك وهي مفرودة لفوق خالص.', en: 'Swing your straight leg up high.' },
       { ar: 'نزّل الكعب لتحت بقوة.', en: 'Drop the heel down hard.' },
-      { ar: 'اسحب رجلك واتوازن.', en: 'Pull the leg back and find your balance.' },
+      { ar: 'كمّل نزول رجلك وهي مفرودة لحد الأرض.', en: 'Keep the leg straight all the way down to the floor.' },
       { ar: 'انزل بالراحة، وإيديك فوق.', en: 'Land softly, hands up.' }
     ],
     bakchagi3: [
       { ar: 'إيديك فوق، وعينك على الهدف.', en: 'Hands up, eyes on the target.' },
       { ar: 'لفّ بجنبك، وارفع ركبتك لصدرك.', en: 'Turn side-on, knee up to your chest.' },
-      { ar: 'اضرب جنب بالكعب، في خط مستقيم.', en: 'Kick out sideways with the heel, in a straight line.' },
+      { ar: 'اضرب بوش القدم وصوابعك ممدودة.', en: 'Strike with the instep, toes pointed.' },
       { ar: 'اسحب رجلك على نفس الخط.', en: 'Pull the leg back on the same line.' },
       { ar: 'انزل بالراحة، وإيديك فوق.', en: 'Land softly, hands up.' }
     ]
@@ -2670,7 +2690,7 @@ class FormControlSystem {
   static fcFromRaw(raw, part) {
     const L = this.fcLayout(), J = {};
     for (const k in raw) J[k] = { x: (L.x + raw[k][0] * L.s) / this.FC_W * 100, y: L.ground - raw[k][1] * L.s };
-    J.foot = part === 'ball' ? J.ball : J.heel;
+    J.foot = part === 'ball' ? J.ball : part === 'instep' ? { x: (J.ball.x + J.heel.x) / 2, y: (J.ball.y + J.heel.y) / 2 } : J.heel;   // v56.2: instep = the top of the foot
     return J;
   }
   static fcJoints(sk, part) { return this.fcFromRaw(this.fcRaw(sk), part); }
@@ -2682,14 +2702,14 @@ class FormControlSystem {
     'boy|apchagi|1': {raw:{head:[201,855],neck:[188,722],chest:[198,616],leftShoulder:[151,696],rightShoulder:[230,693],pelvis:[203,477],kickingHip:[231,452],standingHip:[175,452],standingKnee:[182,241],standingFoot:[174,37],standingBall:[205,13],knee:[372,544],ball:[550,663],heel:[521,598],handL:[249,730],handR:[332,695]},pivot:82,sfy:-35.84},
     'boy|narochagi|0': {raw:{head:[102,844],neck:[82,713],chest:[98,608],leftShoulder:[121,682],rightShoulder:[52,689],pelvis:[121,472],kickingHip:[100,447],standingHip:[142,447],standingKnee:[138,236],standingFoot:[135,33],standingBall:[192,13],knee:[176,641],ball:[219,863],heel:[268,839],handL:[229,692],handR:[126,689]},pivot:21,sfy:-35.84},
     'boy|narochagi|1': {raw:{head:[99,844],neck:[87,713],chest:[106,608],leftShoulder:[69,682],rightShoulder:[114,689],pelvis:[130,472],kickingHip:[137,447],standingHip:[123,447],standingKnee:[131,236],standingFoot:[139,33],standingBall:[205,13],knee:[221,641],ball:[256,863],heel:[327,839],handL:[170,692],handR:[195,689]},pivot:21,sfy:-35.84},
-    'boy|bakchagi3|0': {raw:{head:[108,828],neck:[137,699],chest:[189,606],leftShoulder:[67,621],rightShoulder:[234,727],pelvis:[262,492],kickingHip:[321,488],standingHip:[221,449],standingKnee:[220,239],standingFoot:[231,35],standingBall:[192,13],knee:[511,581],ball:[704,680],heel:[709,682],handL:[89,642],handR:[288,735]},pivot:179,sfy:-35.84},
-    'boy|bakchagi3|1': {raw:{head:[167,828],neck:[184,699],chest:[236,606],leftShoulder:[105,621],rightShoulder:[291,727],pelvis:[307,492],kickingHip:[355,488],standingHip:[273,449],standingKnee:[259,239],standingFoot:[266,35],standingBall:[205,13],knee:[524,581],ball:[668,680],heel:[713,682],handL:[65,642],handR:[291,735]},pivot:179,sfy:-35.84},
+    'boy|bakchagi3|0': {raw:{head:[108,828],neck:[137,699],chest:[189,606],leftShoulder:[67,621],rightShoulder:[234,727],pelvis:[262,492],kickingHip:[321,488],standingHip:[221,449],standingKnee:[220,239],standingFoot:[231,35],standingBall:[192,13],knee:[485,555],ball:[546,697],heel:[500,664],handL:[89,642],handR:[288,735]},pivot:179,sfy:-35.84},
+    'boy|bakchagi3|1': {raw:{head:[167,828],neck:[184,699],chest:[236,606],leftShoulder:[105,621],rightShoulder:[291,727],pelvis:[307,492],kickingHip:[355,488],standingHip:[273,449],standingKnee:[259,239],standingFoot:[266,35],standingBall:[205,13],knee:[555,555],ball:[723,697],heel:[655,664],handL:[65,642],handR:[291,735]},pivot:179,sfy:-35.84},
     'girl|apchagi|0': {raw:{head:[139,872],neck:[127,737],chest:[139,628],leftShoulder:[148,709],rightShoulder:[113,706],pelvis:[146,487],kickingHip:[146,461],standingHip:[145,461],standingKnee:[154,245],standingFoot:[139,38],standingBall:[195,13],knee:[337,554],ball:[579,677],heel:[536,610],handL:[263,745],handR:[217,709]},pivot:82,sfy:-35.84},
     'girl|apchagi|1': {raw:{head:[205,872],neck:[192,737],chest:[202,628],leftShoulder:[154,709],rightShoulder:[234,706],pelvis:[207,487],kickingHip:[236,461],standingHip:[179,461],standingKnee:[185,245],standingFoot:[177,38],standingBall:[209,13],knee:[379,554],ball:[561,677],heel:[531,610],handL:[254,745],handR:[338,709]},pivot:82,sfy:-35.84},
     'girl|narochagi|0': {raw:{head:[104,860],neck:[84,727],chest:[100,620],leftShoulder:[123,695],rightShoulder:[53,702],pelvis:[123,481],kickingHip:[102,456],standingHip:[145,456],standingKnee:[141,241],standingFoot:[137,34],standingBall:[195,13],knee:[179,654],ball:[223,880],heel:[273,856],handL:[234,706],handR:[128,702]},pivot:21,sfy:-35.84},
     'girl|narochagi|1': {raw:{head:[101,860],neck:[88,727],chest:[108,620],leftShoulder:[70,695],rightShoulder:[117,702],pelvis:[132,481],kickingHip:[140,456],standingHip:[125,456],standingKnee:[134,241],standingFoot:[142,34],standingBall:[209,13],knee:[226,654],ball:[261,880],heel:[333,856],handL:[173,706],handR:[199,702]},pivot:21,sfy:-35.84},
-    'girl|bakchagi3|0': {raw:{head:[110,844],neck:[140,712],chest:[193,618],leftShoulder:[69,633],rightShoulder:[239,741],pelvis:[268,502],kickingHip:[328,497],standingHip:[226,458],standingKnee:[224,244],standingFoot:[236,36],standingBall:[195,13],knee:[521,592],ball:[718,693],heel:[723,695],handL:[90,655],handR:[294,749]},pivot:179,sfy:-35.84},
-    'girl|bakchagi3|1': {raw:{head:[170,844],neck:[188,712],chest:[240,618],leftShoulder:[107,633],rightShoulder:[297,741],pelvis:[313,502],kickingHip:[362,497],standingHip:[278,458],standingKnee:[264,244],standingFoot:[271,36],standingBall:[209,13],knee:[535,592],ball:[681,693],heel:[727,695],handL:[66,655],handR:[296,749]},pivot:179,sfy:-35.84}
+    'girl|bakchagi3|0': {raw:{head:[110,844],neck:[140,712],chest:[193,618],leftShoulder:[69,633],rightShoulder:[239,741],pelvis:[268,502],kickingHip:[328,497],standingHip:[226,458],standingKnee:[224,244],standingFoot:[236,36],standingBall:[195,13],knee:[495,566],ball:[557,711],heel:[510,677],handL:[90,655],handR:[294,749]},pivot:179,sfy:-35.84},
+    'girl|bakchagi3|1': {raw:{head:[170,844],neck:[188,712],chest:[240,618],leftShoulder:[107,633],rightShoulder:[297,741],pelvis:[313,502],kickingHip:[362,497],standingHip:[278,458],standingKnee:[264,244],standingFoot:[271,36],standingBall:[209,13],knee:[566,566],ball:[737,711],heel:[668,677],handL:[66,655],handR:[296,749]},pivot:179,sfy:-35.84}
   };
   // FC_STATIC_END
   static async init3D() {
@@ -2803,23 +2823,53 @@ class FormControlSystem {
     F.rig.skeleton.draw(g, x, ground, s);
     window.Shop?.drawCosmetics(F.rig.skeleton, g, x, ground, s);
   }
-  static fcRedraw() { if (!this.fc3d || this._fcRaf) return; this._fcRaf = requestAnimationFrame(() => { this._fcRaf = null; this.draw3D(); }); }
+  static fcRedraw() {
+    if (!this.fc3d || this._fcRaf) return;
+    this._fcRaf = requestAnimationFrame(() => {
+      this._fcRaf = null;
+      // v56.2: if the 3D picture can't be drawn on this device, carry on with the skeleton as the fighter
+      try { this.draw3D(); } catch (e) { console.warn('Form Control: 3D drawing failed — using the skeleton', e); if (this.fc3d) { this.fc3d.still = true; this.setupCharacterImages(); } }
+    });
+  }
 
   // the name of a touch point, in the words of THIS kick (Ap Chagi hits with the ball of the
-  // foot, the other two with the heel)
+  // foot, Naeryeo Chagi with the heel, Bik Chagi with the instep) — v56.2: always says WHICH
+  // leg / hand, so a child knows exactly what to move (the kicking leg follows KickLeg)
   static partLabel(part, ar) {
-    const ball = (this.fc3d?.part || KickSpec[this.skillId]?.part) === 'ball';
+    const surf = this.fc3d?.part || KickSpec[this.skillId]?.part;
+    const left = KickLeg.isLeft(), mirror = !!this.fc3d && left;
+    const K = left ? ['الشمال', 'left'] : ['اليمين', 'right'], S = left ? ['اليمين', 'right'] : ['الشمال', 'left'];
+    const side = (isLeft) => (isLeft !== mirror) ? ['الشمال', 'Left'] : ['اليمين', 'Right'];
+    const F = { ball: ['مشط', 'ball'], instep: ['وش', 'instep'] }[surf] || ['كعب', 'heel'];
+    const hL = side(true), hR = side(false);
     const N = {
-      knee: ['الركبة', 'Knee'],
-      foot: ball ? ['مشط القدم', 'Ball of the foot'] : ['الكعب', 'Heel'],
-      guard: ['الحراسة (الإيدين)', 'Guard (both fists)'],
-      'hand-left': this.fc3d ? this.handRole('hand-left') : ['الإيد الشمال', 'Left hand'],
-      'hand-right': this.fc3d ? this.handRole('hand-right') : ['الإيد اليمين', 'Right hand'],
-      pivot: ['لفّة قدم الارتكاز', 'Standing-foot turn']
+      knee: [`ركبة الرجل ${K[0]}`, `${K[1]} knee`],
+      foot: [`${F[0]} الرجل ${K[0]}`, `${K[1]} ${F[1]}`],
+      guard: ['الإيدين (الحراسة)', 'Both fists (guard)'],
+      'hand-left': [`الإيد ${hL[0]}`, `${hL[1]} hand`],
+      'hand-right': [`الإيد ${hR[0]}`, `${hR[1]} hand`],
+      pivot: [`لفّة القدم ${S[0]} (قدم الارتكاز)`, `${S[1]} foot turn (standing foot)`]
     }[part];
-    return N ? N[ar ? 0 : 1] : part;
+    if (!N) return part;
+    const t = N[ar ? 0 : 1];
+    return ar ? t : t.charAt(0).toUpperCase() + t.slice(1);
   }
-  static handRole(part) { return part === this.fc3d.frontHand ? ['الإيد اللي قدّام', 'Front hand'] : ['الإيد اللي ورا', 'Back hand']; }
+  // the short tag printed under each touch point
+  static partTag(part, ar) {
+    const left = KickLeg.isLeft(), mirror = !!this.fc3d && left;
+    const K = left ? ['الشمال', 'L'] : ['اليمين', 'R'], S = left ? ['اليمين', 'R'] : ['الشمال', 'L'];
+    const surf = this.fc3d?.part || KickSpec[this.skillId]?.part;
+    const F = { ball: ['مشط', 'ball'], instep: ['وش القدم', 'instep'] }[surf] || ['الكعب', 'heel'];
+    const hand = (isLeft) => (isLeft !== mirror) ? ['إيد شمال', 'L hand'] : ['إيد يمين', 'R hand'];
+    const N = {
+      knee: [`ركبة ${K[0]}`, `${K[1]} knee`],
+      foot: [`${F[0]} ${K[0]}`, `${K[1]} ${F[1]}`],
+      guard: ['الإيدين', 'fists'],
+      'hand-left': hand(true), 'hand-right': hand(false),
+      pivot: [`قدم ${S[0]}`, `${S[1]} foot`]
+    }[part];
+    return N ? N[ar ? 0 : 1] : '';
+  }
   // v53 — what to do next with one touch point, in words a 6-year-old can follow. The
   // directions come from the stage itself: "forward" is the way the kick goes.
   static fcHint(part, cur, ideal, ar) {
@@ -2854,8 +2904,8 @@ class FormControlSystem {
       pivot: ['قدم الارتكاز بتلف شوية بس (من ٠° لـ ٤٥°) — الجسم يفضل مواجه للهدف.', 'The standing foot turns only a little (0°–45°) — the body stays facing the target.']
     },
     bakchagi3: {
-      knee:  ['الركبة والرجل في خط واحد مستقيم مع الهدف — كده الضربة بتمشي في خط واحد.', 'Knee and leg in one straight line to the target — the power travels in one line.'],
-      foot:  ['اضرب بالكعب (حرف القدم) والصوابع لتحت شوية مش لفوق.', 'Strike with the heel (the blade of the foot), toes angled down, not up.'],
+      knee:  ['الركبة بتوجّه الرجل ناحية الهدف — ومنها الجزء السفلي من الرجل بيضرب بسرعة.', 'The knee aims the leg at the target — then the lower leg snaps in fast.'],
+      foot:  ['اضرب بوش القدم (ظهرها من فوق)، والكاحل مفرود وصوابعك ممدودة.', 'Strike with the instep (the top of the foot), ankle stretched and toes pointed.'],
       front: ['الإيد اللي قدّام مرفوعة وبتحمي وشك وإنت جسمك جنب.', 'The front hand stays up and guards your face while your body is side-on.'],
       back:  ['الإيد اللي ورا قريبة من جسمك وبتحميك وبتوازنك.', 'The back hand stays close to your body — it guards you and keeps your balance.'],
       guard: ['الحراسة مرفوعة وإنت جسمك جنب.', 'Guard up while your body is side-on.'],
@@ -2877,6 +2927,8 @@ class FormControlSystem {
       point.innerHTML = FormControlSystem.KID_ICONS[part] || '🥋';
       const ar = this.gameState.currentLanguage === 'ar';
       point.title = this.partLabel(part, ar);
+      const tag = document.createElement('span'); tag.className = 'cp-tag'; tag.textContent = this.partTag(part, ar);
+      point.appendChild(tag);
       point.setAttribute('role', 'button'); point.setAttribute('aria-label', point.title); point.tabIndex = 0;   // v53
       wrap.appendChild(point);
     });
@@ -2993,8 +3045,8 @@ class FormControlSystem {
       why: {
         knee:         { en: 'Chambering the knee to chest height while turning side-on builds the momentum the strike depends on.',
                         ar: 'رفع الركبة لمستوى الصدر وإنت بتلف جنب هو اللي بيبني الزخم اللي الضربة معتمدة عليه.' },
-        foot:         { en: 'A full straight-line leg extension delivers the heel/blade strike with maximum reach and power.',
-                        ar: 'فرد الرجل على الآخر في خط مستقيم بيوصّل ضربة الكعب/الحافة لأقصى مدى وقوة.' },
+        foot:         { en: 'A stretched ankle lets the instep meet the target with full speed and power.',
+                        ar: 'لما الكاحل يبقى مفرود، وش القدم بيوصل للهدف بأقصى سرعة وقوة.' },
         'hand-left':  { en: 'Guard must stay up while the body turns side-on to the target.',
                         ar: 'لازم الحراسة تفضل مرفوعة وإنت بتلف جسمك جنب ناحية الهدف.' },
         'hand-right': { en: 'Guard must stay up while the body turns side-on to the target.',
@@ -3149,8 +3201,8 @@ class FormControlSystem {
         ar: ['طلّع رجلك لفوق وهي مفرودة خالص، لأعلى ما تقدر', 'الركبتين الاتنين مفرودين — والكعب يطلع لمستوى الوش أو أعلى', 'ميّل جسمك لورا سنة صغيرة بس، وقدم الارتكاز تلف شوية (من ٠° لـ ٤٥°)', 'الحراسة مرفوعة — وبعدها الكعب ينزل زي الفاس']
       },
       bakchagi3: {
-        en: ['Turn your body side-on to the target', 'Turn the standing foot to about 180° — toes pointing away from the target', 'Push the leg out sideways in one straight line and hit with the heel', 'Lean your body away a little and keep the guard up'],
-        ar: ['لفّ جسمك جنب ناحية الهدف', 'لفّ قدم الارتكاز لحد ١٨٠° تقريبًا — صوابعها عكس الهدف', 'افرد رجلك جنب في خط واحد مستقيم واضرب بالكعب', 'ميّل جسمك بعيد عن الهدف شوية وخلي الحراسة مرفوعة']
+        en: ['Turn your body side-on to the target', 'Turn the standing foot to about 180° — toes pointing away from the target', 'Snap the leg into the target and hit with the instep, toes pointed', 'Lean your body away a little and keep the guard up'],
+        ar: ['لفّ جسمك جنب ناحية الهدف', 'لفّ قدم الارتكاز لحد ١٨٠° تقريبًا — صوابعها عكس الهدف', 'اضرب برجلك ناحية الهدف بوش القدم وصوابعك ممدودة', 'ميّل جسمك بعيد عن الهدف شوية وخلي الحراسة مرفوعة']
       }
     };
     const iSet = INSTRUCTION_SETS[this.skillId] || INSTRUCTION_SETS.apchagi;
@@ -4206,7 +4258,9 @@ class PuzzleSystem {
     this.userOrder    = Array(5).fill(null);
     this.previewing   = false;
     if (!keep || !this._fake) this._fake = PuzzleSystem.PICK_FAKE();
-    if (!keep) this.mistakes = 0;            // v54: wrong pieces put down this round — they set the score
+    if (!keep) { this.mistakes = 0; this.hearts = Hearts.max(); }   // v54: wrong pieces set the score · v57: and cost a heart
+    document.querySelector('#puzzle-screen .tkd-outcard')?.remove();
+    Hearts.show('puzzle-screen', this.hearts);
     this.updateHeader();
     this.initializePieces();
     this.shufflePieces();
@@ -4461,6 +4515,7 @@ class PuzzleSystem {
   }
 
   static placePiece(pieceId, slotNumber) {
+    if (this.hearts <= 0 && !this._replaying) return;                // v57: out of chances — the card asks to go again
     const slot  = document.getElementById(`slot-${slotNumber}`);
     const piece = document.querySelector(`.puzzle-piece[data-piece="${pieceId}"]`);
     if (!slot || !piece) return;
@@ -4492,7 +4547,16 @@ class PuzzleSystem {
     this.userOrder[slotNumber - 1] = pieceId;
 
     const isCorrect = pieceId === this.correctOrder[slotNumber - 1];
-    if (!isCorrect && !this._replaying) this.mistakes = (this.mistakes || 0) + 1;
+    if (!isCorrect && !this._replaying) {
+      this.mistakes = (this.mistakes || 0) + 1;
+      this.hearts = Math.max(0, (this.hearts ?? Hearts.max()) - 1);
+      Hearts.show('puzzle-screen', this.hearts);
+      if (this.hearts <= 0) {                                           // v57: out of chances → the run ends, the score counts
+        const score = Math.max(0, 100 - 15 * this.mistakes);
+        this.gameState.trackFailure(score, 'puzzle', { mistakes: this.mistakes });
+        screenTimeout(() => Hearts.outOfChances('puzzle-screen', score, () => this.initialize(this.gameState)), 700);
+      }
+    }
     if (!this._replaying) window.Review?.note('phase', isCorrect, { skill: this.gameState?.currentSkill, phase: slotNumber - 1 });
     if (isCorrect) {
       slot.parentElement.classList.add('slot-correct');
@@ -4591,7 +4655,7 @@ class PuzzleSystem {
     if (correct === 5) {
       // v54: with every slot turning green or red at once, the board always ended at 100% —
       // now each wrong piece put down on the way costs 5 (the order is learned, not guessed)
-      const m = this.mistakes || 0, accuracy = Math.max(60, 100 - 5 * m);
+      const m = this.mistakes || 0, accuracy = Math.max(GameConfig.SETTINGS.PASSING_SCORE, 100 - 15 * m);   // v57: each lost heart −15
       const isFirstClear = this.gameState.completeGame('puzzle', accuracy, { mistakes: m });
       this.gameState.playSound('success');
       this.gameState.showNotification(ar
@@ -4605,7 +4669,6 @@ class PuzzleSystem {
       screenTimeout(() => WinnerSystem.show('puzzle', accuracy, this.gameState, isFirstClear), 2800);
     } else {
       this.gameState.playSound('error');
-      if (this.gameState.trackFailure(correct * 20, 'puzzle')) return;
       this.gameState.showNotification(
         ar ? `⚠️ ${TKD.num(correct)} من ٥ صح — دوس على المكان الأحمر عشان ترجّع القطعة وجرّب تاني!` : `⚠️ ${correct}/5 correct — tap a red place to take its piece back and try again!`, 'error'
       );
@@ -4762,7 +4825,7 @@ class PerformanceSystem {
       }
     ];
 
-    // bikchagi (side kick) — 180° pivot & heel/blade strike recognition
+    // bikchagi — 180° pivot & instep strike recognition (v56.2)
     return [
       {
         question: prompt,
@@ -4781,12 +4844,12 @@ class PerformanceSystem {
         question: prompt,
         refImage: img('extension'), refColor: colorOf('extension'),
         cards: [
-          { correct: false, text: ar ? 'الضربة بتبقى بالكعب أو بالحرف الخارجي للقدم' : 'The strike lands with the heel or the outer blade of the foot' },
+          { correct: false, text: ar ? 'الضربة بتبقى بوش القدم (ظهرها من فوق)' : 'The strike lands with the instep (top of the foot)' },
           { correct: false, text: ar ? 'اللفّة بتكمل لحد 180° قبل الضربة' : 'The rotation completes a full 180° before the strike' },
-          { correct: true,  text: ar ? 'الضربة بتبقى بوش القدم (ظهرها من فوق)' : 'The strike lands with the instep (top of the foot)' }
+          { correct: true,  text: ar ? 'الضربة بتبقى بالكعب' : 'The strike lands with the heel' }
         ],
-        correctFeedback: ar ? 'صح! بيك تشاجي بتضرب بالكعب أو حرف القدم مش بوش القدم — ده بتاع ركلة تانية خالص.'
-                            : 'Correct! Bik Chagi strikes with the heel or the blade edge, not the instep — that belongs to a different kick.',
+        correctFeedback: ar ? 'صح! بيك تشاجي بتضرب بوش القدم مش بالكعب.'
+                            : 'Correct! Bik Chagi strikes with the instep, not the heel.',
         wrongFeedback:   ar ? 'دي معلومة صح عن المرحلة دي. جرّب تاني.'
                             : 'That is true about this phase. Try again.'
       },
@@ -4824,7 +4887,10 @@ class PerformanceSystem {
     this.gameState    = gameState;
     this.skillId      = gameState.currentSkill;
     const poolSize    = PerformanceSystem.getQuestionPool(this.skillId, true, 'en').length;
-    this.totalRounds  = Math.min(3, poolSize);
+    this.totalRounds  = Math.min(4, poolSize);   // v57: 4 rounds with 3 chances (was 3 rounds, all had to be right)
+    this.hearts       = Hearts.max();
+    document.querySelector('#performance-screen .tkd-outcard')?.remove();
+    Hearts.show('performance-screen', this.hearts);
     this.currentRound = 0;
     this.correctCount = 0;
     this.streak       = 0;
@@ -4951,7 +5017,7 @@ class PerformanceSystem {
     document.getElementById('zoom-close-btn')?.addEventListener('click', () => {
       overlay.remove();
       this.currentRound++;
-      if (this.currentRound < this.totalRounds) this.loadNextRound();
+      if (this.currentRound < this.totalRounds && this.hearts > 0) this.loadNextRound();
       else this.finishGame();
     });
   }
@@ -5109,6 +5175,8 @@ class PerformanceSystem {
       }, 1800);
     } else {
       this.streak = 0;
+      this.hearts = Math.max(0, (this.hearts ?? Hearts.max()) - 1);
+      Hearts.show('performance-screen', this.hearts);
       this.updateStreakUI();
       this.showFeedback(false);
 
@@ -5148,12 +5216,8 @@ class PerformanceSystem {
       WinnerSystem.show('performance', accuracy, this.gameState, isFirstClear);
     } else {
       this.gameState.playSound('error');
-      const msg = ar
-        ? `⚠️ جاوبت صح على ${TKD.num(this.correctCount)} من ${TKD.num(this.totalRounds)} (${TKD.num(accuracy)}%). جرّب تاني!`
-        : `⚠️ ${this.correctCount}/${this.totalRounds} correct (${accuracy}%). Try again!`;
-      this.gameState.showNotification(msg, 'error');
       this.gameState.trackFailure(accuracy, 'performance');
-      screenTimeout(() => this.initialize(this.gameState), 2000);
+      Hearts.outOfChances('performance-screen', accuracy, () => this.initialize(this.gameState));   // v57: the score + try again
     }
   }
 }
@@ -5262,6 +5326,8 @@ class ActionSystem {
     this.round = 0;
     this.scores = [];
     this.results = [];
+    this.hearts = Hearts.max();                                   // v57: a round under the pass bar costs a heart
+    Hearts.show('action-screen', this.hearts);
     this._last = null;
     this.busy = true;
     this._abort = new AbortController();
@@ -5471,7 +5537,7 @@ class ActionSystem {
 
   static nextRound() {
     this.round++;
-    if (this.round > this.total) { this.finishGame(); return; }
+    if (this.round > this.total || this.hearts <= 0) { this.finishGame(); return; }
     this.busy = true;
     this._last = null;
     if (this.view) { this.view.t = 0; this.view.aim = 0; this.view.play = null; this.view.turn = 0; }
@@ -5551,6 +5617,7 @@ class ActionSystem {
     this.scores.push(score);
     this.results.push({ score, kind, msg });
     const good = score >= GameConfig.SETTINGS.PASSING_SCORE;
+    if (!good) { this.hearts = Math.max(0, this.hearts - 1); Hearts.show('action-screen', this.hearts); }
     this.setCallout(good ? 'ok' : 'bad', msg, score);
     this.renderTexts();
 
@@ -5577,7 +5644,9 @@ class ActionSystem {
 
   static finishGame() {
     const gs = this.gameState;
-    const accuracy = this.average() ?? 0;
+    // v57: out of chances early → the rounds not played count as 0
+    const accuracy = this.hearts <= 0 && this.scores.length < this.total
+      ? Math.round(this.scores.reduce((a, b) => a + b, 0) / this.total) : (this.average() ?? 0);
     this.busy = true;
     try { window.TKDDifficulty?.onResult(this.GAME_ID, accuracy); } catch (e) {}
     if (accuracy >= GameConfig.SETTINGS.PASSING_SCORE) {
@@ -6069,7 +6138,7 @@ class ErrorHuntSystem {
         success: { en: 'Well done! The leg straightens on one line toward the target.', ar: 'برافو! الرجل لازم تتفرد في خط مستقيم ناحية الهدف.' } },
       { id: 'foot', zone: 'kick', topic: 'surface',
         hint:    { en: 'Look at the striking foot — which part leads?', ar: 'بص على القدم اللي بتضرب: بأنهي جزء؟' },
-        success: { en: 'Right! Bik Chagi hits with the heel or the outer edge of the foot — never with the toes or the ball of the foot.', ar: 'صح! بيك تشاجي بتضرب بالكعب أو حرف القدم الخارجي، مش بالصوابع ولا بمشط القدم.' } },
+        success: { en: 'Right! Bik Chagi hits with the instep (the top of the foot) — never with the heel or the toes.', ar: 'صح! بيك تشاجي بتضرب بوش القدم (ظهرها من فوق)، مش بالكعب ولا بالصوابع.' } },
       { id: 'guard', zone: 'torso', topic: 'guard' },
       { id: 'head', zone: 'head', topic: 'head',
         hint:    { en: 'Look at the head — is it facing the target?', ar: 'بص على الراس: باصة ناحية الهدف؟' },
@@ -6480,7 +6549,7 @@ class QuizBlastSystem {
         a: ['الكعب', 'The heel'],
         w: [['مشط القدم', 'Ball of the foot'], ['حرف القدم الخارجي', 'Blade of the foot'], ['وش القدم', 'Instep']] },
       { q: ['إيه الهدف الأساسي لركلة نارو تشاجي؟', 'What is the main target of Naeryeo Chagi?'],
-        a: ['الراس / الكتف / الترقوة', 'Head / shoulder / collarbone'],
+        a: ['الرأس / الكتف / الترقوة', 'Head / shoulder / collarbone'],
         w: [['الركبة', 'Knee'], ['البطن', 'Abdomen'], ['القدم', 'Foot']] },
       { q: ['قدم الارتكاز بتلف قد إيه في نارو تشاجي؟', 'How far does the standing foot pivot in Naeryeo Chagi?'],
         a: ['بسيطة (0° – 45°)', 'Minimal (0°–45°)'],
@@ -6508,10 +6577,10 @@ class QuizBlastSystem {
         a: ['بيك تشاجي', 'Bik Chagi'],
         w: [['آب تشاجي', 'Ap Chagi'], ['نارو تشاجي', 'Naeryeo Chagi'], ['دوي تشاجي', 'Dwi Chagi']] },
       { q: ['ضربة بيك تشاجي بتتعمل بأنهي جزء من القدم؟', 'Which part of the foot strikes in Bik Chagi?'],
-        a: ['الكعب / الحرف اللي برا في القدم', 'Heel / outer edge of the foot'],
-        w: [['مشط القدم', 'Ball of the foot'], ['وش القدم', 'Instep'], ['صوابع القدم', 'Toes']] },
+        a: ['وش القدم (ظهرها من فوق)', 'Instep (top of the foot)'],
+        w: [['مشط القدم', 'Ball of the foot'], ['الكعب', 'Heel'], ['صوابع القدم', 'Toes']] },
       { q: ['إيه الأهداف الأساسية لركلة بيك تشاجي؟', 'What are the main targets of Bik Chagi?'],
-        a: ['الركبة / الضلوع / الصدر / الراس', 'Knee / ribs / chest / head'],
+        a: ['الضلوع / الصدر / الرأس', 'Ribs / chest / head'],
         w: [['البطن بس', 'Abdomen only'], ['الضهر بس', 'Back only'], ['القدم بس', 'Foot only']] },
       { q: ['قدم الارتكاز بتلف قد إيه في بيك تشاجي؟', 'How far does the standing foot pivot in Bik Chagi?'],
         a: ['180° كاملين', 'A full 180°'],
@@ -6533,7 +6602,7 @@ class QuizBlastSystem {
         w: [['في حركة دايرية', 'In a circular sweep'], ['نسيبها متدلدلة', 'Let it dangle'], ['نخبطها جامد في الأرض', 'Stamp it down hard']] },
       { q: ['ركلة جانبية ضعيفة ومش متوازنة — إيه أكتر سبب محتمل؟', 'A side kick lands weak and off-balance. What is the most likely cause?'],
         a: ['الركبة ماترفعتش على الآخر قبل فرد الرجل', 'The knee was not fully chambered before extending'],
-        w: [['كمّل اللفّة 180°', 'He completed the 180° pivot'], ['ضرب بالكعب', 'He struck with the heel'], ['خلّى إيديه للحراسة', 'He kept his guard up']] },
+        w: [['كمّل اللفّة 180°', 'He completed the 180° pivot'], ['ضرب بوش القدم', 'He struck with the instep'], ['خلّى إيديه للحراسة', 'He kept his guard up']] },
       { q: ['بيك تشاجي الكاملة فيها كام مرحلة أساسية؟', 'How many main phases does a complete Bik Chagi have?'],
         a: ['5 مراحل', '5 phases'],
         w: [['3 مراحل', '3 phases'], ['4 مراحل', '4 phases'], ['6 مراحل', '6 phases']] }
@@ -7262,7 +7331,7 @@ class QuizSystem {
         correctText: "At the target",
         get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
         explanation: "Eyes stay on the target the whole time — looking down at your foot breaks your balance and your aim.",
-        explanationAr: "عينك تفضل على الهدف طول الوقت، لو بصّيت على رجلك هتبوّظ توازنك وتصويبك."
+        explanationAr: "عينك تفضل على الهدف طول الوقت، لو بصّيت على رجلك هتفقد توازنك وتصويبك."
       },
       {
         question: "Where are your hands while you kick?",
@@ -7351,11 +7420,11 @@ class QuizSystem {
         question: 'What is the main TARGET of Naeryeo Chagi?',
         questionAr: 'إيه الهدف الأساسي لركلة نارو تشاجي؟',
         options: ['Knee', 'Abdomen', 'Head / Shoulder / Collarbone', 'Foot'],
-        optionsAr: ['الركبة', 'البطن', 'الراس / الكتف / الترقوة', 'القدم'],
+        optionsAr: ['الركبة', 'البطن', 'الرأس / الكتف / الترقوة', 'القدم'],
         correctText: 'Head / Shoulder / Collarbone',
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 2); },
         explanation: 'The downward heel strike of Naeryeo Chagi is aimed at the head, shoulder, or collarbone.',
-        explanationAr: 'ضربة الكعب النازلة في نارو تشاجي بتستهدف الراس أو الكتف أو عضمة الترقوة.'
+        explanationAr: 'ضربة الكعب النازلة في نارو تشاجي بتستهدف الرأس أو الكتف أو عظمة الترقوة.'
       },
       {
         question: 'What pivot angle does Naeryeo Chagi use on the standing foot?',
@@ -7391,11 +7460,11 @@ class QuizSystem {
         question: 'A student\'s strike lands but feels weak and soft, not sharp. What is the likely cause?',
         questionAr: 'الطالب عمل الركلة بس الضربة جت خفيفة وناعمة مش حادة — إيه أرجح سبب؟',
         options: ['They pivoted 90° on the standing foot', 'Their knee bent slightly before the heel dropped', 'They struck with the heel', 'They kept the leg straight during the rise'],
-        optionsAr: ['لفّوا قدم الارتكاز 90°', 'الركبة اتثنت شوية قبل ما الكعب ينزل', 'ضربوا بالكعب', 'فضلوا فاردين الرجل وهما بيرفعوها'],
+        optionsAr: ['لفّ قدم الارتكاز 90°', 'ركبته اتثنت شوية قبل ما الكعب ينزل', 'ضرب بالكعب', 'فضل فارد رجله وهو بيرفعها'],
         correctText: 'Their knee bent slightly before the heel dropped',
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 2); },
         explanation: 'Any bend in the knee before the drop bleeds off the force the strike needed.',
-        explanationAr: 'أي ثنية في الركبة قبل النزول بتضيّع القوة اللي الضربة كانت محتاجاها.'
+        explanationAr: 'أي ثنية في الركبة قبل النزول بتضيّع جزء من قوة الضربة.'
       },
       {
         question: "Which way does Naeryeo Chagi travel to hit?",
@@ -7411,11 +7480,11 @@ class QuizSystem {
         question: "While the leg rises, it is…",
         questionAr: "وإنت بترفع رجلك، بتكون…",
         options: ["Straight (or almost straight)", "Folded tight", "Bent out to the side", "Loose and bent"],
-        optionsAr: ["مفرودة (أو تقريبًا مفرودة)", "مطوية خالص", "متنية على الجنب", "سايبة ومتنية"],
+        optionsAr: ["مفرودة (أو مفرودة تقريبًا)", "مطوية خالص", "مثنية على الجنب", "مرتخية ومثنية"],
         correctText: "Straight (or almost straight)",
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 1); },
         explanation: "Keep the leg straight on the way up — a bent knee steals the power of the drop.",
-        explanationAr: "خلّي رجلك مفرودة وهي طالعة، الركبة المتنية بتضيّع قوة النزول."
+        explanationAr: "خلّي رجلك مفرودة وهي طالعة، لأن الركبة المثنية بتضيّع قوة النزول."
       },
       {
         question: "The strongest strike comes when the leg is about … from vertical on the way down.",
@@ -7430,12 +7499,12 @@ class QuizSystem {
       {
         question: "On the drop, how far does your upper body lean back?",
         questionAr: "وإنت بتنزّل رجلك، جسمك بيميل لورا قد إيه؟",
-        options: ["A little — about 15–25°", "Not at all, exactly 0°", "Very far — about 45°", "Lying back — 90°"],
-        optionsAr: ["شوية بس — حوالي 15–25°", "خالص، صفر بالظبط", "كتير — حوالي 45°", "نايم لورا — 90°"],
-        correctText: "A little — about 15–25°",
+        options: ["Only a little — about 10°", "Not at all, exactly 0°", "Very far — about 45°", "Lying back — 90°"],
+        optionsAr: ["شوية صغيرين — حوالي 10°", "مابيميلش خالص — صفر بالظبط", "كتير — حوالي 45°", "نايم لورا — 90°"],
+        correctText: "Only a little — about 10°",
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 2); },
-        explanation: "A small lean back (about 15–25°) balances the heavy leg. Leaning further makes you fall.",
-        explanationAr: "ميلة صغيرة لورا (حوالي 15–25°) بتوازن الرجل التقيلة، أكتر من كده هتوقعك."
+        explanation: "A small lean back (about 10°) balances the leg. Leaning further makes you fall backward.",
+        explanationAr: "ميلة صغيرة لورا (حوالي 10°) بتوازن رجلك، وأكتر من كده ممكن تقع لورا."
       },
       {
         question: "What does “Naeryeo” mean?",
@@ -7468,47 +7537,47 @@ class QuizSystem {
         explanationAr: "الميل الكتير لورا هو أشهر غلطة: توازنك بيروح والكعب بينزل من غير قوة."
       },
       {
-        question: "After the heel lands, what comes next?",
-        questionAr: "بعد ما الكعب ينزل، بتعمل إيه؟",
-        options: ["Pull the leg back up and find your balance", "Leave the foot on the target", "Fall to the floor", "Spin around"],
-        optionsAr: ["تسحب رجلك لفوق بسرعة وتظبط توازنك", "تسيب رجلك على الهدف", "تقع على الأرض", "تلف حوالين نفسك"],
-        correctText: "Pull the leg back up and find your balance",
+        question: "After the heel strikes, what does the leg do?",
+        questionAr: "بعد ضربة الكعب، الرجل بتعمل إيه؟",
+        options: ["Keeps coming down straight until the foot lands", "Bends at the knee and goes back up", "Stays on the target", "Spins around"],
+        optionsAr: ["تكمّل نزول وهي مفرودة لحد ما القدم توصل الأرض", "الركبة تتثني والرجل تطلع لفوق تاني", "تفضل على الهدف", "تلف حوالين نفسها"],
+        correctText: "Keeps coming down straight until the foot lands",
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 3); },
-        explanation: "Pull the leg back up quickly, then land softly in your stance with the guard up.",
-        explanationAr: "اسحب رجلك لفوق بسرعة، وبعدين انزل بالراحة في وضعيتك وإيديك مرفوعة."
+        explanation: "The leg stays straight all the way down — no knee bend at the end — and the foot lands under control, guard up.",
+        explanationAr: "الرجل تفضل مفرودة طول النزول — من غير ما الركبة تتثني في الآخر — والقدم تنزل على الأرض وإنت متحكم فيها وإيديك مرفوعة."
       }
     ],
 
     bakchagi3: [
       {
-        question: 'What is the Korean name for this straight side kick?',
-        questionAr: 'إيه الاسم الكوري للركلة الجانبية المستقيمة دي؟',
+        question: 'What is the Korean name of this kick?',
+        questionAr: 'إيه الاسم الكوري للركلة دي؟',
         options: ['Bik Chagi', 'Ap Chagi', 'Naeryeo Chagi', 'Dwi Chagi'],
         optionsAr: ['بيك تشاجي', 'آب تشاجي', 'نارو تشاجي', 'دوي تشاجي'],
         correctText: 'Bik Chagi',
         get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 2); },
-        explanation: 'Bik Chagi (옆차기), also written Yeop Chagi, is a straight side kick — the body turns side-on to the target as the standing foot pivots up to 180°.',
-        explanationAr: 'بيك تشاجي (옆차기)، وبتتكتب كمان يوب تشاجي، هي ركلة جانبية مستقيمة — الجسم بيلف بجنبه ناحية الهدف وقدم الارتكاز بتلف لحد 180°.'
+        explanation: 'In Bik Chagi the body turns side-on to the target, the standing foot pivots up to 180°, and the instep strikes.',
+        explanationAr: 'في بيك تشاجي الجسم بيلف بجنبه ناحية الهدف، وقدم الارتكاز بتلف لحد 180°، والضربة بتبقى بوش القدم.'
       },
       {
         question: 'Which part of the foot strikes in Bik Chagi?',
         questionAr: 'أنهي جزء من الرجل بيضرب في بيك تشاجي؟',
-        options: ['Heel / outer blade of the foot', 'Instep / top of foot', 'Toes', 'Ball of the foot'],
-        optionsAr: ['الكعب / الحرف اللي برا في القدم', 'وش القدم (ظهرها)', 'صوابع القدم', 'مشط القدم'],
-        correctText: 'Heel / outer blade of the foot',
+        options: ['Instep / top of foot', 'Heel', 'Toes', 'Ball of the foot'],
+        optionsAr: ['وش القدم (ظهرها)', 'الكعب', 'صوابع القدم', 'مشط القدم'],
+        correctText: 'Instep / top of foot',
         get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 2); },
-        explanation: 'Bik Chagi strikes with the heel or the outer blade (knife-edge) of the foot, with the toes pulled back.',
-        explanationAr: 'بيك تشاجي بتضرب بالكعب أو بحرف القدم الخارجي (سكينة القدم)، وصوابعك مسحوبة لورا.'
+        explanation: 'Bik Chagi strikes with the instep (the top of the foot), with the ankle stretched and the toes pointed.',
+        explanationAr: 'بيك تشاجي بتضرب بوش القدم (ظهرها من فوق)، والكاحل مفرود وصوابعك ممدودة.'
       },
       {
         question: 'What are the main TARGETS of Bik Chagi?',
         questionAr: 'إيه الأهداف الأساسية لركلة بيك تشاجي؟',
-        options: ['Knee / ribs / chest / head', 'Only the abdomen', 'Only the groin', 'Only the foot'],
-        optionsAr: ['الركبة / الضلوع / الصدر / الراس', 'البطن بس', 'العانة بس', 'القدم بس'],
-        correctText: 'Knee / ribs / chest / head',
+        options: ['Ribs / chest / head', 'Only the back', 'Only the knee', 'Only the foot'],
+        optionsAr: ['الضلوع / الصدر / الرأس', 'الضهر بس', 'الركبة بس', 'القدم بس'],
+        correctText: 'Ribs / chest / head',
         get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 2); },
-        explanation: 'Thanks to its penetrating straight power, Bik Chagi can target the knee, belly, ribs, chest, or head.',
-        explanationAr: 'عشان قوتها المستقيمة بتخترق، بيك تشاجي بتستهدف ركبة الخصم أو بطنه أو ضلوعه أو صدره أو راسه.'
+        explanation: 'The instep of Bik Chagi is aimed at the ribs, the chest or the head.',
+        explanationAr: 'بيك تشاجي بتضرب بوش القدم في ضلوع الخصم أو صدره أو رأسه.'
       },
       {
         question: 'What pivot angle does Bik Chagi use on the standing foot?',
@@ -7541,10 +7610,10 @@ class QuizSystem {
         explanationAr: 'لما بتلف بجنبك بتشوف الخصم أقل لثواني، عشان كده الحراسة والتحكم مهمين طول اللفة.'
       },
       {
-        question: 'A student\'s side kick lands weak and off-balance. What is the most likely cause?',
-        questionAr: 'ركلة الطالب الجانبية وصلت ضعيفة وهو مش متوازن — إيه أرجح سبب؟',
-        options: ['They completed the full 180° pivot', 'The knee never fully chambered to chest height before extension', 'They struck with the heel', 'They kept their guard up'],
-        optionsAr: ['كمّل اللفة 180° كلها', 'الركبة ما ارتفعتش كويس لمستوى الصدر قبل فرد الرجل', 'ضرب بالكعب', 'فضل حارس بإيديه'],
+        question: 'A student\'s Bik Chagi lands weak and off-balance. What is the most likely cause?',
+        questionAr: 'ركلة بيك تشاجي بتاعة الطالب وصلت ضعيفة وهو مش متوازن — إيه أرجح سبب؟',
+        options: ['They completed the full 180° pivot', 'The knee never fully chambered to chest height before extension', 'They struck with the instep', 'They kept their guard up'],
+        optionsAr: ['كمّل اللفّة 180° كلها', 'ركبته ما ارتفعتش كويس لمستوى الصدر قبل فرد الرجل', 'ضرب بوش القدم', 'فضل رافع إيديه للحراسة'],
         correctText: 'The knee never fully chambered to chest height before extension',
         get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 1); },
         explanation: 'Without a full knee chamber to chest height, there is no stored energy for the hip to release into the strike.',
@@ -7568,7 +7637,7 @@ class QuizSystem {
         correctText: "Lifted to the chest, tightly folded",
         get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 1); },
         explanation: "Fold the knee tight up at chest height — that stored spring is what you release into the kick.",
-        explanationAr: "اطوي الركبة كويس عند الصدر، دي الزمبلك اللي بتطلّقه في الركلة."
+        explanationAr: "اطوي ركبتك كويس عند صدرك — الركبة المطوية بتخزّن القوة اللي بتطلع في الضربة."
       },
       {
         question: "The kicking leg travels to the target…",
@@ -7613,12 +7682,12 @@ class QuizSystem {
       {
         question: "Your toes on the kicking foot are…",
         questionAr: "صوابع رجل الركلة بتبقى…",
-        options: ["Pulled back (the heel / edge leads)", "Pointed at the target", "Pointing up to the sky", "Curled under"],
-        optionsAr: ["مسحوبة لورا (الكعب أو الحرف بيضرب)", "مفرودة ناحية الهدف", "بتبص لفوق", "مثنية لتحت"],
-        correctText: "Pulled back (the heel / edge leads)",
+        options: ["Pointed (the instep leads)", "Pulled back (the heel leads)", "Pointing up to the sky", "Curled under"],
+        optionsAr: ["ممدودة (وش القدم هو اللي بيضرب)", "مسحوبة لورا (الكعب هو اللي بيضرب)", "بتبص لفوق", "مثنية لتحت"],
+        correctText: "Pointed (the instep leads)",
         get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 2); },
-        explanation: "Pull the toes back so the heel and outer edge of the foot lead into the target.",
-        explanationAr: "اسحب صوابعك لورا عشان الكعب وحرف القدم الخارجي هما اللي يضربوا."
+        explanation: "Stretch the ankle and point the toes so the instep (the top of the foot) leads into the target.",
+        explanationAr: "افرد الكاحل ومدّ صوابعك عشان وش القدم (ظهرها من فوق) هو اللي يضرب الهدف."
       }
     ]
   };
@@ -7634,7 +7703,8 @@ class QuizSystem {
     this.hideResult();
     const unlocked = Array.from(gameState.unlockedSkills || ['apchagi']);
     let pool;
-    this.interleaved = unlocked.length > 1;
+    // v57: the Test is about THIS kick only (mixing in the other kicks made it harder and confusing)
+    this.interleaved = false;
     // v55: a test is 10 questions picked from a much bigger bank (so a retry is a new test),
     // and some of them are picture questions: "which phase of the kick is this?"
     const pick = (sk, n, nPics) => {
@@ -7657,8 +7727,37 @@ class QuizSystem {
     const totalEl = document.getElementById('total-questions');
     if (totalEl) totalEl.textContent = this.sessionQuestions.length;
 
+    this.answers = [];
+    this.renderHeader();
+    this.updateScoreDisplay();
     this.loadQuestion(0);
     this.setupEventListeners();
+  }
+
+  // v57 — a clearer Test: its name, the goal up front, one dot per question
+  static renderHeader() {
+    const ar = this.gameState.currentLanguage === 'ar', n = this.sessionQuestions.length;
+    const need = Math.ceil(n * GameConfig.SETTINGS.QUIZ_PASS / 100), name = TKD.skillName(this.skillId);
+    const last = !GameConfig.SKILLS[this.skillId]?.nextSkill;
+    const scr = document.getElementById('quiz-screen'); if (!scr) return;
+    const h = scr.querySelector('.game-container > h2'), d = scr.querySelector('.game-container > .description');
+    if (h) { h.removeAttribute('data-i18n'); h.textContent = ar ? `📝 اختبار ${name}` : `📝 ${name} test`; }
+    if (d) {
+      d.removeAttribute('data-i18n');
+      d.textContent = ar
+        ? `${TKD.num(n)} أسئلة — جاوب صح على ${TKD.num(need)} عشان تعدّي ${last ? 'وتقفل الركلات كلها 🏆' : 'وتفتح الركلة الجاية 🔓'}`
+        : `${n} questions — get ${need} right to pass ${last ? 'and finish all the kicks 🏆' : 'and open the next kick 🔓'}`;
+    }
+    let dots = scr.querySelector('.quiz-dots');
+    if (!dots) { dots = document.createElement('ol'); dots.className = 'quiz-dots'; dots.setAttribute('aria-hidden', 'true'); scr.querySelector('.quiz-header')?.after(dots); }
+    this.renderDots();
+  }
+  static renderDots() {
+    const dots = document.querySelector('#quiz-screen .quiz-dots'); if (!dots || !this.sessionQuestions) return;
+    dots.innerHTML = this.sessionQuestions.map((_, i) => {
+      const a = this.answers?.[i];
+      return `<li class="${a === true ? 'ok' : a === false ? 'bad' : i === this.currentQuestionIndex ? 'now' : ''}">${a === true ? '✓' : a === false ? '✗' : TKD.num(i + 1)}</li>`;
+    }).join('');
   }
 
   static SESSION = 10;
@@ -7790,9 +7889,17 @@ class QuizSystem {
 
     if (isCorrect) this.score += 20;
     this.updateScoreDisplay();
+    if (this.answers) { this.answers[this.currentQuestionIndex] = !!isCorrect; this.renderDots(); }
 
     const nextBtn = document.getElementById('next-question-btn');
-    if (nextBtn) nextBtn.disabled = false;
+    if (nextBtn) {
+      nextBtn.disabled = false;
+      const lastQ = this.currentQuestionIndex >= this.sessionQuestions.length - 1;
+      const lbl = nextBtn.querySelector('span');
+      if (lbl) { lbl.removeAttribute('data-i18n'); lbl.textContent = lastQ ? (ar ? 'شوف النتيجة 🏁' : 'See my result 🏁') : (ar ? 'السؤال اللي بعده' : 'Next question'); }
+      // v57: on a phone the explanation and the button sit below the answers — bring them up
+      setTimeout(() => document.getElementById('quiz-feedback')?.scrollIntoView({ block: 'nearest', behavior: window.prefersReducedMotion?.() ? 'auto' : 'smooth' }), 120);
+    }
   }
 
   static showFeedback(isCorrect, explanation, correctAnswerText) {
@@ -7826,12 +7933,16 @@ class QuizSystem {
 
   static updateScoreDisplay() {
     const scoreEl = document.getElementById('quiz-score');
-    if (scoreEl) scoreEl.textContent = this.score;
+    if (scoreEl) scoreEl.textContent = TKD.num(Math.round(this.score / 20));   // v57: right answers, not points
+    const lbl = scoreEl?.previousElementSibling;
+    if (lbl) { lbl.removeAttribute('data-i18n'); lbl.textContent = this.gameState.currentLanguage === 'ar' ? '✅ صح:' : '✅ Right:'; }
   }
 
   static nextQuestion() {
     this.currentQuestionIndex++;
+    this.renderDots();
     this.loadQuestion(this.currentQuestionIndex);
+    if (this.currentQuestionIndex < this.sessionQuestions.length) document.querySelector('#quiz-screen .quiz-header')?.scrollIntoView({ block: 'start', behavior: window.prefersReducedMotion?.() ? 'auto' : 'smooth' });
     this.gameState.playSound('click');
   }
 
@@ -7840,13 +7951,9 @@ class QuizSystem {
     const maxScore = this.sessionQuestions.length * 20;
     const accuracy = Math.round((this.score / maxScore) * 100);
 
-    if (accuracy >= GameConfig.SETTINGS.PASSING_SCORE) {
+    if (accuracy >= GameConfig.SETTINGS.QUIZ_PASS) {
       const isFirstClear = this.gameState.completeGame('quiz', accuracy);
       this.gameState.playSound('win');
-      const msg = ar
-        ? `🎉 خلّصت الاختبار! نقطك ${this.score}/${maxScore} (${accuracy}%)`
-        : `🎉 Quiz complete! Score: ${this.score}/${maxScore} (${accuracy}%)`;
-      this.gameState.showNotification(msg, 'success');
       screenTimeout(() => WinnerSystem.show('quiz', accuracy, this.gameState, isFirstClear), 1000);
     } else {
       this.gameState.playSound('error');
@@ -7858,7 +7965,7 @@ class QuizSystem {
 
   static hideResult() { document.getElementById('quiz-result-card')?.remove(); document.querySelector('#quiz-screen .quiz-container')?.classList.remove('quiz-done'); }
   static showResult(accuracy) {
-    const ar = this.gameState.currentLanguage === 'ar', PASS = GameConfig.SETTINGS.PASSING_SCORE;
+    const ar = this.gameState.currentLanguage === 'ar', PASS = GameConfig.SETTINGS.QUIZ_PASS;
     const box = document.querySelector('#quiz-screen .quiz-container'); if (!box) return;
     this.hideResult();
     box.classList.add('quiz-done');
@@ -7866,7 +7973,8 @@ class QuizSystem {
     card.id = 'quiz-result-card'; card.className = 'quiz-result-card';
     const right = (q) => ar ? q.optionsAr[q.options.indexOf(q.correctText)] : q.correctText;
     card.innerHTML = `
-      <h3>${ar ? `${accuracy}% — ${accuracy >= 60 ? 'قربت!' : 'محتاجين نراجع شوية.'} المطلوب ${PASS}%` : `${accuracy}% — ${accuracy >= 60 ? 'so close!' : 'let’s review a little.'} You need ${PASS}%`}</h3>
+      <div class="qr-ring" style="--p:${accuracy}"><b>${ar ? TKD.num(accuracy) : accuracy}%</b></div>
+      <h3>${ar ? `${accuracy >= 50 ? 'قربت جدًا!' : 'محتاجين نراجع شوية.'} المطلوب ${TKD.num(PASS)}%` : `${accuracy >= 50 ? 'So close!' : 'Let’s review a little.'} You need ${PASS}%`}</h3>
       <p>${ar ? 'راجع الإجابات دي وبعدين جرّب تاني — الأسئلة هتتغير:' : 'Review these answers, then try again — the questions will change:'}</p>
       <ol class="quiz-review">${this.wrongs.map(q => `<li><span>${TKD.esc(ar ? q.questionAr : q.question)}</span><b>✓ ${TKD.esc(right(q))}</b></li>`).join('')}</ol>
       <div class="quiz-result-btns">
@@ -8113,7 +8221,7 @@ class TrophyRoomSystem {
       id: 'white-belt-1st-stripe', icon: '🥋',
       name: { en: 'White Belt — 1st Stripe', ar: 'الحزام الأبيض — الشريط الأول' },
       desc: { en: 'Mastered Ap Chagi', ar: 'اتقنت مهارة آب تشاجي' },
-      how: { en: 'Master Ap Chagi (pass its 4 games and the test)', ar: 'اتقن آب تشاجي (عدّي ألعابها الأربعة والاختبار)' },
+      how: { en: 'Master Ap Chagi (pass its 3 main games and the test)', ar: 'اتقن آب تشاجي (عدّي ألعابها التلاتة الأساسية والاختبار)' },
       prog: (gs) => TrophyRoomSystem.skillProg(gs, 'apchagi'),
       condition: (gs) => gs.completedSkills.has('apchagi')
     },
@@ -8229,8 +8337,8 @@ class TrophyRoomSystem {
   static skillProg(gs, sk) {
     if (gs.completedSkills?.has(sk)) return 1;
     const sc = gs.skillGameScores?.[sk] || {};
-    const steps = ['formControl', 'puzzle', 'performance', 'action', 'quiz'];
-    return steps.filter(k => (sc[k] || 0) >= GameConfig.SETTINGS.PASSING_SCORE).length / (steps.length + 1);
+    const steps = GameState.REQUIRED_GAME_KEYS;
+    return (steps.filter(k => GameState.gamePassed(sc, k)).length + (GameState.quizPassed(sc) ? 1 : 0)) / (steps.length + 2);
   }
 
   static initialize(gameState) {
@@ -8498,8 +8606,7 @@ class PlayerSystem {
     const unlocked = ['apchagi'], completed = [];
     GameConfig.SKILL_ORDER.forEach(sk => {
       const s = scores[sk];
-      const overall = Math.round(((s.learning || 0) + ((s.formControl || 0) + (s.puzzle || 0) + (s.performance || 0) + (s.action || 0)) / 4 + (s.quiz || 0)) / 3);
-      if (overall >= GameConfig.SETTINGS.SKILL_UNLOCK_THRESHOLD) {
+      if (GameState.skillMastered(s)) {                       // v57: lesson + 3 main games + the Test
         completed.push(sk);
         const next = GameConfig.SKILLS[sk].nextSkill;
         if (next && !unlocked.includes(next)) unlocked.push(next);
@@ -8892,7 +8999,7 @@ class SkillMenuSystem {
     const quizBar   = document.getElementById('skill-quiz-progress');
 
     if (learnBar)  learnBar.style.width  = `${scores.learning || 0}%`;
-    const gamesAvg = Math.round(((scores.formControl || 0) + (scores.puzzle || 0) + (scores.performance || 0) + (scores.action || 0)) / 4);
+    const gamesAvg = Math.round(GameState.REQUIRED_GAME_KEYS.reduce((a, k) => a + (scores[k] || 0), 0) / GameState.REQUIRED_GAME_KEYS.length);
     if (gamesBar)  gamesBar.style.width  = `${gamesAvg}%`;
     if (warmupBar) warmupBar.style.width = `${scores.warmup || 0}%`;
     if (quizBar)   quizBar.style.width   = `${scores.quiz || 0}%`;
@@ -8908,7 +9015,7 @@ class SkillMenuSystem {
   static applyStageGating(gameState, skillId) {
     const s = gameState.skillGameScores[skillId] || {};
     const stages = [
-      { id: 'stage-learning-card', unlocked: (s.warmup || 0) > 0 },
+      { id: 'stage-learning-card', unlocked: true },          // v57: warm-up recommended, not required
       { id: 'stage-games-card',    unlocked: (s.learning || 0) > 0 },
       { id: 'stage-quiz-card',     unlocked: GameState.allGamesDone(s) }
     ];
@@ -10271,12 +10378,11 @@ function attemptStageNav(stage) {
     GameStateInstance.saveToStorage();
     GameStateInstance.showNotification(ar ? '🔥 جسمك لسه دافي من الإحماء — يلا نتعلم!' : '🔥 You are still warm from your warm-up — let\'s learn!', 'success');
   }
-  if (stage === 'learning' && !((s.warmup || 0) > 0)) {
-    reason = ar ? '🔒 كمّل الإحماء الأول' : '🔒 Complete the warm-up first';
-  } else if (stage === 'games' && !((s.learning || 0) > 0)) {
+  // v57: the warm-up is recommended, not required
+  if (stage === 'games' && !((s.learning || 0) > 0)) {
     reason = ar ? '🔒 كمّل مرحلة التعلم الأول' : '🔒 Complete the learning stage first';
   } else if (stage === 'quiz' && !GameState.allGamesDone(s)) {
-    reason = ar ? '🔒 كمّل الألعاب الأربعة الأول' : '🔒 Complete all 4 games first';
+    reason = ar ? '🔒 عدّي الألعاب التلاتة الأساسية الأول' : '🔒 Pass the 3 main games first';
   }
 
   if (reason) {
@@ -11576,12 +11682,12 @@ class BoardBreakGame extends ArenaGameBase {
   static SURFACE_OK = {
     apchagi:   { ball: 1, instep: 0.6 },
     narochagi: { heel: 1 },
-    bakchagi3: { blade: 1, heel: 1 }
+    bakchagi3: { instep: 1 }
   };
   static SURFACE_WHY = {
     apchagi:   { en: 'Ap Chagi strikes with the ball of the foot — toes pulled back.', ar: 'آب تشاجي بيضرب بمشط القدم — والصوابع مشدودة لورا.' },
     narochagi: { en: 'Naeryeo Chagi drops the heel straight down onto the target.', ar: 'النارو تشاجي بينزّل الكعب لتحت على الهدف.' },
-    bakchagi3: { en: 'The side kick lands with the heel / outer blade of the foot.', ar: 'الركلة الجانبية بتضرب بالكعب أو حرف القدم الخارجي.' }
+    bakchagi3: { en: 'Bik Chagi lands with the instep (the top of the foot).', ar: 'بيك تشاجي بتضرب بوش القدم (ظهرها من فوق).' }
   };
 
   static setupUI() {
@@ -11899,7 +12005,7 @@ class PaddleReflexGame extends ArenaGameBase {
     how: {
       apchagi:   { en: 'Paddles pop up around you. Tap ONLY the one held at a real Ap Chagi target — the face or the abdomen — as fast as you can. Leave the others!', ar: 'مضارب بتظهر حواليك. دوس بس على المضرب اللي عند هدف حقيقي لركلة آب تشاجي — الوش أو البطن — بأسرع ما تقدر. سيب الباقي!' },
       narochagi: { en: 'Paddles pop up around you. Tap ONLY the one held flat above the head — the axe kick drops onto the head / shoulder from above.', ar: 'مضارب بتظهر حواليك. دوس بس على المضرب اللي متمسك بالعرض فوق الراس — الركلة المطرقية بتنزل على الراس / الكتف من فوق.' },
-      bakchagi3: { en: 'Paddles pop up around you. Tap ONLY the one at a real side-kick target — the ribs or the knee.', ar: 'مضارب بتظهر حواليك. دوس بس على المضرب اللي عند هدف حقيقي للركلة الجانبية — الضلوع أو الركبة.' }
+      bakchagi3: { en: 'Paddles pop up around you. Tap ONLY the one at a real Bik Chagi target — the ribs or the face.', ar: 'مضارب بتظهر حواليك. دوس بس على المضرب اللي عند هدف حقيقي لبيك تشاجي — الضلوع أو الوش.' }
     }
   };
 
@@ -11913,8 +12019,8 @@ class PaddleReflexGame extends ArenaGameBase {
     foot:     { dx: 1.12, dy: 0.15,  label: { en: 'Foot', ar: 'القدم' } },
     behind:   { dx: -0.55, dy: 0.62, label: { en: 'Behind you', ar: 'وراك' } }
   };
-  static VALID = { apchagi: ['face', 'abdomen'], narochagi: ['overhead'], bakchagi3: ['ribs', 'knee'] };
-  static DECOYS = { apchagi: ['overhead', 'knee', 'foot', 'behind'], narochagi: ['abdomen', 'knee', 'foot', 'behind'], bakchagi3: ['overhead', 'foot', 'behind', 'abdomen'] };
+  static VALID = { apchagi: ['face', 'abdomen'], narochagi: ['overhead'], bakchagi3: ['ribs', 'face'] };   // v56.2: Bik Chagi's instep goes to the ribs / chest / head
+  static DECOYS = { apchagi: ['overhead', 'knee', 'foot', 'behind'], narochagi: ['abdomen', 'knee', 'foot', 'behind'], bakchagi3: ['overhead', 'foot', 'behind', 'knee'] };
 
   static setupUI() {
     const canvas = this.$('canvas');
@@ -12140,9 +12246,9 @@ class PhaseRhythmGame extends ArenaGameBase {
   static SCREEN = 'phase-rhythm';
   static GAME_ID = 'phase-rhythm';
   static PREFIX = 'rh';
-  static COMBOS = [66, 74, 84, 94];           // BPM of each 5-note combo (v41: calmer — was 72/84/96/108; × the level speed)
-  static LEAD = 2.2;                          // seconds a note takes to fall to the line (v44: balanced — was 1.7, then 2.6)
-  static WIN = { perfect: 0.09, great: 0.17, good: 0.25 };
+  static COMBOS = [44, 48, 54, 60];           // BPM of each 5-note combo (v56.2: much calmer after play-testing — was 66/74/84/94; × the level speed)
+  static LEAD = 3.2;                          // seconds a note takes to fall to the line (v56.2: was 2.2 — children need time to see the note coming)
+  static WIN = { perfect: 0.13, great: 0.24, good: 0.36 };   // v56.2: wider — was .09 / .17 / .25
   static LANE_COLORS = ['#2a9d8f', '#e76f51', '#ff6b35', '#e9c46a', '#457b9d'];
   static totalRounds() { return this.COMBOS.length; }
 
@@ -13755,7 +13861,7 @@ if (typeof window !== 'undefined') window.RigBackend = RigBackend;
 // No WebGL → the 2D rig draws the same poses; nothing at all → a 🥋 card.
 // ============================================================================
 const PoseShots = (() => {
-  const VER = 'p9';                                  // v54: the reference look (faces, hair, dobok, soft light, head ×0.78) · v51: legs ×1.2, new stance · bump when the rig, the kicks or the framing change (p2: kicks re-posed)
+  const VER = 'p10';                                 // v56.2: Naeryeo lands with a straight leg, Bik Chagi hits with the instep · v54: the reference look (faces, hair, dobok, soft light, head ×0.78) · v51: legs ×1.2, new stance · bump when the rig, the kicks or the framing change (p2: kicks re-posed)
   const STORE = `tkdpose-${VER}`;
   const SIDE = -0.27, HERO = -0.95;                  // ¾ side view (like the games) · ¾ front view (portraits)
   const PX = 0.56;                                   // pixels per rig unit → a standing child ≈ 560 px tall
@@ -13868,8 +13974,8 @@ const PoseShots = (() => {
     RigBackend.poseAt(rig, sk, S.strobe, times[2]); fresh();
     sk.draw(g, ox, oy, s);
     // the path of the striking part, from the stance and back
-    const ball = (KickSpec[S.skill]?.part || 'heel') === 'ball';
-    const at = tt => { RigBackend.poseAt(rig, sk, S.strobe, tt); const w = ball ? sk.world('RightToeBase') : sk.world('RightFoot', 0, -0.03, -0.02); const p = sk.toScreen(w); return { x: ox + p.x * s, y: oy - p.y * s, t: tt }; };
+    const part = KickSpec[S.skill]?.part || 'heel';
+    const at = tt => { RigBackend.poseAt(rig, sk, S.strobe, tt); const w = KickSpec.strikePoint(sk, part); const p = sk.toScreen(w); return { x: ox + p.x * s, y: oy - p.y * s, t: tt }; };
     const N = 80, raw = [];
     for (let k = 0; k <= N; k++) raw.push(at(times[0] + (times[4] - times[0]) * k / N));
     const pts = Kick4D.lanes(raw, 6);
@@ -14142,14 +14248,24 @@ const KickSpec = {
     { lean: [-6, 6], supKnee: [150, 178] },
     { knee: [170, 180], supKnee: [170, 180], thigh: [55, 75], lean: [0, 12], pivot: [0, 45] },
     { knee: [165, 180], drop: [38, 52], lean: [-6, 6], pivot: [0, 45], foot: ['chest', 'shoulder', 'face'] },
-    { knee: [70, 110], foot: ['knee', 'belly'] },
+    { knee: [165, 180], foot: ['floor', 'knee'] },
     { lean: [-6, 6], supKnee: [150, 178] }] },
-  bakchagi3: { part: 'heel', phases: [
+  bakchagi3: { part: 'instep', phases: [     // v56.2: the instep strikes, the knee ~140° as the lower leg sweeps in
     { lean: [-6, 6], supKnee: [150, 178] },
     { knee: [25, 60], thigh: [10, 40], hips: [70, 100], pivot: [110, 160], tilt: [0, 15] },
-    { knee: [170, 180], pivot: [160, 200], hips: [100, 135], tilt: [28, 45], supKnee: [170, 180], toes: [30, 60], foot: ['belly', 'chest', 'shoulder'] },
+    { knee: [128, 160], pivot: [160, 200], hips: [100, 135], tilt: [28, 45], supKnee: [170, 180], foot: ['belly', 'chest', 'shoulder'] },
     { knee: [25, 85], thigh: [5, 40] },
     { lean: [-6, 6], supKnee: [150, 178] }] },
+  // v56.2 — the striking part of the foot on a 3D skeleton, in world space
+  // (ball = under the toes · instep = the top of the foot · heel)
+  strikePoint(sk, part) {
+    if (part === 'ball') return sk.world('RightToeBase');
+    if (part === 'instep') {
+      const a = sk.world('RightFoot'), b = sk.world('RightToeBase');
+      return a && b ? { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2, z: (a.z + b.z) / 2 } : a;
+    }
+    return sk.world('RightFoot', 0, -0.03, -0.02);
+  },
   // live rows for one phase: [key, label, valueText, targetText, ok]
   rows(skillId, phase, M, ar) {
     const S = this[skillId]; if (!S || !M) return [];
@@ -14533,13 +14649,13 @@ class RigView {
     if (this._path?.key === key) return this._path;
     const gh = this.ghostSk || (this.ghostSk = RigBackend.newSkeleton(this.rig));
     gh.mirror = sk.mirror;
-    const ball = (KickSpec[this.skillId]?.part || 'heel') === 'ball';
-    const at = t => { RigBackend.poseAt(this.rig, gh, this.anim, t); return ball ? gh.world('RightToeBase') : gh.world('RightFoot', 0, -0.03, -0.02); };
+    const part = KickSpec[this.skillId]?.part || 'heel', ball = part === 'ball';
+    const at = t => { RigBackend.poseAt(this.rig, gh, this.anim, t); return KickSpec.strikePoint(gh, part); };
     const N = 80, pts = [];
     for (let k = 0; k <= N; k++) { const t = T[0] + (T[4] - T[0]) * k / N, p = at(t); p.t = t; pts.push(p); }
     const marks = [0, 1, 2, 3, 4].map(i => at(Kick4D.phaseT(T, i)));
     if (gh._cache) gh._cache.stale = true;
-    return (this._path = { key, pts, marks, ball });
+    return (this._path = { key, pts, marks, ball, part });
   }
   drawPath(g, x, ground, s) {
     const D = this.pathData(); if (!D) return;
@@ -14586,7 +14702,7 @@ class RigView {
     });
     // the foot right now, while the kick moves
     if (live) {
-      const f = sk.world(D.ball ? 'RightToeBase' : 'RightFoot', 0, D.ball ? 0 : -0.03, D.ball ? 0 : -0.02);
+      const f = KickSpec.strikePoint(sk, D.part);
       if (f) { const p = S(f); g.globalAlpha = 1; g.fillStyle = '#fff'; g.strokeStyle = 'rgba(10,14,30,0.85)'; g.lineWidth = 2; g.beginPath(); g.arc(p.x, p.y, 5, 0, Math.PI * 2); g.fill(); g.stroke(); }
     }
     g.restore();
@@ -14747,8 +14863,8 @@ class RigFighter extends ArenaFighter {
     }
     if (!this._strike[i]) {
       RigBackend.poseAt(this.rig, this.scratch, this.anim, this.times[i] ?? 0);
-      // axe and side kicks land with the heel, the others with the ball / sole of the foot
-      this._strike[i] = this.scratch.boneTip('footF', (this.anim === 'naeryeo' || this.anim === 'yeop') ? 0.15 : 0.8);
+      // the axe kick lands with the heel, Bik Chagi with the instep (v56.2), the others with the ball of the foot
+      this._strike[i] = this.scratch.boneTip('footF', this.anim === 'naeryeo' ? 0.15 : this.anim === 'yeop' ? 0.5 : 0.8);
     }
     const p = this._strike[i], s = this.scale;
     const x = this.originX() + p.x * s, y = this.floor - p.y * s;
@@ -15253,7 +15369,7 @@ const DashboardSystem = {
   // Mastery per kick from THIS player's own attempt log, so the dashboard can
   // show any player (not just whoever is signed in right now — GameState only
   // holds the active player's save). Same formula as calculateSkillOverallProgress:
-  // (learning + average of the 4 main games + test) / 3.
+  // (learning + average of the 3 main games + test) / 3.
   masteryFor(playerId) {
     const all = PlayerSystem.getAttempts().filter(a => a.playerId === playerId);
     const best = (sk, g) => all.filter(a => a.skillId === sk && a.gameId === g).reduce((m, a) => Math.max(m, a.score), 0);
@@ -18323,7 +18439,7 @@ window.Review = Review;
 // ============================================================================
 // THE JOURNEY (v29 → v30 adventure map) — the child always sees ONE road and
 // ONE next step.
-//   🔥 warm-up → 🎓 learn → 🎭 🧩 👁️ ⚡ four games → 📝 test → 🎁 treasure
+//   🔥 warm-up → 🎓 learn → 🧩 👁️ ⚡ three main games (v57) → 📝 test → 🎁 treasure
 // The road snakes across the card like a board game. Finished stations keep
 // their stars, the child's own fighter stands on the station that is next, the
 // road fills up as they go, and the treasure chest at the end opens when the
@@ -18332,7 +18448,7 @@ window.Review = Review;
 // All looping motion is transform/opacity only (runs on the GPU compositor).
 // ============================================================================
 const Journey = {
-  GAMES: ['form-control', 'puzzle', 'performance', 'action'],       // the 4 that a kick needs
+  GAMES: ['puzzle', 'performance', 'action'],                       // v57: the 3 main games a kick needs
   KEY: { 'form-control': 'formControl', puzzle: 'puzzle', performance: 'performance', action: 'action' },
   SHORT: {                                                          // station labels must fit under a 60 px button
     'form-control': { en: 'Pose', ar: 'الوضعية' },
@@ -18340,16 +18456,20 @@ const Journey = {
     performance: { en: "Judge's eye", ar: 'عين الحكم' },
     action: { en: 'Strike', ar: 'الضربة' }
   },
+  // v57: the kick the child picked in the kick bar under the map (any open kick), else where they are
+  view: null,
   skill() {
     const gs = TKD.gs(); if (!gs) return 'apchagi';
+    if (this.view && gs.unlockedSkills?.has(this.view)) return this.view;
     const t = gs.getResumeTarget();
     return t.done ? gs.currentSkill : t.skillId;
   },
   scores(skillId) { return TKD.gs()?.skillGameScores?.[skillId] || {}; },
-  gamesDone(skillId) { const s = this.scores(skillId); return this.GAMES.filter(g => (s[this.KEY[g]] || 0) > 0).length; },
-  nextGame(skillId) { const s = this.scores(skillId); return this.GAMES.find(g => !(s[this.KEY[g]] > 0)) || null; },
-  // ⭐ for a score: anything counts, 75+ is good, 90+ is perfect
-  starsFor(score) { return score >= 90 ? 3 : score >= 75 ? 2 : score > 0 ? 1 : 0; },
+  passed(skillId, g) { return GameState.gamePassed(this.scores(skillId), this.KEY[g]); },
+  gamesDone(skillId) { return this.GAMES.filter(g => this.passed(skillId, g)).length; },
+  nextGame(skillId) { return this.GAMES.find(g => !this.passed(skillId, g)) || null; },
+  // ⭐ for a score: passing (60+) is one star, 75+ is good, 90+ is perfect
+  starsFor(score) { return score >= 90 ? 3 : score >= 75 ? 2 : score >= GameConfig.SETTINGS.PASSING_SCORE ? 1 : 0; },
 
   // the eight stations of the current kick
   steps(skillId = this.skill()) {
@@ -18358,18 +18478,19 @@ const Journey = {
     const complete = !!gs?.completedSkills?.has(skillId);
     const allGames = this.gamesDone(skillId) >= this.GAMES.length;
     const st = [
-      { id: 'warmup', stage: 'warmup', icon: '🔥', en: 'Warm-up', ar: 'الإحماء', done: sc('warmup') > 0, stars: sc('warmup') > 0 ? 3 : 0, go: () => switchScreen('warmup') },
+      { id: 'warmup', stage: 'warmup', icon: '🔥', en: 'Warm-up', ar: 'الإحماء', optional: true, done: sc('warmup') > 0, stars: sc('warmup') > 0 ? 3 : 0, go: () => switchScreen('warmup') },
       { id: 'learning', stage: 'learning', icon: '🎓', en: 'Learn it', ar: 'اتعلمها', done: sc('learning') > 0, stars: sc('learning') > 0 ? 3 : 0, go: () => switchScreen('learning') },
       ...this.GAMES.map(g => ({
         id: 'g:' + g, stage: 'games', game: g, icon: TKD.gameIcon(g), en: this.SHORT[g].en, ar: this.SHORT[g].ar,
-        done: sc(this.KEY[g]) > 0, stars: this.starsFor(sc(this.KEY[g])), go: () => switchScreen(g)
+        done: this.passed(skillId, g), stars: this.starsFor(sc(this.KEY[g])), go: () => switchScreen(g)
       })),
-      { id: 'quiz', stage: 'quiz', icon: '📝', en: 'The test', ar: 'الاختبار', done: sc('quiz') > 0, stars: this.starsFor(sc('quiz')), go: () => switchScreen(allGames ? 'quiz' : 'games') },
+      { id: 'quiz', stage: 'quiz', icon: '📝', en: 'The test', ar: 'الاختبار', done: GameState.quizPassed(s), stars: GameState.quizPassed(s) ? this.starsFor(sc('quiz')) : 0, go: () => switchScreen(allGames ? 'quiz' : 'games') },
       { id: 'chest', stage: 'chest', icon: complete ? '🏅' : '🎁', en: 'Treasure', ar: 'الكنز', done: complete, stars: 0, go: () => switchScreen('trophy-room') }
     ];
-    // the first unfinished station is "now"; everything after it is locked
-    const i = st.findIndex(x => !x.done);
-    st.forEach((x, k) => { x.state = x.done ? 'done' : k === i ? 'now' : 'locked'; });
+    // the first unfinished station is "now"; everything after it is locked — v57: the warm-up
+    // is recommended, never in the way (it stays open, the lesson is "now")
+    const i = st.findIndex(x => !x.done && !x.optional);
+    st.forEach((x, k) => { x.state = x.done ? 'done' : x.optional ? 'open' : k === i ? 'now' : 'locked'; });
     return st;
   },
   starTotal(st) { return st.reduce((a, x) => a + x.stars, 0); },
@@ -18380,8 +18501,14 @@ const Journey = {
     const gs = TKD.gs();
     if (!gs) return null;
     const t = gs.getResumeTarget();
-    if (t.done) return { icon: '🏆', label: TKD.t('See your trophies', 'شوف إنجازاتك'), step: 'done', stage: 'done', go: () => switchScreen('trophy-room') };
-    const skillId = t.skillId, st = this.steps(skillId), now = st.find(x => x.state === 'now') || st[0];
+    const skillId = this.skill(), st = this.steps(skillId);
+    let now = st.find(x => x.state === 'now');
+    if (!now) {                                                       // this kick is all done
+      if (t.done) return { icon: '🏆', label: TKD.t('See your trophies', 'شوف إنجازاتك'), step: 'done', stage: 'done', go: () => switchScreen('trophy-room') };
+      const nk = t.skillId;
+      return { icon: '🦶', label: TKD.t(`On to ${TKD.skillName(nk)}!`, `يلا على ${TKD.skillName(nk)}!`), step: 'kick', stage: 'learning', skillId: nk,
+        go: () => { this.view = nk; gs.currentSkill = nk; gs.syncFlatProgressToCurrentSkill?.(); gs.saveToStorage?.(); switchScreen('learning'); } };
+    }
     const name = TKD.skillName(skillId);
     const label = now.game ? TKD.t(`Play: ${TKD.gameName(now.game)}`, `العب: ${TKD.gameName(now.game)}`) : {
       warmup: TKD.t('Start the warm-up', 'ابدأ الإحماء'),
@@ -18445,9 +18572,12 @@ const Journey = {
     const nextKick = order[ki + 1];
     const pct = (p) => `left:${(100 * p.x / B.w).toFixed(2)}%;top:${(100 * p.y / B.h).toFixed(2)}%`;
     const starRow = (x) => x.id === 'chest' ? '' : `<span class="jr-st-stars" aria-hidden="true">${[1, 2, 3].map(k => `<i class="${k <= x.stars ? 'on' : ''}" style="--k:${k}">★</i>`).join('')}</span>`;
+    // v57: the kick bar — tap any open kick to see its map (a finished kick can be played again)
     const kicks = order.map((id, i) => {
-      const state = gs?.completedSkills?.has(id) ? 'done' : id === skillId ? 'now' : 'locked';
-      return `<li class="jr-kick is-${state}"><span>${state === 'done' ? '✓' : state === 'locked' ? '🔒' : '🦶'}</span>${TKD.esc(TKD.skillName(id))}</li>`;
+      const open = !!gs?.unlockedSkills?.has(id), done = !!gs?.completedSkills?.has(id);
+      const state = !open ? 'locked' : done ? 'done' : 'open';
+      const ico = state === 'done' ? '✓' : state === 'locked' ? '🔒' : '🦶';
+      return `<li class="jr-kick is-${state}${id === skillId ? ' is-view' : ''}"><button type="button" class="jr-kick-btn" data-kick="${id}" aria-pressed="${id === skillId}"${open ? '' : ' aria-disabled="true"'}><span>${ico}</span>${TKD.esc(TKD.skillName(id))}</button></li>`;
     }).join('');
     const stars = this.starTotal(st), max = this.starMax(st);
     return `<section class="jr jr-map" aria-label="${TKD.t('My journey', 'رحلتي')}" data-skill="${skillId}">
@@ -18456,6 +18586,7 @@ const Journey = {
           <small>${TKD.t(`Kick ${ki + 1} of ${order.length}`, `الركلة ${TKD.num(ki + 1)} من ${TKD.num(order.length)}`)}</small></div>
         <div class="jr-stars" title="${TKD.t('Stars on this map', 'نجوم الخريطة دي')}"><span class="jr-star-ico">⭐</span><b id="jr-star-n">${TKD.num(stars)}</b><small>/${TKD.num(max)}</small></div>
       </header>
+      <ol class="jr-kicks jr-kicks-top" aria-label="${TKD.t('The kicks', 'الركلات')}">${kicks}</ol>
       ${n ? `<button type="button" class="jr-go" id="jr-go"><span class="jr-go-ico">${n.icon}</span><span class="jr-go-txt"><b>${TKD.esc(n.label)}</b><small>${TKD.t('tap to start', 'دوس عشان تبدأ')}</small></span><span class="jr-go-arrow">${TKD.ar ? '←' : '→'}</span></button>` : ''}
       <div class="jr-board" id="jr-board" style="--reach:${reach.toFixed(4)}">
         <svg class="jr-road" viewBox="0 0 ${B.w} ${B.h}" aria-hidden="true" focusable="false">
@@ -18479,7 +18610,6 @@ const Journey = {
           : `<span>🥋</span><small>${TKD.t('Next belt!', 'الحزام الجاي!')}</small>`}</div>
         <div class="jr-stage" id="jr-stage" style="${pct(this.stagePos(pts[nowI < 0 ? st.length - 1 : nowI]))}"></div>
       </div>
-      <ol class="jr-kicks" aria-label="${TKD.t('The kicks', 'الركلات')}">${kicks}</ol>
     </section>`;
   },
   bind(root = document) {
@@ -18497,6 +18627,17 @@ const Journey = {
       this.sprite?.play(step.startsWith('g:') || step === 'quiz' ? 'win' : 'apchagi');
       setTimeout(() => this.next()?.go(), 200);
     });
+    root.querySelectorAll('.jr-kick-btn').forEach(b => b.addEventListener('click', () => {
+      const id = b.dataset.kick, gs = TKD.gs();
+      if (!gs?.unlockedSkills?.has(id)) {
+        const prev = GameConfig.SKILL_ORDER[GameConfig.SKILL_ORDER.indexOf(id) - 1];
+        TKD.toast(TKD.t(`Pass the ${TKD.skillName(prev)} test to open it 🔓`, `عدّي اختبار ${TKD.skillName(prev)} عشان تفتحها 🔓`), 'warning');
+        gs?.playSound('error'); return;
+      }
+      gs.playSound('click');
+      this.view = id; gs.currentSkill = id; gs.syncFlatProgressToCurrentSkill?.(); gs.saveToStorage?.();
+      window.HomeHub?.render?.();
+    }));
     root.querySelectorAll('.jr-dot').forEach(b => b.addEventListener('click', () => {
       const id = b.dataset.go, st = this.steps().find(x => x.id === id);
       if (!st) return;
@@ -19873,8 +20014,57 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // =====================================================================
-// v55 — the Games screen: the 4 main games first. The 8 extra games are
-// folded under one button until the child has tried the main 4 of this
+// v57 — CHANCES (❤️❤️❤️): the 3 main games are real games now. A mistake costs a heart; out
+// of hearts the run ends — the score still counts (the best one is kept) and the child can
+// go again straight away. Passing a game needs PASSING_SCORE (60%), not a perfect run.
+// =====================================================================
+const Hearts = {
+  max() { return GameConfig.SETTINGS.HEARTS || 3; },
+  show(screenId, left) {
+    const scr = document.getElementById(screenId); if (!scr) return;
+    let box = scr.querySelector('.tkd-hearts');
+    if (!box) {
+      box = document.createElement('div'); box.className = 'tkd-hearts'; box.setAttribute('role', 'status');
+      // under the game's title (and its one-line description), above the board
+      const gc = scr.querySelector('.game-container') || scr;
+      const head = gc.querySelector(':scope > h2, :scope > .ag-head, h2');
+      const desc = head?.nextElementSibling?.matches?.('p, .description') ? head.nextElementSibling : null;
+      if (desc || head) (desc || head).after(box); else gc.prepend(box);
+    }
+    const max = this.max(), n = Math.max(0, Math.min(max, left));
+    const lost = box.dataset.n !== undefined && n < +box.dataset.n;
+    box.dataset.n = n;
+    box.setAttribute('aria-label', TKD.t(`${n} of ${max} chances left`, `فاضل ${TKD.num(n)} من ${TKD.num(max)} فرص`));
+    box.innerHTML = `<span class="th-lbl">${TKD.t('Chances', 'الفرص')}</span>` +
+      Array.from({ length: max }, (_, i) => `<i class="${i < n ? 'on' : 'off'}${lost && i === n ? ' lose' : ''}">${i < n ? '❤️' : '🤍'}</i>`).join('');
+  },
+  hide(screenId) { document.getElementById(screenId)?.querySelector('.tkd-hearts')?.remove(); document.getElementById(screenId)?.querySelector('.tkd-outcard')?.remove(); },
+  // the end of a run that did not pass: the score, the bar to reach, try again / the lesson
+  outOfChances(screenId, score, retry) {
+    const scr = document.getElementById(screenId); if (!scr) return;
+    scr.querySelector('.tkd-outcard')?.remove();
+    const PASS = GameConfig.SETTINGS.PASSING_SCORE, gs = TKD.gs();
+    const card = document.createElement('div'); card.className = 'tkd-outcard'; card.setAttribute('role', 'dialog');
+    card.innerHTML = `<div class="toc-inner">
+      <div class="toc-big">💔</div>
+      <h3>${TKD.t('Out of chances!', 'خلصت الفرص!')}</h3>
+      <p class="toc-score">${TKD.t('Your score', 'السكور بتاعك')}: <b>${TKD.num(score)}%</b></p>
+      <p>${TKD.t(`You need ${PASS}% to pass this game — you can do it!`, `محتاج ${TKD.num(PASS)}% عشان تعدّي اللعبة دي — إنت قدها!`)}</p>
+      <div class="toc-btns">
+        <button type="button" class="btn btn-success" data-a="again">🔁 ${TKD.t('Try again', 'جرّب تاني')}</button>
+        <button type="button" class="btn" data-a="lesson">🎓 ${TKD.t('Look at the lesson', 'بص على الدرس')}</button>
+      </div></div>`;
+    scr.appendChild(card);
+    card.querySelector('[data-a="again"]').addEventListener('click', () => { card.remove(); gs?.playSound('click'); retry(); });
+    card.querySelector('[data-a="lesson"]').addEventListener('click', () => { card.remove(); gs?.playSound('click'); switchScreen('learning'); });
+    card.querySelector('[data-a="again"]').focus?.();
+  }
+};
+window.Hearts = Hearts;
+
+// =====================================================================
+// v55 — the Games screen: the main games first (v57: 3 of them). The extra games are
+// folded under one button until the child has tried the main games of this
 // kick (they can still open them any time), so a 6-year-old is not faced
 // with 12 cards at once.
 // =====================================================================
@@ -19885,8 +20075,8 @@ const BonusFold = {
     const grid = scr.querySelector('.game-cards-bonus'), title = scr.querySelector('.games-section-title[data-i18n="bonusGames"]');
     if (!grid || !title) return;
     const gs = TKD.gs(); const sc = gs?.skillGameScores?.[gs.currentSkill] || {};
-    const coreTried = ['formControl', 'puzzle', 'performance', 'action'].filter(k => (sc[k] || 0) > 0).length;
-    const open = coreTried >= 4 || TKD.read(this.key(), false) === true;
+    const core = GameState.REQUIRED_GAME_KEYS, coreTried = core.filter(k => (sc[k] || 0) > 0).length;
+    const open = coreTried >= core.length || TKD.read(this.key(), false) === true;
     const n = grid.querySelectorAll('.game-card:not(.hidden)').length;
     grid.classList.toggle('bonus-folded', !open);
     let btn = scr.querySelector('.bonus-unfold');
@@ -19896,7 +20086,7 @@ const BonusFold = {
       btn.addEventListener('click', () => { TKD.write(this.key(), true); gs?.playSound('click'); this.apply(); });
       grid.before(btn);
     }
-    btn.innerHTML = `🎯 ${TKD.t(`${n} extra games`, `${TKD.num(n)} ألعاب زيادة`)} <small>${TKD.t(`Try the 4 main games first (${coreTried}/4) — or`, `جرّب الألعاب الأساسية الأول (${TKD.num(coreTried)}/٤) — أو`)}</small> <b>${TKD.t('show them', 'وريني')} ▾</b>`;
+    btn.innerHTML = `🎯 ${TKD.t(`${n} extra games`, `${TKD.num(n)} ألعاب زيادة`)} <small>${TKD.t(`Try the ${core.length} main games first (${coreTried}/${core.length}) — or`, `جرّب الألعاب الأساسية الأول (${TKD.num(coreTried)}/${TKD.num(core.length)}) — أو`)}</small> <b>${TKD.t('show them', 'وريني')} ▾</b>`;
   }
 };
 document.addEventListener('tkd:screen', (e) => { if (e.detail?.screenId === 'games') setTimeout(() => BonusFold.apply(), 30); });
