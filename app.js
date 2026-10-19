@@ -585,11 +585,16 @@ const GameConfig = {
   },
 
   SETTINGS: {
-    PASSING_SCORE: 85,                 // per-activity "you passed this attempt" bar (used inside each mini-game)
+    // v57 — a simpler road, after play-testing: Learn → 3 main games → the Test. Every score
+    // counts (the best one is kept); a game is "passed" at 60% — enough to show the child
+    // understood it — instead of 85% on every game.
+    PASSING_SCORE: 60,                 // a game is passed (the child understood it)
+    QUIZ_PASS: 70,                     // the Test — passing it masters the kick and opens the next one
+    HEARTS: 3,                         // the chances (❤️) in each of the 3 main games
     SEVERE_FAIL_SCORE: 40,             // below this an attempt counts as a "real" struggle, not just missing the pass bar
-    SEVERE_FAIL_STREAK: 3,             // this many severe fails in a row (not just misses) sends the player back to Learning
-    SKILL_UNLOCK_THRESHOLD: 80,        // OVERALL weighted skill score needed to unlock the next skill
-    GAMES_REQUIRED_PER_SKILL: 4, // form-control, puzzle, performance, action — the 4 mini-games (Quiz is a separate "Test", not a game)
+    SEVERE_FAIL_STREAK: 3,             // this many severe fails in a row → a friendly tip to look at the lesson again
+    SKILL_UNLOCK_THRESHOLD: 80,        // (reports only) the overall % shown as "mastered"
+    GAMES_REQUIRED_PER_SKILL: 3, // puzzle, performance, action — the 3 main games (Quiz is a separate "Test", not a game)
     SKILL_UNLOCK_MESSAGE: {
       en: '🎉 New Skill Unlocked! You can now learn {skill}!',
       ar: '🎉 مهارة جديدة اتفتحت! دلوقتي تقدر تتعلم {skill}!'
@@ -1406,7 +1411,7 @@ class GameState {
         boardBreakTitle: 'Board Break', boardBreakDesc: 'Pick the right part of the foot, aim and smash the boards',
         paddleTitle: 'Target Paddles', paddleDesc: 'Hit only the paddle at a real target for this kick — fast!',
         rhythmTitle: 'Kick Rhythm', rhythmDesc: 'Tap the 5 phases in order, right on the beat',
-        coreGames: 'Main games (unlock the test)', bonusGames: 'Bonus games',
+        coreGames: 'The 3 main games — pass each once (60%) to open the test', bonusGames: 'Bonus games',
         dashboardNav: 'Player Dashboard', backToGames2: 'Back to Games',
         dashboardTitle: '📊 Player Dashboard', dashboardDesc: 'Scores and insights for every player on this device.',
         dashboardOpen: 'Open Player Dashboard', dashboardExportPlayer: 'This player (CSV)', dashboardExportAll: 'All players (CSV)',
@@ -1482,7 +1487,7 @@ class GameState {
         boardBreakTitle: 'كسر الألواح', boardBreakDesc: 'اختار جزء القدم الصح، صوّب، واكسر الألواح',
         paddleTitle: 'مضارب الأهداف', paddleDesc: 'اضرب بس المضرب اللي عند هدف حقيقي للركلة دي — بسرعة!',
         rhythmTitle: 'إيقاع الركلة', rhythmDesc: 'دوس على المراحل الخمسة بالترتيب وعلى الإيقاع',
-        coreGames: 'الألعاب الأساسية (بتفتح الاختبار)', bonusGames: 'ألعاب زيادة',
+        coreGames: 'الألعاب التلاتة الأساسية — عدّي كل واحدة مرة (٦٠٪) عشان يتفتح الاختبار', bonusGames: 'ألعاب زيادة',
         dashboardNav: 'لوحة اللاعبين', backToGames2: 'رجوع للألعاب',
         dashboardTitle: '📊 لوحة اللاعبين', dashboardDesc: 'النتائج والملاحظات لكل لاعب على الجهاز ده.',
         dashboardOpen: 'افتح لوحة اللاعبين', dashboardExportPlayer: 'اللاعب ده (CSV)', dashboardExportAll: 'كل اللاعبين (CSV)',
@@ -1882,7 +1887,8 @@ class GameState {
   // skill, decoupled from any single activity's pass/fail bar.
   calculateSkillOverallProgress(skillId) {
     const s = this.skillGameScores[skillId] || {};
-    const gamesAvg = ((s.formControl || 0) + (s.puzzle || 0) + (s.performance || 0) + (s.action || 0)) / 4;
+    const K = GameState.REQUIRED_GAME_KEYS;
+    const gamesAvg = K.reduce((a, k) => a + (s[k] || 0), 0) / K.length;
     return Math.round(((s.learning || 0) + gamesAvg + (s.quiz || 0)) / 3);
   }
 
@@ -1894,11 +1900,27 @@ class GameState {
 
   static GAME_KEY_MAP = { 'learning': 'learning', 'form-control': 'formControl', 'puzzle': 'puzzle', 'performance': 'performance', 'action': 'action', 'error-hunt': 'errorHunt', 'quiz-blast': 'quizBlast', 'board-break': 'boardBreak', 'paddle-reflex': 'paddleReflex', 'phase-rhythm': 'phaseRhythm', 'sparring-duel': 'sparringDuel', 'balance-hold': 'balanceHold', 'heavy-bag': 'heavyBag', 'quiz': 'quiz' };
 
-  // The mini-games that must all be cleared (score > 0 = passed at least once) before the Quiz unlocks.
-  static REQUIRED_GAME_KEYS = ['formControl', 'puzzle', 'performance', 'action'];
+  // v57: the 3 main games — the most teaching ones (order the phases, spot the mistake, the
+  // hands-on strike). Each must reach PASSING_SCORE once before the Test opens.
+  static REQUIRED_GAME_KEYS = ['puzzle', 'performance', 'action'];
+  static gamePassed(scores, key) { return ((scores || {})[key] || 0) >= GameConfig.SETTINGS.PASSING_SCORE; }
   static allGamesDone(scores) {
+    return GameState.REQUIRED_GAME_KEYS.every(k => GameState.gamePassed(scores, k));
+  }
+  static quizPassed(scores) { return ((scores || {}).quiz || 0) >= GameConfig.SETTINGS.QUIZ_PASS; }
+  // a kick is mastered when the lesson is done, the 3 main games are passed and the Test is passed
+  static skillMastered(scores) {
     const s = scores || {};
-    return GameState.REQUIRED_GAME_KEYS.every(k => (s[k] || 0) > 0);
+    return (s.learning || 0) > 0 && GameState.allGamesDone(s) && GameState.quizPassed(s);
+  }
+  // v57: every attempt's score is kept (the best one), passed or not — the child sees how
+  // far they got. Returns true when this is a new best.
+  recordScore(gameId, score) {
+    const key = GameState.GAME_KEY_MAP[gameId], sc = this.skillGameScores[this.currentSkill];
+    if (!key || !sc || !(score > 0)) return false;
+    const better = score > (sc[key] || 0);
+    if (better) { sc[key] = Math.round(score); this.saveToStorage(); this.updateGameProgress(); }
+    return better;
   }
 
   // gameId: 'learning' | 'form-control' | 'puzzle' | 'performance' | 'action' | 'error-hunt' (bonus, Ap Chagi) | 'quiz-blast' (bonus, every kick) | 'quiz'
@@ -1918,10 +1940,9 @@ class GameState {
     if (score >= GameConfig.SETTINGS.PASSING_SCORE && this.skillProgress[skillId]) {
       this.skillProgress[skillId].add(gameId);
     }
-    // Skill unlocks on OVERALL weighted mastery, not on requiring every single
-    // activity to individually clear the pass bar — one weak activity no
-    // longer blocks progression if the others carry the average past 80%.
-    if (this.calculateSkillOverallProgress(skillId) >= GameConfig.SETTINGS.SKILL_UNLOCK_THRESHOLD) {
+    // v57: the kick is mastered (and the next one opens) once the lesson, the 3 main games
+    // and the Test are passed
+    if (GameState.skillMastered(this.skillGameScores[skillId])) {
       this.completeSkill(skillId);
     }
 
@@ -1959,7 +1980,7 @@ class GameState {
   // sends the player back to Learning; anything better than that resets the
   // streak, since it shows they're not fundamentally struggling.
   trackFailure(score = 0, gameId = null, meta = null) {
-    if (gameId) PlayerSystem.logAttempt(gameId, this.currentSkill, score, false, meta);
+    if (gameId) { PlayerSystem.logAttempt(gameId, this.currentSkill, score, false, meta); this.recordScore(gameId, score); }
     if (score >= GameConfig.SETTINGS.SEVERE_FAIL_SCORE) {
       this.failureCount = 0;
       this.saveToStorage();
@@ -1967,17 +1988,16 @@ class GameState {
     }
     this.failureCount++;
     this.saveToStorage();
+    // v57: no forced trip back to the lesson any more — just a friendly tip
     if (this.failureCount >= GameConfig.SETTINGS.SEVERE_FAIL_STREAK) {
       this.failureCount = 0;
       this.saveToStorage();
-      ScreenManagerInstance.switchScreen('learning');
       this.showNotification(
         this.currentLanguage === 'ar'
-          ? `📚 دي المحاولة الصعبة رقم ${GameConfig.SETTINGS.SEVERE_FAIL_STREAK} ورا بعض. يلا نرجع للتعلم ونظبط حركتك!`
-          : `📚 That's ${GameConfig.SETTINGS.SEVERE_FAIL_STREAK} tough attempts in a row. Let's go back to learning and improve your technique!`,
-        'warning'
+          ? '💡 نصيحة: بص على الدرس تاني بسرعة، وبعدين جرّب — إنت قدها!'
+          : '💡 Tip: take a quick look at the lesson again, then try — you can do it!',
+        'info'
       );
-      return true;
     }
     return false;
   }
@@ -4238,7 +4258,9 @@ class PuzzleSystem {
     this.userOrder    = Array(5).fill(null);
     this.previewing   = false;
     if (!keep || !this._fake) this._fake = PuzzleSystem.PICK_FAKE();
-    if (!keep) this.mistakes = 0;            // v54: wrong pieces put down this round — they set the score
+    if (!keep) { this.mistakes = 0; this.hearts = Hearts.max(); }   // v54: wrong pieces set the score · v57: and cost a heart
+    document.querySelector('#puzzle-screen .tkd-outcard')?.remove();
+    Hearts.show('puzzle-screen', this.hearts);
     this.updateHeader();
     this.initializePieces();
     this.shufflePieces();
@@ -4493,6 +4515,7 @@ class PuzzleSystem {
   }
 
   static placePiece(pieceId, slotNumber) {
+    if (this.hearts <= 0 && !this._replaying) return;                // v57: out of chances — the card asks to go again
     const slot  = document.getElementById(`slot-${slotNumber}`);
     const piece = document.querySelector(`.puzzle-piece[data-piece="${pieceId}"]`);
     if (!slot || !piece) return;
@@ -4524,7 +4547,16 @@ class PuzzleSystem {
     this.userOrder[slotNumber - 1] = pieceId;
 
     const isCorrect = pieceId === this.correctOrder[slotNumber - 1];
-    if (!isCorrect && !this._replaying) this.mistakes = (this.mistakes || 0) + 1;
+    if (!isCorrect && !this._replaying) {
+      this.mistakes = (this.mistakes || 0) + 1;
+      this.hearts = Math.max(0, (this.hearts ?? Hearts.max()) - 1);
+      Hearts.show('puzzle-screen', this.hearts);
+      if (this.hearts <= 0) {                                           // v57: out of chances → the run ends, the score counts
+        const score = Math.max(0, 100 - 15 * this.mistakes);
+        this.gameState.trackFailure(score, 'puzzle', { mistakes: this.mistakes });
+        screenTimeout(() => Hearts.outOfChances('puzzle-screen', score, () => this.initialize(this.gameState)), 700);
+      }
+    }
     if (!this._replaying) window.Review?.note('phase', isCorrect, { skill: this.gameState?.currentSkill, phase: slotNumber - 1 });
     if (isCorrect) {
       slot.parentElement.classList.add('slot-correct');
@@ -4623,7 +4655,7 @@ class PuzzleSystem {
     if (correct === 5) {
       // v54: with every slot turning green or red at once, the board always ended at 100% —
       // now each wrong piece put down on the way costs 5 (the order is learned, not guessed)
-      const m = this.mistakes || 0, accuracy = Math.max(60, 100 - 5 * m);
+      const m = this.mistakes || 0, accuracy = Math.max(GameConfig.SETTINGS.PASSING_SCORE, 100 - 15 * m);   // v57: each lost heart −15
       const isFirstClear = this.gameState.completeGame('puzzle', accuracy, { mistakes: m });
       this.gameState.playSound('success');
       this.gameState.showNotification(ar
@@ -4637,7 +4669,6 @@ class PuzzleSystem {
       screenTimeout(() => WinnerSystem.show('puzzle', accuracy, this.gameState, isFirstClear), 2800);
     } else {
       this.gameState.playSound('error');
-      if (this.gameState.trackFailure(correct * 20, 'puzzle')) return;
       this.gameState.showNotification(
         ar ? `⚠️ ${TKD.num(correct)} من ٥ صح — دوس على المكان الأحمر عشان ترجّع القطعة وجرّب تاني!` : `⚠️ ${correct}/5 correct — tap a red place to take its piece back and try again!`, 'error'
       );
@@ -4856,7 +4887,10 @@ class PerformanceSystem {
     this.gameState    = gameState;
     this.skillId      = gameState.currentSkill;
     const poolSize    = PerformanceSystem.getQuestionPool(this.skillId, true, 'en').length;
-    this.totalRounds  = Math.min(3, poolSize);
+    this.totalRounds  = Math.min(4, poolSize);   // v57: 4 rounds with 3 chances (was 3 rounds, all had to be right)
+    this.hearts       = Hearts.max();
+    document.querySelector('#performance-screen .tkd-outcard')?.remove();
+    Hearts.show('performance-screen', this.hearts);
     this.currentRound = 0;
     this.correctCount = 0;
     this.streak       = 0;
@@ -4983,7 +5017,7 @@ class PerformanceSystem {
     document.getElementById('zoom-close-btn')?.addEventListener('click', () => {
       overlay.remove();
       this.currentRound++;
-      if (this.currentRound < this.totalRounds) this.loadNextRound();
+      if (this.currentRound < this.totalRounds && this.hearts > 0) this.loadNextRound();
       else this.finishGame();
     });
   }
@@ -5141,6 +5175,8 @@ class PerformanceSystem {
       }, 1800);
     } else {
       this.streak = 0;
+      this.hearts = Math.max(0, (this.hearts ?? Hearts.max()) - 1);
+      Hearts.show('performance-screen', this.hearts);
       this.updateStreakUI();
       this.showFeedback(false);
 
@@ -5180,12 +5216,8 @@ class PerformanceSystem {
       WinnerSystem.show('performance', accuracy, this.gameState, isFirstClear);
     } else {
       this.gameState.playSound('error');
-      const msg = ar
-        ? `⚠️ جاوبت صح على ${TKD.num(this.correctCount)} من ${TKD.num(this.totalRounds)} (${TKD.num(accuracy)}%). جرّب تاني!`
-        : `⚠️ ${this.correctCount}/${this.totalRounds} correct (${accuracy}%). Try again!`;
-      this.gameState.showNotification(msg, 'error');
       this.gameState.trackFailure(accuracy, 'performance');
-      screenTimeout(() => this.initialize(this.gameState), 2000);
+      Hearts.outOfChances('performance-screen', accuracy, () => this.initialize(this.gameState));   // v57: the score + try again
     }
   }
 }
@@ -5294,6 +5326,8 @@ class ActionSystem {
     this.round = 0;
     this.scores = [];
     this.results = [];
+    this.hearts = Hearts.max();                                   // v57: a round under the pass bar costs a heart
+    Hearts.show('action-screen', this.hearts);
     this._last = null;
     this.busy = true;
     this._abort = new AbortController();
@@ -5503,7 +5537,7 @@ class ActionSystem {
 
   static nextRound() {
     this.round++;
-    if (this.round > this.total) { this.finishGame(); return; }
+    if (this.round > this.total || this.hearts <= 0) { this.finishGame(); return; }
     this.busy = true;
     this._last = null;
     if (this.view) { this.view.t = 0; this.view.aim = 0; this.view.play = null; this.view.turn = 0; }
@@ -5583,6 +5617,7 @@ class ActionSystem {
     this.scores.push(score);
     this.results.push({ score, kind, msg });
     const good = score >= GameConfig.SETTINGS.PASSING_SCORE;
+    if (!good) { this.hearts = Math.max(0, this.hearts - 1); Hearts.show('action-screen', this.hearts); }
     this.setCallout(good ? 'ok' : 'bad', msg, score);
     this.renderTexts();
 
@@ -5609,7 +5644,9 @@ class ActionSystem {
 
   static finishGame() {
     const gs = this.gameState;
-    const accuracy = this.average() ?? 0;
+    // v57: out of chances early → the rounds not played count as 0
+    const accuracy = this.hearts <= 0 && this.scores.length < this.total
+      ? Math.round(this.scores.reduce((a, b) => a + b, 0) / this.total) : (this.average() ?? 0);
     this.busy = true;
     try { window.TKDDifficulty?.onResult(this.GAME_ID, accuracy); } catch (e) {}
     if (accuracy >= GameConfig.SETTINGS.PASSING_SCORE) {
@@ -7666,7 +7703,8 @@ class QuizSystem {
     this.hideResult();
     const unlocked = Array.from(gameState.unlockedSkills || ['apchagi']);
     let pool;
-    this.interleaved = unlocked.length > 1;
+    // v57: the Test is about THIS kick only (mixing in the other kicks made it harder and confusing)
+    this.interleaved = false;
     // v55: a test is 10 questions picked from a much bigger bank (so a retry is a new test),
     // and some of them are picture questions: "which phase of the kick is this?"
     const pick = (sk, n, nPics) => {
@@ -7689,8 +7727,37 @@ class QuizSystem {
     const totalEl = document.getElementById('total-questions');
     if (totalEl) totalEl.textContent = this.sessionQuestions.length;
 
+    this.answers = [];
+    this.renderHeader();
+    this.updateScoreDisplay();
     this.loadQuestion(0);
     this.setupEventListeners();
+  }
+
+  // v57 — a clearer Test: its name, the goal up front, one dot per question
+  static renderHeader() {
+    const ar = this.gameState.currentLanguage === 'ar', n = this.sessionQuestions.length;
+    const need = Math.ceil(n * GameConfig.SETTINGS.QUIZ_PASS / 100), name = TKD.skillName(this.skillId);
+    const last = !GameConfig.SKILLS[this.skillId]?.nextSkill;
+    const scr = document.getElementById('quiz-screen'); if (!scr) return;
+    const h = scr.querySelector('.game-container > h2'), d = scr.querySelector('.game-container > .description');
+    if (h) { h.removeAttribute('data-i18n'); h.textContent = ar ? `📝 اختبار ${name}` : `📝 ${name} test`; }
+    if (d) {
+      d.removeAttribute('data-i18n');
+      d.textContent = ar
+        ? `${TKD.num(n)} أسئلة — جاوب صح على ${TKD.num(need)} عشان تعدّي ${last ? 'وتقفل الركلات كلها 🏆' : 'وتفتح الركلة الجاية 🔓'}`
+        : `${n} questions — get ${need} right to pass ${last ? 'and finish all the kicks 🏆' : 'and open the next kick 🔓'}`;
+    }
+    let dots = scr.querySelector('.quiz-dots');
+    if (!dots) { dots = document.createElement('ol'); dots.className = 'quiz-dots'; dots.setAttribute('aria-hidden', 'true'); scr.querySelector('.quiz-header')?.after(dots); }
+    this.renderDots();
+  }
+  static renderDots() {
+    const dots = document.querySelector('#quiz-screen .quiz-dots'); if (!dots || !this.sessionQuestions) return;
+    dots.innerHTML = this.sessionQuestions.map((_, i) => {
+      const a = this.answers?.[i];
+      return `<li class="${a === true ? 'ok' : a === false ? 'bad' : i === this.currentQuestionIndex ? 'now' : ''}">${a === true ? '✓' : a === false ? '✗' : TKD.num(i + 1)}</li>`;
+    }).join('');
   }
 
   static SESSION = 10;
@@ -7822,9 +7889,17 @@ class QuizSystem {
 
     if (isCorrect) this.score += 20;
     this.updateScoreDisplay();
+    if (this.answers) { this.answers[this.currentQuestionIndex] = !!isCorrect; this.renderDots(); }
 
     const nextBtn = document.getElementById('next-question-btn');
-    if (nextBtn) nextBtn.disabled = false;
+    if (nextBtn) {
+      nextBtn.disabled = false;
+      const lastQ = this.currentQuestionIndex >= this.sessionQuestions.length - 1;
+      const lbl = nextBtn.querySelector('span');
+      if (lbl) { lbl.removeAttribute('data-i18n'); lbl.textContent = lastQ ? (ar ? 'شوف النتيجة 🏁' : 'See my result 🏁') : (ar ? 'السؤال اللي بعده' : 'Next question'); }
+      // v57: on a phone the explanation and the button sit below the answers — bring them up
+      setTimeout(() => document.getElementById('quiz-feedback')?.scrollIntoView({ block: 'nearest', behavior: window.prefersReducedMotion?.() ? 'auto' : 'smooth' }), 120);
+    }
   }
 
   static showFeedback(isCorrect, explanation, correctAnswerText) {
@@ -7858,12 +7933,16 @@ class QuizSystem {
 
   static updateScoreDisplay() {
     const scoreEl = document.getElementById('quiz-score');
-    if (scoreEl) scoreEl.textContent = this.score;
+    if (scoreEl) scoreEl.textContent = TKD.num(Math.round(this.score / 20));   // v57: right answers, not points
+    const lbl = scoreEl?.previousElementSibling;
+    if (lbl) { lbl.removeAttribute('data-i18n'); lbl.textContent = this.gameState.currentLanguage === 'ar' ? '✅ صح:' : '✅ Right:'; }
   }
 
   static nextQuestion() {
     this.currentQuestionIndex++;
+    this.renderDots();
     this.loadQuestion(this.currentQuestionIndex);
+    if (this.currentQuestionIndex < this.sessionQuestions.length) document.querySelector('#quiz-screen .quiz-header')?.scrollIntoView({ block: 'start', behavior: window.prefersReducedMotion?.() ? 'auto' : 'smooth' });
     this.gameState.playSound('click');
   }
 
@@ -7872,13 +7951,9 @@ class QuizSystem {
     const maxScore = this.sessionQuestions.length * 20;
     const accuracy = Math.round((this.score / maxScore) * 100);
 
-    if (accuracy >= GameConfig.SETTINGS.PASSING_SCORE) {
+    if (accuracy >= GameConfig.SETTINGS.QUIZ_PASS) {
       const isFirstClear = this.gameState.completeGame('quiz', accuracy);
       this.gameState.playSound('win');
-      const msg = ar
-        ? `🎉 خلّصت الاختبار! نقطك ${this.score}/${maxScore} (${accuracy}%)`
-        : `🎉 Quiz complete! Score: ${this.score}/${maxScore} (${accuracy}%)`;
-      this.gameState.showNotification(msg, 'success');
       screenTimeout(() => WinnerSystem.show('quiz', accuracy, this.gameState, isFirstClear), 1000);
     } else {
       this.gameState.playSound('error');
@@ -7890,7 +7965,7 @@ class QuizSystem {
 
   static hideResult() { document.getElementById('quiz-result-card')?.remove(); document.querySelector('#quiz-screen .quiz-container')?.classList.remove('quiz-done'); }
   static showResult(accuracy) {
-    const ar = this.gameState.currentLanguage === 'ar', PASS = GameConfig.SETTINGS.PASSING_SCORE;
+    const ar = this.gameState.currentLanguage === 'ar', PASS = GameConfig.SETTINGS.QUIZ_PASS;
     const box = document.querySelector('#quiz-screen .quiz-container'); if (!box) return;
     this.hideResult();
     box.classList.add('quiz-done');
@@ -7898,7 +7973,8 @@ class QuizSystem {
     card.id = 'quiz-result-card'; card.className = 'quiz-result-card';
     const right = (q) => ar ? q.optionsAr[q.options.indexOf(q.correctText)] : q.correctText;
     card.innerHTML = `
-      <h3>${ar ? `${accuracy}% — ${accuracy >= 60 ? 'قربت!' : 'محتاجين نراجع شوية.'} المطلوب ${PASS}%` : `${accuracy}% — ${accuracy >= 60 ? 'so close!' : 'let’s review a little.'} You need ${PASS}%`}</h3>
+      <div class="qr-ring" style="--p:${accuracy}"><b>${ar ? TKD.num(accuracy) : accuracy}%</b></div>
+      <h3>${ar ? `${accuracy >= 50 ? 'قربت جدًا!' : 'محتاجين نراجع شوية.'} المطلوب ${TKD.num(PASS)}%` : `${accuracy >= 50 ? 'So close!' : 'Let’s review a little.'} You need ${PASS}%`}</h3>
       <p>${ar ? 'راجع الإجابات دي وبعدين جرّب تاني — الأسئلة هتتغير:' : 'Review these answers, then try again — the questions will change:'}</p>
       <ol class="quiz-review">${this.wrongs.map(q => `<li><span>${TKD.esc(ar ? q.questionAr : q.question)}</span><b>✓ ${TKD.esc(right(q))}</b></li>`).join('')}</ol>
       <div class="quiz-result-btns">
@@ -8145,7 +8221,7 @@ class TrophyRoomSystem {
       id: 'white-belt-1st-stripe', icon: '🥋',
       name: { en: 'White Belt — 1st Stripe', ar: 'الحزام الأبيض — الشريط الأول' },
       desc: { en: 'Mastered Ap Chagi', ar: 'اتقنت مهارة آب تشاجي' },
-      how: { en: 'Master Ap Chagi (pass its 4 games and the test)', ar: 'اتقن آب تشاجي (عدّي ألعابها الأربعة والاختبار)' },
+      how: { en: 'Master Ap Chagi (pass its 3 main games and the test)', ar: 'اتقن آب تشاجي (عدّي ألعابها التلاتة الأساسية والاختبار)' },
       prog: (gs) => TrophyRoomSystem.skillProg(gs, 'apchagi'),
       condition: (gs) => gs.completedSkills.has('apchagi')
     },
@@ -8261,8 +8337,8 @@ class TrophyRoomSystem {
   static skillProg(gs, sk) {
     if (gs.completedSkills?.has(sk)) return 1;
     const sc = gs.skillGameScores?.[sk] || {};
-    const steps = ['formControl', 'puzzle', 'performance', 'action', 'quiz'];
-    return steps.filter(k => (sc[k] || 0) >= GameConfig.SETTINGS.PASSING_SCORE).length / (steps.length + 1);
+    const steps = GameState.REQUIRED_GAME_KEYS;
+    return (steps.filter(k => GameState.gamePassed(sc, k)).length + (GameState.quizPassed(sc) ? 1 : 0)) / (steps.length + 2);
   }
 
   static initialize(gameState) {
@@ -8530,8 +8606,7 @@ class PlayerSystem {
     const unlocked = ['apchagi'], completed = [];
     GameConfig.SKILL_ORDER.forEach(sk => {
       const s = scores[sk];
-      const overall = Math.round(((s.learning || 0) + ((s.formControl || 0) + (s.puzzle || 0) + (s.performance || 0) + (s.action || 0)) / 4 + (s.quiz || 0)) / 3);
-      if (overall >= GameConfig.SETTINGS.SKILL_UNLOCK_THRESHOLD) {
+      if (GameState.skillMastered(s)) {                       // v57: lesson + 3 main games + the Test
         completed.push(sk);
         const next = GameConfig.SKILLS[sk].nextSkill;
         if (next && !unlocked.includes(next)) unlocked.push(next);
@@ -8924,7 +8999,7 @@ class SkillMenuSystem {
     const quizBar   = document.getElementById('skill-quiz-progress');
 
     if (learnBar)  learnBar.style.width  = `${scores.learning || 0}%`;
-    const gamesAvg = Math.round(((scores.formControl || 0) + (scores.puzzle || 0) + (scores.performance || 0) + (scores.action || 0)) / 4);
+    const gamesAvg = Math.round(GameState.REQUIRED_GAME_KEYS.reduce((a, k) => a + (scores[k] || 0), 0) / GameState.REQUIRED_GAME_KEYS.length);
     if (gamesBar)  gamesBar.style.width  = `${gamesAvg}%`;
     if (warmupBar) warmupBar.style.width = `${scores.warmup || 0}%`;
     if (quizBar)   quizBar.style.width   = `${scores.quiz || 0}%`;
@@ -8940,7 +9015,7 @@ class SkillMenuSystem {
   static applyStageGating(gameState, skillId) {
     const s = gameState.skillGameScores[skillId] || {};
     const stages = [
-      { id: 'stage-learning-card', unlocked: (s.warmup || 0) > 0 },
+      { id: 'stage-learning-card', unlocked: true },          // v57: warm-up recommended, not required
       { id: 'stage-games-card',    unlocked: (s.learning || 0) > 0 },
       { id: 'stage-quiz-card',     unlocked: GameState.allGamesDone(s) }
     ];
@@ -10303,12 +10378,11 @@ function attemptStageNav(stage) {
     GameStateInstance.saveToStorage();
     GameStateInstance.showNotification(ar ? '🔥 جسمك لسه دافي من الإحماء — يلا نتعلم!' : '🔥 You are still warm from your warm-up — let\'s learn!', 'success');
   }
-  if (stage === 'learning' && !((s.warmup || 0) > 0)) {
-    reason = ar ? '🔒 كمّل الإحماء الأول' : '🔒 Complete the warm-up first';
-  } else if (stage === 'games' && !((s.learning || 0) > 0)) {
+  // v57: the warm-up is recommended, not required
+  if (stage === 'games' && !((s.learning || 0) > 0)) {
     reason = ar ? '🔒 كمّل مرحلة التعلم الأول' : '🔒 Complete the learning stage first';
   } else if (stage === 'quiz' && !GameState.allGamesDone(s)) {
-    reason = ar ? '🔒 كمّل الألعاب الأربعة الأول' : '🔒 Complete all 4 games first';
+    reason = ar ? '🔒 عدّي الألعاب التلاتة الأساسية الأول' : '🔒 Pass the 3 main games first';
   }
 
   if (reason) {
@@ -15295,7 +15369,7 @@ const DashboardSystem = {
   // Mastery per kick from THIS player's own attempt log, so the dashboard can
   // show any player (not just whoever is signed in right now — GameState only
   // holds the active player's save). Same formula as calculateSkillOverallProgress:
-  // (learning + average of the 4 main games + test) / 3.
+  // (learning + average of the 3 main games + test) / 3.
   masteryFor(playerId) {
     const all = PlayerSystem.getAttempts().filter(a => a.playerId === playerId);
     const best = (sk, g) => all.filter(a => a.skillId === sk && a.gameId === g).reduce((m, a) => Math.max(m, a.score), 0);
@@ -18365,7 +18439,7 @@ window.Review = Review;
 // ============================================================================
 // THE JOURNEY (v29 → v30 adventure map) — the child always sees ONE road and
 // ONE next step.
-//   🔥 warm-up → 🎓 learn → 🎭 🧩 👁️ ⚡ four games → 📝 test → 🎁 treasure
+//   🔥 warm-up → 🎓 learn → 🧩 👁️ ⚡ three main games (v57) → 📝 test → 🎁 treasure
 // The road snakes across the card like a board game. Finished stations keep
 // their stars, the child's own fighter stands on the station that is next, the
 // road fills up as they go, and the treasure chest at the end opens when the
@@ -18374,7 +18448,7 @@ window.Review = Review;
 // All looping motion is transform/opacity only (runs on the GPU compositor).
 // ============================================================================
 const Journey = {
-  GAMES: ['form-control', 'puzzle', 'performance', 'action'],       // the 4 that a kick needs
+  GAMES: ['puzzle', 'performance', 'action'],                       // v57: the 3 main games a kick needs
   KEY: { 'form-control': 'formControl', puzzle: 'puzzle', performance: 'performance', action: 'action' },
   SHORT: {                                                          // station labels must fit under a 60 px button
     'form-control': { en: 'Pose', ar: 'الوضعية' },
@@ -18382,16 +18456,20 @@ const Journey = {
     performance: { en: "Judge's eye", ar: 'عين الحكم' },
     action: { en: 'Strike', ar: 'الضربة' }
   },
+  // v57: the kick the child picked in the kick bar under the map (any open kick), else where they are
+  view: null,
   skill() {
     const gs = TKD.gs(); if (!gs) return 'apchagi';
+    if (this.view && gs.unlockedSkills?.has(this.view)) return this.view;
     const t = gs.getResumeTarget();
     return t.done ? gs.currentSkill : t.skillId;
   },
   scores(skillId) { return TKD.gs()?.skillGameScores?.[skillId] || {}; },
-  gamesDone(skillId) { const s = this.scores(skillId); return this.GAMES.filter(g => (s[this.KEY[g]] || 0) > 0).length; },
-  nextGame(skillId) { const s = this.scores(skillId); return this.GAMES.find(g => !(s[this.KEY[g]] > 0)) || null; },
-  // ⭐ for a score: anything counts, 75+ is good, 90+ is perfect
-  starsFor(score) { return score >= 90 ? 3 : score >= 75 ? 2 : score > 0 ? 1 : 0; },
+  passed(skillId, g) { return GameState.gamePassed(this.scores(skillId), this.KEY[g]); },
+  gamesDone(skillId) { return this.GAMES.filter(g => this.passed(skillId, g)).length; },
+  nextGame(skillId) { return this.GAMES.find(g => !this.passed(skillId, g)) || null; },
+  // ⭐ for a score: passing (60+) is one star, 75+ is good, 90+ is perfect
+  starsFor(score) { return score >= 90 ? 3 : score >= 75 ? 2 : score >= GameConfig.SETTINGS.PASSING_SCORE ? 1 : 0; },
 
   // the eight stations of the current kick
   steps(skillId = this.skill()) {
@@ -18400,18 +18478,19 @@ const Journey = {
     const complete = !!gs?.completedSkills?.has(skillId);
     const allGames = this.gamesDone(skillId) >= this.GAMES.length;
     const st = [
-      { id: 'warmup', stage: 'warmup', icon: '🔥', en: 'Warm-up', ar: 'الإحماء', done: sc('warmup') > 0, stars: sc('warmup') > 0 ? 3 : 0, go: () => switchScreen('warmup') },
+      { id: 'warmup', stage: 'warmup', icon: '🔥', en: 'Warm-up', ar: 'الإحماء', optional: true, done: sc('warmup') > 0, stars: sc('warmup') > 0 ? 3 : 0, go: () => switchScreen('warmup') },
       { id: 'learning', stage: 'learning', icon: '🎓', en: 'Learn it', ar: 'اتعلمها', done: sc('learning') > 0, stars: sc('learning') > 0 ? 3 : 0, go: () => switchScreen('learning') },
       ...this.GAMES.map(g => ({
         id: 'g:' + g, stage: 'games', game: g, icon: TKD.gameIcon(g), en: this.SHORT[g].en, ar: this.SHORT[g].ar,
-        done: sc(this.KEY[g]) > 0, stars: this.starsFor(sc(this.KEY[g])), go: () => switchScreen(g)
+        done: this.passed(skillId, g), stars: this.starsFor(sc(this.KEY[g])), go: () => switchScreen(g)
       })),
-      { id: 'quiz', stage: 'quiz', icon: '📝', en: 'The test', ar: 'الاختبار', done: sc('quiz') > 0, stars: this.starsFor(sc('quiz')), go: () => switchScreen(allGames ? 'quiz' : 'games') },
+      { id: 'quiz', stage: 'quiz', icon: '📝', en: 'The test', ar: 'الاختبار', done: GameState.quizPassed(s), stars: GameState.quizPassed(s) ? this.starsFor(sc('quiz')) : 0, go: () => switchScreen(allGames ? 'quiz' : 'games') },
       { id: 'chest', stage: 'chest', icon: complete ? '🏅' : '🎁', en: 'Treasure', ar: 'الكنز', done: complete, stars: 0, go: () => switchScreen('trophy-room') }
     ];
-    // the first unfinished station is "now"; everything after it is locked
-    const i = st.findIndex(x => !x.done);
-    st.forEach((x, k) => { x.state = x.done ? 'done' : k === i ? 'now' : 'locked'; });
+    // the first unfinished station is "now"; everything after it is locked — v57: the warm-up
+    // is recommended, never in the way (it stays open, the lesson is "now")
+    const i = st.findIndex(x => !x.done && !x.optional);
+    st.forEach((x, k) => { x.state = x.done ? 'done' : x.optional ? 'open' : k === i ? 'now' : 'locked'; });
     return st;
   },
   starTotal(st) { return st.reduce((a, x) => a + x.stars, 0); },
@@ -18422,8 +18501,14 @@ const Journey = {
     const gs = TKD.gs();
     if (!gs) return null;
     const t = gs.getResumeTarget();
-    if (t.done) return { icon: '🏆', label: TKD.t('See your trophies', 'شوف إنجازاتك'), step: 'done', stage: 'done', go: () => switchScreen('trophy-room') };
-    const skillId = t.skillId, st = this.steps(skillId), now = st.find(x => x.state === 'now') || st[0];
+    const skillId = this.skill(), st = this.steps(skillId);
+    let now = st.find(x => x.state === 'now');
+    if (!now) {                                                       // this kick is all done
+      if (t.done) return { icon: '🏆', label: TKD.t('See your trophies', 'شوف إنجازاتك'), step: 'done', stage: 'done', go: () => switchScreen('trophy-room') };
+      const nk = t.skillId;
+      return { icon: '🦶', label: TKD.t(`On to ${TKD.skillName(nk)}!`, `يلا على ${TKD.skillName(nk)}!`), step: 'kick', stage: 'learning', skillId: nk,
+        go: () => { this.view = nk; gs.currentSkill = nk; gs.syncFlatProgressToCurrentSkill?.(); gs.saveToStorage?.(); switchScreen('learning'); } };
+    }
     const name = TKD.skillName(skillId);
     const label = now.game ? TKD.t(`Play: ${TKD.gameName(now.game)}`, `العب: ${TKD.gameName(now.game)}`) : {
       warmup: TKD.t('Start the warm-up', 'ابدأ الإحماء'),
@@ -18487,9 +18572,12 @@ const Journey = {
     const nextKick = order[ki + 1];
     const pct = (p) => `left:${(100 * p.x / B.w).toFixed(2)}%;top:${(100 * p.y / B.h).toFixed(2)}%`;
     const starRow = (x) => x.id === 'chest' ? '' : `<span class="jr-st-stars" aria-hidden="true">${[1, 2, 3].map(k => `<i class="${k <= x.stars ? 'on' : ''}" style="--k:${k}">★</i>`).join('')}</span>`;
+    // v57: the kick bar — tap any open kick to see its map (a finished kick can be played again)
     const kicks = order.map((id, i) => {
-      const state = gs?.completedSkills?.has(id) ? 'done' : id === skillId ? 'now' : 'locked';
-      return `<li class="jr-kick is-${state}"><span>${state === 'done' ? '✓' : state === 'locked' ? '🔒' : '🦶'}</span>${TKD.esc(TKD.skillName(id))}</li>`;
+      const open = !!gs?.unlockedSkills?.has(id), done = !!gs?.completedSkills?.has(id);
+      const state = !open ? 'locked' : done ? 'done' : 'open';
+      const ico = state === 'done' ? '✓' : state === 'locked' ? '🔒' : '🦶';
+      return `<li class="jr-kick is-${state}${id === skillId ? ' is-view' : ''}"><button type="button" class="jr-kick-btn" data-kick="${id}" aria-pressed="${id === skillId}"${open ? '' : ' aria-disabled="true"'}><span>${ico}</span>${TKD.esc(TKD.skillName(id))}</button></li>`;
     }).join('');
     const stars = this.starTotal(st), max = this.starMax(st);
     return `<section class="jr jr-map" aria-label="${TKD.t('My journey', 'رحلتي')}" data-skill="${skillId}">
@@ -18498,6 +18586,7 @@ const Journey = {
           <small>${TKD.t(`Kick ${ki + 1} of ${order.length}`, `الركلة ${TKD.num(ki + 1)} من ${TKD.num(order.length)}`)}</small></div>
         <div class="jr-stars" title="${TKD.t('Stars on this map', 'نجوم الخريطة دي')}"><span class="jr-star-ico">⭐</span><b id="jr-star-n">${TKD.num(stars)}</b><small>/${TKD.num(max)}</small></div>
       </header>
+      <ol class="jr-kicks jr-kicks-top" aria-label="${TKD.t('The kicks', 'الركلات')}">${kicks}</ol>
       ${n ? `<button type="button" class="jr-go" id="jr-go"><span class="jr-go-ico">${n.icon}</span><span class="jr-go-txt"><b>${TKD.esc(n.label)}</b><small>${TKD.t('tap to start', 'دوس عشان تبدأ')}</small></span><span class="jr-go-arrow">${TKD.ar ? '←' : '→'}</span></button>` : ''}
       <div class="jr-board" id="jr-board" style="--reach:${reach.toFixed(4)}">
         <svg class="jr-road" viewBox="0 0 ${B.w} ${B.h}" aria-hidden="true" focusable="false">
@@ -18521,7 +18610,6 @@ const Journey = {
           : `<span>🥋</span><small>${TKD.t('Next belt!', 'الحزام الجاي!')}</small>`}</div>
         <div class="jr-stage" id="jr-stage" style="${pct(this.stagePos(pts[nowI < 0 ? st.length - 1 : nowI]))}"></div>
       </div>
-      <ol class="jr-kicks" aria-label="${TKD.t('The kicks', 'الركلات')}">${kicks}</ol>
     </section>`;
   },
   bind(root = document) {
@@ -18539,6 +18627,17 @@ const Journey = {
       this.sprite?.play(step.startsWith('g:') || step === 'quiz' ? 'win' : 'apchagi');
       setTimeout(() => this.next()?.go(), 200);
     });
+    root.querySelectorAll('.jr-kick-btn').forEach(b => b.addEventListener('click', () => {
+      const id = b.dataset.kick, gs = TKD.gs();
+      if (!gs?.unlockedSkills?.has(id)) {
+        const prev = GameConfig.SKILL_ORDER[GameConfig.SKILL_ORDER.indexOf(id) - 1];
+        TKD.toast(TKD.t(`Pass the ${TKD.skillName(prev)} test to open it 🔓`, `عدّي اختبار ${TKD.skillName(prev)} عشان تفتحها 🔓`), 'warning');
+        gs?.playSound('error'); return;
+      }
+      gs.playSound('click');
+      this.view = id; gs.currentSkill = id; gs.syncFlatProgressToCurrentSkill?.(); gs.saveToStorage?.();
+      window.HomeHub?.render?.();
+    }));
     root.querySelectorAll('.jr-dot').forEach(b => b.addEventListener('click', () => {
       const id = b.dataset.go, st = this.steps().find(x => x.id === id);
       if (!st) return;
@@ -19915,8 +20014,57 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // =====================================================================
-// v55 — the Games screen: the 4 main games first. The 8 extra games are
-// folded under one button until the child has tried the main 4 of this
+// v57 — CHANCES (❤️❤️❤️): the 3 main games are real games now. A mistake costs a heart; out
+// of hearts the run ends — the score still counts (the best one is kept) and the child can
+// go again straight away. Passing a game needs PASSING_SCORE (60%), not a perfect run.
+// =====================================================================
+const Hearts = {
+  max() { return GameConfig.SETTINGS.HEARTS || 3; },
+  show(screenId, left) {
+    const scr = document.getElementById(screenId); if (!scr) return;
+    let box = scr.querySelector('.tkd-hearts');
+    if (!box) {
+      box = document.createElement('div'); box.className = 'tkd-hearts'; box.setAttribute('role', 'status');
+      // under the game's title (and its one-line description), above the board
+      const gc = scr.querySelector('.game-container') || scr;
+      const head = gc.querySelector(':scope > h2, :scope > .ag-head, h2');
+      const desc = head?.nextElementSibling?.matches?.('p, .description') ? head.nextElementSibling : null;
+      if (desc || head) (desc || head).after(box); else gc.prepend(box);
+    }
+    const max = this.max(), n = Math.max(0, Math.min(max, left));
+    const lost = box.dataset.n !== undefined && n < +box.dataset.n;
+    box.dataset.n = n;
+    box.setAttribute('aria-label', TKD.t(`${n} of ${max} chances left`, `فاضل ${TKD.num(n)} من ${TKD.num(max)} فرص`));
+    box.innerHTML = `<span class="th-lbl">${TKD.t('Chances', 'الفرص')}</span>` +
+      Array.from({ length: max }, (_, i) => `<i class="${i < n ? 'on' : 'off'}${lost && i === n ? ' lose' : ''}">${i < n ? '❤️' : '🤍'}</i>`).join('');
+  },
+  hide(screenId) { document.getElementById(screenId)?.querySelector('.tkd-hearts')?.remove(); document.getElementById(screenId)?.querySelector('.tkd-outcard')?.remove(); },
+  // the end of a run that did not pass: the score, the bar to reach, try again / the lesson
+  outOfChances(screenId, score, retry) {
+    const scr = document.getElementById(screenId); if (!scr) return;
+    scr.querySelector('.tkd-outcard')?.remove();
+    const PASS = GameConfig.SETTINGS.PASSING_SCORE, gs = TKD.gs();
+    const card = document.createElement('div'); card.className = 'tkd-outcard'; card.setAttribute('role', 'dialog');
+    card.innerHTML = `<div class="toc-inner">
+      <div class="toc-big">💔</div>
+      <h3>${TKD.t('Out of chances!', 'خلصت الفرص!')}</h3>
+      <p class="toc-score">${TKD.t('Your score', 'السكور بتاعك')}: <b>${TKD.num(score)}%</b></p>
+      <p>${TKD.t(`You need ${PASS}% to pass this game — you can do it!`, `محتاج ${TKD.num(PASS)}% عشان تعدّي اللعبة دي — إنت قدها!`)}</p>
+      <div class="toc-btns">
+        <button type="button" class="btn btn-success" data-a="again">🔁 ${TKD.t('Try again', 'جرّب تاني')}</button>
+        <button type="button" class="btn" data-a="lesson">🎓 ${TKD.t('Look at the lesson', 'بص على الدرس')}</button>
+      </div></div>`;
+    scr.appendChild(card);
+    card.querySelector('[data-a="again"]').addEventListener('click', () => { card.remove(); gs?.playSound('click'); retry(); });
+    card.querySelector('[data-a="lesson"]').addEventListener('click', () => { card.remove(); gs?.playSound('click'); switchScreen('learning'); });
+    card.querySelector('[data-a="again"]').focus?.();
+  }
+};
+window.Hearts = Hearts;
+
+// =====================================================================
+// v55 — the Games screen: the main games first (v57: 3 of them). The extra games are
+// folded under one button until the child has tried the main games of this
 // kick (they can still open them any time), so a 6-year-old is not faced
 // with 12 cards at once.
 // =====================================================================
@@ -19927,8 +20075,8 @@ const BonusFold = {
     const grid = scr.querySelector('.game-cards-bonus'), title = scr.querySelector('.games-section-title[data-i18n="bonusGames"]');
     if (!grid || !title) return;
     const gs = TKD.gs(); const sc = gs?.skillGameScores?.[gs.currentSkill] || {};
-    const coreTried = ['formControl', 'puzzle', 'performance', 'action'].filter(k => (sc[k] || 0) > 0).length;
-    const open = coreTried >= 4 || TKD.read(this.key(), false) === true;
+    const core = GameState.REQUIRED_GAME_KEYS, coreTried = core.filter(k => (sc[k] || 0) > 0).length;
+    const open = coreTried >= core.length || TKD.read(this.key(), false) === true;
     const n = grid.querySelectorAll('.game-card:not(.hidden)').length;
     grid.classList.toggle('bonus-folded', !open);
     let btn = scr.querySelector('.bonus-unfold');
@@ -19938,7 +20086,7 @@ const BonusFold = {
       btn.addEventListener('click', () => { TKD.write(this.key(), true); gs?.playSound('click'); this.apply(); });
       grid.before(btn);
     }
-    btn.innerHTML = `🎯 ${TKD.t(`${n} extra games`, `${TKD.num(n)} ألعاب زيادة`)} <small>${TKD.t(`Try the 4 main games first (${coreTried}/4) — or`, `جرّب الألعاب الأساسية الأول (${TKD.num(coreTried)}/٤) — أو`)}</small> <b>${TKD.t('show them', 'وريني')} ▾</b>`;
+    btn.innerHTML = `🎯 ${TKD.t(`${n} extra games`, `${TKD.num(n)} ألعاب زيادة`)} <small>${TKD.t(`Try the ${core.length} main games first (${coreTried}/${core.length}) — or`, `جرّب الألعاب الأساسية الأول (${TKD.num(coreTried)}/${TKD.num(core.length)}) — أو`)}</small> <b>${TKD.t('show them', 'وريني')} ▾</b>`;
   }
 };
 document.addEventListener('tkd:screen', (e) => { if (e.detail?.screenId === 'games') setTimeout(() => BonusFold.apply(), 30); });
