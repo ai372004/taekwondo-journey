@@ -1898,8 +1898,8 @@ class GameState {
   // skill, decoupled from any single activity's pass/fail bar.
   calculateSkillOverallProgress(skillId) {
     const s = this.skillGameScores[skillId] || {};
-    const K = GameState.requiredKeys(skillId);
-    const gamesAvg = K.reduce((a, k) => a + (s[k] || 0), 0) / K.length;
+    const C = Units.countedScores(s, skillId);
+    const gamesAvg = C.reduce((a, v) => a + Math.min(100, v), 0) / C.length;
     return Math.round(((s.learning || 0) + gamesAvg + (s.quiz || 0)) / 3);
   }
 
@@ -1913,7 +1913,7 @@ class GameState {
 
   // v57: the 3 main games — the most teaching ones (order the phases, spot the mistake, the
   // hands-on strike). Each must reach PASSING_SCORE once before the Test opens.
-  // v59: every game of the kick's three units must be passed (see Units)
+  // v59: the games of the kick's three units (see Units) · v59.2: each unit needs only 1–2 of them
   static requiredKeys(sk) { return Units.all(sk).map(g => GameState.GAME_KEY_MAP[g]); }
   static get REQUIRED_GAME_KEYS() { return GameState.requiredKeys(TKD.gs()?.currentSkill || 'apchagi'); }
   // which kick a scores object belongs to (callers pass only the scores)
@@ -1922,8 +1922,9 @@ class GameState {
     return Object.keys(all).find(k => all[k] === scores) || TKD.gs()?.currentSkill || 'apchagi';
   }
   static gamePassed(scores, key) { return ((scores || {})[key] || 0) >= GameConfig.SETTINGS.PASSING_SCORE; }
+  // v59.2: every unit has its number of passed games (any of its games count)
   static allGamesDone(scores, sk = GameState.skillOfScores(scores)) {
-    return GameState.requiredKeys(sk).every(k => GameState.gamePassed(scores, k));
+    return [1, 2, 3].every(u => Units.gamesDone(scores, u, sk));
   }
   static quizPassed(scores) { return ((scores || {}).quiz || 0) >= GameConfig.SETTINGS.QUIZ_PASS; }
   // a kick is mastered when the lesson is done, the 3 main games are passed and the Test is passed
@@ -8511,8 +8512,8 @@ class TrophyRoomSystem {
   static skillProg(gs, sk) {
     if (gs.completedSkills?.has(sk)) return 1;
     const sc = gs.skillGameScores?.[sk] || {};
-    const steps = GameState.requiredKeys(sk);
-    return (steps.filter(k => GameState.gamePassed(sc, k)).length + ((sc.learning || 0) > 0 ? 1 : 0) + (GameState.quizPassed(sc) ? 1 : 0)) / (steps.length + 2);
+    const C = Units.countedScores(sc, sk), P = GameConfig.SETTINGS.PASSING_SCORE;
+    return (C.filter(v => v >= P).length + ((sc.learning || 0) > 0 ? 1 : 0) + (GameState.quizPassed(sc) ? 1 : 0)) / (C.length + 2);
   }
 
   static initialize(gameState) {
@@ -9173,8 +9174,8 @@ class SkillMenuSystem {
     const quizBar   = document.getElementById('skill-quiz-progress');
 
     if (learnBar)  learnBar.style.width  = `${scores.learning || 0}%`;
-    const RK = GameState.requiredKeys(skillId);
-    const gamesAvg = Math.round(RK.reduce((a, k) => a + Math.min(100, scores[k] || 0), 0) / RK.length);
+    const RC = Units.countedScores(scores, skillId);
+    const gamesAvg = Math.round(RC.reduce((a, v) => a + Math.min(100, v), 0) / RC.length);
     if (gamesBar)  gamesBar.style.width  = `${gamesAvg}%`;
     if (warmupBar) warmupBar.style.width = `${scores.warmup || 0}%`;
     if (quizBar)   quizBar.style.width   = `${scores.quiz || 0}%`;
@@ -10557,7 +10558,7 @@ function attemptStageNav(stage) {
   if (stage === 'games' && !((s.learning || 0) > 0)) {
     reason = ar ? '🔒 كمّل مرحلة التعلم الأول' : '🔒 Complete the learning stage first';
   } else if (stage === 'quiz' && !GameState.allGamesDone(s, skillId)) {
-    reason = ar ? '🔒 خلّص ألعاب الوحدات التلاتة الأول' : '🔒 Finish the games of all three units first';
+    reason = ar ? '🔒 عدّي الألعاب المطلوبة في الوحدات التلاتة الأول' : '🔒 Pass the games each unit needs first';
   }
 
   if (reason) {
@@ -15555,7 +15556,8 @@ const DashboardSystem = {
     // next step for the current kick (only makes sense for the signed-in player on this device)
     if (this.state.playerId === PlayerSystem.getCurrentPlayerId()) {
       const sk = this.gs.currentSkill, s = this.gs.skillGameScores[sk] || {};
-      const need = GameState.REQUIRED_GAME_KEYS.find(k => (s[k] || 0) < PASS);
+      const nu = [1, 2, 3].find(u => !Units.gamesDone(s, u, sk));
+      const need = nu ? GameState.GAME_KEY_MAP[Units.games(nu, sk).find(g => !Units.passed(s, g))] : undefined;
       const keyToGame = Object.fromEntries(Object.entries(GameState.GAME_KEY_MAP).map(([g, k]) => [k, g]));
       let text;
       if (!(s.warmup > 0)) text = this.t(`Start ${this.sName(sk)} with the warm-up.`, `ابدأ ${this.sName(sk)} بالإحماء.`);
@@ -18746,9 +18748,11 @@ window.Review = Review;
 // ============================================================================
 const Units = {
   LIST: [
-    { n: 1, icon: '👀', en: 'Know the kick', ar: 'اعرف الركلة', lesson: true, games: ['form-control', 'puzzle', 'phase-rhythm'] },
-    { n: 2, icon: '💪', en: 'Practise it', ar: 'اتمرن عليها', games: ['action', 'board-break', 'paddle-reflex', 'heavy-bag', 'balance-hold'] },
-    { n: 3, icon: '🏆', en: 'The big challenge', ar: 'التحدي الكبير', test: true, games: ['sparring-duel', 'performance', 'error-hunt', 'quiz-blast'] }
+    // v59.2: `need` = how many of the unit's games the child must pass (ANY of them) — the rest
+    // stay open for fun and stars, so a kick is about 4 games, not 12
+    { n: 1, icon: '👀', en: 'Know the kick', ar: 'اعرف الركلة', lesson: true, need: 1, games: ['form-control', 'puzzle', 'phase-rhythm'] },
+    { n: 2, icon: '💪', en: 'Practise it', ar: 'اتمرن عليها', need: 2, games: ['action', 'board-break', 'paddle-reflex', 'heavy-bag', 'balance-hold'] },
+    { n: 3, icon: '🏆', en: 'The big challenge', ar: 'التحدي الكبير', test: true, need: 1, games: ['sparring-duel', 'performance', 'error-hunt', 'quiz-blast'] }
   ],
   ONLY: { 'error-hunt': 'apchagi' },                    // Mistake Hunter exists for Ap Chagi only
   get(u) { return this.LIST[Math.max(1, Math.min(3, u)) - 1]; },
@@ -18757,7 +18761,17 @@ const Units = {
   keyOf(g) { return GameState.GAME_KEY_MAP[g]; },
   passed(scores, g) { return GameState.gamePassed(scores, this.keyOf(g)); },
   unitOf(id) { if (id === 'learning') return 1; if (id === 'quiz') return 3; const U = this.LIST.find(x => x.games.includes(id)); return U ? U.n : 0; },
-  gamesDone(scores, u, sk) { return this.games(u, sk).every(g => this.passed(scores, g)); },
+  need(u, sk) { return Math.min(this.get(u).need || 1, this.games(u, sk).length); },
+  passedIn(scores, u, sk) { return this.games(u, sk).filter(g => this.passed(scores, g)).length; },
+  gamesDone(scores, u, sk) { return this.passedIn(scores, u, sk) >= this.need(u, sk); },
+  // the scores that count for a kick: the best `need` games of every unit (for the % bars)
+  countedScores(scores, sk) {
+    const s = scores || {};
+    return [1, 2, 3].flatMap(u => {
+      const best = this.games(u, sk).map(g => s[this.keyOf(g)] || 0).sort((a, b) => b - a);
+      return best.slice(0, this.need(u, sk)).concat(Array(Math.max(0, this.need(u, sk) - best.length)).fill(0));
+    });
+  },
   done(scores, u, sk) {
     const s = scores || {};
     if (u === 1 && !((s.learning || 0) > 0)) return false;
@@ -18768,8 +18782,8 @@ const Units = {
   current(scores, sk) { for (const u of [1, 2, 3]) if (!this.done(scores, u, sk)) return u; return 3; },
   // [done, total] steps of a unit (the lesson and the test count as steps)
   count(scores, u, sk) {
-    const s = scores || {}, g = this.games(u, sk);
-    let d = g.filter(x => this.passed(s, x)).length, t = g.length;
+    const s = scores || {}, t0 = this.need(u, sk);
+    let d = Math.min(t0, this.passedIn(s, u, sk)), t = t0;
     if (u === 1) { t++; if ((s.learning || 0) > 0) d++; }
     if (u === 3) { t++; if (GameState.quizPassed(s)) d++; }
     return [d, t];
@@ -18786,7 +18800,7 @@ const Units = {
     if (id === 'learning') return null;
     if (!((s.learning || 0) > 0)) return TKD.t('🔒 Watch the lesson first', '🔒 اتفرج على الدرس الأول');
     if (!this.open(s, u, sk)) return TKD.t(`🔒 Finish unit ${u - 1} first`, `🔒 خلّص الوحدة ${TKD.num(u - 1)} الأول`);
-    if (id === 'quiz' && !this.gamesDone(s, 3, sk)) return TKD.t('🔒 Finish the games of unit 3 first', '🔒 خلّص ألعاب الوحدة ٣ الأول');
+    if (id === 'quiz' && !this.gamesDone(s, 3, sk)) return TKD.t('🔒 Pass one game of unit 3 first', '🔒 عدّي لعبة واحدة من الوحدة ٣ الأول');
     return null;
   }
 };
@@ -18830,6 +18844,7 @@ const Journey = {
   gamesDone(skillId) { return Units.all(skillId).filter(g => this.passed(skillId, g)).length; },
   nextGame(skillId) {
     const s = this.scores(skillId), u = Units.current(s, skillId);
+    if (Units.gamesDone(s, u, skillId)) return null;                  // v59.2: this unit has its games
     return Units.games(u, skillId).find(g => !this.passed(skillId, g)) || null;
   },
   // ⭐ for a score: passing (60+) is one star, 75+ is good, 90+ is perfect
@@ -18842,8 +18857,9 @@ const Journey = {
     const complete = !!gs?.completedSkills?.has(skillId);
     const open = Units.open(s, u, skillId), learnt = sc('learning') > 0;
     const allGames = GameState.allGamesDone(s, skillId);
+    const enough = Units.gamesDone(s, u, skillId);                  // v59.2: the unit has its games → the rest are extra
     const game = g => ({ id: 'g:' + g, stage: 'games', game: g, unit: u, icon: TKD.gameIcon(g), en: this.SHORT[g]?.en || g, ar: this.SHORT[g]?.ar || g,
-      done: this.passed(skillId, g), stars: this.starsFor(sc(this.KEY[g])), go: () => switchScreen(g) });
+      optional: enough && !this.passed(skillId, g), done: this.passed(skillId, g), stars: this.starsFor(sc(this.KEY[g])), go: () => switchScreen(g) });
     const st = [];
     if (u === 1) {
       st.push({ id: 'warmup', stage: 'warmup', icon: '🔥', en: 'Warm-up', ar: 'الإحماء', optional: true, done: sc('warmup') > 0, stars: sc('warmup') > 0 ? 3 : 0, go: () => switchScreen('warmup') });
@@ -18857,7 +18873,7 @@ const Journey = {
       st.push({ id: 'chest', stage: 'chest', icon: complete ? '🏅' : '🎁', en: 'Treasure', ar: 'الكنز', done: complete, stars: 0, go: () => switchScreen('trophy-room') });
     }
     // inside an open unit: the lesson comes first, then its games in any order (the first
-    // unfinished one is "now"); the test waits for every game; a closed unit is all locked
+    // unfinished one is "now"); v59.2: once the unit has its games the others are extra; a closed unit is all locked
     const nowI = st.findIndex(x => !x.done && !x.optional);
     st.forEach((x, k) => {
       if (x.done) x.state = 'done';
@@ -18867,7 +18883,7 @@ const Journey = {
       else if (x.game && learnt) x.state = 'open';
       else x.state = 'locked';
     });
-    if (u === 3 && open) {                                            // the test is "now" only when every game is passed
+    if (u === 3 && open) {                                            // the test is "now" only when the units have their games
       const q = st.find(x => x.id === 'quiz');
       if (q && !q.done && !allGames) q.state = 'locked';
     }
@@ -19053,7 +19069,7 @@ const Journey = {
         TKD.toast(st.id === 'chest'
           ? TKD.t('The treasure opens after the test 🎁', 'الكنز بيتفتح بعد الاختبار 🎁')
           : !Units.open(this.scores(sk), u, sk) ? TKD.t(`Finish unit ${u - 1} first 😊`, `خلّص الوحدة ${TKD.num(u - 1)} الأول 😊`)
-          : st.id === 'quiz' ? TKD.t('The test opens after all the games 😊', 'الاختبار بيتفتح بعد ما تخلّص كل الألعاب 😊')
+          : st.id === 'quiz' ? TKD.t('The test opens after one game of this unit 😊', 'الاختبار بيتفتح بعد ما تعدّي لعبة من الوحدة دي 😊')
           : TKD.t('Watch the lesson first 😊', 'اتفرج على الدرس الأول 😊'), 'warning');
         TKD.gs()?.playSound('error');
         return;
@@ -22210,7 +22226,7 @@ const UnitGames = {
       const grid = sec.querySelector('.unit-cards');
       U.games.forEach(g => { if (cards[g]) { cards[g].classList.remove('game-card-new'); cards[g].querySelector('.game-new-badge')?.remove(); grid.appendChild(cards[g]); } });
       if (U.lesson) grid.insertAdjacentHTML('afterbegin', `<div class="game-card unit-lesson" data-lesson="1"><div class="game-icon">🎓</div><h3>${TKD.t('The lesson', 'الدرس')}</h3><p>${TKD.t('Watch the video and the steps first', 'اتفرج على الفيديو والخطوات الأول')}</p><span class="game-status"></span></div>`);
-      if (U.test) grid.insertAdjacentHTML('beforeend', `<div class="game-card unit-test" data-test="1"><div class="game-icon">📝</div><h3>${TKD.t('The test', 'الاختبار')}</h3><p>${TKD.t('After all the games of the unit', 'بعد ما تخلّص كل ألعاب الوحدة')}</p><span class="game-status"></span></div>`);
+      if (U.test) grid.insertAdjacentHTML('beforeend', `<div class="game-card unit-test" data-test="1"><div class="game-icon">📝</div><h3>${TKD.t('The test', 'الاختبار')}</h3><p>${TKD.t('After one game of this unit', 'بعد ما تعدّي لعبة من الوحدة دي')}</p><span class="game-status"></span></div>`);
       (anchor ? anchor.before(sec) : gc.appendChild(sec));
     });
     // the old "main / bonus" titles and grids are empty now
@@ -22237,6 +22253,13 @@ const UnitGames = {
       sec.querySelector('.us-n').textContent = done ? '✓' : locked ? '🔒' : TKD.num(n);
       sec.querySelector('.us-t').textContent = `${TKD.t(`Unit ${n}`, `الوحدة ${TKD.num(n)}`)} · ${U.icon} ${TKD.t(U.en, U.ar)}`;
       sec.querySelector('.us-c').textContent = `${TKD.num(d)}/${TKD.num(t)}`;
+      // v59.2: how many games this unit needs — any of them count
+      let need = sec.querySelector('.us-need');
+      if (!need) { need = document.createElement('p'); need.className = 'us-need'; sec.querySelector('.unit-sec-title')?.after(need); }
+      const k = Units.need(n, sk);
+      need.textContent = done ? TKD.t('Done! The other games are extra fun ⭐', 'خلصت! باقي الألعاب زيادة للمتعة والنجوم ⭐')
+        : k === 1 ? TKD.t('Pass ANY one game to finish this unit', 'عدّي أي لعبة واحدة عشان تخلّص الوحدة دي')
+        : TKD.t(`Pass ANY ${k} games to finish this unit`, `عدّي أي لعبتين عشان تخلّص الوحدة دي`);
       // inside unit 1 the games wait for the lesson
       sec.querySelectorAll('.game-card[data-game]').forEach(c => c.classList.toggle('needs-lesson', n === 1 && !learnt));
       const l = sec.querySelector('.unit-lesson .game-status'); if (l) l.textContent = learnt ? TKD.t('Done ✓', 'خلصت ✓') : TKD.t('Start here 👉', 'ابدأ من هنا 👉');

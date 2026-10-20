@@ -7051,3 +7051,7 @@ html.lite .winner-visual::before, html.lite .celebration-icon { animation-iterat
 }
 .daily-fold .ds-gift { border: 0; background: rgba(255,209,102,.18); border-radius: 12px; font-size: 1.25rem; width: 44px; height: 36px; cursor: pointer; }
 .daily-fold .ds-gift.is-ready { animation: ftPulse 1.2s ease-in-out infinite; background: rgba(255,209,102,.4); }
+
+/* v59.2 — how many games a unit needs */
+.us-need { margin: -4px 0 10px; font-size: .9rem; font-weight: 800; color: #ffe3a3; text-align: center; }
+.unit-sec.is-done .us-need { color: #7ee8d6; }
