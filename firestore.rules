@@ -1,0 +1,97 @@
+rules_version = '2';
+// =====================================================================
+// Taekwondo Journey — club security rules (paste into Firebase console → Firestore → Rules → Publish)
+//  • every device signs in anonymously; nobody can list clubs or join codes
+//  • a device joins the club only with the club's 6-letter code
+//  • only club devices can read the club; only the coach can remove players or devices
+//  • the coach recovery code is never readable — it can only be checked
+//  • player profiles are checked for sane values (name length, points, level…)
+// =====================================================================
+service cloud.firestore {
+  match /databases/{db}/documents {
+    function authed() { return request.auth != null; }
+    function me() { return request.auth.uid; }
+    function clubDoc(c) { return get(/databases/$(db)/documents/clubs/$(c)); }
+    function isOwner(c) { return authed() && exists(/databases/$(db)/documents/clubs/$(c)) && clubDoc(c).data.ownerUid == me(); }
+    function isMember(c) { return authed() && exists(/databases/$(db)/documents/clubs/$(c)/members/$(me())); }
+    function isCoach(c) { return isOwner(c) || (authed() && exists(/databases/$(db)/documents/clubs/$(c)/coachClaims/$(me()))); }
+
+    // a public profile a device may write for one of its players
+    function validPlayer(p) {
+      let d = request.resource.data;
+      return d.keys().hasOnly(['v', 'id', 'name', 'character', 'belt', 'mastered', 'level', 'tier', 'ach', 'trophies', 'mastery',
+                               'streak', 'days', 'games', 'perfect', 'records', 'week', 'prev', 'today', 'badges', 'frame', 'at', 'by', 'removed'])
+        && d.id == p && d.by == me() && d.removed == false
+        && d.name is string && d.name.size() > 0 && d.name.size() <= 18
+        && d.character in ['boy', 'girl']
+        && d.level is int && d.level >= 1 && d.level <= 200
+        && d.tier is int && d.tier >= 0 && d.tier <= 4
+        && d.mastered is int && d.mastered >= 0 && d.mastered <= 10
+        && d.mastery is list && d.mastery.size() <= 10
+        && d.week is map && d.week.pts is int && d.week.pts >= 0 && d.week.pts <= 1000
+        && d.today is map;
+    }
+    // a device hiding one of its own players from the club (a parent's choice) — it can show it again later
+    function selfHide(p) {
+      let d = request.resource.data;
+      return d.keys().hasOnly(['id', 'name', 'removed', 'self', 'by', 'at']) && d.id == p && d.removed == true && d.self == true && d.by == me();
+    }
+
+    match /joinCodes/{code} {
+      allow get: if authed();
+      allow list: if false;
+      allow create: if authed() && request.resource.data.keys().hasOnly(['clubId', 'createdAt'])
+        && isCoach(request.resource.data.clubId);
+      allow delete: if authed() && isCoach(resource.data.clubId);
+      allow update: if false;
+    }
+
+    match /clubs/{c} {
+      allow get: if isMember(c) || (authed() && resource.data.ownerUid == me());
+      allow list: if false;
+      allow create: if authed() && request.resource.data.ownerUid == me()
+        && request.resource.data.keys().hasOnly(['name', 'ownerUid', 'joinCode', 'createdAt', 'v'])
+        && request.resource.data.name is string && request.resource.data.name.size() > 0 && request.resource.data.name.size() <= 40;
+      allow update: if isCoach(c) && request.resource.data.ownerUid == resource.data.ownerUid
+        && request.resource.data.name is string && request.resource.data.name.size() > 0 && request.resource.data.name.size() <= 40;
+      allow delete: if false;
+
+      // the coach recovery code: written once by the owner, never readable
+      match /secret/{s} {
+        allow read: if false;
+        allow create: if isOwner(c) && request.resource.data.keys().hasOnly(['code']) && request.resource.data.code is string;
+        allow update, delete: if false;
+      }
+      // "I am the coach" on another device: only accepted with the right recovery code
+      match /coachClaims/{u} {
+        allow read: if false;
+        allow create: if authed() && u == me() && request.resource.data.keys().hasOnly(['code', 'at'])
+          && request.resource.data.code == get(/databases/$(db)/documents/clubs/$(c)/secret/coach).data.code;
+        allow delete: if isCoach(c);
+        allow update: if false;
+      }
+      match /members/{u} {
+        allow read: if isMember(c);
+        allow create: if authed() && u == me()
+          && request.resource.data.keys().hasOnly(['role', 'device', 'joinedAt', 'code'])
+          && request.resource.data.device is string && request.resource.data.device.size() <= 40
+          && ((request.resource.data.role == 'coach' && isCoach(c))
+              || (request.resource.data.role == 'device' && request.resource.data.code is string
+                  && exists(/databases/$(db)/documents/joinCodes/$(request.resource.data.code))
+                  && get(/databases/$(db)/documents/joinCodes/$(request.resource.data.code)).data.clubId == c));
+        allow update: if authed() && (isCoach(c) || (u == me() && request.resource.data.role == resource.data.role));
+        allow delete: if authed() && (u == me() || isCoach(c));
+      }
+      match /players/{p} {
+        allow read: if isMember(c);
+        // the coach may write anything (remove / bring back a player); a device only sane profiles,
+        // never over a player the coach removed (a player the device hid itself it may show again)
+        allow create, update: if isMember(c) && (isCoach(c)
+          || (validPlayer(p) && (resource == null || resource.data.get('removed', false) != true
+                                 || (resource.data.get('self', false) == true && resource.data.by == me())))
+          || (selfHide(p) && (resource == null || resource.data.by == me())));
+        allow delete: if isCoach(c);
+      }
+    }
+  }
+}

@@ -317,10 +317,11 @@ export class Skeleton3D {
   applyCosmetics() {
     if (this.data.ch === 'coach' || this.noCosmetics) return;  // the shop dresses the player — not Coach Yang, not the partner
     const c = (typeof window !== 'undefined' && window.Shop?.cosmetics) ? window.Shop.cosmetics() : null;
-    const key = c ? `${c.belt}|${c.headband}` : '';
+    const key = c ? `${c.belt}|${c.headband}|${c.collar || ''}` : '';
     if (key === this._cos) return; this._cos = key;
     const mat = this.root.userData.mat, hb = this.root.userData.headband;
     mat.belt.color.set(c?.belt || this.data.desc.belt);
+    if (mat.collar) mat.collar.color.set(c?.collar || this.data.desc.collar || '#1d1d22');   // v57.1: the dobok collar from the Star Shop
     if (hb) { hb.visible = !!c?.headband; if (c?.headband) hb.material.color.set(c.headband); }
   }
   // paint the model into a 2D canvas: (x, y) = the feet on the floor, scale = px per rig unit

@@ -443,13 +443,13 @@ const GameConfig = {
       assetFolder: null, // flat legacy paths, no subfolder
       video: 'assets/videos/apchagi-tutorial.mp4',
       technical: {
-        strikingSurface: { en: 'Ball of the foot / instep', ar: 'مشط القدم (أو وش القدم)' },
-        target: { en: 'Face / Abdomen', ar: 'الوش / البطن' },
+        strikingSurface: { en: 'Ball of the foot (ap-chuk)', ar: 'آب تشوك (مشط القدم)' },
+        target: { en: 'Eolgul (face) / Momtong (body)', ar: 'أولجول (الوش) / مومتونج (الجسم)' },
         pivotAngle: { en: '~90° pivot (outward)', ar: 'لفّة ~90° لبرّه' }
       },
       phases: [
         { num: 1, key: 'ready',
-          title: { en: '1️⃣ Ready Stance (Junbi)', ar: '1️⃣ وضعية الاستعداد (جونبي)' },
+          title: { en: '1️⃣ Fighting Stance (Kyorugi Junbi)', ar: '1️⃣ وقفة القتال (كيوروجي جونبي)' },
           image: poseImg('apchagi', 0),
           focus: { en: '👀 Focus: Feet shoulder-width apart — body straight', ar: '👀 خلي بالك: رجليك مفتوحين قد عرض كتافك — وجسمك مفرود' },
           tips: {
@@ -486,7 +486,7 @@ const GameConfig = {
           focus: { en: '👀 Focus: Step down smoothly and regain your ready stance', ar: '👀 خلي بالك: نزّل رجلك على الأرض بالراحة وخلي توازنك مظبوط' },
           tips: {
             en: ['✅ Return to guard position immediately', '✅ Maintain balance throughout', '⚠️ Do not stomp the foot down'],
-            ar: ['✅ ارجع لوضعية الاستعداد على طول', '✅ خليك متوازن طول الوقت', '⚠️ ماترميش رجلك على الأرض بتقل']
+            ar: ['✅ ارجع لوقفة القتال على طول', '✅ خليك متوازن طول الوقت', '⚠️ ماترميش رجلك على الأرض بتقل']
           }, color: '#457b9d' }
       ]
     },
@@ -498,13 +498,13 @@ const GameConfig = {
       assetFolder: 'narochagi',
       video: 'assets/videos/naeryeochagi-tutorial.mp4',
       technical: {
-        strikingSurface: { en: 'Heel', ar: 'الكعب' },
-        target: { en: 'Head / Shoulder / Collarbone', ar: 'الرأس / الكتف / الترقوة' },
+        strikingSurface: { en: 'Heel (dwi-kkumchi)', ar: 'دوي كومتشي (الكعب)' },
+        target: { en: 'Eolgul (top of the head) / shoulder / collarbone', ar: 'أولجول (الراس من فوق) / الكتف / الترقوة' },
         pivotAngle: { en: 'Minimal pivot (0°–45°)', ar: 'لفّة بسيطة (0° – 45°)' }
       },
       phases: [
         { num: 1, key: 'ready',
-          title: { en: '1️⃣ Ready Stance (Junbi)', ar: '1️⃣ وضعية الاستعداد (جونبي)' },
+          title: { en: '1️⃣ Fighting Stance (Kyorugi Junbi)', ar: '1️⃣ وقفة القتال (كيوروجي جونبي)' },
           image: poseImg('narochagi', 0),
           focus: { en: '👀 Focus: Guard up, weight centered, ready to raise the leg straight', ar: '👀 خلي بالك: إيديك مرفوعة للحماية ووزنك في النص وإنت جاهز ترفع رجلك مفرودة' },
           tips: { en: ['✅ Standing leg slightly bent for balance', '✅ Eyes on the target', '⚠️ Do not lean back early'],
@@ -532,7 +532,7 @@ const GameConfig = {
           image: poseImg('narochagi', 4),
           focus: { en: '👀 Focus: Step down under control and reset your guard', ar: '👀 خلي بالك: انزل بالراحة وارجع ارفع إيديك للحماية' },
           tips: { en: ['✅ Land softly, knees soft', '✅ Return to ready stance', '⚠️ Do not stomp down'],
-                  ar: ['✅ انزل بالراحة وركبك مرنة', '✅ ارجع لوضعية الاستعداد', '⚠️ ماتنزلش بقوة على الأرض'] }, color: '#457b9d' }
+                  ar: ['✅ انزل بالراحة وركبك مرنة', '✅ ارجع لوقفة القتال', '⚠️ ماتنزلش بقوة على الأرض'] }, color: '#457b9d' }
       ]
     },
 
@@ -545,13 +545,13 @@ const GameConfig = {
       assetFolder: 'bikchagi',
       video: 'assets/videos/bikchagi-tutorial.mp4',
       technical: {
-        strikingSurface: { en: 'Instep (top of the foot)', ar: 'وش القدم (ظهر القدم من فوق)' },
-        target: { en: 'Ribs / Chest / Head', ar: 'الضلوع / الصدر / الرأس' },
+        strikingSurface: { en: 'Instep (bal-deung)', ar: 'بال دونج (وش القدم)' },
+        target: { en: 'Momtong (ribs, chest) / Eolgul (head)', ar: 'مومتونج (الضلوع والصدر) / أولجول (الراس)' },
         pivotAngle: { en: 'Full 180° pivot', ar: 'لفّة كاملة 180°' }
       },
       phases: [
         { num: 1, key: 'ready',
-          title: { en: '1️⃣ Ready Stance (Junbi)', ar: '1️⃣ وضعية الاستعداد (جونبي)' },
+          title: { en: '1️⃣ Fighting Stance (Kyorugi Junbi)', ar: '1️⃣ وقفة القتال (كيوروجي جونبي)' },
           image: poseImg('bakchagi3', 0),
           focus: { en: '👀 Focus: Guard up, weight balanced, ready to turn side-on to the target', ar: '👀 خلي بالك: إيديك مرفوعة للحماية ووزنك متوازن وإنت جاهز تلف بجنبك ناحية الهدف' },
           tips: { en: ['✅ Weight balanced on both feet', '✅ Keep the target in sight as you prepare to turn', '⚠️ Do not commit your weight forward too early'],
@@ -579,7 +579,7 @@ const GameConfig = {
           image: poseImg('bakchagi3', 4),
           focus: { en: '👀 Focus: Lower the foot gently and reset to a balanced, guarded stance', ar: '👀 خلي بالك: نزّل رجلك بالراحة وارجع لوضعية متوازنة وإيديك مرفوعة' },
           tips: { en: ['✅ Reset feet to ready stance', '✅ Keep hands up throughout', '⚠️ Do not stomp the foot down or drop your guard'],
-                  ar: ['✅ ظبّط رجليك تاني على وضعية الاستعداد', '✅ خلي إيديك مرفوعة طول الوقت', '⚠️ ماتنزلش رجلك بتقل وماتنزلش إيديك'] }, color: '#457b9d' }
+                  ar: ['✅ ظبّط رجليك تاني على وقفة القتال', '✅ خلي إيديك مرفوعة طول الوقت', '⚠️ ماتنزلش رجلك بتقل وماتنزلش إيديك'] }, color: '#457b9d' }
       ]
     }
   },
@@ -594,7 +594,7 @@ const GameConfig = {
     SEVERE_FAIL_SCORE: 40,             // below this an attempt counts as a "real" struggle, not just missing the pass bar
     SEVERE_FAIL_STREAK: 3,             // this many severe fails in a row → a friendly tip to look at the lesson again
     SKILL_UNLOCK_THRESHOLD: 80,        // (reports only) the overall % shown as "mastered"
-    GAMES_REQUIRED_PER_SKILL: 3, // puzzle, performance, action — the 3 main games (Quiz is a separate "Test", not a game)
+    GAMES_REQUIRED_PER_SKILL: 3, // puzzle, sparring, action — the 3 main games (Quiz is a separate "Test", not a game)
     SKILL_UNLOCK_MESSAGE: {
       en: '🎉 New Skill Unlocked! You can now learn {skill}!',
       ar: '🎉 مهارة جديدة اتفتحت! دلوقتي تقدر تتعلم {skill}!'
@@ -683,7 +683,7 @@ const Curriculum = (() => {
           mistakes: [['Bowing with the head only', 'إنك تحني راسك بس']] }),
         I('junbi', 'basics', 'Junbi', '준비', 'Ready stance', 'وقفة الاستعداد', {
           points: [['Feet one foot apart, fists in front of the belt', 'رجليك بينهم قد رجل، وقبضاتك قدام الحزام'], ['Breathe out and focus', 'خد نفس وركّز']] }),
-        I('gihap', 'basics', 'Gihap', '기합', 'Kihap (the shout)', 'الكياي (الصرخة)', {
+        I('gihap', 'basics', 'Gihap', '기합', 'Kihap (the shout)', 'الكيهاب (صرخة القوة)', {
           points: [['Short and strong, from the belly', 'قصيرة وقوية من بطنك'], ['Shout at the moment of the strike', 'اصرخ لحظة الضربة بالظبط']] }),
         I('counting', 'basics', 'Hana · Dul · Set …', '하나 · 둘 · 셋 …', 'Counting 1–10 in Korean', 'العد من ١ لـ ١٠ بالكوري', {
           points: [['Hana, dul, set, net, daseot', 'هانا، دول، سيت، نيت، داسوت'], ['Yeoseot, ilgop, yeodeol, ahop, yeol', 'يوسوت، إلجوب، يودول، آهوب، يول']] }),
@@ -1072,6 +1072,7 @@ class GameState {
         }
         this.failureCount = data.failureCount || 0;
         this.practiceStreak = data.practiceStreak || 0;
+        this.streakShields = data.streakShields || 0;
         this.bestStreak = data.bestStreak || 0;
         this.lastPlayedDate = data.lastPlayedDate || null;
         this.lastWarmupAt = Number(data.lastWarmupAt) || 0;
@@ -1096,7 +1097,17 @@ class GameState {
       const prev = new Date(this.lastPlayedDate + 'T00:00:00');
       const today = new Date(todayStr + 'T00:00:00');
       const dayGap = Math.round((today - prev) / 86400000);
-      this.practiceStreak = (dayGap === 1) ? this.practiceStreak + 1 : 1;
+      // v57.1: a "day shield" 🛡️ (earned every 7 days in a row, up to 2) saves the streak for ONE missed day
+      this.streakShields = this.streakShields || 0;
+      if (dayGap === 1) this.practiceStreak += 1;
+      else if (dayGap === 2 && this.streakShields > 0) {
+        this.streakShields -= 1; this.practiceStreak += 1;
+        setTimeout(() => window.TKD?.toast(TKD.t('🛡️ Your day shield saved your streak!', '🛡️ درع اليوم حافظ على سلسلة أيامك!'), 'success'), 2500);
+      } else this.practiceStreak = 1;
+      if (dayGap >= 1 && this.practiceStreak > 0 && this.practiceStreak % 7 === 0 && this.streakShields < 2) {
+        this.streakShields += 1;
+        setTimeout(() => window.TKD?.toast(TKD.t('🛡️ 7 days in a row — you earned a day shield!', '🛡️ ٧ أيام ورا بعض — كسبت درع يوم!'), 'success'), 3200);
+      }
     } else {
       this.practiceStreak = 1; // very first visit ever
     }
@@ -1128,7 +1139,7 @@ class GameState {
         },
         skillGameScores: this.skillGameScores,
         failureCount: this.failureCount,
-        practiceStreak: this.practiceStreak,
+        practiceStreak: this.practiceStreak, streakShields: this.streakShields || 0,
         bestStreak: this.bestStreak,
         lastPlayedDate: this.lastPlayedDate,
         lastWarmupAt: this.lastWarmupAt || 0
@@ -1376,17 +1387,17 @@ class GameState {
         learningTitle: '🎓 Learn Ap Chagi', learningSubtitle: 'Master the 5 stages of the front kick',
         preparation: 'Preparation (Junbi)', chamber: 'Chamber (Knee Lift)', extension: 'Extension (Kick)', recoil: 'Recoil (Pull Back)', return: 'Return to Stance',
         gamesCenter: '🎮 Games Center', chooseGame: 'Choose a game to start training',
-        formControl: 'Fix the Pose', formControlDesc: 'Drag the joints until your fighter shows the key moment of Ap Chagi',
-        puzzleAssembly: 'Order the Phases', puzzleDesc: 'Put the 5 phases of Ap Chagi in order — and leave the odd piece out',
+        formControl: 'Fix the Pose', formControlDesc: 'Drag the dots to fix the kick',
+        puzzleAssembly: 'Order the Phases', puzzleDesc: 'Put the 5 phases in order',
         performanceRecognition: "Judge's Eye", performanceDesc: 'Look at the kick and spot the one wrong sentence about it',
         quizDesc: 'Test your Taekwondo knowledge', notStarted: 'Not Started', inProgress: 'In Progress', completed: 'Completed',
-        formControlGame: '🧍 Fix the Pose — Ap Chagi', formControlInstructions: 'Drag the control points or use arrow keys to create perfect Ap Chagi form',
+        formControlGame: '🧍 Fix the Pose — Ap Chagi', formControlInstructions: 'Drag the coloured dots until the pose is right',
         instructions: '🎯 Instructions:', instruction1: 'Lift knee to chest height', instruction2: 'Extend foot straight forward', instruction3: 'Keep back straight and upright', instruction4: 'Balance on standing leg',
         accuracy: 'Accuracy:', checkForm: 'Check Form', autoPosition: 'Auto Position', formProgress: 'Form Progress:', backToGames: 'Back to Games',
-        puzzleGame: '🧩 Order the Phases', puzzleInstructions: 'Arrange the 5 real stages in order — one piece is an imposter, leave it out!',
+        puzzleGame: '🧩 Order the Phases', puzzleInstructions: 'Put the 5 phases in order. One piece is wrong — leave it out!',
         puzzlePieces: 'Drag pieces to slots:', readyStance: 'Ready Stance', kneeLift: 'Knee Lift', fullExtension: 'Full Extension', legRetract: 'Leg Retract', returnStance: 'Return to Stance',
         checkPuzzle: 'Check Sequence', hint: 'Hint', puzzleProgress: 'Puzzle Progress:',
-        performanceGame: "👁️ Judge's Eye", performanceInstructions: 'Tap the ONE statement that is technically wrong about the image shown',
+        performanceGame: "👁️ Judge's Eye", performanceInstructions: 'Look at the picture and tap the wrong sentence',
         whichIsCorrect: 'Look at the image and find the incorrect statement',
         taekwondoQuiz: '❓ Taekwondo Knowledge Quiz', quizDescription: 'Test your understanding of Taekwondo techniques and terminology',
         question: 'Question', score: 'Score:', winner: '🏆 Congratulations!', achievementsUnlocked: 'Achievements Unlocked:',
@@ -1404,20 +1415,20 @@ class GameState {
         menuTitle: 'Menu', navSectionTrain: 'Train', navSectionProgress: 'Progress', navSectionData: 'Data',
         actionTitle: 'Strike Challenge', actionDesc: 'A different hands-on challenge for every kick',
         errorHuntTitle: 'Mistake Hunter', errorHuntDesc: 'Find the hidden mistake in the kick',
-        errorHuntGame: '🔍 Mistake Hunter', errorHuntInstructions: 'Tap the body part that has the hidden mistake in this kick',
-        quizBlastTitle: 'Quiz Blast', quizBlastDesc: 'Shoot the right answer - new questions for every kick',
+        errorHuntGame: '🔍 Mistake Hunter', errorHuntInstructions: 'Tap where the mistake is',
+        quizBlastTitle: 'Quiz Blast', quizBlastDesc: 'Laser the right answer',
         quizBlastGame: '🚀 Quiz Blast', quizBlastInstructions: 'Move the helmet with the arrow keys (or drag), fire with Space (or 🔥) and hit the correct answer. Three lives!',
         downloadCertificate: 'Download Certificate 📜',
-        boardBreakTitle: 'Board Break', boardBreakDesc: 'Pick the right part of the foot, aim and smash the boards',
-        paddleTitle: 'Target Paddles', paddleDesc: 'Hit only the paddle at a real target for this kick — fast!',
-        rhythmTitle: 'Kick Rhythm', rhythmDesc: 'Tap the 5 phases in order, right on the beat',
+        boardBreakTitle: 'Board Break', boardBreakDesc: 'Pick the right part of the foot and break the board',
+        paddleTitle: 'Target Paddles', paddleDesc: 'Hit the right paddle — fast!',
+        rhythmTitle: 'Kick Rhythm', rhythmDesc: 'Tap the phases on the beat',
         coreGames: 'The 3 main games — pass each once (60%) to open the test', bonusGames: 'Bonus games',
         dashboardNav: 'Player Dashboard', backToGames2: 'Back to Games',
         dashboardTitle: '📊 Player Dashboard', dashboardDesc: 'Scores and insights for every player on this device.',
         dashboardOpen: 'Open Player Dashboard', dashboardExportPlayer: 'This player (CSV)', dashboardExportAll: 'All players (CSV)',
-        sparringTitle: 'Sparring', sparringDesc: 'Score on a real opponent — kick only when a legal target opens',
-        balanceTitle: 'Balance Hold', balanceDesc: 'Hold every phase of the kick on one leg without falling',
-        heavyBagTitle: 'Heavy Bag', heavyBagDesc: 'Time your kick to the swinging bag for maximum power',
+        sparringTitle: 'Sparring', sparringDesc: 'Kick when the right target lights up',
+        balanceTitle: 'Balance Hold', balanceDesc: 'Stand on one leg without falling',
+        heavyBagTitle: 'Heavy Bag', heavyBagDesc: 'Kick the bag at the right moment',
         leagueNav: 'League & Challenges', versusNav: 'Challenge a Friend', switchPlayerNav: 'Switch Player', coachNav: 'Coach Mode',
         leagueTitle: '🏅 League & Challenges', leagueDesc: "Play today's challenge, climb the weekly league and win awards.",
         versusTitle: '⚔️ Challenge a Friend', versusDesc: 'Two players, one screen: the first to kick a legal target scores.',
@@ -1452,18 +1463,18 @@ class GameState {
         playerModalTitle: '🏆 مين اللي بيلعب؟', playerModalDesc: 'اكتب اسمك عشان نحفظ نقاطك وتنضم للوحة المتصدرين.', playerNamePlaceholder: 'اسمك', playerNameConfirm: 'يلا نبدأ', playerExistingLabel: 'أو كمّل باسم:',
         leaderboardTitle: '🏆 لوحة المتصدرين', leaderboardDesc: 'شوف ترتيبك مقارنة بكل اللاعبين على الجهاز ده.', leaderboardMyStats: 'إحصائياتي', leaderboardAllPlayers: 'كل اللاعبين', leaderboardTotalPoints: 'مجموع النقاط', leaderboardGamesPlayed: 'الألعاب اللي لعبتها', leaderboardAttempts: 'المحاولات', leaderboardLastPlayed: 'آخر لعب', leaderboardExport: '⬇️ نزّل النتايج (CSV)', leaderboardSwitchPlayer: '🔁 غيّر اللاعب', leaderboardEmpty: 'لسه معندكش نقاط — العب أي لعبة عشان تدخل اللوحة!', leaderboardYou: 'إنت',
         changeCharacterTitle: '👤 غيّر الشخصية', currentCharacter: 'الشخصية دلوقتي:', selectNewCharacter: 'اختار شخصية جديدة:', select: 'اختار',
-        coachYang: '👴 الكوتش يانج:',        coachInstruction1: 'بص أنا بعمل الركلة الأمامية إزاي خطوة بخطوة!', learningTitle: '🎓 اتعلم آب تشاجي', learningSubtitle: 'اتقن المراحل الخمسة للركلة الأمامية',
+        coachYang: '👴 سابوم نيم يانج:',        coachInstruction1: 'بص أنا بعمل الركلة الأمامية إزاي خطوة بخطوة!', learningTitle: '🎓 اتعلم آب تشاجي', learningSubtitle: 'اتقن المراحل الخمسة للركلة الأمامية',
         preparation: 'الاستعداد (جونبي)', chamber: 'رفع الركبة', extension: 'فرد الركلة', recoil: 'سحب الرجل', return: 'الرجوع للوضعية',
-        gamesCenter: '🎮 مركز الألعاب', chooseGame: 'اختار لعبة وابدأ التمرين', formControl: 'ظبّط الوضعية', formControlDesc: 'اسحب نقط المفاصل أو استخدم الأسهم وظبّط وضعية مثالية',
-        puzzleAssembly: 'رتّب المراحل', puzzleDesc: 'رتّب مراحل آب تشاجي الخمسة بالترتيب الصح، وسيب القطعة الدخيلة برّه', performanceRecognition: 'عين الحكم',
+        gamesCenter: '🎮 مركز الألعاب', chooseGame: 'اختار لعبة وابدأ التمرين', formControl: 'ظبّط الوضعية', formControlDesc: 'اسحب النقط وظبّط شكل الركلة',
+        puzzleAssembly: 'رتّب المراحل', puzzleDesc: 'رتّب مراحل الركلة الخمسة', performanceRecognition: 'عين الحكم',
         performanceDesc: 'بص على الركلة واختار الجملة الوحيدة الغلط عنها', quizDesc: 'اختبر معلوماتك في التايكوندو', notStarted: 'لسه مابدأش', inProgress: 'شغال', completed: 'خلصت',
-        formControlGame: '🧍 ظبّط الوضعية — آب تشاجي', formControlInstructions: 'اسحب نقط التحكم أو استخدم الأسهم عشان تحرك المفاصل',
+        formControlGame: '🧍 ظبّط الوضعية — آب تشاجي', formControlInstructions: 'اسحب النقط الملونة لحد ما الشكل يبقى صح',
         instructions: '🎯 التعليمات:', instruction1: 'ارفع ركبتك لحد صدرك', instruction2: 'افرد رجلك لقدام على طول', instruction3: 'خلي ضهرك مفرود', instruction4: 'اتوازن على رجل الارتكاز',
         accuracy: 'الدقة:', checkForm: 'اتأكد من الشكل', autoPosition: 'وضع أوتوماتيك', formProgress: 'تقدّمك في الشكل:', backToGames: 'ارجع للألعاب',
-        puzzleGame: '🧩 رتّب المراحل', puzzleInstructions: 'رتّب المراحل الخمسة الحقيقية بالترتيب الصح — فيه قطعة دخيلة، سيبها برّه!',
-        puzzlePieces: 'اسحب القطع للأماكن الفاضية:', readyStance: 'وضعية الاستعداد', kneeLift: 'رفع الركبة', fullExtension: 'فرد كامل', legRetract: 'سحب الرجل', returnStance: 'الرجوع للوضعية',
+        puzzleGame: '🧩 رتّب المراحل', puzzleInstructions: 'رتّب المراحل الخمسة. فيه قطعة غلط — سيبها برّه!',
+        puzzlePieces: 'اسحب القطع للأماكن الفاضية:', readyStance: 'وقفة القتال', kneeLift: 'رفع الركبة', fullExtension: 'فرد كامل', legRetract: 'سحب الرجل', returnStance: 'الرجوع للوضعية',
         checkPuzzle: 'اتأكد من الترتيب', hint: 'تلميح', puzzleProgress: 'تقدّمك في التركيب:', performanceGame: '👁️ عين الحكم',
-        performanceInstructions: 'دوس على الجملة الوحيدة الغلط فنيًا عن الصورة اللي قدامك', whichIsCorrect: 'بص على الصورة ودوّر على الجملة الغلط',
+        performanceInstructions: 'بص على الصورة ودوس على الجملة الغلط', whichIsCorrect: 'بص على الصورة ودوّر على الجملة الغلط',
         taekwondoQuiz: '❓ اختبر معلوماتك في التايكوندو', quizDescription: 'اختبر فهمك لحركات ومصطلحات التايكوندو', question: 'سؤال', score: 'النقط:',
         winner: '🏆 مبروك!', achievementsUnlocked: 'الإنجازات اللي اتفتحت:', firstCompletion: 'أول لعبة تخلّصها', perfectForm: 'أتقنت الشكل المثالي',
         nextLevel: 'المستوى اللي بعده', tryAgain: 'جرّب تاني', backToMenu: 'ارجع للرئيسية', viewProgress: 'شوف تقدّمك',
@@ -1474,26 +1485,26 @@ class GameState {
         resetData: 'امسح البيانات',
         backupExport: 'احفظ نسخة احتياطية', backupImport: 'رجّع نسخة احتياطية',
         locked: 'مقفول', naroChagiDesc: 'الركلة المطرقية من فوق لتحت', bakChagi3Desc: 'الركلة الجانبية',
-        trophyRoom: 'فاترينة الإنجازات', trophyRoomTitle: '🏆 فاترينة إنجازات الصالة', trophyRoomDesc: 'كل ميدالية وكاس وشهادة خدتها في رحلتك',
+        trophyRoom: 'فاترينة الإنجازات', trophyRoomTitle: '🏆 فاترينة إنجازات الدوجانج', trophyRoomDesc: 'كل ميدالية وكاس وشهادة خدتها في رحلتك',
         coolDown: 'تهدئة', coolDownTitle: '🧘 وقت التهدئة', coolDownDesc: 'تمرين جامد! اعمل إطالة للعضلات دي 20 ثانية لكل واحدة عشان تخلّص بأمان.', coolDownDone: 'خلّصت الإطالة',
         reportNav: 'تقرير التقدم', reportTitle: '📊 تقرير التقدم', reportDesc: 'ملخص سريع للقراية بس، لأولياء الأمور والمدربين.',
         menuTitle: 'القائمة', navSectionTrain: 'التمرين', navSectionProgress: 'التقدم', navSectionData: 'البيانات',
         actionTitle: 'تحدي الضربة', actionDesc: 'تحدي عملي مختلف لكل ركلة',
         errorHuntTitle: 'صيّاد الأخطاء', errorHuntDesc: 'لاقي الغلطة المستخبية في الركلة',
-        errorHuntGame: '🔍 صيّاد الأخطاء', errorHuntInstructions: 'دوس على الجزء اللي فيه الغلطة المستخبية في الركلة دي',
-        quizBlastTitle: 'كويز الفضاء', quizBlastDesc: 'اضرب الليزر على الإجابة الصح - أسئلة مخصوص لكل ركلة',
+        errorHuntGame: '🔍 صيّاد الأخطاء', errorHuntInstructions: 'دوس على مكان الغلطة في الركلة',
+        quizBlastTitle: 'كويز الفضاء', quizBlastDesc: 'اضرب الإجابة الصح بالليزر',
         quizBlastGame: '🚀 كويز الفضاء', quizBlastInstructions: 'حرّك الخوذة بالأسهم (أو بالسحب)، واضرب بالمسافة (أو زرار 🔥) وصيب الإجابة الصح. معاك 3 محاولات!',
         downloadCertificate: 'نزّل شهادة الإتقان 📜',
-        boardBreakTitle: 'كسر الألواح', boardBreakDesc: 'اختار جزء القدم الصح، صوّب، واكسر الألواح',
-        paddleTitle: 'مضارب الأهداف', paddleDesc: 'اضرب بس المضرب اللي عند هدف حقيقي للركلة دي — بسرعة!',
-        rhythmTitle: 'إيقاع الركلة', rhythmDesc: 'دوس على المراحل الخمسة بالترتيب وعلى الإيقاع',
+        boardBreakTitle: 'كسر الألواح', boardBreakDesc: 'اختار جزء القدم الصح واكسر اللوح',
+        paddleTitle: 'مضارب الأهداف', paddleDesc: 'اضرب المضرب الصح بسرعة!',
+        rhythmTitle: 'إيقاع الركلة', rhythmDesc: 'دوس على المراحل مع الإيقاع',
         coreGames: 'الألعاب التلاتة الأساسية — عدّي كل واحدة مرة (٦٠٪) عشان يتفتح الاختبار', bonusGames: 'ألعاب زيادة',
         dashboardNav: 'لوحة اللاعبين', backToGames2: 'رجوع للألعاب',
         dashboardTitle: '📊 لوحة اللاعبين', dashboardDesc: 'النتائج والملاحظات لكل لاعب على الجهاز ده.',
         dashboardOpen: 'افتح لوحة اللاعبين', dashboardExportPlayer: 'اللاعب ده (CSV)', dashboardExportAll: 'كل اللاعبين (CSV)',
-        sparringTitle: 'النزال', sparringDesc: 'سجّل نقط على منافس حقيقي — اركل بس لما يفتح هدف قانوني',
-        balanceTitle: 'اثبت واتوازن', balanceDesc: 'اثبت على رجل واحدة في كل مرحلة من الركلة من غير ما تقع',
-        heavyBagTitle: 'كيس الركلات', heavyBagDesc: 'اظبط توقيت ركلتك مع الكيس اللي بيتمرجح عشان أقصى قوة',
+        sparringTitle: 'النزال', sparringDesc: 'اركل لما الهدف الصح ينوّر',
+        balanceTitle: 'اثبت واتوازن', balanceDesc: 'اثبت على رجل واحدة من غير ما تقع',
+        heavyBagTitle: 'كيس الركلات', heavyBagDesc: 'اركل الكيس في الوقت الصح',
         leagueNav: 'الدوري والتحديات', versusNav: 'تحدّى صاحبك', switchPlayerNav: 'غيّر اللاعب', coachNav: 'وضع المدرب',
         leagueTitle: '🏅 الدوري والتحديات', leagueDesc: 'العب تحدي النهارده، اطلع في الدوري الأسبوعي واكسب جوايز.',
         versusTitle: '⚔️ تحدّى صاحبك', versusDesc: 'لاعبين على شاشة واحدة: اللي يركل الأول في هدف صح ياخد النقط.',
@@ -1612,7 +1623,7 @@ class GameState {
     let stage = 'warmup';
     if ((s.warmup || 0) > 0)  stage = 'learning';
     if ((s.learning || 0) > 0) stage = 'games';
-    if (GameState.allGamesDone(s)) stage = 'quiz';
+    if (GameState.allGamesDone(s, skillId)) stage = 'quiz';
     return { done: false, skillId, stage };
   }
 
@@ -1887,7 +1898,7 @@ class GameState {
   // skill, decoupled from any single activity's pass/fail bar.
   calculateSkillOverallProgress(skillId) {
     const s = this.skillGameScores[skillId] || {};
-    const K = GameState.REQUIRED_GAME_KEYS;
+    const K = GameState.requiredKeys(skillId);
     const gamesAvg = K.reduce((a, k) => a + (s[k] || 0), 0) / K.length;
     return Math.round(((s.learning || 0) + gamesAvg + (s.quiz || 0)) / 3);
   }
@@ -1902,16 +1913,23 @@ class GameState {
 
   // v57: the 3 main games — the most teaching ones (order the phases, spot the mistake, the
   // hands-on strike). Each must reach PASSING_SCORE once before the Test opens.
-  static REQUIRED_GAME_KEYS = ['puzzle', 'performance', 'action'];
+  // v59: every game of the kick's three units must be passed (see Units)
+  static requiredKeys(sk) { return Units.all(sk).map(g => GameState.GAME_KEY_MAP[g]); }
+  static get REQUIRED_GAME_KEYS() { return GameState.requiredKeys(TKD.gs()?.currentSkill || 'apchagi'); }
+  // which kick a scores object belongs to (callers pass only the scores)
+  static skillOfScores(scores) {
+    const all = TKD.gs()?.skillGameScores || {};
+    return Object.keys(all).find(k => all[k] === scores) || TKD.gs()?.currentSkill || 'apchagi';
+  }
   static gamePassed(scores, key) { return ((scores || {})[key] || 0) >= GameConfig.SETTINGS.PASSING_SCORE; }
-  static allGamesDone(scores) {
-    return GameState.REQUIRED_GAME_KEYS.every(k => GameState.gamePassed(scores, k));
+  static allGamesDone(scores, sk = GameState.skillOfScores(scores)) {
+    return GameState.requiredKeys(sk).every(k => GameState.gamePassed(scores, k));
   }
   static quizPassed(scores) { return ((scores || {}).quiz || 0) >= GameConfig.SETTINGS.QUIZ_PASS; }
   // a kick is mastered when the lesson is done, the 3 main games are passed and the Test is passed
-  static skillMastered(scores) {
+  static skillMastered(scores, sk = GameState.skillOfScores(scores)) {
     const s = scores || {};
-    return (s.learning || 0) > 0 && GameState.allGamesDone(s) && GameState.quizPassed(s);
+    return (s.learning || 0) > 0 && GameState.allGamesDone(s, sk) && GameState.quizPassed(s);
   }
   // v57: every attempt's score is kept (the best one), passed or not — the child sees how
   // far they got. Returns true when this is a new best.
@@ -1942,7 +1960,7 @@ class GameState {
     }
     // v57: the kick is mastered (and the next one opens) once the lesson, the 3 main games
     // and the Test are passed
-    if (GameState.skillMastered(this.skillGameScores[skillId])) {
+    if (GameState.skillMastered(this.skillGameScores[skillId], skillId)) {
       this.completeSkill(skillId);
     }
 
@@ -2240,21 +2258,21 @@ class LearningSystem {
     apchagi: [
       { ar: 'رجليك بعرض كتافك، وإيديك قدام صدرك.', en: 'Feet apart, hands up in front of your chest.' },
       { ar: 'ارفع ركبتك لحد صدرك، ولفّ قدم الارتكاز لبرّه.', en: 'Knee up to your chest, turn your standing foot out.' },
-      { ar: 'افرد رجلك بسرعة، واضرب بمشط القدم.', en: 'Snap the leg out and hit with the ball of the foot.' },
+      { ar: 'افرد رجلك بسرعة، واضرب بالآب تشوك (مشط القدم).', en: 'Snap the leg out and hit with the ball of the foot.' },
       { ar: 'اسحب رجلك لورا بسرعة.', en: 'Pull the leg back fast.' },
       { ar: 'انزل بالراحة وارجع للاستعداد.', en: 'Land softly and get ready again.' }
     ],
     narochagi: [
       { ar: 'إيديك فوق، ووزنك في النص.', en: 'Hands up, weight in the middle.' },
       { ar: 'ارفع رجلك وهي مفرودة لفوق خالص.', en: 'Swing your straight leg up high.' },
-      { ar: 'نزّل الكعب لتحت بقوة.', en: 'Drop the heel down hard.' },
+      { ar: 'نزّل الدوي كومتشي (الكعب) لتحت بقوة.', en: 'Drop the heel down hard.' },
       { ar: 'كمّل نزول رجلك وهي مفرودة لحد الأرض.', en: 'Keep the leg straight all the way down to the floor.' },
       { ar: 'انزل بالراحة، وإيديك فوق.', en: 'Land softly, hands up.' }
     ],
     bakchagi3: [
       { ar: 'إيديك فوق، وعينك على الهدف.', en: 'Hands up, eyes on the target.' },
       { ar: 'لفّ بجنبك، وارفع ركبتك لصدرك.', en: 'Turn side-on, knee up to your chest.' },
-      { ar: 'اضرب بوش القدم وصوابعك ممدودة.', en: 'Strike with the instep, toes pointed.' },
+      { ar: 'اضرب بالبال دونج (وش القدم) وصوابعك ممدودة.', en: 'Strike with the instep, toes pointed.' },
       { ar: 'اسحب رجلك على نفس الخط.', en: 'Pull the leg back on the same line.' },
       { ar: 'انزل بالراحة، وإيديك فوق.', en: 'Land softly, hands up.' }
     ]
@@ -2599,7 +2617,7 @@ class LearningSystem {
 // GAME 1: FORM CONTROL SYSTEM — Target zones + Skeleton + Live Feedback
 // =====================================================================
 class FormControlSystem {
-  static skeletonVisible = true;
+  static skeletonVisible = false;          // v59.1: starts OFF — the child turns it on if they want it
 
   static getKickFrames(skillId, character) {
     const skill = GameConfig.SKILLS[skillId] || GameConfig.SKILLS.apchagi;
@@ -2735,7 +2753,7 @@ class FormControlSystem {
       samples = [];
       for (let k = 0; k <= 48; k++) {
         const t = tT * k / 48; RigBackend.poseAt(rig, rig.skeleton, anim, t);
-        const j = this.fcJoints(rig.skeleton, part); samples.push({ t, knee: j.knee, foot: j.foot, j });
+        const j = this.fcJoints(rig.skeleton, part); samples.push({ t, knee: j.knee, foot: j.foot, j, local: new Float32Array(rig.skeleton.local) });
       }
     } else {
       const st = this.FC_STATIC[`${ch}|${this.skillId}|${mirror ? 1 : 0}`];
@@ -2782,10 +2800,126 @@ class FormControlSystem {
     const fwd = Math.sign(J.foot.x - J.standingFoot.x) || 1;                 // the way the kick goes on screen
     const frontHand = (J.handR.x - J.handL.x) * fwd > 0 ? 'hand-right' : 'hand-left';
     this.fc3d = { rig, ghost, still: !ghost, anim, times, tT, part, J, M, samples, dial, oneGuard, guardPts, fwd, frontHand, handOff: { l: { x: J.handL.x - mid.x, y: J.handL.y - mid.y }, r: { x: J.handR.x - mid.x, y: J.handR.y - mid.y } }, t: 0 };
+    if (ghost) this.fcJointSetup(rig, YAW, mirror);                 // v59.1: every point sits ON its joint
     this.controlPoints = ['knee', 'foot', ...guardPts, 'pivot'];
     this.idealPositions = ideal; this.limits = limits;
     return true;
   }
+  // ------------------------------------------------------------------ v59.1: points ON the joints
+  // Each touch point sits on a real joint of the character and moves THAT joint:
+  //   🦵 knee  → the thigh (and the body with it) along the kick, from the stance to the key moment
+  //   🦶 foot  → the lower leg: how much the knee bends / straightens
+  //   🥊 hands → the arms, from hanging down to the guard of the key moment
+  // The right angles are reached exactly when each joint reaches its green circle.
+  static FC_SHIN = ['RightLeg', 'RightFoot', 'RightToeBase'];
+  static FC_ARM_L = ['LeftArm', 'LeftForeArm', 'LeftHand'];
+  static FC_ARM_R = ['RightArm', 'RightForeArm', 'RightHand'];
+  static FC_HAND_STEPS = 20;
+  static fcJointSetup(rig, yaw, mirror) {
+    const F = this.fc3d, work = rig.newSkeleton();
+    work.viewYaw = yaw; work.viewPitch = 0; work.mirror = mirror;
+    F.work = work; F.bi = rig.data.boneIndex; F.anchor = rig.data.animations[F.anim]?.anchor || 'left';
+    F.key = F.samples.length - 1;
+    // the arms hanging down (the "attention" stance) — where the hands start
+    RigBackend.poseAt(rig, work, 'bow', 0); F.down = new Float32Array(work.local);
+    F.st = this.fcStart();
+  }
+  // the first pose: standing ready, leg down, hands low
+  static fcStart() { return { a: 0, b: 0, hl: 0.3, hr: 0.3 }; }
+  static fcKeySt() { const k = this.fc3d.key; return { a: k, b: k, hl: 1, hr: 1 }; }
+  static fcJointMode() { const F = this.fc3d; return !!(F && !F.still && F.work && F.st); }
+  static fcSlerp(L, i, A, B, t) {
+    let ax = A[i], ay = A[i + 1], az = A[i + 2], aw = A[i + 3], bx = B[i], by = B[i + 1], bz = B[i + 2], bw = B[i + 3];
+    let d = ax * bx + ay * by + az * bz + aw * bw;
+    if (d < 0) { d = -d; bx = -bx; by = -by; bz = -bz; bw = -bw; }
+    let s0 = 1 - t, s1 = t;
+    if (d < 0.9995) { const th = Math.acos(d), sn = Math.sin(th); s0 = Math.sin((1 - t) * th) / sn; s1 = Math.sin(t * th) / sn; }
+    const x = s0 * ax + s1 * bx, y = s0 * ay + s1 * by, z = s0 * az + s1 * bz, w = s0 * aw + s1 * bw, n = Math.hypot(x, y, z, w) || 1;
+    L[i] = x / n; L[i + 1] = y / n; L[i + 2] = z / n; L[i + 3] = w / n;
+  }
+  // the whole body for a set of joint choices → bone rotations
+  static fcLocal(st, out) {
+    const F = this.fc3d, L = out || new Float32Array(F.samples[0].local.length);
+    const body = F.samples[st.a].local;
+    L.set(body);
+    const shin = F.samples[st.b].local;
+    for (const n of this.FC_SHIN) { const i = F.bi[n] * 4; if (i >= 0) { L[i] = shin[i]; L[i + 1] = shin[i + 1]; L[i + 2] = shin[i + 2]; L[i + 3] = shin[i + 3]; } }
+    if (F.guardPts.length) {                                       // (Naeryeo Chagi: the arms simply follow the kick)
+      for (const n of this.FC_ARM_L) { const i = F.bi[n] * 4; if (i >= 0) this.fcSlerp(L, i, F.down, body, st.hl); }
+      for (const n of this.FC_ARM_R) { const i = F.bi[n] * 4; if (i >= 0) this.fcSlerp(L, i, F.down, body, st.hr); }
+    }
+    return L;
+  }
+  // where every joint is for a set of choices (stage %)
+  static fcEval(st) {
+    const F = this.fc3d, sk = F.work;
+    this.fcLocal(st, sk.local); sk.anchor = F.anchor; sk.updateWorld();
+    return this.fcJoints(sk, F.part);
+  }
+  static fcPointOf(part, J) {
+    if (part === 'knee') return J.knee;
+    if (part === 'foot') return J.foot;
+    if (part === 'hand-left') return J.handL;
+    if (part === 'hand-right') return J.handR;
+    if (part === 'guard') return { x: (J.handL.x + J.handR.x) / 2, y: (J.handL.y + J.handR.y) / 2 };
+    return null;
+  }
+  // put every point on its joint (and remember the joints for the skeleton)
+  static fcPlaceAll() {
+    const F = this.fc3d, J = this.fcEval(F.st);
+    F.live = J;
+    this.controlPoints.forEach(part => {
+      if (part === 'pivot') return;
+      const el = document.getElementById(`cp-${part}`), q = this.fcPointOf(part, J);
+      if (el && q) { el.style.left = `${q.x}%`; el.style.top = `${q.y}%`; }
+    });
+    this.fcRedraw();
+  }
+  // the choices this part can take
+  static fcOptions(part) {
+    const F = this.fc3d, st = F.st, out = [];
+    if (part === 'knee') for (let a = 0; a <= F.key; a++) out.push({ ...st, a });
+    else if (part === 'foot') for (let b = 0; b <= F.key; b++) out.push({ ...st, b });
+    else {
+      const N = this.FC_HAND_STEPS;
+      for (let k = 0; k <= N; k++) {
+        const w = k / N;
+        out.push(part === 'hand-left' ? { ...st, hl: w } : part === 'hand-right' ? { ...st, hr: w } : { ...st, hl: w, hr: w });
+      }
+    }
+    return out;
+  }
+  // the child pulls a joint towards (x, y): the joint goes to the nearest place it can really reach
+  static fcDragJoint(part, x, y) {
+    const F = this.fc3d, ideal = this.idealPositions[part];
+    let best = null, bd = Infinity;
+    // close enough to the green circle → the joint locks into the right angle
+    if (ideal && Math.hypot(x - ideal.x, y - ideal.y) <= 5.5) {
+      const k = this.fcKeySt();
+      best = part === 'knee' ? { ...F.st, a: k.a } : part === 'foot' ? { ...F.st, b: k.b } : part === 'hand-left' ? { ...F.st, hl: 1 } : part === 'hand-right' ? { ...F.st, hr: 1 } : { ...F.st, hl: 1, hr: 1 };
+    } else {
+      for (const o of this.fcOptions(part)) {
+        const q = this.fcPointOf(part, this.fcEval(o)); if (!q) continue;
+        const d = (q.x - x) ** 2 + (q.y - y) ** 2;
+        if (d < bd) { bd = d; best = o; }
+      }
+    }
+    if (best) F.st = best;
+    this.fcPlaceAll();
+    const q = this.fcPointOf(part, F.live);
+    return { x: q.x, y: q.y, snapped: !!ideal && Math.hypot(q.x - ideal.x, q.y - ideal.y) <= 1.5 };
+  }
+  // the arrow keys: one small step along the joint's own path
+  static fcStepJoint(part, dir) {
+    const F = this.fc3d, st = { ...F.st }, N = this.FC_HAND_STEPS;
+    if (part === 'knee') st.a = Math.max(0, Math.min(F.key, st.a + dir * 2));
+    else if (part === 'foot') st.b = Math.max(0, Math.min(F.key, st.b + dir * 2));
+    else if (part === 'hand-left') st.hl = Math.max(0, Math.min(1, st.hl + dir / N));
+    else if (part === 'hand-right') st.hr = Math.max(0, Math.min(1, st.hr + dir / N));
+    else if (part === 'guard') { st.hl = Math.max(0, Math.min(1, st.hl + dir / N)); st.hr = st.hl; }
+    F.st = st; this.fcPlaceAll();
+  }
+
   // the pivot point slides round its dial only
   static fcOnDial(x, y) {
     const D = this.fc3d.dial, a = Math.atan2((y - D.cy) / D.ry, (x - D.cx) / D.rx);
@@ -2811,14 +2945,19 @@ class FormControlSystem {
     const st = cv.parentElement, w = st.clientWidth, h = st.clientHeight; if (!w || !h) return;
     const dpr = Math.min(2, window.devicePixelRatio || 1);
     if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) { cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); }
-    const kn = this.fcPos('knee'), ft = this.fcPos('foot');
-    let best = F.samples[0], bd = Infinity;
-    for (const smp of F.samples) { const d = (smp.knee.x - kn.x) ** 2 + (smp.knee.y - kn.y) ** 2 + (smp.foot.x - ft.x) ** 2 + (smp.foot.y - ft.y) ** 2; if (d < bd) { bd = d; best = smp; } }
-    F.t = best.t; F.live = best.j;
     const g = cv.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, w, h);
     const L = this.fcLayout(), k = h / this.FC_H, x = L.x * (w / this.FC_W), ground = L.ground * k, s = L.s * k;
     g.fillStyle = 'rgba(0,0,0,.28)'; g.beginPath(); g.ellipse(x + 30 * s, ground + 4, w * 0.24, h * 0.025, 0, 0, Math.PI * 2); g.fill();
     F.ghost.draw(g, x, ground, s, false, 0.24);                     // the goal
+    if (this.fcJointMode()) {                                       // v59.1: the body the child's joints make
+      const sk = F.rig.skeleton; this.fcLocal(F.st, sk.local); sk.anchor = F.anchor; sk.updateWorld();
+      sk.draw(g, x, ground, s); window.Shop?.drawCosmetics(sk, g, x, ground, s);
+      return;
+    }
+    const kn = this.fcPos('knee'), ft = this.fcPos('foot');
+    let best = F.samples[0], bd = Infinity;
+    for (const smp of F.samples) { const d = (smp.knee.x - kn.x) ** 2 + (smp.knee.y - kn.y) ** 2 + (smp.foot.x - ft.x) ** 2 + (smp.foot.y - ft.y) ** 2; if (d < bd) { bd = d; best = smp; } }
+    F.t = best.t; F.live = best.j;
     RigBackend.poseAt(F.rig, F.rig.skeleton, F.anim, F.t);
     F.rig.skeleton.draw(g, x, ground, s);
     window.Shop?.drawCosmetics(F.rig.skeleton, g, x, ground, s);
@@ -3131,6 +3270,8 @@ class FormControlSystem {
     // visit starts a fresh attempt. (Read from the points on screen — the 3D version has its own
     // set of points.)
     const restore = this._restore === true; this._restore = false;
+    if (!restore) this.skeletonVisible = false;                  // v59.1: every new visit starts with the skeleton off
+    this._savedSt = restore && this.fc3d?.st ? { ...this.fc3d.st } : null;   // a language switch keeps the joints
     if (restore && this._lastSetup?.startsWith(`${this.skillId}|`)) this.selectedCharacter = this._lastSetup.split('|')[1];
     const savedPositions = {};
     if (restore) document.querySelectorAll('#form-stage .control-point').forEach(el => {
@@ -3185,8 +3326,8 @@ class FormControlSystem {
     if (descEl) {
       descEl.removeAttribute('data-i18n');
       descEl.textContent = ar
-        ? `اسحب النقط الملونة لحد الدواير الخضرا عشان البطل يعمل أهم لحظة في ${skillName} صح`
-        : `Drag the coloured points onto the green circles so your fighter shows the key moment of ${skillName}`;
+        ? `اسحب النقط الملونة للدواير الخضرا`
+        : `Drag the coloured dots onto the green circles`;
     }
 
     // v53 — Coach Yang's 4 points describe the exact pose on the stage: the key moment of each
@@ -3465,7 +3606,8 @@ class FormControlSystem {
       hl = A.handL; hr = A.handR; cHL = cHR = '#2a9d8f';
     } else if (F.guardPts.includes('guard')) {
       const g = this.fcPos('guard');
-      hl = { x: g.x + F.handOff.l.x, y: g.y + F.handOff.l.y }; hr = { x: g.x + F.handOff.r.x, y: g.y + F.handOff.r.y };
+      if (this.fcJointMode()) { hl = A.handL; hr = A.handR; }    // v59.1: the real hands
+      else { hl = { x: g.x + F.handOff.l.x, y: g.y + F.handOff.l.y }; hr = { x: g.x + F.handOff.r.x, y: g.y + F.handOff.r.y }; }
       cHL = cHR = FormControlSystem.getJointColor(dist('guard'));
     } else {
       hl = this.fcPos('hand-left'); hr = this.fcPos('hand-right');
@@ -3667,6 +3809,17 @@ class FormControlSystem {
   }
 
   static initializeControlPoints() {
+    if (this.fcJointMode()) {                              // v59.1: the points start ON the joints of the ready stance
+      const F = this.fc3d;
+      F.st = this._savedSt || this.fcStart(); this._savedSt = null;
+      const pv = document.getElementById('cp-pivot');
+      if (pv) { const p0 = F.dial.at(F.dial.start); pv.style.left = `${p0.x}%`; pv.style.top = `${p0.y}%`; }
+      this.controlPoints.forEach(part => { const el = document.getElementById(`cp-${part}`); if (el) el.className = 'control-point cp-far'; });
+      this.fcPlaceAll();
+      this.updateSkeleton();
+      this.calculateAccuracy();
+      return;
+    }
     const placed = [];                                     // v53: no two points start on top of each other
     const clear = (x, y) => placed.every(q => Math.hypot(q.x - x, (q.y - y) * 0.833) >= 11);
     if (this.fc3d) placed.push(this.fc3d.dial.at(this.fc3d.dial.start));
@@ -3855,6 +4008,12 @@ class FormControlSystem {
           FormControlSystem.calculateAccuracy(); FormControlSystem.gameState.playSound('click');
           return;
         }
+        if (FormControlSystem.fcJointMode()) {                // v59.1: the arrows move the joint along its own path
+          const up = e.key === 'ArrowUp' || e.key === (FormControlSystem.fc3d.fwd > 0 ? 'ArrowRight' : 'ArrowLeft');
+          FormControlSystem.fcStepJoint(FormControlSystem.draggedPart, up ? 1 : -1);
+          FormControlSystem.calculateAccuracy(); FormControlSystem.gameState.playSound('click');
+          return;
+        }
         let x = parseFloat(point.style.left) || 50;
         let y = parseFloat(point.style.top)  || 50;
         switch(e.key) {
@@ -3952,6 +4111,17 @@ class FormControlSystem {
     let y = this.applyLimitY(this.draggedPart, ((pt.y - rect.top)  / rect.height) * 100);
     if (this.fc3d && this.draggedPart === 'pivot') {       // v53: the foot turn slides round its dial
       ({ x, y } = this.fcOnDial(((pt.x - rect.left) / rect.width) * 100, ((pt.y - rect.top) / rect.height) * 100));
+    } else if (this.fcJointMode()) {                       // v59.1: the joint itself moves — the point stays on it
+      const r = this.fcDragJoint(this.draggedPart, ((pt.x - rect.left) / rect.width) * 100, ((pt.y - rect.top) / rect.height) * 100);
+      if (r.snapped && this.draggedElement.dataset.wasSnapped !== 'true') {
+        this.draggedElement.dataset.wasSnapped = 'true';
+        const ar = this.gameState.currentLanguage === 'ar';
+        this.spawnComicPopup(ar ? '🔒 اتقفلت!' : '🔒 Locked!', r.x, Math.max(2, r.y - 6));
+        this.gameState.playSound('success');
+        if (navigator.vibrate && !prefersReducedMotion()) navigator.vibrate(15);
+      } else if (!r.snapped) this.draggedElement.dataset.wasSnapped = 'false';
+      this.calculateAccuracy();
+      return;
     }
 
     // Magnetic snap: once the joint gets close enough to its ideal spot,
@@ -4128,6 +4298,7 @@ class FormControlSystem {
       const p = document.getElementById(`cp-${part}`);
       if (p) { p.style.left = `${pos.x}%`; p.style.top = `${pos.y}%`; }
     });
+    if (this.fcJointMode()) { this.fc3d.st = this.fcKeySt(); this.fcPlaceAll(); }   // v59.1: the joints themselves go to the right angles
     this.calculateAccuracy();
     this.updateSkeleton();
     this.gameState.playSound('success');
@@ -4275,7 +4446,7 @@ class PuzzleSystem {
     const ar = this.gameState.currentLanguage === 'ar', name = TKD.skillName(GameConfig.SKILLS[this.skillId] ? this.skillId : 'apchagi');
     const t = document.getElementById('puzzle-title'), d = document.getElementById('puzzle-desc');
     if (t) { t.removeAttribute('data-i18n'); t.textContent = ar ? `🧩 رتّب المراحل — ${name}` : `🧩 Order the Phases — ${name}`; }
-    if (d) { d.removeAttribute('data-i18n'); d.textContent = ar ? `رتّب مراحل ${name} الخمسة من ١ لـ ٥ — وفيه قطعة دخيلة اسمها مش زي صورتها، سيبها برّه!` : `Put the 5 phases of ${name} in order, 1 to 5 — one piece is an imposter whose name doesn't match its picture: leave it out!`; }
+    if (d) { d.removeAttribute('data-i18n'); d.textContent = ar ? `رتّب مراحل ${name} من ١ لـ ٥. فيه قطعة غلط — سيبها برّه!` : `Put the phases of ${name} in order, 1 to 5. One piece is wrong — leave it out!`; }
     document.querySelectorAll('#puzzle-screen .puzzle-slot .slot-label').forEach(el => { const n = +el.closest('.puzzle-slot').dataset.step; el.textContent = ar ? TKD.num(n) : String(n); });
     const h = document.querySelector('#puzzle-screen .puzzle-pieces-container h3');
     if (h) { h.removeAttribute('data-i18n'); h.textContent = ar ? 'دوس على قطعة وبعدين على رقم مكانها (أو اسحبها):' : 'Tap a piece, then the number of its place (or drag it):'; }
@@ -4748,9 +4919,9 @@ class PerformanceSystem {
           { correct: false, text: ar ? 'إيديك مرفوعين قدام صدرك للحماية' : 'Hands are up in front of the chest for guard' },
           { correct: true,  text: ar ? 'وزن جسمك كله على رجل واحدة عشان تستعد للركلة' : 'All body weight rests on one leg, ready to kick' }
         ],
-        correctFeedback: ar ? 'صح! في وضعية الاستعداد الوزن لازم يبقى متوزع على الرجلين عشان تقدر تتحرك بسرعة في أي اتجاه.'
+        correctFeedback: ar ? 'صح! في وقفة القتال الوزن لازم يبقى متوزع على الرجلين عشان تقدر تتحرك بسرعة في أي اتجاه.'
                             : 'Correct! In the ready stance, weight must stay balanced on both legs so you can move quickly in any direction.',
-        wrongFeedback:   ar ? 'ده وصف صح لوضعية الاستعداد. دوّر على الجملة اللي فيها غلطة في التكنيك.'
+        wrongFeedback:   ar ? 'ده وصف صح لوقفة القتال. دوّر على الجملة اللي فيها غلطة في التكنيك.'
                             : 'That correctly describes the ready stance. Look for the technically wrong statement.'
       },
       // v54: a 4th round (the recoil) — the game picks 3 of 4, like the other two kicks
@@ -4807,7 +4978,7 @@ class PerformanceSystem {
         ],
         correctFeedback: ar ? 'صح! في الاستعداد الرجلين على الأرض — وفي نارو تشاجي الرجل بتطلع بعد كده مفرودة، مش متنية.'
                             : 'Correct! In the ready stance both feet are on the floor — and in Naeryeo Chagi the leg rises straight afterwards, not bent.',
-        wrongFeedback:   ar ? 'ده وصف صح لوضعية الاستعداد. دوّر على الجملة الغلط.'
+        wrongFeedback:   ar ? 'ده وصف صح لوقفة القتال. دوّر على الجملة الغلط.'
                             : 'That correctly describes the ready stance. Look for the wrong statement.'
       },
       {
@@ -4864,7 +5035,7 @@ class PerformanceSystem {
         ],
         correctFeedback: ar ? 'صح! الحماية لازم تفضل مرفوعة طول الوقت — حتى وإنت بتلف.'
                             : 'Correct! Your guard must stay up the whole time — even while you turn.',
-        wrongFeedback:   ar ? 'ده وصف صح لوضعية الاستعداد. دوّر على الجملة الغلط.'
+        wrongFeedback:   ar ? 'ده وصف صح لوقفة القتال. دوّر على الجملة الغلط.'
                             : 'That correctly describes the ready stance. Look for the wrong statement.'
       },
       {
@@ -5287,7 +5458,7 @@ class ActionSystem {
     sumPass:{ en: (a) => `${a}% — great kicking!`, ar: (a) => `${a}% — ركلات جامدة!` },
     sumFail:{ en: (a, p) => a >= 60 ? `${a}% — so close! You need ${p}%.` : `${a}% — let’s practise a bit more. You need ${p}%.`,
               ar: (a, p) => a >= 60 ? `${a}% — قربت! محتاج ${p}%.` : `${a}% — محتاجين نتمرن شوية. المطلوب ${p}%.` },
-    sumTip: { en: 'Coach Yang’s tip:', ar: 'نصيحة الكوتش يانج:' },
+    sumTip: { en: 'Coach Yang’s tip:', ar: 'نصيحة سابوم نيم يانج:' },
     again:  { en: 'Try again', ar: 'جرّب تاني' }
   };
 
@@ -6559,7 +6730,7 @@ class QuizBlastSystem {
         w: [['نزول الكعب', 'Heel drop'], ['سحب الرجل', 'Recoil'], ['الرجوع للوضعية', 'Return to stance']] },
       { q: ['مرحلة الضربة في نارو تشاجي اسمها إيه؟', 'What is the striking phase of Naeryeo Chagi called?'],
         a: ['نزول الكعب', 'Heel drop'],
-        w: [['الرفع لفوق مستقيم', 'Vertical rise'], ['وضعية الاستعداد', 'Ready stance'], ['رفع الركبة', 'Knee lift']] },
+        w: [['الرفع لفوق مستقيم', 'Vertical rise'], ['وقفة القتال', 'Ready stance'], ['رفع الركبة', 'Knee lift']] },
       { q: ['الرجل بتطلع إزاي قبل ما تنزل؟', 'How does the leg rise before it drops?'],
         a: ['لفوق ومستقيمة', 'Straight up, vertically'],
         w: [['في لفّة دايرية لبرا', 'In a circle to the outside'], ['بالعرض لقدام', 'Horizontally forward'], ['لورا مع ثني الركبة', 'Backward with a bent knee']] },
@@ -7257,11 +7428,11 @@ class QuizSystem {
         question: 'What is the FIRST phase of Ap Chagi?',
         questionAr: 'إيه أول مرحلة في آب تشاجي؟',
         options: ['Kick extension', 'Knee lift', 'Ready stance', 'Recoil'],
-        optionsAr: ['فرد الرجل', 'رفع الركبة', 'وضعية الاستعداد', 'السحب'],
+        optionsAr: ['فرد الرجل', 'رفع الركبة', 'وقفة القتال', 'السحب'],
         correctText: 'Ready stance',
         get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 0); },
         explanation: 'The ready stance (Junbi) is always the first step.',
-        explanationAr: 'وضعية الاستعداد (جونبي) دايمًا هي أول خطوة.'
+        explanationAr: 'وقفة القتال (كيوروجي جونبي) دايمًا هي أول خطوة.'
       },
       {
         question: 'How many main phases does a complete Ap Chagi have?',
@@ -7444,7 +7615,7 @@ class QuizSystem {
         correctText: 'Vertical rise',
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 1); },
         explanation: 'After the ready stance, the leg rises straight and vertically before the strike.',
-        explanationAr: 'بعد وضعية الاستعداد، الرجل بتطلع مفرودة لفوق قبل الضربة.'
+        explanationAr: 'بعد وقفة القتال، الرجل بتطلع مفرودة لفوق قبل الضربة.'
       },
       {
         question: 'Why must the leg stay LOCKED STRAIGHT during the rise?',
@@ -8075,10 +8246,11 @@ class WinnerSystem {
     // v55: the win celebration the child chose in the Star Shop
     try { const icons = window.Shop?.party(); document.querySelectorAll('#winner-screen .celebration-icon').forEach((el, i) => { if (icons?.[i]) el.textContent = icons[i]; }); } catch (e) {}
     const wc = document.getElementById('winner-character');
-    if (wc && window.RigSprite) {
+    if (wc) {
+      // v57.1: a real 3D celebration (jump → bow → happy bounce, the camera moving around, confetti)
       wc.innerHTML = '';
-      const sp = new RigSprite(wc, { ch: gameState.playerCharacter === 'girl' ? 'girl' : 'boy', anim: 'win', tap: 'win', height: 190 });
-      sp.start().then(ok => { if (!ok) gameState.createCharacterVisual('winner-character', gameState.playerCharacter, 'WIN'); });
+      WinStage.start(wc, gameState.playerCharacter === 'girl' ? 'girl' : 'boy', window.Journey ? Journey.starsFor(Math.round(accuracy)) : 3)
+        .then(ok => { if (!ok) gameState.createCharacterVisual('winner-character', gameState.playerCharacter, 'WIN'); });
     }
     // v30: the same ★★★ as the map — they pop in one by one
     const starsEl = document.getElementById('winner-stars');
@@ -8160,14 +8332,16 @@ class WinnerSystem {
       el.replaceWith(clone);
       clone.addEventListener('click', fn);
     };
-    // v29: one obvious next step instead of "Next level"
-    const nx = window.Journey?.next?.();
+    // v59: after a game the child goes back to the MAP (the doctors: no chain of screens one
+    // after another) — the map shows the new stars and what is next in the unit
     const nextBtn = document.getElementById('next-level-btn');
-    if (nx && nextBtn) {
-      nextBtn.innerHTML = `<span aria-hidden="true">${nx.icon}</span> ${TKD.t('Next:', 'الخطوة الجاية:')} ${TKD.esc(nx.label)} ${TKD.ar ? '←' : '→'}`;
+    if (nextBtn) {
+      nextBtn.innerHTML = `<span aria-hidden="true">🗺️</span> ${TKD.t('Back to my map', 'ارجع للخريطة')}`;
       nextBtn.classList.add('jr-next');
     }
-    cloneAndBind('next-level-btn',   () => (nx ? nx.go() : this.goSkillMenu()));
+    // the old one-size certificate and the duplicate home button are gone (the kick test has its own certificate)
+    ['download-cert-btn', 'back-to-home-btn'].forEach(id => { const b = document.getElementById(id); if (b) b.hidden = true; });
+    cloneAndBind('next-level-btn',   () => this.goHome());
     cloneAndBind('back-to-home-btn', () => this.goHome());
     cloneAndBind('try-again-btn',    () => this.tryAgain());
     cloneAndBind('cooldown-btn',     () => ScreenManagerInstance.switchScreen('cooldown'));
@@ -8221,7 +8395,7 @@ class TrophyRoomSystem {
       id: 'white-belt-1st-stripe', icon: '🥋',
       name: { en: 'White Belt — 1st Stripe', ar: 'الحزام الأبيض — الشريط الأول' },
       desc: { en: 'Mastered Ap Chagi', ar: 'اتقنت مهارة آب تشاجي' },
-      how: { en: 'Master Ap Chagi (pass its 3 main games and the test)', ar: 'اتقن آب تشاجي (عدّي ألعابها التلاتة الأساسية والاختبار)' },
+      how: { en: 'Master Ap Chagi (finish its three units and the test)', ar: 'اتقن آب تشاجي (خلّص وحداتها التلاتة والاختبار)' },
       prog: (gs) => TrophyRoomSystem.skillProg(gs, 'apchagi'),
       condition: (gs) => gs.completedSkills.has('apchagi')
     },
@@ -8236,7 +8410,7 @@ class TrophyRoomSystem {
     {
       id: 'white-belt-3rd-stripe', icon: '🥋',
       name: { en: 'White Belt — 3rd Stripe (Beginner Tier Complete)', ar: 'الحزام الأبيض — الشريط التالت (خلّصت مرحلة الأساسيات)' },
-      desc: { en: 'Mastered every skill in the Dojang', ar: 'اتقنت كل مهارات الصالة' },
+      desc: { en: 'Mastered every skill in the Dojang', ar: 'اتقنت كل مهارات الدوجانج' },
       how: { en: 'Master Bik Chagi', ar: 'اتقن بيك تشاجي' },
       prog: (gs) => TrophyRoomSystem.skillProg(gs, 'bakchagi3'),
       condition: (gs) => gs.completedSkills.has('bakchagi3')
@@ -8337,8 +8511,8 @@ class TrophyRoomSystem {
   static skillProg(gs, sk) {
     if (gs.completedSkills?.has(sk)) return 1;
     const sc = gs.skillGameScores?.[sk] || {};
-    const steps = GameState.REQUIRED_GAME_KEYS;
-    return (steps.filter(k => GameState.gamePassed(sc, k)).length + (GameState.quizPassed(sc) ? 1 : 0)) / (steps.length + 2);
+    const steps = GameState.requiredKeys(sk);
+    return (steps.filter(k => GameState.gamePassed(sc, k)).length + ((sc.learning || 0) > 0 ? 1 : 0) + (GameState.quizPassed(sc) ? 1 : 0)) / (steps.length + 2);
   }
 
   static initialize(gameState) {
@@ -8999,7 +9173,8 @@ class SkillMenuSystem {
     const quizBar   = document.getElementById('skill-quiz-progress');
 
     if (learnBar)  learnBar.style.width  = `${scores.learning || 0}%`;
-    const gamesAvg = Math.round(GameState.REQUIRED_GAME_KEYS.reduce((a, k) => a + (scores[k] || 0), 0) / GameState.REQUIRED_GAME_KEYS.length);
+    const RK = GameState.requiredKeys(skillId);
+    const gamesAvg = Math.round(RK.reduce((a, k) => a + Math.min(100, scores[k] || 0), 0) / RK.length);
     if (gamesBar)  gamesBar.style.width  = `${gamesAvg}%`;
     if (warmupBar) warmupBar.style.width = `${scores.warmup || 0}%`;
     if (quizBar)   quizBar.style.width   = `${scores.quiz || 0}%`;
@@ -9017,7 +9192,7 @@ class SkillMenuSystem {
     const stages = [
       { id: 'stage-learning-card', unlocked: true },          // v57: warm-up recommended, not required
       { id: 'stage-games-card',    unlocked: (s.learning || 0) > 0 },
-      { id: 'stage-quiz-card',     unlocked: GameState.allGamesDone(s) }
+      { id: 'stage-quiz-card',     unlocked: GameState.allGamesDone(s, skillId) }
     ];
     stages.forEach(({ id, unlocked }) => {
       const card = document.getElementById(id);
@@ -10381,8 +10556,8 @@ function attemptStageNav(stage) {
   // v57: the warm-up is recommended, not required
   if (stage === 'games' && !((s.learning || 0) > 0)) {
     reason = ar ? '🔒 كمّل مرحلة التعلم الأول' : '🔒 Complete the learning stage first';
-  } else if (stage === 'quiz' && !GameState.allGamesDone(s)) {
-    reason = ar ? '🔒 عدّي الألعاب التلاتة الأساسية الأول' : '🔒 Pass the 3 main games first';
+  } else if (stage === 'quiz' && !GameState.allGamesDone(s, skillId)) {
+    reason = ar ? '🔒 خلّص ألعاب الوحدات التلاتة الأول' : '🔒 Finish the games of all three units first';
   }
 
   if (reason) {
@@ -11666,9 +11841,9 @@ class BoardBreakGame extends ArenaGameBase {
   static COPY = {
     title: { en: '🪵 Board Break', ar: '🪵 كسر الألواح' },
     how: {
-      apchagi:   { en: 'Choose the part of the foot, aim at the centre of the board, then stop the power bar in the gold zone. The board is held in front of you at chest height.', ar: 'اختار جزء القدم الصح، صوّب على نص اللوح، ووقّف عداد القوة في المنطقة الذهبية. اللوح متمسك قدامك في مستوى الصدر.' },
-      narochagi: { en: 'Choose the part of the foot, aim at the centre of the board held flat at shoulder height, then stop the power bar in the gold zone — the heel comes down on it.', ar: 'اختار جزء القدم الصح، صوّب على نص اللوح اللي متمسك بالعرض في مستوى الكتف، ووقّف عداد القوة في المنطقة الذهبية — الكعب بينزل عليه.' },
-      bakchagi3: { en: 'Choose the part of the foot, aim at the centre of the board held at your side, then stop the power bar in the gold zone.', ar: 'اختار جزء القدم الصح، صوّب على نص اللوح اللي على جنبك، ووقّف عداد القوة في المنطقة الذهبية.' }
+      apchagi:   { en: 'Pick the right part of the foot, aim at the middle of the board and stop the power bar in the gold.', ar: 'اختار جزء القدم الصح، صوّب على نص اللوح، ووقّف العداد في الدهبي.' },
+      narochagi: { en: 'Pick the right part of the foot, aim at the middle of the board and stop the power bar in the gold — the heel comes down on it.', ar: 'اختار جزء القدم الصح، صوّب على نص اللوح، ووقّف العداد في الدهبي — الكعب بينزل من فوق.' },
+      bakchagi3: { en: 'Pick the right part of the foot, aim at the middle of the board at your side and stop the power bar in the gold.', ar: 'اختار جزء القدم الصح، صوّب على نص اللوح اللي على جنبك، ووقّف العداد في الدهبي.' }
     }
   };
 
@@ -12003,9 +12178,9 @@ class PaddleReflexGame extends ArenaGameBase {
   static COPY = {
     title: { en: '🎯 Target Paddles', ar: '🎯 مضارب الأهداف' },
     how: {
-      apchagi:   { en: 'Paddles pop up around you. Tap ONLY the one held at a real Ap Chagi target — the face or the abdomen — as fast as you can. Leave the others!', ar: 'مضارب بتظهر حواليك. دوس بس على المضرب اللي عند هدف حقيقي لركلة آب تشاجي — الوش أو البطن — بأسرع ما تقدر. سيب الباقي!' },
-      narochagi: { en: 'Paddles pop up around you. Tap ONLY the one held flat above the head — the axe kick drops onto the head / shoulder from above.', ar: 'مضارب بتظهر حواليك. دوس بس على المضرب اللي متمسك بالعرض فوق الراس — الركلة المطرقية بتنزل على الراس / الكتف من فوق.' },
-      bakchagi3: { en: 'Paddles pop up around you. Tap ONLY the one at a real Bik Chagi target — the ribs or the face.', ar: 'مضارب بتظهر حواليك. دوس بس على المضرب اللي عند هدف حقيقي لبيك تشاجي — الضلوع أو الوش.' }
+      apchagi:   { en: 'Tap fast — only the paddle at the face or the belly!', ar: 'دوس بسرعة على المضرب اللي عند الوش أو البطن بس!' },
+      narochagi: { en: 'Tap fast — only the paddle held flat above the head!', ar: 'دوس بسرعة على المضرب اللي فوق الراس بس!' },
+      bakchagi3: { en: 'Tap fast — only the paddle at the ribs or the face!', ar: 'دوس بسرعة على المضرب اللي عند الضلوع أو الوش بس!' }
     }
   };
 
@@ -12255,7 +12430,7 @@ class PhaseRhythmGame extends ArenaGameBase {
   static COPY = {
     title: { en: '🥁 Kick Rhythm', ar: '🥁 إيقاع الركلة' },
     how: {
-      all: { en: 'Notes fall in the order of the 5 phases. Tap the matching phase (or press 1–5) exactly when a note reaches the line. Every hit moves your fighter — land a whole combo to finish the kick!', ar: 'النوتات بتنزل بترتيب المراحل الخمسة. دوس على المرحلة اللي زيها (أو الأرقام ١–٥) لما النوتة توصل للخط بالظبط. كل ضربة بتحرّك لاعبك — كمّل الكومبو كله عشان تخلّص الركلة!' }
+      all: { en: 'Tap the phase (or its number) when the note reaches the line.', ar: 'دوس على المرحلة (أو رقمها) لما النوتة توصل للخط.' }
     }
   };
 
@@ -12637,13 +12812,22 @@ class SparringDuelGame extends ArenaGameBase {
   static COPY = {
     title: { en: '🥊 Sparring', ar: '🥊 النزال' },
     how: {
-      apchagi:   { en: 'Your opponent keeps moving. When a target lights up, decide fast: Ap Chagi scores on the BODY (+2) or the FACE (+3). If the target is the leg or the guard is covering it — don\'t kick! Tap the arena, press KICK or Space.', ar: 'المنافس بيتحرك طول الوقت. لما هدف ينوّر، قرّر بسرعة: آب تشاجي بيجيب نقط على الجسم (+٢) أو الوش (+٣). لو الهدف الرجل أو الحراسة مغطياه — ماتركلش! دوس على الساحة أو زرار اركل أو المسافة.' },
-      narochagi: { en: 'Your opponent keeps moving. Naeryeo Chagi only scores on the HEAD, from above (+3). Body, leg or a covered head — hold back! Tap the arena, press KICK or Space.', ar: 'المنافس بيتحرك طول الوقت. النارو تشاجي بيجيب نقط بس على الراس من فوق (+٣). الجسم أو الرجل أو راس متغطية — استنى! دوس على الساحة أو زرار اركل أو المسافة.' },
-      bakchagi3: { en: 'Your opponent keeps moving. Bik Chagi scores on the BODY — ribs and chest (+2). Leg (below the belt is a foul!) or a covered body — hold back! Tap the arena, press KICK or Space.', ar: 'المنافس بيتحرك طول الوقت. البيك تشاجي بيجيب نقط على الجسم — الضلوع والصدر (+٢). الرجل (تحت الحزام مخالفة!) أو جسم متغطي — استنى! دوس على الساحة أو زرار اركل أو المسافة.' }
+      apchagi:   { en: 'Kick when the body (+2) or the face (+3) lights up. The leg or a covered target? Wait!', ar: 'اركل لما الجسم (+٢) أو الوش (+٣) ينوّر. الرجل أو هدف متغطي؟ استنى!' },
+      narochagi: { en: 'Kick only when the head lights up (+3). Anything else? Wait!', ar: 'اركل بس لما الراس تنوّر (+٣). أي هدف تاني؟ استنى!' },
+      bakchagi3: { en: 'Kick when the body lights up (+2). The leg is a foul — wait!', ar: 'اركل لما الجسم ينوّر (+٢). الرجل ممنوعة — استنى!' }
     }
   };
 
   static VALID = { apchagi: ['body', 'head'], narochagi: ['head'], bakchagi3: ['body'] };
+  // v58.2: Sparring is a main game now, so the partner goes easy on the first kick (the
+  // youngest players): more real openings, longer to see them, a slower kick still scores
+  // well. It gets closer to a real match kick by kick. The champion and the daily challenge
+  // always use the full match.
+  static EASE = { apchagi: { valid: 0.78, window: 1.4, grace: 0.8 }, narochagi: { valid: 0.68, window: 1.18, grace: 0.6 }, bakchagi3: { valid: 0.6, window: 1, grace: 0.4 } };
+  static ease() {
+    if (window.Boss?.active || (window.Challenge?.active && Challenge.active.gameId === this.GAME_ID)) return this.EASE.bakchagi3;
+    return this.EASE[this.skillId] || this.EASE.bakchagi3;
+  }
   static OFF = { apchagi: [], narochagi: ['body'], bakchagi3: ['head'] };   // legal, but not this kick's target
   static LABEL = {
     head: { en: 'Head', ar: 'الراس' }, body: { en: 'Body', ar: 'الجسم' }, leg: { en: 'Leg', ar: 'الرجل' }
@@ -12661,8 +12845,9 @@ class SparringDuelGame extends ArenaGameBase {
   }
 
   static async begin() {
-    const oppKey = this.isBoy ? 'girl' : 'boy';
-    this.oppSet = OPPONENT_SETS[oppKey];
+    const boss = window.Boss?.active;                         // v57.1: the champion of this kick
+    const oppKey = boss ? boss.ch : (this.isBoy ? 'girl' : 'boy');
+    this.oppSet = boss ? Object.assign(Object.create(OPPONENT_SETS[oppKey]), { name: boss.name }) : OPPONENT_SETS[oppKey];
     this.opp = window.arenaMakeOpponent ? arenaMakeOpponent(this.stage, this.oppSet, oppKey) : new ArenaOpponent(this.stage, this.oppSet);
     const tok = this.token;
     await this.opp.load();
@@ -12672,6 +12857,8 @@ class SparringDuelGame extends ArenaGameBase {
     this.layout();
     this.setAction(this.ar ? '🦶 اركل!' : '🦶 KICK!');
     this.stage.text(this.stage.W / 2, this.stage.H * 0.42, this.ar ? 'كيونجنيه!' : 'Gyeongnye!', { color: '#fff', size: 34, ttl: 1.2, rise: 10 });
+    window.Voice?.cue('gyeongnye');
+    this.later(() => window.Voice?.cue('sijak'), 1100);
     this.later(() => this.stage && this.stage.text(this.stage.W / 2, this.stage.H * 0.42, this.ar ? 'شيجاك! 🔔' : 'Shijak! 🔔', { color: '#ffd166', size: 40, ttl: 1.1, rise: 10 }), 1100);
     this.later(() => { ArenaSound.tone({ f0: 880, f1: 880, dur: 0.35, type: 'triangle', gain: 0.35 }); this.nextExchange(); }, 1900);
   }
@@ -12709,7 +12896,8 @@ class SparringDuelGame extends ArenaGameBase {
     if (this.over || this.state !== 'wait') return;
     const valid = this.VALID[this.skillId];
     const traps = ['leg', 'guard', ...this.OFF[this.skillId]];
-    const isValid = Math.random() < 0.6 || this.round === 1;
+    const E = this.ease();
+    const isValid = Math.random() < E.valid || this.round === 1;
     let zone, kind;
     if (isValid) { zone = AG.pick(valid); kind = 'open'; }
     else {
@@ -12719,7 +12907,7 @@ class SparringDuelGame extends ArenaGameBase {
     }
     this.target = { zone, kind, valid: kind === 'open', born: this.stage.time };
     const zp = this.opp.zone(zone); this.fighter.lookAt?.(zp.x, zp.y);    // v46: eyes on the target
-    this.window = AG.lerp(1.7, 0.95, (this.round - 1) / (this.EXCHANGES - 1));
+    this.window = AG.lerp(1.7, 0.95, (this.round - 1) / (this.EXCHANGES - 1)) * E.window;
     this.state = 'open';
     if (kind === 'guard') this.opp.setPose('block', this.window + 0.2);
     ArenaSound.tone({ f0: 620, f1: 760, dur: 0.07, type: 'sine', gain: 0.18 });
@@ -12768,7 +12956,7 @@ class SparringDuelGame extends ArenaGameBase {
       this.blue += pts; this.hits++;
       window.Review?.note('target', true, { skill: this.skillId });
       this.rts.push(rt); this.logRT(rt);
-      const score = Math.round(AG.clamp(100 - Math.max(0, rt - 0.4) * 60, 50, 100));
+      const score = Math.round(AG.clamp(100 - Math.max(0, rt - this.ease().grace) * 60, 50, 100));
       this.scores.push(score);
       o.setPose(t.zone === 'head' ? 'hitHead' : 'hitBody', 0.55);
       o.knock(this.fighter.height * 2.6); o.flashT = 1;
@@ -12849,6 +13037,7 @@ class SparringDuelGame extends ArenaGameBase {
   static endMatch() {
     this.state = 'done';
     this.setAction(null);
+    window.Voice?.cue('keuman');
     const st = this.stage, ar = this.ar;
     const won = this.blue > this.red;
     if (won) {
@@ -12950,7 +13139,7 @@ class BalanceHoldGame extends ArenaGameBase {
   static COPY = {
     title: { en: '⚖️ Balance Hold', ar: '⚖️ اثبت واتوازن' },
     how: {
-      all: { en: 'Hold each phase of the kick on one leg. Your fighter sways and the wind pushes — lean the other way with ◀ ▶ (or the arrow keys, or tap the left / right side) to keep the needle in the green zone.', ar: 'اثبت على رجل واحدة في كل مرحلة من الركلة. لاعبك بيتمايل والهوا بيزقّه — ميّل للناحية التانية بـ ◀ ▶ (أو الأسهم، أو دوس يمين / شمال الساحة) عشان المؤشر يفضل في الأخضر.' }
+      all: { en: 'Stand on one leg. Tap ◀ ▶ to keep the marker in the green.', ar: 'اثبت على رجل واحدة. دوس ◀ ▶ عشان المؤشر يفضل في الأخضر.' }
     }
   };
 
@@ -13162,7 +13351,7 @@ class HeavyBagGame extends ArenaGameBase {
   static COPY = {
     title: { en: '🥋 Heavy Bag', ar: '🥋 كيس الركلات' },
     how: {
-      all: { en: 'Coach Yang swings the bag. Kick (tap, KICK or Space) so your foot meets the bag just as it swings back to you — the glowing band shows where your kick lands. Too early = air, too late = jammed.', ar: 'الكوتش يانج بيزق الكيس. اركل (دوس أو زرار اركل أو المسافة) بحيث رجلك تقابل الكيس وهو راجع ناحيتك — الشريط المنوّر بيوريك ركلتك هتنزل فين. بدري = هوا، متأخر = الكيس هيزنقك.' }
+      all: { en: 'Kick when the bag swings back to you — not too early, not too late.', ar: 'اركل لما الكيس يرجع ناحيتك — مش بدري ومش متأخر.' }
     }
   };
 
@@ -13897,7 +14086,7 @@ const PoseShots = (() => {
   const normCh = ch => (ch === 'girl' || ch === 'coach' ? ch : 'boy');
   const mine = () => normCh(typeof GameStateInstance !== 'undefined' && GameStateInstance ? GameStateInstance.playerCharacter : 'boy');
   function cosKey() {
-    try { const c = window.Shop?.cosmetics?.(); return c ? `${c.belt || ''}.${c.headband || ''}` : ''; } catch (e) { return ''; }
+    try { const c = window.Shop?.cosmetics?.(); return c ? `${c.belt || ''}.${c.headband || ''}.${c.collar || ''}` : ''; } catch (e) { return ''; }
   }
   const setKeyOf = (ch, name, cos) => `${ch}/${name}/${cos}`;
   const idOf = (sk, i) => hash(`${sk}#${i}`);
@@ -14479,7 +14668,7 @@ class RigView {
     bar.appendChild(ang);
     const demo = document.createElement('button');               // v43: Coach Yang shows the whole kick
     demo.type = 'button'; demo.className = 'rig-btn';
-    demo.textContent = `🥋 ${this.ar ? 'الكوتش يوريك' : 'Coach shows'}`;
+    demo.textContent = `🥋 ${this.ar ? 'سابوم نيم بيوريك' : 'Coach shows'}`;
     demo.addEventListener('click', () => this.coachDemo());
     bar.appendChild(demo);
     const leg = document.createElement('button');                // v45: which leg kicks (mirror image)
@@ -14575,7 +14764,7 @@ class RigView {
     if (this.demo && this.coachRig) {                       // v43: Coach Yang demonstrates instead
       this.coachRig.skeleton.draw(g, x, ground, s);
       this.drawPow(g, x, ground, s);
-      const tag = this.ar ? '🥋 الكوتش يانج' : '🥋 Coach Yang';
+      const tag = this.ar ? '🥋 سابوم نيم يانج' : '🥋 Coach Yang';
       g.font = '800 13px Cairo, Roboto, sans-serif'; const tw = g.measureText(tag).width + 16;
       g.fillStyle = 'rgba(10,14,30,.75)'; g.beginPath(); g.roundRect(10, 10, tw, 26, 13); g.fill();
       g.fillStyle = '#ffd166'; g.textAlign = 'left'; g.textBaseline = 'middle'; g.fillText(tag, 18, 23);
@@ -15120,6 +15309,108 @@ class RigSprite {
 }
 window.RigSprite = RigSprite;
 
+// =====================================================================
+// v57.1 — THE WIN CELEBRATION: the child's own 3D fighter jumps for joy, bows (gyeongnye) and
+// bounces happily while the camera slowly walks around; confetti (the Star Shop party set
+// included) bursts once and every star adds a little burst. One canvas, steady 60 fps —
+// no CSS scaling or pulsing on top, so nothing flickers.
+// =====================================================================
+const WinStage = {
+  async start(host, ch, stars = 3) {
+    this.stop();
+    if (!window.TKDAnim || !TKDAnim.enabled()) return false;
+    const rig = await RigBackend.character(ch).catch(() => null);
+    if (!rig || !rig.data.animations.win) return false;
+    const tok = this._tok = (this._tok || 0) + 1;
+    const cv = document.createElement('canvas'); cv.className = 'win-stage'; cv.setAttribute('aria-hidden', 'true');
+    host.appendChild(cv);
+    const A = rig.data.animations, P = rig.player, sk = rig.skeleton;
+    const calm = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    // the sequence: jump for joy → bow → (jump again) → happy bounce for ever
+    const kick = RigBackend.lib?.kickAnim?.(rig.data, TKD.gs()?.currentSkill) || ({ apchagi: 'apchagi', narochagi: 'naeryeo', bakchagi3: 'yeop' })[TKD.gs()?.currentSkill] || 'apchagi';
+    let mv = ['win', 'bow', 'win', 'bounce']; try { mv = window.Shop?.move()?.seq || mv; } catch (e) {}
+    const seq = mv.map(x => x === 'KICK' ? kick : x).filter(x => A[x]);
+    if (!seq.length) seq.push('win');
+    let si = 0;
+    const next = () => {
+      const name = seq[Math.min(si, seq.length - 1)], last = si >= seq.length - 1; si++;
+      P.play(name, { loop: last, mix: si === 1 ? 0 : 0.3 });
+      P.onComplete = last ? null : () => { P.onComplete = null; next(); };
+    };
+    next(); P.update(0);
+    cv.addEventListener('click', () => { window.AudioKit?.sfx('ui-pop', { gain: 0.35 }); si = 0; next(); this.burst(cv, 40, icons); });
+    // confetti: the Star Shop party icons fall among paper strips in belt colours
+    const icons = (() => { try { return (window.Shop?.party() || []).filter(Boolean); } catch (e) { return []; } })();
+    this.parts = [];
+    this.burst(cv, calm ? 30 : 110, icons);
+    for (let k = 0; k < stars; k++) setTimeout(() => { if (this._tok === tok) this.burst(cv, calm ? 8 : 26, icons, true); }, 450 + k * 260);
+    let last = 0, t0 = 0;
+    const tick = (t) => {
+      if (this._tok !== tok) return;
+      const scr = cv.closest('.screen');
+      if (!cv.isConnected || (scr && !scr.classList.contains('active'))) { this.stop(); try { sk.dispose?.(); } catch (e) {} return; }
+      if (!last) { last = t; t0 = t; }
+      const dt = Math.min(0.1, (t - last) / 1000); last = t;            // a slow phone still keeps real time
+      P.update(dt);
+      const T = (t - t0) / 1000;
+      if (rig.is3D) sk.viewYaw = calm ? -0.45 : -0.45 + Math.sin(T * 0.45) * 0.55;    // the camera walks slowly around the hero
+      this.draw(cv, rig, T, dt);
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    return true;
+  },
+  stop() { this._tok = (this._tok || 0) + 1; this.parts = []; },
+  burst(cv, n, icons = [], small = false) {
+    const COL = ['#ffd166', '#ff6b35', '#2a9d8f', '#ffffff', '#457b9d', '#e76f51', '#7ee0cf'];
+    const w = cv.clientWidth || 300;
+    for (let i = 0; i < n; i++) {
+      const icon = icons.length && Math.random() < 0.18 ? icons[i % icons.length] : null;
+      this.parts.push({
+        x: w / 2 + (Math.random() - 0.5) * (small ? 60 : 40), y: small ? 40 : 30,
+        vx: (Math.random() - 0.5) * (small ? 260 : 520), vy: -(small ? 140 : 260) - Math.random() * 260,
+        r: Math.random() * Math.PI, vr: (Math.random() - 0.5) * 9, w: 5 + Math.random() * 6, h: 9 + Math.random() * 9,
+        c: COL[i % COL.length], icon, life: 0, front: Math.random() < 0.45
+      });
+    }
+  },
+  draw(cv, rig, T, dt) {
+    const dpr = Math.min(2, window.devicePixelRatio || 1), w = cv.clientWidth || 300, h = cv.clientHeight || 300;
+    if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) { cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); }
+    const g = cv.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, w, h);
+    const ground = h * 0.94, cx = w / 2;
+    // soft light: slowly turning rays + a warm glow (calm, no blinking)
+    g.save(); g.translate(cx, h * 0.48); g.rotate(T * 0.12);
+    for (let i = 0; i < 12; i++) {
+      g.rotate(Math.PI / 6);
+      const gr = g.createLinearGradient(0, 0, 0, -h * 0.75); gr.addColorStop(0, 'rgba(255,215,0,.16)'); gr.addColorStop(1, 'rgba(255,215,0,0)');
+      g.fillStyle = gr; g.beginPath(); g.moveTo(0, 0); g.lineTo(-h * 0.07, -h * 0.75); g.lineTo(h * 0.07, -h * 0.75); g.closePath(); g.fill();
+    }
+    g.restore();
+    const glow = g.createRadialGradient(cx, h * 0.55, 10, cx, h * 0.55, h * 0.5);
+    glow.addColorStop(0, 'rgba(255,215,0,.28)'); glow.addColorStop(1, 'rgba(255,215,0,0)'); g.fillStyle = glow; g.fillRect(0, 0, w, h);
+    // confetti behind the hero, the hero, confetti in front
+    const parts = this.parts;
+    parts.forEach(p => { p.life += dt; p.vy += 520 * dt; p.vx *= (1 - 0.9 * dt); p.vy = Math.min(p.vy, 150 + p.w * 6); p.x += p.vx * dt; p.y += p.vy * dt; p.r += p.vr * dt; });
+    this.parts = parts.filter(p => p.y < h + 30 && p.life < 9);
+    const paint = (front) => this.parts.forEach(p => {
+      if (p.front !== front) return;
+      g.save(); g.translate(p.x, p.y); g.rotate(p.r);
+      if (p.icon) { g.font = '22px "Noto Color Emoji", "Apple Color Emoji", sans-serif'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(p.icon, 0, 0); }
+      else { g.fillStyle = p.c; g.scale(1, Math.abs(Math.cos(p.life * 6 + p.r))); g.fillRect(-p.w / 2, -p.h / 2, p.w, p.h); }
+      g.restore();
+    });
+    paint(false);
+    const d = rig.data.extra, s = (h * 0.66) / d.height, x = cx - (d.ankleB?.[0] || 0) * s;
+    g.fillStyle = 'rgba(0,0,0,.28)'; g.beginPath(); g.ellipse(cx, ground, Math.min(w * 0.22, 90), h * 0.025, 0, 0, Math.PI * 2); g.fill();
+    if (window.TKD3D?.quality) { TKD3D.quality.spent = 0; }
+    rig.skeleton.draw(g, x, ground, s);
+    window.Shop?.drawCosmetics(rig.skeleton, g, x, ground, s);
+    paint(true);
+  }
+};
+window.WinStage = WinStage;
+
 // #####################################################################
 // ## ui/dashboard.js
 // #####################################################################
@@ -15375,10 +15666,10 @@ const DashboardSystem = {
     const best = (sk, g) => all.filter(a => a.skillId === sk && a.gameId === g).reduce((m, a) => Math.max(m, a.score), 0);
     return GameConfig.SKILL_ORDER.map(sk => {
       const learning = best(sk, 'learning');
-      const games = ['form-control', 'puzzle', 'performance', 'action'].map(g => best(sk, g));
+      const games = Units.all(sk).map(g => best(sk, g));
       const gamesAvg = Math.round(games.reduce((x, y) => x + y, 0) / games.length);
       const quiz = best(sk, 'quiz');
-      const bonus = ['error-hunt', 'quiz-blast', 'board-break', 'paddle-reflex', 'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag'].filter(g => best(sk, g) >= GameConfig.SETTINGS.PASSING_SCORE).length;
+      const bonus = Units.all(sk).filter(g => best(sk, g) >= GameConfig.SETTINGS.PASSING_SCORE).length;
       return { sk, learning, gamesAvg, quiz, bonus, overall: Math.round((learning + gamesAvg + quiz) / 3), warm: all.some(a => a.skillId === sk && a.gameId === 'warmup') };
     });
   },
@@ -15399,7 +15690,7 @@ const DashboardSystem = {
         <div class="db-mbody">
           <div class="db-mtitle"><i class="db-dot" style="background:${col}"></i>${this.sName(m.sk)} <span class="db-mstatus ${m.overall >= T ? 'ok' : ''}">${status}</span></div>
           ${bar(this.t('Learning', 'التعلم'), m.learning)}
-          ${bar(this.t('Main games', 'الألعاب الأساسية'), m.gamesAvg)}
+          ${bar(this.t('Unit games', 'ألعاب الوحدات'), m.gamesAvg)}
           ${bar(this.t('Test', 'الاختبار'), m.quiz)}
           <p class="db-msub">${m.warm ? '🔥' : '·'} ${this.t(`${TKD.count(m.bonus, 'game', 'en')} passed`, `عدّيت ${TKD.count(m.bonus, 'game', 'ar')} زيادة`)}</p>
         </div></div>`;
@@ -15830,7 +16121,8 @@ const TKD = {
     challenge:{ ar: ['تحدي واحد', 'تحديين', 'تحديات', 'تحدي'],             en: ['challenge', 'challenges'] },
     kick:     { ar: ['ركلة واحدة', 'ركلتين', 'ركلات', 'ركلة'],             en: ['kick', 'kicks'] },
     kid:      { ar: ['طفل واحد', 'طفلين', 'أطفال', 'طفل'],                en: ['kid', 'kids'] },
-    hero:     { ar: ['بطل واحد', 'بطلين', 'أبطال', 'بطل'],                en: ['hero', 'heroes'] }
+    hero:     { ar: ['بطل واحد', 'بطلين', 'أبطال', 'بطل'],                en: ['hero', 'heroes'] },
+    stripe:   { ar: ['شريطة واحدة', 'شريطتين', 'شرايط', 'شريطة'],          en: ['stripe', 'stripes'] }
   },
   // count(5, 'day') → "٥ أيام" / "5 days"; lang 'ar' | 'en' forces a language
   count(n, key, lang) {
@@ -17092,7 +17384,7 @@ const Coach = {
     const lines = await VoiceRecorder.lines();
     // v55: the parts of the checklist in words a coach understands
     const VOICE_GROUPS = { cue: ['Short cheers & commands', 'تشجيع وأوامر قصيرة'], kick: ['Kick names', 'أسماء الركلات'], phase: ['Lesson steps', 'شرح المراحل'],
-      hint: ['Game hints', 'تلميحات الألعاب'], warmup: ['Warm-up', 'الإحماء'], cooldown: ['Cool-down', 'التهدئة'], 'error-hunt': ["Mistake Hunter hints", 'تلميحات صيّاد الأخطاء'],
+      tour: ['First-visit tour', 'جولة أول مرة'], hint: ['Game hints', 'تلميحات الألعاب'], warmup: ['Warm-up', 'الإحماء'], cooldown: ['Cool-down', 'التهدئة'], 'error-hunt': ["Mistake Hunter hints", 'تلميحات صيّاد الأخطاء'],
       screen: ['Screen instructions', 'تعليمات الشاشات'], quiz: ['Test questions', 'أسئلة الاختبار'], 'quiz-blast': ['Quiz Blast questions', 'أسئلة كويز الفضاء'] };
     if (!TKD.$('vr-list')) return; // the coach switched away before the script finished loading
     const groups = [...new Set(lines.map(l => l.group))];
@@ -18439,7 +18731,7 @@ window.Review = Review;
 // ============================================================================
 // THE JOURNEY (v29 → v30 adventure map) — the child always sees ONE road and
 // ONE next step.
-//   🔥 warm-up → 🎓 learn → 🧩 👁️ ⚡ three main games (v57) → 📝 test → 🎁 treasure
+//   🔥 warm-up → 🎓 learn → 🧩 🥊 ⚡ three main games (v58) → 📝 test → 🎁 treasure
 // The road snakes across the card like a board game. Finished stations keep
 // their stars, the child's own fighter stands on the station that is next, the
 // road fills up as they go, and the treasure chest at the end opens when the
@@ -18447,14 +18739,83 @@ window.Review = Review;
 // offers the same next step, so nobody ever has to hunt through a menu.
 // All looping motion is transform/opacity only (runs on the GPU compositor).
 // ============================================================================
+// v59 — THE THREE UNITS of every kick (asked for by the Taekwondo doctors): first the
+// child learns what the kick looks like, then practises it, then the hardest part —
+// sparring, spotting mistakes and answering questions, and the test. A unit opens only
+// when the one before it is finished; the next kick opens after unit 3's test.
+// ============================================================================
+const Units = {
+  LIST: [
+    { n: 1, icon: '👀', en: 'Know the kick', ar: 'اعرف الركلة', lesson: true, games: ['form-control', 'puzzle', 'phase-rhythm'] },
+    { n: 2, icon: '💪', en: 'Practise it', ar: 'اتمرن عليها', games: ['action', 'board-break', 'paddle-reflex', 'heavy-bag', 'balance-hold'] },
+    { n: 3, icon: '🏆', en: 'The big challenge', ar: 'التحدي الكبير', test: true, games: ['sparring-duel', 'performance', 'error-hunt', 'quiz-blast'] }
+  ],
+  ONLY: { 'error-hunt': 'apchagi' },                    // Mistake Hunter exists for Ap Chagi only
+  get(u) { return this.LIST[Math.max(1, Math.min(3, u)) - 1]; },
+  games(u, sk) { return this.get(u).games.filter(g => !this.ONLY[g] || this.ONLY[g] === sk); },
+  all(sk) { return this.LIST.flatMap(U => this.games(U.n, sk)); },
+  keyOf(g) { return GameState.GAME_KEY_MAP[g]; },
+  passed(scores, g) { return GameState.gamePassed(scores, this.keyOf(g)); },
+  unitOf(id) { if (id === 'learning') return 1; if (id === 'quiz') return 3; const U = this.LIST.find(x => x.games.includes(id)); return U ? U.n : 0; },
+  gamesDone(scores, u, sk) { return this.games(u, sk).every(g => this.passed(scores, g)); },
+  done(scores, u, sk) {
+    const s = scores || {};
+    if (u === 1 && !((s.learning || 0) > 0)) return false;
+    if (!this.gamesDone(s, u, sk)) return false;
+    return u !== 3 || GameState.quizPassed(s);
+  },
+  open(scores, u, sk) { return u <= 1 || this.done(scores, u - 1, sk); },
+  current(scores, sk) { for (const u of [1, 2, 3]) if (!this.done(scores, u, sk)) return u; return 3; },
+  // [done, total] steps of a unit (the lesson and the test count as steps)
+  count(scores, u, sk) {
+    const s = scores || {}, g = this.games(u, sk);
+    let d = g.filter(x => this.passed(s, x)).length, t = g.length;
+    if (u === 1) { t++; if ((s.learning || 0) > 0) d++; }
+    if (u === 3) { t++; if (GameState.quizPassed(s)) d++; }
+    return [d, t];
+  },
+  name(u) { const U = this.get(u); return TKD.t(U.en, U.ar); },
+  label(u) { return TKD.t(`Unit ${u}: ${this.get(u).en}`, `الوحدة ${TKD.num(u)}: ${this.get(u).ar}`); },
+  // is this screen closed for the kick being played? (the daily challenge, the champion,
+  // a 1-v-1 and the coach's "play as" can open any game)
+  blocked(id) {
+    const gs = TKD.gs(); if (!gs) return null;
+    if (window.Challenge?.active || window.Boss?.active || window.Versus?.active) return null;
+    const sk = gs.currentSkill, s = gs.skillGameScores?.[sk] || {};
+    const u = this.unitOf(id); if (!u) return null;
+    if (id === 'learning') return null;
+    if (!((s.learning || 0) > 0)) return TKD.t('🔒 Watch the lesson first', '🔒 اتفرج على الدرس الأول');
+    if (!this.open(s, u, sk)) return TKD.t(`🔒 Finish unit ${u - 1} first`, `🔒 خلّص الوحدة ${TKD.num(u - 1)} الأول`);
+    if (id === 'quiz' && !this.gamesDone(s, 3, sk)) return TKD.t('🔒 Finish the games of unit 3 first', '🔒 خلّص ألعاب الوحدة ٣ الأول');
+    return null;
+  }
+};
+window.Units = Units;
+
+// ============================================================================
 const Journey = {
-  GAMES: ['puzzle', 'performance', 'action'],                       // v57: the 3 main games a kick needs
-  KEY: { 'form-control': 'formControl', puzzle: 'puzzle', performance: 'performance', action: 'action' },
+  // v59: every game of the three units (Units) is on the road, one unit at a time
+  get GAMES() { return Units.all(this.skill()); },
+  get KEY() { return GameState.GAME_KEY_MAP; },
   SHORT: {                                                          // station labels must fit under a 60 px button
     'form-control': { en: 'Pose', ar: 'الوضعية' },
     puzzle: { en: 'Phases', ar: 'المراحل' },
+    'phase-rhythm': { en: 'Rhythm', ar: 'الإيقاع' },
+    action: { en: 'Strike', ar: 'الضربة' },
+    'board-break': { en: 'Board', ar: 'اللوح' },
+    'paddle-reflex': { en: 'Paddle', ar: 'الدرع' },
+    'heavy-bag': { en: 'Bag', ar: 'الكيس' },
+    'balance-hold': { en: 'Balance', ar: 'التوازن' },
+    'sparring-duel': { en: 'Sparring', ar: 'النزال' },
     performance: { en: "Judge's eye", ar: 'عين الحكم' },
-    action: { en: 'Strike', ar: 'الضربة' }
+    'error-hunt': { en: 'Mistakes', ar: 'الأخطاء' },
+    'quiz-blast': { en: 'Quiz', ar: 'الكويز' }
+  },
+  unitView: null,                                                   // the unit tab the child picked (null → where they are)
+  unit(skillId = this.skill()) {
+    const s = this.scores(skillId), cur = Units.current(s, skillId);
+    const v = this.unitView && this.unitView.skill === skillId ? this.unitView.u : null;
+    return v && Units.open(s, v, skillId) ? v : cur;
   },
   // v57: the kick the child picked in the kick bar under the map (any open kick), else where they are
   view: null,
@@ -18466,31 +18827,50 @@ const Journey = {
   },
   scores(skillId) { return TKD.gs()?.skillGameScores?.[skillId] || {}; },
   passed(skillId, g) { return GameState.gamePassed(this.scores(skillId), this.KEY[g]); },
-  gamesDone(skillId) { return this.GAMES.filter(g => this.passed(skillId, g)).length; },
-  nextGame(skillId) { return this.GAMES.find(g => !this.passed(skillId, g)) || null; },
+  gamesDone(skillId) { return Units.all(skillId).filter(g => this.passed(skillId, g)).length; },
+  nextGame(skillId) {
+    const s = this.scores(skillId), u = Units.current(s, skillId);
+    return Units.games(u, skillId).find(g => !this.passed(skillId, g)) || null;
+  },
   // ⭐ for a score: passing (60+) is one star, 75+ is good, 90+ is perfect
   starsFor(score) { return score >= 90 ? 3 : score >= 75 ? 2 : score >= GameConfig.SETTINGS.PASSING_SCORE ? 1 : 0; },
 
-  // the eight stations of the current kick
-  steps(skillId = this.skill()) {
+  // the stations of one unit of a kick (v59)
+  steps(skillId = this.skill(), u = this.unit(skillId)) {
     const s = this.scores(skillId), gs = TKD.gs();
     const sc = k => s[k] || 0;
     const complete = !!gs?.completedSkills?.has(skillId);
-    const allGames = this.gamesDone(skillId) >= this.GAMES.length;
-    const st = [
-      { id: 'warmup', stage: 'warmup', icon: '🔥', en: 'Warm-up', ar: 'الإحماء', optional: true, done: sc('warmup') > 0, stars: sc('warmup') > 0 ? 3 : 0, go: () => switchScreen('warmup') },
-      { id: 'learning', stage: 'learning', icon: '🎓', en: 'Learn it', ar: 'اتعلمها', done: sc('learning') > 0, stars: sc('learning') > 0 ? 3 : 0, go: () => switchScreen('learning') },
-      ...this.GAMES.map(g => ({
-        id: 'g:' + g, stage: 'games', game: g, icon: TKD.gameIcon(g), en: this.SHORT[g].en, ar: this.SHORT[g].ar,
-        done: this.passed(skillId, g), stars: this.starsFor(sc(this.KEY[g])), go: () => switchScreen(g)
-      })),
-      { id: 'quiz', stage: 'quiz', icon: '📝', en: 'The test', ar: 'الاختبار', done: GameState.quizPassed(s), stars: GameState.quizPassed(s) ? this.starsFor(sc('quiz')) : 0, go: () => switchScreen(allGames ? 'quiz' : 'games') },
-      { id: 'chest', stage: 'chest', icon: complete ? '🏅' : '🎁', en: 'Treasure', ar: 'الكنز', done: complete, stars: 0, go: () => switchScreen('trophy-room') }
-    ];
-    // the first unfinished station is "now"; everything after it is locked — v57: the warm-up
-    // is recommended, never in the way (it stays open, the lesson is "now")
-    const i = st.findIndex(x => !x.done && !x.optional);
-    st.forEach((x, k) => { x.state = x.done ? 'done' : x.optional ? 'open' : k === i ? 'now' : 'locked'; });
+    const open = Units.open(s, u, skillId), learnt = sc('learning') > 0;
+    const allGames = GameState.allGamesDone(s, skillId);
+    const game = g => ({ id: 'g:' + g, stage: 'games', game: g, unit: u, icon: TKD.gameIcon(g), en: this.SHORT[g]?.en || g, ar: this.SHORT[g]?.ar || g,
+      done: this.passed(skillId, g), stars: this.starsFor(sc(this.KEY[g])), go: () => switchScreen(g) });
+    const st = [];
+    if (u === 1) {
+      st.push({ id: 'warmup', stage: 'warmup', icon: '🔥', en: 'Warm-up', ar: 'الإحماء', optional: true, done: sc('warmup') > 0, stars: sc('warmup') > 0 ? 3 : 0, go: () => switchScreen('warmup') });
+      st.push({ id: 'learning', stage: 'learning', icon: '🎓', en: 'Learn it', ar: 'اتعلمها', done: learnt, stars: learnt ? 3 : 0, go: () => switchScreen('learning') });
+    }
+    Units.games(u, skillId).forEach(g => st.push(game(g)));
+    if (u === 3) {
+      st.push({ id: 'boss', stage: 'games', icon: '🥊', en: 'Champion', ar: 'ماتش البطل', optional: true, needs: allGames,
+        done: !!window.Boss?.beaten(skillId), stars: window.Boss?.beaten(skillId) ? 3 : 0, go: () => window.Boss?.intro(skillId) });
+      st.push({ id: 'quiz', stage: 'quiz', icon: '📝', en: 'The test', ar: 'الاختبار', done: GameState.quizPassed(s), stars: GameState.quizPassed(s) ? this.starsFor(sc('quiz')) : 0, go: () => switchScreen(allGames ? 'quiz' : 'games') });
+      st.push({ id: 'chest', stage: 'chest', icon: complete ? '🏅' : '🎁', en: 'Treasure', ar: 'الكنز', done: complete, stars: 0, go: () => switchScreen('trophy-room') });
+    }
+    // inside an open unit: the lesson comes first, then its games in any order (the first
+    // unfinished one is "now"); the test waits for every game; a closed unit is all locked
+    const nowI = st.findIndex(x => !x.done && !x.optional);
+    st.forEach((x, k) => {
+      if (x.done) x.state = 'done';
+      else if (!open) x.state = x.id === 'warmup' ? 'open' : 'locked';
+      else if (x.optional) x.state = x.needs === false ? 'locked' : 'open';
+      else if (k === nowI) x.state = 'now';
+      else if (x.game && learnt) x.state = 'open';
+      else x.state = 'locked';
+    });
+    if (u === 3 && open) {                                            // the test is "now" only when every game is passed
+      const q = st.find(x => x.id === 'quiz');
+      if (q && !q.done && !allGames) q.state = 'locked';
+    }
     return st;
   },
   starTotal(st) { return st.reduce((a, x) => a + x.stars, 0); },
@@ -18501,7 +18881,7 @@ const Journey = {
     const gs = TKD.gs();
     if (!gs) return null;
     const t = gs.getResumeTarget();
-    const skillId = this.skill(), st = this.steps(skillId);
+    const skillId = this.skill(), st = this.steps(skillId, Units.current(this.scores(skillId), skillId));
     let now = st.find(x => x.state === 'now');
     if (!now) {                                                       // this kick is all done
       if (t.done) return { icon: '🏆', label: TKD.t('See your trophies', 'شوف إنجازاتك'), step: 'done', stage: 'done', go: () => switchScreen('trophy-room') };
@@ -18524,6 +18904,10 @@ const Journey = {
   // (right → left first in Arabic). Positions are in board units; the HTML uses %.
   BOARD: { w: 300, h: 342, rows: [54, 162, 270], cols: [250, 150, 50] },
   layout(n = 8) {
+    // v59: as many rows as the unit needs (3 stations a row, +1 for the sign)
+    const nRows = Math.ceil((n + 1) / 3);
+    this.BOARD.rows = Array.from({ length: nRows }, (_, r) => 54 + r * 108);
+    this.BOARD.h = nRows * 108 + 18;
     const B = this.BOARD, rtl = TKD.ar, pts = [];
     for (let i = 0; i < n + 1; i++) {                                   // +1 = the sign to the next kick
       const row = Math.floor(i / 3), c = i % 3;
@@ -18564,8 +18948,9 @@ const Journey = {
 
   // ------------------------------------------------------------------ home: the map
   html() {
-    const skillId = this.skill(), st = this.steps(skillId), n = this.next(), gs = TKD.gs();
+    const skillId = this.skill(), u = this.unit(skillId), st = this.steps(skillId, u), n = this.next(), gs = TKD.gs();
     const order = GameConfig.SKILL_ORDER, ki = Math.max(0, order.indexOf(skillId));
+    const sco = this.scores(skillId), curU = Units.current(sco, skillId);
     const pts = this.layout(st.length), road = this.road(pts), B = this.BOARD;
     const nowI = st.findIndex(x => x.state === 'now');
     const reach = nowI < 0 ? 1 : road.at[nowI];
@@ -18580,15 +18965,24 @@ const Journey = {
       return `<li class="jr-kick is-${state}${id === skillId ? ' is-view' : ''}"><button type="button" class="jr-kick-btn" data-kick="${id}" aria-pressed="${id === skillId}"${open ? '' : ' aria-disabled="true"'}><span>${ico}</span>${TKD.esc(TKD.skillName(id))}</button></li>`;
     }).join('');
     const stars = this.starTotal(st), max = this.starMax(st);
-    return `<section class="jr jr-map" aria-label="${TKD.t('My journey', 'رحلتي')}" data-skill="${skillId}">
+    // v59: the three units of this kick — open ones can be looked at, the rest are locked
+    const units = Units.LIST.map(U => {
+      const done = Units.done(sco, U.n, skillId), open = Units.open(sco, U.n, skillId), [d, t] = Units.count(sco, U.n, skillId);
+      const state = done ? 'done' : open ? 'open' : 'locked';
+      return `<li class="jr-unit is-${state}${U.n === u ? ' is-view' : ''}${U.n === curU && !done ? ' is-cur' : ''}"><button type="button" class="jr-unit-btn" data-unit="${U.n}" aria-pressed="${U.n === u}"${open ? '' : ' aria-disabled="true"'}>
+        <span class="ju-n">${done ? '✓' : open ? TKD.num(U.n) : '🔒'}</span><span class="ju-t"><b>${U.icon} ${TKD.esc(TKD.t(U.en, U.ar))}</b><small>${TKD.num(d)}/${TKD.num(t)}</small></span></button></li>`;
+    }).join('');
+    const nextU = u < 3 ? Units.get(u + 1) : null, nextUOpen = nextU && Units.open(sco, u + 1, skillId);
+    return `<section class="jr jr-map" aria-label="${TKD.t('My journey', 'رحلتي')}" data-skill="${skillId}" data-unit="${u}">
       <header class="jr-head">
         <div class="jr-title"><b>🗺️ ${TKD.t(`${TKD.skillName(skillId)} adventure`, `مغامرة ${TKD.skillName(skillId)}`)}</b>
-          <small>${TKD.t(`Kick ${ki + 1} of ${order.length}`, `الركلة ${TKD.num(ki + 1)} من ${TKD.num(order.length)}`)}</small></div>
+          <small>${window.Stages ? Stages.label(skillId) : TKD.t(`Kick ${ki + 1} of ${order.length}`, `الركلة ${TKD.num(ki + 1)} من ${TKD.num(order.length)}`)}</small></div>
         <div class="jr-stars" title="${TKD.t('Stars on this map', 'نجوم الخريطة دي')}"><span class="jr-star-ico">⭐</span><b id="jr-star-n">${TKD.num(stars)}</b><small>/${TKD.num(max)}</small></div>
       </header>
       <ol class="jr-kicks jr-kicks-top" aria-label="${TKD.t('The kicks', 'الركلات')}">${kicks}</ol>
+      <ol class="jr-units" aria-label="${TKD.t('The three units', 'الوحدات التلاتة')}">${units}</ol>
       ${n ? `<button type="button" class="jr-go" id="jr-go"><span class="jr-go-ico">${n.icon}</span><span class="jr-go-txt"><b>${TKD.esc(n.label)}</b><small>${TKD.t('tap to start', 'دوس عشان تبدأ')}</small></span><span class="jr-go-arrow">${TKD.ar ? '←' : '→'}</span></button>` : ''}
-      <div class="jr-board" id="jr-board" style="--reach:${reach.toFixed(4)}">
+      <div class="jr-board" id="jr-board" style="--reach:${reach.toFixed(4)};aspect-ratio:${B.w} / ${B.h}">
         <svg class="jr-road" viewBox="0 0 ${B.w} ${B.h}" aria-hidden="true" focusable="false">
           <defs><linearGradient id="jr-fill" x1="0" x2="1"><stop offset="0" stop-color="#ffd166"/><stop offset="1" stop-color="#ff6b35"/></linearGradient></defs>
           <path class="jr-road-edge" d="${road.d}"/>
@@ -18605,7 +18999,9 @@ const Journey = {
           ${starRow(x)}
           <span class="jr-lbl">${TKD.esc(TKD.ar ? x.ar : x.en)}</span>
         </div>`).join('')}
-        <div class="jr-sign" style="${pct(pts[st.length])}" aria-hidden="true">${nextKick
+        <div class="jr-sign${nextU ? ' is-unit' : ''}" style="${pct(pts[st.length])}" ${nextU ? `data-unit="${u + 1}"` : 'aria-hidden="true"'}>${nextU
+          ? `<span>${nextUOpen ? nextU.icon : '🔒'}</span><small>${TKD.t(`Unit ${u + 1}`, `الوحدة ${TKD.num(u + 1)}`)}: ${TKD.esc(TKD.t(nextU.en, nextU.ar))}</small>`
+          : nextKick
           ? `<span>🔒</span><small>${TKD.t('Next', 'الجاية')}: ${TKD.esc(TKD.skillName(nextKick))}</small>`
           : `<span>🥋</span><small>${TKD.t('Next belt!', 'الحزام الجاي!')}</small>`}</div>
         <div class="jr-stage" id="jr-stage" style="${pct(this.stagePos(pts[nowI < 0 ? st.length - 1 : nowI]))}"></div>
@@ -18635,18 +19031,30 @@ const Journey = {
         gs?.playSound('error'); return;
       }
       gs.playSound('click');
-      this.view = id; gs.currentSkill = id; gs.syncFlatProgressToCurrentSkill?.(); gs.saveToStorage?.();
+      this.view = id; this.unitView = null; gs.currentSkill = id; gs.syncFlatProgressToCurrentSkill?.(); gs.saveToStorage?.();
       window.HomeHub?.render?.();
     }));
+    const pickUnit = (n) => {
+      const sk = this.skill(), sc = this.scores(sk), gs = TKD.gs();
+      if (!Units.open(sc, n, sk)) {
+        TKD.toast(TKD.t(`Finish unit ${n - 1} first 🔓`, `خلّص الوحدة ${TKD.num(n - 1)} الأول 🔓`), 'warning'); gs?.playSound('error'); return;
+      }
+      gs?.playSound('click'); this.unitView = { skill: sk, u: n }; this._noIntro = false; window.HomeHub?.render?.();
+    };
+    root.querySelectorAll('.jr-unit-btn').forEach(b => b.addEventListener('click', () => pickUnit(+b.dataset.unit)));
+    root.querySelector('.jr-sign.is-unit')?.addEventListener('click', (e) => pickUnit(+e.currentTarget.dataset.unit));
     root.querySelectorAll('.jr-dot').forEach(b => b.addEventListener('click', () => {
       const id = b.dataset.go, st = this.steps().find(x => x.id === id);
       if (!st) return;
       const box = b.closest('.jr-step');
       if (st.state === 'locked') {
         box?.classList.remove('shake'); void box?.offsetWidth; box?.classList.add('shake');
+        const u = this.unit(), sk = this.skill();
         TKD.toast(st.id === 'chest'
           ? TKD.t('The treasure opens after the test 🎁', 'الكنز بيتفتح بعد الاختبار 🎁')
-          : TKD.t('Finish the step before it first 😊', 'خلّص اللي قبلها الأول 😊'), 'warning');
+          : !Units.open(this.scores(sk), u, sk) ? TKD.t(`Finish unit ${u - 1} first 😊`, `خلّص الوحدة ${TKD.num(u - 1)} الأول 😊`)
+          : st.id === 'quiz' ? TKD.t('The test opens after all the games 😊', 'الاختبار بيتفتح بعد ما تخلّص كل الألعاب 😊')
+          : TKD.t('Watch the lesson first 😊', 'اتفرج على الدرس الأول 😊'), 'warning');
         TKD.gs()?.playSound('error');
         return;
       }
@@ -18685,7 +19093,7 @@ Object.assign(Journey, {
     box.innerHTML = `<div class="jr-coach-inner">
       <img class="jr-coach-img" src="${PoseShots.url('coach', 'coach')}" alt="">
       <div class="jr-coach-bubble">
-        <b>${TKD.t('Hi! I am Coach Yang 👋', 'أهلًا! أنا الكوتش يانج 👋')}</b>
+        <b>${TKD.t('Hi! I am Coach Yang 👋', 'أهلًا! أنا سابوم نيم يانج — يعني الأستاذ يانج 👋')}</b>
         <p>${TKD.t(`${p?.name || ''}, this is your map! Walk the road one station at a time, collect the stars ⭐ — and at the end there's a treasure 🎁.`, `يا ${p?.name || 'بطل'}، دي خريطتك! امشي على الطريق محطة محطة، واجمع النجوم ⭐، وفي الآخر فيه كنز مستنيك 🎁.`)}</p>
         <button type="button" class="btn btn-success" data-a="go">${TKD.t("Let's go! 🚀", 'يلا بينا! 🚀')}</button>
       </div></div>`;
@@ -18716,14 +19124,19 @@ Object.assign(Journey, {
   celebrate(root = document) {
     // the hub also re-renders in the background (player switch, sync) — only replay what the child can SEE
     if (!document.getElementById('home-screen')?.classList.contains('active')) return;
-    const gs = TKD.gs(), skill = this.skill(), st = this.steps(skill);
-    const snap = { skill, done: st.filter(x => x.done).map(x => x.id), stars: Object.fromEntries(st.map(x => [x.id, x.stars])), completed: [...(gs?.completedSkills || [])] };
+    const gs = TKD.gs(), skill = this.skill(), unit = this.unit(skill), st = this.steps(skill, unit);
+    const sco = this.scores(skill), unitsDone = [1, 2, 3].filter(n => Units.done(sco, n, skill));
+    const snap = { skill, unit, unitsDone, done: st.filter(x => x.done).map(x => x.id), stars: Object.fromEntries(st.map(x => [x.id, x.stars])), completed: [...(gs?.completedSkills || [])] };
     const before = TKD.read(this.snapKey(), null);
     TKD.write(this.snapKey(), snap);
     if (!before || Array.isArray(before)) return;                     // first visit (or the v29 format) → nothing to replay
     const newKick = snap.completed.find(id => !(before.completed || []).includes(id));
     if (newKick) { this.treasure(newKick); return; }
     if (before.skill !== skill) return;
+    // v59: a unit just finished → say so, and show the unit that opened
+    const newUnit = before.unitsDone ? unitsDone.find(n => !before.unitsDone.includes(n) && n < 3) : null;
+    if (newUnit) { this.unitDone(skill, newUnit); return; }
+    if (before.unit !== unit) return;
     const fresh = st.filter(x => x.done && !before.done.includes(x.id));
     const moreStars = st.filter(x => x.done && before.done.includes(x.id) && x.stars > (before.stars?.[x.id] || 0));
     if (!fresh.length && !moreStars.length) return;
@@ -18768,6 +19181,25 @@ Object.assign(Journey, {
     const n = root.querySelector('#jr-star-n');
     const from = Object.values(before.stars || {}).reduce((a, b) => a + b, 0);
     if (n && !reduced) { n.textContent = TKD.num(from); setTimeout(() => window.tkdCountUp(n, this.starTotal(st), { dur: 900, from }), 500); }
+  },
+  // v59: a unit finished → the next one opens
+  unitDone(skillId, n) {
+    document.querySelectorAll('.jr-unitdone').forEach(m => m.remove());
+    const U = Units.get(n), N = Units.get(n + 1);
+    const box = document.createElement('div'); box.className = 'tkd-modal jr-unitdone';
+    box.innerHTML = `<div class="tkd-modal-card jr-ud-card" role="dialog">
+      <div class="jr-ud-big" aria-hidden="true">${U.icon} ${TKD.ar ? '←' : '→'} ${N.icon}</div>
+      <h2>🎉 ${TKD.t(`Unit ${n} done!`, `خلّصت الوحدة ${TKD.num(n)}!`)}</h2>
+      <p>${TKD.t(`You finished “${U.en}” for ${TKD.skillName(skillId)}.`, `خلّصت «${U.ar}» في ${TKD.skillName(skillId)}.`)}</p>
+      <p class="jr-ud-next">🔓 ${TKD.t(`Unit ${n + 1} is open: ${N.en}`, `الوحدة ${TKD.num(n + 1)} اتفتحت: ${N.ar}`)}</p>
+      <button type="button" class="btn btn-success" data-a="ok">${TKD.t("Let's see it! 🚀", 'يلا نشوفها! 🚀')}</button></div>`;
+    document.body.appendChild(box);
+    window.AudioKit?.sfx('win', { gain: 0.55 });
+    const go = () => { box.remove(); this.unitView = { skill: skillId, u: n + 1 }; window.HomeHub?.render?.(); };
+    const bye = (e) => { if (e.detail?.screenId !== 'home') { document.removeEventListener('tkd:screen', bye); box.remove(); } };
+    document.addEventListener('tkd:screen', bye);
+    box.querySelector('[data-a="ok"]').addEventListener('click', () => { TKD.gs()?.playSound('click'); go(); });
+    box.addEventListener('click', (e) => { if (e.target === box) go(); });
   },
   // a whole kick mastered → the treasure chest opens
   treasure(skillId) {
@@ -19242,11 +19674,12 @@ const Voice = {
   CUES: {
     bravo: { ar: 'برافو عليك!', en: 'Well done!' }, great: { ar: 'جامد جدًا!', en: 'Awesome!' }, again: { ar: 'قربت! جرّب تاني', en: 'So close — try again!' },
     record: { ar: 'رقم قياسي جديد!', en: 'New personal record!' }, levelup: { ar: 'طلعت مستوى جديد!', en: 'You levelled up!' },
-    ready: { ar: 'استعد…', en: 'Get ready…' }, go: { ar: 'يلا!', en: 'Go!' }, kihap: { ar: 'كياي!', en: 'Kihap!' },
+    ready: { ar: 'استعد…', en: 'Get ready…' }, go: { ar: 'يلا!', en: 'Go!' }, kihap: { ar: 'كيهاب!', en: 'Kihap!' },
     welcome: { ar: 'أهلًا بيك يا بطل!', en: 'Welcome, champion!' }, warmupDone: { ar: 'برافو، خلّصت الإحماء!', en: 'Warm-up done — great job!' },
     // v43: the dojang commands (record them in Coach → Record voice)
     charyeot: { ar: 'تشاريوت!', en: 'Charyeot!' }, gyeongnye: { ar: 'كيونجنيه!', en: 'Gyeongnye!' },
-    junbi: { ar: 'جونبي!', en: 'Junbi!' }, sijak: { ar: 'شيجاك!', en: 'Shijak!' }
+    junbi: { ar: 'جونبي!', en: 'Junbi!' }, sijak: { ar: 'شيجاك!', en: 'Shijak!' },
+    keuman: { ar: 'كومان!', en: 'Keuman!' }, baro: { ar: 'باروه!', en: 'Baro!' }
   },
   cue(id) {
     const c = this.CUES[id]; if (!c || AudioKit.gs()?.soundEnabled === false) return;
@@ -19620,8 +20053,24 @@ const Shop = {
     { id: 'frame-red', slot: 'frame', color: '#e63946', cost: 10, en: 'Red frame', ar: 'إطار أحمر' },
     { id: 'frame-rainbow', slot: 'frame', color: 'rainbow', cost: 25, en: 'Rainbow frame', ar: 'إطار قوس قزح' }
   ],
-  items() { return [...this.BELTS, ...this.HEADBANDS, ...this.PARTIES, ...this.FRAMES]; },
-  forSale() { return [...this.HEADBANDS, ...this.PARTIES, ...this.FRAMES]; },
+  // v57.1: the dobok's collar — seen on the 3D fighter everywhere
+  COLLARS: [
+    { id: 'col-black', slot: 'collar', color: '#1d1d22', cost: 0, en: 'Black collar', ar: 'ياقة سودا' },
+    { id: 'col-white', slot: 'collar', color: '#f4f6fa', cost: 6, en: 'White collar', ar: 'ياقة بيضا' },
+    { id: 'col-red', slot: 'collar', color: '#e63946', cost: 10, en: 'Red collar', ar: 'ياقة حمرا' },
+    { id: 'col-blue', slot: 'collar', color: '#3d7dff', cost: 10, en: 'Blue collar', ar: 'ياقة زرقا' },
+    { id: 'col-gold', slot: 'collar', color: '#ffd166', cost: 18, en: 'Gold collar', ar: 'ياقة دهبي' }
+  ],
+  // v57.1: what your fighter does on the win screen
+  MOVES: [
+    { id: 'move-jump', slot: 'move', icon: '🙌', seq: ['win', 'bow', 'win', 'bounce'], cost: 0, en: 'Jump for joy', ar: 'نطّة الفرحة' },
+    { id: 'move-kick', slot: 'move', icon: '🦶', seq: ['KICK', 'win', 'bow', 'bounce'], cost: 12, en: 'Show-off kick', ar: 'ركلة استعراض' },
+    { id: 'move-double', slot: 'move', icon: '⚡', seq: ['KICK', 'KICK', 'win', 'bounce'], cost: 20, en: 'Double kick', ar: 'ركلتين ورا بعض' },
+    { id: 'move-bow', slot: 'move', icon: '🙇', seq: ['bow', 'win', 'win', 'bounce'], cost: 8, en: 'Respect first', ar: 'التحية الأول' }
+  ],
+  items() { return [...this.BELTS, ...this.HEADBANDS, ...this.COLLARS, ...this.MOVES, ...this.PARTIES, ...this.FRAMES]; },
+  forSale() { return [...this.HEADBANDS, ...this.COLLARS, ...this.MOVES, ...this.PARTIES, ...this.FRAMES]; },
+  move(pid) { const d = this.data(pid); return this.find(d.equipped.move) || this.MOVES[0]; },
   find(id) { return this.items().find(x => x.id === id); },
 
   key() { return `taekwondoJourneyShop:${TKD.pid() || 'guest'}`; },
@@ -19641,7 +20090,9 @@ const Shop = {
     }
     d.equipped.party = d.equipped.party || 'party-classic';
     d.equipped.frame = d.equipped.frame || 'frame-none';
-    ['party-classic', 'frame-none'].forEach(id => { if (!d.owned.includes(id)) d.owned.push(id); });
+    d.equipped.collar = d.equipped.collar || 'col-black';
+    d.equipped.move = d.equipped.move || 'move-jump';
+    ['party-classic', 'frame-none', 'col-black', 'move-jump'].forEach(id => { if (!d.owned.includes(id)) d.owned.push(id); });
     return d;
   },
   // the celebration icons and the avatar frame of any player (for the league, the player cards…)
@@ -19692,8 +20143,10 @@ const Shop = {
     const d = this.data();
     const hb = this.find(d.equipped.headband) || this.HEADBANDS[0];
     // the character always wears the belt the child has EARNED in the syllabus
-    const earned = this.earnedBelt();
-    this._cos = { belt: earned?.color || this.BELTS[0].color, headband: hb.color, earned: earned?.id || null };
+    // v57.1: the three kicks of the game are all white-belt techniques → the belt stays white
+    const earned = null;
+    const col = this.find(d.equipped.collar) || this.COLLARS[0];
+    this._cos = { belt: this.BELTS[0].color, headband: hb.color, collar: col.color, earned: null };
     this._cosT = now; this._cosP = TKD.pid();
     // first time a new belt shows up on the character → tell the child
     const k = `taekwondoJourneyBelt3D:${TKD.pid() || 'guest'}`, seen = TKD.read(k, null);
@@ -19798,6 +20251,7 @@ const Shop = {
     const owned = this.owns(item.id), on = this.equipped(item.slot) === item.id;
     const label = TKD.t(item.en, item.ar);
     const swatch = item.icons ? `<span class="shop-swatch shop-swatch-party">${item.icons.join('')}</span>`
+      : item.slot === 'move' ? `<span class="shop-swatch shop-swatch-party">${item.icon}</span>`
       : item.slot === 'frame' && item.color ? `<span class="shop-swatch shop-swatch-frame ${item.color === 'rainbow' ? 'rainbow' : ''}" style="--c:${item.color}"></span>`
       : item.color ? `<span class="shop-swatch" style="--c:${item.color}"></span>` : `<span class="shop-swatch shop-swatch-none">✕</span>`;
     return `<button type="button" class="shop-card ${on ? 'is-on' : ''}" data-buy="${item.id}">
@@ -19815,9 +20269,13 @@ const Shop = {
         <button type="button" class="shop-close" aria-label="${TKD.t('Close', 'قفل')}">✕</button>
         <h2>🛍️ ${TKD.t('Star Shop', 'متجر النجوم')}</h2>
         <p class="shop-balance">⭐ <b>${TKD.num(bal)}</b> ${TKD.t('stars to spend', 'نجمة معاك')}</p>
-        <p class="shop-belt-note">🥋 ${TKD.t('Belts are not sold: your fighter wears the belt you EARN by mastering its techniques in the Belt Syllabus.', 'الحزام مش بيتشترى: شخصيتك بتلبس الحزام اللي بتكسبه لما تتقن حركاته في منهج الأحزمة.')}</p>
+        <p class="shop-belt-note">🥋 ${TKD.t('Belts are not sold: these three kicks are white-belt techniques — every kick test you pass puts a stripe on your white belt.', 'الحزام مش بيتشترى: الركلات التلاتة دي من حركات الحزام الأبيض — وكل اختبار ركلة بتعدّيه بيحطلك شريطة على حزامك الأبيض.')}</p>
         <h3>${TKD.t('Headband', 'عصابة الراس')}</h3>
         <div class="shop-grid">${this.HEADBANDS.map(i => this.cardHTML(i)).join('')}</div>
+        <h3>${TKD.t('Dobok collar', 'ياقة الدوبوك')}</h3>
+        <div class="shop-grid">${this.COLLARS.map(i => this.cardHTML(i)).join('')}</div>
+        <h3>${TKD.t('Win move', 'حركة الفوز')}</h3>
+        <div class="shop-grid">${this.MOVES.map(i => this.cardHTML(i)).join('')}</div>
         <h3>${TKD.t('Win celebration', 'احتفال الفوز')}</h3>
         <div class="shop-grid">${this.PARTIES.map(i => this.cardHTML(i)).join('')}</div>
         <h3>${TKD.t('Picture frame', 'إطار الصورة')}</h3>
@@ -19895,81 +20353,255 @@ if (document.readyState === 'loading') document.addEventListener('DOMContentLoad
 // gift". Riding on the existing attempts log and practice streak, not a new
 // tracking system. The reward is bonus stars, spendable in the Star Shop.
 // ============================================================================
+// =====================================================================
+// v57.1 — EVERY DAY A REASON TO COME BACK: three small missions a day (⭐ each), the
+// day's gift chest, the streak of days 🔥 with day shields 🛡️ — on the map.
+// The stars land in the same pocket the Star Shop spends (Mission.bonusStars()).
+// =====================================================================
 const Mission = {
-  TARGET: 2,
-  REWARD: 5,
-
+  PER: 3,                 // stars per mission
+  CHEST: [4, 6, 8, 10],   // what the chest can hold (stars)
+  ALL_BONUS: 5,           // all three missions done → this many extra stars in the chest
+  POOL: {
+    warmup:  { icon: '🔥', en: 'Do the warm-up',               ar: 'اعمل الإحماء',                        n: 1, count: (a) => a.filter(x => x.gameId === 'warmup').length },
+    play3:   { icon: '🎮', en: 'Play 3 games',                 ar: 'العب ٣ ألعاب',                        n: 3, count: (a) => a.filter(x => !['warmup', 'learning'].includes(x.gameId)).length },
+    variety: { icon: '🌈', en: 'Play 3 different games',       ar: 'العب ٣ ألعاب مختلفة',                 n: 3, count: (a) => new Set(a.filter(x => !['warmup', 'learning'].includes(x.gameId)).map(x => x.gameId)).size },
+    stars3:  { icon: '⭐', en: 'Get ★★★ in a game',            ar: 'خد ★★★ في لعبة',                      n: 1, count: (a) => a.filter(x => x.gameId !== 'warmup' && x.score >= 90).length },
+    pass2:   { icon: '✅', en: 'Pass 2 games',                 ar: 'اعدّي لعبتين',                         n: 2, count: (a) => a.filter(x => x.passed && !['warmup', 'learning'].includes(x.gameId)).length },
+    strikes: { icon: '🦶', en: 'Land 20 good strikes',         ar: 'اعمل ٢٠ ضربة صح',                     n: 20, count: () => Juice.today() },
+    lesson:  { icon: '🎓', en: 'Review a lesson',              ar: 'راجع درس',                             n: 1, count: (a) => a.filter(x => x.gameId === 'learning').length, alt: () => !!TKD.read(`taekwondoJourneyLessonDay:${TKD.pid()}`, null) && TKD.read(`taekwondoJourneyLessonDay:${TKD.pid()}`, null) === TKD.dayKey() },
+    arena:   { icon: '🏟️', en: 'Play an arena game',           ar: 'العب لعبة من ألعاب الساحة',            n: 1, count: (a) => a.filter(x => ['board-break', 'paddle-reflex', 'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag'].includes(x.gameId)).length },
+    challenge: { icon: '🏆', en: "Play today's challenge",     ar: 'العب تحدي النهارده',                  n: 1, count: (a) => a.filter(x => x.meta?.challenge || x.meta?.challengePractice).length },
+    combo5:  { icon: '🔥', en: 'Make a ×5 combo',               ar: 'اعمل كومبو ×٥',                       n: 1, count: () => Juice.bestToday() >= 5 ? 1 : 0 }
+  },
   key() { return `taekwondoJourneyMission:${TKD.pid() || 'guest'}`; },
   data() {
-    const d = TKD.read(this.key(), null);
-    const today = TKD.dayKey();
-    if (d && d.day === today) return d;
-    return { day: today, claimed: false, bonusStars: d?.bonusStars || 0 };
+    const d = TKD.read(this.key(), null), today = TKD.dayKey();
+    if (d && d.day === today && d.v === 2) return d;
+    // a new day: three missions picked for this child and this day (the warm-up often one of them)
+    const ids = Object.keys(this.POOL), h = TKD.hash(`${today}|${TKD.pid() || 'g'}`);
+    const pick = [];
+    const order = ids.slice().sort((a, b) => (TKD.hash(a + h) % 997) - (TKD.hash(b + h) % 997));
+    if (h % 3 === 0) pick.push('warmup');
+    for (const id of order) { if (pick.length >= 3) break; if (!pick.includes(id) && !(id === 'combo5' && pick.includes('strikes'))) pick.push(id); }
+    return { v: 2, day: today, ids: pick, got: [], chest: false, bonusStars: d?.bonusStars || 0 };
   },
   save(d) { TKD.write(this.key(), d); },
-
-  // however many things the child played today, regardless of which
-  progressToday() {
-    const pid = TKD.pid(), day = TKD.dayKey();
-    if (!pid) return 0;
-    try { return PlayerSystem.getAttempts().filter(a => a.playerId === pid && TKD.dayKey(a.ts) === day).length; }
-    catch (e) { return 0; }
+  attemptsToday() {
+    const pid = TKD.pid(), day = TKD.dayKey(); if (!pid) return [];
+    try { return PlayerSystem.getAttempts().filter(a => a.playerId === pid && TKD.dayKey(a.ts) === day); } catch (e) { return []; }
   },
-  progress() { return Math.min(this.TARGET, this.progressToday()); },
-  isDone() { return this.progressToday() >= this.TARGET; },
-  isClaimed() { return this.data().claimed; },
+  list() {
+    const d = this.data(), a = this.attemptsToday();
+    return d.ids.map(id => { const q = this.POOL[id]; const n = Math.min(q.n, q.count(a) || 0); return { id, q, n, done: n >= q.n, got: d.got.includes(id) }; });
+  },
   bonusStars() { return this.data().bonusStars || 0; },
-
-  claim() {
-    const d = this.data();
-    if (d.claimed || !this.isDone()) return false;
-    d.claimed = true; d.bonusStars = (d.bonusStars || 0) + this.REWARD;
-    this.save(d);
-    return true;
+  give(n) { const d = this.data(); d.bonusStars = (d.bonusStars || 0) + n; this.save(d); },
+  // a mission just finished → its stars at once (no button to find)
+  check() {
+    if (!TKD.pid()) return;
+    const d = this.data(); let gained = 0;
+    this.list().forEach(m => { if (m.done && !d.got.includes(m.id)) { d.got.push(m.id); gained += this.PER; TKD.toast(TKD.t(`${m.q.icon} Mission done: ${m.q.en} — +${this.PER} ⭐`, `${m.q.icon} خلصت مهمة: ${m.q.ar} — +${TKD.count(this.PER, 'star', 'ar')}`), 'success'); } });
+    if (gained) { d.bonusStars = (d.bonusStars || 0) + gained; this.save(d); window.AudioKit?.sfx('star', { gain: 0.6 }); this.mount(); }
   },
-
-  // ---------------------------------------------------------------- UI
+  // the gift chest: once a day; bigger when all three missions are done
+  chestReady() { return !this.data().chest; },
+  openChest() {
+    const d = this.data(); if (d.chest) return 0;
+    const all = this.list().every(m => m.done);
+    const n = this.CHEST[TKD.hash(d.day + (TKD.pid() || '')) % this.CHEST.length] + (all ? this.ALL_BONUS : 0);
+    d.chest = all ? 'big' : 'small'; d.bonusStars = (d.bonusStars || 0) + n; this.save(d);
+    return n;
+  },
+  // ---------------------------------------------------------------- UI (on the map)
   html() {
-    const done = this.isDone(), claimed = this.isClaimed(), p = this.progress();
-    const cls = claimed ? 'is-claimed' : done ? 'is-done' : '';
-    const body = claimed
-      ? `<b>${TKD.t('Today’s mission — done!', 'مهمة اليوم — خلصت!')}</b><small>${TKD.t('Come back tomorrow for a new one', 'تعال بكرة لمهمة جديدة')}</small>`
-      : done
-        ? `<b>${TKD.t('Mission complete — claim your gift!', 'خلصت المهمة — خد هديتك!')}</b><small>${TKD.t('Tap to collect ⭐ %n stars', 'دوس تاخد ⭐ %n نجوم').replace('%n', TKD.num(this.REWARD))}</small>`
-        : `<b>${TKD.t('Today’s mission', 'مهمة اليوم')}</b><small>${TKD.t(`Play ${this.TARGET} things today for a gift`, `العب ${TKD.count(this.TARGET, 'thing', 'ar')} النهارده وخد هدية`)}</small>`;
-    return `<button type="button" class="mission-box ${cls}" id="mission-box" ${claimed ? 'disabled' : ''}>
-      <span class="mission-ico">${claimed ? '✅' : done ? '🎁' : '📋'}</span>
-      <span class="mission-text">${body}</span>
-      ${!claimed ? `<span class="mission-dots" aria-hidden="true">${Array.from({ length: this.TARGET }, (_, i) => `<i class="${i < p ? 'on' : ''}"></i>`).join('')}</span>` : ''}
-    </button>`;
+    const gs = TKD.gs(), streak = gs?.practiceStreak || 0, shields = gs?.streakShields || 0;
+    const L = this.list(), done = L.filter(m => m.done).length, d = this.data(), all = done === L.length;
+    return `<section class="daily-box" id="mission-box" aria-label="${TKD.t('Today', 'النهارده')}">
+      <div class="daily-top">
+        <span class="daily-streak" title="${TKD.t('Days in a row', 'أيام ورا بعض')}">🔥 <b>${TKD.num(streak)}</b><small>${TKD.t('days in a row', streak === 1 ? 'يوم' : 'أيام ورا بعض')}</small></span>
+        <span class="daily-shields" title="${TKD.t('Day shields: they save your streak if you miss one day', 'دروع اليوم: بتحافظ على السلسلة لو غبت يوم')}">${shields ? '🛡️'.repeat(shields) : '<i>🛡️</i>'}<small>${TKD.t(`next shield at ${Math.ceil((streak + 1) / 7) * 7} days`, `الدرع الجاي عند ${TKD.num(Math.ceil((streak + 1) / 7) * 7)} يوم`)}</small></span>
+        <button type="button" class="daily-chest ${d.chest ? 'is-open' : all ? 'is-big' : ''}" id="daily-chest" ${d.chest ? 'disabled' : ''} aria-label="${TKD.t("Today's gift", 'هدية النهارده')}">${d.chest ? '🎉' : '🎁'}<small>${d.chest ? TKD.t('opened', 'اتفتحت') : all ? TKD.t('open!', 'افتحها!') : TKD.t('gift', 'هدية')}</small></button>
+      </div>
+      <ul class="daily-list">${L.map(m => `<li class="${m.done ? 'done' : ''}"><span class="dq-ico">${m.done ? '✅' : m.q.icon}</span><span class="dq-txt">${TKD.t(m.q.en, m.q.ar)}</span>
+        <span class="dq-bar"><i style="width:${Math.round(m.n / m.q.n * 100)}%"></i></span><span class="dq-n">${m.q.n > 1 ? `${TKD.num(m.n)}/${TKD.num(m.q.n)}` : ''} ⭐${TKD.num(this.PER)}</span></li>`).join('')}</ul>
+      ${!d.chest && !all ? `<p class="daily-hint">${TKD.t('Finish all 3 for a bigger gift!', 'خلّص التلاتة عشان الهدية تكبر!')}</p>` : ''}
+    </section>`;
   },
   mount() {
     const board = document.querySelector('.jr-map .jr-head');
     if (!board || !board.parentNode) return;
-    const host = board.parentNode;
-    const prev = host.querySelector('#mission-box');
-    const wasClaimed = prev?.classList.contains('is-claimed');
-    const html = this.html();
+    const host = board.parentNode, prev = host.querySelector('#mission-box'), html = this.html();
     if (prev) { if (prev.outerHTML === html) return; prev.outerHTML = html; }
     else host.insertBefore(document.createRange().createContextualFragment(html), board.nextSibling);
-    const box = document.getElementById('mission-box');
-    box?.addEventListener('click', () => {
-      if (!this.claim()) return;
-      AudioKit?.sfx?.('star', { gain: 0.6 });
-      TKD.toast(TKD.t(`Gift claimed — +${this.REWARD} stars!`, `أخدت الهدية — +${TKD.count(this.REWARD, 'star', 'ar')}!`), 'success');
-      this.mount();
+    TKD.$('daily-chest')?.addEventListener('click', (e) => {
+      const n = this.openChest(); if (!n) return;
+      const b = e.currentTarget; b.classList.add('pop');
+      window.AudioKit?.sfx('win', { gain: 0.5 });
+      Juice.burstAt(b.getBoundingClientRect(), 26);
+      setTimeout(() => { TKD.toast(TKD.t(`🎁 +${n} stars! Spend them in the Star Shop.`, `🎁 +${TKD.count(n, 'star', 'ar')}! اصرفهم في متجر النجوم.`), 'success'); this.mount(); }, 450);
     });
-    if (!wasClaimed && this.isDone() && !this.isClaimed()) box?.classList.add('mission-pop');
   },
   init() {
-    document.addEventListener('tkd:screen', (e) => { if (e.detail?.screenId === 'home') setTimeout(() => this.mount(), 80); });
-    // a game just finished — the mission's progress dots (and gift, once
-    // earned) should be there the moment the child gets back to the map
+    document.addEventListener('tkd:screen', (e) => { if (e.detail?.screenId === 'home') setTimeout(() => { this.check(); this.mount(); }, 80); });
     document.addEventListener('tkd:player-changed', () => this.mount());
   }
 };
 window.Mission = Mission;
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => Mission.init()); else Mission.init();
+
+// =====================================================================
+// v57.1 — HOW A HIT FEELS: every good strike in every game gets a little shake, a flash,
+// sparks where the finger was, a "Kihap!" now and then and a COMBO counter
+// (×3 Double! · ×5 On fire! 🔥 · ×8 Master!). A miss resets the combo with a small wobble.
+// Nothing changes a game's rules — it is all on top.
+// =====================================================================
+const Juice = {
+  GAMES: ['form-control', 'puzzle', 'performance', 'action', 'error-hunt', 'quiz-blast', 'quiz', 'board-break', 'paddle-reflex', 'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag', 'versus'],
+  combo: 0, x: null, y: null, _k: 0,
+  calm() { return window.matchMedia?.('(prefers-reduced-motion: reduce)').matches || document.documentElement.classList.contains('lite'); },
+  inGame() { const id = (document.querySelector('.screen.active')?.id || '').replace(/-screen$/, ''); return this.GAMES.includes(id) ? id : null; },
+  key() { return `taekwondoJourneyJuice:${TKD.pid() || 'guest'}`; },
+  day() { const d = TKD.read(this.key(), null), t = TKD.dayKey(); return d && d.day === t ? d : { day: t, hits: 0, best: 0 }; },
+  today() { return this.day().hits; },
+  bestToday() { return this.day().best; },
+  note(hit) {
+    const d = this.day();
+    if (hit) { d.hits++; d.best = Math.max(d.best, this.combo); }
+    TKD.write(this.key(), d);
+    if (hit && (d.hits === 20 || this.combo === 5)) setTimeout(() => Mission.check(), 300);
+  },
+  layer() {
+    let L = document.getElementById('juice-layer');
+    if (!L) { L = document.createElement('div'); L.id = 'juice-layer'; L.setAttribute('aria-hidden', 'true'); document.body.appendChild(L); }
+    return L;
+  },
+  point() {
+    if (this.x !== null && Date.now() - this._t < 2500) return { x: this.x, y: this.y };
+    const c = document.querySelector('.screen.active canvas, .screen.active .game-container');
+    const r = c?.getBoundingClientRect(); return r ? { x: r.left + r.width / 2, y: r.top + Math.min(r.height / 2, innerHeight / 2) } : { x: innerWidth / 2, y: innerHeight / 2 };
+  },
+  sparks(x, y, n = 10, cls = '') {
+    if (this.calm()) n = Math.min(n, 4);
+    const L = this.layer();
+    for (let i = 0; i < n; i++) {
+      const s = document.createElement('i'); s.className = `jz-spark ${cls}`;
+      const a = Math.random() * Math.PI * 2, d = 30 + Math.random() * 50;
+      s.style.cssText = `left:${x}px;top:${y}px;--dx:${Math.cos(a) * d}px;--dy:${Math.sin(a) * d}px;--h:${[45, 30, 170, 0][i % 4]}`;
+      L.appendChild(s); setTimeout(() => s.remove(), 650);
+    }
+  },
+  burstAt(r, n = 18) { this.sparks(r.left + r.width / 2, r.top + r.height / 2, n, 'big'); },
+  word(text, x, y, cls = '') {
+    const w = document.createElement('b'); w.className = `jz-word ${cls}`; w.textContent = text;
+    w.style.left = `${Math.max(60, Math.min(innerWidth - 60, x))}px`; w.style.top = `${Math.max(70, y - 40)}px`;
+    this.layer().appendChild(w); setTimeout(() => w.remove(), 1100);
+  },
+  shake(strong) {
+    if (this.calm()) return;
+    const el = document.querySelector('.screen.active .game-container'); if (!el) return;
+    el.classList.remove('jz-shake', 'jz-shake2'); void el.offsetWidth; el.classList.add(strong ? 'jz-shake2' : 'jz-shake');
+    setTimeout(() => el.classList.remove('jz-shake', 'jz-shake2'), 320);
+  },
+  flash() {
+    if (this.calm()) return;
+    const f = document.createElement('i'); f.className = 'jz-flash'; this.layer().appendChild(f); setTimeout(() => f.remove(), 180);
+  },
+  comboBadge() {
+    const c = this.combo; if (c < 3) return;
+    const names = c >= 8 ? ['Master! 🥋', 'مايسترو! 🥋'] : c >= 5 ? ['On fire! 🔥', 'نار! 🔥'] : ['Double! ⚡', 'مزدوج! ⚡'];
+    let b = document.getElementById('jz-combo');
+    if (!b) { b = document.createElement('div'); b.id = 'jz-combo'; this.layer().appendChild(b); }
+    b.innerHTML = `<span>×${TKD.num(c)}</span>${TKD.t(names[0], names[1])}`;
+    b.classList.remove('show'); void b.offsetWidth; b.classList.add('show');
+    clearTimeout(this._cb); this._cb = setTimeout(() => b.classList.remove('show'), 1600);
+    if (c === 3 || c === 5 || c === 8) window.AudioKit?.sfx('star', { gain: 0.4, rate: 1 + (c - 3) * 0.06 });
+  },
+  on(type) {
+    const g = this.inGame(); if (!g) return;
+    const p = this.point();
+    if (type === 'success' || type === 'strike') {
+      if (type === 'success' || !this._strikeAt || Date.now() - this._strikeAt > 400) { this.combo++; this.note(true); }
+      if (type === 'strike') this._strikeAt = Date.now();
+      this.sparks(p.x, p.y, type === 'strike' ? 14 : 9);
+      this.flash(); this.shake(type === 'strike');
+      if (type === 'strike' && Date.now() - (this._kh || 0) > 2500) {
+        this._kh = Date.now(); this.word(TKD.t('Kihap!', 'كيهاب!'), p.x, p.y, 'kihap');
+        // v58.2: the real shout — only when it was recorded (Coach → Record voice), never the phone voice
+        if (window.Voice && !Voice.el && !window.speechSynthesis?.speaking) Voice.cue('kihap');
+      }
+      else if (this.combo >= 2) this.word(`+${TKD.num(this.combo)}`, p.x, p.y);
+      this.comboBadge();
+    } else if (type === 'error') {
+      if (this.combo >= 3) this.word(TKD.t('Combo lost', 'الكومبو راح'), p.x, p.y, 'lost');
+      this.combo = 0; this.note(false);
+      if (!this.calm()) { const el = document.querySelector('.screen.active .game-container'); el?.classList.remove('jz-wobble'); void el?.offsetWidth; el?.classList.add('jz-wobble'); setTimeout(() => el?.classList.remove('jz-wobble'), 420); }
+    } else if (type === 'win') this.combo = 0;
+  },
+  init() {
+    document.addEventListener('pointerdown', (e) => { this.x = e.clientX; this.y = e.clientY; this._t = Date.now(); }, true);
+    document.addEventListener('tkd:screen', () => { this.combo = 0; document.getElementById('jz-combo')?.classList.remove('show'); });
+    const GP = GameState.prototype, orig = GP.playSound;
+    GP.playSound = function (type, f) { try { Juice.on(type); } catch (e) {} return orig.call(this, type, f); };
+    if (typeof ArenaSound !== 'undefined') {
+      const w = (n, t) => { const o = ArenaSound[n]?.bind(ArenaSound); if (o) ArenaSound[n] = (...a) => { try { Juice.on(t); } catch (e) {} return o(...a); }; };
+      w('smack', 'strike'); w('thud', 'strike'); w('crack', 'strike'); w('buzz', 'error');
+    }
+  }
+};
+window.Juice = Juice;
+Juice.init();
+
+// =====================================================================
+// v57.1 — KEEP IT FRESH: the same game 3 times in a row → a friendly nudge to try another
+// one, with ⭐ +1 for trying something new. And every game quietly fits the child: three
+// easy wins make it a touch quicker, a miss makes it a touch gentler (never shown).
+// =====================================================================
+const Variety = {
+  key() { return `taekwondoJourneyVariety:${TKD.pid() || 'guest'}`; },
+  after(gameId) {
+    if (['warmup', 'learning', 'quiz'].includes(gameId)) return;
+    const d = TKD.read(this.key(), { last: [], offer: null });
+    if (d.offer && d.offer !== gameId) { Mission.give(1); d.offer = null; setTimeout(() => TKD.toast(TKD.t('🌈 Something new — +1 ⭐', '🌈 جربت حاجة جديدة — +١ ⭐'), 'success'), 2200); }
+    d.last = [...d.last, gameId].slice(-3);
+    if (d.last.length === 3 && d.last.every(x => x === gameId) && !d.offer) {
+      d.offer = gameId;
+      setTimeout(() => TKD.toast(TKD.t('🌟 You are a pro at this one! Try another game — it gives you +1 ⭐', '🌟 إنت بقيت محترف في اللعبة دي! جرّب لعبة تانية — هتاخد +١ ⭐'), 'info'), 3000);
+    }
+    TKD.write(this.key(), d);
+  }
+};
+window.Variety = Variety;
+(function wireFresh() {
+  const orig = PlayerSystem.logAttempt.bind(PlayerSystem);
+  PlayerSystem.logAttempt = (gameId, skillId, score, passed, meta) => {
+    const r = orig(gameId, skillId, score, passed, meta);
+    try { Variety.after(gameId); Fit.note(gameId, score, passed); setTimeout(() => Mission.check(), 400); } catch (e) {}
+    return r;
+  };
+})();
+// the invisible fit: a small multiplier per game on top of Easy / Normal / Hard
+const Fit = {
+  key() { return `taekwondoJourneyFit:${TKD.pid() || 'guest'}`; },
+  get(g) { return TKD.read(this.key(), {})[g] || { b: 1, w: 0 }; },
+  note(g, score, passed) {
+    const all = TKD.read(this.key(), {}), f = all[g] || { b: 1, w: 0 };
+    if (passed && score >= 90) { f.w++; if (f.w >= 3) { f.b = Math.min(1.12, +(f.b + 0.04).toFixed(2)); f.w = 0; } }
+    else if (!passed) { f.b = Math.max(0.88, +(f.b - 0.04).toFixed(2)); f.w = 0; }
+    else f.w = 0;
+    all[g] = f; TKD.write(this.key(), all);
+  }
+};
+window.Fit = Fit;
+(function wireFit() {
+  const orig = TKDDifficulty.factors.bind(TKDDifficulty);
+  TKDDifficulty.factors = (gameId) => {
+    const F = orig(gameId); if (TKDDifficulty.locked(gameId)) return F;    // the daily challenge stays the same for everyone
+    const b = Fit.get(gameId).b;
+    return { ...F, speed: F.speed * b, window: F.window / b, tol: F.tol / b };
+  };
+})();
+
 
 // #####################################################################
 // ## offline support + update banner
@@ -20141,7 +20773,7 @@ const RealPractice = {
       <div class="rp-btns">
         ${done ? `<button type="button" class="btn btn-success" data-a="close">✓ ${this.t('Done', 'تمام')}</button>`
           : `<button type="button" class="btn btn-success rp-kick" data-a="kick">🦶 ${this.t('I did a kick!', 'عملت ركلة!')}</button>`}
-        <button type="button" class="btn ${this._mic ? 'on' : ''}" data-a="mic">🎤 ${this._mic ? this.t('Kihap counting is ON', 'العدّ بالكياي شغّال') : this.t('Count with my Kihap!', 'عدّ بصوت الكياي!')}</button>
+        <button type="button" class="btn ${this._mic ? 'on' : ''}" data-a="mic">🎤 ${this._mic ? this.t('Kihap counting is ON', 'العدّ بالكيهاب شغّال') : this.t('Count with my Kihap!', 'عدّ بصوت الكيهاب!')}</button>
         <button type="button" class="btn ${this._cam ? 'on' : ''}" data-a="cam">🪞 ${this._cam ? this.t('Hide the mirror', 'اقفل المراية') : this.t('Mirror (camera)', 'المراية (الكاميرا)')}</button>
       </div>
       <p class="rp-note">🔒 ${this.t('The camera and microphone stay on this device — nothing is recorded or sent.', 'الكاميرا والمايك بيفضلوا على الجهاز ده — مفيش حاجة بتتسجل ولا بتتبعت.')}</p>
@@ -20219,7 +20851,7 @@ const RealPractice = {
       };
       requestAnimationFrame(tick);
       this.render();
-      TKD.toast(this.t('Shout "Kihap!" with every kick 🔊', 'اصرخ «كياي!» مع كل ركلة 🔊'), 'info');
+      TKD.toast(this.t('Shout "Kihap!" with every kick 🔊', 'اصرخ «كيهاب!» مع كل ركلة 🔊'), 'info');
     } catch (e) { TKD.toast(this.t('The microphone was not allowed — use the button instead.', 'المايك ماتسمحش — استخدم الزرار بدله.'), 'warning'); }
   },
   stopMic() {
@@ -20730,4 +21362,948 @@ window.Club = Club;
   });
   const start = () => setTimeout(() => { if (Club.joined()) { Club.connect(); Club.pushSoon(4000); } }, 1200);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
+})();
+
+// =====================================================================
+// v57.1 — THE CHAMPION MATCH 🥊: at the end of every kick a champion challenges the child
+// to a real sparring match (the same arena game, one step quicker, the champion as the
+// opponent). Beating them gives the champion's cup and ⭐ +10. It is a bonus station on
+// the map — it never blocks the Test.
+// =====================================================================
+const Boss = {
+  LIST: {
+    apchagi:   { ch: 'boy',  name: { en: 'Karim', ar: 'كريم' },  title: { en: 'champion of the neighbourhood dojang', ar: 'بطل دوجانج الحي' }, icon: '🥉' },
+    narochagi: { ch: 'girl', name: { en: 'Malak', ar: 'ملك' },   title: { en: 'Alexandria champion', ar: 'بطلة إسكندرية' }, icon: '🥈' },
+    bakchagi3: { ch: 'boy',  name: { en: 'Omar', ar: 'عمر' },    title: { en: 'champion of Egypt', ar: 'بطل الجمهورية' }, icon: '🥇' }
+  },
+  REWARD: 10,
+  active: null,
+  key() { return `taekwondoJourneyBoss:${TKD.pid() || 'guest'}`; },
+  beaten(sk) { return !!TKD.read(this.key(), {})[sk]; },
+  info(sk) { return { ...this.LIST[sk] || this.LIST.apchagi, skill: sk }; },
+  intro(sk = TKD.gs()?.currentSkill) {
+    const B = this.info(sk), gs = TKD.gs();
+    document.querySelectorAll('.boss-modal').forEach(m => m.remove());
+    const ov = document.createElement('div'); ov.className = 'tkd-modal boss-modal';
+    ov.innerHTML = `<div class="tkd-modal-card boss-card" role="dialog" aria-label="${TKD.esc(TKD.t(B.name.en, B.name.ar))}">
+      <div class="boss-vs"><div class="boss-fig" id="boss-me"></div><b class="boss-x">VS</b><div class="boss-fig" id="boss-them"></div></div>
+      <h2>🥊 ${TKD.t('Champion match!', 'ماتش البطل!')}</h2>
+      <p class="boss-who"><b>${TKD.esc(TKD.t(B.name.en, B.name.ar))}</b> — ${TKD.esc(TKD.t(B.title.en, B.title.ar))} ${B.icon}</p>
+      <p>${TKD.t(`${B.name.en} challenges you to ${this.ROUNDS.length} rounds with ${TKD.skillName(sk)} — win all of them, one after the other, and take the champion's cup 🏆 and +${this.REWARD} ⭐!`,
+        `${B.name.ar} بيتحداك في ${TKD.num(this.ROUNDS.length)} جولات بالـ${TKD.skillName(sk)} — اكسبهم كلهم ورا بعض وخد كأس البطل 🏆 و+${TKD.num(this.REWARD)} ⭐!`)}</p>
+      <ol class="boss-rounds">${this.ROUNDS.map((g, i) => `<li><span>${TKD.gameIcon(g)}</span>${TKD.t(`Round ${i + 1}`, `الجولة ${TKD.num(i + 1)}`)}: <b>${TKD.esc(this.roundName(g))}</b></li>`).join('')}</ol>
+      ${this.beaten(sk) ? `<p class="boss-done">✅ ${TKD.t('You beat this champion already — a rematch?', 'إنت غلبت البطل ده قبل كده — ماتش تاني؟')}</p>` : ''}
+      <div class="tkd-row"><button type="button" class="btn" data-a="no">${TKD.t('Later', 'بعدين')}</button>
+        <button type="button" class="btn btn-success" data-a="go">🙇 ${TKD.t('Gyeongnye! Shijak!', 'كيونجنيه! شيجاك!')}</button></div></div>`;
+    document.body.appendChild(ov);
+    const me = new RigSprite(ov.querySelector('#boss-me'), { ch: gs?.playerCharacter === 'girl' ? 'girl' : 'boy', anim: 'bounce', tap: 'win', height: 140 });
+    const them = new RigSprite(ov.querySelector('#boss-them'), { ch: B.ch, anim: 'bounce', tap: 'win', height: 140 });
+    me.start().then(() => { if (me.rig?.is3D) me.rig.skeleton.viewYaw = -0.6; }); them.start().then(() => { if (them.rig?.is3D) { them.rig.skeleton.viewYaw = -0.6; them.rig.skeleton.mirror = true; } });
+    const close = () => { me.dispose?.(); them.dispose?.(); ov.remove(); };
+    ov.querySelector('[data-a="no"]').addEventListener('click', close);
+    ov.querySelector('[data-a="go"]').addEventListener('click', () => {
+      close(); this.active = { skill: sk, ch: B.ch, name: B.name, round: 0, scores: [] };
+      window.Voice?.cue('gyeongnye'); gs?.playSound('click');
+      if (gs) gs.currentSkill = sk;
+      switchScreen(this.ROUNDS[0]);
+    });
+  },
+  // v58.2: the champion match is three rounds — the whole kick in one challenge
+  ROUNDS: ['puzzle', 'sparring-duel', 'action'],
+  roundName(g) { return TKD.gameName(g); },
+  screen() { const A = this.active; return A ? this.ROUNDS[A.round] : null; },
+  // a round is over (an attempt in the game of the current round, while the match is on)
+  result(gameId, score, passed) {
+    const A = this.active; if (!A || gameId !== this.ROUNDS[A.round]) return;
+    if (!passed) {
+      this.active = null;
+      setTimeout(() => TKD.toast(TKD.t(`${A.name.en} won round ${A.round + 1} — train a little and try again! 💪`, `${A.name.ar} كسب الجولة ${TKD.num(A.round + 1)} — اتمرن شوية وجرّب تاني! 💪`), 'info'), 1800);
+      return;
+    }
+    A.scores.push(Math.round(score)); A.round++;
+    if (A.round < this.ROUNDS.length) { A.between = true; return; }
+    // all rounds won
+    this.active = null;
+    const avg = Math.round(A.scores.reduce((a, b) => a + b, 0) / A.scores.length);
+    const d = TKD.read(this.key(), {}), first = !d[A.skill];
+    d[A.skill] = Math.max(d[A.skill] || 0, avg); TKD.write(this.key(), d);
+    if (first) Mission.give(this.REWARD);
+    this._justWon = { ...A, avg, first };
+  },
+  // between two rounds: the champion waits for you in the next game
+  betweenRounds() {
+    const A = this.active; if (!A) return;
+    A.between = false;
+    const gs = TKD.gs(), next = this.ROUNDS[A.round];
+    document.querySelectorAll('.boss-modal').forEach(m => m.remove());
+    const ov = document.createElement('div'); ov.className = 'tkd-modal boss-modal boss-between';
+    ov.innerHTML = `<div class="tkd-modal-card boss-card" role="dialog">
+      <div class="boss-vs"><div class="boss-fig" id="boss-them"></div></div>
+      <h2>✅ ${TKD.t(`Round ${A.round} is yours!`, `الجولة ${TKD.num(A.round)} ليك!`)}</h2>
+      <div class="boss-score">${this.ROUNDS.map((g, i) => `<span class="${i < A.round ? 'won' : i === A.round ? 'next' : ''}">${TKD.gameIcon(g)} ${i < A.round ? `${TKD.num(A.scores[i])}%` : i === A.round ? '👉' : '…'}</span>`).join('')}</div>
+      <p>${TKD.t(`${A.name.en} is not giving up! Next round: ${this.roundName(next)}`, `${A.name.ar} لسه مستسلمش! الجولة الجاية: ${this.roundName(next)}`)} ${TKD.gameIcon(next)}</p>
+      <div class="tkd-row"><button type="button" class="btn" data-a="quit">${TKD.t('Stop the match', 'وقّف الماتش')}</button>
+        <button type="button" class="btn btn-success" data-a="go">🔔 ${TKD.t(`Round ${A.round + 1}!`, `الجولة ${TKD.num(A.round + 1)}!`)}</button></div></div>`;
+    document.body.appendChild(ov);
+    const them = new RigSprite(ov.querySelector('#boss-them'), { ch: A.ch, anim: 'bounce', tap: 'win', height: 130 });
+    them.start().then(() => { if (them.rig?.is3D) { them.rig.skeleton.viewYaw = -0.6; them.rig.skeleton.mirror = true; } });
+    const close = () => { them.dispose?.(); ov.remove(); };
+    ov.querySelector('[data-a="quit"]').addEventListener('click', () => { close(); this.active = null; gs?.playSound('click'); switchScreen('home'); });
+    ov.querySelector('[data-a="go"]').addEventListener('click', () => { close(); gs?.playSound('click'); window.Voice?.cue('sijak'); switchScreen(next); });
+    window.Voice?.cue('great');
+  },
+  // the winner screen tells the story of the match
+  decorate() {
+    const A = this._justWon; if (!A) return; this._justWon = null;
+    const c = document.querySelector('#winner-screen .winner-container'); if (!c) return;
+    c.querySelector('.boss-won')?.remove();
+    const el = document.createElement('div'); el.className = 'boss-won';
+    el.innerHTML = `🏆 ${TKD.t(`You beat ${A.name.en} in all ${this.ROUNDS.length} rounds (${A.avg}%)! The champion's cup is yours${A.first ? ` — +${this.REWARD} ⭐` : ''}`,
+      `غلبت ${A.name.ar} في الـ${TKD.num(this.ROUNDS.length)} جولات (${TKD.num(A.avg)}%)! كأس البطل بقى بتاعك${A.first ? ` — +${TKD.num(this.REWARD)} ⭐` : ''}`)}`;
+    c.querySelector('.winner-title')?.after(el);
+  }
+};
+window.Boss = Boss;
+(function wireBoss() {
+  const orig = PlayerSystem.logAttempt.bind(PlayerSystem);
+  PlayerSystem.logAttempt = (gameId, skillId, score, passed, meta) => {
+    const r = orig(gameId, skillId, score, passed, meta);
+    if (Boss.active) Boss.result(gameId, score, passed);
+    return r;
+  };
+  // between rounds the winner screen waits: the champion calls the next round instead
+  const show = WinnerSystem.show.bind(WinnerSystem);
+  WinnerSystem.show = (...a) => { if (Boss.active?.between) return Boss.betweenRounds(); return show(...a); };
+  document.addEventListener('tkd:screen', (e) => {
+    const id = e.detail?.screenId;
+    if (Boss.active && id !== Boss.screen() && id !== 'winner') Boss.active = null;      // left the match
+    if (id === 'winner') setTimeout(() => Boss.decorate(), 50);
+    if (Boss.ROUNDS.includes(id)) setTimeout(() => {
+      const scr = document.getElementById(`${id}-screen`); scr?.querySelector('.boss-banner')?.remove();
+      if (!Boss.active || !scr || Boss.screen() !== id) return;
+      const A = Boss.active, b = document.createElement('div'); b.className = 'boss-banner';
+      b.textContent = `🥊 ${TKD.t(`Champion match vs ${A.name.en} — round ${A.round + 1} of ${Boss.ROUNDS.length}`, `ماتش البطل ضد ${A.name.ar} — الجولة ${TKD.num(A.round + 1)} من ${TKD.num(Boss.ROUNDS.length)}`)}`;
+      scr.querySelector('.game-container')?.prepend(b);
+    }, 60);
+  });
+  // the champion moves a little quicker than a normal sparring partner
+  const f = TKDDifficulty.factors.bind(TKDDifficulty);
+  TKDDifficulty.factors = (g) => { const F = f(g); return g === 'sparring-duel' && Boss.active ? { ...F, speed: F.speed * 1.1, window: F.window / 1.08 } : F; };
+})();
+
+// =====================================================================
+// v57.1 — THE KICK TEST as a real moment: Sabeom-nim Yang bows and explains the test
+// before it starts; passing it ends with a ceremony — a new stripe on the white belt
+// (the belt stays white: these three kicks are all white-belt techniques) and the next
+// kick revealed.
+// =====================================================================
+const Exam = {
+  intro() {
+    const gs = TKD.gs(); if (!gs) return;
+    const sk = gs.currentSkill, S = GameConfig.SKILLS[sk]; if (!S) return;
+    const n = QuizSystem.SESSION || 10, need = Math.ceil(n * GameConfig.SETTINGS.QUIZ_PASS / 100);
+    const next = S.nextSkill ? GameConfig.SKILLS[S.nextSkill] : null;
+    document.querySelectorAll('.exam-modal').forEach(m => m.remove());
+    const ov = document.createElement('div'); ov.className = 'tkd-modal exam-modal';
+    ov.innerHTML = `<div class="tkd-modal-card exam-card" role="dialog">
+      <div class="exam-coach" id="exam-coach"></div>
+      <h2>📝 ${TKD.t(`${S.name.en} test`, `اختبار ${S.name.ar}`)}</h2>
+      <p class="exam-say">“${TKD.t(`I'm Sabeom-nim Yang. Show me what you learnt about ${S.name.en}!`, `أنا سابوم نيم يانج. وريني اتعلمت إيه في ${S.name.ar}!`)}”</p>
+      <ul class="exam-rules">
+        <li>❓ ${TKD.t(`${n} questions — some with pictures of the kick`, `${TKD.count(n, 'question', 'ar')} — منهم أسئلة بصور الركلة`)}</li>
+        <li>🎯 ${TKD.t(`${need} right answers to pass`, `${TKD.num(need)} إجابات صح عشان تعدّي`)}</li>
+        <li>🎗️ ${TKD.t('Pass → a new stripe on your white belt', 'لو عدّيت ← شريطة جديدة على حزامك الأبيض')}${next ? ` · 🔓 ${TKD.t(next.name.en, next.name.ar)}` : ` · 🏆 ${TKD.t('all kicks done!', 'خلّصت كل الركلات!')}`}</li>
+      </ul>
+      <button type="button" class="btn btn-success" data-a="go">🙇 ${TKD.t('Gyeongnye! Start', 'كيونجنيه! يلا نبدأ')}</button></div>`;
+    document.body.appendChild(ov);
+    const sp = new RigSprite(ov.querySelector('#exam-coach'), { ch: 'coach', anim: 'coach_idle', intro: 'bow', tap: 'bow', height: 150 });
+    sp.start();
+    ov.querySelector('[data-a="go"]').addEventListener('click', () => { sp.dispose?.(); ov.remove(); window.Voice?.cue('sijak'); gs.playSound('click'); });
+  },
+  // after a passed test, on the winner screen
+  ceremony() {
+    const gs = TKD.gs(); if (!gs || !this._passed) return;
+    const sk = this._passed; this._passed = null;
+    const S = GameConfig.SKILLS[sk], next = S?.nextSkill ? GameConfig.SKILLS[S.nextSkill] : null, belt = gs.getBeltInfo();
+    const c = document.querySelector('#winner-screen .winner-container'); if (!c) return;
+    c.querySelector('.exam-cert')?.remove();
+    const el = document.createElement('div'); el.className = 'exam-cert';
+    el.innerHTML = `<div class="exam-belt"><span class="eb-belt">${Array.from({ length: belt.stripes }, (_, i) => `<i style="--i:${i}"></i>`).join('')}</span></div>
+      <b>🎗️ ${TKD.t(`${S.name.en} passed — a new stripe on your white belt!`, `عدّيت اختبار ${S.name.ar} — شريطة جديدة على حزامك الأبيض!`)}</b>
+      ${next ? `<small>🔓 ${TKD.t(`Next kick open: ${next.name.en}`, `الركلة الجاية اتفتحت: ${next.name.ar}`)}</small>` : `<small>🏆 ${TKD.t('You learnt all three kicks of the white belt!', 'اتعلمت الركلات التلاتة بتوع الحزام الأبيض!')}</small>`}`;
+    c.querySelector('.winner-title')?.after(el);
+  }
+};
+window.Exam = Exam;
+(function wireExam() {
+  const init = QuizSystem.initialize.bind(QuizSystem);
+  QuizSystem.initialize = (gs) => {
+    const r = init(gs);
+    // the intro the first time this kick's test opens in a while (not on "try again")
+    const k = `taekwondoJourneyExamIntro:${TKD.pid() || 'g'}:${gs.currentSkill}`;
+    if (Date.now() - (TKD.read(k, 0) || 0) > 10 * 60e3) { TKD.write(k, Date.now()); setTimeout(() => { if (document.querySelector('#quiz-screen.active')) Exam.intro(); }, 300); }
+    return r;
+  };
+  const done = QuizSystem.completeQuiz.bind(QuizSystem);
+  QuizSystem.completeQuiz = () => {
+    const max = QuizSystem.sessionQuestions.length * 20, acc = Math.round((QuizSystem.score / max) * 100);
+    if (acc >= GameConfig.SETTINGS.QUIZ_PASS) Exam._passed = QuizSystem.skillId;
+    return done();
+  };
+  document.addEventListener('tkd:screen', (e) => { if (e.detail?.screenId === 'winner') setTimeout(() => Exam.ceremony(), 60); });
+})();
+
+// =====================================================================
+// v57.1 — THE STICKER ALBUM 📒: the real words of the dojang, one sticker at a time.
+// Stickers come from missions, the daily chest, a first pass in a game, the champion
+// match and the kick tests. Tapping one says the word in Korean.
+// =====================================================================
+const Stickers = {
+  LIST: [
+    ['taekwondo', '🥋', '태권도', 'Taekwondo', 'The way of the foot and the fist', 'طريق القدم والقبضة'],
+    ['dojang', '🏯', '도장', 'Dojang', 'The training hall', 'صالة التدريب'],
+    ['dobok', '👘', '도복', 'Dobok', 'The Taekwondo uniform', 'بدلة التايكوندو'],
+    ['tti', '🎗️', '띠', 'Tti', 'The belt', 'الحزام'],
+    ['sabeomnim', '👴', '사범님', 'Sabeom-nim', 'The master / teacher', 'الأستاذ (المدرب)'],
+    ['charyeot', '🧍', '차렷', 'Charyeot', 'Attention!', 'انتباه!'],
+    ['gyeongnye', '🙇', '경례', 'Gyeongnye', 'Bow!', 'التحية!'],
+    ['junbi', '✋', '준비', 'Junbi', 'Get ready!', 'استعداد!'],
+    ['sijak', '🔔', '시작', 'Sijak', 'Start!', 'ابدأ!'],
+    ['keuman', '✋', '그만', 'Keuman', 'Stop!', 'بس! (توقف)'],
+    ['baro', '↩️', '바로', 'Baro', 'Back to your place', 'ارجع مكانك'],
+    ['kihap', '📣', '기합', 'Kihap', 'The power shout', 'صرخة القوة'],
+    ['apchagi', '🦶', '앞차기', 'Ap Chagi', 'Front kick', 'الركلة الأمامية'],
+    ['naeryeo', '🪓', '내려차기', 'Naeryeo Chagi', 'Axe kick (from above)', 'الركلة النازلة من فوق'],
+    ['yeop', '➡️', '옆차기', 'Yeop Chagi', 'Side kick', 'الركلة الجانبية'],
+    ['apchuk', '👣', '앞축', 'Ap-chuk', 'Ball of the foot', 'مشط القدم'],
+    ['baldeung', '🦵', '발등', 'Bal-deung', 'Instep (top of the foot)', 'وش القدم'],
+    ['dwikkumchi', '🦶', '뒤꿈치', 'Dwi-kkumchi', 'Heel', 'الكعب'],
+    ['eolgul', '🙂', '얼굴', 'Eolgul', 'Face level (high)', 'مستوى الوش (فوق)'],
+    ['momtong', '👕', '몸통', 'Momtong', 'Body level (middle)', 'مستوى الجسم (النص)'],
+    ['kyorugi', '🥊', '겨루기', 'Kyorugi', 'Sparring', 'النزال'],
+    ['hanadulset', '🔢', '하나 둘 셋', 'Hana, dul, set', 'One, two, three', 'واحد، اتنين، تلاتة']
+  ].map(([id, icon, ko, ro, en, ar]) => ({ id, icon, ko, ro, en, ar })),
+  key() { return `taekwondoJourneyStickers:${TKD.pid() || 'guest'}`; },
+  owned() { return TKD.read(this.key(), []); },
+  award(n = 1) {
+    if (!TKD.pid()) return;
+    const own = this.owned(), left = this.LIST.filter(s => !own.includes(s.id)); if (!left.length) return;
+    const got = [];
+    for (let i = 0; i < n && left.length; i++) got.push(left.splice(0, 1)[0]);      // in the album's order: the dojang first, then the kicks
+    TKD.write(this.key(), [...own, ...got.map(s => s.id)]);
+    got.forEach((s, i) => setTimeout(() => this.pop(s), 1200 + i * 1600));
+  },
+  pop(s) {
+    const el = document.createElement('div'); el.className = 'sticker-pop';
+    el.innerHTML = `<span class="sp-ico">${s.icon}</span><span><small>${TKD.t('New sticker!', 'ملصق جديد!')}</small><b lang="ko">${s.ko}</b> ${TKD.esc(s.ro)} — ${TKD.esc(TKD.t(s.en, s.ar))}</span>`;
+    el.addEventListener('click', () => { el.remove(); this.open(); });
+    document.body.appendChild(el); window.AudioKit?.sfx('ui-pop', { gain: 0.5 });
+    setTimeout(() => el.classList.add('out'), 3600); setTimeout(() => el.remove(), 4100);
+  },
+  open() {
+    document.querySelectorAll('.album-modal').forEach(m => m.remove());
+    const own = this.owned();
+    const ov = document.createElement('div'); ov.className = 'tkd-modal album-modal';
+    ov.innerHTML = `<div class="tkd-modal-card album-card"><button type="button" class="rp-x" data-x aria-label="${TKD.t('Close', 'اقفل')}">✕</button>
+      <h2>📒 ${TKD.t('Dojang sticker album', 'ألبوم ملصقات الدوجانج')}</h2>
+      <p class="tkd-muted">${TKD.t(`${own.length} of ${this.LIST.length} — collect them from missions, gifts, tests and champion matches. Tap one to hear it.`, `${TKD.num(own.length)} من ${TKD.num(this.LIST.length)} — بتجمعهم من المهام والهدايا والاختبارات وماتشات الأبطال. دوس على أي ملصق تسمعه.`)}</p>
+      <div class="album-grid">${this.LIST.map(s => own.includes(s.id)
+        ? `<button type="button" class="album-st" data-say="${TKD.esc(s.ko)}"><span class="as-ico">${s.icon}</span><b lang="ko">${s.ko}</b><span class="as-ro">${TKD.esc(s.ro)}</span><small>${TKD.esc(TKD.t(s.en, s.ar))}</small></button>`
+        : `<div class="album-st locked"><span class="as-ico">❔</span><small>${TKD.t('not yet', 'لسه')}</small></div>`).join('')}</div></div>`;
+    document.body.appendChild(ov);
+    ov.addEventListener('click', (e) => {
+      if (e.target === ov || e.target.closest('[data-x]')) { ov.remove(); return; }
+      const b = e.target.closest('[data-say]'); if (b) { b.classList.remove('said'); void b.offsetWidth; b.classList.add('said'); SpeechHelper.speak(b.dataset.say, 'ko-KR', b); }
+    });
+  }
+};
+window.Stickers = Stickers;
+(function wireStickers() {
+  // where the stickers come from
+  const mc = Mission.check.bind(Mission);
+  Mission.check = () => { const before = Mission.data().got.length; mc(); const after = Mission.data().got.length; if (after > before) Stickers.award(after - before); };
+  const oc = Mission.openChest.bind(Mission);
+  Mission.openChest = () => { const n = oc(); if (n) Stickers.award(1); return n; };
+  const br = Boss.result.bind(Boss);
+  Boss.result = (gameId, score, passed) => { br(gameId, score, passed); if (Boss._justWon?.first && !Boss._justWon.stickered) { Boss._justWon.stickered = true; Stickers.award(2); } };
+  const orig = PlayerSystem.logAttempt.bind(PlayerSystem);
+  PlayerSystem.logAttempt = (gameId, skillId, score, passed, meta) => {
+    const pid = TKD.pid();
+    const firstPass = passed && pid && !PlayerSystem.getAttempts().some(a => a.playerId === pid && a.gameId === gameId && a.skillId === skillId && a.passed);
+    const r = orig(gameId, skillId, score, passed, meta);
+    if (firstPass && gameId !== 'warmup') Stickers.award(gameId === 'quiz' ? 2 : 1);
+    return r;
+  };
+  // the album button sits in today's box on the map
+  const html = Mission.html.bind(Mission);
+  Mission.html = () => html().replace('</section>', `<button type="button" class="album-open" id="album-open">📒 ${TKD.t('Sticker album', 'ألبوم الملصقات')} <b>${TKD.num(Stickers.owned().length)}/${TKD.num(Stickers.LIST.length)}</b></button></section>`);
+  const mount = Mission.mount.bind(Mission);
+  Mission.mount = () => { mount(); const b = TKD.$('album-open'); if (b && !b.dataset.w) { b.dataset.w = '1'; b.addEventListener('click', () => Stickers.open()); } };
+})();
+
+// =====================================================================
+// v57.1 — THE ROAD OF A CHAMPION: each kick is a stage of a bigger journey — the
+// neighbourhood dojang, the Alexandria championship, the Egypt championship, and at
+// the end Korea (the Kukkiwon). The map says where you are; the home picture changes.
+// =====================================================================
+const Stages = {
+  LIST: [
+    { skill: 'apchagi',   icon: '🏠', en: 'The neighbourhood dojang', ar: 'دوجانج الحي',        bg: 'assets/images/backgrounds/main_menu_bg.webp' },
+    { skill: 'narochagi', icon: '🏟️', en: 'Alexandria championship',  ar: 'بطولة إسكندرية',     bg: 'assets/images/backgrounds/arena_bg.webp' },
+    { skill: 'bakchagi3', icon: '🇪🇬', en: 'Egypt championship',       ar: 'بطولة الجمهورية',    bg: 'assets/images/backgrounds/sparring_training_bg.webp' },
+    { skill: null,        icon: '🇰🇷', en: 'Korea — the Kukkiwon',     ar: 'كوريا — الكوكيون',   bg: 'assets/images/backgrounds/memory_dojo_bg.webp' }
+  ],
+  index(skillId) { const i = this.LIST.findIndex(s => s.skill === skillId); return i < 0 ? 0 : i; },
+  current() {
+    const gs = TKD.gs(); if (!gs) return this.LIST[0];
+    if (GameConfig.SKILL_ORDER.every(k => gs.completedSkills?.has(k))) return this.LIST[3];
+    return this.LIST[this.index(window.Journey ? Journey.skill() : gs.currentSkill)];
+  },
+  label(skillId) {
+    const all = TKD.gs() && GameConfig.SKILL_ORDER.every(k => TKD.gs().completedSkills?.has(k));
+    const i = this.index(skillId), S = all ? this.LIST[3] : this.LIST[i], n = all ? 4 : i + 1;
+    return `${S.icon} ${TKD.t(`Stage ${n} of 4: ${S.en}`, `المرحلة ${TKD.num(n)} من ٤: ${S.ar}`)}`;
+  },
+  bg() { return this.current().bg; }
+};
+window.Stages = Stages;
+try { Object.defineProperty(GameConfig.BACKGROUNDS, 'HOME', { get: () => Stages.bg(), configurable: true, enumerable: true }); } catch (e) {}
+(function stageCeremony() {
+  // the kick test passed → the ceremony also names the next stage
+  const c = Exam.ceremony.bind(Exam);
+  Exam.ceremony = () => {
+    const sk = Exam._passed; c();
+    if (!sk) return;
+    const i = Stages.index(sk), next = Stages.LIST[i + 1]; if (!next) return;
+    const el = document.querySelector('#winner-screen .exam-cert'); if (!el) return;
+    el.insertAdjacentHTML('beforeend', `<small class="exam-stage">${next.icon} ${TKD.t(`Next stage: ${next.en}!`, `المرحلة الجاية: ${next.ar}!`)}</small>`);
+  };
+})();
+
+// =====================================================================
+// v57.1 — THE RIVAL: a kid of the same age (Ziad for boys, Laila for girls) who plays the
+// same games and is always just a little ahead. Beat their score and they train harder…
+// =====================================================================
+const Rival = {
+  key() { return `taekwondoJourneyRival:${TKD.pid() || 'guest'}`; },
+  who() { const g = TKD.gs()?.playerCharacter === 'girl'; return g ? { ch: 'girl', en: 'Laila', ar: 'ليلى' } : { ch: 'boy', en: 'Ziad', ar: 'زياد' }; },
+  GAMES: ['form-control', 'puzzle', 'performance', 'action', 'error-hunt', 'quiz-blast', 'board-break', 'paddle-reflex', 'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag'],
+  score(game, skill) {
+    const d = TKD.read(this.key(), {}), k = `${skill}|${game}`;
+    if (d[k]) return d[k];
+    const best = TKD.gs()?.skillGameScores?.[skill]?.[GameState.GAME_KEY_MAP[game]] || 0;
+    return Math.max(68, Math.min(96, best + 6));
+  },
+  // a game ended: the story of "you vs the rival"
+  after(game, skill, score) {
+    if (!this.GAMES.includes(game) || window.Boss?.active || Challenge.active) return;
+    const r = this.score(game, skill), d = TKD.read(this.key(), {}), k = `${skill}|${game}`, W = this.who();
+    if (score > r) { d[k] = Math.min(99, score + 2 + (TKD.hash(k + score) % 4)); this._msg = { win: true, text: TKD.t(`🏅 You beat ${W.en}'s ${r}%! ${W.en} is going to train harder…`, `🏅 غلبت ${W.ar} (${TKD.num(r)}٪)! ${W.ar} هيتمرن أكتر عشان يرجعلك…`) }; }
+    else { d[k] = r; this._msg = { win: false, text: TKD.t(`${W.en} has ${r}% in this game — ${r - score + 1} more and you're ahead!`, `${W.ar} جايب ${TKD.num(r)}٪ في اللعبة دي — كمان ${TKD.num(r - score + 1)} وتبقى قدّامه!`) }; }
+    TKD.write(this.key(), d);
+  },
+  decorate() {
+    const m = this._msg; if (!m) return; this._msg = null;
+    const c = document.querySelector('#winner-screen .winner-container'); if (!c) return;
+    c.querySelector('.rival-line')?.remove();
+    const el = document.createElement('div'); el.className = `rival-line ${m.win ? 'win' : ''}`; el.textContent = m.text;
+    (c.querySelector('.winner-score') || c.querySelector('.winner-title'))?.after(el);
+  },
+  // a quiet reminder when a game opens
+  hint(game) {
+    if (!this.GAMES.includes(game) || window.Boss?.active || Challenge.active) return;
+    const gs = TKD.gs(); if (!gs) return;
+    const r = this.score(game, gs.currentSkill), W = this.who();
+    const scr = document.getElementById(`${game}-screen`); if (!scr) return;
+    scr.querySelector('.rival-chip')?.remove();
+    const el = document.createElement('div'); el.className = 'rival-chip';
+    el.innerHTML = `🆚 ${TKD.t(`${W.en}'s score here: <b>${r}%</b> — can you beat it?`, `${W.ar} جايب هنا <b>${TKD.num(r)}٪</b> — تقدر تغلبه؟`)}`;
+    scr.querySelector('.game-container > h2')?.after(el);
+  }
+};
+window.Rival = Rival;
+(function wireRival() {
+  const orig = PlayerSystem.logAttempt.bind(PlayerSystem);
+  PlayerSystem.logAttempt = (gameId, skillId, score, passed, meta) => { try { Rival.after(gameId, skillId, score); } catch (e) {} return orig(gameId, skillId, score, passed, meta); };
+  document.addEventListener('tkd:screen', (e) => {
+    const id = e.detail?.screenId;
+    if (id === 'winner') setTimeout(() => Rival.decorate(), 80);
+    else setTimeout(() => Rival.hint(id), 120);
+  });
+})();
+
+// =====================================================================
+// v57.1 — SOUND OF THE ARENA: a crowd that cheers your points in sparring (made live with
+// WebAudio — no file), and the music a touch quicker in the arena and in a champion match.
+// =====================================================================
+const Crowd = {
+  ctx() { if (!this._c) { const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return null; this._c = new AC(); } return this._c; },
+  cheer(power = 1) {
+    if (TKD.gs()?.soundEnabled === false) return;
+    const c = this.ctx(); if (!c) return;
+    if (c.state === 'suspended') c.resume().catch(() => {});
+    const dur = 1.3, n = Math.floor(c.sampleRate * dur), buf = c.createBuffer(1, n, c.sampleRate), d = buf.getChannelData(0);
+    let b = 0; for (let i = 0; i < n; i++) { b = 0.97 * b + 0.03 * (Math.random() * 2 - 1); d[i] = b * 6 + (Math.random() < 0.0009 ? (Math.random() - 0.5) * 3 : 0); }   // murmur + a few claps
+    const src = c.createBufferSource(); src.buffer = buf;
+    const bp = c.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 900; bp.Q.value = 0.6;
+    const g = c.createGain(), t = c.currentTime, v = 0.16 * power;
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(v, t + 0.18); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    src.connect(bp).connect(g).connect(c.destination); src.start(t); src.stop(t + dur);
+  }
+};
+window.Crowd = Crowd;
+(function wireArenaSound() {
+  const on = Juice.on.bind(Juice);
+  Juice.on = (type) => { on(type); const g = Juice.inGame(); if ((g === 'sparring-duel' || g === 'versus') && (type === 'success' || type === 'strike')) Crowd.cheer(Juice.combo >= 3 ? 1.4 : 1); };
+  document.addEventListener('tkd:screen', (e) => {
+    const id = e.detail?.screenId, a = window.Music?.el2; if (!a) return;
+    try { a.playbackRate = window.Boss?.active && id === 'sparring-duel' ? 1.1 : (Music.ARENA || []).includes(id) ? 1.05 : 1; } catch (er) {}
+  });
+})();
+
+// =====================================================================
+// v57.1 — the start screen: a little fighter keeps training above the title
+// =====================================================================
+(function startHero() {
+  const mount = () => {
+    const logo = document.querySelector('#start-screen .ss-logo'); if (!logo || logo.dataset.hero) return;
+    logo.dataset.hero = '1';
+    const host = document.createElement('div'); host.className = 'ss-hero';
+    logo.replaceWith(host);
+    const sp = new RigSprite(host, { ch: (TKD.gs()?.playerCharacter === 'girl') ? 'girl' : 'boy', anim: 'apchagi', tap: 'win', height: 120 });
+    sp.start().then(ok => {
+      if (!ok) { host.replaceWith(logo); return; }
+      // a short pause in the guard between kicks, then the next kick
+      const P = sp.rig.player; let k = 0; const list = ['apchagi', 'naeryeo', 'yeop'].filter(x => sp.rig.data.animations[x]);
+      const go = () => { if (!host.isConnected) return; P.play(list[k++ % list.length], { mix: 0.2 }); P.onComplete = () => { P.onComplete = null; P.play('bounce', { loop: true, mix: 0.25 }); setTimeout(go, 1400); }; };
+      setTimeout(go, 600);
+    });
+  };
+  const orig = StartScreen.render.bind(StartScreen);
+  StartScreen.render = (...a) => { const r = orig(...a); setTimeout(mount, 30); return r; };
+})();
+
+// =====================================================================
+// v58.2 — THE LAST ROUNDS: the music speeds up and a banner calls the final
+// exchanges ("almost done!" → "last round!"), so the end of a game feels like the
+// end of a real match.
+// =====================================================================
+(function musicPace() {
+  Music.rateNow = 1;
+  Music.setRate = function (r) {
+    this.rateNow = r;
+    try { if (this.el2) this.el2.playbackRate = r; } catch (e) {}
+    try { const ctx = AudioKit.ctx(); if (this.voice?.src && ctx) this.voice.src.playbackRate.setTargetAtTime(r, ctx.currentTime, 0.35); } catch (e) {}
+  };
+  const sync = Music.sync.bind(Music);
+  Music.sync = async (...a) => { const r = await sync(...a); Music.setRate(Music.rateNow || 1); return r; };
+  Music.baseRate = (id) => window.Boss?.active && id === 'sparring-duel' ? 1.1 : (Music.ARENA || []).includes(id) ? 1.05 : 1;
+  document.addEventListener('tkd:screen', (e) => { FinalStretch.stage = null; Music.setRate(Music.baseRate(e.detail?.screenId)); });
+})();
+const FinalStretch = {
+  stage: null,
+  progress() {
+    const id = (document.querySelector('.screen.active')?.id || '').replace(/-screen$/, '');
+    const G = window.ArenaGames?.byScreen?.[id] || (id === 'action' && typeof ActionSystem !== 'undefined' ? ActionSystem : null);
+    if (!G || G.practice || G.over || G.state === 'done') return null;
+    const total = typeof G.totalRounds === 'function' ? G.totalRounds() : G.total, round = G.round;
+    if (!(total >= 3) || !(round > 0) || round > total) return null;
+    return { id, round, total };
+  },
+  tick() {
+    const p = this.progress();
+    if (!p) return;
+    const left = p.total - p.round;
+    const st = left === 0 ? 'last' : left === 1 ? 'near' : null;
+    if (st === this.stage) return;
+    this.stage = st;
+    if (!st) return;
+    Music.setRate(Music.baseRate(p.id) * (st === 'last' ? 1.12 : 1.06));
+    this.banner(st === 'last' ? TKD.t('🔥 Last round!', '🔥 الجولة الأخيرة!') : TKD.t('⚡ Almost done — keep going!', '⚡ قربنا نخلص — كمّل!'), st);
+    try { ArenaSound.drum('kick'); setTimeout(() => ArenaSound.drum('kick'), 180); } catch (e) {}
+  },
+  banner(text, st) {
+    const gc = document.querySelector('.screen.active .game-container'); if (!gc) return;
+    gc.querySelector('.fs-banner')?.remove();
+    const b = document.createElement('div'); b.className = `fs-banner fs-${st}`; b.setAttribute('role', 'status'); b.textContent = text;
+    gc.appendChild(b); setTimeout(() => b.remove(), 2200);
+  }
+};
+window.FinalStretch = FinalStretch;
+setInterval(() => { try { FinalStretch.tick(); } catch (e) {} }, 400);
+
+// =====================================================================
+// v58.2 — THE FIRST VISIT: a 6-year-old does not read instructions. The first time a
+// new player reaches the map, their own fighter walks them through it — a spotlight on
+// each thing, a big pointing hand, and every sentence read aloud.
+// =====================================================================
+const FirstTour = {
+  key() { return `taekwondoJourneyTour:${TKD.pid() || 'guest'}`; },
+  STEPS: [
+    { sel: null, en: "Hi champion! I'm your training buddy. Come, I'll show you around!", ar: 'أهلاً يا بطل! أنا صاحبك في التمرين. تعالى أفرّجك على اللعبة!' },
+    { sel: '.jr-units', en: 'Every kick has 3 units. Finish one and the next one opens.', ar: 'كل ركلة فيها ٣ وحدات. خلّص وحدة والوحدة اللي بعدها تتفتح.' },
+    { sel: '.jr-board', en: 'This is your road. Every circle is a step, and your fighter stands on the next one.', ar: 'ده طريقك. كل دايرة خطوة، وبطلك واقف على الخطوة الجاية.' },
+    { sel: '.jr-go', en: 'This big button always takes you to the next step.', ar: 'الزرار الكبير ده بيوديك على طول للخطوة الجاية.' },
+    { sel: '.daily-fold', en: 'Every day you get 3 small missions. Finish them and open the gift!', ar: 'كل يوم ليك ٣ مهام صغيرة. خلّصهم وافتح الهدية!' },
+    { sel: '#tabbar [data-tab="play"]', en: 'And here are all the games.', ar: 'وهنا كل الألعاب.' },
+    { sel: '.jr-go', en: "Ready? Tap the big button and let's start!", ar: 'جاهز؟ دوس على الزرار الكبير ويلا نبدأ!' }
+  ],
+  done() { return !!TKD.read(this.key(), false); },
+  start(force = false) {
+    if ((!force && this.done()) || !document.querySelector('#home-screen.active') || document.querySelector('body > .tkd-modal')) return;
+    TKD.write(this.key(), true);
+    this.close();
+    // the tour takes the place of the old one-bubble welcome on the map
+    try { TKD.write(Journey.welcomeKey(), true); } catch (e) {}
+    document.querySelectorAll('.jr-coach').forEach(e => e.remove());
+    const gs = TKD.gs();
+    const ov = document.createElement('div'); ov.className = 'ft-ov'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-modal', 'true');
+    ov.innerHTML = `<div class="ft-hole"></div><div class="ft-hand" aria-hidden="true">👆</div>
+      <div class="ft-bubble"><div class="ft-hero"></div><div class="ft-body"><p class="ft-text"></p>
+        <div class="ft-row"><button type="button" class="ft-skip">${TKD.t('Skip', 'تخطّي')}</button><span class="ft-dots"></span>
+        <button type="button" class="ft-say" aria-label="${TKD.t('Hear it again', 'اسمعها تاني')}">🔊</button><button type="button" class="btn btn-success ft-next"></button></div></div></div>`;
+    document.body.appendChild(ov);
+    this.ov = ov; this.i = -1;
+    this.hero = new RigSprite(ov.querySelector('.ft-hero'), { ch: gs?.playerCharacter === 'girl' ? 'girl' : 'boy', anim: 'bounce', intro: 'bow', tap: 'win', height: 104 });
+    this.hero.start();
+    ov.querySelector('.ft-skip').addEventListener('click', (e) => { e.stopPropagation(); this.close(); });
+    ov.querySelector('.ft-say').addEventListener('click', (e) => { e.stopPropagation(); this.say(); });
+    ov.addEventListener('click', () => this.next());
+    this._re = () => this.place();
+    addEventListener('resize', this._re); addEventListener('scroll', this._re, true);     // the spotlight follows the page while it scrolls
+    this._iv = setInterval(() => this.place(), 300);                                        // …and anything that moves under it
+    // another window opens (a gift, the champion, a trophy) → the tour steps aside for it
+    this._mo = new MutationObserver(() => { if (document.querySelector('body > .tkd-modal')) this.close(); });
+    this._mo.observe(document.body, { childList: true });
+    this.next();
+  },
+  steps() { return this.STEPS.filter(s => !s.sel || document.querySelector(s.sel)?.getClientRects().length); },
+  next() {
+    if (!this.ov) return;
+    const S = this.steps();
+    this.i++;
+    if (this.i > 0) TKD.gs()?.playSound('click');
+    if (this.i >= S.length) { this.close(); const b = document.querySelector('.jr-go'); b?.classList.add('ft-pulse'); setTimeout(() => b?.classList.remove('ft-pulse'), 4000); return; }
+    const s = this.step = S[this.i], ov = this.ov;
+    ov.querySelector('.ft-text').textContent = TKD.t(s.en, s.ar);
+    ov.querySelector('.ft-next').textContent = this.i === S.length - 1 ? TKD.t("Let's go! 🚀", 'يلا! 🚀') : TKD.t('Next →', 'اللي بعده ←');
+    ov.querySelector('.ft-dots').innerHTML = S.map((_, k) => `<i class="${k === this.i ? 'on' : ''}"></i>`).join('');
+    const t = s.sel && document.querySelector(s.sel);
+    if (t) t.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    ov.classList.add('ft-moving');
+    this.place();
+    setTimeout(() => { this.place(); this.ov?.classList.remove('ft-moving'); }, t ? 500 : 30);
+    setTimeout(() => this.place(), 1100);
+    this.say();
+    if (this.i > 0) { try { const P = this.hero?.rig?.player; if (P) { P.play('win', { mix: 0.2 }); P.onComplete = () => { P.onComplete = null; P.play('bounce', { loop: true, mix: 0.25 }); }; } } catch (e) {} }
+  },
+  place() {
+    const ov = this.ov; if (!ov || !this.step) return;
+    const hole = ov.querySelector('.ft-hole'), hand = ov.querySelector('.ft-hand'), bub = ov.querySelector('.ft-bubble');
+    const t = this.step.sel && document.querySelector(this.step.sel);
+    hole.classList.toggle('ft-nohole', !t);
+    if (!t) { hole.style.cssText = 'left:50%;top:38%;width:0;height:0'; hand.hidden = true; bub.classList.remove('ft-top'); return; }
+    const r = t.getBoundingClientRect(), pad = 8;
+    const h = Math.min(r.height + pad * 2, innerHeight * 0.5);
+    hole.style.cssText = `left:${r.left - pad}px;top:${r.top - pad}px;width:${r.width + pad * 2}px;height:${h}px`;
+    hand.hidden = false;
+    const inTop = r.top + h / 2 < innerHeight / 2;
+    hand.style.left = `${Math.max(10, Math.min(innerWidth - 60, r.left + r.width / 2 - 24))}px`;
+    hand.style.top = `${inTop ? Math.min(innerHeight - 60, r.top - pad + h + 4) : Math.max(6, r.top - pad - 62)}px`;
+    hand.classList.toggle('up', inTop);
+    bub.classList.toggle('ft-top', !inTop);         // the bubble sits on the other half of the screen
+  },
+  say() { const s = this.step; if (!s) return; try { window.Voice?.stop?.(); window.speechSynthesis?.cancel(); SpeechHelper.speak(TKD.t(s.en, s.ar), TKD.ar ? 'ar-EG' : 'en-US'); } catch (e) {} },
+  close() {
+    if (this.ov) { try { window.speechSynthesis?.cancel(); window.Voice?.stop?.(); } catch (e) {} }
+    this.hero?.dispose?.(); this.hero = null;
+    this.ov?.remove(); this.ov = null; this.step = null;
+    if (this._re) { removeEventListener('resize', this._re); removeEventListener('scroll', this._re, true); }
+    clearInterval(this._iv); this._mo?.disconnect(); this._mo = null;
+  }
+};
+window.FirstTour = FirstTour;
+(function wireTour() {
+  // a brand-new player gets the tour instead of the old welcome bubble
+  const welcome = Journey.welcome.bind(Journey);
+  Journey.welcome = (...a) => { if (FirstTour.pending) return; return welcome(...a); };
+  const enter = StartScreen.enter.bind(StartScreen);
+  StartScreen.enter = (pid, isNew = false) => {
+    FirstTour.pending = !!isNew;
+    const r = enter(pid, isNew);
+    if (isNew) setTimeout(() => { FirstTour.pending = false; FirstTour.start(); }, 1600);
+    return r;
+  };
+  document.addEventListener('tkd:screen', (e) => { if (e.detail?.screenId !== 'home') FirstTour.close(); });
+})();
+
+// =====================================================================
+// v58.2 — PICTURES TO SEND: the week's report for the parents and a certificate for
+// every kick test passed, drawn as images the family can send on WhatsApp or keep.
+// =====================================================================
+const ShareImg = {
+  FONT: `'Cairo', 'Noto Kufi Arabic', 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif`,
+  canvas(w, h) { const c = document.createElement('canvas'); c.width = w; c.height = h; const x = c.getContext('2d'); x.direction = TKD.ar ? 'rtl' : 'ltr'; x.textBaseline = 'middle'; return [c, x]; },
+  font(x, size, weight = 700) { x.font = `${weight} ${size}px ${this.FONT}`; },
+  rr(x, X, Y, W, H, r) { x.beginPath(); x.moveTo(X + r, Y); x.arcTo(X + W, Y, X + W, Y + H, r); x.arcTo(X + W, Y + H, X, Y + H, r); x.arcTo(X, Y + H, X, Y, r); x.arcTo(X, Y, X + W, Y, r); x.closePath(); },
+  // text that never runs past maxW (shrinks a little, then cuts)
+  fit(x, s, X, Y, maxW, size, weight = 700, align = 'center') {
+    s = String(s); if (TKD.ar) s = s.replace(/([0-9٠-٩])%/g, '$1٪');
+    let z = size; this.font(x, z, weight);
+    while (x.measureText(s).width > maxW && z > size * 0.6) { z -= 2; this.font(x, z, weight); }
+    while (x.measureText(s).width > maxW && s.length > 3) s = s.slice(0, -2) + '…';
+    x.textAlign = align; x.fillText(s, X, Y);
+  },
+  date(ts = Date.now(), opt = { day: 'numeric', month: 'long', year: 'numeric' }) { return new Date(ts).toLocaleDateString(TKD.ar ? 'ar-EG' : 'en-GB', opt); },
+  blob(c) { return new Promise(r => c.toBlob(r, 'image/png')); },
+  download(blob, name) {
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name;
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 8000);
+  },
+  // a preview with: send (the phone's share sheet → WhatsApp with the picture) · save · WhatsApp text
+  async show(c, { title, file, text }) {
+    document.querySelectorAll('.si-modal').forEach(m => m.remove());
+    const blob = await this.blob(c); if (!blob) return;
+    const url = URL.createObjectURL(blob);
+    const f = new File([blob], file, { type: 'image/png' });
+    let canFiles = false; try { canFiles = !!(navigator.canShare && navigator.canShare({ files: [f] })); } catch (e) {}
+    const ov = document.createElement('div'); ov.className = 'tkd-modal si-modal';
+    ov.innerHTML = `<div class="tkd-modal-card si-card" role="dialog" aria-label="${TKD.esc(title)}"><button type="button" class="rp-x" data-x aria-label="${TKD.t('Close', 'اقفل')}">✕</button>
+      <h2>${TKD.esc(title)}</h2><img class="si-img" alt="${TKD.esc(title)}" src="${url}">
+      <div class="si-btns">
+        ${canFiles ? `<button type="button" class="btn btn-success" data-a="share">📤 ${TKD.t('Send the picture', 'ابعت الصورة')}</button>` : ''}
+        <button type="button" class="btn ${canFiles ? '' : 'btn-success'}" data-a="save">⬇️ ${TKD.t('Save the picture', 'احفظ الصورة')}</button>
+        <button type="button" class="btn si-wa" data-a="wa">💬 ${TKD.t('WhatsApp', 'واتساب')}</button>
+      </div><p class="si-note" hidden></p></div>`;
+    document.body.appendChild(ov);
+    const note = (s) => { const n = ov.querySelector('.si-note'); n.hidden = false; n.textContent = s; };
+    const close = () => { ov.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000); };
+    ov.addEventListener('click', async (e) => {
+      if (e.target === ov || e.target.closest('[data-x]')) return close();
+      const a = e.target.closest('[data-a]')?.dataset.a; if (!a) return;
+      TKD.gs()?.playSound('click');
+      if (a === 'share') { try { await navigator.share({ files: [f], title, text }); } catch (er) {} }
+      else if (a === 'save') { this.download(blob, file); note(TKD.t('Saved ✅ — look in your downloads / photos.', 'اتحفظت ✅ — هتلاقيها في التنزيلات أو الصور.')); }
+      else if (a === 'wa') {
+        if (!canFiles) this.download(blob, file);
+        window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+        if (!canFiles) note(TKD.t('The picture is saved — attach it in the chat 📎', 'الصورة اتحفظت — ابعتها في الشات من 📎'));
+      }
+    });
+    return ov;
+  }
+};
+window.ShareImg = ShareImg;
+
+const ParentReport = {
+  data() {
+    const gs = TKD.gs(), p = PlayerSystem.getCurrentPlayer(); if (!gs || !p) return null;
+    const now = Date.now(), from = now - 7 * 864e5;
+    const week = PlayerSystem.getAttempts().filter(a => a.playerId === p.id && a.ts >= from);
+    const days = new Set(week.map(a => TKD.dayKey(a.ts)));
+    const games = week.filter(a => !['learning', 'warmup'].includes(a.gameId));
+    const best = games.reduce((m, a) => (!m || a.score > m.score ? a : m), null);
+    const kicks = GameConfig.SKILL_ORDER.map(sk => ({ sk, name: TKD.skillName(sk), done: !!gs.completedSkills?.has(sk), open: !!gs.unlockedSkills?.has(sk),
+      p: Math.round(100 * (window.TrophyRoomSystem?.skillProg ? TrophyRoomSystem.skillProg(gs, sk) : 0)) }));
+    let tip = null; try { const w = window.Review ? Review.weakest(p.id, 1)[0] : null; tip = w ? Review.label(w) : null; } catch (e) {}
+    let next = null; try { next = window.Journey ? Journey.steps().find(s => !s.done && !s.optional) : null; } catch (e) {}
+    return {
+      p, from, now, days, games: games.length, passed: games.filter(a => a.passed).length, best,
+      streak: gs.practiceStreak || 0, stars: window.Shop?.balance ? Shop.balance() : 0,
+      stickers: window.Stickers ? Stickers.owned().length : 0, belt: gs.getBeltInfo(), kicks,
+      tip, next: next ? `${TKD.t(next.en, next.ar)} — ${TKD.skillName(Journey.skill())}` : null
+    };
+  },
+  draw() {
+    const D = this.data(); if (!D) return null;
+    const ar = TKD.ar, W = 1080, H = 1350, [c, x] = ShareImg.canvas(W, H), F = ShareImg;
+    const X0 = ar ? W - 70 : 70, AL = ar ? 'right' : 'left';
+    x.fillStyle = '#fff8ef'; x.fillRect(0, 0, W, H);
+    const g = x.createLinearGradient(0, 0, W, 260); g.addColorStop(0, '#ff7a2f'); g.addColorStop(1, '#e63946');
+    x.fillStyle = g; x.fillRect(0, 0, W, 260);
+    x.fillStyle = '#fff'; F.fit(x, `🥋 ${TKD.t("This week's training", 'تقرير تمرين الأسبوع')}`, W / 2, 88, W - 120, 62, 800);
+    F.fit(x, D.p.name, W / 2, 166, W - 160, 52, 800);
+    x.globalAlpha = 0.9; F.fit(x, `${F.date(D.from, { day: 'numeric', month: 'short' })} — ${F.date(D.now, { day: 'numeric', month: 'short', year: 'numeric' })}`, W / 2, 224, W - 160, 30, 600); x.globalAlpha = 1;
+    // the 7 days
+    let y = 330;
+    const dayW = (W - 140) / 7;
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(D.now - (6 - i) * 864e5), on = D.days.has(TKD.dayKey(d));
+      const cx = ar ? W - 70 - dayW * (i + 0.5) : 70 + dayW * (i + 0.5);
+      x.fillStyle = on ? '#2a9d8f' : '#eadfd2'; x.beginPath(); x.arc(cx, y, 40, 0, 7); x.fill();
+      x.fillStyle = on ? '#fff' : '#a89a8b'; F.fit(x, on ? '✓' : '·', cx, y + 2, 70, 40, 800);
+      x.fillStyle = '#6b5a4a'; F.fit(x, d.toLocaleDateString(ar ? 'ar-EG' : 'en-GB', { weekday: 'short' }), cx, y + 66, dayW - 6, 24, 600);
+    }
+    x.fillStyle = '#3d2e22'; F.fit(x, TKD.t(`Trained ${D.days.size} of 7 days`, `اتمرن ${TKD.num(D.days.size)} من ٧ أيام`), W / 2, y + 122, W - 140, 34, 800);
+    // tiles
+    y = 510;
+    const tiles = [
+      ['🔥', TKD.t('Days in a row', 'أيام ورا بعض'), TKD.num(D.streak)],
+      ['🎮', TKD.t('Games played', 'ألعاب لعبها'), TKD.num(D.games)],
+      ['✅', TKD.t('Games passed', 'ألعاب عدّاها'), TKD.num(D.passed)],
+      ['⭐', TKD.t('Stars', 'النجوم'), TKD.num(D.stars)],
+      ['🏆', TKD.t('Best score', 'أحسن نتيجة'), D.best ? `${TKD.num(D.best.score)}%` : '—'],
+      ['📒', TKD.t('Stickers', 'الملصقات'), `${TKD.num(D.stickers)}/${TKD.num(window.Stickers ? Stickers.LIST.length : 22)}`]
+    ];
+    const tw = (W - 140 - 40) / 3, th = 170;
+    tiles.forEach((t, i) => {
+      const col = i % 3, row = Math.floor(i / 3);
+      const tx = ar ? W - 70 - (col + 1) * tw - col * 20 : 70 + col * (tw + 20), ty = y + row * (th + 20);
+      x.fillStyle = '#fff'; F.rr(x, tx, ty, tw, th, 26); x.fill(); x.strokeStyle = '#f1dcc4'; x.lineWidth = 3; x.stroke();
+      x.fillStyle = '#3d2e22'; F.fit(x, t[0], tx + tw / 2, ty + 40, tw - 20, 40, 400);
+      x.fillStyle = '#e63946'; F.fit(x, t[2], tx + tw / 2, ty + 94, tw - 20, 52, 800);
+      x.fillStyle = '#6b5a4a'; F.fit(x, t[1], tx + tw / 2, ty + 142, tw - 20, 26, 600);
+    });
+    // the kicks
+    y = 910;
+    x.fillStyle = '#3d2e22'; F.fit(x, `🥋 ${TKD.t('The kicks', 'الركلات')} · ${(D.belt.stripes ? TKD.t(`white belt, ${D.belt.stripes} stripes`, `الحزام الأبيض، ${TKD.count(D.belt.stripes, 'stripe', 'ar')}`) : TKD.t('white belt', 'الحزام الأبيض'))}`, X0, y, W - 140, 32, 800, AL);
+    D.kicks.forEach((k, i) => {
+      const ky = y + 58 + i * 62, bw = W - 140 - 400;
+      x.fillStyle = '#3d2e22'; F.fit(x, `${k.done ? '🎗️' : k.open ? '▶️' : '🔒'} ${k.name}`, X0, ky, 290, 28, 700, AL);
+      const bx = ar ? 150 : W - 150 - bw;
+      x.fillStyle = '#eadfd2'; F.rr(x, bx, ky - 14, bw, 28, 14); x.fill();
+      const fw = k.done ? bw : Math.max(k.p ? 28 : 0, bw * k.p / 100);
+      if (fw) { x.fillStyle = k.done ? '#2a9d8f' : '#ff7a2f'; F.rr(x, ar ? bx + bw - fw : bx, ky - 14, fw, 28, 14); x.fill(); }
+      x.fillStyle = '#3d2e22'; F.fit(x, k.done ? '✓' : `${TKD.num(k.p)}%`, ar ? 110 : W - 110, ky, 76, 26, 800, 'center');
+    });
+    // the next step + what to practise
+    y = 1150;
+    x.fillStyle = '#fff1d6'; F.rr(x, 70, y, W - 140, 120, 26); x.fill();
+    x.fillStyle = '#3d2e22';
+    const line1 = D.next ? TKD.t(`Next step: ${D.next}`, `الخطوة الجاية: ${D.next}`) : TKD.t('All the white-belt kicks are done! 🏆', 'خلّص كل ركلات الحزام الأبيض! 🏆');
+    F.fit(x, `👉 ${line1}`, W / 2, y + (D.tip ? 38 : 60), W - 180, 30, 700);
+    if (D.tip) F.fit(x, `🧠 ${TKD.t(`Worth practising: ${D.tip}`, `يستاهل يتمرن على: ${D.tip}`)}`, W / 2, y + 84, W - 180, 26, 600);
+    x.fillStyle = '#a89a8b'; F.fit(x, 'Taekwondo Journey · رحلة التايكوندو', W / 2, H - 36, W - 140, 24, 600);
+    return { c, D };
+  },
+  open() {
+    const r = this.draw(); if (!r) return null;
+    const { D } = r;
+    const text = TKD.t(`🥋 ${D.p.name}'s Taekwondo week: trained ${D.days.size}/7 days, ${D.passed} games passed, ${D.streak} days in a row 🔥`,
+      `🥋 أسبوع ${D.p.name} في التايكوندو: اتمرن ${TKD.num(D.days.size)} من ٧ أيام، وعدّى ${TKD.num(D.passed)} ألعاب، و${TKD.num(D.streak)} أيام ورا بعض 🔥`);
+    return ShareImg.show(r.c, { title: TKD.t("This week's report", 'تقرير الأسبوع'), file: `taekwondo-week-${TKD.dayKey()}.png`, text });
+  }
+};
+window.ParentReport = ParentReport;
+
+const Certificate = {
+  passedAt(sk) {
+    const pid = TKD.pid();
+    const a = PlayerSystem.getAttempts().filter(r => r.playerId === pid && r.skillId === sk && r.gameId === 'quiz' && r.passed);
+    return a.length ? a[a.length - 1].ts : Date.now();
+  },
+  draw(sk) {
+    const gs = TKD.gs(), p = PlayerSystem.getCurrentPlayer(), S = GameConfig.SKILLS[sk]; if (!gs || !p || !S) return null;
+    const W = 1600, H = 1130, [c, x] = ShareImg.canvas(W, H), F = ShareImg;
+    const idx = GameConfig.SKILL_ORDER.indexOf(sk) + 1, score = gs.skillGameScores?.[sk]?.quiz || 0;
+    const bg = x.createRadialGradient(W / 2, H / 2, 100, W / 2, H / 2, W * 0.7); bg.addColorStop(0, '#fffdf6'); bg.addColorStop(1, '#f6ead2');
+    x.fillStyle = bg; x.fillRect(0, 0, W, H);
+    x.strokeStyle = '#c9972b'; x.lineWidth = 14; F.rr(x, 36, 36, W - 72, H - 72, 30); x.stroke();
+    x.strokeStyle = '#e8c76a'; x.lineWidth = 4; F.rr(x, 66, 66, W - 132, H - 132, 22); x.stroke();
+    x.fillStyle = '#3d2e22'; F.fit(x, '🥋', 170, 170, 120, 80, 400); F.fit(x, '🥋', W - 170, 170, 120, 80, 400);
+    x.fillStyle = '#b5311f'; F.fit(x, TKD.t('Certificate of Achievement', 'شهادة إتمام'), W / 2, 170, W - 440, 92, 800);
+    x.fillStyle = '#6b5a4a'; F.fit(x, 'Taekwondo Journey · 태권도', W / 2, 250, W - 400, 34, 600);
+    F.fit(x, TKD.t('This certifies that', gs.playerCharacter === 'girl' ? 'بنشهد إن البطلة' : 'بنشهد إن البطل'), W / 2, 345, W - 300, 40, 600);
+    x.fillStyle = '#1d3557'; F.fit(x, p.name, W / 2, 440, W - 300, 110, 800);
+    x.strokeStyle = '#c9972b'; x.lineWidth = 3; x.beginPath(); x.moveTo(W / 2 - 360, 512); x.lineTo(W / 2 + 360, 512); x.stroke();
+    x.fillStyle = '#3d2e22';
+    F.fit(x, TKD.t(`passed the ${S.name.en} test with ${score}%`, `عدّى اختبار ${S.name.ar} بنتيجة ${TKD.num(score)}%`), W / 2, 588, W - 300, 50, 700);
+    F.fit(x, TKD.t(`Kick ${idx} of 3 of the white belt`, `الركلة ${TKD.num(idx)} من ٣ في الحزام الأبيض`), W / 2, 656, W - 300, 36, 600);
+    // the white belt with a stripe for every kick passed so far
+    const by = 770, bw = 560, bx = W / 2 - bw / 2, stripes = Math.min(3, Math.max(idx, gs.getBeltInfo().stripes || 0));
+    x.fillStyle = '#ffffff'; x.strokeStyle = '#cfc6b4'; x.lineWidth = 3; F.rr(x, bx, by - 30, bw, 60, 14); x.fill(); x.stroke();
+    F.rr(x, W / 2 - 50, by - 44, 100, 88, 16); x.fill(); x.stroke();
+    for (let i = 0; i < stripes; i++) { x.fillStyle = '#1d1d1d'; x.fillRect(bx + bw - 70 - i * 34, by - 30, 18, 60); }
+    // date · seal · coach
+    x.fillStyle = '#3d2e22'; F.fit(x, F.date(this.passedAt(sk)), 330, 890, 420, 34, 700);
+    x.strokeStyle = '#6b5a4a'; x.lineWidth = 2; x.beginPath(); x.moveTo(150, 925); x.lineTo(510, 925); x.stroke();
+    x.fillStyle = '#6b5a4a'; F.fit(x, TKD.t('Date', 'التاريخ'), 330, 960, 300, 26, 600);
+    x.fillStyle = '#1d3557'; F.fit(x, TKD.t('Sabeom-nim Yang', 'سابوم نيم يانج'), W - 330, 890, 420, 40, 800);
+    x.strokeStyle = '#6b5a4a'; x.beginPath(); x.moveTo(W - 510, 925); x.lineTo(W - 150, 925); x.stroke();
+    x.fillStyle = '#6b5a4a'; F.fit(x, TKD.t('The coach', 'المدرب'), W - 330, 960, 300, 26, 600);
+    x.fillStyle = '#c9972b'; x.beginPath(); x.arc(W / 2, 935, 74, 0, 7); x.fill();
+    x.fillStyle = '#e8c76a'; x.beginPath(); x.arc(W / 2, 935, 58, 0, 7); x.fill();
+    x.fillStyle = '#3d2e22'; F.fit(x, '🏅', W / 2, 937, 100, 64, 400);
+    return c;
+  },
+  open(sk) {
+    const c = this.draw(sk); if (!c) return null;
+    const p = PlayerSystem.getCurrentPlayer(), S = GameConfig.SKILLS[sk];
+    return ShareImg.show(c, { title: TKD.t(`${S.name.en} certificate`, `شهادة ${S.name.ar}`), file: `certificate-${sk}.png`,
+      text: TKD.t(`🎓 ${p.name} passed the ${S.name.en} test in Taekwondo Journey!`, `🎓 ${p.name} عدّى اختبار ${S.name.ar} في التايكوندو!`) });
+  }
+};
+window.Certificate = Certificate;
+(function wireShare() {
+  // the winner screen after a passed kick test: "my certificate"
+  const cer = Exam.ceremony.bind(Exam);
+  Exam.ceremony = () => {
+    const sk = Exam._passed; cer();
+    const el = sk && document.querySelector('#winner-screen .exam-cert'); if (!el) return;
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'btn btn-success cert-btn';
+    b.textContent = `🎓 ${TKD.t('My certificate', 'شهادتي')}`;
+    b.addEventListener('click', () => Certificate.open(sk));
+    el.appendChild(b);
+  };
+  // the "Me" page: the week's report and every certificate earned
+  const pr = Profile.render.bind(Profile);
+  Profile.render = (...a) => {
+    const r = pr(...a);
+    try {
+      const root = TKD.$('profile-root'), gs = TKD.gs();
+      if (!root || !gs || Profile.pid !== PlayerSystem.getCurrentPlayerId() || (Profile.tab && Profile.tab !== 'me')) return r;
+      const done = GameConfig.SKILL_ORDER.filter(sk => gs.completedSkills?.has(sk));
+      const sec = document.createElement('section'); sec.className = 'pf-sec pf-share';
+      sec.innerHTML = `<h3>📤 ${TKD.t('For the family', 'للأهل')}</h3><div class="pf-share-row">
+        <button type="button" class="btn btn-success" data-share="week">📊 ${TKD.t("This week's report", 'تقرير الأسبوع')}</button>
+        ${done.map(sk => `<button type="button" class="btn" data-cert="${sk}">🎓 ${TKD.t(`${TKD.skillName(sk)} certificate`, `شهادة ${TKD.skillName(sk)}`)}</button>`).join('')}</div>`;
+      (root.querySelector('.pf-tabbody') || root).prepend(sec);
+      sec.addEventListener('click', (e) => {
+        const b = e.target.closest('button'); if (!b) return; gs.playSound('click');
+        if (b.dataset.share) ParentReport.open(); else if (b.dataset.cert) Certificate.open(b.dataset.cert);
+      });
+    } catch (e) {}
+    return r;
+  };
+})();
+
+// =====================================================================
+// v59 — THE UNITS everywhere + a calmer app (after the doctors' review):
+//  • a game of a closed unit does not open (it says which unit to finish first)
+//  • "Let's train" opens the MAP — no more chain of screens one after another
+//  • the Games screen is three unit sections, closed units are locked
+//  • today's box on the map is one small line (open it to see the missions)
+//  • on a phone the long panels fold under a "how to play" button
+// =====================================================================
+(function unitGate() {
+  const orig = ScreenManager.prototype.switchScreen;
+  ScreenManager.prototype.switchScreen = function (screenId, ...rest) {
+    const why = window.Units ? Units.blocked(screenId) : null;
+    if (why) {
+      TKD.gs()?.playSound('error'); TKD.toast(why, 'warning');
+      const cur = document.querySelector('.screen.active')?.id;
+      if (!cur || cur === 'loading-screen' || cur === `${screenId}-screen`) return orig.call(this, 'home', ...rest);
+      return;
+    }
+    return orig.call(this, screenId, ...rest);
+  };
+  // the old "resume" jumped straight into the next step — now it shows where you are
+  window.resumeTraining = function () {
+    const gs = TKD.gs(); if (!gs) return;
+    const t = gs.getResumeTarget();
+    if (!t.done) { gs.currentSkill = t.skillId; gs.syncFlatProgressToCurrentSkill?.(); gs.saveToStorage?.(); }
+    if (window.Journey) Journey.unitView = null;
+    switchScreen('home');
+    setTimeout(() => document.querySelector('.jr-units')?.scrollIntoView({ block: 'start', behavior: 'smooth' }), 120);
+  };
+})();
+
+const UnitGames = {
+  // build the three unit sections once (the cards keep their own click handlers)
+  build() {
+    const scr = document.getElementById('games-screen'), gc = scr?.querySelector('.game-container'); if (!gc || gc.querySelector('.unit-sec')) return;
+    const cards = Object.fromEntries([...gc.querySelectorAll('.game-card[data-game]')].map(c => [c.dataset.game, c]));
+    const anchor = gc.querySelector('.games-section-title');
+    Units.LIST.forEach(U => {
+      const sec = document.createElement('section'); sec.className = 'unit-sec'; sec.dataset.unit = U.n;
+      sec.innerHTML = `<h3 class="unit-sec-title"><span class="us-n"></span><span class="us-t"></span><small class="us-c"></small></h3><div class="game-cards unit-cards"></div>`;
+      const grid = sec.querySelector('.unit-cards');
+      U.games.forEach(g => { if (cards[g]) { cards[g].classList.remove('game-card-new'); cards[g].querySelector('.game-new-badge')?.remove(); grid.appendChild(cards[g]); } });
+      if (U.lesson) grid.insertAdjacentHTML('afterbegin', `<div class="game-card unit-lesson" data-lesson="1"><div class="game-icon">🎓</div><h3>${TKD.t('The lesson', 'الدرس')}</h3><p>${TKD.t('Watch the video and the steps first', 'اتفرج على الفيديو والخطوات الأول')}</p><span class="game-status"></span></div>`);
+      if (U.test) grid.insertAdjacentHTML('beforeend', `<div class="game-card unit-test" data-test="1"><div class="game-icon">📝</div><h3>${TKD.t('The test', 'الاختبار')}</h3><p>${TKD.t('After all the games of the unit', 'بعد ما تخلّص كل ألعاب الوحدة')}</p><span class="game-status"></span></div>`);
+      (anchor ? anchor.before(sec) : gc.appendChild(sec));
+    });
+    // the old "main / bonus" titles and grids are empty now
+    gc.querySelectorAll(':scope > .games-section-title, :scope > .game-cards, :scope > .bonus-unfold').forEach(e => e.remove());
+    gc.querySelector('.unit-lesson')?.addEventListener('click', () => { TKD.gs()?.playSound('click'); switchScreen('learning'); });
+    gc.querySelector('.unit-test')?.addEventListener('click', () => attemptStageNav('quiz'));
+    // a card of a closed unit says why instead of opening (capture: before the card's own handler)
+    gc.addEventListener('click', (e) => {
+      const card = e.target.closest('.unit-sec.is-locked .game-card'); if (!card || e.target.closest('.say-mini')) return;
+      e.stopImmediatePropagation(); e.preventDefault();
+      const n = +card.closest('.unit-sec').dataset.unit;
+      TKD.gs()?.playSound('error');
+      TKD.toast(n > 1 ? TKD.t(`🔒 Finish unit ${n - 1} first`, `🔒 خلّص الوحدة ${TKD.num(n - 1)} الأول`) : TKD.t('🔒 Watch the lesson first', '🔒 اتفرج على الدرس الأول'), 'warning');
+    }, true);
+  },
+  paint() {
+    this.build();
+    const gs = TKD.gs(), scr = document.getElementById('games-screen'); if (!gs || !scr) return;
+    const sk = gs.currentSkill, s = gs.skillGameScores?.[sk] || {}, learnt = (s.learning || 0) > 0;
+    scr.querySelectorAll('.unit-sec').forEach(sec => {
+      const n = +sec.dataset.unit, U = Units.get(n), open = Units.open(s, n, sk), done = Units.done(s, n, sk), [d, t] = Units.count(s, n, sk);
+      const locked = !open || (n === 1 ? false : !learnt);
+      sec.classList.toggle('is-locked', locked); sec.classList.toggle('is-done', done);
+      sec.querySelector('.us-n').textContent = done ? '✓' : locked ? '🔒' : TKD.num(n);
+      sec.querySelector('.us-t').textContent = `${TKD.t(`Unit ${n}`, `الوحدة ${TKD.num(n)}`)} · ${U.icon} ${TKD.t(U.en, U.ar)}`;
+      sec.querySelector('.us-c').textContent = `${TKD.num(d)}/${TKD.num(t)}`;
+      // inside unit 1 the games wait for the lesson
+      sec.querySelectorAll('.game-card[data-game]').forEach(c => c.classList.toggle('needs-lesson', n === 1 && !learnt));
+      const l = sec.querySelector('.unit-lesson .game-status'); if (l) l.textContent = learnt ? TKD.t('Done ✓', 'خلصت ✓') : TKD.t('Start here 👉', 'ابدأ من هنا 👉');
+      const q = sec.querySelector('.unit-test .game-status'); if (q) q.textContent = GameState.quizPassed(s) ? TKD.t('Passed ✓', 'عدّيته ✓') : GameState.allGamesDone(s, sk) ? TKD.t('Ready!', 'جاهز!') : '🔒';
+    });
+    // the error-hunt card is Ap Chagi only (as before)
+    scr.querySelectorAll('.game-card[data-game="error-hunt"]').forEach(c => c.classList.toggle('hidden', sk !== 'apchagi'));
+  }
+};
+window.UnitGames = UnitGames;
+(function wireUnitGames() {
+  // the old fold of "extra games" does not exist any more
+  if (window.BonusFold) BonusFold.apply = () => {};
+  document.addEventListener('tkd:screen', (e) => { if (e.detail?.screenId === 'games') setTimeout(() => UnitGames.paint(), 40); });
+  const up = GameState.prototype.updateGameProgress;
+  GameState.prototype.updateGameProgress = function (...a) { const r = up.apply(this, a); try { if (document.querySelector('#games-screen.active')) UnitGames.paint(); } catch (er) {} return r; };
+  document.addEventListener('tkd:lang', () => { const scr = document.getElementById('games-screen'); scr?.querySelectorAll('.unit-lesson h3, .unit-test h3').forEach(h => { h.textContent = h.closest('.unit-lesson') ? TKD.t('The lesson', 'الدرس') : TKD.t('The test', 'الاختبار'); }); setTimeout(() => UnitGames.paint(), 60); });
+})();
+
+// ---------------------------------------------------------------- today's box: one small line
+(function compactDaily() {
+  const html = Mission.html.bind(Mission);
+  Mission.html = () => {
+    const full = html();
+    const L = Mission.list(), done = L.filter(m => m.done).length, d = Mission.data(), gs = TKD.gs();
+    const open = Mission._open ? ' open' : '';
+    const sum = `<summary class="daily-sum"><span>🔥 <b>${TKD.num(gs?.practiceStreak || 0)}</b></span><span>🎯 ${TKD.t('Missions', 'المهام')} <b>${TKD.num(done)}/${TKD.num(L.length)}</b></span>${d.chest ? '<span>🎉</span>' : `<button type="button" class="ds-gift${done === L.length ? ' is-ready' : ''}" aria-label="${TKD.t("Open today's gift", 'افتح هدية النهارده')}">🎁</button>`}<span class="ds-more">${TKD.t('today', 'النهارده')} ▾</span></summary>`;
+    return full.replace('<section class="daily-box"', `<details class="daily-fold"${open}>${sum}<section class="daily-box"`).replace(/<\/section>\s*$/, '</section></details>');
+  };
+  const mount = Mission.mount.bind(Mission);
+  Mission.mount = () => {
+    const old = document.querySelector('.jr-map .daily-fold');
+    if (old) { Mission._open = old.open; old.remove(); }          // drawn again from scratch (never nested)
+    mount();
+    // below the map, not above it (the map is what the child needs first)
+    const box = document.getElementById('mission-box'), fold = box?.closest('.daily-fold'), map = document.querySelector('.jr-map');
+    if (fold && map && fold.parentNode === map && map.lastElementChild !== fold) map.appendChild(fold);
+    if (fold && !fold.dataset.w) { fold.dataset.w = '1'; fold.addEventListener('toggle', () => { Mission._open = fold.open; }); }
+    // the gift opens straight from the small line
+    fold?.querySelector('.ds-gift')?.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); document.getElementById('daily-chest')?.click(); });
+  };
+})();
+
+// ---------------------------------------------------------------- phone: long panels fold away
+const PhoneFold = {
+  // [screen, panel to fold, button label]
+  LIST: [
+    ['form-control', '.game-instructions', { en: '💡 How to play & tips', ar: '💡 الشرح والنصايح' }],
+  ],
+  phone() { return matchMedia('(max-width: 600px)').matches; },
+  apply(id) {
+    const row = this.LIST.find(r => r[0] === id); if (!row || !row[2]) return;
+    const scr = document.getElementById(`${id}-screen`), panel = scr?.querySelector(row[1]); if (!panel) return;
+    let fold = panel.closest('.ph-fold');
+    if (!fold) {
+      fold = document.createElement('details'); fold.className = 'ph-fold';
+      fold.innerHTML = `<summary></summary>`;
+      panel.before(fold); fold.appendChild(panel);
+    }
+    fold.querySelector('summary').textContent = TKD.t(row[2].en, row[2].ar);
+    fold.open = !this.phone() && innerHeight > 920;                   // open only where there is room
+  }
+};
+window.PhoneFold = PhoneFold;
+document.addEventListener('tkd:screen', (e) => { try { PhoneFold.apply(e.detail?.screenId); } catch (er) {} });
+// the map is drawn again on many taps (a kick, a unit) — today's box comes back with it
+(function keepDaily() {
+  const r = HomeHub.render.bind(HomeHub);
+  HomeHub.render = (...a) => { const out = r(...a); try { Mission.mount(); } catch (e) {} return out; };
 })();

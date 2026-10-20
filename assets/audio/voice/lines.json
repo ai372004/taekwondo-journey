@@ -80,12 +80,12 @@
   {
    "group": "cue",
    "priority": 1,
-   "ar": "كياي!",
+   "ar": "كيهاب!",
    "en": "Kihap!",
-   "note": "حماس وفرحة، قصيرة",
-   "key": "oes8hh",
+   "note": "صرخة القوة — بصوت طفل لو أمكن، قوية وقصيرة",
+   "key": "5fqpbm",
    "keyEn": "ssnaf6",
-   "file": "cue-008-oes8hh.mp3",
+   "file": "cue-008-5fqpbm.mp3",
    "fileEn": "cue-008-ssnaf6.mp3"
   },
   {
@@ -157,13 +157,35 @@
   {
    "group": "cue",
    "priority": 1,
+   "ar": "كومان!",
+   "en": "Keuman!",
+   "note": "أمر التوقف بالكوري — حازم",
+   "key": "1n7yma4",
+   "keyEn": "1ygzt8",
+   "file": "cue-015-1n7yma4.mp3",
+   "fileEn": "cue-015-1ygzt8.mp3"
+  },
+  {
+   "group": "cue",
+   "priority": 1,
+   "ar": "باروه!",
+   "en": "Baro!",
+   "note": "ارجع مكانك بالكوري — حازم",
+   "key": "r5kcy",
+   "keyEn": "odjl7z",
+   "file": "cue-016-r5kcy.mp3",
+   "fileEn": "cue-016-odjl7z.mp3"
+  },
+  {
+   "group": "cue",
+   "priority": 1,
    "ar": "بدّل الرجل!",
    "en": "Switch legs!",
    "note": "تنبيه — بحماس",
    "key": "1bxrgoi",
    "keyEn": "vrb9m",
-   "file": "cue-019-1bxrgoi.mp3",
-   "fileEn": "cue-019-vrb9m.mp3"
+   "file": "cue-021-1bxrgoi.mp3",
+   "fileEn": "cue-021-vrb9m.mp3"
   },
   {
    "group": "cue",
@@ -173,8 +195,8 @@
    "note": "رقم الإجابة في الاختبار — هادي وواضح",
    "key": "tys8yg",
    "keyEn": "1fnfegf",
-   "file": "cue-015-tys8yg.mp3",
-   "fileEn": "cue-015-1fnfegf.mp3"
+   "file": "cue-017-tys8yg.mp3",
+   "fileEn": "cue-017-1fnfegf.mp3"
   },
   {
    "group": "cue",
@@ -184,8 +206,8 @@
    "note": "رقم الإجابة في الاختبار — هادي وواضح",
    "key": "2ji1pi",
    "keyEn": "1gra621",
-   "file": "cue-016-2ji1pi.mp3",
-   "fileEn": "cue-016-1gra621.mp3"
+   "file": "cue-018-2ji1pi.mp3",
+   "fileEn": "cue-018-1gra621.mp3"
   },
   {
    "group": "cue",
@@ -195,8 +217,8 @@
    "note": "رقم الإجابة في الاختبار — هادي وواضح",
    "key": "19q9myx",
    "keyEn": "11vp0w3",
-   "file": "cue-017-19q9myx.mp3",
-   "fileEn": "cue-017-11vp0w3.mp3"
+   "file": "cue-019-19q9myx.mp3",
+   "fileEn": "cue-019-11vp0w3.mp3"
   },
   {
    "group": "cue",
@@ -206,8 +228,8 @@
    "note": "رقم الإجابة في الاختبار — هادي وواضح",
    "key": "115o30l",
    "keyEn": "d5lr51",
-   "file": "cue-018-115o30l.mp3",
-   "fileEn": "cue-018-d5lr51.mp3"
+   "file": "cue-020-115o30l.mp3",
+   "fileEn": "cue-020-d5lr51.mp3"
   },
   {
    "group": "kick",
@@ -243,15 +265,158 @@
    "fileEn": "kick-003-1vi2xi0.mp3"
   },
   {
+   "group": "tour",
+   "priority": 1,
+   "ar": "أهلاً يا بطل!",
+   "en": "Hi champion!",
+   "note": "جولة أول مرة — بطلك بيكلم الطفل، بحماس وهدوء",
+   "key": "16w7kqi",
+   "keyEn": "1oy1edd",
+   "file": "tour-001-16w7kqi.mp3",
+   "fileEn": "tour-001-1oy1edd.mp3"
+  },
+  {
+   "group": "tour",
+   "priority": 1,
+   "ar": "أنا صاحبك في التمرين.",
+   "en": "I'm your training buddy.",
+   "note": "جولة أول مرة — بطلك بيكلم الطفل، بحماس وهدوء",
+   "key": "16sw7l7",
+   "keyEn": "16n2ufk",
+   "file": "tour-002-16sw7l7.mp3",
+   "fileEn": "tour-002-16n2ufk.mp3"
+  },
+  {
+   "group": "tour",
+   "priority": 1,
+   "ar": "تعالى أفرّجك على اللعبة!",
+   "en": "Come, I'll show you around!",
+   "note": "جولة أول مرة — بطلك بيكلم الطفل، بحماس وهدوء",
+   "key": "1yy7fnb",
+   "keyEn": "h4pb4h",
+   "file": "tour-003-1yy7fnb.mp3",
+   "fileEn": "tour-003-h4pb4h.mp3"
+  },
+  {
+   "group": "tour",
+   "priority": 1,
+   "ar": "كل ركلة فيها ٣ وحدات.",
+   "en": "Every kick has 3 units.",
+   "note": "جولة أول مرة — بطلك بيكلم الطفل، بحماس وهدوء",
+   "key": "10zjzoy",
+   "keyEn": "1gv2dzc",
+   "file": "tour-004-10zjzoy.mp3",
+   "fileEn": "tour-004-1gv2dzc.mp3"
+  },
+  {
+   "group": "tour",
+   "priority": 1,
+   "ar": "خلّص وحدة والوحدة اللي بعدها تتفتح.",
+   "en": "Finish one and the next one opens.",
+   "note": "جولة أول مرة — بطلك بيكلم الطفل، بحماس وهدوء",
+   "key": "1ef146e",
+   "keyEn": "1g08x44",
+   "file": "tour-005-1ef146e.mp3",
+   "fileEn": "tour-005-1g08x44.mp3"
+  },
+  {
+   "group": "tour",
+   "priority": 1,
+   "ar": "ده طريقك.",
+   "en": "This is your road.",
+   "note": "جولة أول مرة — بطلك بيكلم الطفل، بحماس وهدوء",
+   "key": "sg4nmu",
+   "keyEn": "1u8bn6k",
+   "file": "tour-006-sg4nmu.mp3",
+   "fileEn": "tour-006-1u8bn6k.mp3"
+  },
+  {
+   "group": "tour",
+   "priority": 1,
+   "ar": "كل دايرة خطوة، وبطلك واقف على الخطوة الجاية.",
+   "en": "Every circle is a step, and your fighter stands on the next one.",
+   "note": "جولة أول مرة — بطلك بيكلم الطفل، بحماس وهدوء",
+   "key": "1bz0mmu",
+   "keyEn": "lrjlym",
+   "file": "tour-007-1bz0mmu.mp3",
+   "fileEn": "tour-007-lrjlym.mp3"
+  },
+  {
+   "group": "tour",
+   "priority": 1,
+   "ar": "الزرار الكبير ده بيوديك على طول للخطوة الجاية.",
+   "en": "This big button always takes you to the next step.",
+   "note": "جولة أول مرة — بطلك بيكلم الطفل، بحماس وهدوء",
+   "key": "mvgbl0",
+   "keyEn": "1e3xur4",
+   "file": "tour-008-mvgbl0.mp3",
+   "fileEn": "tour-008-1e3xur4.mp3"
+  },
+  {
+   "group": "tour",
+   "priority": 1,
+   "ar": "كل يوم ليك ٣ مهام صغيرة.",
+   "en": "Every day you get 3 small missions.",
+   "note": "جولة أول مرة — بطلك بيكلم الطفل، بحماس وهدوء",
+   "key": "1u6x2ge",
+   "keyEn": "1to2vfi",
+   "file": "tour-009-1u6x2ge.mp3",
+   "fileEn": "tour-009-1to2vfi.mp3"
+  },
+  {
+   "group": "tour",
+   "priority": 1,
+   "ar": "خلّصهم وافتح الهدية!",
+   "en": "Finish them and open the gift!",
+   "note": "جولة أول مرة — بطلك بيكلم الطفل، بحماس وهدوء",
+   "key": "1acod61",
+   "keyEn": "5zkp36",
+   "file": "tour-010-1acod61.mp3",
+   "fileEn": "tour-010-5zkp36.mp3"
+  },
+  {
+   "group": "tour",
+   "priority": 1,
+   "ar": "وهنا كل الألعاب.",
+   "en": "And here are all the games.",
+   "note": "جولة أول مرة — بطلك بيكلم الطفل، بحماس وهدوء",
+   "key": "a2t4na",
+   "keyEn": "182bt7d",
+   "file": "tour-011-a2t4na.mp3",
+   "fileEn": "tour-011-182bt7d.mp3"
+  },
+  {
+   "group": "tour",
+   "priority": 1,
+   "ar": "جاهز؟",
+   "en": "Ready?",
+   "note": "جولة أول مرة — بطلك بيكلم الطفل، بحماس وهدوء",
+   "key": "2xx2fl",
+   "keyEn": "sbfb3o",
+   "file": "tour-012-2xx2fl.mp3",
+   "fileEn": "tour-012-sbfb3o.mp3"
+  },
+  {
+   "group": "tour",
+   "priority": 1,
+   "ar": "دوس على الزرار الكبير ويلا نبدأ!",
+   "en": "Tap the big button and let's start!",
+   "note": "جولة أول مرة — بطلك بيكلم الطفل، بحماس وهدوء",
+   "key": "1slrhl5",
+   "keyEn": "14ze6wk",
+   "file": "tour-013-1slrhl5.mp3",
+   "fileEn": "tour-013-14ze6wk.mp3"
+  },
+  {
    "group": "phase",
    "priority": 1,
-   "ar": "1 وضعية الاستعداد (جونبي)",
-   "en": "1 Ready Stance (Junbi)",
+   "ar": "1 وقفة القتال (كيوروجي جونبي)",
+   "en": "1 Fighting Stance (Kyorugi Junbi)",
    "note": "عنوان مرحلة",
-   "key": "1tr5wb7",
-   "keyEn": "ghi37t",
-   "file": "phase-001-1tr5wb7.mp3",
-   "fileEn": "phase-001-ghi37t.mp3"
+   "key": "33fp6g",
+   "keyEn": "93x02i",
+   "file": "phase-001-33fp6g.mp3",
+   "fileEn": "phase-001-93x02i.mp3"
   },
   {
    "group": "phase",
@@ -300,12 +465,12 @@
   {
    "group": "phase",
    "priority": 1,
-   "ar": "افرد رجلك بسرعة، واضرب بمشط القدم.",
+   "ar": "افرد رجلك بسرعة، واضرب بالآب تشوك (مشط القدم).",
    "en": "Snap the leg out and hit with the ball of the foot.",
    "note": "جملة قصيرة للصغيرين — هادية وبطيئة",
-   "key": "196izu",
+   "key": "k6wusy",
    "keyEn": "1iqy31k",
-   "file": "phase-014-196izu.mp3",
+   "file": "phase-014-k6wusy.mp3",
    "fileEn": "phase-014-1iqy31k.mp3"
   },
   {
@@ -399,35 +564,35 @@
   {
    "group": "phase",
    "priority": 1,
-   "ar": "نزّل الكعب لتحت بقوة.",
+   "ar": "نزّل الدوي كومتشي (الكعب) لتحت بقوة.",
    "en": "Drop the heel down hard.",
    "note": "جملة قصيرة للصغيرين — هادية وبطيئة",
-   "key": "34jya4",
+   "key": "difgaa",
    "keyEn": "1j6yfua",
-   "file": "phase-043-34jya4.mp3",
+   "file": "phase-043-difgaa.mp3",
    "fileEn": "phase-043-1j6yfua.mp3"
   },
   {
    "group": "phase",
    "priority": 1,
-   "ar": "4 السحب",
-   "en": "4 Recoil",
+   "ar": "4 نزول الرجل مفرودة",
+   "en": "4 Straight Leg Down",
    "note": "عنوان مرحلة",
-   "key": "8obgum",
-   "keyEn": "cis1gj",
-   "file": "phase-048-8obgum.mp3",
-   "fileEn": "phase-048-cis1gj.mp3"
+   "key": "1c0vxhy",
+   "keyEn": "e8vvtt",
+   "file": "phase-048-1c0vxhy.mp3",
+   "fileEn": "phase-048-e8vvtt.mp3"
   },
   {
    "group": "phase",
    "priority": 1,
-   "ar": "اسحب رجلك واتوازن.",
-   "en": "Pull the leg back and find your balance.",
+   "ar": "كمّل نزول رجلك وهي مفرودة لحد الأرض.",
+   "en": "Keep the leg straight all the way down to the floor.",
    "note": "جملة قصيرة للصغيرين — هادية وبطيئة",
-   "key": "1xmfu12",
-   "keyEn": "1bgaz3r",
-   "file": "phase-049-1xmfu12.mp3",
-   "fileEn": "phase-049-1bgaz3r.mp3"
+   "key": "157zlu",
+   "keyEn": "10b7rmo",
+   "file": "phase-049-157zlu.mp3",
+   "fileEn": "phase-049-10b7rmo.mp3"
   },
   {
    "group": "phase",
@@ -476,24 +641,35 @@
   {
    "group": "phase",
    "priority": 1,
-   "ar": "3 الضربة الجانبية المستقيمة",
-   "en": "3 Straight Side Strike",
+   "ar": "3 الضربة بوش القدم",
+   "en": "3 Instep Strike",
    "note": "عنوان مرحلة",
-   "key": "p2puop",
-   "keyEn": "2zb0dv",
-   "file": "phase-070-p2puop.mp3",
-   "fileEn": "phase-070-2zb0dv.mp3"
+   "key": "1sz97ac",
+   "keyEn": "k7acz",
+   "file": "phase-070-1sz97ac.mp3",
+   "fileEn": "phase-070-k7acz.mp3"
   },
   {
    "group": "phase",
    "priority": 1,
-   "ar": "اضرب جنب بالكعب، في خط مستقيم.",
-   "en": "Kick out sideways with the heel, in a straight line.",
+   "ar": "اضرب بالبال دونج (وش القدم) وصوابعك ممدودة.",
+   "en": "Strike with the instep, toes pointed.",
    "note": "جملة قصيرة للصغيرين — هادية وبطيئة",
-   "key": "odswuj",
-   "keyEn": "1gvvbyr",
-   "file": "phase-071-odswuj.mp3",
-   "fileEn": "phase-071-1gvvbyr.mp3"
+   "key": "xvomd8",
+   "keyEn": "1ote1qf",
+   "file": "phase-071-xvomd8.mp3",
+   "fileEn": "phase-071-1ote1qf.mp3"
+  },
+  {
+   "group": "phase",
+   "priority": 1,
+   "ar": "4 السحب",
+   "en": "4 Recoil",
+   "note": "عنوان مرحلة",
+   "key": "8obgum",
+   "keyEn": "cis1gj",
+   "file": "phase-076-8obgum.mp3",
+   "fileEn": "phase-076-cis1gj.mp3"
   },
   {
    "group": "phase",
@@ -503,8 +679,8 @@
    "note": "جملة قصيرة للصغيرين — هادية وبطيئة",
    "key": "15xbgms",
    "keyEn": "o0bg92",
-   "file": "phase-076-15xbgms.mp3",
-   "fileEn": "phase-076-o0bg92.mp3"
+   "file": "phase-077-15xbgms.mp3",
+   "fileEn": "phase-077-o0bg92.mp3"
   },
   {
    "group": "phase",
@@ -597,13 +773,13 @@
   {
    "group": "phase",
    "priority": 2,
-   "ar": "خلي بالك: اسحب رجلك لفوق بسرعة بعد الضربة",
-   "en": "Focus: Pull the leg back up quickly after impact",
+   "ar": "خلي بالك: بعد الضربة رجلك تكمّل نزول وهي مفرودة لحد ما القدم توصل الأرض قدامك",
+   "en": "Focus: After the strike the leg keeps coming down straight until the foot lands on the floor in front",
    "note": "نصيحة المدرب",
-   "key": "z56p68",
-   "keyEn": "1tw11ev",
-   "file": "phase-050-z56p68.mp3",
-   "fileEn": "phase-050-1tw11ev.mp3"
+   "key": "1xjnonl",
+   "keyEn": "murf3x",
+   "file": "phase-050-1xjnonl.mp3",
+   "fileEn": "phase-050-murf3x.mp3"
   },
   {
    "group": "phase",
@@ -641,13 +817,13 @@
   {
    "group": "phase",
    "priority": 2,
-   "ar": "خلي بالك: كمّل اللفة لحد 180° وازق رجلك في خط مستقيم ولف وسطك عشان الضربة تبقى أقوى — اضرب بالكعب أو حرف القدم الخارجي",
-   "en": "Focus: Complete the pivot to 180° and drive the leg out in a straight line, rotating the hip into the strike — hit with the heel / outer blade of the foot",
+   "ar": "خلي بالك: كمّل اللفّة لحد 180° واضرب برجلك ناحية الهدف وإنت بتلف وسطك عشان الضربة تبقى أقوى — اضرب بوش القدم (ظهرها من فوق)",
+   "en": "Focus: Complete the pivot to 180° and snap the lower leg into the target, rotating the hip into the strike — hit with the instep (top of the foot)",
    "note": "نصيحة المدرب",
-   "key": "qsrude",
-   "keyEn": "1nvjxux",
-   "file": "phase-072-qsrude.mp3",
-   "fileEn": "phase-072-1nvjxux.mp3"
+   "key": "1fdj9l2",
+   "keyEn": "1rbqjgb",
+   "file": "phase-072-1fdj9l2.mp3",
+   "fileEn": "phase-072-1rbqjgb.mp3"
   },
   {
    "group": "phase",
@@ -657,8 +833,8 @@
    "note": "نصيحة المدرب",
    "key": "i4epqc",
    "keyEn": "mjvnt3",
-   "file": "phase-077-i4epqc.mp3",
-   "fileEn": "phase-077-mjvnt3.mp3"
+   "file": "phase-078-i4epqc.mp3",
+   "fileEn": "phase-078-mjvnt3.mp3"
   },
   {
    "group": "phase",
@@ -668,8 +844,8 @@
    "note": "نصيحة المدرب",
    "key": "km5fca",
    "keyEn": "he3js4",
-   "file": "phase-081-km5fca.mp3",
-   "fileEn": "phase-081-he3js4.mp3"
+   "file": "phase-082-km5fca.mp3",
+   "fileEn": "phase-082-he3js4.mp3"
   },
   {
    "group": "phase",
@@ -806,12 +982,12 @@
   {
    "group": "phase",
    "priority": 3,
-   "ar": "ارجع لوضعية الاستعداد على طول",
+   "ar": "ارجع لوقفة القتال على طول",
    "en": "Return to guard position immediately",
    "note": "نصيحة من الشرح الكامل",
-   "key": "1ngevqk",
+   "key": "5o8nt3",
    "keyEn": "1isoaym",
-   "file": "phase-028-1ngevqk.mp3",
+   "file": "phase-028-5o8nt3.mp3",
    "fileEn": "phase-028-1isoaym.mp3"
   },
   {
@@ -938,35 +1114,35 @@
   {
    "group": "phase",
    "priority": 3,
-   "ar": "ماتسيبش رجلك تقع على الأرض على طول",
-   "en": "Do not let the foot drop straight to the floor",
+   "ar": "خلي ركبتك مفرودة طول النزول — ماتثنيهاش في الآخر",
+   "en": "Keep the knee straight all the way down — do not bend it at the end",
    "note": "نصيحة من الشرح الكامل",
-   "key": "a7iygx",
-   "keyEn": "1rmb1q8",
-   "file": "phase-051-a7iygx.mp3",
-   "fileEn": "phase-051-1rmb1q8.mp3"
+   "key": "2d8ry7",
+   "keyEn": "9p3vzm",
+   "file": "phase-051-2d8ry7.mp3",
+   "fileEn": "phase-051-9p3vzm.mp3"
   },
   {
    "group": "phase",
    "priority": 3,
-   "ar": "ظبّط توازنك على طول",
-   "en": "Reset balance immediately",
+   "ar": "نزّل قدمك على الأرض قدامك وإنت متحكم فيها",
+   "en": "Land the foot under control, in front of you",
    "note": "نصيحة من الشرح الكامل",
-   "key": "ein4kf",
-   "keyEn": "r1173m",
-   "file": "phase-052-ein4kf.mp3",
-   "fileEn": "phase-052-r1173m.mp3"
+   "key": "xljvy3",
+   "keyEn": "mdkz80",
+   "file": "phase-052-xljvy3.mp3",
+   "fileEn": "phase-052-mdkz80.mp3"
   },
   {
    "group": "phase",
    "priority": 3,
-   "ar": "ماتلفّش وسطك زيادة عن اللزوم",
-   "en": "Avoid over-rotating the hips",
+   "ar": "ماتثنيش ركبتك وماترفعش رجلك تاني بعد الضربة",
+   "en": "Do not fold the knee or pull the leg back up after the strike",
    "note": "نصيحة من الشرح الكامل",
-   "key": "l73xfn",
-   "keyEn": "mgrbr7",
-   "file": "phase-053-l73xfn.mp3",
-   "fileEn": "phase-053-mgrbr7.mp3"
+   "key": "cq1ehy",
+   "keyEn": "1nj40ki",
+   "file": "phase-053-cq1ehy.mp3",
+   "fileEn": "phase-053-1nj40ki.mp3"
   },
   {
    "group": "phase",
@@ -982,12 +1158,12 @@
   {
    "group": "phase",
    "priority": 3,
-   "ar": "ارجع لوضعية الاستعداد",
+   "ar": "ارجع لوقفة القتال",
    "en": "Return to ready stance",
    "note": "نصيحة من الشرح الكامل",
-   "key": "rcc7td",
+   "key": "3b322m",
    "keyEn": "12s6qkx",
-   "file": "phase-057-rcc7td.mp3",
+   "file": "phase-057-3b322m.mp3",
    "fileEn": "phase-057-12s6qkx.mp3"
   },
   {
@@ -1070,35 +1246,35 @@
   {
    "group": "phase",
    "priority": 3,
-   "ar": "لفّة كاملة 180° على قدم الارتكاز، وجسمك/وسطك/ركبتك/رجلك كلهم في خط واحد مستقيم ناحية الهدف",
-   "en": "Full 180° pivot on the standing foot, body/hip/knee/foot aligned toward the target in one straight line",
+   "ar": "لفّة كاملة 180° على قدم الارتكاز ووسطك لافف مع الركلة",
+   "en": "Full 180° pivot on the standing foot, hip turned into the kick",
    "note": "نصيحة من الشرح الكامل",
-   "key": "1rf53wq",
-   "keyEn": "4pp19n",
-   "file": "phase-073-1rf53wq.mp3",
-   "fileEn": "phase-073-4pp19n.mp3"
+   "key": "1wdug89",
+   "keyEn": "1u63v95",
+   "file": "phase-073-1wdug89.mp3",
+   "fileEn": "phase-073-1u63v95.mp3"
   },
   {
    "group": "phase",
    "priority": 3,
-   "ar": "اضرب بالكعب أو حرف القدم الخارجي وصوابعك مسحوبة لورا",
-   "en": "Strike with the heel or the outer blade edge — toes pulled back",
+   "ar": "اضرب بوش القدم — والكاحل مفرود وصوابعك ممدودة",
+   "en": "Strike with the instep — ankle stretched, toes pointed",
    "note": "نصيحة من الشرح الكامل",
-   "key": "ljmcfe",
-   "keyEn": "bn8u18",
-   "file": "phase-074-ljmcfe.mp3",
-   "fileEn": "phase-074-bn8u18.mp3"
+   "key": "sp0sxp",
+   "keyEn": "nexwhq",
+   "file": "phase-074-sp0sxp.mp3",
+   "fileEn": "phase-074-nexwhq.mp3"
   },
   {
    "group": "phase",
    "priority": 3,
-   "ar": "ماتضربش بمشط رجلك خالص، وماتوقفش اللفة في النص",
-   "en": "Never strike with the instep, and do not stop the rotation halfway",
+   "ar": "ماتضربش بالكعب ولا بالصوابع، وماتوقفش اللفّة في النص",
+   "en": "Never strike with the heel or the toes, and do not stop the rotation halfway",
    "note": "نصيحة من الشرح الكامل",
-   "key": "1suohhn",
-   "keyEn": "1gqpq8r",
-   "file": "phase-075-1suohhn.mp3",
-   "fileEn": "phase-075-1gqpq8r.mp3"
+   "key": "37zdrd",
+   "keyEn": "qf8dhr",
+   "file": "phase-075-37zdrd.mp3",
+   "fileEn": "phase-075-qf8dhr.mp3"
   },
   {
    "group": "phase",
@@ -1108,8 +1284,8 @@
    "note": "نصيحة من الشرح الكامل",
    "key": "mjlzlp",
    "keyEn": "lwnsf6",
-   "file": "phase-078-mjlzlp.mp3",
-   "fileEn": "phase-078-lwnsf6.mp3"
+   "file": "phase-079-mjlzlp.mp3",
+   "fileEn": "phase-079-lwnsf6.mp3"
   },
   {
    "group": "phase",
@@ -1119,8 +1295,8 @@
    "note": "نصيحة من الشرح الكامل",
    "key": "td4r7g",
    "keyEn": "e80xyx",
-   "file": "phase-079-td4r7g.mp3",
-   "fileEn": "phase-079-e80xyx.mp3"
+   "file": "phase-080-td4r7g.mp3",
+   "fileEn": "phase-080-e80xyx.mp3"
   },
   {
    "group": "phase",
@@ -1130,19 +1306,19 @@
    "note": "نصيحة من الشرح الكامل",
    "key": "32el5n",
    "keyEn": "p1rtup",
-   "file": "phase-080-32el5n.mp3",
-   "fileEn": "phase-080-p1rtup.mp3"
+   "file": "phase-081-32el5n.mp3",
+   "fileEn": "phase-081-p1rtup.mp3"
   },
   {
    "group": "phase",
    "priority": 3,
-   "ar": "ظبّط رجليك تاني على وضعية الاستعداد",
+   "ar": "ظبّط رجليك تاني على وقفة القتال",
    "en": "Reset feet to ready stance",
    "note": "نصيحة من الشرح الكامل",
-   "key": "18sxagm",
+   "key": "kricip",
    "keyEn": "aojf4e",
-   "file": "phase-082-18sxagm.mp3",
-   "fileEn": "phase-082-aojf4e.mp3"
+   "file": "phase-083-kricip.mp3",
+   "fileEn": "phase-083-aojf4e.mp3"
   },
   {
    "group": "phase",
@@ -1152,8 +1328,8 @@
    "note": "نصيحة من الشرح الكامل",
    "key": "1vnd22l",
    "keyEn": "9rgn72",
-   "file": "phase-083-1vnd22l.mp3",
-   "fileEn": "phase-083-9rgn72.mp3"
+   "file": "phase-084-1vnd22l.mp3",
+   "fileEn": "phase-084-9rgn72.mp3"
   },
   {
    "group": "phase",
@@ -1163,8 +1339,8 @@
    "note": "نصيحة من الشرح الكامل",
    "key": "wv57nq",
    "keyEn": "ua9csh",
-   "file": "phase-084-wv57nq.mp3",
-   "fileEn": "phase-084-ua9csh.mp3"
+   "file": "phase-085-wv57nq.mp3",
+   "fileEn": "phase-085-ua9csh.mp3"
   },
   {
    "group": "hint",
@@ -1840,23 +2016,45 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "ظبّط الوضعية.",
+   "ar": "الدرس.",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "19xp7ib",
+   "key": "ggdduv",
    "keyEn": "",
-   "file": "screen-011-19xp7ib.mp3",
+   "file": "screen-011-ggdduv.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "اسحب نقط المفاصل أو استخدم الأسهم وظبّط وضعية مثالية",
+   "ar": "اتفرج على الفيديو والخطوات الأول",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "1urdwmd",
+   "key": "1b372ee",
    "keyEn": "",
-   "file": "screen-012-1urdwmd.mp3",
+   "file": "screen-012-1b372ee.mp3",
+   "fileEn": ""
+  },
+  {
+   "group": "screen",
+   "priority": 2,
+   "ar": "ظبّط الوضعية.",
+   "en": "",
+   "note": "تعليمات الشاشة",
+   "key": "19xp7ib",
+   "keyEn": "",
+   "file": "screen-013-19xp7ib.mp3",
+   "fileEn": ""
+  },
+  {
+   "group": "screen",
+   "priority": 2,
+   "ar": "اسحب النقط وظبّط شكل الركلة",
+   "en": "",
+   "note": "تعليمات الشاشة",
+   "key": "13vuokc",
+   "keyEn": "",
+   "file": "screen-014-13vuokc.mp3",
    "fileEn": ""
   },
   {
@@ -1867,150 +2065,18 @@
    "note": "تعليمات الشاشة",
    "key": "kl6hoh",
    "keyEn": "",
-   "file": "screen-013-kl6hoh.mp3",
+   "file": "screen-015-kl6hoh.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "رتّب مراحل آب تشاجي الخمسة بالترتيب الصح، وسيب القطعة الدخيلة برّه",
+   "ar": "رتّب مراحل الركلة الخمسة",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "11wah0g",
+   "key": "rb6602",
    "keyEn": "",
-   "file": "screen-014-11wah0g.mp3",
-   "fileEn": ""
-  },
-  {
-   "group": "screen",
-   "priority": 2,
-   "ar": "عين الحكم.",
-   "en": "",
-   "note": "تعليمات الشاشة",
-   "key": "d950se",
-   "keyEn": "",
-   "file": "screen-015-d950se.mp3",
-   "fileEn": ""
-  },
-  {
-   "group": "screen",
-   "priority": 2,
-   "ar": "بص على الركلة واختار الجملة الوحيدة الغلط عنها",
-   "en": "",
-   "note": "تعليمات الشاشة",
-   "key": "hzbqm7",
-   "keyEn": "",
-   "file": "screen-016-hzbqm7.mp3",
-   "fileEn": ""
-  },
-  {
-   "group": "screen",
-   "priority": 2,
-   "ar": "تحدي الضربة.",
-   "en": "",
-   "note": "تعليمات الشاشة",
-   "key": "omabi2",
-   "keyEn": "",
-   "file": "screen-017-omabi2.mp3",
-   "fileEn": ""
-  },
-  {
-   "group": "screen",
-   "priority": 2,
-   "ar": "تحدي عملي مختلف لكل ركلة",
-   "en": "",
-   "note": "تعليمات الشاشة",
-   "key": "xh0npz",
-   "keyEn": "",
-   "file": "screen-018-xh0npz.mp3",
-   "fileEn": ""
-  },
-  {
-   "group": "screen",
-   "priority": 2,
-   "ar": "صيّاد الأخطاء.",
-   "en": "",
-   "note": "تعليمات الشاشة",
-   "key": "1g6pvpz",
-   "keyEn": "",
-   "file": "screen-019-1g6pvpz.mp3",
-   "fileEn": ""
-  },
-  {
-   "group": "screen",
-   "priority": 2,
-   "ar": "لاقي الغلطة المستخبية في الركلة",
-   "en": "",
-   "note": "تعليمات الشاشة",
-   "key": "1hp16kg",
-   "keyEn": "",
-   "file": "screen-020-1hp16kg.mp3",
-   "fileEn": ""
-  },
-  {
-   "group": "screen",
-   "priority": 2,
-   "ar": "كويز الفضاء.",
-   "en": "",
-   "note": "تعليمات الشاشة",
-   "key": "1q0z5zq",
-   "keyEn": "",
-   "file": "screen-021-1q0z5zq.mp3",
-   "fileEn": ""
-  },
-  {
-   "group": "screen",
-   "priority": 2,
-   "ar": "اضرب الليزر على الإجابة الصح - أسئلة مخصوص لكل ركلة",
-   "en": "",
-   "note": "تعليمات الشاشة",
-   "key": "2f8wsc",
-   "keyEn": "",
-   "file": "screen-022-2f8wsc.mp3",
-   "fileEn": ""
-  },
-  {
-   "group": "screen",
-   "priority": 2,
-   "ar": "كسر الألواح.",
-   "en": "",
-   "note": "تعليمات الشاشة",
-   "key": "1cn7lj2",
-   "keyEn": "",
-   "file": "screen-023-1cn7lj2.mp3",
-   "fileEn": ""
-  },
-  {
-   "group": "screen",
-   "priority": 2,
-   "ar": "اختار جزء القدم الصح، صوّب، واكسر الألواح",
-   "en": "",
-   "note": "تعليمات الشاشة",
-   "key": "c6dg4s",
-   "keyEn": "",
-   "file": "screen-024-c6dg4s.mp3",
-   "fileEn": ""
-  },
-  {
-   "group": "screen",
-   "priority": 2,
-   "ar": "مضارب الأهداف.",
-   "en": "",
-   "note": "تعليمات الشاشة",
-   "key": "dt6wqw",
-   "keyEn": "",
-   "file": "screen-025-dt6wqw.mp3",
-   "fileEn": ""
-  },
-  {
-   "group": "screen",
-   "priority": 2,
-   "ar": "اضرب بس المضرب اللي عند هدف حقيقي للركلة دي — بسرعة!",
-   "en": "",
-   "note": "تعليمات الشاشة",
-   "key": "1v50tuk",
-   "keyEn": "",
-   "file": "screen-026-1v50tuk.mp3",
+   "file": "screen-016-rb6602.mp3",
    "fileEn": ""
   },
   {
@@ -2021,18 +2087,128 @@
    "note": "تعليمات الشاشة",
    "key": "12ohf48",
    "keyEn": "",
-   "file": "screen-027-12ohf48.mp3",
+   "file": "screen-017-12ohf48.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "دوس على المراحل الخمسة بالترتيب وعلى الإيقاع",
+   "ar": "دوس على المراحل مع الإيقاع",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "11iiu0i",
+   "key": "kwd76c",
    "keyEn": "",
-   "file": "screen-028-11iiu0i.mp3",
+   "file": "screen-018-kwd76c.mp3",
+   "fileEn": ""
+  },
+  {
+   "group": "screen",
+   "priority": 2,
+   "ar": "تحدي الضربة.",
+   "en": "",
+   "note": "تعليمات الشاشة",
+   "key": "omabi2",
+   "keyEn": "",
+   "file": "screen-019-omabi2.mp3",
+   "fileEn": ""
+  },
+  {
+   "group": "screen",
+   "priority": 2,
+   "ar": "تحدي عملي مختلف لكل ركلة",
+   "en": "",
+   "note": "تعليمات الشاشة",
+   "key": "xh0npz",
+   "keyEn": "",
+   "file": "screen-020-xh0npz.mp3",
+   "fileEn": ""
+  },
+  {
+   "group": "screen",
+   "priority": 2,
+   "ar": "كسر الألواح.",
+   "en": "",
+   "note": "تعليمات الشاشة",
+   "key": "1cn7lj2",
+   "keyEn": "",
+   "file": "screen-021-1cn7lj2.mp3",
+   "fileEn": ""
+  },
+  {
+   "group": "screen",
+   "priority": 2,
+   "ar": "اختار جزء القدم الصح واكسر اللوح",
+   "en": "",
+   "note": "تعليمات الشاشة",
+   "key": "wi6asd",
+   "keyEn": "",
+   "file": "screen-022-wi6asd.mp3",
+   "fileEn": ""
+  },
+  {
+   "group": "screen",
+   "priority": 2,
+   "ar": "مضارب الأهداف.",
+   "en": "",
+   "note": "تعليمات الشاشة",
+   "key": "dt6wqw",
+   "keyEn": "",
+   "file": "screen-023-dt6wqw.mp3",
+   "fileEn": ""
+  },
+  {
+   "group": "screen",
+   "priority": 2,
+   "ar": "اضرب المضرب الصح بسرعة!",
+   "en": "",
+   "note": "تعليمات الشاشة",
+   "key": "p5pzch",
+   "keyEn": "",
+   "file": "screen-024-p5pzch.mp3",
+   "fileEn": ""
+  },
+  {
+   "group": "screen",
+   "priority": 2,
+   "ar": "كيس الركلات.",
+   "en": "",
+   "note": "تعليمات الشاشة",
+   "key": "5x8twp",
+   "keyEn": "",
+   "file": "screen-025-5x8twp.mp3",
+   "fileEn": ""
+  },
+  {
+   "group": "screen",
+   "priority": 2,
+   "ar": "اركل الكيس في الوقت الصح",
+   "en": "",
+   "note": "تعليمات الشاشة",
+   "key": "17kckya",
+   "keyEn": "",
+   "file": "screen-026-17kckya.mp3",
+   "fileEn": ""
+  },
+  {
+   "group": "screen",
+   "priority": 2,
+   "ar": "اثبت واتوازن.",
+   "en": "",
+   "note": "تعليمات الشاشة",
+   "key": "1hd6at",
+   "keyEn": "",
+   "file": "screen-027-1hd6at.mp3",
+   "fileEn": ""
+  },
+  {
+   "group": "screen",
+   "priority": 2,
+   "ar": "اثبت على رجل واحدة من غير ما تقع",
+   "en": "",
+   "note": "تعليمات الشاشة",
+   "key": "vt5oax",
+   "keyEn": "",
+   "file": "screen-028-vt5oax.mp3",
    "fileEn": ""
   },
   {
@@ -2049,56 +2225,100 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "سجّل نقط على منافس حقيقي — اركل بس لما يفتح هدف قانوني",
+   "ar": "اركل لما الهدف الصح ينوّر",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "1jri52u",
+   "key": "1kraaiy",
    "keyEn": "",
-   "file": "screen-030-1jri52u.mp3",
+   "file": "screen-030-1kraaiy.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "اثبت واتوازن.",
+   "ar": "عين الحكم.",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "1hd6at",
+   "key": "d950se",
    "keyEn": "",
-   "file": "screen-031-1hd6at.mp3",
+   "file": "screen-031-d950se.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "اثبت على رجل واحدة في كل مرحلة من الركلة من غير ما تقع",
+   "ar": "بص على الركلة واختار الجملة الوحيدة الغلط عنها",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "e8hqcs",
+   "key": "hzbqm7",
    "keyEn": "",
-   "file": "screen-032-e8hqcs.mp3",
+   "file": "screen-032-hzbqm7.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "كيس الركلات.",
+   "ar": "صيّاد الأخطاء.",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "5x8twp",
+   "key": "1g6pvpz",
    "keyEn": "",
-   "file": "screen-033-5x8twp.mp3",
+   "file": "screen-033-1g6pvpz.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "اظبط توقيت ركلتك مع الكيس اللي بيتمرجح عشان أقصى قوة",
+   "ar": "لاقي الغلطة المستخبية في الركلة",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "12uoufd",
+   "key": "1hp16kg",
    "keyEn": "",
-   "file": "screen-034-12uoufd.mp3",
+   "file": "screen-034-1hp16kg.mp3",
+   "fileEn": ""
+  },
+  {
+   "group": "screen",
+   "priority": 2,
+   "ar": "كويز الفضاء.",
+   "en": "",
+   "note": "تعليمات الشاشة",
+   "key": "1q0z5zq",
+   "keyEn": "",
+   "file": "screen-035-1q0z5zq.mp3",
+   "fileEn": ""
+  },
+  {
+   "group": "screen",
+   "priority": 2,
+   "ar": "اضرب الإجابة الصح بالليزر",
+   "en": "",
+   "note": "تعليمات الشاشة",
+   "key": "gv56jm",
+   "keyEn": "",
+   "file": "screen-036-gv56jm.mp3",
+   "fileEn": ""
+  },
+  {
+   "group": "screen",
+   "priority": 2,
+   "ar": "الاختبار.",
+   "en": "",
+   "note": "تعليمات الشاشة",
+   "key": "19m5rvh",
+   "keyEn": "",
+   "file": "screen-037-19m5rvh.mp3",
+   "fileEn": ""
+  },
+  {
+   "group": "screen",
+   "priority": 2,
+   "ar": "بعد ما تخلّص كل ألعاب الوحدة",
+   "en": "",
+   "note": "تعليمات الشاشة",
+   "key": "yq9ci2",
+   "keyEn": "",
+   "file": "screen-038-yq9ci2.mp3",
    "fileEn": ""
   },
   {
@@ -2109,40 +2329,51 @@
    "note": "تعليمات الشاشة",
    "key": "mpsd3o",
    "keyEn": "",
-   "file": "screen-035-mpsd3o.mp3",
+   "file": "screen-039-mpsd3o.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "رتّب مراحل آب تشاجي الخمسة من ١ لـ ٥ — وفيه قطعة دخيلة اسمها مش زي صورتها، سيبها برّه!",
+   "ar": "رتّب مراحل آب تشاجي من ١ لـ ٥.",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "dfalrs",
+   "key": "1vq0u4w",
    "keyEn": "",
-   "file": "screen-036-dfalrs.mp3",
+   "file": "screen-040-1vq0u4w.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "اختبر معلوماتك في التايكوندو.",
+   "ar": "فيه قطعة غلط — سيبها برّه!",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "1s592ht",
+   "key": "uuld9i",
    "keyEn": "",
-   "file": "screen-037-1s592ht.mp3",
+   "file": "screen-041-uuld9i.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "اختبر فهمك لحركات ومصطلحات التايكوندو",
+   "ar": "اختبار آب تشاجي.",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "12ib53i",
+   "key": "omjegx",
    "keyEn": "",
-   "file": "screen-038-12ib53i.mp3",
+   "file": "screen-042-omjegx.mp3",
+   "fileEn": ""
+  },
+  {
+   "group": "screen",
+   "priority": 2,
+   "ar": "١٠ أسئلة — جاوب صح على ٧ عشان تعدّي وتفتح الركلة الجاية",
+   "en": "",
+   "note": "تعليمات الشاشة",
+   "key": "kjxyq8",
+   "keyEn": "",
+   "file": "screen-043-kjxyq8.mp3",
    "fileEn": ""
   },
   {
@@ -2153,7 +2384,7 @@
    "note": "تعليمات الشاشة",
    "key": "3siwll",
    "keyEn": "",
-   "file": "screen-039-3siwll.mp3",
+   "file": "screen-044-3siwll.mp3",
    "fileEn": ""
   },
   {
@@ -2164,7 +2395,7 @@
    "note": "تعليمات الشاشة",
    "key": "x48636",
    "keyEn": "",
-   "file": "screen-040-x48636.mp3",
+   "file": "screen-045-x48636.mp3",
    "fileEn": ""
   },
   {
@@ -2175,29 +2406,29 @@
    "note": "تعليمات الشاشة",
    "key": "2wnb9e",
    "keyEn": "",
-   "file": "screen-041-2wnb9e.mp3",
+   "file": "screen-046-2wnb9e.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "اسحب النقط الملونة لحد الدواير الخضرا عشان البطل يعمل أهم لحظة في آب تشاجي صح",
+   "ar": "اسحب النقط الملونة للدواير الخضرا",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "u3ipib",
+   "key": "w1lkqv",
    "keyEn": "",
-   "file": "screen-042-u3ipib.mp3",
+   "file": "screen-047-w1lkqv.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "دوس على الجزء اللي فيه الغلطة المستخبية في الركلة دي",
+   "ar": "دوس على مكان الغلطة في الركلة",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "9u51id",
+   "key": "6klk90",
    "keyEn": "",
-   "file": "screen-043-9u51id.mp3",
+   "file": "screen-048-6klk90.mp3",
    "fileEn": ""
   },
   {
@@ -2208,18 +2439,18 @@
    "note": "تعليمات الشاشة",
    "key": "199cbfx",
    "keyEn": "",
-   "file": "screen-044-199cbfx.mp3",
+   "file": "screen-049-199cbfx.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "دوس على الجملة الوحيدة الغلط فنيًا عن الصورة اللي قدامك",
+   "ar": "بص على الصورة ودوس على الجملة الغلط",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "1xthph4",
+   "key": "1vs0ud7",
    "keyEn": "",
-   "file": "screen-045-1xthph4.mp3",
+   "file": "screen-050-1vs0ud7.mp3",
    "fileEn": ""
   },
   {
@@ -2230,7 +2461,7 @@
    "note": "تعليمات الشاشة",
    "key": "1phvmnz",
    "keyEn": "",
-   "file": "screen-046-1phvmnz.mp3",
+   "file": "screen-051-1phvmnz.mp3",
    "fileEn": ""
   },
   {
@@ -2241,7 +2472,7 @@
    "note": "تعليمات الشاشة",
    "key": "6jpb7d",
    "keyEn": "",
-   "file": "screen-047-6jpb7d.mp3",
+   "file": "screen-052-6jpb7d.mp3",
    "fileEn": ""
   },
   {
@@ -2252,7 +2483,7 @@
    "note": "تعليمات الشاشة",
    "key": "xkzw1s",
    "keyEn": "",
-   "file": "screen-048-xkzw1s.mp3",
+   "file": "screen-053-xkzw1s.mp3",
    "fileEn": ""
   },
   {
@@ -2263,7 +2494,7 @@
    "note": "تعليمات الشاشة",
    "key": "9gp2yk",
    "keyEn": "",
-   "file": "screen-049-9gp2yk.mp3",
+   "file": "screen-054-9gp2yk.mp3",
    "fileEn": ""
   },
   {
@@ -2274,7 +2505,7 @@
    "note": "تعليمات الشاشة",
    "key": "un4ti5",
    "keyEn": "",
-   "file": "screen-050-un4ti5.mp3",
+   "file": "screen-055-un4ti5.mp3",
    "fileEn": ""
   },
   {
@@ -2285,7 +2516,7 @@
    "note": "تعليمات الشاشة",
    "key": "zpnlc7",
    "keyEn": "",
-   "file": "screen-051-zpnlc7.mp3",
+   "file": "screen-056-zpnlc7.mp3",
    "fileEn": ""
   },
   {
@@ -2296,7 +2527,7 @@
    "note": "تعليمات الشاشة",
    "key": "ukyn18",
    "keyEn": "",
-   "file": "screen-052-ukyn18.mp3",
+   "file": "screen-057-ukyn18.mp3",
    "fileEn": ""
   },
   {
@@ -2307,7 +2538,7 @@
    "note": "تعليمات الشاشة",
    "key": "kj6r5j",
    "keyEn": "",
-   "file": "screen-053-kj6r5j.mp3",
+   "file": "screen-058-kj6r5j.mp3",
    "fileEn": ""
   },
   {
@@ -2318,7 +2549,7 @@
    "note": "تعليمات الشاشة",
    "key": "2911xo",
    "keyEn": "",
-   "file": "screen-054-2911xo.mp3",
+   "file": "screen-059-2911xo.mp3",
    "fileEn": ""
   },
   {
@@ -2329,18 +2560,18 @@
    "note": "تعليمات الشاشة",
    "key": "1pbekyt",
    "keyEn": "",
-   "file": "screen-055-1pbekyt.mp3",
+   "file": "screen-060-1pbekyt.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "فاترينة إنجازات الصالة.",
+   "ar": "فاترينة إنجازات الدوجانج.",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "1l63eme",
+   "key": "1q6ky1h",
    "keyEn": "",
-   "file": "screen-056-1l63eme.mp3",
+   "file": "screen-061-1q6ky1h.mp3",
    "fileEn": ""
   },
   {
@@ -2351,7 +2582,7 @@
    "note": "تعليمات الشاشة",
    "key": "13l4o90",
    "keyEn": "",
-   "file": "screen-057-13l4o90.mp3",
+   "file": "screen-062-13l4o90.mp3",
    "fileEn": ""
   },
   {
@@ -2362,7 +2593,7 @@
    "note": "تعليمات الشاشة",
    "key": "1a8e5hm",
    "keyEn": "",
-   "file": "screen-058-1a8e5hm.mp3",
+   "file": "screen-063-1a8e5hm.mp3",
    "fileEn": ""
   },
   {
@@ -2373,7 +2604,7 @@
    "note": "تعليمات الشاشة",
    "key": "12u6pn6",
    "keyEn": "",
-   "file": "screen-059-12u6pn6.mp3",
+   "file": "screen-064-12u6pn6.mp3",
    "fileEn": ""
   },
   {
@@ -2384,7 +2615,7 @@
    "note": "تعليمات الشاشة",
    "key": "1ytu2bg",
    "keyEn": "",
-   "file": "screen-060-1ytu2bg.mp3",
+   "file": "screen-065-1ytu2bg.mp3",
    "fileEn": ""
   },
   {
@@ -2395,7 +2626,7 @@
    "note": "تعليمات الشاشة",
    "key": "1nyx556",
    "keyEn": "",
-   "file": "screen-061-1nyx556.mp3",
+   "file": "screen-066-1nyx556.mp3",
    "fileEn": ""
   },
   {
@@ -2406,7 +2637,7 @@
    "note": "تعليمات الشاشة",
    "key": "jji34x",
    "keyEn": "",
-   "file": "screen-062-jji34x.mp3",
+   "file": "screen-067-jji34x.mp3",
    "fileEn": ""
   },
   {
@@ -2417,7 +2648,7 @@
    "note": "تعليمات الشاشة",
    "key": "fmm9dv",
    "keyEn": "",
-   "file": "screen-063-fmm9dv.mp3",
+   "file": "screen-068-fmm9dv.mp3",
    "fileEn": ""
   },
   {
@@ -2428,7 +2659,7 @@
    "note": "تعليمات الشاشة",
    "key": "1v0aomg",
    "keyEn": "",
-   "file": "screen-064-1v0aomg.mp3",
+   "file": "screen-069-1v0aomg.mp3",
    "fileEn": ""
   },
   {
@@ -2439,7 +2670,7 @@
    "note": "تعليمات الشاشة",
    "key": "18ig2hw",
    "keyEn": "",
-   "file": "screen-065-18ig2hw.mp3",
+   "file": "screen-070-18ig2hw.mp3",
    "fileEn": ""
   },
   {
@@ -2450,7 +2681,7 @@
    "note": "تعليمات الشاشة",
    "key": "uf0i3b",
    "keyEn": "",
-   "file": "screen-066-uf0i3b.mp3",
+   "file": "screen-071-uf0i3b.mp3",
    "fileEn": ""
   },
   {
@@ -2461,7 +2692,7 @@
    "note": "تعليمات الشاشة",
    "key": "1qqs4me",
    "keyEn": "",
-   "file": "screen-067-1qqs4me.mp3",
+   "file": "screen-072-1qqs4me.mp3",
    "fileEn": ""
   },
   {
@@ -2472,194 +2703,106 @@
    "note": "تعليمات الشاشة",
    "key": "tun030",
    "keyEn": "",
-   "file": "screen-068-tun030.mp3",
+   "file": "screen-073-tun030.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "اختار جزء القدم الصح، صوّب على نص اللوح، ووقّف عداد القوة في المنطقة الذهبية.",
+   "ar": "اختار جزء القدم الصح، صوّب على نص اللوح، ووقّف العداد في الدهبي.",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "t36jrg",
+   "key": "qwooip",
    "keyEn": "",
-   "file": "screen-069-t36jrg.mp3",
+   "file": "screen-074-qwooip.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "اللوح متمسك قدامك في مستوى الصدر.",
+   "ar": "دوس بسرعة على المضرب اللي عند الوش أو البطن بس!",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "b1lnhj",
+   "key": "znesya",
    "keyEn": "",
-   "file": "screen-070-b1lnhj.mp3",
+   "file": "screen-075-znesya.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "مضارب بتظهر حواليك.",
+   "ar": "دوس على المرحلة (أو رقمها) لما النوتة توصل للخط.",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "1rrttf1",
+   "key": "1a0bcpn",
    "keyEn": "",
-   "file": "screen-071-1rrttf1.mp3",
+   "file": "screen-076-1a0bcpn.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "دوس بس على المضرب اللي عند هدف حقيقي لركلة آب تشاجي — الوش أو البطن — بأسرع ما تقدر.",
+   "ar": "اركل لما الجسم (+٢) أو الوش (+٣) ينوّر.",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "1i5jpc0",
+   "key": "1gzkg5h",
    "keyEn": "",
-   "file": "screen-072-1i5jpc0.mp3",
+   "file": "screen-077-1gzkg5h.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "سيب الباقي!",
+   "ar": "الرجل أو هدف متغطي؟",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "bazg4e",
+   "key": "1bf6ner",
    "keyEn": "",
-   "file": "screen-073-bazg4e.mp3",
+   "file": "screen-078-1bf6ner.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "النوتات بتنزل بترتيب المراحل الخمسة.",
+   "ar": "استنى!",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "ta3kq7",
+   "key": "1evsh92",
    "keyEn": "",
-   "file": "screen-074-ta3kq7.mp3",
+   "file": "screen-079-1evsh92.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "دوس على المرحلة اللي زيها (أو الأرقام ١–٥) لما النوتة توصل للخط بالظبط.",
+   "ar": "اثبت على رجل واحدة.",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "1w4bwvl",
+   "key": "ssqnk2",
    "keyEn": "",
-   "file": "screen-075-1w4bwvl.mp3",
+   "file": "screen-080-ssqnk2.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "كل ضربة بتحرّك لاعبك — كمّل الكومبو كله عشان تخلّص الركلة!",
+   "ar": "دوس ◀ ▶ عشان المؤشر يفضل في الأخضر.",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "15q7jrc",
+   "key": "182a62b",
    "keyEn": "",
-   "file": "screen-076-15q7jrc.mp3",
+   "file": "screen-081-182a62b.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "المنافس بيتحرك طول الوقت.",
+   "ar": "اركل لما الكيس يرجع ناحيتك — مش بدري ومش متأخر.",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "y11vm1",
+   "key": "58ii2l",
    "keyEn": "",
-   "file": "screen-077-y11vm1.mp3",
-   "fileEn": ""
-  },
-  {
-   "group": "screen",
-   "priority": 2,
-   "ar": "لما هدف ينوّر، قرّر بسرعة: آب تشاجي بيجيب نقط على الجسم (+٢) أو الوش (+٣).",
-   "en": "",
-   "note": "تعليمات الشاشة",
-   "key": "1rsyhsz",
-   "keyEn": "",
-   "file": "screen-078-1rsyhsz.mp3",
-   "fileEn": ""
-  },
-  {
-   "group": "screen",
-   "priority": 2,
-   "ar": "لو الهدف الرجل أو الحراسة مغطياه — ماتركلش!",
-   "en": "",
-   "note": "تعليمات الشاشة",
-   "key": "15on7z2",
-   "keyEn": "",
-   "file": "screen-079-15on7z2.mp3",
-   "fileEn": ""
-  },
-  {
-   "group": "screen",
-   "priority": 2,
-   "ar": "دوس على الساحة أو زرار اركل أو المسافة.",
-   "en": "",
-   "note": "تعليمات الشاشة",
-   "key": "1lzx9mq",
-   "keyEn": "",
-   "file": "screen-080-1lzx9mq.mp3",
-   "fileEn": ""
-  },
-  {
-   "group": "screen",
-   "priority": 2,
-   "ar": "اثبت على رجل واحدة في كل مرحلة من الركلة.",
-   "en": "",
-   "note": "تعليمات الشاشة",
-   "key": "1qfrjj3",
-   "keyEn": "",
-   "file": "screen-081-1qfrjj3.mp3",
-   "fileEn": ""
-  },
-  {
-   "group": "screen",
-   "priority": 2,
-   "ar": "لاعبك بيتمايل والهوا بيزقّه — ميّل للناحية التانية بـ ◀ ▶ (أو الأسهم، أو دوس يمين / شمال الساحة) عشان المؤشر يفضل في الأخضر.",
-   "en": "",
-   "note": "تعليمات الشاشة",
-   "key": "txedgc",
-   "keyEn": "",
-   "file": "screen-082-txedgc.mp3",
-   "fileEn": ""
-  },
-  {
-   "group": "screen",
-   "priority": 2,
-   "ar": "الكوتش يانج بيزق الكيس.",
-   "en": "",
-   "note": "تعليمات الشاشة",
-   "key": "1aa4zpl",
-   "keyEn": "",
-   "file": "screen-083-1aa4zpl.mp3",
-   "fileEn": ""
-  },
-  {
-   "group": "screen",
-   "priority": 2,
-   "ar": "اركل (دوس أو زرار اركل أو المسافة) بحيث رجلك تقابل الكيس وهو راجع ناحيتك — الشريط المنوّر بيوريك ركلتك هتنزل فين.",
-   "en": "",
-   "note": "تعليمات الشاشة",
-   "key": "1157scg",
-   "keyEn": "",
-   "file": "screen-084-1157scg.mp3",
-   "fileEn": ""
-  },
-  {
-   "group": "screen",
-   "priority": 2,
-   "ar": "بدري = هوا، متأخر = الكيس هيزنقك.",
-   "en": "",
-   "note": "تعليمات الشاشة",
-   "key": "6ooj9t",
-   "keyEn": "",
-   "file": "screen-085-6ooj9t.mp3",
+   "file": "screen-082-58ii2l.mp3",
    "fileEn": ""
   },
   {
@@ -2670,7 +2813,7 @@
    "note": "تعليمات الشاشة",
    "key": "1xgi9g5",
    "keyEn": "",
-   "file": "screen-086-1xgi9g5.mp3",
+   "file": "screen-083-1xgi9g5.mp3",
    "fileEn": ""
   },
   {
@@ -2681,7 +2824,7 @@
    "note": "تعليمات الشاشة",
    "key": "v9lnar",
    "keyEn": "",
-   "file": "screen-087-v9lnar.mp3",
+   "file": "screen-084-v9lnar.mp3",
    "fileEn": ""
   },
   {
@@ -2692,7 +2835,7 @@
    "note": "تعليمات الشاشة",
    "key": "6lwaw7",
    "keyEn": "",
-   "file": "screen-088-6lwaw7.mp3",
+   "file": "screen-085-6lwaw7.mp3",
    "fileEn": ""
   },
   {
@@ -2703,18 +2846,29 @@
    "note": "تعليمات الشاشة",
    "key": "2rkqq4",
    "keyEn": "",
-   "file": "screen-089-2rkqq4.mp3",
+   "file": "screen-086-2rkqq4.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "رتّب مراحل نارو تشاجي الخمسة من ١ لـ ٥ — وفيه قطعة دخيلة اسمها مش زي صورتها، سيبها برّه!",
+   "ar": "رتّب مراحل نارو تشاجي من ١ لـ ٥.",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "1cs2htw",
+   "key": "b6n8es",
    "keyEn": "",
-   "file": "screen-090-1cs2htw.mp3",
+   "file": "screen-087-b6n8es.mp3",
+   "fileEn": ""
+  },
+  {
+   "group": "screen",
+   "priority": 2,
+   "ar": "اختبار نارو تشاجي.",
+   "en": "",
+   "note": "تعليمات الشاشة",
+   "key": "znwd2p",
+   "keyEn": "",
+   "file": "screen-088-znwd2p.mp3",
    "fileEn": ""
   },
   {
@@ -2725,18 +2879,7 @@
    "note": "تعليمات الشاشة",
    "key": "1m3h66m",
    "keyEn": "",
-   "file": "screen-091-1m3h66m.mp3",
-   "fileEn": ""
-  },
-  {
-   "group": "screen",
-   "priority": 2,
-   "ar": "اسحب النقط الملونة لحد الدواير الخضرا عشان البطل يعمل أهم لحظة في نارو تشاجي صح",
-   "en": "",
-   "note": "تعليمات الشاشة",
-   "key": "1r4rra7",
-   "keyEn": "",
-   "file": "screen-092-1r4rra7.mp3",
+   "file": "screen-089-1m3h66m.mp3",
    "fileEn": ""
   },
   {
@@ -2747,7 +2890,7 @@
    "note": "تعليمات الشاشة",
    "key": "yamzil",
    "keyEn": "",
-   "file": "screen-093-yamzil.mp3",
+   "file": "screen-090-yamzil.mp3",
    "fileEn": ""
   },
   {
@@ -2758,7 +2901,7 @@
    "note": "تعليمات الشاشة",
    "key": "1ujre15",
    "keyEn": "",
-   "file": "screen-094-1ujre15.mp3",
+   "file": "screen-091-1ujre15.mp3",
    "fileEn": ""
   },
   {
@@ -2769,7 +2912,7 @@
    "note": "تعليمات الشاشة",
    "key": "2jxepm",
    "keyEn": "",
-   "file": "screen-095-2jxepm.mp3",
+   "file": "screen-092-2jxepm.mp3",
    "fileEn": ""
   },
   {
@@ -2780,51 +2923,51 @@
    "note": "تعليمات الشاشة",
    "key": "zdyqwa",
    "keyEn": "",
-   "file": "screen-096-zdyqwa.mp3",
+   "file": "screen-093-zdyqwa.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "اختار جزء القدم الصح، صوّب على نص اللوح اللي متمسك بالعرض في مستوى الكتف، ووقّف عداد القوة في المنطقة الذهبية — الكعب بينزل عليه.",
+   "ar": "اختار جزء القدم الصح، صوّب على نص اللوح، ووقّف العداد في الدهبي — الكعب بينزل من فوق.",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "17ga37k",
+   "key": "1rfa0a8",
    "keyEn": "",
-   "file": "screen-097-17ga37k.mp3",
+   "file": "screen-094-1rfa0a8.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "دوس بس على المضرب اللي متمسك بالعرض فوق الراس — الركلة المطرقية بتنزل على الراس / الكتف من فوق.",
+   "ar": "دوس بسرعة على المضرب اللي فوق الراس بس!",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "bv1io6",
+   "key": "1bv7y3v",
    "keyEn": "",
-   "file": "screen-098-bv1io6.mp3",
+   "file": "screen-095-1bv7y3v.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "النارو تشاجي بيجيب نقط بس على الراس من فوق (+٣).",
+   "ar": "اركل بس لما الراس تنوّر (+٣).",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "eom1g0",
+   "key": "jwhi3z",
    "keyEn": "",
-   "file": "screen-099-eom1g0.mp3",
+   "file": "screen-096-jwhi3z.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "الجسم أو الرجل أو راس متغطية — استنى!",
+   "ar": "أي هدف تاني؟",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "1iyoui1",
+   "key": "kvyn80",
    "keyEn": "",
-   "file": "screen-100-1iyoui1.mp3",
+   "file": "screen-097-kvyn80.mp3",
    "fileEn": ""
   },
   {
@@ -2835,7 +2978,7 @@
    "note": "تعليمات الشاشة",
    "key": "s3ispz",
    "keyEn": "",
-   "file": "screen-101-s3ispz.mp3",
+   "file": "screen-098-s3ispz.mp3",
    "fileEn": ""
   },
   {
@@ -2846,7 +2989,7 @@
    "note": "تعليمات الشاشة",
    "key": "opfryy",
    "keyEn": "",
-   "file": "screen-102-opfryy.mp3",
+   "file": "screen-099-opfryy.mp3",
    "fileEn": ""
   },
   {
@@ -2857,7 +3000,7 @@
    "note": "تعليمات الشاشة",
    "key": "m3gmo2",
    "keyEn": "",
-   "file": "screen-103-m3gmo2.mp3",
+   "file": "screen-100-m3gmo2.mp3",
    "fileEn": ""
   },
   {
@@ -2868,18 +3011,40 @@
    "note": "تعليمات الشاشة",
    "key": "t0wbbz",
    "keyEn": "",
-   "file": "screen-104-t0wbbz.mp3",
+   "file": "screen-101-t0wbbz.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "رتّب مراحل بيك تشاجي الخمسة من ١ لـ ٥ — وفيه قطعة دخيلة اسمها مش زي صورتها، سيبها برّه!",
+   "ar": "رتّب مراحل بيك تشاجي من ١ لـ ٥.",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "b0a5g9",
+   "key": "183bp9p",
    "keyEn": "",
-   "file": "screen-105-b0a5g9.mp3",
+   "file": "screen-102-183bp9p.mp3",
+   "fileEn": ""
+  },
+  {
+   "group": "screen",
+   "priority": 2,
+   "ar": "اختبار بيك تشاجي.",
+   "en": "",
+   "note": "تعليمات الشاشة",
+   "key": "ez2ucs",
+   "keyEn": "",
+   "file": "screen-103-ez2ucs.mp3",
+   "fileEn": ""
+  },
+  {
+   "group": "screen",
+   "priority": 2,
+   "ar": "١٠ أسئلة — جاوب صح على ٧ عشان تعدّي وتقفل الركلات كلها",
+   "en": "",
+   "note": "تعليمات الشاشة",
+   "key": "1wyjkkv",
+   "keyEn": "",
+   "file": "screen-104-1wyjkkv.mp3",
    "fileEn": ""
   },
   {
@@ -2890,18 +3055,7 @@
    "note": "تعليمات الشاشة",
    "key": "1w9plh1",
    "keyEn": "",
-   "file": "screen-106-1w9plh1.mp3",
-   "fileEn": ""
-  },
-  {
-   "group": "screen",
-   "priority": 2,
-   "ar": "اسحب النقط الملونة لحد الدواير الخضرا عشان البطل يعمل أهم لحظة في بيك تشاجي صح",
-   "en": "",
-   "note": "تعليمات الشاشة",
-   "key": "6233k0",
-   "keyEn": "",
-   "file": "screen-107-6233k0.mp3",
+   "file": "screen-105-1w9plh1.mp3",
    "fileEn": ""
   },
   {
@@ -2912,7 +3066,7 @@
    "note": "تعليمات الشاشة",
    "key": "5gzh7k",
    "keyEn": "",
-   "file": "screen-108-5gzh7k.mp3",
+   "file": "screen-106-5gzh7k.mp3",
    "fileEn": ""
   },
   {
@@ -2923,7 +3077,7 @@
    "note": "تعليمات الشاشة",
    "key": "10rnzwt",
    "keyEn": "",
-   "file": "screen-109-10rnzwt.mp3",
+   "file": "screen-107-10rnzwt.mp3",
    "fileEn": ""
   },
   {
@@ -2934,51 +3088,51 @@
    "note": "تعليمات الشاشة",
    "key": "trrzsu",
    "keyEn": "",
-   "file": "screen-110-trrzsu.mp3",
+   "file": "screen-108-trrzsu.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "اختار جزء القدم الصح، صوّب على نص اللوح اللي على جنبك، ووقّف عداد القوة في المنطقة الذهبية.",
+   "ar": "اختار جزء القدم الصح، صوّب على نص اللوح اللي على جنبك، ووقّف العداد في الدهبي.",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "esq9w8",
+   "key": "1mieytx",
    "keyEn": "",
-   "file": "screen-111-esq9w8.mp3",
+   "file": "screen-109-1mieytx.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "دوس بس على المضرب اللي عند هدف حقيقي للركلة الجانبية — الضلوع أو الركبة.",
+   "ar": "دوس بسرعة على المضرب اللي عند الضلوع أو الوش بس!",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "1o42atb",
+   "key": "s2yv96",
    "keyEn": "",
-   "file": "screen-112-1o42atb.mp3",
+   "file": "screen-110-s2yv96.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "البيك تشاجي بيجيب نقط على الجسم — الضلوع والصدر (+٢).",
+   "ar": "اركل لما الجسم ينوّر (+٢).",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "6rv856",
+   "key": "1tzur5c",
    "keyEn": "",
-   "file": "screen-113-6rv856.mp3",
+   "file": "screen-111-1tzur5c.mp3",
    "fileEn": ""
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "الرجل (تحت الحزام مخالفة!) أو جسم متغطي — استنى!",
+   "ar": "الرجل ممنوعة — استنى!",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "1je66ii",
+   "key": "1c58w7k",
    "keyEn": "",
-   "file": "screen-114-1je66ii.mp3",
+   "file": "screen-112-1c58w7k.mp3",
    "fileEn": ""
   },
   {
@@ -3358,13 +3512,13 @@
   {
    "group": "quiz",
    "priority": 3,
-   "ar": "بعد ما الكعب ينزل، بتعمل إيه؟",
-   "en": "After the heel lands, what comes next?",
+   "ar": "بعد ضربة الكعب، الرجل بتعمل إيه؟",
+   "en": "After the heel strikes, what does the leg do?",
    "note": "سؤال",
-   "key": "9s6raq",
-   "keyEn": "1g81q7a",
-   "file": "quiz-035-9s6raq.mp3",
-   "fileEn": "quiz-035-1g81q7a.mp3"
+   "key": "1cjv3s0",
+   "keyEn": "1su2bck",
+   "file": "quiz-035-1cjv3s0.mp3",
+   "fileEn": "quiz-035-1su2bck.mp3"
   },
   {
    "group": "quiz",
@@ -3380,13 +3534,13 @@
   {
    "group": "quiz",
    "priority": 3,
-   "ar": "إيه الاسم الكوري للركلة الجانبية المستقيمة دي؟",
-   "en": "What is the Korean name for this straight side kick?",
+   "ar": "إيه الاسم الكوري للركلة دي؟",
+   "en": "What is the Korean name of this kick?",
    "note": "سؤال",
-   "key": "nqy8fk",
-   "keyEn": "16862nz",
-   "file": "quiz-037-nqy8fk.mp3",
-   "fileEn": "quiz-037-16862nz.mp3"
+   "key": "1rxgnf2",
+   "keyEn": "82q1jg",
+   "file": "quiz-037-1rxgnf2.mp3",
+   "fileEn": "quiz-037-82q1jg.mp3"
   },
   {
    "group": "quiz",
@@ -3446,13 +3600,13 @@
   {
    "group": "quiz",
    "priority": 3,
-   "ar": "ركلة الطالب الجانبية وصلت ضعيفة وهو مش متوازن — إيه أرجح سبب؟",
-   "en": "A student's side kick lands weak and off-balance. What is the most likely cause?",
+   "ar": "ركلة بيك تشاجي بتاعة الطالب وصلت ضعيفة وهو مش متوازن — إيه أرجح سبب؟",
+   "en": "A student's Bik Chagi lands weak and off-balance. What is the most likely cause?",
    "note": "سؤال",
-   "key": "15gopey",
-   "keyEn": "1wyngbi",
-   "file": "quiz-043-15gopey.mp3",
-   "fileEn": "quiz-043-1wyngbi.mp3"
+   "key": "bpinqw",
+   "keyEn": "1qvdi4b",
+   "file": "quiz-043-bpinqw.mp3",
+   "fileEn": "quiz-043-1qvdi4b.mp3"
   },
   {
    "group": "quiz",
@@ -3743,13 +3897,24 @@
   {
    "group": "quiz-blast",
    "priority": 3,
+   "ar": "إيه الاسم الكوري للركلة الجانبية المستقيمة دي؟",
+   "en": "What is the Korean name of this straight side kick?",
+   "note": "سؤال",
+   "key": "nqy8fk",
+   "keyEn": "1ndhfgn",
+   "file": "quiz-blast-018-nqy8fk.mp3",
+   "fileEn": "quiz-blast-018-1ndhfgn.mp3"
+  },
+  {
+   "group": "quiz-blast",
+   "priority": 3,
    "ar": "ضربة بيك تشاجي بتتعمل بأنهي جزء من القدم؟",
    "en": "Which part of the foot strikes in Bik Chagi?",
    "note": "سؤال",
    "key": "o8b2vg",
    "keyEn": "j8jxph",
-   "file": "quiz-blast-018-o8b2vg.mp3",
-   "fileEn": "quiz-blast-018-j8jxph.mp3"
+   "file": "quiz-blast-019-o8b2vg.mp3",
+   "fileEn": "quiz-blast-019-j8jxph.mp3"
   },
   {
    "group": "quiz-blast",
@@ -3759,8 +3924,8 @@
    "note": "سؤال",
    "key": "u4lopj",
    "keyEn": "1nixrcl",
-   "file": "quiz-blast-019-u4lopj.mp3",
-   "fileEn": "quiz-blast-019-1nixrcl.mp3"
+   "file": "quiz-blast-020-u4lopj.mp3",
+   "fileEn": "quiz-blast-020-1nixrcl.mp3"
   },
   {
    "group": "quiz-blast",
@@ -3770,8 +3935,8 @@
    "note": "سؤال",
    "key": "kg4rjy",
    "keyEn": "dy5a4j",
-   "file": "quiz-blast-020-kg4rjy.mp3",
-   "fileEn": "quiz-blast-020-dy5a4j.mp3"
+   "file": "quiz-blast-021-kg4rjy.mp3",
+   "fileEn": "quiz-blast-021-dy5a4j.mp3"
   },
   {
    "group": "quiz-blast",
@@ -3781,8 +3946,8 @@
    "note": "سؤال",
    "key": "phvem0",
    "keyEn": "4zhodt",
-   "file": "quiz-blast-021-phvem0.mp3",
-   "fileEn": "quiz-blast-021-4zhodt.mp3"
+   "file": "quiz-blast-022-phvem0.mp3",
+   "fileEn": "quiz-blast-022-4zhodt.mp3"
   },
   {
    "group": "quiz-blast",
@@ -3792,8 +3957,8 @@
    "note": "سؤال",
    "key": "g72opj",
    "keyEn": "16ra5oi",
-   "file": "quiz-blast-022-g72opj.mp3",
-   "fileEn": "quiz-blast-022-16ra5oi.mp3"
+   "file": "quiz-blast-023-g72opj.mp3",
+   "fileEn": "quiz-blast-023-16ra5oi.mp3"
   },
   {
    "group": "quiz-blast",
@@ -3803,8 +3968,8 @@
    "note": "سؤال",
    "key": "c3x2q7",
    "keyEn": "1bfmawv",
-   "file": "quiz-blast-023-c3x2q7.mp3",
-   "fileEn": "quiz-blast-023-1bfmawv.mp3"
+   "file": "quiz-blast-024-c3x2q7.mp3",
+   "fileEn": "quiz-blast-024-1bfmawv.mp3"
   },
   {
    "group": "quiz-blast",
@@ -3814,8 +3979,8 @@
    "note": "سؤال",
    "key": "1yg5lbd",
    "keyEn": "euj4hn",
-   "file": "quiz-blast-024-1yg5lbd.mp3",
-   "fileEn": "quiz-blast-024-euj4hn.mp3"
+   "file": "quiz-blast-025-1yg5lbd.mp3",
+   "fileEn": "quiz-blast-025-euj4hn.mp3"
   },
   {
    "group": "quiz-blast",
@@ -3825,8 +3990,8 @@
    "note": "سؤال",
    "key": "1svltum",
    "keyEn": "1ntq3ck",
-   "file": "quiz-blast-025-1svltum.mp3",
-   "fileEn": "quiz-blast-025-1ntq3ck.mp3"
+   "file": "quiz-blast-026-1svltum.mp3",
+   "fileEn": "quiz-blast-026-1ntq3ck.mp3"
   },
   {
    "group": "quiz-blast",
@@ -3836,8 +4001,8 @@
    "note": "سؤال",
    "key": "1udbbkh",
    "keyEn": "e645p4",
-   "file": "quiz-blast-026-1udbbkh.mp3",
-   "fileEn": "quiz-blast-026-e645p4.mp3"
+   "file": "quiz-blast-027-1udbbkh.mp3",
+   "fileEn": "quiz-blast-027-e645p4.mp3"
   }
  ],
  "korean": [
