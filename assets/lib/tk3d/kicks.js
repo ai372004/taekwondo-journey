@@ -56,16 +56,16 @@ const NR_LAND = { ...GUARD, Hips: [0, -16, 0], Spine: [2, 0, 0], Spine1: [2, 8, 
 // anticipation: the weight moves onto the front foot while the back foot still touches;
 // the turn starts in the hips and the neck turns back, so the eyes stay on the target
 const YP_ANT = { Hips: [10, 10, -2], Spine: [-4, -2, 0], Spine1: [2, -2, 0], Neck: [0, -2, 0], Head: [-2, -4, 0], LeftUpLeg: [-20, 28, 6], LeftLeg: [21, 0, 0], LeftFoot: [-6, 0, 0], RightUpLeg: [-4, 0, -6], RightLeg: [10, 0, 0], RightFoot: [-5, 0, 0] };
-// chamber: body turned side-on, knee straight up above the waist and aimed at the target,
-//          tightly folded, the foot tucked above / beside the standing knee (never a
-//          "knee drop" below the foot); standing foot already pivoted ~140°; back straight.
-const YP_CH = { ...GUARD, Hips: [-10, 80, -14], Spine: [8, -10, 20], Spine1: [0, -12, -4], Neck: [0, -30, 8], Head: [0, -36, 6], LeftUpLeg: [12, 26, -6], LeftLeg: [10, 0, 0], LeftFoot: [-18, 0, 13], RightUpLeg: [-91, -1, -72], RightLeg: [146, 0, 0], RightFoot: [-35, 0, 0], RightToeBase: [-30, 0, 0] };
-// strike: the foot turns until its toes face away from the target (~180° pivot) with the
-//         heel down and the standing leg straight; hip rolled into the kick; body leaning
-//         away ~32° to balance. v56.2 (coach's review): Bik Chagi hits with the INSTEP — the
-//         ankle is pointed and the lower leg sweeps in on a slant (knee ~140°), so the top of
-//         the foot meets the target at ribs / chest height, on nearly the same spot as before.
-const YP_EX = { ...GUARD, Hips: [-2, 110, -21], Spine: [12, -14, -17], Spine1: [0, -14, 10], Neck: [0, -34, 10], Head: [11, -40, 12], LeftUpLeg: [-17, 29, 24], LeftLeg: [6, 0, 0], LeftFoot: [2, 0, 5], RightUpLeg: [50, -28, -65], RightLeg: [40, 0, 0], RightFoot: [65, 0, 0], RightToeBase: [10, 0, 0], Ponytail: [30, 0, -25] };
+// v59.7 — Bik Chagi re-posed to the coaches' angles (flexion: 0° = straight). Measured on the
+// 3D body: chamber knee 115° · hip 90° · thigh +6° · trunk 5° · standing knee 5°; pivot: the
+// standing foot turns 135° from the 45° stance (hips 120°, within ±15°), trunk 10°; extension
+// start knee 61° · thigh +15°; strike at belly height, the leg stretched out at the target: knee
+// 18° · thigh +4° · hip 79° · trunk back 20° · standing knee 5° · ankle pointed 38°; recoil knee 115° · hip 88°.
+const YP_CH = { ...GUARD, Hips: [-16, 48, -14], Spine: [20, -19, 13], Spine1: [0, -12, -4], Neck: [0, -30, 8], Head: [0, -36, 6], LeftUpLeg: [12, 10, -6], LeftLeg: [-5, 0, 0], LeftFoot: [-14, -16, 13], RightUpLeg: [-99, -17, -72], RightLeg: [115, 0, 0], RightFoot: [-35, 0, 0], RightToeBase: [-30, 0, 0] };
+const YP_PV = { ...YP_CH, Hips: [-8, 80, -14], Spine: [4, -24, 11], LeftUpLeg: [12, 25, -14], LeftFoot: [-30, -16, 13], RightUpLeg: [-105, -17, -62] };
+const YP_EXS = { ...YP_PV, Hips: [-5, 80, -14], RightUpLeg: [-119, -17, -62], RightLeg: [61, 0, 0] };
+const YP_EX = { ...GUARD, Hips: [-10, 85, -2], Spine: [27, -14, -20], Spine1: [0, -14, 10], Neck: [0, -34, 10], Head: [11, -40, 12], LeftUpLeg: [-17, 15, 6], LeftLeg: [5, 0, 0], LeftFoot: [2, -1, -1], RightUpLeg: [23, -6, -91], RightLeg: [18, 0, 0], RightFoot: [22, 0, 0], RightToeBase: [10, 0, 0], Ponytail: [30, 0, -25] };
+const YP_REC = { ...YP_PV, Hips: [-5, 80, -14], Spine: [4, -25, 11], RightUpLeg: [-105, -17, -64] };
 
 // --- Ap ollyeo chagi (front rising kick): a straight leg swings up and down -------
 const AO_UP = { Hips: [0, -14, 0], Spine: [-10, 4, 0], LeftUpLeg: [-4, 0, 4], LeftLeg: [4, 0, 0], LeftFoot: [14, 0, 0], RightUpLeg: [-92, 0, -4], RightLeg: [4, 0, 0], RightFoot: [20, 0, 0] };
@@ -136,13 +136,15 @@ export const ANIMS = {
 
   yeop: { keys: [
     { t: 0, pose: S() }, { t: .14, pose: S(YP_ANT) },
-    { t: .34, pose: S(YP_CH) },
-    { t: .48, ease: 'snap', pose: S(YP_EX) },
-    { t: .58, pose: S({ ...YP_EX, RightUpLeg: [YP_EX.RightUpLeg[0], YP_EX.RightUpLeg[1], YP_EX.RightUpLeg[2] + 3], RightLeg: [32, 0, 0] }) },
-    { t: .72, pose: S(YP_CH) },
-    { t: .9, pose: S({ ...YP_ANT, RightUpLeg: [14, 0, -6], RightLeg: [22, 0, 0] }) },
-    { t: 1.08, pose: S() }],
-    events: [...phases(0, .34, .48, .72, 1.08), { time: .48, name: 'impact' }] },
+    { t: .32, pose: S(YP_CH) },                       // 1) chamber (0–30%)
+    { t: .48, pose: S(YP_PV) },                       // 2) the standing foot and the hips turn (30–45%)
+    { t: .54, pose: S(YP_EXS) },                      // 3) the extension starts (45–52%)
+    { t: .62, ease: 'snap', pose: S(YP_EX) },         // 4) the strike at belly height (52–60%)
+    { t: .68, pose: S({ ...YP_EX, RightLeg: [30, 0, 0] }) },
+    { t: .8, pose: S(YP_REC) },                       // 5) recoil (60–75%)
+    { t: .94, pose: S({ ...YP_ANT, RightUpLeg: [14, 0, -6], RightLeg: [22, 0, 0] }) },
+    { t: 1.1, pose: S() }],                           // 6) down to the stance (75–100%)
+    events: [...phases(0, .48, .62, .8, 1.1), { time: .62, name: 'impact' }] },
 
   'ap-ollyeo': { keys: [
     { t: 0, pose: S() }, { t: .12, pose: S(ANTIC) },
@@ -234,10 +236,10 @@ const ERRS = {
     ok: YP_EX,
     pivot: { ...YP_EX, LeftFoot: [2, -105, 5] },                                 // standing foot never turned round
     knee: { ...YP_EX, RightLeg: [72, 0, 0] },                                    // the leg never straightens
-    foot: { ...YP_EX, RightFoot: [55, -16, -2], RightToeBase: [0, 0, 0] },       // foot pointed: toes lead, not heel / blade
+    foot: { ...YP_EX, RightFoot: [-30, 0, 0], RightToeBase: [-30, 0, 0] },       // v59.7: foot flexed — the heel leads, not the instep
     guard: { ...YP_EX, ...DROP },
     head: { ...YP_EX, Neck: [0, 8, 10], Head: [30, 24, 12] },                    // looks away from the target
-    lean: { ...YP_EX, Spine: [48, -14, -17], Spine1: [10, -14, 10] },            // folds at the waist, off the line
+    lean: { ...YP_EX, Spine: [62, -16, -9], Spine1: [12, -14, 10] },             // folds at the waist, far past 20°
   },
 };
 for (const [kick, set] of Object.entries(ERRS)) for (const [id, pose] of Object.entries(set)) {
