@@ -2721,14 +2721,14 @@ class FormControlSystem {
     'boy|apchagi|1': {raw:{head:[201,855],neck:[188,722],chest:[198,616],leftShoulder:[151,696],rightShoulder:[230,693],pelvis:[203,477],kickingHip:[231,452],standingHip:[175,452],standingKnee:[182,241],standingFoot:[174,37],standingBall:[205,13],knee:[372,544],ball:[550,663],heel:[521,598],handL:[249,730],handR:[332,695]},pivot:82,sfy:-35.84},
     'boy|narochagi|0': {raw:{head:[102,844],neck:[82,713],chest:[98,608],leftShoulder:[121,682],rightShoulder:[52,689],pelvis:[121,472],kickingHip:[100,447],standingHip:[142,447],standingKnee:[138,236],standingFoot:[135,33],standingBall:[192,13],knee:[176,641],ball:[219,863],heel:[268,839],handL:[229,692],handR:[126,689]},pivot:21,sfy:-35.84},
     'boy|narochagi|1': {raw:{head:[99,844],neck:[87,713],chest:[106,608],leftShoulder:[69,682],rightShoulder:[114,689],pelvis:[130,472],kickingHip:[137,447],standingHip:[123,447],standingKnee:[131,236],standingFoot:[139,33],standingBall:[205,13],knee:[221,641],ball:[256,863],heel:[327,839],handL:[170,692],handR:[195,689]},pivot:21,sfy:-35.84},
-    'boy|bakchagi3|0': {raw:{head:[171,777],neck:[163,644],chest:[173,544],leftShoulder:[94,583],rightShoulder:[236,652],pelvis:[197,419],kickingHip:[250,396],standingHip:[150,392],standingKnee:[168,201],standingFoot:[185,10],standingBall:[192,13],knee:[439,412],ball:[652,436],heel:[580,445],handL:[165,580],handR:[322,630]},pivot:135,sfy:-35.84},
-    'boy|bakchagi3|1': {raw:{head:[277,777],neck:[271,644],chest:[299,544],leftShoulder:[181,583],rightShoulder:[377,652],pelvis:[339,419],kickingHip:[392,396],standingHip:[287,392],standingKnee:[256,201],standingFoot:[234,10],standingBall:[205,13],knee:[603,412],ball:[854,436],heel:[807,445],handL:[193,580],handR:[421,630]},pivot:135,sfy:-35.84},
+    'boy|bakchagi3|0': {raw:{head:[198,815],neck:[179,683],chest:[173,582],leftShoulder:[127,628],rightShoulder:[228,685],pelvis:[178,456],kickingHip:[226,440],standingHip:[135,422],standingKnee:[159,221],standingFoot:[178,32],standingBall:[192,13],knee:[342,463],ball:[464,492],heel:[386,494],handL:[221,620],handR:[325,658]},pivot:130,sfy:-35.84},
+    'boy|bakchagi3|1': {raw:{head:[139,815],neck:[122,683],chest:[134,582],leftShoulder:[35,628],rightShoulder:[215,685],pelvis:[167,456],kickingHip:[224,440],standingHip:[118,422],standingKnee:[172,221],standingFoot:[227,32],standingBall:[205,13],knee:[414,463],ball:[631,492],heel:[560,494],handL:[79,620],handR:[281,658]},pivot:130,sfy:-35.84},
     'girl|apchagi|0': {raw:{head:[139,872],neck:[127,737],chest:[139,628],leftShoulder:[148,709],rightShoulder:[113,706],pelvis:[146,487],kickingHip:[146,461],standingHip:[145,461],standingKnee:[154,245],standingFoot:[139,38],standingBall:[195,13],knee:[337,554],ball:[579,677],heel:[536,610],handL:[263,745],handR:[217,709]},pivot:82,sfy:-35.84},
     'girl|apchagi|1': {raw:{head:[205,872],neck:[192,737],chest:[202,628],leftShoulder:[154,709],rightShoulder:[234,706],pelvis:[207,487],kickingHip:[236,461],standingHip:[179,461],standingKnee:[185,245],standingFoot:[177,38],standingBall:[209,13],knee:[379,554],ball:[561,677],heel:[531,610],handL:[254,745],handR:[338,709]},pivot:82,sfy:-35.84},
     'girl|narochagi|0': {raw:{head:[104,860],neck:[84,727],chest:[100,620],leftShoulder:[123,695],rightShoulder:[53,702],pelvis:[123,481],kickingHip:[102,456],standingHip:[145,456],standingKnee:[141,241],standingFoot:[137,34],standingBall:[195,13],knee:[179,654],ball:[223,880],heel:[273,856],handL:[234,706],handR:[128,702]},pivot:21,sfy:-35.84},
     'girl|narochagi|1': {raw:{head:[101,860],neck:[88,727],chest:[108,620],leftShoulder:[70,695],rightShoulder:[117,702],pelvis:[132,481],kickingHip:[140,456],standingHip:[125,456],standingKnee:[134,241],standingFoot:[142,34],standingBall:[209,13],knee:[226,654],ball:[261,880],heel:[333,856],handL:[173,706],handR:[199,702]},pivot:21,sfy:-35.84},
-    'girl|bakchagi3|0': {raw:{head:[175,792],neck:[166,656],chest:[176,554],leftShoulder:[96,594],rightShoulder:[241,665],pelvis:[201,427],kickingHip:[255,404],standingHip:[153,400],standingKnee:[171,205],standingFoot:[188,10],standingBall:[195,13],knee:[447,420],ball:[665,444],heel:[591,454],handL:[168,591],handR:[329,643]},pivot:135,sfy:-35.84},
-    'girl|bakchagi3|1': {raw:{head:[283,792],neck:[277,656],chest:[305,554],leftShoulder:[184,594],rightShoulder:[384,665],pelvis:[346,427],kickingHip:[400,404],standingHip:[292,400],standingKnee:[261,205],standingFoot:[239,10],standingBall:[209,13],knee:[614,420],ball:[871,444],heel:[823,454],handL:[197,591],handR:[429,643]},pivot:135,sfy:-35.84}
+    'girl|bakchagi3|0': {raw:{head:[202,831],neck:[183,696],chest:[176,594],leftShoulder:[129,640],rightShoulder:[233,698],pelvis:[182,465],kickingHip:[230,449],standingHip:[137,430],standingKnee:[162,226],standingFoot:[182,33],standingBall:[195,13],knee:[349,472],ball:[473,502],heel:[393,504],handL:[225,632],handR:[332,671]},pivot:130,sfy:-35.84},
+    'girl|bakchagi3|1': {raw:{head:[142,831],neck:[124,696],chest:[137,594],leftShoulder:[36,640],rightShoulder:[219,698],pelvis:[170,465],kickingHip:[228,449],standingHip:[120,430],standingKnee:[175,226],standingFoot:[231,33],standingBall:[209,13],knee:[422,472],ball:[643,502],heel:[571,504],handL:[81,632],handR:[286,671]},pivot:130,sfy:-35.84}
   };
   // FC_STATIC_END
   static async init3D() {
@@ -14088,7 +14088,7 @@ if (typeof window !== 'undefined') window.RigBackend = RigBackend;
 // No WebGL → the 2D rig draws the same poses; nothing at all → a 🥋 card.
 // ============================================================================
 const PoseShots = (() => {
-  const VER = 'p11';                                 // v59.7: Bik Chagi re-posed to the coaches' angles · v56.2: Naeryeo lands with a straight leg, Bik Chagi hits with the instep · v54: the reference look (faces, hair, dobok, soft light, head ×0.78) · v51: legs ×1.2, new stance · bump when the rig, the kicks or the framing change (p2: kicks re-posed)
+  const VER = 'p12';                                 // v59.8: Bik Chagi on the 45° line · v59.7: the coaches' angles · v56.2: Naeryeo lands with a straight leg, Bik Chagi hits with the instep · v54: the reference look (faces, hair, dobok, soft light, head ×0.78) · v51: legs ×1.2, new stance · bump when the rig, the kicks or the framing change (p2: kicks re-posed)
   const STORE = `tkdpose-${VER}`;
   const SIDE = -0.27, HERO = -0.95;                  // ¾ side view (like the games) · ¾ front view (portraits)
   const PX = 0.56;                                   // pixels per rig unit → a standing child ≈ 560 px tall
@@ -14477,10 +14477,10 @@ const KickSpec = {
     { knee: [165, 180], drop: [38, 52], lean: [-6, 6], pivot: [0, 45], foot: ['chest', 'shoulder', 'face'] },
     { knee: [165, 180], foot: ['floor', 'knee'] },
     { lean: [-6, 6], supKnee: [150, 178] }] },
-  bakchagi3: { part: 'instep', phases: [     // v59.7: the coaches' angles (knee here = the angle AT the knee, 180° = straight)
+  bakchagi3: { part: 'instep', phases: [     // v59.7–8: the coaches' angles on the 45° line (knee here = the angle AT the knee, 180° = straight)
     { lean: [-6, 6], supKnee: [148, 168] },
     { knee: [55, 72], thigh: [0, 17], pivot: [120, 150], hips: [75, 115], tilt: [0, 12], supKnee: [170, 180] },
-    { knee: [160, 175], thigh: [-15, 10], pivot: [120, 150], hips: [75, 115], tilt: [15, 25], supKnee: [168, 180], foot: ['belly'] },
+    { knee: [160, 175], thigh: [-15, 10], pivot: [120, 150], hips: [65, 110], tilt: [15, 25], supKnee: [168, 180], foot: ['belly'] },
     { knee: [50, 70], tilt: [3, 12] },
     { lean: [-6, 6], supKnee: [148, 168] }] },
   // v56.2 — the striking part of the foot on a 3D skeleton, in world space

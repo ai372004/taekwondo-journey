@@ -56,16 +56,23 @@ const NR_LAND = { ...GUARD, Hips: [0, -16, 0], Spine: [2, 0, 0], Spine1: [2, 8, 
 // anticipation: the weight moves onto the front foot while the back foot still touches;
 // the turn starts in the hips and the neck turns back, so the eyes stay on the target
 const YP_ANT = { Hips: [10, 10, -2], Spine: [-4, -2, 0], Spine1: [2, -2, 0], Neck: [0, -2, 0], Head: [-2, -4, 0], LeftUpLeg: [-20, 28, 6], LeftLeg: [21, 0, 0], LeftFoot: [-6, 0, 0], RightUpLeg: [-4, 0, -6], RightLeg: [10, 0, 0], RightFoot: [-5, 0, 0] };
-// v59.7 — Bik Chagi re-posed to the coaches' angles (flexion: 0° = straight). Measured on the
-// 3D body: chamber knee 115° · hip 90° · thigh +6° · trunk 5° · standing knee 5°; pivot: the
-// standing foot turns 135° from the 45° stance (hips 120°, within ±15°), trunk 10°; extension
-// start knee 61° · thigh +15°; strike at belly height, the leg stretched out at the target: knee
-// 18° · thigh +4° · hip 79° · trunk back 20° · standing knee 5° · ankle pointed 38°; recoil knee 115° · hip 88°.
-const YP_CH = { ...GUARD, Hips: [-16, 48, -14], Spine: [20, -19, 13], Spine1: [0, -12, -4], Neck: [0, -30, 8], Head: [0, -36, 6], LeftUpLeg: [12, 10, -6], LeftLeg: [-5, 0, 0], LeftFoot: [-14, -16, 13], RightUpLeg: [-99, -17, -72], RightLeg: [115, 0, 0], RightFoot: [-35, 0, 0], RightToeBase: [-30, 0, 0] };
-const YP_PV = { ...YP_CH, Hips: [-8, 80, -14], Spine: [4, -24, 11], LeftUpLeg: [12, 25, -14], LeftFoot: [-30, -16, 13], RightUpLeg: [-105, -17, -62] };
-const YP_EXS = { ...YP_PV, Hips: [-5, 80, -14], RightUpLeg: [-119, -17, -62], RightLeg: [61, 0, 0] };
-const YP_EX = { ...GUARD, Hips: [-10, 85, -2], Spine: [27, -14, -20], Spine1: [0, -14, 10], Neck: [0, -34, 10], Head: [11, -40, 12], LeftUpLeg: [-17, 15, 6], LeftLeg: [5, 0, 0], LeftFoot: [2, -1, -1], RightUpLeg: [23, -6, -91], RightLeg: [18, 0, 0], RightFoot: [22, 0, 0], RightToeBase: [10, 0, 0], Ponytail: [30, 0, -25] };
-const YP_REC = { ...YP_PV, Hips: [-5, 80, -14], Spine: [4, -25, 11], RightUpLeg: [-105, -17, -64] };
+// v59.8 — Bik Chagi (빗차기, the 45° "slant" kick between Ap Chagi and Dollyo Chagi that hits the
+// trunk with the instep), from the coaches' angles + taekwondo references + roundhouse-kick
+// studies (knee flexion ~105–125° in the chamber, almost straight at impact; pelvis 90–130°).
+// Measured on the 3D body (flexion: 0° = straight):
+//   chamber    knee 115° · hip 90° · thigh +7° · trunk 6° · standing knee 5°
+//   pivot      standing foot 135° from the 45° stance · hips with it · the knee aims down the 45° line
+//   extension  knee 61° · thigh +15° · trunk 8°
+//   strike     belly height, the leg on the 45° line · knee ~17° · thigh +6° · hip 78° · trunk back
+//              ~20° · standing knee 4° · ankle pointed ~38° · the instep turned toward the target
+//   recoil     knee 115° · hip 88°
+// and in every phase the body's weight stays over the standing foot (centre of mass within ~5% of
+// the body height of it; ~8% at the instant of impact)
+const YP_CH = { ...GUARD, Hips: [-10, 48, -7], Spine: [8, -14, 4], Spine1: [0, -12, -4], Neck: [0, -30, 8], Head: [0, -36, 6], LeftUpLeg: [12, 10, -6], LeftLeg: [-5, 0, 0], LeftFoot: [-9, -16, 13], RightUpLeg: [-83, -1, -68], RightLeg: [115, 0, 0], RightFoot: [-35, 0, 0], RightToeBase: [-30, 0, 0] };
+const YP_PV = { ...YP_CH, Hips: [-14, 80, -7], Spine: [6, -15, 5], LeftUpLeg: [14, 12, -6], LeftFoot: [-19, 0, 25], RightUpLeg: [-71, 15, -36] };
+const YP_EXS = { ...YP_PV, Hips: [-14, 79, -6], Spine: [8, -15, 5], RightUpLeg: [-75, 21, -36], RightLeg: [61, 0, 0] };
+const YP_EX = { ...GUARD, Hips: [7, 74, -10], Spine: [15, -16, -6], Spine1: [0, -14, 10], Neck: [0, -34, 10], Head: [11, -40, 12], LeftUpLeg: [6, 15, -5], LeftLeg: [4, 0, 0], LeftFoot: [-19, 0, 20], RightUpLeg: [5, -25, -82], RightLeg: [17, 0, 0], RightFoot: [22, 0, 0], RightToeBase: [10, 0, 0], Ponytail: [30, 0, -25] };
+const YP_REC = { ...YP_PV, Hips: [-12, 80, -6], Spine: [6, -15, 4] };
 
 // --- Ap ollyeo chagi (front rising kick): a straight leg swings up and down -------
 const AO_UP = { Hips: [0, -14, 0], Spine: [-10, 4, 0], LeftUpLeg: [-4, 0, 4], LeftLeg: [4, 0, 0], LeftFoot: [14, 0, 0], RightUpLeg: [-92, 0, -4], RightLeg: [4, 0, 0], RightFoot: [20, 0, 0] };
