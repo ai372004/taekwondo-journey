@@ -18997,6 +18997,11 @@ const Journey = {
         <div class="jr-stars" title="${TKD.t('Stars on this map', 'نجوم الخريطة دي')}"><span class="jr-star-ico">⭐</span><b id="jr-star-n">${TKD.num(stars)}</b><small>/${TKD.num(max)}</small></div>
       </header>
       <ol class="jr-kicks jr-kicks-top" aria-label="${TKD.t('The kicks', 'الركلات')}">${kicks}</ol>
+      ${(() => { const K = GameConfig.SKILLS[skillId], t = K?.technical; if (!t) return '';   // v60.3: the coach's facts for this kick
+        const L = o => TKD.esc(TKD.ar ? o.ar : o.en);
+        return `<div class="jr-kick-info"><p class="jki-name"><b>${TKD.ar ? `${L(K.name)} ${K.name.en}` : `${K.name.en} ${K.name.ar}`}</b> — ${L(K.description)}</p>
+          <p><b>${TKD.t('🎯 Striking part:', '🎯 الجزء اللي بيضرب:')}</b> ${L(t.strikingSurface)}</p>
+          <p><b>${TKD.t('🥅 Target:', '🥅 الهدف:')}</b> ${L(t.target)}</p></div>`; })()}
       <ol class="jr-units" aria-label="${TKD.t('The three units', 'الوحدات التلاتة')}">${units}</ol>
       ${n ? `<button type="button" class="jr-go" id="jr-go"><span class="jr-go-ico">${n.icon}</span><span class="jr-go-txt"><b>${TKD.esc(n.label)}</b><small>${TKD.t('tap to start', 'دوس عشان تبدأ')}</small></span><span class="jr-go-arrow">${TKD.ar ? '←' : '→'}</span></button>` : ''}
       <div class="jr-board" id="jr-board" style="--reach:${reach.toFixed(4)};aspect-ratio:${B.w} / ${B.h}">

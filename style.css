@@ -7072,3 +7072,9 @@ html.lite .winner-visual::before, html.lite .celebration-icon { animation-iterat
 .control-point.cp-pin.cp-perfect .cp-ico { border-color: #2a9d8f; }
 .character-stage .control-point.cp-pin .cp-tag { position: static; transform: none; }
 .character-stage .control-point.cp-pin.cp-perfect { animation: none; }
+
+/* v60.3: the coach's facts for the kick on the home map */
+.jr-kick-info { margin: 8px 0 10px; padding: 10px 12px; border-radius: 14px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,209,102,0.35); font-size: 0.86rem; line-height: 1.5; }
+.jr-kick-info p { margin: 2px 0; }
+.jr-kick-info b { color: #ffd166; }
+.jr-kick-info .jki-name { font-size: 0.95rem; }
