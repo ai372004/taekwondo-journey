@@ -504,11 +504,13 @@ const GameConfig = {
       },
       phases: [
         { num: 1, key: 'ready',
-          title: { en: '1️⃣ Fighting Stance (Kyorugi Junbi)', ar: '1️⃣ وقفة القتال (كيوروجي جونبي)' },
+          title: { en: '1️⃣ Ready Stance (Kyorugi Junbi)', ar: '1️⃣ وضع الاستعداد (كيوروجي جونبي)' },
           image: poseImg('narochagi', 0),
-          focus: { en: '👀 Focus: Guard up, weight centered, ready to raise the leg straight', ar: '👀 خلي بالك: إيديك مرفوعة للحماية ووزنك في النص وإنت جاهز ترفع رجلك مفرودة' },
-          tips: { en: ['✅ Standing leg slightly bent for balance', '✅ Eyes on the target', '⚠️ Do not lean back early'],
-                  ar: ['✅ رجل الارتكاز (اللي واقف عليها) مثنية شوية عشان التوازن', '✅ عينك على الهدف', '⚠️ ماتميلش بجسمك لورا بدري'] }, color: '#2a9d8f' },
+          focus: { en: '👀 The kicking leg behind and the free (standing) leg in front.', ar: '👀 الرجل الضاربة خلفًا والرجل الحرة (الارتكاز) أمامًا.' },
+          tips: {
+            en: ['✅ Both arms with closed fists in front of the chest.'],
+            ar: ['✅ الذراعان في حالة قبض أمام الصدر.']
+          }, color: '#2a9d8f' },
         { num: 2, key: 'chamber',
           title: { en: '2️⃣ Vertical Rise', ar: '2️⃣ الرفع لفوق' },
           image: poseImg('narochagi', 1),
@@ -551,11 +553,13 @@ const GameConfig = {
       },
       phases: [
         { num: 1, key: 'ready',
-          title: { en: '1️⃣ Fighting Stance (Kyorugi Junbi)', ar: '1️⃣ وقفة القتال (كيوروجي جونبي)' },
+          title: { en: '1️⃣ Ready Stance (Kyorugi Junbi)', ar: '1️⃣ وضع الاستعداد (كيوروجي جونبي)' },
           image: poseImg('bakchagi3', 0),
-          focus: { en: '👀 Focus: Guard up, weight balanced, ready to turn into the kick', ar: '👀 خلي بالك: إيديك مرفوعة للحماية ووزنك متوازن وإنت جاهز تلف في الركلة' },
-          tips: { en: ['✅ Weight balanced on both feet', '✅ Keep the target in sight as you prepare to turn', '⚠️ Do not commit your weight forward too early'],
-                  ar: ['✅ وزنك متقسم على رجليك الاتنين', '✅ خلي عينك على الهدف قبل ما تلف', '⚠️ ماترميش وزنك لقدام بدري'] }, color: '#2a9d8f' },
+          focus: { en: '👀 The kicking leg behind and the free (standing) leg in front.', ar: '👀 الرجل الضاربة خلفًا والرجل الحرة (الارتكاز) أمامًا.' },
+          tips: {
+            en: ['✅ Both arms with closed fists in front of the chest.'],
+            ar: ['✅ الذراعان في حالة قبض أمام الصدر.']
+          }, color: '#2a9d8f' },
         { num: 2, key: 'chamber',
           title: { en: '2️⃣ Turn & Chamber the Knee', ar: '2️⃣ اللف ورفع الركبة (التجهيز)' },
           image: poseImg('bakchagi3', 1),
@@ -2264,14 +2268,14 @@ class LearningSystem {
       { ar: 'هبوط القدم سريعًا إلى الأرض مع المحافظة على توازن الجسم.', en: 'Bring the foot down quickly while keeping the body balanced.' }
     ],
     narochagi: [
-      { ar: 'إيديك فوق، ووزنك في النص.', en: 'Hands up, weight in the middle.' },
+      { ar: 'الرجل الضاربة خلفًا والرجل الحرة (الارتكاز) أمامًا.', en: 'The kicking leg behind and the free (standing) leg in front.' },
       { ar: 'ارفع رجلك وهي مفرودة لفوق خالص.', en: 'Swing your straight leg up high.' },
       { ar: 'نزّل الدوي كومتشي (الكعب) لتحت بقوة.', en: 'Drop the heel down hard.' },
       { ar: 'كمّل نزول رجلك وهي مفرودة لحد الأرض.', en: 'Keep the leg straight all the way down to the floor.' },
       { ar: 'انزل بالراحة، وإيديك فوق.', en: 'Land softly, hands up.' }
     ],
     bakchagi3: [
-      { ar: 'إيديك فوق، وعينك على الهدف.', en: 'Hands up, eyes on the target.' },
+      { ar: 'الرجل الضاربة خلفًا والرجل الحرة (الارتكاز) أمامًا.', en: 'The kicking leg behind and the free (standing) leg in front.' },
       { ar: 'ارفع ركبتك ولفّها، والرجل مطوية مستوية.', en: 'Knee up and turned over, leg folded level.' },
       { ar: 'اضرب البطن بالبال دونج (وش القدم) وصوابعك ممدودة.', en: 'Hit the stomach with the instep, toes pointed.' },
       { ar: 'اطوي رجلك على طول بعد الضربة.', en: 'Fold the leg straight back.' },
