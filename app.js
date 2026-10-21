@@ -2283,7 +2283,7 @@ class LearningSystem {
     ]
   };
   static shortKey() { return `taekwondoJourneyShortText:${TKD.pid() || 'guest'}`; }
-  static shortMode() { let v = null; try { v = localStorage.getItem(this.shortKey()); } catch (e) {} return v !== 'full'; }
+  static shortMode() { return false; }   // v60.5: the coach asked for the full text only — no short/long switch
 
   static initialize(gameState) {
     this.gameState      = gameState;
@@ -2345,10 +2345,6 @@ class LearningSystem {
             </div>
 
             <div class="phase-info-col ${this.shortMode() ? 'is-short' : ''}">
-              ${(() => {   // v55: young kids first see ONE short sentence; the full lesson is one tap away
-                const sh = LearningSystem.SHORT[this.skillId]?.[this.currentPhase];
-                return sh ? `<div class="phase-short" style="border-inline-start: 6px solid ${phase.color}"><p>${ar ? sh.ar : sh.en}</p></div>` : '';
-              })()}
               <div class="phase-focus-box" style="border-left: 4px solid ${phase.color}">
                 <p>${phase.focus}</p>
               </div>
@@ -2356,7 +2352,6 @@ class LearningSystem {
               <ul class="phase-tips-list">
                 ${phase.tips.map(t => `<li>${t}</li>`).join('')}
               </ul>
-              <button type="button" class="phase-more-btn" id="phase-more-btn">${this.shortMode() ? (ar ? '📖 اقرا الشرح كله' : '📖 Read the whole lesson') : (ar ? '👶 كلام أقصر' : '👶 Shorter, please')}</button>
             </div>
           </div>
 
