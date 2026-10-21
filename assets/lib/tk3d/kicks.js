@@ -42,15 +42,15 @@ const AP_EX = { ...GUARD, Hips: [0, 16, 0], Spine: [-4, -6, 0], Spine1: [-2, -4,
 // rise: both knees straight, the leg swings straight up in front (foot above the
 //       shoulders); upper body stays almost vertical (~10°) — leaning back is the classic
 //       mistake that makes kids fall backward; the standing foot turns only a little.
-const NR_RISE = { ...GUARD, Hips: [0, -10, 0], Spine: [-10, 0, 0], Spine1: [2, 2, 0], Neck: [0, 10, 0], Head: [8, 6, 0], LeftUpLeg: [-7, -4, -2], LeftLeg: [2, 0, 0], LeftFoot: [11, 0, 0], RightUpLeg: [-116, 0, 12], RightLeg: [2, 0, 0], RightFoot: [-20, 0, 0], RightToeBase: [-15, 0, 0], Ponytail: [28, 0, 0] };
-const NR_UP = { Hips: [0, -8, 0], Spine: [-15, 11, 0], Spine1: [5, -6, 0], Neck: [0, 8, -2], Head: [16, 4, 0], LeftArm: [-20, 0, 24], LeftForeArm: [-130, 0, 0], RightArm: [-8, 0, -20], RightForeArm: [-144, 0, 0], LeftUpLeg: [-2, -5, -6], LeftLeg: [0, 0, 0], LeftFoot: [3, 0, 0], RightUpLeg: [-156, 25, -1], RightLeg: [2, 0, 0], RightFoot: [-6, 0, 0], RightToeBase: [-20, 0, 0], Ponytail: [38, 0, 0] };
+const NR_RISE = { ...GUARD, Hips: [0, -10, 0], Spine: [-10, 0, 0], Spine1: [2, 2, 0], Neck: [0, 10, 0], Head: [8, 6, 0], LeftUpLeg: [-7, 36, -2], LeftLeg: [2, 0, 0], LeftFoot: [11, 0, 0], RightUpLeg: [-116, 0, 12], RightLeg: [2, 0, 0], RightFoot: [-20, 0, 0], RightToeBase: [-15, 0, 0], Ponytail: [28, 0, 0] };
+const NR_UP = { Hips: [0, -8, 0], Spine: [-15, 11, 0], Spine1: [5, -6, 0], Neck: [0, 8, -2], Head: [16, 4, 0], LeftArm: [-20, 0, 24], LeftForeArm: [-130, 0, 0], RightArm: [-8, 0, -20], RightForeArm: [-144, 0, 0], LeftUpLeg: [-2, 35, -6], LeftLeg: [0, 0, 0], LeftFoot: [3, 0, 0], RightUpLeg: [-156, 25, -1], RightLeg: [2, 0, 0], RightFoot: [-6, 0, 0], RightToeBase: [-20, 0, 0], Ponytail: [38, 0, 0] };
 // strike: hips drive forward, upper body vertical, leg still straight, the heel (foot
 //         flexed, toes up) lands at ~45° from vertical on shoulder / collarbone height.
-const NR_HIT = { ...GUARD, Hips: [-6, -10, 0], Spine: [2, 0, 0], Spine1: [2, 4, 0], Neck: [0, 8, 0], Head: [4, 6, 0], LeftUpLeg: [-8, -6, -5], LeftLeg: [16, 0, 0], LeftFoot: [2, 0, 0], RightUpLeg: [-128, -5, 9], RightLeg: [6, 0, 0], RightFoot: [-20, 0, 0], RightToeBase: [-25, 0, 0], Ponytail: [12, 0, 0] };
+const NR_HIT = { ...GUARD, Hips: [-6, -10, 0], Spine: [2, 0, 0], Spine1: [2, 4, 0], Neck: [0, 8, 0], Head: [4, 6, 0], LeftUpLeg: [-8, 34, -5], LeftLeg: [16, 0, 0], LeftFoot: [2, 0, 0], RightUpLeg: [-128, -5, 9], RightLeg: [6, 0, 0], RightFoot: [-20, 0, 0], RightToeBase: [-25, 0, 0], Ponytail: [12, 0, 0] };
 // v56.2 (coach's review): after the strike the leg keeps falling STRAIGHT — the knee does
 // not bend — until the foot lands on the mat in front; then a calm step back to the stance.
-const NR_FALL = { ...GUARD, Hips: [-4, -12, 0], Spine: [2, -2, 0], Spine1: [2, 6, 0], Neck: [0, 9, 0], Head: [0, 9, 0], LeftUpLeg: [-9, 0, -4], LeftLeg: [12, 0, 0], LeftFoot: [2, 0, 0], RightUpLeg: [-70, -3, 8], RightLeg: [3, 0, 0], RightFoot: [-10, 0, 0] };
-const NR_LAND = { ...GUARD, Hips: [0, -16, 0], Spine: [2, 0, 0], Spine1: [2, 8, 0], Neck: [0, 10, 0], Head: [-2, 10, 0], LeftUpLeg: [6, 2, 2], LeftLeg: [6, 0, 0], LeftFoot: [-14, 0, 0], RightUpLeg: [-14, 0, 4], RightLeg: [2, 0, 0], RightFoot: [12, 0, 0] };
+const NR_FALL = { ...GUARD, Hips: [-4, -12, 0], Spine: [2, -2, 0], Spine1: [2, 6, 0], Neck: [0, 9, 0], Head: [0, 9, 0], LeftUpLeg: [-9, 40, -4], LeftLeg: [12, 0, 0], LeftFoot: [2, 0, 0], RightUpLeg: [-70, -3, 8], RightLeg: [3, 0, 0], RightFoot: [-10, 0, 0] };
+const NR_LAND = { ...GUARD, Hips: [0, -16, 0], Spine: [2, 0, 0], Spine1: [2, 8, 0], Neck: [0, 10, 0], Head: [-2, 10, 0], LeftUpLeg: [6, 42, 2], LeftLeg: [6, 0, 0], LeftFoot: [-14, 0, 0], RightUpLeg: [-14, 0, 4], RightLeg: [2, 0, 0], RightFoot: [12, 0, 0] };
 
 // --- Yeop chagi (the game's "Bik Chagi" side kick) --------------------------------
 // anticipation: the weight moves onto the front foot while the back foot still touches;
@@ -234,7 +234,7 @@ const ERRS = {
     knee: { ...NR_UP, RightUpLeg: [-128, 25, -1], RightLeg: [68, 0, 0], RightFoot: [10, 0, 0] },   // bent knee on the way up
     lean: { ...NR_UP, Spine: [-44, 11, 0], Spine1: [-10, -6, 0], Head: [30, 4, 0] },              // leans far back → falls
     guard: { ...NR_UP, ...DROP },
-    pivot: { ...NR_UP, LeftUpLeg: [-2, 95, -6] },                                                  // over-turned (only 0–45°)
+    pivot: { ...NR_UP, LeftUpLeg: [-2, -25, -6] },                                                 // no turn (it should turn out 45–90°)
     head: { ...NR_UP, Neck: [26, 8, -2], Head: [46, 4, 0] },                                       // eyes on the floor
     'ok-hit': NR_HIT,
     toes: { ...NR_HIT, RightFoot: [48, 0, 0], RightToeBase: [0, 0, 0] },                          // lands with the toes, not the heel
