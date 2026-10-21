@@ -20618,7 +20618,10 @@ if ('serviceWorker' in navigator) {
   let swReloading = false;
   navigator.serviceWorker.addEventListener('controllerchange', () => {
     if (!hadController || swReloading) return;                       // the very first install: nothing old to replace
-    const calm = document.querySelector('#home-screen.active, #loading-screen.active') || performance.now() < 20000;
+    // v60.6: reload on any screen except in the middle of a game or the test
+    const busy = document.querySelector(['form-control', 'puzzle', 'performance', 'action', 'error-hunt', 'quiz-blast', 'board-break', 'paddle-reflex',
+      'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag', 'versus', 'quiz', 'warmup'].map(id => `#${id}-screen.active`).join(', '));
+    const calm = !busy || performance.now() < 20000;
     if (calm) { swReloading = true; location.reload(); } else showUpdateBanner();
   });
   window.addEventListener('load', () => {
@@ -20633,6 +20636,10 @@ if ('serviceWorker' in navigator) {
         });
       };
       if (reg.installing) notifyIfUpdate(reg.installing);
+      // v60.6: an app left open (or brought back from the background) asks for a new version too
+      const check = () => { try { reg.update(); } catch (e) {} };
+      document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') check(); });
+      setInterval(check, 5 * 60 * 1000);
       reg.addEventListener('updatefound', () => { if (reg.installing) notifyIfUpdate(reg.installing); });
     }).catch((err) => {
       console.warn('Service worker registration failed:', err);
