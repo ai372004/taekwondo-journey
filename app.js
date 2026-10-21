@@ -439,54 +439,54 @@ const GameConfig = {
     apchagi: {
       id: 'apchagi', nextSkill: 'narochagi',
       name: { en: 'Ap Chagi', ar: 'آب تشاجي' },
-      description: { en: 'Front Kick', ar: 'الركلة الأمامية المستقيمة' },
+      description: { en: 'Straight Front Kick', ar: 'الركلة الأمامية المستقيمة' },
       assetFolder: null, // flat legacy paths, no subfolder
       video: 'assets/videos/apchagi-tutorial.mp4',
       technical: {
-        strikingSurface: { en: 'Ball of the foot (ap-chuk)', ar: 'آب تشوك (مشط القدم)' },
-        target: { en: 'Eolgul (face) / Momtong (body)', ar: 'أولجول (الوش) / مومتونج (الجسم)' },
-        pivotAngle: { en: '~90° pivot (outward)', ar: 'لفّة ~90° لبرّه' }
+        strikingSurface: { en: 'Ball of the foot (Ap-chuk)', ar: 'قاعدة الأصابع (كلوة القدم) — آب تشوك' },
+        target: { en: 'Head / face (Eolgul) and chest / belly (Momtong)', ar: 'منطقة الرأس والوجه (أولجول)، ومنطقة الصدر أو البطن (مومتونج)' },
+        pivotAngle: { en: '45°–90° outward', ar: 'من ٤٥° لـ ٩٠° للخارج' }
       },
       phases: [
         { num: 1, key: 'ready',
-          title: { en: '1️⃣ Fighting Stance (Kyorugi Junbi)', ar: '1️⃣ وقفة القتال (كيوروجي جونبي)' },
+          title: { en: '1️⃣ Ready Stance (Kyorugi Junbi)', ar: '1️⃣ وضع الاستعداد (كيوروجي جونبي)' },
           image: poseImg('apchagi', 0),
-          focus: { en: '👀 Focus: Feet shoulder-width apart — body straight', ar: '👀 خلي بالك: رجليك مفتوحين قد عرض كتافك — وجسمك مفرود' },
+          focus: { en: '👀 Focus: The kicking leg is behind and the free (standing) leg in front', ar: '👀 خلي بالك: الرجل الضاربة ورا، والرجل الحرة (الارتكاز) قدّام' },
           tips: {
-            en: ['✅ Hands up in front of chest for guard', '✅ Eyes always forward', '⚠️ Do not lean forward or back'],
-            ar: ['✅ إيديك قدام صدرك عشان تحميك', '✅ عينك لقدام على طول', '⚠️ ماتميلش لقدام ولا لورا']
+            en: ['✅ Kicking leg behind, standing leg in front', '✅ Both arms with closed fists in front of the chest', '⚠️ Do not lean forward or back'],
+            ar: ['✅ الرجل الضاربة خلفًا والرجل الحرة (الارتكاز) أمامًا', '✅ الذراعان في حالة قبض أمام الصدر', '⚠️ ماتميلش لقدام ولا لورا']
           }, color: '#2a9d8f' },
         { num: 2, key: 'chamber',
           title: { en: '2️⃣ Knee Lift (Chamber)', ar: '2️⃣ رفع الركبة (التجهيز)' },
           image: poseImg('apchagi', 1),
-          focus: { en: '👀 Focus: Pivot the standing foot ~90° outward and drive the knee up to chest height', ar: '👀 خلي بالك: لفّ قدم الارتكاز (اللي واقف عليها) ~90° لبرّه وارفع ركبتك لحد صدرك بقوة' },
+          focus: { en: '👀 Focus: Lift and bend the kicking knee high toward the chest', ar: '👀 خلي بالك: ارفع واثني ركبة الرجل الضاربة عاليًا ناحية الصدر' },
           tips: {
-            en: ['✅ Knee must reach chest level, folded tight to the standing thigh', '✅ Standing foot pivots about 90° outward on its ball', '⚠️ Do not lift the knee out and away from the standing leg (that turns it into a circular kick)'],
-            ar: ['✅ الركبة توصل لحد صدرك ولازقة في فخد رجل الارتكاز', '✅ قدم الارتكاز تلف حوالي 90° لبرّه على مشطها', '⚠️ ماتبعدش الركبة عن فخد رجل الارتكاز (ده بيحوّلها لركلة دائرية)']
+            en: ['✅ Lift and bend the kicking knee high toward the chest', '💡 The higher the knee, the higher the kick lands', '✅ Turn the standing foot outward 45°–90°'],
+            ar: ['✅ رفع وثني ركبة الرجل الضاربة عاليًا ناحية الصدر', '💡 ملحوظة: كل ما ارتفاع الركبة يزيد، مستوى الضرب يعلى', '✅ لف قدم الارتكاز للخارج بزاوية من ٤٥° لـ ٩٠°']
           }, color: '#e76f51' },
         { num: 3, key: 'extension',
-          title: { en: '3️⃣ Kick Extension (Strike)', ar: '3️⃣ فرد الركلة (الضربة)' },
+          title: { en: '3️⃣ The Main Phase (Strike)', ar: '3️⃣ المرحلة الأساسية (الضربة)' },
           image: poseImg('apchagi', 2),
-          focus: { en: '👀 Focus: Snap the knee straight and drive the hip forward — strike with the ball of the foot', ar: '👀 خلي بالك: افرد ركبتك بسرعة وزق وسطك لقدام — واضرب بمشط رجلك' },
+          focus: { en: '👀 Focus: Straighten the kicking knee hard and fast forward toward the opponent (chest or face)', ar: '👀 خلي بالك: افرد ركبة الرجل الضاربة بقوة وسرعة لقدّام في اتجاه المنافس (الصدر أو الوجه)' },
           tips: {
-            en: ['✅ Leg fully extends forward as the hip pushes forward (and up, on high kicks)', '✅ Toes pulled back to expose the ball of the foot; keep the torso upright, not leaning back', '⚠️ Never strike with the toes, and never let the torso fall backward'],
-            ar: ['✅ الرجل تتفرد على آخرها لقدام وإنت بتزق وسطك لقدام (ولفوق في الركلات العالية)', '✅ صوابع رجلك مثنية لورا عشان يبان المشط — وجسمك يفضل مفرود من غير ما تميل لورا', '⚠️ ماتضربش بصوابع رجلك، وماتميلش بجسمك لورا زيادة عن اللزوم']
+            en: ['✅ Straighten the knee with power and speed toward the opponent', '✅ Strike with the ball of the foot (Ap-chuk), toes pulled back', '⚠️ Never strike with the toes'],
+            ar: ['✅ فرد ركبة الرجل الضاربة بقوة وسرعة للأمام في اتجاه المنافس', '✅ توجّه الركلة بقاعدة الأصابع (كلوة القدم)', '⚠️ ماتضربش بصوابع رجلك']
           }, color: '#ff6b35' },
         { num: 4, key: 'recoil',
-          title: { en: '4️⃣ Recoil (Pull Back)', ar: '4️⃣ سحب الرجل (الرجوع)' },
+          title: { en: '4️⃣ Pulling the Leg Back (Return)', ar: '4️⃣ سحب الرجل (الرجوع)' },
           image: poseImg('apchagi', 3),
-          focus: { en: '👀 Focus: Snap the leg back immediately after the strike', ar: '👀 خلي بالك: اسحب رجلك لورا بسرعة بعد الضربة على طول' },
+          focus: { en: '👀 Focus: Bend the kicking knee back to the body quickly right after the kick', ar: '👀 خلي بالك: اقبض (اثني) ركبة الرجل الضاربة تاني ناحية الجسم بسرعة بعد الركلة على طول' },
           tips: {
-            en: ['✅ Recoil as fast as the extension', '✅ Protects against leg grabs', '⚠️ Never leave the leg hanging'],
-            ar: ['✅ اسحبها بنفس سرعة ما فردتها', '✅ كده محدش يعرف يمسك رجلك', '⚠️ ماتسيبش رجلك متعلقة في الهوا']
+            en: ['✅ Fold the knee back to the body fast, right after kicking', '✅ So nobody can catch your leg', '⚠️ Never leave the leg hanging'],
+            ar: ['✅ يتم قبض (ثني) ركبة الرجل الضاربة مرة ثانية إلى الجسم بسرعة عقب الانتهاء من الركل', '✅ كده محدش يعرف يمسك رجلك', '⚠️ ماتسيبش رجلك متعلقة في الهوا']
           }, color: '#e9c46a' },
         { num: 5, key: 'return',
-          title: { en: '5️⃣ Return to Stance', ar: '5️⃣ الرجوع للوضعية' },
+          title: { en: '5️⃣ Back to the Ready Stance (Follow-through)', ar: '5️⃣ الرجوع لوضعية الاستعداد (المتابعة)' },
           image: poseImg('apchagi', 4),
-          focus: { en: '👀 Focus: Step down smoothly and regain your ready stance', ar: '👀 خلي بالك: نزّل رجلك على الأرض بالراحة وخلي توازنك مظبوط' },
+          focus: { en: '👀 Focus: Bring the foot down to the floor fast while keeping your balance', ar: '👀 خلي بالك: نزّل القدم بسرعة على الأرض مع المحافظة على توازن الجسم' },
           tips: {
-            en: ['✅ Return to guard position immediately', '✅ Maintain balance throughout', '⚠️ Do not stomp the foot down'],
-            ar: ['✅ ارجع لوقفة القتال على طول', '✅ خليك متوازن طول الوقت', '⚠️ ماترميش رجلك على الأرض بتقل']
+            en: ['✅ Foot down to the floor quickly', '✅ Keep your body balanced', '✅ Back to the ready stance, fists up'],
+            ar: ['✅ هبوط القدم سريعًا إلى الأرض', '✅ مع المحافظة على توازن الجسم', '✅ ارجع لوضع الاستعداد وإيديك مقبوضة قدّام صدرك']
           }, color: '#457b9d' }
       ]
     },
@@ -3059,7 +3059,7 @@ class FormControlSystem {
       knee:  ['الركبة بتطلع لفوق الأول وبعدين الرجل تتفرد — هي اللي بتوجّه الركلة لصدر الخصم.', 'The knee comes up first, then the leg snaps out — the knee aims the kick at the partner\'s chest.'],
       foot:  ['اضرب بمشط القدم وصوابعك مسحوبة لورا عشان صوابعك متتعورش، والرجل مفرودة خالص.', 'Hit with the ball of the foot, toes pulled back so they don\'t get hurt, leg fully straight.'],
       guard: ['الإيدين قدّام صدرك ووشك بيحموك وإنت واقف على رجل واحدة.', 'Fists up in front of your chest and face protect you while you stand on one leg.'],
-      pivot: ['قدم الارتكاز بتلف حوالي ٩٠° — ده بيفتح الوسط ويخلّي الركلة أبعد وأقوى.', 'The standing foot turns about 90° — it opens the hips so the kick reaches further.']
+      pivot: ['قدم الارتكاز بتلف للخارج من ٤٥° لـ ٩٠° — ده بيفتح الوسط ويخلّي الركلة أبعد وأقوى.', 'The standing foot turns out 45°–90° — it opens the hips so the kick reaches further.']
     },
     narochagi: {
       knee:  ['الرجل بتطلع مفرودة خالص — الركبة مش بتتني خالص في الطلعة.', 'The leg rises completely straight — the knee does not bend on the way up.'],
@@ -3359,8 +3359,8 @@ class FormControlSystem {
     // kick (Ap Chagi and Bik Chagi: the hit · Naeryeo Chagi: the top of the swing up)
     const INSTRUCTION_SETS = {
       apchagi: {
-        en: ['Knee up in front first, then snap the leg out straight', 'Hit with the ball of the foot, toes pulled back — at the partner\'s chest', 'Turn the standing foot out about 90°', 'Guard up in front of you, back straight'],
-        ar: ['ارفع الركبة لقدّام الأول، وبعدين افرد رجلك على طول', 'اضرب بمشط القدم وصوابعك مسحوبة لورا — في صدر الخصم', 'لفّ قدم الارتكاز لبرّه حوالي ٩٠°', 'الحراسة مرفوعة قدّامك وضهرك مفرود']
+        en: ['Knee up in front first, then snap the leg out straight', 'Hit with the ball of the foot, toes pulled back — at the partner\'s chest', 'Turn the standing foot out 45°–90°', 'Guard up in front of you, back straight'],
+        ar: ['ارفع الركبة لقدّام الأول، وبعدين افرد رجلك على طول', 'اضرب بمشط القدم وصوابعك مسحوبة لورا — في صدر الخصم', 'لفّ قدم الارتكاز للخارج من ٤٥° لـ ٩٠°', 'الحراسة مرفوعة قدّامك وضهرك مفرود']
       },
       narochagi: {
         en: ['Swing the leg up completely straight, as high as you can', 'Both knees straight — the heel goes up to face height or higher', 'Lean back only a tiny bit; the standing foot turns just a little (0°–45°)', 'Guard up — then the heel drops down like an axe'],
@@ -4927,7 +4927,7 @@ class PerformanceSystem {
         refImage: img('chamber'), refColor: colorOf('chamber'),
         cards: [
           { correct: false, text: ar ? 'الركبة بتطلع لمستوى الصدر' : 'The knee rises to chest height' },
-          { correct: false, text: ar ? 'قدم الارتكاز بتلف لبرّه حوالي ٩٠°' : 'The standing foot turns out about 90°' },
+          { correct: false, text: ar ? 'قدم الارتكاز بتلف للخارج من ٤٥° لـ ٩٠°' : 'The standing foot turns out 45°–90°' },
           { correct: true,  text: ar ? 'رجل الركلة بتبقى مفرودة خالص في المرحلة دي' : 'The kicking leg is already completely straight at this stage' }
         ],
         correctFeedback: ar ? 'صح! في رفع الركبة الرجل بتبقى مطوية: الركبة فوق والقدم تحتها — وبتتفرد بعد كده في الضربة.'
@@ -6315,7 +6315,7 @@ class ErrorHuntSystem {
       { id: 'guard', zone: 'torso', topic: 'guard' },
       { id: 'pivot', zone: 'stand', topic: 'pivot',
         hint:    { en: 'Look at the standing foot — did it turn out?', ar: 'بص على قدم الارتكاز: لفّت لبرّه ولا لأ؟' },
-        success: { en: 'Right! The standing foot turns out about 90° — it opens the hips so the kick goes further and harder.', ar: 'صح! قدم الارتكاز لازم تلف حوالي 90° لبرّه، ده بيفتح وسطك ويخلّي الركلة أبعد وأقوى.' } },
+        success: { en: 'Right! The standing foot turns out 45°–90° — it opens the hips so the kick goes further and harder.', ar: 'صح! قدم الارتكاز لازم تلف للخارج من 45° لـ 90°، ده بيفتح وسطك ويخلّي الركلة أبعد وأقوى.' } },
       { id: 'low', zone: 'kick', topic: 'target',
         hint:    { en: 'Look at the kicking leg — which target is it going to?', ar: 'بص على رجل الركلة: رايحة على أنهي هدف؟' },
         success: { en: 'Exactly! Ap Chagi goes to the abdomen or the face, not the knee. Lift the knee to the chest first.', ar: 'بالظبط! آب تشاجي بتروح للبطن أو الوش، مش للركبة. ارفع ركبتك لحد صدرك الأول.' } }
@@ -6721,11 +6721,11 @@ class QuizBlastSystem {
         a: ['تلات نقط', 'Three points'],
         w: [['نقطتين', 'Two points'], ['خمس نقط', 'Five points'], ['أربع نقط', 'Four points']] },
       { q: ['إيه الهدف الأساسي لركلة آب تشاجي؟', 'What is the main target of Ap Chagi?'],
-        a: ['الوش / البطن', 'Face / abdomen'],
+        a: ['الرأس والوجه / الصدر أو البطن', 'Head & face / chest or belly'],
         w: [['الركبة بس', 'Knee only'], ['الكتف', 'Shoulder'], ['القدم', 'Foot']] },
       { q: ['قدم الارتكاز بتلف بزاوية قد إيه تقريبًا في آب تشاجي؟', 'About how far does the standing foot pivot in Ap Chagi?'],
-        a: ['حوالي 90°', 'About 90°'],
-        w: [['180° كاملين', 'A full 180°'], ['من 0° لـ 45° بس', 'Only 0°–45°'], ['مابتلفّش خالص', 'It does not pivot']] },
+        a: ['من 45° لـ 90° للخارج', '45°–90° outward'],
+        w: [['180° كاملين', 'A full 180°'], ['360°', '360°'], ['مابتلفّش خالص', 'It does not pivot']] },
       { q: ['إيه أول مرحلة في آب تشاجي؟', 'What is the first phase of Ap Chagi?'],
         a: ['وضع الاستعداد (جونبي)', 'Ready stance (Junbi)'],
         w: [['رفع الركبة', 'Knee lift'], ['فرد الرجل', 'Kick extension'], ['سحب الرجل', 'Recoil']] },
@@ -7455,12 +7455,12 @@ class QuizSystem {
       {
         question: 'What is the pivot angle used in Ap Chagi?',
         questionAr: 'قدم الارتكاز بتلف بزاوية قد إيه في آب تشاجي؟',
-        options: ['~90°', 'Slight pivot only', '180°', 'No pivot at all'],
-        optionsAr: ['~90°', 'لفة خفيفة بس', '180°', 'من غير أي لف خالص'],
-        correctText: '~90°',
+        options: ['45°–90°', '360°', '180°', 'No pivot at all'],
+        optionsAr: ['من 45° لـ 90°', '360°', '180°', 'من غير أي لف خالص'],
+        correctText: '45°–90°',
         get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 1); },
-        explanation: 'The standing (support) foot pivots about 90° outward on its ball as the knee lifts.',
-        explanationAr: 'قدم الارتكاز (اللي واقف عليها) بتلف حوالي 90° لبرّه على مشطها وإنت بترفع الركبة.'
+        explanation: 'The standing (support) foot turns outward 45°–90° as the knee lifts.',
+        explanationAr: 'قدم الارتكاز (اللي واقف عليها) بتلف للخارج من 45° لـ 90° وإنت بترفع الركبة.'
       },
       {
         question: 'What is the FIRST phase of Ap Chagi?',
@@ -14467,8 +14467,8 @@ const KickSpec = {
   // per skill: the striking part, then one row set per phase (ready · chamber · strike · recoil · return)
   apchagi: { part: 'ball', phases: [
     { lean: [-6, 6], supKnee: [150, 178] },
-    { knee: [68, 85], legs: [104, 114], pivot: [70, 95], lean: [0, 8] },
-    { knee: [168, 180], legs: [105, 118], pivot: [70, 95], toes: [45, 75], lean: [0, 10], supKnee: [166, 180], foot: ['belly', 'chest', 'shoulder'] },
+    { knee: [68, 85], legs: [104, 114], pivot: [45, 95], lean: [0, 8] },
+    { knee: [168, 180], legs: [105, 118], pivot: [45, 95], toes: [45, 75], lean: [0, 10], supKnee: [166, 180], foot: ['belly', 'chest', 'shoulder', 'face'] },
     { knee: [65, 90], legs: [100, 116] },
     { lean: [-6, 6], supKnee: [150, 178] }] },
   narochagi: { part: 'heel', phases: [
