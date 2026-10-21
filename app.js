@@ -16756,34 +16756,18 @@ const HomeHub = {
     const target = gs.getResumeTarget();
     const sub = target.done ? TKD.t('Everything done — see your trophies', 'خلّصت كل حاجة — شوف إنجازاتك')
       : `${TKD.skillName(target.skillId)} · ${TKD.ar ? this.STAGE[target.stage].ar : this.STAGE[target.stage].en}`;
-    // a brand-new player sees ONLY the journey — everything else appears after the first game
-    const fresh = PlayerSystem.getAttempts().filter(a => a.playerId === p.id).length === 0 && !TKD.read(`taekwondoJourneyShowAll:${p.id}`, false);
-    const c = Challenge.today(); const left = Challenge.triesLeft(); const best = Challenge.best(p.id); const club = !!window.Club?.joined();
-    const rank = Challenge.ranking().findIndex(r => r.pid === p.id) + 1;
+    // v59.3: the home screen is the map only (the coach asked to remove the backup reminder, today's
+    // challenge, the league, 1 × 1 and the belt syllabus here — they stay in the menus); the club card
+    // shows only when the gym is online
+    const club = !!window.Club?.joined();
     const tierI = League.tierOf(p), tier = League.TIERS[tierI];
-    const table = League.table().filter(r => r.tier === tierI);
-    const myRow = table.findIndex(r => r.p.id === p.id);
-    const pts = myRow >= 0 ? table[myRow].total : 0;
     el.innerHTML = `
       <div class="hub-player"><button type="button" class="hub-me" id="hub-me" aria-label="${TKD.t('My hero page', 'صفحة البطل بتاعتي')}">${TKD.avatar(p)}</button><div class="hub-player-txt"><b>${TKD.esc(p.name)}</b><small>${tier.icon} ${League.tierName(tierI)}${gs.practiceStreak >= 2 ? ` · 🔥 ${TKD.num(gs.practiceStreak)}` : ''}</small></div>
         <button type="button" class="btn btn-small btn-success" id="hub-profile">🏅 ${TKD.t('My page', 'صفحتي')}</button>
         <button type="button" class="btn btn-small hub-switch" id="hub-switch">👥 ${TKD.t('Switch player', 'غيّر اللاعب')}</button></div>
       ${window.Journey ? Journey.html() : `<button type="button" class="hub-cta" id="hub-cta"><span class="hub-cta-main">▶ ${TKD.t("Let's train!", 'يلا نتمرن!')}</span><span class="hub-cta-sub">${sub}</span></button>`}
       ${window.Review ? Review.card() : ''}
-      ${(() => {   // v55: progress lives only in this browser — every 2 weeks, a gentle reminder to keep a copy
-        let last = 0; try { last = +localStorage.getItem('taekwondoJourneyLastBackup') || 0; } catch (e) {}
-        const plays = PlayerSystem.getAttempts().length;
-        return plays >= 8 && Date.now() - last > 14 * 864e5 ? `<button type="button" class="hub-backup" id="hub-backup">💾 ${TKD.t('Keep a copy of your progress (backup) — for the grown-ups', 'احفظ نسخة احتياطية من تقدّمك — للأهل أو المدرب')}</button>` : '';
-      })()}
-      ${fresh ? `<button type="button" class="hub-more" id="hub-more">✨ ${TKD.t('Show me more things to do', 'وريني حاجات تانية')}</button>` : ''}
-      <div class="hub-cards" ${fresh ? 'hidden' : ''}>
-        <button type="button" class="hub-card hub-challenge" id="hub-challenge">
-          <span class="hub-card-k">🏆 ${TKD.t("Today's challenge", 'تحدي النهارده')}</span>
-          <span class="hub-card-big">${TKD.gameIcon(c.gameId)} ${TKD.gameName(c.gameId)}</span>
-          <span class="hub-card-s">${TKD.skillName(c.skillId)} · ${left ? TKD.t(`${TKD.count(left, 'try', 'en')} left`, `فاضل ${TKD.count(left, 'try', 'ar')}`) : TKD.t('no tries left', 'خلصت المحاولات')}</span>
-          <span class="hub-card-s">${best !== null ? TKD.t(`Your best ${best}% · #${rank}${club ? ' in the club' : ''}`, `أحسن نتيجة ${TKD.num(best)}% · المركز ${TKD.num(rank)}${club ? ' في النادي' : ''}`) : TKD.t('Same challenge for everyone today', 'نفس التحدي للكل النهارده')}</span>
-        </button>
-        ${club ? (() => {   // v56: the gym's heroes, live
+      ${club ? `<div class="hub-cards">${(() => {   // v56: the gym's heroes, live
           const all = Club.rows(), wk = League.table();
           const top = wk.find(r => r.total > 0);
           return `<button type="button" class="hub-card hub-club" id="hub-club">
@@ -16791,36 +16775,16 @@ const HomeHub = {
           <span class="hub-card-big">${TKD.count(all.length, 'hero')}</span>
           <span class="hub-card-s">${top ? TKD.t(`Top this week: ${TKD.esc(top.p.name)}`, `الأول الأسبوع ده: ${TKD.esc(top.p.name)}`) : TKD.t('Nobody has points yet this week', 'لسه محدش جاب نقط الأسبوع ده')}</span>
           <span class="hub-card-s">${{ online: '☁️', offline: '📴', connecting: '⏳', error: '⚠️' }[Club.status] || '☁️'} ${TKD.t('See everyone\'s medals', 'شوف ميداليات الكل')}</span>
-        </button>`; })() : ''}
-        ${League.table().length < 2 ? '' : `<button type="button" class="hub-card hub-league" id="hub-league" style="--tier:${tier.color}">
-          <span class="hub-card-k">${tier.icon} ${League.tierName(tierI)}</span>
-          <span class="hub-card-big">${TKD.t(TKD.count(pts, 'pt', 'en'), TKD.count(pts, 'point', 'ar'))}</span>
-          <span class="hub-card-s">${TKD.t(`#${myRow + 1} of ${table.length} · top ${League.settings().promote} go up`, `المركز ${TKD.num(myRow + 1)} من ${TKD.num(table.length)} · أول ${TKD.num(League.settings().promote)} يطلعوا`)}</span>
-          <span class="hub-card-s">⏳ ${TKD.t(`${TKD.count(League.daysLeft(), 'day', 'en')} left this week`, `باقي ${TKD.count(League.daysLeft(), 'day', 'ar')} في الأسبوع`)}</span>
-        </button>`}
-        <button type="button" class="hub-card hub-versus" id="hub-versus">
-          <span class="hub-card-k">⚔️ ${TKD.t('Challenge a friend', 'تحدّى صاحبك')}</span>
-          <span class="hub-card-big">🥊 1 × 1</span>
-          <span class="hub-card-s">${TKD.t('Two players, one screen', 'لاعبين على نفس الشاشة')}</span>
-          <span class="hub-card-s">${TKD.t('or start a tournament', 'أو ابدأ بطولة')}</span>
-        </button>
-      </div>
-      ${fresh ? '' : this.syllabus()}`;
+        </button>`; })()}</div>` : ''}`;
     TKD.$('hub-switch').addEventListener('click', () => StartScreen.show());
     TKD.$('hub-profile').addEventListener('click', () => window.Profile?.open());
     TKD.$('hub-me').addEventListener('click', () => window.Profile?.open());
     TKD.$('hub-cta')?.addEventListener('click', () => resumeTraining());
     window.Journey?.bind(el);
-    TKD.$('hub-more')?.addEventListener('click', () => { TKD.write(`taekwondoJourneyShowAll:${p.id}`, true); TKD.gs()?.playSound('click'); this.render(); });
     window.Journey?.welcome(el);
     window.Journey?.celebrate(el);
-    TKD.$('hub-challenge').addEventListener('click', () => Challenge.start());
-    TKD.$('hub-league')?.addEventListener('click', () => { LeagueScreen.tab = 'league'; switchScreen('league'); });   // v55: only with 2+ players (v56: in the whole club)
     TKD.$('hub-club')?.addEventListener('click', () => { LeagueScreen.tab = 'gym'; switchScreen('league'); });
-    TKD.$('hub-versus').addEventListener('click', () => switchScreen('versus'));
-    TKD.$('hub-syllabus')?.addEventListener('click', () => switchScreen('curriculum'));
     window.Review?.bindCard();
-    TKD.$('hub-backup')?.addEventListener('click', () => { exportProgress(); this.render(); });
   },
   // v26: the belt the player is working on, from the full curriculum
   syllabus() {
