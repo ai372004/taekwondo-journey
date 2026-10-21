@@ -20570,6 +20570,16 @@ window.Fit = Fit;
 // Register the service worker for offline play (kids can keep training
 // in the gym even if the wifi/data drops).
 if ('serviceWorker' in navigator) {
+  // v59.5: when a new version takes over (the new worker activates straight away), load it at
+  // once if the child is on the home screen or just opened the game — before, the old copy
+  // stayed on screen until a second refresh. In the middle of a game: the banner asks instead.
+  const hadController = !!navigator.serviceWorker.controller;
+  let swReloading = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (!hadController || swReloading) return;                       // the very first install: nothing old to replace
+    const calm = document.querySelector('#home-screen.active, #loading-screen.active') || performance.now() < 20000;
+    if (calm) { swReloading = true; location.reload(); } else showUpdateBanner();
+  });
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('sw.js').then((reg) => {
       // A worker installing while we already have a controller means
