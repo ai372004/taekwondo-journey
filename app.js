@@ -2876,6 +2876,29 @@ class FormControlSystem {
     });
     this.fcRedraw();
   }
+  // v59.6 — every flag (icon + name) sits away from the body; a thin line joins it to its joint
+  static fcFlags() {
+    const stage = document.getElementById('form-stage'); if (!stage) return;
+    const W = stage.clientWidth, H = stage.clientHeight; if (!W || !H) return;
+    const F = this.fc3d;
+    stage.querySelectorAll('.control-point.cp-pin').forEach(el => {
+      const x = parseFloat(el.style.left), y = parseFloat(el.style.top);
+      if (!Number.isFinite(x) || !Number.isFinite(y)) return;
+      // every flag waits in a column in the empty space BEHIND the fighter (the green targets are
+      // all in front), one slot per part from the fists down to the standing foot, joined to its
+      // joint by a thin line — so nothing sits on the body or on the pose to copy
+      const part = el.dataset.part, fwd = F?.fwd || 1;
+      const hands = this.controlPoints.filter(k => /hand/.test(k));
+      const slot = { guard: 22, knee: 50, foot: 66, pivot: 83,
+        [hands[0]]: 18, [hands[1]]: 34 }[part] ?? 50;
+      const colX = (fwd > 0 ? 9 : 91) * W / 100;
+      const px = x * W / 100, py = y * H / 100;
+      const fx = colX - px, fy = slot * H / 100 - py;
+      el.style.setProperty('--fx', `${fx.toFixed(1)}px`); el.style.setProperty('--fy', `${fy.toFixed(1)}px`);
+      el.style.setProperty('--len', `${Math.max(0, Math.hypot(fx, fy) - 16).toFixed(1)}px`);
+      el.style.setProperty('--ang', `${Math.atan2(fy, fx).toFixed(3)}rad`);
+    });
+  }
   // the choices this part can take
   static fcOptions(part) {
     const F = this.fc3d, st = F.st, out = [];
@@ -3060,15 +3083,16 @@ class FormControlSystem {
     wrap.className = 'control-points';
     this.controlPoints.forEach(part => {
       const point = document.createElement('div');
-      point.className = 'control-point cp-far';
+      point.className = 'control-point cp-pin cp-far';
       point.id = `cp-${part}`;
       point.dataset.part = part;
       point.setAttribute('draggable', 'false');
-      point.innerHTML = FormControlSystem.KID_ICONS[part] || '🥋';
       const ar = this.gameState.currentLanguage === 'ar';
       point.title = this.partLabel(part, ar);
-      const tag = document.createElement('span'); tag.className = 'cp-tag'; tag.textContent = this.partTag(part, ar);
-      point.appendChild(tag);
+      // v59.6: a small dot ON the joint; the icon and its name sit a little away from the body
+      // (a flag on a thin line), so the child can see the pose — the flag can be dragged too
+      point.innerHTML = `<span class="cp-lead" aria-hidden="true"></span><span class="cp-flag"><span class="cp-ico">${FormControlSystem.KID_ICONS[part] || '🥋'}</span><span class="cp-tag"></span></span>`;
+      point.querySelector('.cp-tag').textContent = this.partTag(part, ar);
       point.setAttribute('role', 'button'); point.setAttribute('aria-label', point.title); point.tabIndex = 0;   // v53
       wrap.appendChild(point);
     });
@@ -3635,9 +3659,8 @@ class FormControlSystem {
     }
     const ar = this.gameState.currentLanguage === 'ar', deg = this.fcPivotDeg(pv), pb = document.getElementById('pivot-angle-badge');
     if (pb) {
-      // beside the dial, on the side away from the kick (there's room there)
-      // (above the back half of the dial, where the heel's dot never goes up to)
-      const side = F.fwd > 0 ? -1 : 1;
+      // beside the dial, on the kick's side, low (v59.6: the back is where the flags wait now)
+      const side = F.fwd > 0 ? 1 : -1;
       pb.style.left = `${D.cx + side * D.rx * 0.55}%`; pb.style.top = `${D.cy - D.ry - 4}%`; pb.style.borderColor = cP;
       pb.style.transform = `translate(${side < 0 ? '-100%' : '0'}, -50%)`;
       pb.textContent = `🔄 ${ar ? TKD.num(deg) : deg}° ${ar ? '←' : '→'} ${this.fcRangeText(ar)}`;
@@ -3815,7 +3838,7 @@ class FormControlSystem {
       F.st = this._savedSt || this.fcStart(); this._savedSt = null;
       const pv = document.getElementById('cp-pivot');
       if (pv) { const p0 = F.dial.at(F.dial.start); pv.style.left = `${p0.x}%`; pv.style.top = `${p0.y}%`; }
-      this.controlPoints.forEach(part => { const el = document.getElementById(`cp-${part}`); if (el) el.className = 'control-point cp-far'; });
+      this.controlPoints.forEach(part => { const el = document.getElementById(`cp-${part}`); if (el) el.className = 'control-point cp-pin cp-far'; });
       this.fcPlaceAll();
       this.updateSkeleton();
       this.calculateAccuracy();
@@ -3830,7 +3853,7 @@ class FormControlSystem {
       if (!point || !limit) return;
       if (this.fc3d && part === 'pivot') {                  // v53: the foot starts in the stance (0°), or too far round when 0° is already right
         const p0 = this.fc3d.dial.at(this.fc3d.dial.start);
-        point.style.left = `${p0.x}%`; point.style.top = `${p0.y}%`; point.className = 'control-point cp-far';
+        point.style.left = `${p0.x}%`; point.style.top = `${p0.y}%`; point.className = 'control-point cp-pin cp-far';
         return;
       }
       const rangeX = limit.maxX - limit.minX;
@@ -3844,7 +3867,7 @@ class FormControlSystem {
       placed.push({ x, y });
       point.style.left = `${x}%`;
       point.style.top  = `${y}%`;
-      point.className  = 'control-point cp-far';
+      point.className  = 'control-point cp-pin cp-far';
     });
     this.updateCharacterFrame();
     this.updateSkeleton();
@@ -4065,6 +4088,13 @@ class FormControlSystem {
     this.keyboardActive = false;
     this._touchId       = event.changedTouches ? event.changedTouches[0].identifier : null;
     this._stageRect     = document.getElementById('form-stage')?.getBoundingClientRect() || null;
+    // v59.6: where the finger is from the joint (it may hold the flag) — keep that gap while dragging
+    this._grabOff = null;
+    const p0 = this._pointerFromEvent(event), R0 = this._stageRect, el0 = this.draggedElement;
+    if (p0 && R0 && el0?.style.left) {
+      const jx = R0.left + parseFloat(el0.style.left) / 100 * R0.width, jy = R0.top + parseFloat(el0.style.top) / 100 * R0.height;
+      if (Number.isFinite(jx) && Number.isFinite(jy)) this._grabOff = { x: p0.x - jx, y: p0.y - jy };
+    }
     this.gameState.playSound('click');
 
     // Listeners that only live for this one drag.
@@ -4104,9 +4134,10 @@ class FormControlSystem {
 
   static _applyDrag() {
     this._dragRaf = null;
-    const pt = this._pendingPointer;
+    let pt = this._pendingPointer;
     this._pendingPointer = null;
     if (!pt || !this.draggedElement || !this.draggedPart) return;
+    if (this._grabOff) pt = { x: pt.x - this._grabOff.x, y: pt.y - this._grabOff.y };
     const rect = this._stageRect || document.getElementById('form-stage').getBoundingClientRect();
     let x = this.applyLimitX(this.draggedPart, ((pt.x - rect.left) / rect.width)  * 100);
     let y = this.applyLimitY(this.draggedPart, ((pt.y - rect.top)  / rect.height) * 100);
@@ -4359,6 +4390,11 @@ class FormControlSystem {
     try { window.TKD?.toast(message, type === 'success' ? 'success' : 'warning'); } catch (e) {}
   }
 }
+// v59.6: the flags follow their joints — after every move, placement and redraw of the points
+['calculateAccuracy', 'fcPlaceAll', 'initializeControlPoints', 'createControlPoints'].forEach(name => {
+  const orig = FormControlSystem[name]; if (typeof orig !== 'function') return;
+  FormControlSystem[name] = function (...args) { const r = orig.apply(this, args); try { this.fcFlags(); } catch (e) {} return r; };
+});
 
 // #####################################################################
 // ## games/puzzle.js

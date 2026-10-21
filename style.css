@@ -7055,3 +7055,20 @@ html.lite .winner-visual::before, html.lite .celebration-icon { animation-iterat
 /* v59.2 — how many games a unit needs */
 .us-need { margin: -4px 0 10px; font-size: .9rem; font-weight: 800; color: #ffe3a3; text-align: center; }
 .unit-sec.is-done .us-need { color: #7ee8d6; }
+
+/* v59.6 — Form Control: a small dot ON the joint, the icon + name on a flag a little away from
+   the body (joined by a thin line), so the child can see the pose underneath */
+.character-stage .control-point.cp-pin,
+.character-stage.fc-3d .control-point.cp-pin { width: 18px !important; height: 18px !important; font-size: 0; border-width: 2px; overflow: visible; }
+.character-stage .control-point.cp-pin::after { display: none; }
+.character-stage .control-point.cp-pin::before { content: ''; position: absolute; inset: -14px; border-radius: 50%; }
+.control-point.cp-pin .cp-lead { position: absolute; left: 50%; top: 50%; width: var(--len, 0); height: 2px; margin-top: -1px;
+  background: rgba(255,255,255,.75); transform-origin: 0 50%; transform: rotate(var(--ang, 0rad)); pointer-events: none; border-radius: 2px; }
+.control-point.cp-pin .cp-flag { position: absolute; left: 50%; top: 50%; display: flex; flex-direction: column; align-items: center; gap: 2px;
+  transform: translate(calc(-50% + var(--fx, 0px)), calc(-50% + var(--fy, -40px))); }
+.control-point.cp-pin .cp-ico { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-size: 1rem; line-height: 1;
+  background: rgba(10,25,35,.88); border: 3px solid #e63946; box-shadow: 0 3px 8px rgba(0,0,0,.45); }
+.control-point.cp-pin.cp-close .cp-ico { border-color: var(--warning-color, #e9c46a); }
+.control-point.cp-pin.cp-perfect .cp-ico { border-color: #2a9d8f; }
+.character-stage .control-point.cp-pin .cp-tag { position: static; transform: none; }
+.character-stage .control-point.cp-pin.cp-perfect { animation: none; }
