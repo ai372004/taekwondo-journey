@@ -68,11 +68,11 @@ const YP_ANT = { Hips: [10, 10, -2], Spine: [-4, -2, 0], Spine1: [2, -2, 0], Nec
 //   recoil     knee 115° · hip 88°
 // and in every phase the body's weight stays over the standing foot (centre of mass within ~5% of
 // the body height of it; ~8% at the instant of impact)
-const YP_CH = { ...GUARD, Hips: [-7, 48, -6], Spine: [8, -15, 4], Spine1: [0, -12, -4], Neck: [0, -30, 8], Head: [0, -36, 6], LeftUpLeg: [12, 9, -6], LeftLeg: [-5, 0, 0], LeftFoot: [-9, -16, 13], RightUpLeg: [-87, -1, -81], RightLeg: [115, 0, 0], RightFoot: [-35, 0, 0], RightToeBase: [-30, 0, 0] };
-const YP_PV = { ...YP_CH, Hips: [-7, 80, -11], Spine: [6, -13, 13], LeftUpLeg: [11, 12, -6], LeftFoot: [-19, 0, 25], RightUpLeg: [-74, 13, -36] };
-const YP_EXS = { ...YP_PV, Hips: [-14, 79, -6], Spine: [16, -9, 9], LeftUpLeg: [14, 12, -6], RightUpLeg: [-75, 22, -36], RightLeg: [60, 0, 0] };
-const YP_EX = { ...GUARD, Hips: [-6, 76, -10], Spine: [13, -16, 4], Spine1: [0, -14, 10], Neck: [0, -34, 10], Head: [11, -40, 12], LeftUpLeg: [6, 15, -5], LeftLeg: [5, 0, 0], LeftFoot: [-23, 0, 20], RightUpLeg: [21, -25, -80], RightLeg: [19, 0, 0], RightFoot: [24, 0, 0], RightToeBase: [10, 0, 0], Ponytail: [30, 0, -25] };
-const YP_REC = { ...YP_PV, Hips: [-5, 80, -6], Spine: [7, -15, 8], LeftUpLeg: [14, 12, -6], RightUpLeg: [-71, 9, -40] };
+const YP_CH = { ...GUARD, Hips: [-3, 48, -7], Spine: [5, -14, 9], Spine1: [0, -12, -4], Neck: [0, -30, 8], Head: [0, -36, 6], LeftUpLeg: [12, 10, -6], LeftLeg: [-5, 0, 0], LeftFoot: [-9, -16, 13], RightUpLeg: [-98, -1, -68], RightLeg: [115, 0, 0], RightFoot: [-35, 0, 0], RightToeBase: [-30, 0, 0] };
+const YP_PV = { ...YP_CH, Hips: [8, 81, -13], Spine: [-7, -15, 18], LeftUpLeg: [-2, 11, 4], LeftLeg: [5, 0, 0], LeftFoot: [-21, 0, 25], RightUpLeg: [-12, -1, -80] };
+const YP_EXS = { ...YP_PV, RightUpLeg: [-10, -1, -80], RightLeg: [63, 0, 0] };
+const YP_EX = { ...GUARD, Hips: [11, 81, -21], Spine: [-7, -15, 18], Spine1: [0, -14, 10], Neck: [0, -34, 10], Head: [11, -40, 12], LeftUpLeg: [-2, 11, 5], LeftLeg: [5, 0, 0], LeftFoot: [-21, 0, 25], RightUpLeg: [-17, 18, -74], RightLeg: [12, 0, 0], RightFoot: [22, 0, 0], RightToeBase: [10, 0, 0], Ponytail: [30, 0, -25] };
+const YP_REC = { ...YP_PV };
 
 // --- Ap ollyeo chagi (front rising kick): a straight leg swings up and down -------
 const AO_UP = { Hips: [0, -14, 0], Spine: [-10, 4, 0], LeftUpLeg: [-4, 0, 4], LeftLeg: [4, 0, 0], LeftFoot: [14, 0, 0], RightUpLeg: [-92, 0, -4], RightLeg: [4, 0, 0], RightFoot: [20, 0, 0] };
