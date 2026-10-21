@@ -19252,44 +19252,20 @@ window.tkdCountUp = function (el, to, { dur = 900, suffix = '', from = 0 } = {})
 // Each tab opens a sheet of large tiles; the tab of the current screen is lit.
 // ============================================================================
 const TabBar = {
+  // v59.4 (the coach's request): four plain buttons — Home and My page and Coach mode open
+  // straight away (`direct`); only "Play" opens a small sheet with two choices
   TABS: [
-    { id: 'train', icon: '🥋', en: 'Train', ar: 'اتمرّن', screens: ['home', 'warmup', 'skill-menu', 'learning', 'curriculum', 'quiz', 'cooldown'],
-      items: [
-        { icon: '🏠', en: 'Home', ar: 'الرئيسية', go: () => switchScreen('home') },
-        { icon: '▶️', en: "Let's train!", ar: 'يلا نتمرن!', go: () => (window.resumeTraining ? resumeTraining() : switchScreen('home')), hot: true },
-        { icon: '🔥', en: 'Warm-up', ar: 'الإحماء', go: () => switchScreen('warmup') },
-        { icon: '🎓', en: 'Learning', ar: 'التعلم', go: () => switchScreen('skill-menu') },
-        { icon: '📚', en: 'Belt syllabus', ar: 'منهج الأحزمة', go: () => switchScreen('curriculum') },
-        { icon: '📝', en: 'The test', ar: 'الاختبار', go: () => attemptStageNav('quiz') },
-        { icon: '🧘', en: 'Cool-down', ar: 'التهدئة', go: () => switchScreen('cooldown') }
-      ] },
+    { id: 'train', icon: '🏠', en: 'Home', ar: 'الرئيسية', screens: ['home', 'warmup', 'skill-menu', 'learning', 'curriculum', 'quiz', 'cooldown'],
+      direct: () => switchScreen('home') },
     { id: 'play', icon: '🎮', en: 'Play', ar: 'العب', screens: ['games', 'form-control', 'puzzle', 'performance', 'action', 'error-hunt', 'quiz-blast', 'board-break', 'paddle-reflex', 'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag', 'league', 'versus'],
       items: [
         { icon: '🎮', en: 'All games', ar: 'كل الألعاب', go: () => attemptStageNav('games'), hot: true },
-        { icon: '🏆', en: "Today's challenge", ar: 'تحدي النهارده', go: () => (window.Challenge ? Challenge.start() : switchScreen('league')) },
-        { icon: '🏅', en: 'Weekly league', ar: 'الدوري', go: () => { LeagueScreen.tab = 'league'; switchScreen('league'); } },
-        { icon: '🏟️', en: 'Club heroes', ar: 'أبطال النادي', go: () => { LeagueScreen.tab = 'gym'; switchScreen('league'); } },
         { icon: '⚔️', en: 'Challenge a friend', ar: 'تحدّى صاحبك', go: () => switchScreen('versus') }
       ] },
-    { id: 'mine', icon: '⭐', en: 'My stars', ar: 'إنجازاتي', screens: ['profile', 'trophy-room', 'players', 'character-change', 'winner'],
-      items: [
-        { icon: '🦸', en: 'My hero page', ar: 'صفحتي', go: () => Profile.open(), hot: true },
-        { icon: '🏆', en: 'Trophy room', ar: 'فاترينة الإنجازات', go: () => switchScreen('trophy-room') },
-        { icon: '👥', en: 'All players', ar: 'كل اللاعبين', go: () => switchScreen('players') },
-        { icon: '🧒', en: 'Change character', ar: 'غيّر الشخصية', go: () => switchScreen('character-change') },
-        { icon: '🔁', en: 'Switch player', ar: 'غيّر اللاعب', go: () => StartScreen.show() }
-      ] },
-    { id: 'coach', icon: '👩‍🏫', en: 'Coach', ar: 'المدرب', screens: ['coach', 'dashboard', 'report'],
-      items: [
-        { icon: '👩‍🏫', en: 'Coach mode', ar: 'وضع المدرب', go: () => Coach.open(), hot: true },
-        { icon: '📊', en: 'Player dashboard', ar: 'لوحة اللاعبين', go: () => switchScreen('dashboard') },
-        { icon: '📈', en: 'Progress report', ar: 'تقرير التقدم', go: () => switchScreen('report') },
-        { icon: '💾', en: 'Save backup', ar: 'احفظ نسخة', go: () => exportProgress() },
-        // v55: replacing or erasing every child's progress is for the coach / parent → PIN first
-        { icon: '📂', en: 'Restore backup', ar: 'رجّع نسخة', go: () => Coach.guard(() => { Coach._focusData = true; Coach.view = 'settings'; Coach.render(); }, TKD.t('To restore a backup, type the coach PIN.', 'عشان ترجّع نسخة احتياطية، اكتب الرقم السري للمدرب.')) },
-        { icon: '🔒', en: 'Privacy', ar: 'الخصوصية', go: () => { location.href = 'privacy.html'; } },
-        { icon: '🗑️', en: 'Erase everything', ar: 'امسح كل حاجة', go: () => Coach.guard(() => hardResetGame(), TKD.t('To erase everything, type the coach PIN.', 'عشان تمسح كل حاجة، اكتب الرقم السري للمدرب.')), danger: true }
-      ] }
+    { id: 'mine', icon: '🦸', en: 'My page', ar: 'صفحتي', screens: ['profile', 'trophy-room', 'players', 'character-change', 'winner'],
+      direct: () => Profile.open() },
+    { id: 'coach', icon: '👩‍🏫', en: 'Coach mode', ar: 'وضع المدرب', screens: ['coach', 'dashboard', 'report'],
+      direct: () => Coach.open() }
   ],
   t(o) { return (typeof TKD !== 'undefined' && TKD.ar) ? o.ar : o.en; },
   mount() {
@@ -19322,9 +19298,14 @@ const TabBar = {
     const act = document.querySelector('.screen.active');
     const immersive = !!act && (act.id === 'warmup-screen' || act.id === 'action-screen' || act.classList.contains('arena-screen'));
     document.body.classList.toggle('tab-hidden', immersive);
-    bar.innerHTML = this.TABS.map(t => `<button type="button" class="tab ${t.id === cur ? 'on' : ''} ${t.id === open ? 'open' : ''}" data-tab="${t.id}" aria-haspopup="dialog" aria-expanded="${t.id === open}">
+    bar.innerHTML = this.TABS.map(t => `<button type="button" class="tab ${t.id === cur ? 'on' : ''} ${t.id === open ? 'open' : ''}" data-tab="${t.id}"${t.direct ? '' : ` aria-haspopup="dialog" aria-expanded="${t.id === open}"`}>
         <span class="tab-ico" aria-hidden="true">${t.icon}</span><span class="tab-lbl">${this.t(t)}</span></button>`).join('');
-    bar.querySelectorAll('.tab').forEach(b => b.addEventListener('click', (e) => { this._kbd = e.detail === 0; this.toggle(b.dataset.tab); }));
+    bar.querySelectorAll('.tab').forEach(b => b.addEventListener('click', (e) => {
+      this._kbd = e.detail === 0;
+      const tab = this.TABS.find(t => t.id === b.dataset.tab);
+      if (tab?.direct) { this.close(); try { TKD.gs()?.playSound('click'); } catch (er) {} tab.direct(); return; }
+      this.toggle(b.dataset.tab);
+    }));
   },
   toggle(id) { this.openId === id ? this.close() : this.open(id); },
   open(id) {
