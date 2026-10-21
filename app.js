@@ -443,50 +443,50 @@ const GameConfig = {
       assetFolder: null, // flat legacy paths, no subfolder
       video: 'assets/videos/apchagi-tutorial.mp4',
       technical: {
-        strikingSurface: { en: 'Ball of the foot (Ap-chuk)', ar: 'قاعدة الأصابع (كلوة القدم) — آب تشوك' },
-        target: { en: 'Head / face (Eolgul) and chest / belly (Momtong)', ar: 'منطقة الرأس والوجه (أولجول)، ومنطقة الصدر أو البطن (مومتونج)' },
-        pivotAngle: { en: '45°–90° outward', ar: 'من ٤٥° لـ ٩٠° للخارج' }
+        strikingSurface: { en: 'Ball of the foot (Ap-chuk)', ar: 'قاعدة الأصابع (كلوة القدم) آب تشوك' },
+        target: { en: 'Head, face (Eolgul) and chest or belly (Momtong)', ar: 'منطقة الرأس، الوجه (أولجول) ومنطقة الصدر أو البطن (مومتونج)' },
+        pivotAngle: { en: '45°–90° outward', ar: 'للخارج بزاوية ٤٥°:٩٠°' }
       },
       phases: [
         { num: 1, key: 'ready',
           title: { en: '1️⃣ Ready Stance (Kyorugi Junbi)', ar: '1️⃣ وضع الاستعداد (كيوروجي جونبي)' },
           image: poseImg('apchagi', 0),
-          focus: { en: '👀 Focus: The kicking leg is behind and the free (standing) leg in front', ar: '👀 خلي بالك: الرجل الضاربة ورا، والرجل الحرة (الارتكاز) قدّام' },
+          focus: { en: '👀 The kicking leg behind and the free (standing) leg in front.', ar: '👀 الرجل الضاربة خلفًا والرجل الحرة (الارتكاز) أمامًا.' },
           tips: {
-            en: ['✅ Kicking leg behind, standing leg in front', '✅ Both arms with closed fists in front of the chest', '⚠️ Do not lean forward or back'],
-            ar: ['✅ الرجل الضاربة خلفًا والرجل الحرة (الارتكاز) أمامًا', '✅ الذراعان في حالة قبض أمام الصدر', '⚠️ ماتميلش لقدام ولا لورا']
+            en: ['✅ Both arms with closed fists in front of the chest.'],
+            ar: ['✅ الذراعان في حالة قبض أمام الصدر.']
           }, color: '#2a9d8f' },
         { num: 2, key: 'chamber',
           title: { en: '2️⃣ Knee Lift (Chamber)', ar: '2️⃣ رفع الركبة (التجهيز)' },
           image: poseImg('apchagi', 1),
-          focus: { en: '👀 Focus: Lift and bend the kicking knee high toward the chest', ar: '👀 خلي بالك: ارفع واثني ركبة الرجل الضاربة عاليًا ناحية الصدر' },
+          focus: { en: '👀 Lift and bend the kicking knee high toward the chest.', ar: '👀 رفع وثني ركبة الرجل الضاربة عاليًا ناحية الصدر.' },
           tips: {
-            en: ['✅ Lift and bend the kicking knee high toward the chest', '💡 The higher the knee, the higher the kick lands', '✅ Turn the standing foot outward 45°–90°'],
-            ar: ['✅ رفع وثني ركبة الرجل الضاربة عاليًا ناحية الصدر', '💡 ملحوظة: كل ما ارتفاع الركبة يزيد، مستوى الضرب يعلى', '✅ لف قدم الارتكاز للخارج بزاوية من ٤٥° لـ ٩٠°']
+            en: ['💡 Note: the higher the knee, the higher the kick lands.', '✅ Turn the standing foot outward 45°–90°.'],
+            ar: ['💡 ملحوظة: كلما زاد ارتفاع ركبة الرجل، ارتفع مستوى الضرب.', '✅ لف قدم الارتكاز للخارج بزاوية ٤٥°:٩٠°.']
           }, color: '#e76f51' },
         { num: 3, key: 'extension',
-          title: { en: '3️⃣ The Main Phase (Strike)', ar: '3️⃣ المرحلة الأساسية (الضربة)' },
+          title: { en: '3️⃣ The Main Phase', ar: '3️⃣ المرحلة الأساسية' },
           image: poseImg('apchagi', 2),
-          focus: { en: '👀 Focus: Straighten the kicking knee hard and fast forward toward the opponent (chest or face)', ar: '👀 خلي بالك: افرد ركبة الرجل الضاربة بقوة وسرعة لقدّام في اتجاه المنافس (الصدر أو الوجه)' },
+          focus: { en: '👀 Straighten the kicking knee with power and speed forward toward the opponent (chest or face).', ar: '👀 فرد ركبة الرجل الضاربة بقوة وسرعة إلى الأمام في اتجاه المنافس (الصدر أو الوجه).' },
           tips: {
-            en: ['✅ Straighten the knee with power and speed toward the opponent', '✅ Strike with the ball of the foot (Ap-chuk), toes pulled back', '⚠️ Never strike with the toes'],
-            ar: ['✅ فرد ركبة الرجل الضاربة بقوة وسرعة للأمام في اتجاه المنافس', '✅ توجّه الركلة بقاعدة الأصابع (كلوة القدم)', '⚠️ ماتضربش بصوابع رجلك']
+            en: ['✅ The kick is delivered with the ball of the foot (Ap-chuk).'],
+            ar: ['✅ توجه الركلة بقاعدة الأصابع (كلوة القدم).']
           }, color: '#ff6b35' },
         { num: 4, key: 'recoil',
           title: { en: '4️⃣ Pulling the Leg Back (Return)', ar: '4️⃣ سحب الرجل (الرجوع)' },
           image: poseImg('apchagi', 3),
-          focus: { en: '👀 Focus: Bend the kicking knee back to the body quickly right after the kick', ar: '👀 خلي بالك: اقبض (اثني) ركبة الرجل الضاربة تاني ناحية الجسم بسرعة بعد الركلة على طول' },
+          focus: { en: '👀 The kicking knee is folded (bent) back to the body again, quickly, right after the kick.', ar: '👀 يتم قبض (ثني) ركبة الرجل الضاربة مرة ثانية إلى الجسم بسرعة عقب الانتهاء من الركل.' },
           tips: {
-            en: ['✅ Fold the knee back to the body fast, right after kicking', '✅ So nobody can catch your leg', '⚠️ Never leave the leg hanging'],
-            ar: ['✅ يتم قبض (ثني) ركبة الرجل الضاربة مرة ثانية إلى الجسم بسرعة عقب الانتهاء من الركل', '✅ كده محدش يعرف يمسك رجلك', '⚠️ ماتسيبش رجلك متعلقة في الهوا']
+            en: [],
+            ar: []
           }, color: '#e9c46a' },
         { num: 5, key: 'return',
           title: { en: '5️⃣ Back to the Ready Stance (Follow-through)', ar: '5️⃣ الرجوع لوضعية الاستعداد (المتابعة)' },
           image: poseImg('apchagi', 4),
-          focus: { en: '👀 Focus: Bring the foot down to the floor fast while keeping your balance', ar: '👀 خلي بالك: نزّل القدم بسرعة على الأرض مع المحافظة على توازن الجسم' },
+          focus: { en: '👀 The foot comes down to the floor quickly while keeping the body balanced.', ar: '👀 هبوط القدم سريعًا إلى الأرض مع المحافظة على توازن الجسم.' },
           tips: {
-            en: ['✅ Foot down to the floor quickly', '✅ Keep your body balanced', '✅ Back to the ready stance, fists up'],
-            ar: ['✅ هبوط القدم سريعًا إلى الأرض', '✅ مع المحافظة على توازن الجسم', '✅ ارجع لوضع الاستعداد وإيديك مقبوضة قدّام صدرك']
+            en: [],
+            ar: []
           }, color: '#457b9d' }
       ]
     },
@@ -2257,11 +2257,11 @@ class LearningSystem {
   // shows the full focus line and the three tips (the choice is remembered per player)
   static SHORT = {
     apchagi: [
-      { ar: 'رجليك بعرض كتافك، وإيديك قدام صدرك.', en: 'Feet apart, hands up in front of your chest.' },
-      { ar: 'ارفع ركبتك لحد صدرك، ولفّ قدم الارتكاز لبرّه.', en: 'Knee up to your chest, turn your standing foot out.' },
-      { ar: 'افرد رجلك بسرعة، واضرب بالآب تشوك (مشط القدم).', en: 'Snap the leg out and hit with the ball of the foot.' },
-      { ar: 'اسحب رجلك لورا بسرعة.', en: 'Pull the leg back fast.' },
-      { ar: 'انزل بالراحة وارجع للاستعداد.', en: 'Land softly and get ready again.' }
+      { ar: 'الرجل الضاربة خلفًا والرجل الحرة (الارتكاز) أمامًا.', en: 'The kicking leg behind and the free (standing) leg in front.' },
+      { ar: 'رفع وثني ركبة الرجل الضاربة عاليًا ناحية الصدر.', en: 'Lift and bend the kicking knee high toward the chest.' },
+      { ar: 'فرد ركبة الرجل الضاربة بقوة وسرعة إلى الأمام في اتجاه المنافس (الصدر أو الوجه).', en: 'Straighten the kicking knee with power and speed toward the opponent (chest or face).' },
+      { ar: 'يتم قبض (ثني) ركبة الرجل الضاربة مرة ثانية إلى الجسم بسرعة عقب الانتهاء من الركل.', en: 'Fold the kicking knee back to the body quickly right after the kick.' },
+      { ar: 'هبوط القدم سريعًا إلى الأرض مع المحافظة على توازن الجسم.', en: 'Bring the foot down quickly while keeping the body balanced.' }
     ],
     narochagi: [
       { ar: 'إيديك فوق، ووزنك في النص.', en: 'Hands up, weight in the middle.' },
