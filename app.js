@@ -2736,14 +2736,14 @@ class FormControlSystem {
     'boy|apchagi|1': {raw:{head:[201,855],neck:[188,722],chest:[198,616],leftShoulder:[151,696],rightShoulder:[230,693],pelvis:[203,477],kickingHip:[231,452],standingHip:[175,452],standingKnee:[182,241],standingFoot:[174,37],standingBall:[205,13],knee:[372,544],ball:[550,663],heel:[521,598],handL:[249,730],handR:[332,695]},pivot:82,sfy:-35.84},
     'boy|narochagi|0': {raw:{head:[64,843],neck:[44,712],chest:[61,607],leftShoulder:[83,681],rightShoulder:[14,688],pelvis:[83,471],kickingHip:[62,446],standingHip:[105,446],standingKnee:[116,236],standingFoot:[127,34],standingBall:[192,13],knee:[138,640],ball:[182,863],heel:[230,839],handL:[191,692],handR:[88,688]},pivot:60,sfy:-35.84},
     'boy|narochagi|1': {raw:{head:[87,843],neck:[75,712],chest:[94,607],leftShoulder:[57,681],rightShoulder:[102,688],pelvis:[118,471],kickingHip:[125,446],standingHip:[111,446],standingKnee:[133,236],standingFoot:[155,34],standingBall:[205,13],knee:[209,640],ball:[244,863],heel:[315,839],handL:[158,692],handR:[183,688]},pivot:60,sfy:-35.84},
-    'boy|bakchagi3|0': {raw:{head:[0,794],neck:[17,663],chest:[70,570],leftShoulder:[-48,590],rightShoulder:[110,687],pelvis:[145,455],kickingHip:[199,451],standingHip:[110,413],standingKnee:[149,205],standingFoot:[184,4],standingBall:[192,13],knee:[403,504],ball:[644,578],heel:[610,551],handL:[-19,624],handR:[171,706]},pivot:135,sfy:-35.84},
-    'boy|bakchagi3|1': {raw:{head:[96,794],neck:[104,663],chest:[152,570],leftShoulder:[21,590],rightShoulder:[212,687],pelvis:[218,455],kickingHip:[277,451],standingHip:[177,413],standingKnee:[204,205],standingFoot:[233,4],standingBall:[205,13],knee:[463,504],ball:[660,578],heel:[666,551],handL:[-10,624],handR:[220,706]},pivot:135,sfy:-35.84},
+    'boy|bakchagi3|0': {raw:{head:[-24,764],neck:[-2,637],chest:[61,554],leftShoulder:[-64,572],rightShoulder:[93,658],pelvis:[152,456],kickingHip:[206,452],standingHip:[117,414],standingKnee:[152,205],standingFoot:[184,3],standingBall:[192,13],knee:[410,502],ball:[652,572],heel:[618,548],handL:[-52,639],handR:[141,707]},pivot:135,sfy:-35.84},
+    'boy|bakchagi3|1': {raw:{head:[95,764],neck:[98,637],chest:[139,554],leftShoulder:[11,572],rightShoulder:[206,658],pelvis:[225,456],kickingHip:[284,452],standingHip:[184,414],standingKnee:[208,205],standingFoot:[233,3],standingBall:[205,13],knee:[471,502],ball:[670,572],heel:[674,548],handL:[-28,639],handR:[206,707]},pivot:135,sfy:-35.84},
     'girl|apchagi|0': {raw:{head:[139,872],neck:[127,737],chest:[139,628],leftShoulder:[148,709],rightShoulder:[113,706],pelvis:[146,487],kickingHip:[146,461],standingHip:[145,461],standingKnee:[154,245],standingFoot:[139,38],standingBall:[195,13],knee:[337,554],ball:[579,677],heel:[536,610],handL:[263,745],handR:[217,709]},pivot:82,sfy:-35.84},
     'girl|apchagi|1': {raw:{head:[205,872],neck:[192,737],chest:[202,628],leftShoulder:[154,709],rightShoulder:[234,706],pelvis:[207,487],kickingHip:[236,461],standingHip:[179,461],standingKnee:[185,245],standingFoot:[177,38],standingBall:[209,13],knee:[379,554],ball:[561,677],heel:[531,610],handL:[254,745],handR:[338,709]},pivot:82,sfy:-35.84},
     'girl|narochagi|0': {raw:{head:[65,860],neck:[45,726],chest:[62,619],leftShoulder:[85,695],rightShoulder:[15,701],pelvis:[85,481],kickingHip:[63,455],standingHip:[107,455],standingKnee:[118,241],standingFoot:[129,34],standingBall:[195,13],knee:[141,653],ball:[185,880],heel:[234,855],handL:[195,705],handR:[90,702]},pivot:60,sfy:-35.84},
     'girl|narochagi|1': {raw:{head:[89,860],neck:[76,726],chest:[95,619],leftShoulder:[58,695],rightShoulder:[104,701],pelvis:[120,481],kickingHip:[127,455],standingHip:[113,455],standingKnee:[136,241],standingFoot:[158,34],standingBall:[209,13],knee:[213,653],ball:[248,880],heel:[321,855],handL:[161,705],handR:[187,702]},pivot:60,sfy:-35.84},
-    'girl|bakchagi3|0': {raw:{head:[0,810],neck:[18,676],chest:[71,581],leftShoulder:[-49,601],rightShoulder:[112,701],pelvis:[148,464],kickingHip:[203,460],standingHip:[112,421],standingKnee:[152,209],standingFoot:[188,4],standingBall:[195,13],knee:[411,514],ball:[656,589],heel:[622,562],handL:[-19,636],handR:[174,720]},pivot:135,sfy:-35.84},
-    'girl|bakchagi3|1': {raw:{head:[98,810],neck:[106,676],chest:[155,581],leftShoulder:[22,601],rightShoulder:[216,701],pelvis:[223,464],kickingHip:[283,460],standingHip:[181,421],standingKnee:[208,209],standingFoot:[238,4],standingBall:[209,13],knee:[472,514],ball:[673,589],heel:[679,562],handL:[-10,636],handR:[225,720]},pivot:135,sfy:-35.84}
+    'girl|bakchagi3|0': {raw:{head:[-25,779],neck:[-2,649],chest:[62,565],leftShoulder:[-66,583],rightShoulder:[95,670],pelvis:[155,465],kickingHip:[210,461],standingHip:[119,422],standingKnee:[155,209],standingFoot:[188,4],standingBall:[195,13],knee:[418,512],ball:[665,584],heel:[630,558],handL:[-53,651],handR:[144,721]},pivot:135,sfy:-35.84},
+    'girl|bakchagi3|1': {raw:{head:[97,779],neck:[100,649],chest:[142,565],leftShoulder:[11,583],rightShoulder:[211,670],pelvis:[230,465],kickingHip:[290,461],standingHip:[188,422],standingKnee:[212,209],standingFoot:[238,4],standingBall:[209,13],knee:[480,512],ball:[683,584],heel:[688,558],handL:[-28,651],handR:[210,721]},pivot:135,sfy:-35.84}
   };
   // FC_STATIC_END
   static async init3D() {
@@ -6813,7 +6813,7 @@ class QuizBlastSystem {
         a: ['في لفّة دايرية مستوية', 'Round in a level circle'],
         w: [['من فوق لتحت', 'From top to bottom'], ['لفوق على طول', 'Straight up'], ['مابتتحركش', 'It does not move']] },
       { q: ['جسمك بيبقى عامل إزاي وقت الضربة؟', 'How is your body at the strike?'],
-        a: ['مايل بعيد عن الركلة حوالي ٣٠°', 'Leaning away from the kick, about 30°'],
+        a: ['مايل لورا بعيد عن الركلة حوالي ٤٠°', 'Leaning back, away from the kick, about 40°'],
         w: [['واقف مفرود خالص', 'Standing fully upright'], ['منحني لقدام', 'Bent forward'], ['قاعد على الأرض', 'Sitting on the floor']] },
       { q: ['بنعمل إيه في المرحلة التانية من بيك تشاجي؟', 'What happens in the second phase of Bik Chagi?'],
         a: ['نرفع الركبة ونلفّها', 'Lift the knee and turn it over'],
@@ -14103,7 +14103,7 @@ if (typeof window !== 'undefined') window.RigBackend = RigBackend;
 // No WebGL → the 2D rig draws the same poses; nothing at all → a 🥋 card.
 // ============================================================================
 const PoseShots = (() => {
-  const VER = 'p17';                                 // v61: Bik Chagi leans from the chamber, eyes on the target · v60.8: Naeryeo pivot 45–90 · v60.7: Bik Chagi leans away at the strike · v60: Bik Chagi is a roundhouse kick · v59.9: Bik Chagi body upright · v59.8: Bik Chagi on the 45° line · v59.7: the coaches' angles · v56.2: Naeryeo lands with a straight leg, Bik Chagi hits with the instep · v54: the reference look (faces, hair, dobok, soft light, head ×0.78) · v51: legs ×1.2, new stance · bump when the rig, the kicks or the framing change (p2: kicks re-posed)
+  const VER = 'p18';                                 // v61.1: Bik Chagi like the coach's reel (lean ~40°) · v61: Bik Chagi leans from the chamber, eyes on the target · v60.8: Naeryeo pivot 45–90 · v60.7: Bik Chagi leans away at the strike · v60: Bik Chagi is a roundhouse kick · v59.9: Bik Chagi body upright · v59.8: Bik Chagi on the 45° line · v59.7: the coaches' angles · v56.2: Naeryeo lands with a straight leg, Bik Chagi hits with the instep · v54: the reference look (faces, hair, dobok, soft light, head ×0.78) · v51: legs ×1.2, new stance · bump when the rig, the kicks or the framing change (p2: kicks re-posed)
   const STORE = `tkdpose-${VER}`;
   const SIDE = -0.27, HERO = -0.95;                  // ¾ side view (like the games) · ¾ front view (portraits)
   const PX = 0.56;                                   // pixels per rig unit → a standing child ≈ 560 px tall
@@ -14461,7 +14461,7 @@ const RigSupport = {
 // can measure on itself (Skeleton3D.measure). The ranges come from the game's lessons and
 // published technique: Kukkiwon / poomsae guides, coaching references and kinematic
 // studies (Ap-Chagi: knee ~70–83° in the chamber, 105–115° between the legs at contact;
-// Bik Chagi (Dollyeo, the roundhouse): standing foot turned ~135°, heel toward the target, leg folded level, body leaning ~30° away from the kick at the strike,
+// Bik Chagi (Dollyeo, the roundhouse): standing foot turned ~135°, heel toward the target, leg folded level, body leaning back ~30° in the chamber and ~40° at the strike (the coach's reel), eyes on the target,
 // one line to the target; Naeryeo-Chagi: both knees straight, upper body upright, heel
 // lands ~45° from vertical). The lesson's 📐 view shows each one live against its target.
 const KickSpec = {
@@ -14494,9 +14494,9 @@ const KickSpec = {
     { lean: [-6, 6], supKnee: [150, 178] }] },
   bakchagi3: { part: 'instep', phases: [     // v59.7–8: the coaches' angles on the 45° line (knee here = the angle AT the knee, 180° = straight)
     { lean: [-6, 6], supKnee: [148, 168] },
-    { knee: [55, 72], thigh: [0, 17], pivot: [120, 150], hips: [75, 115], tilt: [15, 30], supKnee: [170, 180] },
-    { knee: [168, 180], thigh: [-15, 18], pivot: [120, 150], hips: [65, 110], tilt: [25, 40], supKnee: [168, 180], foot: ['belly'] },
-    { knee: [50, 70], tilt: [15, 28] },
+    { knee: [55, 72], thigh: [5, 25], pivot: [120, 150], hips: [75, 115], tilt: [25, 42], supKnee: [170, 180] },
+    { knee: [168, 180], thigh: [-15, 18], pivot: [120, 150], hips: [65, 110], tilt: [33, 48], supKnee: [168, 180], foot: ['belly'] },
+    { knee: [50, 70], tilt: [22, 38] },
     { lean: [-6, 6], supKnee: [148, 168] }] },
   // v56.2 — the striking part of the foot on a 3D skeleton, in world space
   // (ball = under the toes · instep = the top of the foot · heel)
