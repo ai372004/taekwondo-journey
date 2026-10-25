@@ -2,7 +2,7 @@
   "id": "/taekwondo-journey/",
   "name": "Taekwondo Journey – رحلة التايكوندو",
   "short_name": "Taekwondo",
-  "description": "Learn real taekwondo kicks, belts and poomsae with games, a weekly league and challenges with friends. Arabic & English, works offline, no ads.",
+  "description": "Learn real taekwondo kicks, belts and poomsae with games, weekly awards and challenges with friends. Arabic & English, works offline, no ads.",
   "lang": "ar",
   "dir": "rtl",
   "start_url": "./index.html?source=app",

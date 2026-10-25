@@ -1442,8 +1442,8 @@ class GameState {
         sparringTitle: 'Sparring', sparringDesc: 'Kick when the right target lights up',
         balanceTitle: 'Balance Hold', balanceDesc: 'Stand on one leg without falling',
         heavyBagTitle: 'Heavy Bag', heavyBagDesc: 'Kick the bag at the right moment',
-        leagueNav: 'League & Challenges', versusNav: 'Challenge a Friend', switchPlayerNav: 'Switch Player', coachNav: 'Coach Mode',
-        leagueTitle: '🏅 League & Challenges', leagueDesc: "Play today's challenge, climb the weekly league and win awards.",
+        leagueNav: 'Challenges', versusNav: 'Challenge a Friend', switchPlayerNav: 'Switch Player', coachNav: 'Coach Mode',
+        leagueTitle: '🏆 Challenges', leagueDesc: "Play today's challenge, duel your friends and win weekly awards.",
         versusTitle: '⚔️ Challenge a Friend', versusDesc: 'Two players, one screen: the first to kick a legal target scores.',
         coachTitle: '👩‍🏫 Coach Mode',
         profileNav: 'My Hero Page', playersNav: 'All Players',
@@ -1515,8 +1515,8 @@ class GameState {
         sparringTitle: 'النزال', sparringDesc: 'اركل لما الهدف الصح ينوّر',
         balanceTitle: 'اثبت واتوازن', balanceDesc: 'اثبت على رجل واحدة من غير ما تقع',
         heavyBagTitle: 'كيس الركلات', heavyBagDesc: 'اركل الكيس في الوقت الصح',
-        leagueNav: 'الدوري والتحديات', versusNav: 'تحدّى صاحبك', switchPlayerNav: 'غيّر اللاعب', coachNav: 'وضع المدرب',
-        leagueTitle: '🏅 الدوري والتحديات', leagueDesc: 'العب تحدي النهارده، اطلع في الدوري الأسبوعي واكسب جوايز.',
+        leagueNav: 'التحديات', versusNav: 'تحدّى صاحبك', switchPlayerNav: 'غيّر اللاعب', coachNav: 'وضع المدرب',
+        leagueTitle: '🏆 التحديات', leagueDesc: 'العب تحدي النهارده، واجه صحابك واكسب جوايز الأسبوع.',
         versusTitle: '⚔️ تحدّى صاحبك', versusDesc: 'لاعبين على شاشة واحدة: اللي يركل الأول في هدف صح ياخد النقط.',
         coachTitle: '👩‍🏫 وضع المدرب',
         profileNav: 'صفحة البطل بتاعتي', playersNav: 'كل اللاعبين',
@@ -2229,7 +2229,7 @@ class ScreenManager {
       case 'report': ReportSystem.initialize(this.gameState); break;
       case 'dashboard': if (window.DashboardSystem) DashboardSystem.initialize(this.gameState); break;
       default:
-        if (window.TKDScreens?.[screenId]) window.TKDScreens[screenId](this.gameState);   // v23 screens (league, versus, coach)
+        if (window.TKDScreens?.[screenId]) window.TKDScreens[screenId](this.gameState);   // v23 screens (challenges, versus, coach)
         else window.ArenaGames?.init(screenId, this.gameState);
     }
   }
@@ -15551,12 +15551,12 @@ window.DashboardSystem = DashboardSystem;
 
      StartScreen    "who's training?" — one screen: pick your card or add a
                     new player (name + boy/girl); language auto-detected
-     HomeHub        big "let's train" button + today's challenge + league
+     HomeHub        the journey map (+ the club card)
      TKDDifficulty  easy / normal / hard for the arena games, auto-easier
                     after two misses in a row
      TKDHints       animated first-time hint per game + read-aloud buttons
      Challenge      one game + kick per day, same for everyone, 3 counted tries
-     League         weekly points → tiers (bronze … champions), promotion,
+     League         weekly points → awards (the league itself was removed in v61.3),
                     weekly awards (champion, most improved, warm-up king)
      Certificates   printable PNG certificates for awards
      Coach          PIN-protected coach panel (players, stages, resets,
@@ -15954,29 +15954,22 @@ const Challenge = {
 window.Challenge = Challenge;
 
 // =====================================================================
-// WEEKLY LEAGUE + AWARDS
+// WEEKLY POINTS + AWARDS + SETTINGS
+// v61.3: the coach removed the league (tiers Bronze … Champions, the weekly table and the
+// promotions). What is left here: the shared settings, the weekly points (daily challenge,
+// warm-ups, training days) and the weekly awards they give.
 // =====================================================================
 const League = {
   KEY: 'taekwondoJourneyLeague',
-  TIERS: [
-    { icon: '🥉', en: 'Bronze League', ar: 'دوري البرونز', color: '#c08457' },
-    { icon: '🥈', en: 'Silver League', ar: 'دوري الفضة', color: '#aab4be' },
-    { icon: '🥇', en: 'Gold League', ar: 'الدوري الدهبي', color: '#e9c46a' },
-    { icon: '💎', en: 'Diamond League', ar: 'دوري الألماظ', color: '#6ec8ff' },
-    { icon: '👑', en: 'Champions League', ar: 'دوري الأبطال', color: '#ff9f6b' }
-  ],
   AWARDS: {
     'week-champion':  { icon: '🏆', en: 'Champion of the Week', ar: 'بطل الأسبوع' },
     'most-improved':  { icon: '📈', en: 'Most Improved', ar: 'أكتر واحد اتحسّن' },
     'warmup-king':    { icon: '🔥', en: 'Warm-up King', ar: 'ملك الإحماء' },
-    'promoted':       { icon: '⬆️', en: 'Promoted', ar: 'طلع دوري أعلى' },
     'tournament-champion': { icon: '👑', en: 'Tournament Champion', ar: 'بطل البطولة' }
   },
   load() { return TKD.read(this.KEY, { processedWeek: null, history: [], settings: {} }); },
   save(st) { TKD.write(this.KEY, st); },
-  settings() { const s = this.load().settings || {}; return { tries: s.tries || 3, promote: s.promote || 3, minPoints: s.minPoints ?? 150, medals: s.medals || 'normal', pace: s.pace || 'normal' }; },
-  tierOf(p) { return Math.max(0, Math.min(this.TIERS.length - 1, p?.tier || 0)); },
-  tierName(i) { const t = this.TIERS[i]; return TKD.ar ? t.ar : t.en; },
+  settings() { const s = this.load().settings || {}; return { tries: s.tries || 3, medals: s.medals || 'normal', pace: s.pace || 'normal' }; },
 
   // points for one week: best counted challenge score per day + 20 per warm-up day + 10 per training day
   pointsFor(pid, week = TKD.weekKey()) {
@@ -15993,25 +15986,22 @@ const League = {
     return { total: challenge + warm.size * 20 + train.size * 10, challenge, warmDays: warm.size, trainDays: train.size, challengeDays: Object.keys(bestPerDay).length };
   },
   table(week = TKD.weekKey()) {
-    const rows = window.Club?.joined() ? Club.leagueRows(week) : PlayerSystem.getPlayers().map(p => ({ p, tier: this.tierOf(p), ...this.pointsFor(p.id, week) }));
+    const rows = window.Club?.joined() ? Club.leagueRows(week) : PlayerSystem.getPlayers().map(p => ({ p, ...this.pointsFor(p.id, week) }));
     return rows.sort((a, b) => b.total - a.total || String(a.p.name).localeCompare(String(b.p.name)));
   },
-  daysLeft() { return Math.max(1, Math.round((new Date(TKD.addDays(TKD.weekKey(), 7) + 'T00:00:00') - new Date()) / 864e5)); },
 
-  // run once per new week: promote, give awards, remember celebrations
+  // run once per new week: give the awards, remember celebrations
   process() {
     const st = this.load();
     const cur = TKD.weekKey();
     if (!st.processedWeek) { st.processedWeek = cur; this.save(st); return; }
     if (st.processedWeek === cur) return;
     const week = st.processedWeek;
-    const set = this.settings();
     const players = PlayerSystem.getPlayers();
-    // v56: in a club, everybody of the gym is ranked together — each device then promotes and rewards its own players
+    // v56: in a club, everybody of the gym is ranked together — each device then rewards its own players
     const rows = window.Club?.joined() ? Club.leagueRows(week).map(r => ({ ...r, prev: r.prevTotal || 0 }))
-      : players.map(p => ({ p, tier: this.tierOf(p), ...this.pointsFor(p.id, week), prev: this.pointsFor(p.id, TKD.addDays(week, -7)).total }));
+      : players.map(p => ({ p, ...this.pointsFor(p.id, week), prev: this.pointsFor(p.id, TKD.addDays(week, -7)).total }));
     const isLocal = (pid) => players.some(x => x.id === pid);
-    const results = [];
     const awards = {};
     const give = (pid, id) => {
       const pl = PlayerSystem.getPlayers().find(x => x.id === pid); if (!pl) return;
@@ -16019,14 +16009,6 @@ const League = {
       const pending = pl.pending || []; pending.push({ id, week });
       PlayerSystem.updatePlayer(pid, { badges, pending });
     };
-    this.TIERS.forEach((_, ti) => {
-      const inTier = rows.filter(r => r.tier === ti).sort((a, b) => b.total - a.total);
-      inTier.forEach((r, i) => {
-        const promoted = i < set.promote && r.total >= set.minPoints && ti < this.TIERS.length - 1;
-        results.push({ pid: r.p.id, name: r.p.name, tier: ti, points: r.total, rank: i + 1, promoted });
-        if (promoted && isLocal(r.p.id)) { PlayerSystem.updatePlayer(r.p.id, { tier: ti + 1 }); give(r.p.id, 'promoted'); }
-      });
-    });
     const active = rows.filter(r => r.total > 0);
     if (active.length) {
       const champ = [...active].sort((a, b) => b.total - a.total)[0];
@@ -16037,7 +16019,7 @@ const League = {
       if (wk) { awards['warmup-king'] = wk.p.id; if (isLocal(wk.p.id)) give(wk.p.id, 'warmup-king'); }
       st.names = { ...(st.names || {}), ...Object.fromEntries(Object.values(awards).map(id => [id, rows.find(r => r.p.id === id)?.p.name || ''])) };
     }
-    st.history = [{ week, results, awards }, ...(st.history || [])].slice(0, 12);
+    st.history = [{ week, awards }, ...(st.history || [])].slice(0, 12);
     st.processedWeek = cur;
     this.save(st);
     window.Club?.pushSoon(3000);
@@ -16047,15 +16029,16 @@ const League = {
   // celebration for the signed-in player (awards they haven't seen yet)
   celebratePending() {
     const p = PlayerSystem.getCurrentPlayer(); if (!p || !(p.pending || []).length) return;
-    const items = p.pending;
+    const items = p.pending.filter(it => it.id !== 'promoted');   // v61.3: no league, no promotions
     PlayerSystem.updatePlayer(p.id, { pending: [] });
+    if (!items.length) return;
     const ov = document.createElement('div');
     ov.className = 'tkd-modal';
     ov.innerHTML = `<div class="tkd-modal-card tkd-celebrate">
       <div class="tkd-celebrate-burst">🎉</div>
       <h2>${TKD.t(`Well done, ${TKD.esc(p.name)}!`, `برافو يا ${TKD.esc(p.name)}!`)}</h2>
-      <ul>${items.map(it => `<li><b>${this.awardName(it.id)}</b>${it.id === 'promoted' ? ` → ${this.TIERS[this.tierOf(p)].icon} ${this.tierName(this.tierOf(p))}` : ''}
-        ${it.id !== 'promoted' ? `<button type="button" class="btn btn-small" data-cert="${it.id}" data-week="${it.week || ''}">📜 ${TKD.t('Certificate', 'الشهادة')}</button>` : ''}</li>`).join('')}</ul>
+      <ul>${items.map(it => `<li><b>${this.awardName(it.id)}</b>
+        <button type="button" class="btn btn-small" data-cert="${it.id}" data-week="${it.week || ''}">📜 ${TKD.t('Certificate', 'الشهادة')}</button></li>`).join('')}</ul>
       <button type="button" class="btn btn-success tkd-close">${TKD.t('Yay! 🎊', 'هييييه! 🎊')}</button></div>`;
     document.body.appendChild(ov);
     TKD.gs()?.playSound('win');
@@ -16154,10 +16137,9 @@ const StartScreen = {
       body = `<h2 class="ss-q">${TKD.t("Who's training today?", 'مين هيتمرن النهارده؟')}</h2>
         <div class="ss-grid">
           ${players.map(({ p }) => {
-            const tier = League.TIERS[League.tierOf(p)];
             const streak = TKD.read(GameState.storageKey(p.id), {})?.practiceStreak || 0;
             return `<button type="button" class="ss-card" data-pid="${p.id}">${TKD.avatar(p, 'lg')}
-              <b>${TKD.esc(p.name)}</b><small>${tier.icon} ${TKD.ar ? tier.ar : tier.en}${streak >= 2 ? ` · 🔥${TKD.num(streak)}` : ''}</small></button>`;
+              <b>${TKD.esc(p.name)}</b>${streak >= 2 ? `<small>🔥 ${TKD.num(streak)}</small>` : ''}</button>`;
           }).join('')}
           <button type="button" class="ss-card ss-add" id="ss-add"><span class="ss-plus">＋</span><b>${TKD.t('New player', 'لاعب جديد')}</b></button>
         </div>`;
@@ -16221,7 +16203,7 @@ const StartScreen = {
 window.StartScreen = StartScreen;
 
 // =====================================================================
-// HOME HUB — one big button + today's challenge + league
+// HOME HUB — the journey map (+ the club card)
 // =====================================================================
 const HomeHub = {
   STAGE: { warmup: { en: 'Warm-up', ar: 'الإحماء' }, learning: { en: 'Learning', ar: 'التعلم' }, games: { en: 'Games', ar: 'الألعاب' }, quiz: { en: 'The test', ar: 'الاختبار' } },
@@ -16238,9 +16220,8 @@ const HomeHub = {
     // challenge, the league, 1 × 1 and the belt syllabus here — they stay in the menus); the club card
     // shows only when the gym is online
     const club = !!window.Club?.joined();
-    const tierI = League.tierOf(p), tier = League.TIERS[tierI];
     el.innerHTML = `
-      <div class="hub-player"><button type="button" class="hub-me" id="hub-me" aria-label="${TKD.t('My hero page', 'صفحة البطل بتاعتي')}">${TKD.avatar(p)}</button><div class="hub-player-txt"><b>${TKD.esc(p.name)}</b><small>${tier.icon} ${League.tierName(tierI)}${gs.practiceStreak >= 2 ? ` · 🔥 ${TKD.num(gs.practiceStreak)}` : ''}</small></div>
+      <div class="hub-player"><button type="button" class="hub-me" id="hub-me" aria-label="${TKD.t('My hero page', 'صفحة البطل بتاعتي')}">${TKD.avatar(p)}</button><div class="hub-player-txt"><b>${TKD.esc(p.name)}</b>${gs.practiceStreak >= 2 ? `<small>🔥 ${TKD.num(gs.practiceStreak)}</small>` : ''}</div>
         <button type="button" class="btn btn-small btn-success" id="hub-profile">🏅 ${TKD.t('My page', 'صفحتي')}</button>
         <button type="button" class="btn btn-small hub-switch" id="hub-switch">👥 ${TKD.t('Switch player', 'غيّر اللاعب')}</button></div>
       ${window.Journey ? Journey.html() : `<button type="button" class="hub-cta" id="hub-cta"><span class="hub-cta-main">▶ ${TKD.t("Let's train!", 'يلا نتمرن!')}</span><span class="hub-cta-sub">${sub}</span></button>`}
@@ -16283,12 +16264,12 @@ window.HomeHub = HomeHub;
 // LEAGUE SCREEN
 // =====================================================================
 const LeagueScreen = {
-  tab: 'league',
+  tab: 'today',
   init() { League.process(); this.render(); },
   render() {
     const root = TKD.$('league-root'); if (!root) return;
     const club = !!window.Club?.joined();
-    const tabs = [['league', `🏅 ${TKD.t('League', 'الدوري')}`], ['today', `🏆 ${TKD.t('Today', 'النهارده')}`], ['awards', `🎖️ ${TKD.t('Awards', 'الجوايز')}`], ['versus', `⚔️ ${TKD.t('Duels', 'المواجهات')}`], ['gym', club ? `🏟️ ${TKD.t('Club heroes', 'أبطال النادي')}` : `🏟️ ${TKD.t('Gym', 'الصالة')}`]];
+    const tabs = [['today', `🏆 ${TKD.t('Today', 'النهارده')}`], ['awards', `🎖️ ${TKD.t('Awards', 'الجوايز')}`], ['versus', `⚔️ ${TKD.t('Duels', 'المواجهات')}`], ['gym', club ? `🏟️ ${TKD.t('Club heroes', 'أبطال النادي')}` : `🏟️ ${TKD.t('Gym', 'الصالة')}`]];
     root.innerHTML = `<div class="lg-tabs" role="tablist">${tabs.map(([k, l]) => `<button type="button" role="tab" aria-selected="${this.tab === k}" class="${this.tab === k ? 'on' : ''}" data-tab="${k}">${l}</button>`).join('')}</div>
       <div class="lg-body">${this[this.tab + 'HTML']()}</div>`;
     root.querySelectorAll('[data-tab]').forEach(b => b.addEventListener('click', () => { this.tab = b.dataset.tab; TKD.gs()?.playSound('click'); this.render(); }));
@@ -16308,30 +16289,6 @@ const LeagueScreen = {
     const hero = !local && p?.id && window.Club?.joined() && Club.find(p.id);
     return `<li class="lg-row ${cls} ${p?.id === TKD.pid() ? 'me' : ''} ${hero ? 'remote' : ''}" ${local ? `data-profile="${p.id}" tabindex="0" role="button"` : hero ? `data-hero="${p.id}" tabindex="0" role="button"` : ''}><span class="lg-rank">${i < 3 ? ['🥇', '🥈', '🥉'][i] : TKD.num(i + 1)}</span>${hero ? Club.avatar(hero) : TKD.avatar(p)}
       <span class="lg-name">${TKD.esc(p?.name || '?')}${sub ? `<small>${sub}</small>` : ''}</span><span class="lg-pts">${main}</span></li>`;
-  },
-  leagueHTML() {
-    const me = PlayerSystem.getCurrentPlayer();
-    const myTier = League.tierOf(me);
-    const set = League.settings();
-    const all = League.table();
-    const tierBlock = (ti) => {
-      const rows = all.filter(r => r.tier === ti);
-      if (!rows.length) return '';
-      const t = League.TIERS[ti];
-      return `<section class="lg-tier ${ti === myTier ? 'mine' : ''}" style="--tier:${t.color}">
-        <h3>${t.icon} ${League.tierName(ti)} <small>${TKD.t(`${rows.length} players`, TKD.count(rows.length, 'hero', 'ar'))}</small></h3>
-        <ol class="lg-list">${rows.map((r, i) => this.row(i, r.p, `${TKD.num(r.total)}`,
-          TKD.t(`${r.challengeDays} challenges · ${r.warmDays} warm-ups · ${r.trainDays} days`, `${TKD.count(r.challengeDays, 'challenge', 'ar')} · ${TKD.num(r.warmDays)} إحماء · ${TKD.count(r.trainDays, 'trainDay', 'ar')}`),
-          i < set.promote && ti < League.TIERS.length - 1 && r.total >= set.minPoints ? 'up' : '')).join('')}</ol></section>`;
-    };
-    return `${window.Club?.joined() ? Club.statusLine() : ''}<div class="lg-head"><div>${TKD.t('This week ends in', 'الأسبوع بيخلص بعد')} <b>${TKD.count(League.daysLeft(), 'day')}</b></div>
-        <div class="lg-legend"><span class="lg-up">⬆️</span> ${TKD.t(`top ${set.promote} with ${set.minPoints}+ points go up a league`, `أول ${TKD.num(set.promote)} اللي عندهم ${TKD.num(set.minPoints)} نقطة أو أكتر بيطلعوا دوري أعلى`)}</div></div>
-      ${[myTier, ...League.TIERS.map((_, i) => i).filter(i => i !== myTier).reverse()].map(tierBlock).join('')}
-      <details class="lg-how"><summary>❓ ${TKD.t('How are points counted?', 'النقط بتتحسب إزاي؟')}</summary>
-        <ul><li>🏆 ${TKD.t("Today's challenge: your best score each day (only the first 3 tries count)", 'تحدي النهارده: أحسن نتيجة ليك كل يوم (أول ٣ محاولات بس اللي بتتحسب)')}</li>
-        <li>🔥 ${TKD.t('+20 for every day you warm up', '+٢٠ لكل يوم تعمل فيه إحماء')}</li>
-        <li>📅 ${TKD.t('+10 for every day you train', '+١٠ لكل يوم تتمرن فيه')}</li>
-        <li>⬆️ ${TKD.t('Nobody goes down a league — only up!', 'محدش بينزل دوري — بس بتطلع!')}</li></ul></details>`;
   },
   todayHTML() {
     const c = Challenge.today(), left = Challenge.triesLeft();
@@ -16378,7 +16335,7 @@ const LeagueScreen = {
         <div class="tkd-row"><button type="button" class="btn btn-small" id="lg-mycard">📇 ${TKD.t('My card', 'كارتي')}</button>
         <button type="button" class="btn btn-small" id="lg-scan">📷 ${TKD.t('Add cards (coach)', 'ضيف كروت (المدرب)')}</button></div></div>
       ${window.Club?.usable() ? `<p class="club-hint">☁️ ${TKD.t('Tip: the coach can join this device to the online club (Coach → Club) — then everybody of the gym shows here, live.', 'نصيحة: المدرب يقدر يوصّل الجهاز ده بالنادي أونلاين (المدرب ← النادي) — وساعتها كل الصالة تظهر هنا على طول.')}</p>` : ''}
-      ${rows.length ? `<ol class="lg-list">${rows.map((r, i) => this.row(i, r.p, `${TKD.num(r.points)}`, `${League.TIERS[r.tier]?.icon || ''} ${r.local ? TKD.t('this device', 'الجهاز ده') : TKD.t(`card from ${r.updated}`, `كارت ${r.updated}`)}${r.stale ? ' · ⏳' : ''}`)).join('')}</ol>`
+      ${rows.length ? `<ol class="lg-list">${rows.map((r, i) => this.row(i, r.p, `${TKD.num(r.points)}`, `${r.local ? TKD.t('this device', 'الجهاز ده') : TKD.t(`card from ${r.updated}`, `كارت ${r.updated}`)}${r.stale ? ' · ⏳' : ''}`)).join('')}</ol>`
         : `<p class="lg-empty">${TKD.t('No players yet.', 'لسه مفيش لاعبين.')}</p>`}`;
   }
 };
@@ -16405,7 +16362,7 @@ const PlayerCard = {
   build(p) {
     const m = window.DashboardSystem ? DashboardSystem.masteryFor(p.id).map(x => x.overall) : [];
     const streak = TKD.read(GameState.storageKey(p.id), {})?.practiceStreak || 0;
-    return { v: 1, id: p.id, n: p.name, c: p.character || 'boy', t: League.tierOf(p), wk: TKD.weekKey(), wp: League.pointsFor(p.id).total, s: streak, m, d: TKD.dayKey() };
+    return { v: 1, id: p.id, n: p.name, c: p.character || 'boy', wk: TKD.weekKey(), wp: League.pointsFor(p.id).total, s: streak, m, d: TKD.dayKey() };
   },
   encode(card) {
     const bytes = new TextEncoder().encode(JSON.stringify(card));
@@ -16428,7 +16385,7 @@ const PlayerCard = {
     ov.className = 'tkd-modal';
     ov.innerHTML = `<div class="tkd-modal-card tkd-card-view">
       <h2>📇 ${TKD.t('Player card', 'كارت اللاعب')}</h2>
-      <div class="tkd-card-id">${TKD.avatar(p)}<div><b>${TKD.esc(p.name)}</b><small>${League.TIERS[card.t].icon} ${League.tierName(card.t)} · ${TKD.count(card.wp, 'point')} ${TKD.t('this week', 'الأسبوع ده')}</small></div></div>
+      <div class="tkd-card-id">${TKD.avatar(p)}<div><b>${TKD.esc(p.name)}</b><small>${TKD.count(card.wp, 'point')} ${TKD.t('this week', 'الأسبوع ده')}</small></div></div>
       <div class="tkd-qr" id="tkd-qr"></div>
       <p class="tkd-muted">${TKD.t("Show this to your coach's camera, or send the code.", 'وري الكارت ده لكاميرا المدرب، أو ابعتله الكود.')}</p>
       <textarea readonly class="tkd-code" rows="2" aria-label="code">${code}</textarea>
@@ -16466,10 +16423,10 @@ const GymBoard = {
   remove(id) { const st = this.load(); delete st.cards[id]; TKD.write(this.KEY, st); },
   rows() {
     const wk = TKD.weekKey();
-    const local = PlayerSystem.getPlayers().map(p => ({ p, points: League.pointsFor(p.id).total, tier: League.tierOf(p), local: true }));
+    const local = PlayerSystem.getPlayers().map(p => ({ p, points: League.pointsFor(p.id).total, local: true }));
     const ids = new Set(local.map(r => r.p.id));
     const remote = Object.values(this.load().cards).filter(c => !ids.has(c.id)).map(c => ({
-      p: { id: c.id, name: c.n, character: c.c }, points: c.wk === wk ? c.wp : 0, tier: c.t || 0, local: false, updated: c.d, stale: c.wk !== wk
+      p: { id: c.id, name: c.n, character: c.c }, points: c.wk === wk ? c.wp : 0, local: false, updated: c.d, stale: c.wk !== wk
     }));
     return [...local, ...remote].sort((a, b) => b.points - a.points);
   }
@@ -16499,7 +16456,7 @@ const Coach = {
   open(view = 'panel') { this.view = view; switchScreen('coach'); },
   init() { this.render(); },
   // v55 — the PIN is not left open behind the coach: leaving for a child's screen locks at once;
-  // a quick look at a coach tool (dashboard, report, league, tournament) keeps it open for 3 minutes
+  // a quick look at a coach tool (dashboard, report, challenges, tournament) keeps it open for 3 minutes
   TOOLS: ['dashboard', 'report', 'league', 'versus'],
   lock() { this.unlocked = false; this._leftAt = 0; this._pending = null; this.stopCamera(); if (window.VoiceRecorder?.recording()) VoiceRecorder.cancel(); },
   away(id) {
@@ -16569,7 +16526,7 @@ const Coach = {
           : ''}</p>
         ${setting && !this._first ? `<ul class="co-pin-what"><li>👥 ${TKD.t('Follow every player: who needs help, where kids get stuck', 'تابع كل لاعب: مين محتاج مساعدة، والأطفال بيتعثروا فين')}</li>
           <li>🎙️ ${TKD.t('Record the game in your own voice', 'سجّل كلام اللعبة بصوتك')}</li>
-          <li>⚙️ ${TKD.t('League rules, game pace, backups', 'قواعد الدوري، سرعة الألعاب، والنسخ الاحتياطية')}</li></ul>` : ''}
+          <li>⚙️ ${TKD.t('Challenge rules, game pace, backups', 'قواعد التحدي، سرعة الألعاب، والنسخ الاحتياطية')}</li></ul>` : ''}
         <div class="co-dots">${[0, 1, 2, 3].map(i => `<i class="${i < this._pin.length ? 'on' : ''}"></i>`).join('')}</div>
         <div class="co-pad" dir="ltr">${[1, 2, 3, 4, 5, 6, 7, 8, 9, '⌫', 0, '✓'].map(k => `<button type="button" data-k="${k}">${k}</button>`).join('')}</div>
         ${setting ? '' : `<button type="button" class="co-forgot" id="co-forgot">${TKD.t('Forgot the PIN?', 'نسيت الرقم السري؟')}</button>`}
@@ -16662,10 +16619,10 @@ const Coach = {
         <button type="button" class="btn btn-small" data-tool="backup">⬇️ ${TKD.t('Backup (all players)', 'نسخة احتياطية (كل اللاعبين)')}</button>
       </div>
       <div class="db-table-wrap"><table class="co-table">
-        <thead><tr><th>${TKD.t('Player', 'اللاعب')}</th><th>${TKD.t('League', 'الدوري')}</th><th>${TKD.t('Week pts', 'نقط الأسبوع')}</th><th>🔥</th><th>${TKD.t('Kicks open', 'الركلات المفتوحة')}</th><th>${TKD.t('Last 5 avg', 'متوسط آخر ٥')}</th><th>${TKD.t('Last played', 'آخر لعب')}</th><th></th></tr></thead>
+        <thead><tr><th>${TKD.t('Player', 'اللاعب')}</th><th>${TKD.t('Week pts', 'نقط الأسبوع')}</th><th>🔥</th><th>${TKD.t('Kicks open', 'الركلات المفتوحة')}</th><th>${TKD.t('Last 5 avg', 'متوسط آخر ٥')}</th><th>${TKD.t('Last played', 'آخر لعب')}</th><th></th></tr></thead>
         <tbody>${rows.map(({ p, s }) => `<tr data-pid="${p.id}">
           <td class="co-who">${TKD.avatar(p)} <b>${TKD.esc(p.name)}</b></td>
-          <td data-l="${TKD.t('League', 'الدوري')}">${League.TIERS[League.tierOf(p)].icon}</td><td data-l="${TKD.t('Week pts', 'نقط الأسبوع')}">${TKD.num(s.week)}</td><td data-l="🔥">${TKD.num(s.streak)}</td>
+          <td data-l="${TKD.t('Week pts', 'نقط الأسبوع')}">${TKD.num(s.week)}</td><td data-l="🔥">${TKD.num(s.streak)}</td>
           <td data-l="${TKD.t('Kicks', 'الركلات')}">${GameConfig.SKILL_ORDER.map(sk => `<span class="co-kick ${s.unlocked.includes(sk) ? 'on' : ''}" title="${TKD.skillName(sk)}">${TKD.num(GameConfig.SKILL_ORDER.indexOf(sk) + 1)}</span>`).join('')}</td>
           <td data-l="${TKD.t('Last 5', 'آخر ٥')}">${s.avg5 === null ? '—' : TKD.num(s.avg5) + (TKD.ar ? '٪' : '%')}</td><td data-l="${TKD.t('Last played', 'آخر لعب')}">${fmt(s.last)}</td>
           <td class="co-acts">
@@ -16690,7 +16647,7 @@ const Coach = {
       if (act === 'play') { PlayerSystem.selectPlayer(pid); switchScreen('home'); }
       if (act === 'card') PlayerCard.show(p);
       if (act === 'tries') {
-        // v55: extra tries for today — the score the child already got (and its league points) stays
+        // v55: extra tries for today — the score the child already got (and its weekly points) stays
         const day = TKD.dayKey(), used = Challenge.attemptsFor(pid, day).length, n = League.settings().tries;
         if (Challenge.triesLeft(pid, day) >= n) { TKD.toast(TKD.t(`${p.name} still has all of today's tries (${n})`, `محاولات ${p.name} النهارده لسه كاملة (${TKD.count(n, 'try', 'ar')})`), 'info'); return; }
         const st = League.load(); st.bonus = st.bonus || {};
@@ -16767,7 +16724,7 @@ const Coach = {
   },
   cardsHTML(cards = Object.values(GymBoard.load().cards)) {
     const day = (d) => { try { return new Date(d + 'T12:00:00').toLocaleDateString(TKD.ar ? 'ar-EG' : 'en-GB', { day: 'numeric', month: 'short' }); } catch (e) { return d; } };
-    return cards.length ? `<ul class="co-cards">${cards.map(c => `<li>${TKD.avatar({ character: c.c })}<b>${TKD.esc(c.n)}</b><small>${League.TIERS[c.t || 0].icon} ${TKD.count(c.wp, 'pt')} · ${TKD.t('card from', 'كارت يوم')} ${day(c.d)}</small><button type="button" data-rm="${c.id}" aria-label="${TKD.t('Remove', 'شيله')}">✖</button></li>`).join('')}</ul>`
+    return cards.length ? `<ul class="co-cards">${cards.map(c => `<li>${TKD.avatar({ character: c.c })}<b>${TKD.esc(c.n)}</b><small>${TKD.count(c.wp, 'pt')} · ${TKD.t('card from', 'كارت يوم')} ${day(c.d)}</small><button type="button" data-rm="${c.id}" aria-label="${TKD.t('Remove', 'شيله')}">✖</button></li>`).join('')}</ul>`
       : `<p class="lg-empty">${TKD.t('No cards yet — scan a player card from another phone.', 'لسه مفيش كروت — امسح كارت لاعب من موبايل تاني.')}</p>`;
   },
   bind_import(root) {
@@ -16903,8 +16860,6 @@ const Coach = {
     const sel = (id, vals, cur) => `<select id="${id}">${vals.map(v => `<option value="${v}" ${v === cur ? 'selected' : ''}>${TKD.num(v)}</option>`).join('')}</select>`;
     return `<div class="co-settings">
       <label>🏆 ${TKD.t('Counted challenge tries per day', 'عدد محاولات التحدي المحسوبة في اليوم')} ${sel('co-tries', [1, 2, 3, 4, 5], s.tries)}</label>
-      <label>⬆️ ${TKD.t('Players promoted per league each week', 'عدد اللي بيطلعوا من كل دوري كل أسبوع')} ${sel('co-promote', [1, 2, 3, 4, 5], s.promote)}</label>
-      <label>🎯 ${TKD.t('Minimum points to go up', 'أقل نقط عشان يطلع')} ${sel('co-min', [0, 50, 100, 150, 200, 300, 400], s.minPoints)}</label>
       <label>🏅 ${TKD.t('Medal difficulty', 'صعوبة الميداليات')} <select id="co-medals">${[['easy', TKD.t('Easier', 'أسهل')], ['normal', TKD.t('Normal', 'عادي')], ['hard', TKD.t('Harder', 'أصعب')]].map(([v, l]) => `<option value="${v}" ${s.medals === v ? 'selected' : ''}>${l}</option>`).join('')}</select></label>
       <p class="tkd-muted">${TKD.t('Easier = ×0.7, harder = ×1.4 on the medals you earn by training (warm-ups, games, days…). Skill medals like strongest kick don\'t change.', 'أسهل = ×٠٫٧، أصعب = ×١٫٤ على ميداليات التمرين (إحماء، ألعاب، أيام…). ميداليات المهارة زي أقوى ركلة مابتتغيرش.')}</p>
       <label>🐢 ${TKD.t('Game pace', 'إيقاع الألعاب')} <select id="co-pace">${TKDPace.LIST.map(([v, en, ar]) => `<option value="${v}" ${s.pace === v ? 'selected' : ''}>${TKD.t(en, ar)}</option>`).join('')}</select></label>
@@ -16925,7 +16880,6 @@ const Coach = {
       </section>
       <div class="tkd-row wrap">
         <button type="button" class="btn btn-small" id="co-newpin">🔑 ${TKD.t('Change PIN', 'غيّر الرقم السري')}</button>
-        <button type="button" class="btn btn-small btn-danger" id="co-reset-league">↺ ${TKD.t('Everyone back to Bronze', 'رجّع الكل للبرونز')}</button>
         <button type="button" class="btn btn-small btn-danger" id="co-erase">🗑️ ${TKD.t('Erase everything', 'امسح كل حاجة')}</button></div></div>`;
   },
   // v45: one child's row — pace, kicking leg, measured reaction time and a suggested pace
@@ -16943,12 +16897,12 @@ const Coach = {
           ${info}</div>`;
   },
   bind_settings() {
-    const saveLeague = () => {
+    const saveSettings = () => {
       const st = League.load();
-      st.settings = { tries: +TKD.$('co-tries').value, promote: +TKD.$('co-promote').value, minPoints: +TKD.$('co-min').value, medals: TKD.$('co-medals').value, pace: TKD.$('co-pace')?.value || 'normal' };
+      st.settings = { tries: +TKD.$('co-tries').value, medals: TKD.$('co-medals').value, pace: TKD.$('co-pace')?.value || 'normal' };
       League.save(st); TKD.toast(TKD.t('✅ Saved', '✅ اتحفظ'), 'success');
     };
-    ['co-tries', 'co-promote', 'co-min', 'co-medals', 'co-pace'].forEach(id => TKD.$(id)?.addEventListener('change', saveLeague));
+    ['co-tries', 'co-medals', 'co-pace'].forEach(id => TKD.$(id)?.addEventListener('change', saveSettings));
     TKD.$('co-backup').addEventListener('click', () => exportProgress());
     TKD.$('co-restore').addEventListener('change', (e) => importProgress(e.target));
     TKD.$('co-erase').addEventListener('click', () => hardResetGame());
@@ -16967,11 +16921,6 @@ const Coach = {
       b.remove(); TKD.toast(TKD.t('✅ Saved', '✅ اتحفظ'), 'success');
     }));
     TKD.$('co-newpin').addEventListener('click', () => { const c = TKD.read(this.KEY, {}); delete c.pin; TKD.write(this.KEY, c); this.unlocked = false; this.render(); });
-    TKD.$('co-reset-league').addEventListener('click', async () => {
-      if (!(await tkdConfirm(TKD.t('Put every player back in the Bronze league?', 'ترجّع كل اللاعبين لدوري البرونز؟')))) return;
-      PlayerSystem.getPlayers().forEach(p => PlayerSystem.updatePlayer(p.id, { tier: 0 }));
-      TKD.toast(TKD.t('Done', 'تمام'), 'success');
-    });
   }
 };
 window.Coach = Coach;
@@ -17518,7 +17467,6 @@ const Profile = {
       duelBest: duels.reduce((m, x) => Math.max(m, x.p1?.id === pid ? x.s1 : x.s2), 0),
       titles: vs.champions.filter(c => c.id === pid),
       awards: (p.badges || []).filter(b => b.id !== 'promoted'),
-      tier: League.tierOf(p),
       mastered: gs.completedSkills.size
     };
   },
@@ -17538,7 +17486,7 @@ const Profile = {
   // ~1 warm-up + ~5 games + the daily challenge per day, ~45% of games passed,
   // ~5% perfect. Target time to each medal: bronze ≈ 1–2 weeks (a quick first
   // win), silver ≈ 6–8 weeks, gold ≈ one season (4–5 months). Skill medals
-  // (power, reaction, kicks, league) are set by how hard the thing is, not by
+  // (power, reaction, kicks) are set by how hard the thing is, not by
   // time. scale: true → the coach's "medal difficulty" setting multiplies it.
   ACH: [
     { id: 'warmups',    icon: '🔥', en: 'Warm-up Hero',   ar: 'بطل الإحماء',     den: 'warm-ups',        dar: 'إحماء',          t: [5, 25, 60],   scale: true, v: c => c.warmups },
@@ -17554,7 +17502,6 @@ const Profile = {
     { id: 'duels',      icon: '⚔️', en: 'Duelist',        ar: 'مقاتل',           den: 'duels won',       dar: 'مواجهة كسبها',   t: [1, 8, 25],    scale: true, v: c => c.duelWins },
     { id: 'titles',     icon: '👑', en: 'Champion',       ar: 'البطل',            den: 'tournaments won', dar: 'بطولة',          t: [1, 2, 4],     v: c => c.titles.length },
     { id: 'awards',     icon: '🎖️', en: 'Decorated',      ar: 'متكرّم',           den: 'weekly awards',   dar: 'جايزة أسبوعية',  t: [1, 3, 6],     scale: true, v: c => c.awards.length },
-    { id: 'league',     icon: '⬆️', en: 'Climber',        ar: 'طالع لفوق',        den: 'league reached',  dar: 'الدوري',         t: [1, 2, 4],     v: c => c.tier, fmt: v => League.tierName(v), noUnit: true },
     { id: 'power',      icon: '💥', en: 'Power Kicker',   ar: 'رجل حديد',         den: 'power points',    dar: 'نقطة قوة',          t: [450, 650, 850], v: c => Profile.metaBest(c, ['heavy-bag'], 'bestPower')?.v || 0 },
     { id: 'reflex',     icon: '⚡', en: 'Lightning',      ar: 'البرق',            den: 's reaction',      dar: 'ث رد فعل',       t: [1.1, 0.85, 0.65], lower: true, v: c => Profile.metaBest(c, ['paddle-reflex', 'sparring-duel'], 'avgReaction', true)?.v || 0, fmt: v => v ? v.toFixed(2) : '—' }
   ],
@@ -17624,7 +17571,7 @@ const Profile = {
       push(q?.ts, '🎓', TKD.t(`Passed the ${TKD.skillName(sk)} test`, `عدّى اختبار ${TKD.skillName(sk)}`));
     });
     const perf = c.played.find(a => a.score >= 100); push(perf?.ts, '💯', TKD.t(`First 100% — ${TKD.gameName(perf?.gameId)}`, `أول ١٠٠٪ — ${TKD.gameName(perf?.gameId)}`));
-    (c.p.badges || []).forEach(b => push(new Date((b.week || TKD.dayKey()) + 'T20:00:00').getTime(), League.AWARDS[b.id]?.icon || '🏅', League.awardName(b.id).replace(/^\S+\s/, '')));
+    (c.p.badges || []).filter(b => b.id !== 'promoted').forEach(b => push(new Date((b.week || TKD.dayKey()) + 'T20:00:00').getTime(), League.AWARDS[b.id]?.icon || '🏅', League.awardName(b.id).replace(/^\S+\s/, '')));
     const dw = c.att.find(a => a.meta?.challenge && Challenge.ranking(a.meta.challenge)[0]?.pid === c.p.id);
     push(dw?.ts, '🥇', TKD.t('First day ranked #1 in the challenge', 'أول يوم في المركز الأول في التحدي'));
     const duel = window.Versus ? Versus.load().matches.find(m => m.winner === c.p.id) : null;
@@ -17641,7 +17588,6 @@ const Profile = {
     if (!c) { root.innerHTML = `<p class="lg-empty">${TKD.t('No players yet.', 'لسه مفيش لاعبين.')}</p>`; return; }
     const achs = this.achievements(c), trophies = this.trophies(c), lv = this.level(achs, trophies);
     const me = c.p.id === PlayerSystem.getCurrentPlayerId();
-    const tier = League.TIERS[c.tier];
     const medals = [0, 1, 2].map(i => achs.filter(a => a.tier > i).length);
     const recs = this.records(c);
     // v55: one long page became three short tabs — me · my achievements · my calendar
@@ -17663,20 +17609,20 @@ const Profile = {
       <section class="pf-sec">${this.timelineHTML(c)}</section>`
     };
     root.innerHTML = `
-      ${this.heroHTML(c, lv, tier, medals, trophies, me)}
+      ${this.heroHTML(c, lv, medals, trophies, me)}
       <div class="pf-tabs" role="tablist">${tabs.map(([id, ic, label]) => `<button type="button" role="tab" aria-selected="${id === tab}" class="${id === tab ? 'on' : ''}" data-pf-tab="${id}">${ic} ${label}</button>`).join('')}</div>
       <div class="pf-tabbody" role="tabpanel">${body[tab]()}</div>`;
     this.bind(root, c, achs, trophies, lv, medals);
     root.querySelectorAll('[data-pf-tab]').forEach(b => b.addEventListener('click', () => { this.tab = b.dataset.pfTab; TKD.gs()?.playSound('click'); this.render(); }));
     TKD.$('pf-trophy-room')?.addEventListener('click', () => switchScreen('trophy-room'));
   },
-  heroHTML(c, lv, tier, medals, trophies, me) {
+  heroHTML(c, lv, medals, trophies, me) {
     const belt = c.belt;
-    return `<section class="pf-hero" style="--tier:${tier.color}">
+    return `<section class="pf-hero" style="--tier:${belt.accent || '#ffd166'}">
       <div class="pf-hero-av">${TKD.avatar(c.p, 'xl')}<span class="pf-lvl" title="${TKD.t('Level', 'المستوى')}">${TKD.num(lv.level)}</span></div>
       <div class="pf-hero-main">
         <h2>${TKD.esc(c.p.name)}${me ? ` <em>${TKD.t('(you)', '(إنت)')}</em>` : ''}</h2>
-        <div class="pf-tags"><span>${tier.icon} ${League.tierName(c.tier)}</span>
+        <div class="pf-tags">
           <span class="pf-belt"><i style="background:${belt.color};border-color:${belt.accent}">${'<b></b>'.repeat(belt.stripes)}</i>${TKD.esc(TKD.ar ? belt.name.ar : belt.name.en)}</span></div>
         <div class="pf-xp"><span>${TKD.t(`Level ${lv.level}`, `المستوى ${TKD.num(lv.level)}`)}</span><div class="pf-xp-bar"><i style="width:${(lv.into / 3) * 100}%"></i></div><small>${TKD.t(`${3 - lv.into} more medals to level ${lv.level + 1}`, `فاضل ${TKD.count(3 - lv.into, 'medal', 'ar')} للمستوى ${TKD.num(lv.level + 1)}`)}</small></div>
       </div>
@@ -17766,21 +17712,20 @@ const Profile = {
   // ------------------------------------------------------------ shareable PNG card
   async shareCard(c, achs, trophies, lv, medals) {
     const W = 1080, H = 1350, cv = document.createElement('canvas'); cv.width = W; cv.height = H;
-    const g = cv.getContext('2d'); const tier = League.TIERS[c.tier];
+    const g = cv.getContext('2d'); const frame = '#ffd166';
     const bg = g.createLinearGradient(0, 0, W, H); bg.addColorStop(0, '#1d3557'); bg.addColorStop(0.55, '#15232c'); bg.addColorStop(1, '#3a1420');
     g.fillStyle = bg; g.fillRect(0, 0, W, H);
-    g.strokeStyle = tier.color; g.lineWidth = 14; g.beginPath(); g.roundRect(30, 30, W - 60, H - 60, 40); g.stroke();
+    g.strokeStyle = frame; g.lineWidth = 14; g.beginPath(); g.roundRect(30, 30, W - 60, H - 60, 40); g.stroke();
     const img = await new Promise(res => { const i = new Image(); i.onload = () => res(i); i.onerror = () => res(null); PoseShots.whenReady(PoseShots.url(c.p.character, 'hero', 0, { plain: true })).then(u => { i.src = u; }); });
     g.save(); g.beginPath(); g.arc(W / 2, 330, 190, 0, Math.PI * 2); g.fillStyle = 'rgba(255,255,255,0.08)'; g.fill(); g.clip();
     if (img) { const h = 520, w = img.width * h / img.height; g.drawImage(img, W / 2 - w / 2, 170, w, h); }
     g.restore();
-    g.lineWidth = 8; g.strokeStyle = tier.color; g.beginPath(); g.arc(W / 2, 330, 190, 0, Math.PI * 2); g.stroke();
+    g.lineWidth = 8; g.strokeStyle = frame; g.beginPath(); g.arc(W / 2, 330, 190, 0, Math.PI * 2); g.stroke();
     g.fillStyle = '#ff6b35'; g.beginPath(); g.arc(W / 2 + 150, 190, 58, 0, Math.PI * 2); g.fill();
     g.textAlign = 'center'; g.textBaseline = 'middle'; g.direction = TKD.ar ? 'rtl' : 'ltr';
     g.fillStyle = '#fff'; g.font = '900 56px Cairo, "Noto Sans Arabic", Roboto, system-ui, Tahoma, sans-serif'; g.fillText(TKD.num(lv.level), W / 2 + 150, 194);
     g.font = '900 96px Cairo, "Noto Sans Arabic", Roboto, system-ui, Tahoma, sans-serif'; g.fillText(c.p.name, W / 2, 610);
-    g.font = '700 44px Cairo, "Noto Sans Arabic", Roboto, system-ui, Tahoma, sans-serif'; g.fillStyle = tier.color; g.fillText(`${tier.icon} ${League.tierName(c.tier)}`, W / 2, 695);
-    g.fillStyle = '#cfd8dc'; g.font = '600 38px Cairo, "Noto Sans Arabic", Roboto, system-ui, Tahoma, sans-serif'; g.fillText(TKD.ar ? c.belt.name.ar : c.belt.name.en, W / 2, 755);
+    g.font = '700 44px Cairo, "Noto Sans Arabic", Roboto, system-ui, Tahoma, sans-serif'; g.fillStyle = frame; g.fillText(`🥋 ${TKD.ar ? c.belt.name.ar : c.belt.name.en}`, W / 2, 700);
     const tiles = [[`🔥 ${TKD.num(c.weekStreak)}`, TKD.t('weeks in a row', 'أسبوع ورا بعض')], [TKD.num(League.pointsFor(c.p.id).total), TKD.t('pts this week', 'نقطة الأسبوع')], [`🥇 ${TKD.num(medals[2])}`, TKD.t('gold medals', 'ميدالية دهب')], [`🏆 ${TKD.num(trophies.filter(t => t.ok).length)}`, TKD.t('trophies', 'كاس')]];
     tiles.forEach(([v, l], i) => {
       const x = 90 + (i % 2) * 460, y = 820 + Math.floor(i / 2) * 170;
@@ -17872,12 +17817,11 @@ const PlayersPage = {
         ${gymRecs}</div></section>` : ''}
       <div class="pl-sort" role="radiogroup">${Object.entries(sorts).map(([k, [l]]) => `<button type="button" role="radio" aria-checked="${this.sort === k}" class="${this.sort === k ? 'on' : ''}" data-sort="${k}">${l}</button>`).join('')}</div>
       <div class="pl-grid">${rows.map((r, i) => {
-        const tier = League.TIERS[r.c.tier];
-        return `<button type="button" class="pl-card ${r.p.id === PlayerSystem.getCurrentPlayerId() ? 'me' : ''}" data-pid="${r.p.id}" style="--tier:${tier.color}">
+        return `<button type="button" class="pl-card ${r.p.id === PlayerSystem.getCurrentPlayerId() ? 'me' : ''}" data-pid="${r.p.id}" style="--tier:${r.c.belt.accent || '#ffd166'}">
           <span class="pl-pos">${i < 3 ? ['🥇', '🥈', '🥉'][i] : TKD.num(i + 1)}</span>
           <span class="pl-av">${TKD.avatar(r.p, 'lg')}<span class="pf-lvl">${TKD.num(r.lv.level)}</span></span>
           <b class="pl-name">${TKD.esc(r.p.name)}</b>
-          <small>${tier.icon} ${League.tierName(r.c.tier)}</small>
+          <small>🥋 ${TKD.esc(TKD.ar ? r.c.belt.name.ar : r.c.belt.name.en)}</small>
           <span class="pl-belt"><i style="background:${r.c.belt.color};border-color:${r.c.belt.accent}">${'<b></b>'.repeat(r.c.belt.stripes)}</i></span>
           <span class="pl-stats"><span>🔥 ${TKD.num(r.c.weekStreak)}</span><span>📈 ${TKD.num(r.week)}</span><span>🏅 ${TKD.num(r.medals)}</span><span>🏆 ${TKD.num(r.trophies)}</span></span>
         </button>`;
@@ -19488,7 +19432,7 @@ const Shop = {
     { id: 'party-flowers', slot: 'party', icons: ['🌸', '🌼', '🌷'], cost: 15, en: 'Flowers', ar: 'ورد' },
     { id: 'party-champion', slot: 'party', icons: ['🐉', '🏆', '🥇'], cost: 25, en: 'Champion', ar: 'البطل' }
   ],
-  // the ring around your picture on the map, the league and the player cards
+  // the ring around your picture on the map and the player cards
   FRAMES: [
     { id: 'frame-none', slot: 'frame', color: null, cost: 0, en: 'None', ar: 'بدون' },
     { id: 'frame-gold', slot: 'frame', color: '#ffd166', cost: 10, en: 'Gold frame', ar: 'إطار دهبي' },
@@ -19538,7 +19482,7 @@ const Shop = {
     ['party-classic', 'frame-none', 'col-black', 'move-jump'].forEach(id => { if (!d.owned.includes(id)) d.owned.push(id); });
     return d;
   },
-  // the celebration icons and the avatar frame of any player (for the league, the player cards…)
+  // the celebration icons and the avatar frame of any player (the player cards…)
   party(pid) { const d = this.data(pid); return (this.find(d.equipped.party) || this.PARTIES[0]).icons; },
   frame(pid) { const d = this.data(pid); return (this.find(d.equipped.frame) || this.FRAMES[0]).color; },
   save(d) { TKD.write(this.key(), d); },
@@ -20385,7 +20329,7 @@ BreakReminder.start();
 // v56 — THE CLUB (online). Every device of the gym joins ONE club with a
 // 6-letter code from the coach. Each device sends a public profile of its
 // players (name, belt, level, medals, this week's points, today's challenge…)
-// and receives everybody else's — so the league, today's challenge ranking
+// and receives everybody else's — so the weekly awards, today's challenge ranking
 // and the heroes wall are the whole gym's, not one phone's.
 // Without a server configured (club-config.js) nothing changes: the game
 // stays fully offline. With no signal it keeps working and sends later.
@@ -20530,7 +20474,7 @@ const Club = {
     const recs = Profile.records(c), rec = (id) => recs.find(r => r.id === id)?.v ?? null;
     return {
       v: 1, id: p.id, name: String(p.name || '?').slice(0, 18), character: p.character === 'girl' ? 'girl' : 'boy',
-      belt: c.belt.id, mastered: int(c.mastered), level: Math.max(1, int(lv.level)), tier: Math.min(4, int(League.tierOf(p))),
+      belt: c.belt.id, mastered: int(c.mastered), level: Math.max(1, int(lv.level)), tier: 0,
       ach: Object.fromEntries(achs.filter(a => a.tier > 0).map(a => [a.id, a.tier])),
       trophies: trophies.filter(t => t.ok).map(t => t.id).slice(0, 40),
       mastery: window.DashboardSystem ? DashboardSystem.masteryFor(p.id).map(m => int(m.overall)) : [],
@@ -20587,13 +20531,13 @@ const Club = {
     const ch = d.character === 'girl' ? 'girl' : 'boy', fr = typeof d.frame === 'string' ? d.frame : null;
     return `<span class="tkd-avatar ${cls}${fr ? (fr === 'rainbow' ? ' tkd-frame-rainbow' : ' tkd-framed') : ''}" data-ch="${ch}"${fr && fr !== 'rainbow' ? ` style="--frame:${TKD.esc(fr)}"` : ''}><img src="${PoseShots.url(ch, 'portrait')}" alt=""></span>`;
   },
-  // the league table of one week for the whole club
+  // the weekly points of the whole club (for the awards and the hub)
   leagueRows(week = TKD.weekKey()) {
     const players = PlayerSystem.getPlayers();
     return this.rows().map(d => {
-      if (d.local) { const p = players.find(x => x.id === d.id); return { p, tier: League.tierOf(p), ...League.pointsFor(d.id, week), prevTotal: League.pointsFor(d.id, TKD.addDays(week, -7)).total, local: true }; }
+      if (d.local) { const p = players.find(x => x.id === d.id); return { p, ...League.pointsFor(d.id, week), prevTotal: League.pointsFor(d.id, TKD.addDays(week, -7)).total, local: true }; }
       const w = d.week?.k === week ? d.week : null, pv = d.prev?.k === week ? d.prev : null;
-      return { p: { id: d.id, name: d.name, character: d.character, remote: true }, tier: d.tier | 0, total: w ? w.pts : pv ? pv.pts : 0,
+      return { p: { id: d.id, name: d.name, character: d.character, remote: true }, total: w ? w.pts : pv ? pv.pts : 0,
                challenge: w?.ch || 0, warmDays: w?.warm || 0, trainDays: w?.train || 0, challengeDays: w?.chDays || 0,
                prevTotal: w && d.prev?.k === TKD.addDays(week, -7) ? d.prev.pts : 0, local: false };
     });
@@ -20618,7 +20562,6 @@ const Club = {
     const d = this.find(id); if (!d) return;
     if (d.local) { window.Profile?.open(id); return; }
     const belt = GameState.BELTS.find(b => b.id === d.belt) || GameState.BELTS[0];
-    const tierI = Math.min(League.TIERS.length - 1, d.tier | 0), tier = League.TIERS[tierI];
     const medals = (window.Profile ? Profile.ACH : []).filter(a => d.ach?.[a.id]).map(a => `<span class="ch-medal t${d.ach[a.id]}" title="${TKD.esc(TKD.t(a.en, a.ar))}">${a.icon}<small>${['', '🥉', '🥈', '🥇'][d.ach[a.id]] || ''}</small><i>${TKD.esc(TKD.t(a.en, a.ar))}</i></span>`).join('');
     const kicks = GameConfig.SKILL_ORDER.map((sk, i) => `<div class="ch-kick"><span>${TKD.esc(TKD.skillName(sk))}</span><span class="ch-bar"><i style="width:${Math.min(100, d.mastery?.[i] || 0)}%"></i></span><b>${TKD.num(d.mastery?.[i] || 0)}${TKD.ar ? '٪' : '%'}</b></div>`).join('');
     const r = d.records || {};
@@ -20628,7 +20571,7 @@ const Club = {
       <button type="button" class="rp-x" data-x aria-label="${TKD.t('Close', 'اقفل')}">✕</button>
       <div class="ch-top">${this.avatar(d)}<div><h2>${TKD.esc(d.name)}</h2>
         <p><span class="ch-belt" style="--belt:${belt.color};--belt-2:${belt.accent}"></span>${TKD.esc(TKD.ar ? belt.name.ar : belt.name.en)}</p>
-        <p>⭐ ${TKD.t('Level', 'المستوى')} ${TKD.num(d.level || 1)} · ${tier.icon} ${League.tierName(tierI)}</p></div></div>
+        <p>⭐ ${TKD.t('Level', 'المستوى')} ${TKD.num(d.level || 1)}</p></div></div>
       <div class="ch-stats">
         <div><b>${TKD.num(d.week?.k === TKD.weekKey() ? d.week.pts : 0)}</b><small>${TKD.t('points this week', 'نقط الأسبوع ده')}</small></div>
         <div><b>${d.today?.d === TKD.dayKey() && d.today.ch >= 0 ? TKD.num(d.today.ch) + (TKD.ar ? '٪' : '%') : '—'}</b><small>${TKD.t("today's challenge", 'تحدي النهارده')}</small></div>
@@ -20647,7 +20590,7 @@ const Club = {
     TKD.gs()?.playSound('click');
   },
 
-  // ---------------------------------------------------------------- the heroes wall (league screen, "club" tab)
+  // ---------------------------------------------------------------- the heroes wall (challenges screen, "club" tab)
   wallHTML() {
     const rows = this.rows();
     const wk = TKD.weekKey();
@@ -20657,13 +20600,12 @@ const Club = {
       <p class="tkd-muted club-wall-sub">${TKD.t(`${rows.length} heroes in the club — tap one to see their medals`, `${TKD.count(rows.length, 'hero')} في النادي — دوس على أي حد تشوف ميدالياته`)}</p>
       <div class="club-wall">${sorted.map(d => {
         const belt = GameState.BELTS.find(b => b.id === d.belt) || GameState.BELTS[0];
-        const tier = League.TIERS[Math.min(League.TIERS.length - 1, d.tier | 0)];
         const medals = Object.values(d.ach || {}).reduce((s, v) => s + v, 0);
         return `<button type="button" class="club-hero-card ${d.id === TKD.pid() ? 'me' : ''}" data-hero="${d.id}" style="--belt:${belt.color};--belt-2:${belt.accent}">
           ${this.avatar(d)}
           <b>${TKD.esc(d.name)}</b>
           <span class="chc-belt"></span>
-          <small>⭐ ${TKD.num(d.level || 1)} · ${tier.icon} · 🏅 ${TKD.num(medals)}</small>
+          <small>⭐ ${TKD.num(d.level || 1)} · 🏅 ${TKD.num(medals)}</small>
           <small>${TKD.t(TKD.count(pts(d), 'pt', 'en'), TKD.count(pts(d), 'point', 'ar'))} ${TKD.t('this week', 'الأسبوع ده')}</small>
           ${d.local ? `<span class="chc-here">${TKD.t('this device', 'الجهاز ده')}</span>` : ''}
         </button>`;
@@ -20673,12 +20615,12 @@ const Club = {
   // ---------------------------------------------------------------- coach: the club page
   coachHTML() {
     if (!this.configured()) return `<div class="club-setup"><h3>☁️ ${TKD.t('The online club', 'النادي أونلاين')}</h3>
-      <p>${TKD.t('The club lets every device of the gym share the league, today\'s challenge and the heroes wall.', 'النادي بيخلي كل أجهزة الصالة يشوفوا نفس الدوري وتحدي النهارده وحيطة الأبطال.')}</p>
+      <p>${TKD.t('The club lets every device of the gym share the weekly awards, today\'s challenge and the heroes wall.', 'النادي بيخلي كل أجهزة الصالة يشوفوا نفس جوايز الأسبوع وتحدي النهارده وحيطة الأبطال.')}</p>
       <p class="co-voice-warn">⚙️ ${TKD.t('It needs a server: put your Firebase settings in club-config.js (see the guide).', 'محتاج سيرفر: حط إعدادات Firebase بتاعتك في ملف club-config.js (شوف الشرح).')}</p></div>`;
     if (!this.usable()) return `<div class="club-setup"><h3>☁️ ${TKD.t('The online club', 'النادي أونلاين')}</h3>
       <p class="co-voice-warn">🌐 ${TKD.t('Open the game from its web link (https://…) — the club cannot work when the game is opened from a folder.', 'افتح اللعبة من الرابط بتاعها على النت (https://…) — النادي مش بيشتغل واللعبة مفتوحة من فولدر.')}</p></div>`;
     if (!this.joined()) return `<div class="club-setup">
-      <p>${TKD.t('Join this device to your gym\'s club: the league, today\'s challenge and the heroes wall become the whole gym\'s.', 'وصّل الجهاز ده بنادي الصالة: الدوري وتحدي النهارده وحيطة الأبطال يبقوا للصالة كلها.')}</p>
+      <p>${TKD.t('Join this device to your gym\'s club: the weekly awards, today\'s challenge and the heroes wall become the whole gym\'s.', 'وصّل الجهاز ده بنادي الصالة: جوايز الأسبوع وتحدي النهارده وحيطة الأبطال يبقوا للصالة كلها.')}</p>
       <section class="club-box"><h3>🔑 ${TKD.t('Join with the club code', 'ادخل بكود النادي')}</h3>
         <input id="club-code" class="player-name-input club-code-in" maxlength="8" autocomplete="off" autocapitalize="characters" dir="ltr" placeholder="ABC234">
         <button type="button" class="btn btn-success" id="club-join">${TKD.t('Join', 'ادخل')}</button></section>

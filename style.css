@@ -5158,24 +5158,15 @@ body.start-open { overflow: hidden; }
 .lg-tabs button.on, .co-nav button.on { background: var(--primary-color); color: #fff; border-color: var(--primary-color); }
 .lg-body { text-align: start; color: var(--tkd-ink); }
 .lg-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; color: var(--tkd-ink-2); }
-.lg-legend { font-size: .85rem; }
-.lg-tier { background: var(--tkd-surface); border: 1px solid var(--tkd-line); border-inline-start: 5px solid var(--tier); border-radius: 16px; padding: 12px 14px; margin-bottom: 12px; }
-.lg-tier.mine { box-shadow: 0 0 0 2px var(--tier); }
-.lg-tier h3 { margin: 0 0 8px; font-size: 1.05rem; }
-.lg-tier h3 small, .lg-sub small { color: var(--tkd-ink-3); font-weight: 500; }
+.lg-sub small { color: var(--tkd-ink-3); font-weight: 500; }
 .lg-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
 .lg-row { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 12px; background: var(--tkd-surface-2); }
 .lg-row.me { outline: 2px solid var(--primary-color); }
-.lg-row.up { background: linear-gradient(90deg, rgba(42,157,143,0.28), var(--tkd-surface-2)); }
-body[dir="rtl"] .lg-row.up { background: linear-gradient(270deg, rgba(42,157,143,0.28), var(--tkd-surface-2)); }
-.lg-row.up .lg-pts::after { content: ' ⬆️'; }
 .lg-rank { width: 30px; text-align: center; font-weight: 900; }
 .lg-name { flex: 1; min-width: 0; display: flex; flex-direction: column; font-weight: 800; }
 .lg-name small { font-weight: 500; color: var(--tkd-ink-3); font-size: .78rem; }
 .lg-pts { font-weight: 900; font-size: 1.1rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .lg-empty { color: var(--tkd-ink-3); text-align: center; padding: 20px; }
-.lg-how { margin-top: 12px; background: var(--tkd-surface); border-radius: 12px; padding: 10px 14px; color: var(--tkd-ink-2); }
-.lg-how summary { cursor: pointer; font-weight: 700; color: var(--tkd-ink); }
 .lg-challenge { display: flex; align-items: center; gap: 14px; background: linear-gradient(160deg, rgba(120,90,20,0.5), var(--tkd-surface)); border: 1px solid rgba(233,196,106,0.4); border-radius: 18px; padding: 14px; margin-bottom: 12px; flex-wrap: wrap; }
 .lg-challenge > div:nth-child(2) { flex: 1; min-width: 200px; }
 .lg-challenge h3 { margin: 0 0 4px; }
