@@ -737,7 +737,6 @@ p {
    the photo keeps the icon/title readable. */
 .game-card[data-game="form-control"]  { background-image: linear-gradient(145deg, rgba(38,70,83,0.72), rgba(26,53,66,0.85)), url('assets/images/backgrounds/forms_practice_bg.webp'); background-size: cover; background-position: center; }
 .game-card[data-game="puzzle"]        { background-image: linear-gradient(145deg, rgba(38,70,83,0.72), rgba(26,53,66,0.85)), url('assets/images/backgrounds/puzzle_challenge_bg.webp'); background-size: cover; background-position: center; }
-.game-card[data-game="performance"]   { background-image: linear-gradient(145deg, rgba(38,70,83,0.72), rgba(26,53,66,0.85)), url('assets/images/backgrounds/reflex_arena_bg.webp'); background-size: cover; background-position: center; }
 .game-card[data-game="action"]        { background-image: linear-gradient(145deg, rgba(38,70,83,0.72), rgba(26,53,66,0.85)), url('assets/images/backgrounds/sparring_training_bg.webp'); background-size: cover; background-position: center; }
 .game-card[data-game="error-hunt"]    { background-image: linear-gradient(145deg, rgba(38,70,83,0.72), rgba(26,53,66,0.85)), url('assets/images/backgrounds/belt_training_bg.webp'); background-size: cover; background-position: center; }
 .game-card[data-game="quiz-blast"]    { background-image: linear-gradient(145deg, rgba(38,70,83,0.72), rgba(26,53,66,0.85)), url('assets/images/backgrounds/quiz_room_bg.webp'); background-size: cover; background-position: center; }
@@ -1132,102 +1131,10 @@ p {
   color: var(--primary-color);
 }
 
-/* Performance HUD container */
-#perf-hud {
-  max-width: 600px;
-  margin: 0 auto 20px;
-  padding: 16px 20px;
-  background: var(--shadow-color);
-  border-radius: var(--radius-medium);
-  border: 1px solid var(--surface-tint);
-}
-
-/* ===================================================================== */
-/* 11. GAME 3: PERFORMANCE RECOGNITION                                   */
-/* ===================================================================== */
-.performance-question { text-align: center; margin: var(--space-xl) auto; max-width: var(--max-width-medium); }
-.performance-cards {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-xl); max-width: var(--max-width-ultra); margin: 0 auto;
-}
-
-.performance-card {
-  background: linear-gradient(145deg, rgba(38, 70, 83, 0.9), rgba(26, 53, 66, 0.9));
-  border: 2px solid transparent;
-  border-radius: var(--radius-large);
-  padding: var(--space-xl);
-  text-align: center;
-  min-height: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: all var(--transition-medium);
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-
-.performance-card[data-correct="true"]:hover {
-  border-color: var(--success-color);
-  box-shadow: 0 0 30px rgba(42, 157, 143, 0.5);
-}
-
-.performance-card[data-correct="false"]:hover {
-  border-color: var(--danger-color);
-  box-shadow: 0 0 30px rgba(230, 57, 70, 0.5);
-}
-
-.performance-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, var(--border-light), transparent);
-  transition: left 0.5s;
-}
-
-.performance-card:hover::before {
-  left: 100%;
-}
-
-.performance-card.selected {
-  transform: scale(1.02);
-  border-width: 4px;
-  animation: card-select 0.5s ease;
-}
-
 @keyframes card-select {
   0% { transform: scale(1); }
   50% { transform: scale(1.05); }
   100% { transform: scale(1); }
-}
-
-.performance-card[data-correct="true"].selected {
-  background: rgba(42, 157, 143, 0.2);
-  border: 4px solid var(--success-color);
-  box-shadow: 0 0 40px rgba(42, 157, 143, 0.5);
-}
-
-.performance-card[data-correct="false"].selected {
-  background: rgba(230, 57, 70, 0.2);
-  border: 4px solid var(--danger-color);
-  box-shadow: 0 0 40px rgba(230, 57, 70, 0.5);
-}
-
-.select-card-btn {
-  width: 100%;
-  margin-top: 15px;
-  transition: all 0.3s ease;
-}
-
-.performance-card[data-correct="true"].selected .select-card-btn {
-  background: var(--success-color);
-  transform: scale(1.05);
-}
-
-.performance-card[data-correct="false"].selected .select-card-btn {
-  background: var(--danger-color);
 }
 
 /* ===================================================================== */
@@ -1641,7 +1548,7 @@ html[dir="rtl"] #flash-container {
   .screen { padding: var(--space-lg) var(--space-md); }
   h1 { font-size: var(--font-xxl); }
   .logo { font-size: 3.5rem; }
-  .game-cards, .performance-cards { grid-template-columns: 1fr; }
+  .game-cards { grid-template-columns: 1fr; }
   .puzzle-board { grid-template-columns: repeat(2, 1fr); }
   .character-stage { height: 400px; }
   .video-container { padding: var(--space-md); }
@@ -1653,7 +1560,6 @@ html[dir="rtl"] #flash-container {
   .control-point::after { width: 14px; height: 14px; }
   .puzzle-slot { min-height: 150px; }
   .piece-image-container { height: 80px; }
-  .performance-card { min-height: 350px; }
   
   .character-change-options { flex-direction: column; align-items: center; }
 }
@@ -1668,7 +1574,6 @@ html[dir="rtl"] #flash-container {
   .control-point { width: 30px; height: 30px; }
   .character-selector-form label { width: 100%; justify-content: center; }
   .puzzle-pieces { grid-template-columns: repeat(2, 1fr); }
-  .performance-card { min-height: 320px; }
 }
 
 /* ===================================================================== */
@@ -2507,68 +2412,9 @@ html[dir="rtl"] .navigation.collapsible {
   80%       { transform: translateX(4px); }
 }
 
-/* ===================================================================== */
-/* 21. PERFORMANCE SYSTEM — TIMER BAR, ZOOM FEEDBACK                    */
-/* ===================================================================== */
-
-/* Timer bar */
-.perf-timer-bar-wrap {
-  width: 100%;
-  height: 10px;
-  background: var(--border-light);
-  border-radius: 5px;
-  overflow: hidden;
-  margin: 0 auto 20px;
-  max-width: 600px;
-}
-
-.perf-timer-bar-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--success-color), var(--warning-color), var(--danger-color));
-  border-radius: 5px;
-  transition: width 0.5s linear;
-  width: 100%;
-}
-
-.perf-timer-text {
-  text-align: center;
-  font-size: var(--font-xl);
-  font-weight: bold;
-  color: var(--warning-color);
-  margin-bottom: 12px;
-  font-variant-numeric: tabular-nums;
-}
-
-.perf-timer-text.urgent { color: var(--danger-color); animation: urgentPulse 0.5s ease-in-out infinite; }
-
 @keyframes urgentPulse {
   0%, 100% { transform: scale(1); }
   50%       { transform: scale(1.08); }
-}
-
-/* Streak badge */
-.perf-streak {
-  text-align: center;
-  font-size: var(--font-lg);
-  font-weight: bold;
-  color: var(--warning-color);
-  height: 32px;
-  margin-bottom: 8px;
-  transition: all 0.3s ease;
-}
-
-/* Score display */
-.perf-score-display {
-  text-align: center;
-  font-size: var(--font-md);
-  color: var(--text-gray);
-  margin-bottom: 16px;
-}
-
-.perf-score-display span {
-  color: var(--gold-color);
-  font-weight: bold;
-  font-size: var(--font-xl);
 }
 
 /* Zoom overlay for wrong answer */
@@ -3255,40 +3101,6 @@ body[dir="rtl"] .skill-card.locked .lock-overlay {
 @keyframes imgPendingPulse {
   0%, 100% { opacity: 0.4; }
   50%      { opacity: 0.7; }
-}
-
-/* ===== Performance Recognition — "Spot the Mistake" redesign =====
-   One shared reference image per round + 3 text claim cards. */
-.perf-ref-image {
-  width: 100%;
-  max-width: 320px;
-  height: 240px;
-  margin: 16px auto 24px;
-  border-radius: var(--radius-large);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: rgba(0,0,0,0.2);
-  box-shadow: 0 8px 24px var(--shadow-color);
-}
-
-.performance-card.text-only {
-  min-height: 120px;
-  padding: var(--space-lg) var(--space-xl);
-}
-
-.performance-card.text-only .card-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-}
-
-.claim-icon { font-size: 1.4rem; opacity: 0.7; }
-
-@media (max-width: 480px) {
-  .perf-ref-image { height: 190px; max-width: 260px; }
 }
 
 /* ===== Quiz skill badge (shown when interleaving across unlocked skills) ===== */
@@ -6130,35 +5942,6 @@ html.lite .winner-visual::before, html.lite .celebration-icon { animation-iterat
 @media (prefers-reduced-motion: reduce) { .winner-stars i.on { animation: none; transform: none; } }
 @media (min-width: 700px) { .jr-board { max-width: 520px; } .jr-dot { width: 66px; height: 66px; } .jr-step.is-now .jr-dot { width: 78px; height: 78px; } .jr-lbl { font-size: .82rem; } .jr-stage { width: 70px; height: 92px; } }
 
-
-/* =====================================================================
-   v41 — Find the mistake (Performance) on phones: the picture, the question
-   and the three statements fit on ONE screen, so the child never scrolls up
-   and down while the timer runs. (v59: on short laptop screens too)
-   ===================================================================== */
-@media (max-width: 760px), (max-height: 920px) {
-  #performance-screen .game-container > h2 { font-size: 1.15rem; margin: 2px 0 0; }
-  #performance-screen .game-container > .description { display: none; }
-  #performance-screen .performance-question { margin: 4px 0 6px; padding: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px 8px; }
-  #performance-screen .performance-question h3 { font-size: .98rem; line-height: 1.35; margin: 0; flex: 1 1 100%; }
-  #performance-screen .performance-question .speak-btn { width: 34px; height: 34px; min-height: 0; font-size: .85rem; }
-  #performance-screen #perf-round-counter { margin: 0 !important; font-size: .85rem !important; }
-  #performance-screen .perf-ref-image { height: min(28vh, 210px) !important; max-width: 230px; margin: 0 auto 4px; }
-  #performance-screen #perf-hud { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 4px 10px; padding: 6px 10px; margin: 0 0 8px; min-height: 0; }
-  #performance-screen #perf-hud .perf-streak { grid-column: 1 / -1; font-size: .8rem; min-height: 0; }
-  #performance-screen #perf-hud .perf-streak:empty { display: none; }
-  #performance-screen #perf-hud .perf-score-display { font-size: .9rem; margin: 0; }
-  #performance-screen #perf-hud .perf-timer-text { font-size: 1rem; margin: 0; grid-column: 3; grid-row: 2; }
-  #performance-screen #perf-hud .perf-timer-bar-wrap { grid-column: 2; grid-row: 2; margin: 0; }
-  #performance-screen .performance-cards { gap: 8px; margin: 0; }
-  #performance-screen .performance-card.text-only { min-height: 0 !important; padding: 8px 10px; display: flex; flex-direction: row; align-items: center; gap: 10px; }
-  #performance-screen .performance-card.text-only .card-content { flex: 1; min-width: 0; padding: 0; text-align: start; }
-  #performance-screen .performance-card .claim-icon { display: none; }
-  #performance-screen .performance-card.text-only p { margin: 0 !important; font-size: .9rem !important; line-height: 1.35 !important; text-align: start; }
-  #performance-screen .performance-card .select-card-btn { flex: 0 0 auto; width: auto; margin: 0; padding: 8px 10px; font-size: .8rem; min-height: 40px; white-space: nowrap; }
-  #performance-screen .game-controls { margin-top: 8px; }
-}
-
 /* v42 — Coach Yang in 3D inside the coach boxes */
 .coach-instruction:has(.has-3d-coach) { display: flex; align-items: center; gap: 12px; }
 .coach-visual.has-3d-coach { flex: 0 0 auto; width: 120px; height: 160px; }
@@ -6398,12 +6181,6 @@ html.lite .winner-visual::before, html.lite .celebration-icon { animation-iterat
   #puzzle-screen .step-desc-text p { font-size: .84rem; line-height: 1.45; }
   #puzzle-screen .puzzle-pieces-container h3 { font-size: 1rem; margin-bottom: 10px; }
 }
-
-/* v54 — Performance: hovering a statement used to light the ANSWER green and the others red
-   (on a phone the last tap kept that "hover"), giving the round away — now every statement
-   lights the same until the child chooses */
-.performance-card[data-correct]:not(.selected):hover { border-color: var(--primary-color); box-shadow: 0 0 22px rgba(255, 107, 53, 0.35); }
-@media (hover: none) { .performance-card[data-correct]:not(.selected):hover { border-color: transparent; box-shadow: none; } }
 
 /* ===================================================================== */
 /* v55 — Strike Challenge on the live fighter                             */
@@ -7034,9 +6811,6 @@ html.lite .winner-visual::before, html.lite .celebration-icon { animation-iterat
 .unit-cards .game-card h3 { font-size: .95rem !important; margin: 2px 0 !important; line-height: 1.25; }
 .unit-cards .game-card p, .unit-cards .game-card .progress-container { display: none !important; }
 .unit-cards .game-card .game-status { font-size: .76rem; }
-/* Judge's Eye: the question already says what to do — no second copy, and a smaller picture
-   on short screens so the sentences are on screen too */
-#performance-screen .game-container > p.description { display: none; }
 /* the pose stage leaves room for its "Check" button under it on a short laptop screen */
 @media (min-width: 601px) and (max-height: 920px) {
   #form-control-screen .character-stage { width: min(100%, max(260px, calc((100dvh - 500px) * 1.2))); }

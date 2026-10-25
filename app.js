@@ -411,7 +411,6 @@ const GameConfig = {
     GAMES:           'assets/images/backgrounds/arena_bg.webp',
     'FORM-CONTROL':  'assets/images/backgrounds/forms_practice_bg.webp',
     PUZZLE:          'assets/images/backgrounds/puzzle_challenge_bg.webp',
-    PERFORMANCE:     'assets/images/backgrounds/reflex_arena_bg.webp',
     ACTION:          'assets/images/backgrounds/sparring_training_bg.webp',
     'ERROR-HUNT':    'assets/images/backgrounds/belt_training_bg.webp',
     QUIZ:            'assets/images/backgrounds/technique_quiz_bg.webp',
@@ -965,7 +964,6 @@ class GameState {
     this.learningProgress = 0;
     this.formControlProgress = 0;
     this.puzzleProgress = 0;
-    this.performanceProgress = 0;
     this.quizProgress = 0;
     this.currentSkill = 'apchagi';
     this.completedSkills = new Set();
@@ -980,9 +978,9 @@ class GameState {
     // part of the weighted unlock-next-skill average (see
     // calculateSkillOverallProgress) — it mirrors the pipeline's Stage 1 role.
     this.skillGameScores = {
-      apchagi:   { warmup: 0, learning: 0, formControl: 0, puzzle: 0, performance: 0, action: 0, errorHunt: 0, quizBlast: 0, boardBreak: 0, paddleReflex: 0, phaseRhythm: 0, sparringDuel: 0, balanceHold: 0, heavyBag: 0, quiz: 0 },
-      narochagi: { warmup: 0, learning: 0, formControl: 0, puzzle: 0, performance: 0, action: 0, errorHunt: 0, quizBlast: 0, boardBreak: 0, paddleReflex: 0, phaseRhythm: 0, sparringDuel: 0, balanceHold: 0, heavyBag: 0, quiz: 0 },
-      bakchagi3: { warmup: 0, learning: 0, formControl: 0, puzzle: 0, performance: 0, action: 0, errorHunt: 0, quizBlast: 0, boardBreak: 0, paddleReflex: 0, phaseRhythm: 0, sparringDuel: 0, balanceHold: 0, heavyBag: 0, quiz: 0 }
+      apchagi:   { warmup: 0, learning: 0, formControl: 0, puzzle: 0, action: 0, errorHunt: 0, quizBlast: 0, boardBreak: 0, paddleReflex: 0, phaseRhythm: 0, sparringDuel: 0, balanceHold: 0, heavyBag: 0, quiz: 0 },
+      narochagi: { warmup: 0, learning: 0, formControl: 0, puzzle: 0, action: 0, errorHunt: 0, quizBlast: 0, boardBreak: 0, paddleReflex: 0, phaseRhythm: 0, sparringDuel: 0, balanceHold: 0, heavyBag: 0, quiz: 0 },
+      bakchagi3: { warmup: 0, learning: 0, formControl: 0, puzzle: 0, action: 0, errorHunt: 0, quizBlast: 0, boardBreak: 0, paddleReflex: 0, phaseRhythm: 0, sparringDuel: 0, balanceHold: 0, heavyBag: 0, quiz: 0 }
     };
     this.currentGame = null;
     // True once the initial page-load state sync has finished — gates
@@ -1073,7 +1071,6 @@ class GameState {
         this.learningProgress = data.learningProgress || 0;
         this.formControlProgress = data.formControlProgress || 0;
         this.puzzleProgress = data.puzzleProgress || 0;
-        this.performanceProgress = data.performanceProgress || 0;
         this.quizProgress = data.quizProgress || 0;
         this.currentSkill = data.currentSkill || 'apchagi';
         this.completedSkills = new Set(data.completedSkills || []);
@@ -1147,7 +1144,6 @@ class GameState {
         learningProgress: this.learningProgress,
         formControlProgress: this.formControlProgress,
         puzzleProgress: this.puzzleProgress,
-        performanceProgress: this.performanceProgress,
         quizProgress: this.quizProgress,
         currentSkill: this.currentSkill,
         completedSkills: Array.from(this.completedSkills),
@@ -1173,7 +1169,7 @@ class GameState {
 
   // Swap the whole in-memory progress to another player's save.
   static PROGRESS_FIELDS = ['playerCharacter', 'completedGames', 'learningProgress', 'formControlProgress', 'puzzleProgress',
-    'performanceProgress', 'quizProgress', 'currentSkill', 'completedSkills', 'unlockedSkills', 'skillProgress',
+    'quizProgress', 'currentSkill', 'completedSkills', 'unlockedSkills', 'skillProgress',
     'skillGameScores', 'failureCount', 'practiceStreak', 'bestStreak', 'lastPlayedDate', 'lastWarmupAt'];
   switchPlayer(playerId) {
     if (!playerId) return;
@@ -1409,7 +1405,6 @@ class GameState {
         gamesCenter: '🎮 Games Center', chooseGame: 'Choose a game to start training',
         formControl: 'Fix the Pose', formControlDesc: 'Drag the dots to fix the kick',
         puzzleAssembly: 'Order the Phases', puzzleDesc: 'Put the 5 phases in order',
-        performanceRecognition: "Judge's Eye", performanceDesc: 'Look at the kick and spot the one wrong sentence about it',
         quizDesc: 'Test your Taekwondo knowledge', notStarted: 'Not Started', inProgress: 'In Progress', completed: 'Completed',
         formControlGame: '🧍 Fix the Pose — Ap Chagi', formControlInstructions: 'Drag the coloured dots until the pose is right',
         instructions: '🎯 Instructions:', instruction1: 'Lift knee to chest height', instruction2: 'Extend foot straight forward', instruction3: 'Keep back straight and upright', instruction4: 'Balance on standing leg',
@@ -1417,8 +1412,6 @@ class GameState {
         puzzleGame: '🧩 Order the Phases', puzzleInstructions: 'Put the 5 phases in order. One piece is wrong — leave it out!',
         puzzlePieces: 'Drag pieces to slots:', readyStance: 'Ready Stance', kneeLift: 'Knee Lift', fullExtension: 'Full Extension', legRetract: 'Leg Retract', returnStance: 'Return to Stance',
         checkPuzzle: 'Check Sequence', hint: 'Hint', puzzleProgress: 'Puzzle Progress:',
-        performanceGame: "👁️ Judge's Eye", performanceInstructions: 'Look at the picture and tap the wrong sentence',
-        whichIsCorrect: 'Look at the image and find the incorrect statement',
         taekwondoQuiz: '❓ Taekwondo Knowledge Quiz', quizDescription: 'Test your understanding of Taekwondo techniques and terminology',
         question: 'Question', score: 'Score:', winner: '🏆 Congratulations!', achievementsUnlocked: 'Achievements Unlocked:',
         firstCompletion: 'First Game Completed', perfectForm: 'Perfect Form Mastered', nextLevel: 'Next Level', tryAgain: 'Try Again',
@@ -1486,16 +1479,13 @@ class GameState {
         coachYang: '👴 سابوم نيم يانج:',        coachInstruction1: 'بص أنا بعمل الركلة الأمامية إزاي خطوة بخطوة!', learningTitle: '🎓 اتعلم آب تشاجي', learningSubtitle: 'اتقن المراحل الخمسة للركلة الأمامية',
         preparation: 'الاستعداد (جونبي)', chamber: 'رفع الركبة', extension: 'فرد الركلة', recoil: 'سحب الرجل', return: 'الرجوع للوضعية',
         gamesCenter: '🎮 مركز الألعاب', chooseGame: 'اختار لعبة وابدأ التمرين', formControl: 'ظبّط الوضعية', formControlDesc: 'اسحب النقط وظبّط شكل الركلة',
-        puzzleAssembly: 'رتّب المراحل', puzzleDesc: 'رتّب مراحل الركلة الخمسة', performanceRecognition: 'عين الحكم',
-        performanceDesc: 'بص على الركلة واختار الجملة الوحيدة الغلط عنها', quizDesc: 'اختبر معلوماتك في التايكوندو', notStarted: 'لسه مابدأش', inProgress: 'شغال', completed: 'خلصت',
+        puzzleAssembly: 'رتّب المراحل', puzzleDesc: 'رتّب مراحل الركلة الخمسة', quizDesc: 'اختبر معلوماتك في التايكوندو', notStarted: 'لسه مابدأش', inProgress: 'شغال', completed: 'خلصت',
         formControlGame: '🧍 ظبّط الوضعية — آب تشاجي', formControlInstructions: 'اسحب النقط الملونة لحد ما الشكل يبقى صح',
         instructions: '🎯 التعليمات:', instruction1: 'ارفع ركبتك لحد صدرك', instruction2: 'افرد رجلك لقدام على طول', instruction3: 'خلي ضهرك مفرود', instruction4: 'اتوازن على رجل الارتكاز',
         accuracy: 'الدقة:', checkForm: 'اتأكد من الشكل', autoPosition: 'وضع أوتوماتيك', formProgress: 'تقدّمك في الشكل:', backToGames: 'ارجع للألعاب',
         puzzleGame: '🧩 رتّب المراحل', puzzleInstructions: 'رتّب المراحل الخمسة. فيه قطعة غلط — سيبها برّه!',
         puzzlePieces: 'اسحب القطع للأماكن الفاضية:', readyStance: 'وقفة القتال', kneeLift: 'رفع الركبة', fullExtension: 'فرد كامل', legRetract: 'سحب الرجل', returnStance: 'الرجوع للوضعية',
-        checkPuzzle: 'اتأكد من الترتيب', hint: 'تلميح', puzzleProgress: 'تقدّمك في التركيب:', performanceGame: '👁️ عين الحكم',
-        performanceInstructions: 'بص على الصورة ودوس على الجملة الغلط', whichIsCorrect: 'بص على الصورة ودوّر على الجملة الغلط',
-        taekwondoQuiz: '❓ اختبر معلوماتك في التايكوندو', quizDescription: 'اختبر فهمك لحركات ومصطلحات التايكوندو', question: 'سؤال', score: 'النقط:',
+        checkPuzzle: 'اتأكد من الترتيب', hint: 'تلميح', puzzleProgress: 'تقدّمك في التركيب:', taekwondoQuiz: '❓ اختبر معلوماتك في التايكوندو', quizDescription: 'اختبر فهمك لحركات ومصطلحات التايكوندو', question: 'سؤال', score: 'النقط:',
         winner: '🏆 مبروك!', achievementsUnlocked: 'الإنجازات اللي اتفتحت:', firstCompletion: 'أول لعبة تخلّصها', perfectForm: 'أتقنت الشكل المثالي',
         nextLevel: 'المستوى اللي بعده', tryAgain: 'جرّب تاني', backToMenu: 'ارجع للرئيسية', viewProgress: 'شوف تقدّمك',
         coachCongrats: 'برافو يا بطل! تعبك في إتقان آب تشاجي يجنن. كمّل تمرين!',
@@ -1731,7 +1721,7 @@ class GameState {
     this.createCharacterVisual('change-boy', 'boy', 'IDLE');
     this.createCharacterVisual('change-girl', 'girl', 'IDLE');
     
-    ['coach-learning', 'coach-form', 'coach-performance', 'coach-quiz', 'coach-winner']
+    ['coach-learning', 'coach-form', 'coach-quiz', 'coach-winner']
       .forEach(id => this.createCharacterVisual(id, 'coach', 'IDLE'));
   }
 
@@ -1745,7 +1735,6 @@ class GameState {
     const games = [
       { id: 'form-control', progress: this.formControlProgress, statusId: 'form-status' },
       { id: 'puzzle', progress: this.puzzleProgress, statusId: 'puzzle-status' },
-      { id: 'performance', progress: this.performanceProgress, statusId: 'performance-status' },
       { id: 'action', progress: this.skillGameScores[this.currentSkill]?.action || 0, statusId: 'action-status' },
       { id: 'error-hunt', progress: this.skillGameScores[this.currentSkill]?.errorHunt || 0, statusId: 'error-hunt-status' },
       { id: 'quiz-blast', progress: this.skillGameScores[this.currentSkill]?.quizBlast || 0, statusId: 'quiz-blast-status' },
@@ -1929,7 +1918,7 @@ class GameState {
     return this.currentLanguage === 'ar' ? skill.name.ar : skill.name.en;
   }
 
-  static GAME_KEY_MAP = { 'learning': 'learning', 'form-control': 'formControl', 'puzzle': 'puzzle', 'performance': 'performance', 'action': 'action', 'error-hunt': 'errorHunt', 'quiz-blast': 'quizBlast', 'board-break': 'boardBreak', 'paddle-reflex': 'paddleReflex', 'phase-rhythm': 'phaseRhythm', 'sparring-duel': 'sparringDuel', 'balance-hold': 'balanceHold', 'heavy-bag': 'heavyBag', 'quiz': 'quiz' };
+  static GAME_KEY_MAP = { 'learning': 'learning', 'form-control': 'formControl', 'puzzle': 'puzzle', 'action': 'action', 'error-hunt': 'errorHunt', 'quiz-blast': 'quizBlast', 'board-break': 'boardBreak', 'paddle-reflex': 'paddleReflex', 'phase-rhythm': 'phaseRhythm', 'sparring-duel': 'sparringDuel', 'balance-hold': 'balanceHold', 'heavy-bag': 'heavyBag', 'quiz': 'quiz' };
 
   // v57: the 3 main games — the most teaching ones (order the phases, spot the mistake, the
   // hands-on strike). Each must reach PASSING_SCORE once before the Test opens.
@@ -1962,7 +1951,7 @@ class GameState {
     return better;
   }
 
-  // gameId: 'learning' | 'form-control' | 'puzzle' | 'performance' | 'action' | 'error-hunt' (bonus, Ap Chagi) | 'quiz-blast' (bonus, every kick) | 'quiz'
+  // gameId: 'learning' | 'form-control' | 'puzzle' | 'action' | 'error-hunt' (bonus, Ap Chagi) | 'quiz-blast' (bonus, every kick) | 'quiz'
   // score: 0-100 accuracy for that activity, scoped to gameState.currentSkill
   completeGame(gameId, score = 100, meta = null) {
     const skillId = this.currentSkill;
@@ -1992,7 +1981,6 @@ class GameState {
       case 'learning':      this.learningProgress      = this.skillGameScores[skillId]?.learning      ?? score; break;
       case 'form-control':  this.formControlProgress   = this.skillGameScores[skillId]?.formControl   ?? score; break;
       case 'puzzle':        this.puzzleProgress        = this.skillGameScores[skillId]?.puzzle        ?? score; break;
-      case 'performance':   this.performanceProgress   = this.skillGameScores[skillId]?.performance   ?? score; break;
       case 'quiz':          this.quizProgress          = this.skillGameScores[skillId]?.quiz          ?? score; break;
     }
 
@@ -2009,7 +1997,6 @@ class GameState {
     this.learningProgress    = s.learning    || 0;
     this.formControlProgress = s.formControl || 0;
     this.puzzleProgress      = s.puzzle      || 0;
-    this.performanceProgress = s.performance || 0;
     this.quizProgress        = s.quiz        || 0;
   }
 
@@ -2100,7 +2087,6 @@ class ScreenManager {
         SpeechHelper.supported && window.speechSynthesis.cancel();
       }
     } catch(e) {}
-    try { PerformanceSystem.stopTimer(); } catch(e) {}
     try { if (screenId !== 'action') ActionSystem.teardown(); } catch(e) {}   // stops the timing-bar loop / drag listeners
     try { if (screenId !== 'quiz-blast') QuizBlastSystem.teardown(); } catch(e) {}   // stops the laser loop / key listeners
     try { window.ArenaGames?.teardownExcept(screenId); } catch(e) {}                 // canvas games: stop loops + listeners
@@ -2139,7 +2125,7 @@ class ScreenManager {
         requestAnimationFrame(() => {
           // v29: on a phone, put the PLAY AREA (canvas / stage) in the middle of the
           // screen, so the game and its buttons are visible without scrolling
-          const play = window.innerWidth <= 760 && targetScreen.querySelector('.arena-wrap, .act-layout, #form-stage, .puzzle-board, .qb-arena, #eh-board, .quiz-card, .performance-stage');
+          const play = window.innerWidth <= 760 && targetScreen.querySelector('.arena-wrap, .act-layout, #form-stage, .puzzle-board, .qb-arena, #eh-board, .quiz-card');
           if (play) {
             // taller than the phone? show its BOTTOM — that is where KICK! and the
             // game's own buttons live; a child should never scroll to find them.
@@ -2232,7 +2218,6 @@ class ScreenManager {
       case 'games': this.gameState.updateGameProgress(); break;
       case 'form-control': FormControlSystem.initialize(this.gameState); break;
       case 'puzzle': PuzzleSystem.initialize(this.gameState); break;
-      case 'performance': PerformanceSystem.initialize(this.gameState); break;
       case 'action': ActionSystem.initialize(this.gameState); break;
       case 'error-hunt': ErrorHuntSystem.initialize(this.gameState); break;
       case 'quiz-blast': QuizBlastSystem.initialize(this.gameState); break;
@@ -4912,536 +4897,6 @@ class PuzzleSystem {
       </div>
     `;
     box.classList.add('visible', 'rationale-box');
-  }
-}
-
-// #####################################################################
-// ## games/performance.js
-// #####################################################################
-// =====================================================================
-// GAME 3: PERFORMANCE SYSTEM
-// =====================================================================
-class PerformanceSystem {
-
-  // "Spot the Mistake" — shows ONE correct-form reference image per round, plus 3
-  // short technique claims about it. Exactly one claim is a common technical error;
-  // the other two are true. Player must tap the INCORRECT claim (genuine error-
-  // detection/discrimination practice, not just image-matching).
-  static getQuestionPool(skillId, isBoy, lang) {
-    const ar = lang === 'ar';
-    const skill = GameConfig.SKILLS[skillId] || GameConfig.SKILLS.apchagi;
-    const img = (key) => (isBoy ? skill.phases.find(p => p.key === key)?.image.boy : skill.phases.find(p => p.key === key)?.image.girl)
-                          || skill.phases[0].image[isBoy ? 'boy' : 'girl'];
-    const colorOf = (key) => skill.phases.find(p => p.key === key)?.color;
-    const prompt = ar ? 'بص على الصورة، واختار الجملة الوحيدة الغلط عن الأداء الصح'
-                      : 'Look at the image and find the ONE statement that is technically WRONG';
-
-    if (skillId === 'apchagi') return [
-      {
-        question: prompt,
-        refImage: img('chamber'), refColor: colorOf('chamber'),
-        cards: [
-          { correct: false, text: ar ? 'الركبة بتطلع لمستوى الصدر' : 'The knee rises to chest height' },
-          { correct: false, text: ar ? 'قدم الارتكاز بتلف للخارج من ٤٥° لـ ٩٠°' : 'The standing foot turns out 45°–90°' },
-          { correct: true,  text: ar ? 'رجل الركلة بتبقى مفرودة خالص في المرحلة دي' : 'The kicking leg is already completely straight at this stage' }
-        ],
-        correctFeedback: ar ? 'صح! في رفع الركبة الرجل بتبقى مطوية: الركبة فوق والقدم تحتها — وبتتفرد بعد كده في الضربة.'
-                            : 'Correct! In the knee lift the leg is folded — knee up, foot tucked under it. It only straightens in the next phase, the strike.',
-        wrongFeedback:   ar ? 'دي جملة صح عن رفع الركبة. دوّر على الجملة اللي بتوصف حاجة غلط في التكنيك.'
-                            : 'That statement is actually true about the knee lift. Look for the technically incorrect one.'
-      },
-      {
-        question: prompt,
-        refImage: img('extension'), refColor: colorOf('extension'),
-        cards: [
-          { correct: false, text: ar ? 'الرجل ممدودة خالص لقدام' : 'The leg is fully extended forward' },
-          { correct: true,  text: ar ? 'الركبة بتفضل مثنية شوية وقت الضربة عشان تمتص الصدمة' : 'The knee stays slightly bent at impact to absorb shock' },
-          { correct: false, text: ar ? 'الضربة بتبقى بمشط القدم مش بالصوابع' : 'The strike lands with the ball of the foot, not the toes' }
-        ],
-        correctFeedback: ar ? 'صح! وقت الضربة الرجل لازم تبقى ممدودة خالص — الثني بيقلل القوة وممكن يعوّرك.'
-                            : 'Correct! At impact the leg must be fully extended — bending it reduces power and risks injury.',
-        wrongFeedback:   ar ? 'دي معلومة صح عن فرد الرجل. جرّب تاني ودوّر على الغلطة في التكنيك.'
-                            : 'That is a true fact about the extension. Look for the technical error instead.'
-      },
-      {
-        question: prompt,
-        refImage: img('ready'), refColor: colorOf('ready'),
-        cards: [
-          { correct: false, text: ar ? 'رجليك مفتوحين قد عرض كتافك' : 'Feet are shoulder-width apart' },
-          { correct: false, text: ar ? 'إيديك مرفوعين قدام صدرك للحماية' : 'Hands are up in front of the chest for guard' },
-          { correct: true,  text: ar ? 'وزن جسمك كله على رجل واحدة عشان تستعد للركلة' : 'All body weight rests on one leg, ready to kick' }
-        ],
-        correctFeedback: ar ? 'صح! في وقفة القتال الوزن لازم يبقى متوزع على الرجلين عشان تقدر تتحرك بسرعة في أي اتجاه.'
-                            : 'Correct! In the ready stance, weight must stay balanced on both legs so you can move quickly in any direction.',
-        wrongFeedback:   ar ? 'ده وصف صح لوقفة القتال. دوّر على الجملة اللي فيها غلطة في التكنيك.'
-                            : 'That correctly describes the ready stance. Look for the technically wrong statement.'
-      },
-      // v54: a 4th round (the recoil) — the game picks 3 of 4, like the other two kicks
-      {
-        question: prompt,
-        refImage: img('recoil'), refColor: colorOf('recoil'),
-        cards: [
-          { correct: false, text: ar ? 'الرجل بترجع بنفس سرعة ما اتفردت' : 'The leg comes back as fast as it went out' },
-          { correct: true,  text: ar ? 'بعد الضربة الرجل بتفضل ممدودة في الهوا شوية' : 'After the strike the leg stays stretched out in the air for a moment' },
-          { correct: false, text: ar ? 'إيديك بتفضل مرفوعة للحماية' : 'Your guard stays up' }
-        ],
-        correctFeedback: ar ? 'صح! الرجل بتتسحب على طول بعد الضربة — لو سبتها في الهوا الخصم يقدر يمسكها.'
-                            : 'Correct! The leg snaps back right after the strike — leave it hanging and the partner can grab it.',
-        wrongFeedback:   ar ? 'دي معلومة صح عن السحب. دوّر على الجملة الغلط.'
-                            : 'That is true about the recoil. Look for the wrong statement.'
-      }
-    ];
-
-    if (skillId === 'narochagi') return [
-      {
-        question: prompt,
-        refImage: img('chamber'), refColor: colorOf('chamber'),
-        cards: [
-          { correct: false, text: ar ? 'الرجل بتطلع مفرودة لأعلى ما تقدر' : 'The leg rises straight to its maximum height' },
-          { correct: false, text: ar ? 'قدم الارتكاز بتلف للخارج قليلًا بزاوية ٤٥°:٩٠°' : 'The standing foot turns outward a little, 45°–90°' },
-          { correct: true,  text: ar ? 'الركبة بتتني وهي طالعة عشان توصل أعلى' : 'The knee bends during the rise to reach higher' }
-        ],
-        correctFeedback: ar ? 'صح! الرجل لازم تفضل مفرودة خالص وهي طالعة — الثني بيقلل الارتفاع والقوة.'
-                            : 'Correct! The leg must stay locked straight during the rise — bending it reduces both height and power.',
-        wrongFeedback:   ar ? 'دي معلومة صح عن الرفع لفوق. دوّر على الغلطة في التكنيك.'
-                            : 'That is true about the vertical rise. Look for the technical error instead.'
-      },
-      {
-        question: prompt,
-        refImage: img('extension'), refColor: colorOf('extension'),
-        cards: [
-          { correct: false, text: ar ? 'الضربة بتبقى بالكعب' : 'The strike lands with the heel' },
-          { correct: true,  text: ar ? 'الحركة بتبقى لقدام مش لتحت' : 'The strike moves forward, not downward' },
-          { correct: false, text: ar ? 'الهدف هو الراس أو الكتف' : 'The target is the head or the shoulder' }
-        ],
-        correctFeedback: ar ? 'صح! نارو تشاجي ركلة نازلة — الكعب بينزل بقوة لتحت مش لقدام.'
-                            : 'Correct! Naeryeo Chagi is a downward axe kick — the heel snaps down, not forward.',
-        wrongFeedback:   ar ? 'دي معلومة صح. دوّر على الجملة اللي بتوصف الحركة غلط.'
-                            : 'That is true. Look for the statement that describes the motion incorrectly.'
-      },
-      // v47: two more rounds so the game has the same 3 random rounds as Ap Chagi
-      {
-        question: prompt,
-        refImage: img('ready'), refColor: colorOf('ready'),
-        cards: [
-          { correct: false, text: ar ? 'إيديك مرفوعين قدامك للحماية' : 'Hands are up in front of you for guard' },
-          { correct: true,  text: ar ? 'ركبة رجل الركلة بتبقى متنية ومرفوعة من الأول' : 'The kicking knee is already bent and lifted' },
-          { correct: false, text: ar ? 'وزنك متوزع على الرجلين' : 'Your weight is shared between both legs' }
-        ],
-        correctFeedback: ar ? 'صح! في الاستعداد الرجلين على الأرض — وفي نارو تشاجي الرجل بتطلع بعد كده مفرودة، مش متنية.'
-                            : 'Correct! In the ready stance both feet are on the floor — and in Naeryeo Chagi the leg rises straight afterwards, not bent.',
-        wrongFeedback:   ar ? 'ده وصف صح لوقفة القتال. دوّر على الجملة الغلط.'
-                            : 'That correctly describes the ready stance. Look for the wrong statement.'
-      },
-      {
-        question: prompt,
-        refImage: img('recoil'), refColor: colorOf('recoil'),
-        cards: [
-          { correct: true,  text: ar ? 'بعد الضربة القدم بتفضل على الهدف عشان تزقّه' : 'After the strike the foot stays on the target to push it' },
-          { correct: false, text: ar ? 'الرجل بتتسحب بسرعة بعد الضربة' : 'The leg is pulled back quickly after the strike' },
-          { correct: false, text: ar ? 'إيديك بتفضل مرفوعة للحماية' : 'Your guard stays up' }
-        ],
-        correctFeedback: ar ? 'صح! الرجل بتتسحب على طول بعد الضربة عشان تحافظ على توازنك وماحدش يمسك رجلك.'
-                            : 'Correct! The leg snaps back right after impact so you keep your balance and nobody can grab it.',
-        wrongFeedback:   ar ? 'دي معلومة صح عن السحب. دوّر على الجملة الغلط.'
-                            : 'That is true about the recoil. Look for the wrong statement.'
-      }
-    ];
-
-    // bikchagi — ~135° pivot & instep strike recognition (v56.2 · v59.7)
-    return [
-      {
-        question: prompt,
-        refImage: img('chamber'), refColor: colorOf('chamber'),
-        cards: [
-          { correct: false, text: ar ? 'الضهر بيفضل مفرود لحد آخر لحظة قبل الركلة' : 'The back stays straight until the last moment before kicking' },
-          { correct: true,  text: ar ? 'قدم الارتكاز بتفضل ثابتة من غير ما تلف خالص' : 'The standing foot stays still with no rotation' },
-          { correct: false, text: ar ? 'الركبة بتطلع وتلف والرجل مطوية مستوية' : 'The knee lifts and turns over, the leg folded level' }
-        ],
-        correctFeedback: ar ? 'صح! قدم الارتكاز لازم تلف حوالي 135° عشان الوسط يلف — لو فضلت ثابتة تبقى دي الغلطة.'
-                            : 'Correct! The standing foot must pivot about 135° so the hip can turn over — staying still is the error.',
-        wrongFeedback:   ar ? 'دي معلومة صح عن المرحلة دي. دوّر على الجملة الغلط.'
-                            : 'That is true about this phase. Look for the wrong statement.'
-      },
-      {
-        question: prompt,
-        refImage: img('extension'), refColor: colorOf('extension'),
-        cards: [
-          { correct: false, text: ar ? 'الضربة بتبقى بوش القدم (ظهرها من فوق)' : 'The strike lands with the instep (top of the foot)' },
-          { correct: false, text: ar ? 'قدم الارتكاز بتكون لافّة حوالي 135° قبل الضربة' : 'The standing foot has turned about 135° before the strike' },
-          { correct: true,  text: ar ? 'الضربة بتبقى بالكعب' : 'The strike lands with the heel' }
-        ],
-        correctFeedback: ar ? 'صح! بيك تشاجي بتضرب بوش القدم مش بالكعب.'
-                            : 'Correct! Bik Chagi strikes with the instep, not the heel.',
-        wrongFeedback:   ar ? 'دي معلومة صح عن المرحلة دي. جرّب تاني.'
-                            : 'That is true about this phase. Try again.'
-      },
-      // v47: two more rounds so the game has the same 3 random rounds as Ap Chagi
-      {
-        question: prompt,
-        refImage: img('ready'), refColor: colorOf('ready'),
-        cards: [
-          { correct: false, text: ar ? 'وزنك متوازن على الرجلين' : 'Your weight is balanced on both legs' },
-          { correct: false, text: ar ? 'إيديك مرفوعة للحماية' : 'Your hands are up in guard' },
-          { correct: true,  text: ar ? 'إيديك بتنزل جنبك عشان تستعد للّفة' : 'Your hands drop to your sides to get ready to turn' }
-        ],
-        correctFeedback: ar ? 'صح! الحماية لازم تفضل مرفوعة طول الوقت — حتى وإنت بتلف.'
-                            : 'Correct! Your guard must stay up the whole time — even while you turn.',
-        wrongFeedback:   ar ? 'ده وصف صح لوقفة القتال. دوّر على الجملة الغلط.'
-                            : 'That correctly describes the ready stance. Look for the wrong statement.'
-      },
-      {
-        question: prompt,
-        refImage: img('recoil'), refColor: colorOf('recoil'),
-        cards: [
-          { correct: false, text: ar ? 'الرجل بترجع تتطوي على طول بعد الضربة' : 'The leg folds straight back after the strike' },
-          { correct: true,  text: ar ? 'الرجل بتنزل على الأرض على طول من غير ما تتطوي' : 'The leg drops straight to the floor without folding back' },
-          { correct: false, text: ar ? 'الركبة بتفضل مرفوعة لحد ما الرجل تتطوي' : 'The knee stays up until the leg has folded back' }
-        ],
-        correctFeedback: ar ? 'صح! لازم ترجّع الركبة لوضعية الطي الأول — لو الرجل نزلت على طول هتفقد توازنك.'
-                            : 'Correct! You must re-chamber the knee first — dropping the leg straight down costs you your balance.',
-        wrongFeedback:   ar ? 'دي معلومة صح عن السحب. دوّر على الجملة الغلط.'
-                            : 'That is true about the recoil. Look for the wrong statement.'
-      }
-    ];
-  }
-
-  static initialize(gameState) {
-    this.gameState    = gameState;
-    this.skillId      = gameState.currentSkill;
-    const poolSize    = PerformanceSystem.getQuestionPool(this.skillId, true, 'en').length;
-    this.totalRounds  = Math.min(4, poolSize);   // v57: 4 rounds with 3 chances (was 3 rounds, all had to be right)
-    this.hearts       = Hearts.max();
-    document.querySelector('#performance-screen .tkd-outcard')?.remove();
-    Hearts.show('performance-screen', this.hearts);
-    this.currentRound = 0;
-    this.correctCount = 0;
-    this.streak       = 0;
-    this.totalScore   = 0;
-    this.usedIndices  = [];
-    // Clear before dropping the reference — nulling a live interval left it
-    // ticking forever, so after a restart the countdown ran at 2×, 3×… speed.
-    this.stopTimer();
-    this.baseTime     = Math.round((gameState.currentLanguage === 'ar' ? 30 : 26) * (window.TKDPace ? TKDPace.get().time : 1));   // v41: calmer (was 22 / 18) · v42: × coach pace
-    this.baseTime0    = this.baseTime; this.tune = 0;   // v45: live tuning of the answer clock
-    this.timeLeft     = this.baseTime;
-    this.answered     = false;
-    this.injectScoreUI();
-    this.loadNextRound();
-  }
-
-  static injectScoreUI() {
-    const qSection = document.querySelector('.performance-question');
-    if (!qSection || document.getElementById('perf-hud')) return;
-    const ar = this.gameState.currentLanguage === 'ar';
-    const hud = document.createElement('div');
-    hud.id = 'perf-hud';
-    hud.innerHTML = `
-      <div class="perf-streak"   id="perf-streak"></div>
-      <div class="perf-score-display" id="perf-score-display">
-        ${ar ? 'النقط:' : 'Score:'} <span id="perf-score-val">0</span>
-      </div>
-      <div class="perf-timer-text" id="perf-timer-text">⏱ 12</div>
-      <div class="perf-timer-bar-wrap">
-        <div class="perf-timer-bar-fill" id="perf-timer-fill"></div>
-      </div>
-    `;
-    qSection.insertAdjacentElement('afterend', hud);
-  }
-
-  static startTimer() {
-    this.stopTimer();
-    this.timeLeft = this.baseTime;
-    this.answered = false;
-    this.updateTimerUI();
-
-    this.timerInterval = setInterval(() => {
-      // Don't let the answer clock run out while the app is in the background
-      // (phone locked, parent checks a message) — the child would come back
-      // to "Time's up!" and a lost streak.
-      if (document.hidden) return;
-      this.timeLeft--;
-      this.updateTimerUI();
-      if (this.timeLeft <= 0) {
-        this.stopTimer();
-        if (!this.answered) this.timeOut();
-      }
-    }, 1000);
-  }
-
-  static stopTimer() {
-    if (this.timerInterval) { clearInterval(this.timerInterval); this.timerInterval = null; }
-  }
-
-  static updateTimerUI() {
-    const timerEl = document.getElementById('perf-timer-text');
-    const fillEl  = document.getElementById('perf-timer-fill');
-    if (timerEl) {
-      timerEl.textContent = `⏱ ${this.gameState?.currentLanguage === 'ar' ? TKD.num(this.timeLeft) : this.timeLeft}`;
-      timerEl.classList.toggle('urgent', this.timeLeft <= 4);
-    }
-    if (fillEl) fillEl.style.width = `${(this.timeLeft / this.baseTime) * 100}%`;
-  }
-
-  static timeOut() {
-    const ar = this.gameState.currentLanguage === 'ar';
-    this.answered = true;
-    this.streak   = 0;
-    if (this.baseTime0) { this.tune = Math.max(-2, (this.tune || 0) - 1); this.baseTime = Math.round(this.baseTime0 * (1 - 0.1 * this.tune)); }   // v45: more time next round
-    this.updateStreakUI();
-    this.gameState.playSound('error');
-    this.gameState.showNotification(ar ? '⏰ الوقت خلص!' : '⏰ Time\'s up!', 'warning');
-
-    const correctCard = document.querySelector('.performance-card[data-correct="true"]');
-    if (correctCard) correctCard.classList.add('selected');
-
-    screenTimeout(() => {
-      this.currentRound++;
-      if (this.currentRound < this.totalRounds) this.loadNextRound();
-      else this.finishGame();
-    }, 2000);
-  }
-
-  static updateStreakUI() {
-    const el = document.getElementById('perf-streak');
-    if (!el) return;
-    const ar = this.gameState?.currentLanguage === 'ar';
-    if (this.streak >= 2)       el.textContent = `${this.streak >= 3 ? '🔥🔥🔥' : '🔥🔥'} ${ar ? `${TKD.num(this.streak)} صح ورا بعض!` : `${this.streak}x Streak!`}`;
-    else if (this.streak === 1) el.textContent = ar ? '🔥 جامد!' : '🔥 Good!';
-    else                        el.textContent = '';
-  }
-
-  static updateScoreUI() {
-    const el = document.getElementById('perf-score-val');
-    if (el) el.textContent = this.gameState?.currentLanguage === 'ar' ? TKD.num(this.totalScore) : this.totalScore;
-  }
-
-  static showZoomOverlay() {
-    const ar = this.gameState.currentLanguage === 'ar';
-    const mistake = this.currentQuestion.shuffledCards.find(c => c.correct);
-    const overlay = document.createElement('div');
-    overlay.className = 'zoom-overlay';
-    overlay.id = 'zoom-overlay';
-    overlay.innerHTML = `
-      <p class="zoom-overlay-msg" style="color:var(--danger-color);font-size:1.3rem;font-weight:bold;">
-        ${ar ? '❌ الجملة الغلط كانت:' : '❌ The incorrect statement was:'}
-      </p>
-      <p class="zoom-overlay-msg" style="font-weight:600;">${mistake ? mistake.text : ''}</p>
-      <div class="zoom-overlay-img ref-correct" data-img-url="${this.currentQuestion.refImage.replace(/ /g,'%20')}" style="background-image:url('${this.currentQuestion.refImage.replace(/ /g,'%20')}')"></div>
-      <p class="zoom-overlay-msg" style="color:var(--text-gray);font-size:0.95rem;">
-        💡 ${this.currentQuestion.correctFeedback.replace(/^(صح|Correct)!\s*/, '')}
-      </p>
-      <button class="btn btn-success" id="zoom-close-btn" style="margin-top:10px;">
-        ${ar ? 'فهمت ✓' : 'Got it ✓'}
-      </button>
-    `;
-    document.body.appendChild(overlay);
-    scanAndVerifyImages(overlay);
-    document.getElementById('zoom-close-btn')?.addEventListener('click', () => {
-      overlay.remove();
-      this.currentRound++;
-      if (this.currentRound < this.totalRounds && this.hearts > 0) this.loadNextRound();
-      else this.finishGame();
-    });
-  }
-
-  static loadNextRound() {
-    const isBoy = this.gameState.playerCharacter === 'boy';
-    const lang  = this.gameState.currentLanguage;
-    const pool  = PerformanceSystem.getQuestionPool(this.skillId, isBoy, lang);
-
-    const available = pool.map((_, i) => i).filter(i => !this.usedIndices.includes(i));
-    const idx = available.length > 0
-      ? available[Math.floor(Math.random() * available.length)]
-      : Math.floor(Math.random() * pool.length);
-    this.usedIndices.push(idx);
-    this.currentQuestion = pool[idx];
-    this.currentQuestion.shuffledCards = this.shuffleArray([...this.currentQuestion.cards]);
-
-    this.renderRound();
-    this.startTimer();
-    // v41: on a phone, bring the whole round (picture, question, statements) into view together
-    if (window.matchMedia?.('(max-width: 760px)').matches) {
-      const top = document.querySelector('#performance-screen .performance-question');
-      if (top) requestAnimationFrame(() => window.scrollTo({ top: Math.max(0, top.getBoundingClientRect().top + window.scrollY - 70), behavior: 'smooth' }));
-    }
-  }
-
-  static renderRound() {
-    const lang = this.gameState.currentLanguage;
-    const ar   = lang === 'ar';
-    const t = document.querySelector('#performance-screen h2');   // v54: the title names the kick
-    if (t) { t.removeAttribute('data-i18n'); t.textContent = `${ar ? '👁️ عين الحكم' : "👁️ Judge's Eye"} — ${TKD.skillName(GameConfig.SKILLS[this.skillId] ? this.skillId : 'apchagi')}`; }
-
-    const qEl = document.querySelector('.performance-question h3');
-    if (qEl) qEl.textContent = this.currentQuestion.question;
-
-    let counterEl = document.getElementById('perf-round-counter');
-    if (!counterEl) {
-      const qSection = document.querySelector('.performance-question');
-      if (qSection) {
-        counterEl = document.createElement('p');
-        counterEl.id = 'perf-round-counter';
-        counterEl.style.cssText = 'color:var(--warning-color);font-weight:bold;margin-top:8px;font-size:1rem;';
-        qSection.appendChild(counterEl);
-      }
-    }
-    if (counterEl) {
-      counterEl.textContent = ar
-        ? `السؤال ${TKD.num(this.currentRound + 1)} من ${TKD.num(this.totalRounds)}`
-        : `Question ${this.currentRound + 1} of ${this.totalRounds}`;
-    }
-    // (the HUD is made once — its words follow a language switch)
-    const sd = document.getElementById('perf-score-display');
-    if (sd?.firstChild?.nodeType === 3) sd.firstChild.textContent = `${ar ? 'النقط:' : 'Score:'} `;
-    this.updateScoreUI(); this.updateStreakUI();
-
-    const feedback = document.getElementById('performance-feedback');
-    if (feedback) feedback.classList.add('hidden');
-
-    // Single shared reference image — created once, reused every round
-    const qSection = document.querySelector('.performance-question');
-    let refBox = document.getElementById('perf-ref-image');
-    if (!refBox && qSection) {
-      refBox = document.createElement('div');
-      refBox.id = 'perf-ref-image';
-      refBox.className = 'perf-ref-image';
-      qSection.insertAdjacentElement('afterend', refBox);
-    }
-    if (refBox) {
-      refBox.dataset.imgColor = this.currentQuestion.refColor || '';
-      refBox.style.setProperty('--pending-color', this.currentQuestion.refColor || 'var(--primary-color)');
-      setBgWithFallback(refBox, this.currentQuestion.refImage, this.currentQuestion.refColor);
-    }
-
-    const cardsContainer = document.querySelector('.performance-cards');
-    if (!cardsContainer) return;
-
-    cardsContainer.innerHTML = this.currentQuestion.shuffledCards.map((card, i) => `
-      <div class="performance-card text-only" data-correct="${card.correct}" data-card="${i}">
-        <div class="card-content">
-          <span class="claim-icon">💬</span>
-          <p style="margin:8px 0 0;font-size:1.05rem;line-height:1.5;">${card.text}</p>
-        </div>
-        <button class="btn select-card-btn" data-card="${i}">
-          ${ar ? 'دي الغلط' : 'This is wrong'}
-        </button>
-      </div>
-    `).join('');
-
-    this.selectedAnswer = null;
-    this.setupEventListeners();
-  }
-
-  static shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  }
-
-  static setupEventListeners() {
-    document.querySelectorAll('.performance-card').forEach(card => {
-      card.addEventListener('click', (e) => {
-        if (e.target.classList.contains('select-card-btn')) return;
-        this.selectCard(card);
-      });
-    });
-    document.querySelectorAll('.select-card-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        this.selectCard(btn.closest('.performance-card'));
-      });
-    });
-  }
-
-  static selectCard(card) {
-    if (this.answered || this.selectedAnswer !== null) return;
-
-    this.stopTimer();
-    this.answered = true;
-
-    const isCorrect = card.dataset.correct === 'true';
-    this.selectedAnswer = isCorrect ? 'correct' : 'incorrect';
-    // v45: how long the child took → coach; a quick right answer → a little less time next round
-    window.ReactionLog?.add('performance', Math.max(0.3, (this.baseTime || 0) - (this.timeLeft || 0)));
-    if (this.baseTime0) {
-      const quick = isCorrect && this.timeLeft > this.baseTime * 0.6;
-      if (quick && this.tune < 2) this.tune++; else if (!isCorrect && this.tune > -1) this.tune--;
-      this.baseTime = Math.round(this.baseTime0 * (1 - 0.1 * this.tune));
-    }
-    // which lesson step this picture shows → smart review
-    const ref = PoseShots.keyOf(this.currentQuestion?.refImage);   // a placeholder and its finished picture count as the same
-    const ph = (GameConfig.SKILLS[this.skillId]?.phases || []).findIndex(p => p.image && (PoseShots.keyOf(p.image.boy) === ref || PoseShots.keyOf(p.image.girl) === ref));
-    if (ph >= 0) window.Review?.note('phase', isCorrect, { skill: this.skillId, phase: ph });
-
-    document.querySelectorAll('.performance-card').forEach(c => c.classList.remove('selected'));
-    card.classList.add('selected');
-
-    this.gameState.playSound(isCorrect ? 'success' : 'error');
-
-    if (isCorrect) {
-      this.correctCount++;
-      this.streak++;
-      const timeBonus  = Math.max(0, this.timeLeft) * 5;
-      const streakBonus= (this.streak >= 3) ? 30 : (this.streak === 2) ? 15 : 0;
-      this.totalScore += 100 + timeBonus + streakBonus;
-      this.updateStreakUI();
-      this.updateScoreUI();
-      this.showFeedback(true);
-
-      screenTimeout(() => {
-        this.currentRound++;
-        if (this.currentRound < this.totalRounds) this.loadNextRound();
-        else this.finishGame();
-      }, 1800);
-    } else {
-      this.streak = 0;
-      this.hearts = Math.max(0, (this.hearts ?? Hearts.max()) - 1);
-      Hearts.show('performance-screen', this.hearts);
-      this.updateStreakUI();
-      this.showFeedback(false);
-
-      const correctCard = document.querySelector('.performance-card[data-correct="true"]');
-      if (correctCard) correctCard.classList.add('selected');
-
-      screenTimeout(() => this.showZoomOverlay(), 1200);
-    }
-  }
-
-  static showFeedback(isCorrect) {
-    const feedback  = document.getElementById('performance-feedback');
-    const title     = document.getElementById('feedback-title');
-    const message   = document.getElementById('feedback-message');
-    if (!feedback || !title || !message) return;
-
-    feedback.classList.remove('hidden');
-    if (isCorrect) {
-      title.textContent  = this.currentQuestion.correctFeedback.split('!')[0] + '!';
-      title.style.color  = 'var(--success-color)';
-      message.textContent = this.currentQuestion.correctFeedback;
-    } else {
-      title.textContent  = this.gameState.currentLanguage === 'ar' ? '❌ غلط' : '❌ Incorrect';
-      title.style.color  = 'var(--danger-color)';
-      message.textContent = this.currentQuestion.wrongFeedback;
-    }
-  }
-
-  static finishGame() {
-    this.stopTimer();
-    const ar       = this.gameState.currentLanguage === 'ar';
-    const accuracy = Math.round((this.correctCount / this.totalRounds) * 100);
-
-    if (accuracy >= GameConfig.SETTINGS.PASSING_SCORE) {
-      const isFirstClear = this.gameState.completeGame('performance', accuracy);
-      this.gameState.playSound('win');
-      WinnerSystem.show('performance', accuracy, this.gameState, isFirstClear);
-    } else {
-      this.gameState.playSound('error');
-      this.gameState.trackFailure(accuracy, 'performance');
-      Hearts.outOfChances('performance-screen', accuracy, () => this.initialize(this.gameState));   // v57: the score + try again
-    }
   }
 }
 
@@ -8225,7 +7680,6 @@ class WinnerSystem {
     en: {
       'form-control': { icon: '🧍', text: 'Pose Fixed' },
       'puzzle':       { icon: '🧩', text: 'Phases in Order' },
-      'performance':  { icon: '👁️', text: "Judge's Eye Cleared" },
       'action':       { icon: '⚡', text: 'Strike Challenge Completed' },
       'error-hunt':   { icon: '🔍', text: 'Mistakes Found' },
       'quiz-blast':   { icon: '🚀', text: 'Quiz Blast Completed' },
@@ -8241,7 +7695,6 @@ class WinnerSystem {
     ar: {
       'form-control': { icon: '🧍', text: 'ظبّطت الوضعية' },
       'puzzle':       { icon: '🧩', text: 'رتّبت المراحل صح' },
-      'performance':  { icon: '👁️', text: 'خلّصت عين الحكم' },
       'action':       { icon: '⚡', text: 'خلّصت تحدي الضربة' },
       'error-hunt':   { icon: '🔍', text: 'لقيت كل الأغلاط' },
       'quiz-blast':   { icon: '🚀', text: 'خلّصت كويز الفضاء' },
@@ -8323,7 +7776,6 @@ class WinnerSystem {
       en: {
         'form-control': `Excellent! You mastered the ${skillName} stance control!`,
         'puzzle': `Great! You understood the complete ${skillName} movement sequence!`,
-        'performance': `Superb! You spotted the technical mistakes in ${skillName} like a real coach!`,
         'action': `Powerful! You mastered the ${skillName} action challenge!`,
         'error-hunt': `Sharp eyes! You spotted every technical mistake in ${skillName}.`,
         'quiz-blast': `Blast off! You cleared the ${skillName} question run!`,
@@ -8339,7 +7791,6 @@ class WinnerSystem {
       ar: {
         'form-control': `برافو! اتقنت التحكم في وضعية ${skillName}!`,
         'puzzle': `جامد! فهمت حركة ${skillName} كلها بالترتيب!`,
-        'performance': `تحفة! لقطت الأخطاء الفنية في ${skillName} زي مدرّب بجد!`,
         'action': `عاش! اتقنت تحدي ${skillName}!`,
         'error-hunt': `عين خبيرة! لقطت الأخطاء الفنية في ${skillName}.`,
         'quiz-blast': `انطلاقة جامدة! خلّصت أسئلة ${skillName} بنجاح!`,
@@ -8402,8 +7853,8 @@ class WinnerSystem {
 
   static tryAgain() {
     const last = this.lastGame;
-    // lastGame is now the gameType (form-control, puzzle, performance, quiz, learning)
-    const validScreens = ['form-control', 'puzzle', 'performance', 'action', 'error-hunt', 'quiz-blast', 'board-break', 'paddle-reflex', 'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag', 'quiz', 'learning'];
+    // lastGame is now the gameType (form-control, puzzle, quiz, learning)
+    const validScreens = ['form-control', 'puzzle', 'action', 'error-hunt', 'quiz-blast', 'board-break', 'paddle-reflex', 'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag', 'quiz', 'learning'];
     if (last && validScreens.includes(last)) ScreenManagerInstance.switchScreen(last);
     else this.goSkillMenu();
     this.gameState.playSound('click');
@@ -8475,14 +7926,6 @@ class TrophyRoomSystem {
       how: { en: 'Score 100% in Order the Phases', ar: 'جيب 100% في رتّب المراحل' },
       prog: (gs) => TrophyRoomSystem.best(gs, 'puzzle') / 100,
       condition: (gs) => Object.values(gs.skillGameScores).some(s => (s.puzzle || 0) >= 100)
-    },
-    {
-      id: 'sharp-eye', icon: '🎯',
-      name: { en: 'Sharp Eye', ar: 'العين الصقر' },
-      desc: { en: "Scored 100% on Judge's Eye", ar: 'جبت 100% في عين الحكم' },
-      how: { en: "Score 100% in Judge's Eye", ar: 'جيب 100% في عين الحكم' },
-      prog: (gs) => TrophyRoomSystem.best(gs, 'performance') / 100,
-      condition: (gs) => Object.values(gs.skillGameScores).some(s => (s.performance || 0) >= 100)
     },
     {
       id: 'kick-master', icon: '⚡',
@@ -8852,7 +8295,7 @@ class PlayerSystem {
 
   // Every mini-game attempt — pass OR fail — lands here. skillId/gameId
   // match GameConfig's own ids ('apchagi'/'narochagi'/'bakchagi3' and
-  // 'form-control'/'puzzle'/'performance'/'action'/'error-hunt'/
+  // 'form-control'/'puzzle'/'action'/'error-hunt'/
   // 'quiz-blast'/'quiz'/'learning').
   static logAttempt(gameId, skillId, score, passed, meta = null) {
     const player = this.getCurrentPlayer();
@@ -8978,7 +8421,7 @@ class ReportSystem {
       grid.innerHTML = GameConfig.SKILL_ORDER.map(skillId => {
         const skill = GameConfig.SKILLS[skillId];
         const scores = gameState.skillGameScores[skillId] || {};
-        const dims = ['formControl', 'puzzle', 'performance', 'action', 'quiz'].map(k => scores[k] || 0);
+        const dims = ['formControl', 'puzzle', 'action', 'quiz'].map(k => scores[k] || 0);
         const attempted = dims.filter(v => v > 0);
         const avg = attempted.length ? Math.round(attempted.reduce((a, b) => a + b, 0) / attempted.length) : 0;
 
@@ -9049,7 +8492,7 @@ class ReportSystem {
     g.fillText(document.getElementById('report-last-played')?.textContent || '', W / 2, 695);
     GameConfig.SKILL_ORDER.forEach((sk, i) => {
       const y = 790 + i * 150, S = GameConfig.SKILLS[sk], sc = gs.skillGameScores[sk] || {};
-      const dims = ['formControl', 'puzzle', 'performance', 'action', 'quiz'].map(k => sc[k] || 0).filter(v => v > 0);
+      const dims = ['formControl', 'puzzle', 'action', 'quiz'].map(k => sc[k] || 0).filter(v => v > 0);
       const avg = dims.length ? Math.round(dims.reduce((a, b) => a + b, 0) / dims.length) : 0;
       const st = gs.completedSkills.has(sk) ? (ar ? '✅ خلّصها' : '✅ Mastered') : gs.unlockedSkills.has(sk) ? (ar ? '🟡 شغّال عليها' : '🟡 In progress') : (ar ? '🔒 لسه' : '🔒 Not yet');
       g.fillStyle = 'rgba(255,255,255,.07)'; g.beginPath(); g.roundRect(90, y - 50, W - 180, 128, 24); g.fill();
@@ -9303,7 +8746,6 @@ class SkillMenuSystem {
     const dims = [
       { key: 'formControl', label: { en: 'Body Positioning',   ar: 'وضعية الجسم' },      score: scores.formControl || 0 },
       { key: 'puzzle',      label: { en: 'Movement Sequencing', ar: 'ترتيب الحركة' },     score: scores.puzzle || 0 },
-      { key: 'performance', label: { en: 'Spotting Mistakes',   ar: 'كشف الغلطات' },   score: scores.performance || 0 },
       { key: 'action',      label: { en: 'Kick Execution',     ar: 'تنفيذ الركلة' },       score: scores.action || 0 },
       { key: 'quiz',        label: { en: 'Technical Knowledge', ar: 'المعلومات النظرية' },  score: scores.quiz || 0 }
     ];
@@ -10709,7 +10151,7 @@ function toggleLanguage() {
   if (currentScreen && ScreenManagerInstance) {
     // Switching language used to call each game's initialize(), which threw
     // away the child's progress: the warm-up jumped back to exercise 1, the
-    // quiz to question 1 with score 0, Performance to round 1, the puzzle
+    // quiz to question 1 with score 0, the puzzle
     // emptied its slots and Learning returned to phase 1. Now each screen is
     // re-rendered in the new language while keeping where the child was.
     switch (currentScreen) {
@@ -10740,19 +10182,6 @@ function toggleLanguage() {
           try { placed.forEach((id, i) => { if (id) PuzzleSystem.placePiece(id, i + 1); }); }
           finally { GameStateInstance.soundEnabled = soundWas; PuzzleSystem._replaying = false; }
         }
-        break;
-      }
-      case 'performance': {
-        const P = PerformanceSystem;
-        if (P.answered || !P.currentQuestion || !P.usedIndices?.length) break;  // next round will use the new language
-        const isBoy = GameStateInstance.playerCharacter === 'boy';
-        const pool = PerformanceSystem.getQuestionPool(P.skillId, isBoy, newLang);
-        const q = pool[P.usedIndices[P.usedIndices.length - 1]];
-        if (!q) break;
-        P.currentQuestion = q;
-        P.currentQuestion.shuffledCards = P.shuffleArray([...q.cards]);
-        P.renderRound();          // timer keeps running with the time left
-        P.updateTimerUI();
         break;
       }
       case 'action':
@@ -10817,7 +10246,6 @@ async function hardResetGame() {
     : 'Erase ALL progress? Every player and every score is deleted and cannot come back (unless you have a backup).';
   if (await tkdConfirm(msg, ar ? 'امسح كل حاجة' : 'Erase everything')) {
     try { WarmupSystem.stopTimer(); } catch(e) {}
-    try { PerformanceSystem.stopTimer(); } catch(e) {}
     tkdStorageKeys().forEach(k => localStorage.removeItem(k));
     location.reload();
   }
@@ -15480,7 +14908,6 @@ const DashboardSystem = {
     'learning':      { icon: '🎓', en: 'Learning',         ar: 'التعلم' },
     'form-control':  { icon: '🧍', en: 'Fix the Pose',     ar: 'ظبّط الوضعية' },
     'puzzle':        { icon: '🧩', en: 'Order the Phases', ar: 'رتّب المراحل' },
-    'performance':   { icon: '👁️', en: "Judge's Eye",      ar: 'عين الحكم' },
     'action':        { icon: '⚡', en: 'Strike Challenge', ar: 'تحدي الضربة' },
     'error-hunt':    { icon: '🔍', en: 'Mistake Hunter',   ar: 'صيّاد الأخطاء' },
     'quiz-blast':    { icon: '🚀', en: 'Quiz Blast',       ar: 'كويز الفضاء' },
@@ -15493,7 +14920,7 @@ const DashboardSystem = {
     'quiz':          { icon: '📝', en: 'Test',             ar: 'الاختبار' }
   },
   // games that are real "played" activities (warm-up/learning are stages)
-  PLAYED: ['form-control', 'puzzle', 'performance', 'action', 'error-hunt', 'quiz-blast', 'board-break', 'paddle-reflex', 'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag', 'quiz'],
+  PLAYED: ['form-control', 'puzzle', 'action', 'error-hunt', 'quiz-blast', 'board-break', 'paddle-reflex', 'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag', 'quiz'],
   SKILL_COLORS: { apchagi: '#3987e5', narochagi: '#d95926', bakchagi3: '#199e70' },   // validated vs the dark card surface
   SEQ: ['#0d366b', '#104281', '#184f95', '#1c5cab', '#256abf', '#2a78d6', '#3987e5', '#5598e7', '#6da7ec', '#86b6ef'],
 
@@ -15530,7 +14957,7 @@ const DashboardSystem = {
     const { skill, range } = this.state;
     const since = range === '7d' ? Date.now() - 7 * 864e5 : range === '30d' ? Date.now() - 30 * 864e5 : 0;
     return PlayerSystem.getAttempts()
-      .filter(a => a.playerId === playerId && a.ts >= since && (skill === 'all' || a.skillId === skill))
+      .filter(a => a.playerId === playerId && a.ts >= since && (skill === 'all' || a.skillId === skill) && a.gameId !== 'performance')   // v61.2: Judge's Eye was removed — its old attempts drop out
       .sort((a, b) => a.ts - b.ts);
   },
 
@@ -16235,7 +15662,7 @@ window.TKDPace = TKDPace;
 // coach sees who needs more time (and the pace that would suit them).
 const ReactionLog = {
   // a typical reaction in each game (seconds) — a child's average is compared to these
-  REF: { 'sparring-duel': 0.95, 'paddle-reflex': 0.95, 'quiz-blast': 7, 'performance': 9, 'versus': 0.9 },
+  REF: { 'sparring-duel': 0.95, 'paddle-reflex': 0.95, 'quiz-blast': 7, 'versus': 0.9 },
   key(pid) { return `taekwondoJourneyRT:${pid || TKD.pid() || 'guest'}`; },
   add(gameId, sec, pid) {
     if (!this.REF[gameId] || !(sec > 0.05 && sec < 90)) return;
@@ -16378,7 +15805,6 @@ const TKDHints = {
     'learning':      { target: '#learning-screen .game-container', en: 'Look at each step, then watch the video', ar: 'بص على كل خطوة، وبعدين اتفرج على الفيديو' },
     'form-control':  { target: '#form-control-screen .game-container', en: 'Drag the coloured dots to fix the pose', ar: 'اسحب النقط الملونة عشان تظبط الوضعية' },
     'puzzle':        { target: '#puzzle-screen .game-container', en: 'Drag the pieces into the right order', ar: 'اسحب القطع ورتّبها صح' },
-    'performance':   { target: '#performance-screen .game-container', en: 'Look at the picture and tap the one WRONG sentence', ar: 'بص على الصورة ودوس على الجملة الوحيدة الغلط' },
     'action':        { target: '#action-screen .game-container', en: 'Tap KICK! when the marker is in the green', ar: 'دوس «اركل!» لما المؤشر يبقى في الأخضر',
                        bySkill: {
                          narochagi: { en: 'Swipe UP straight, then swipe DOWN fast', ar: 'اسحب لفوق في خط مستقيم، وبعدين لتحت بسرعة' },
@@ -18768,7 +18194,7 @@ const Units = {
     // stay open for fun and stars, so a kick is about 4 games, not 12
     { n: 1, icon: '👀', en: 'Know the kick', ar: 'اعرف الركلة', lesson: true, need: 1, games: ['form-control', 'puzzle', 'phase-rhythm'] },
     { n: 2, icon: '💪', en: 'Practise it', ar: 'اتمرن عليها', need: 2, games: ['action', 'board-break', 'paddle-reflex', 'heavy-bag', 'balance-hold'] },
-    { n: 3, icon: '🏆', en: 'The big challenge', ar: 'التحدي الكبير', test: true, need: 1, games: ['sparring-duel', 'performance', 'error-hunt', 'quiz-blast'] }
+    { n: 3, icon: '🏆', en: 'The big challenge', ar: 'التحدي الكبير', test: true, need: 1, games: ['sparring-duel', 'error-hunt', 'quiz-blast'] }
   ],
   ONLY: { 'error-hunt': 'apchagi' },                    // Mistake Hunter exists for Ap Chagi only
   get(u) { return this.LIST[Math.max(1, Math.min(3, u)) - 1]; },
@@ -18837,7 +18263,6 @@ const Journey = {
     'heavy-bag': { en: 'Bag', ar: 'الكيس' },
     'balance-hold': { en: 'Balance', ar: 'التوازن' },
     'sparring-duel': { en: 'Sparring', ar: 'النزال' },
-    performance: { en: "Judge's eye", ar: 'عين الحكم' },
     'error-hunt': { en: 'Mistakes', ar: 'الأخطاء' },
     'quiz-blast': { en: 'Quiz', ar: 'الكويز' }
   },
@@ -19314,7 +18739,7 @@ const TabBar = {
   TABS: [
     { id: 'train', icon: '🏠', en: 'Home', ar: 'الرئيسية', screens: ['home', 'warmup', 'skill-menu', 'learning', 'curriculum', 'quiz', 'cooldown'],
       direct: () => switchScreen('home') },
-    { id: 'play', icon: '🎮', en: 'Play', ar: 'العب', screens: ['games', 'form-control', 'puzzle', 'performance', 'action', 'error-hunt', 'quiz-blast', 'board-break', 'paddle-reflex', 'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag', 'league', 'versus'],
+    { id: 'play', icon: '🎮', en: 'Play', ar: 'العب', screens: ['games', 'form-control', 'puzzle', 'action', 'error-hunt', 'quiz-blast', 'board-break', 'paddle-reflex', 'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag', 'league', 'versus'],
       items: [
         { icon: '🎮', en: 'All games', ar: 'كل الألعاب', go: () => attemptStageNav('games'), hot: true },
         { icon: '⚔️', en: 'Challenge a friend', ar: 'تحدّى صاحبك', go: () => switchScreen('versus') }
@@ -20475,7 +19900,7 @@ if (document.readyState === 'loading') document.addEventListener('DOMContentLoad
 // Nothing changes a game's rules — it is all on top.
 // =====================================================================
 const Juice = {
-  GAMES: ['form-control', 'puzzle', 'performance', 'action', 'error-hunt', 'quiz-blast', 'quiz', 'board-break', 'paddle-reflex', 'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag', 'versus'],
+  GAMES: ['form-control', 'puzzle', 'action', 'error-hunt', 'quiz-blast', 'quiz', 'board-break', 'paddle-reflex', 'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag', 'versus'],
   combo: 0, x: null, y: null, _k: 0,
   calm() { return window.matchMedia?.('(prefers-reduced-motion: reduce)').matches || document.documentElement.classList.contains('lite'); },
   inGame() { const id = (document.querySelector('.screen.active')?.id || '').replace(/-screen$/, ''); return this.GAMES.includes(id) ? id : null; },
@@ -20635,7 +20060,7 @@ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.addEventListener('controllerchange', () => {
     if (!hadController || swReloading) return;                       // the very first install: nothing old to replace
     // v60.6: reload on any screen except in the middle of a game or the test
-    const busy = document.querySelector(['form-control', 'puzzle', 'performance', 'action', 'error-hunt', 'quiz-blast', 'board-break', 'paddle-reflex',
+    const busy = document.querySelector(['form-control', 'puzzle', 'action', 'error-hunt', 'quiz-blast', 'board-break', 'paddle-reflex',
       'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag', 'versus', 'quiz', 'warmup'].map(id => `#${id}-screen.active`).join(', '));
     const calm = !busy || performance.now() < 20000;
     if (calm) { swReloading = true; location.reload(); } else showUpdateBanner();
@@ -21722,7 +21147,7 @@ try { Object.defineProperty(GameConfig.BACKGROUNDS, 'HOME', { get: () => Stages.
 const Rival = {
   key() { return `taekwondoJourneyRival:${TKD.pid() || 'guest'}`; },
   who() { const g = TKD.gs()?.playerCharacter === 'girl'; return g ? { ch: 'girl', en: 'Laila', ar: 'ليلى' } : { ch: 'boy', en: 'Ziad', ar: 'زياد' }; },
-  GAMES: ['form-control', 'puzzle', 'performance', 'action', 'error-hunt', 'quiz-blast', 'board-break', 'paddle-reflex', 'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag'],
+  GAMES: ['form-control', 'puzzle', 'action', 'error-hunt', 'quiz-blast', 'board-break', 'paddle-reflex', 'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag'],
   score(game, skill) {
     const d = TKD.read(this.key(), {}), k = `${skill}|${game}`;
     if (d[k]) return d[k];
