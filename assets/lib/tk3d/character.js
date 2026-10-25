@@ -25,10 +25,11 @@ export const BOY = {
 export const COACH = {
   ...BOY, name: 'Coach Seif',
   skin: '#c98d66', skinShade: '#b27852', cheek: '#dc9c80', eyes: '#2e1c12', irisIn: '#4d311f', browTilt: .08, browThick: .0105,
-  hair: '#17120f', hairLock: '#231b16', hairHi: '#3b2d25', hairStyle: 'quiff', hairLift: .7,
-  beard: '#3a2b23', grin: true, hogu: '#2452c4',
-  belt: '#141417',
-  proportions: { head: 0.2, hipHeight: 0.625, legs: 1.2 },
+  hair: '#17120f', hairLock: '#1f1813', hairHi: '#2d231c', hairFade: '#3a2d25', hairStyle: 'crop',
+  beard: '#3a2c23', beardDark: '#251b15', grin: true, hogu: '#2452c4',
+  headShape: [.9, 1.07, .98], longJaw: true, smileEyes: true, eyeScale: .76, noseScale: 1.6,   // v62b: an adult's longer face
+  belt: '#141417', beltGold: '#d9b44a',
+  proportions: { head: 0.2, hipHeight: 0.625, legs: 1.3, headScale: .93, neck: .035 },   // v62b: tall and lean, like the champion
 };
 export const GIRL = {
   ...BOY, name: 'Girl (Student)',
@@ -178,7 +179,8 @@ function buildCharacterParts(desc = BOY) {
   const bones = {};
   // v51 — leg length (1 = the original chibi legs); the hips rise with longer legs so the feet stay on the floor
   const LK = desc.proportions.legs || 1;
-  const LEGY = { Hips: .625 + .55 * (LK - 1), LeftLeg: -.28 * LK, RightLeg: -.28 * LK, LeftFoot: -.27 * LK, RightFoot: -.27 * LK };
+  const NK = desc.proportions.neck || 0;            // v62.1: a longer neck (the coach) lifts the head
+  const LEGY = { Hips: .625 + .55 * (LK - 1), LeftLeg: -.28 * LK, RightLeg: -.28 * LK, LeftFoot: -.27 * LK, RightFoot: -.27 * LK, Head: .055 + NK };
   for (const [name, parent, x, y0, z] of LAYOUT) {
     const y = LEGY[name] ?? y0;
     const g = new THREE.Group(); g.name = name; g.position.set(x, y, z);
@@ -256,6 +258,10 @@ function buildCharacterParts(desc = BOY) {
   bones.Spine.add(tails); bones.BeltTail = tails; tails.userData.rest = tails.position.clone();
   const tail = (x, len, rz) => { const m = new THREE.Mesh(new THREE.BoxGeometry(.04, len, .012), mat.belt); m.geometry.translate(0, -len / 2, 0); m.position.set(x, 0, 0); m.rotation.z = rz; tails.add(m); };
   tail(-.018, .25, -.12); tail(.02, .23, .16);                     // v54b: long tails, like a real tied belt
+  if (desc.beltGold) {                                             // v62b: a champion's black belt, embroidered in gold
+    const g = new THREE.Mesh(new THREE.BoxGeometry(.012, .1, .014), M(desc.beltGold, { roughness: .35 })); g.geometry.translate(0, -.12, 0);
+    g.position.set(-.018, 0, .002); g.rotation.z = -.12; tails.add(g);
+  }
   // v54: thin dark edges on the belt — a white belt on a white jacket used to disappear
   for (const y of [-.03, .02]) add('Spine', new THREE.TorusGeometry(.173, .003, 6, 44), mat.cuff, 0, y, 0, Math.PI / 2, 0, 0, [1.01, .8, 1]);   // soft grey edges
   if (desc.shoes) {
@@ -274,7 +280,7 @@ function buildCharacterParts(desc = BOY) {
 
   // ---------- v62: the blue competition chest protector (hogu) — two shells, so it bends with the chest ----------
   if (desc.hogu) {
-    const hg = M(desc.hogu, { roughness: .45 }), hgHi = M('#3b6ae0', { roughness: .45 }), trim = M('#16161a', { roughness: .6 });
+    const hg = M(desc.hogu, { roughness: .45 }), hgHi = M('#2f60d8', { roughness: .45 }), trim = M('#16161a', { roughness: .6 }), strap = M('#e9edf2', { roughness: .6 });
     add('Spine', new THREE.CylinderGeometry(.184, .18, .14, 32), hg, 0, .1, 0, 0, 0, 0, [.99, 1, .86]);
     add('Spine1', new THREE.CylinderGeometry(.176, .186, .14, 32), hg, 0, .02, 0, 0, 0, 0, [.99, 1, .86]);
     add('Spine', new THREE.TorusGeometry(.182, .007, 6, 40), trim, 0, .032, 0, Math.PI / 2, 0, 0, [.99, .86, 1]);   // the dark edge above the belt
@@ -282,6 +288,9 @@ function buildCharacterParts(desc = BOY) {
     // the padded "six-pack" panels on the front
     for (const [bone, y, r] of [['Spine1', .035, .05], ['Spine', .125, .046], ['Spine', .065, .042]])
       for (const sx of [1, -1]) add(bone, sphere(r, 16, 12), hgHi, sx * .052, y, .147, 0, 0, 0, [1.05, .78, .32]);
+    for (const sx of [1, -1]) {                                    // the white shoulder straps, front to back over the shoulder
+      add('Spine1', new THREE.TorusGeometry(.085, .013, 6, 20, Math.PI), strap, sx * .1, .1, 0, 0, Math.PI / 2, 0, [1, 1, .9]);
+    }
   }
 
   // ---------- arms: wide sleeves, fists ----------
@@ -306,17 +315,19 @@ function buildCharacterParts(desc = BOY) {
       add('LeftArm', sphere(.004, 6, 4), mat.sole, .073, -.07 + Math.sin(a) * .029, Math.cos(a) * .029); }
   }
   // ---------- neck + head ----------
-  limb('Neck', .046, .05, .08, mat.skin, .07);
+  limb('Neck', .046, .05, .08 + NK, mat.skin, .07 + NK);
   // v54b — everything on the head lives in one group scaled by proportions.headScale, so the face
   // and hair keep their design sizes while the head gets smaller (the reference proportions)
   const HEAD = new THREE.Group(); HEAD.name = 'HeadContent'; HEAD.scale.setScalar(desc.proportions.headScale || 1); bones.Head.add(HEAD);
+  if (desc.headShape) HEAD.scale.multiply(new THREE.Vector3(...desc.headShape));   // v62b: narrower / longer for an adult face
   const addH = (geo, m, x = 0, y = 0, z = 0, rx = 0, ry = 0, rz = 0, s = null) => {
     const mesh = new THREE.Mesh(geo, m); mesh.position.set(x, y, z); mesh.rotation.set(rx, ry, rz); if (s) mesh.scale.set(...s);
     mesh.castShadow = true; mesh.receiveShadow = true; HEAD.add(mesh); return mesh;
   };
   const H = desc.proportions.head;
   addH(sphere(H, 40, 32), mat.skin, 0, H * .92, .01, 0, 0, 0, [.98, 1.05, .98]);
-  addH(sphere(H * .93, 32, 24), mat.skin, 0, H * .58, .05, 0, 0, 0, [.86, .84, .93]);     // jaw / cheeks (v54c: a softer, narrower chin)
+  const JAW = desc.longJaw ? { y: H * .5, s: [.82, 1.0, .92] } : { y: H * .58, s: [.86, .84, .93] };   // v62b: a longer jaw for the coach
+  addH(sphere(H * .93, 32, 24), mat.skin, 0, JAW.y, .05, 0, 0, 0, JAW.s);     // jaw / cheeks (v54c: a softer, narrower chin)
   // v45: a face that can move — each eye is its own group (so it can blink), brows can
   // frown, and there are three mouths: smile, open "kihap!" and a pained "ouch"
   const face = { eyes: [], brows: [], lashes: [] };
@@ -331,6 +342,7 @@ function buildCharacterParts(desc = BOY) {
     // v54: bigger, sparklier eyes — a large iris, two highlights and a dark upper lid (the lid is
     // in the eye group, so it closes with the blink); the girl's lid is thicker with lash flicks
     const eye = new THREE.Group(); eye.position.set(sx * .089, hy - .004, H * .855); HEAD.add(eye); face.eyes.push(eye);
+    if (desc.eyeScale) eye.scale.setScalar(desc.eyeScale);
     sub(eye, sphere(.062, 26, 20), mat.white, 0, 0, 0, 0, 0, 0, [1.02, 1.08, .55]);
     sub(eye, sphere(.045, 22, 18), mat.iris, 0, -.008, .022, 0, 0, 0, [1, 1.1, .5]);
     sub(eye, sphere(.034, 20, 16), mat.irisIn, 0, -.009, .029, 0, 0, 0, [1, 1.08, .5]);
@@ -339,6 +351,9 @@ function buildCharacterParts(desc = BOY) {
     sub(eye, sphere(.006, 8, 6), mat.white, sx * .012, -.024, .044);                        // small sparkle
     // v54c — an upper eyelid of skin covers the top of the eye, its edge a dark lash line, tilted
     // down toward the nose: the confident look of the reference (inside the eye group: it blinks)
+    if (desc.smileEyes) {                                                                   // v62b: smiling eyes — the cheek pushes the lower lid up
+      sub(eye, new THREE.SphereGeometry(.0665, 26, 12, 0, Math.PI * 2, Math.PI * .66, Math.PI * .34), mat.skin, 0, 0, .002, 0, 0, sx * -.14, [1.06, 1.1, .9]);
+    }
     const lidG = new THREE.Group(); lidG.rotation.z = sx * .1; eye.add(lidG);
     sub(lidG, new THREE.SphereGeometry(.0655, 26, 12, 0, Math.PI * 2, 0, Math.PI * .25), mat.skin, 0, 0, 0, 0, 0, 0, [1.04, 1.08, .86]);
     const edgeY = .0655 * Math.cos(Math.PI * .25) * 1.08;
@@ -352,12 +367,13 @@ function buildCharacterParts(desc = BOY) {
     sub(brow, new THREE.CapsuleGeometry(desc.browThick || (desc.girl ? .0095 : .0125), .062, 6, 10), mat.brow, 0, 0, 0, 0, 0, Math.PI / 2 + sx * (desc.browTilt ?? (desc.girl ? .14 : .2)));   // thick, determined (the reference)
     if (!desc.beard) addH(sphere(.036, 14, 10), mat.cheek, sx * .14, hy - .078, H * .73, 0, 0, 0, [1, .66, .4]);   // rosy cheeks (not over a beard)
   }
-  addH(new THREE.CapsuleGeometry(.016, .034, 6, 12), mat.skin, 0, H * .81, H * .955, .42, 0, 0, [1, 1, .85]);   // v54: a little nose with a bridge
-  addH(sphere(.024, 14, 12), mat.skin, 0, H * .765, H * .985, 0, 0, 0, [1.05, .85, .9]);         //   and its round tip
-  addH(sphere(.014, 10, 8), mat.cheek, 0, H * .775, H * 1.06, 0, 0, 0, [1, .8, .6]);           // a rosy nose tip
+  const NS = desc.noseScale || 1;
+  addH(new THREE.CapsuleGeometry(.016 * NS, .034 * NS, 6, 12), mat.skin, 0, H * .81 - (NS - 1) * .01, H * .955, .42, 0, 0, [1, 1, .85]);   // v54: a little nose with a bridge
+  addH(sphere(.024 * NS, 14, 12), mat.skin, 0, H * .765 - (NS - 1) * .018, H * .985 + (NS - 1) * .01, 0, 0, 0, [1.05, .85, .9]);         //   and its round tip
+  if (!desc.beard) addH(sphere(.014, 10, 8), mat.cheek, 0, H * .775, H * 1.06, 0, 0, 0, [1, .8, .6]);           // a rosy nose tip
   if (desc.grin) {
     // v62 — a big open smile with white teeth (Coach Seif): a "D"-shaped mouth, flat side up
-    const grin = new THREE.Group(); grin.position.set(0, H * .6, .05 + H * .9); grin.rotation.x = -.32; HEAD.add(grin);
+    const grin = new THREE.Group(); grin.position.set(0, H * .575, .05 + H * .9); grin.rotation.x = -.32; grin.scale.set(1.42, 1.3, 1); HEAD.add(grin);
     const gm = new THREE.Mesh(new THREE.CircleGeometry(.05, 28, Math.PI, Math.PI), M('#5a1f22')); gm.scale.set(1, .62, 1); grin.add(gm);
     const teeth = new THREE.Mesh(new THREE.CircleGeometry(.046, 28, Math.PI, Math.PI), mat.white); teeth.scale.set(1, .36, 1); teeth.position.set(0, -.002, .002); grin.add(teeth);
     const lip = new THREE.Mesh(new THREE.TorusGeometry(.05, .006, 6, 28, Math.PI), mat.mouth); lip.rotation.z = Math.PI; lip.scale.set(1, .62, 1); lip.position.z = .001; grin.add(lip);
@@ -367,6 +383,7 @@ function buildCharacterParts(desc = BOY) {
   const mouthIn = M('#5a1f22');
   face.open = addH(sphere(.03, 16, 12), mouthIn, .004, H * .58, .05 + H * .862, 0, 0, 0, [1, 1.15, .4]); face.open.visible = false;     // "kihap!"
   face.ouch = addH(sphere(.03, 16, 12), mouthIn, .004, H * .6, .05 + H * .866, 0, 0, 0, [1.35, .45, .4]); face.ouch.visible = false;   // gritted "ouch"
+  if (desc.grin) for (const m of [face.open, face.ouch]) { m.scale.x *= 1.3; m.scale.y *= 1.25; m.position.x = 0; }   // the coach's wider mouth
   root.userData.face = face;
 
   // headband (shop cosmetic) — hidden until a colour is equipped
@@ -377,18 +394,44 @@ function buildCharacterParts(desc = BOY) {
 
   const hairRoot = new THREE.Group(); hairRoot.position.set(0, H * .92, .01); HEAD.add(hairRoot);
   if (desc.beard) {
-    // v62 — a short, trimmed beard that hugs the jaw: a cap of the jaw's own shape, tilted so it
-    // sits low at the chin and rises along the jawline to the ears; sideburns and a moustache
-    const JR = H * .93, bm = M(typeof desc.beard === 'string' ? desc.beard : desc.hair, { roughness: .8 });   // a short beard reads softer than the hair
-    const beard = new THREE.Mesh(new THREE.SphereGeometry(JR, 40, 20, 0, Math.PI * 2, Math.PI * .5, Math.PI * .5), bm);
-    beard.position.set(0, H * .58, .05); beard.rotation.x = .12; beard.scale.set(.86 * 1.025, .84 * 1.035, .93 * 1.025); beard.castShadow = true; HEAD.add(beard);
-    for (const sx of [1, -1]) {                                    // sideburns, from the hair down to the jaw
-      const sb = new THREE.Mesh(new THREE.CapsuleGeometry(.017, .07, 6, 10), bm);
-      sb.position.set(sx * H * .86, H * .76, .045); sb.rotation.set(0, 0, sx * .12); sb.scale.set(1, 1, .7); HEAD.add(sb);
+    // v62b — a short, shaped beard like the champion's: the jaw's own surface, a little bigger,
+    // kept only below the beard line — so the cheeks stay clear
+    const bm = M(typeof desc.beard === 'string' ? desc.beard : desc.hair, { roughness: .8 });
+    const bd = desc.beardDark ? M(desc.beardDark, { roughness: .8 }) : bm;   // the chin and the moustache are thicker: darker
+    const J = { c: [0, JAW.y, .05], r: [H * .93 * JAW.s[0], H * .93 * JAW.s[1], H * .93 * JAW.s[2]] };
+    const onJaw = (az, el, k = 1.02) => { const a = az * Math.PI / 180, e = el * Math.PI / 180;
+      return [J.c[0] + J.r[0] * k * Math.cos(e) * Math.sin(a), J.c[1] + J.r[1] * k * Math.sin(e), J.c[2] + J.r[2] * k * Math.cos(e) * Math.cos(a)]; };
+    // a smooth patch of the (unit) jaw sphere: columns across the face, each from under the chin up to
+    // its line ([azimuth from the front, highest elevation]) — so the edge is exactly the line
+    const patch = (LINE, k, m) => {
+      const lineAt = (az) => { az = Math.abs(az); for (let i = 1; i < LINE.length; i++) if (az <= LINE[i][0]) { const [a0, e0] = LINE[i - 1], [a1, e1] = LINE[i]; return e0 + (e1 - e0) * (az - a0) / (a1 - a0); } return -86; };
+      const AZ = LINE[LINE.length - 1][0], NA = 64, NE = 18, pos = [], idx = [];
+      for (let i = 0; i <= NA; i++) {
+        const az = -AZ + 2 * AZ * i / NA, top = lineAt(az), a = az * Math.PI / 180;
+        for (let j = 0; j <= NE; j++) {
+          const e = (-86 + (top + 86) * j / NE) * Math.PI / 180;
+          pos.push(Math.cos(e) * Math.sin(a), Math.sin(e), Math.cos(e) * Math.cos(a));
+        }
+      }
+      for (let i = 0; i < NA; i++) for (let j = 0; j < NE; j++) {
+        const q = i * (NE + 1) + j, r = q + NE + 1;
+        idx.push(q, r, q + 1, q + 1, r, r + 1);
+      }
+      const bg = new THREE.BufferGeometry(); bg.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); bg.setIndex(idx); bg.computeVertexNormals();
+      const o = new THREE.Mesh(bg, m); o.position.set(...J.c); o.scale.set(J.r[0] * k, J.r[1] * k, J.r[2] * k); o.castShadow = true; HEAD.add(o); return o;
+    };
+    // the beard: just under the mouth at the front, rising past the corners of the mouth to the sideburns
+    patch([[0, -17], [22, -13], [40, -5], [60, 5], [78, 17], [92, 30], [100, 30]], 1.018, bm);
+    // the thicker chin (darker): under the lower lip, narrowing down the jaw
+    if (desc.beardDark) patch([[0, -16], [16, -14], [28, -26], [40, -56], [46, -86]], 1.03, bd);
+    // a fuller, slightly pointed chin
+    const tip = new THREE.Mesh(sphere(.034, 16, 12), bd); tip.position.set(...onJaw(0, -62, .99)); tip.scale.set(1.3, .9, .8); HEAD.add(tip);
+    // the moustache: an arc over the smile, joined to the beard past the corners of the mouth
+    const stache = new THREE.Mesh(new THREE.TorusGeometry(.066, .012, 8, 26, Math.PI), bd);
+    stache.position.set(0, H * .585, .05 + H * .89); stache.rotation.x = -.32; stache.scale.set(1.12, .5, .7); HEAD.add(stache);
+    for (const sx of [1, -1]) {
+      const strip = new THREE.Mesh(lockGeometry([onJaw(sx * 31, -2, 1.03), onJaw(sx * 29, -10, 1.03), onJaw(sx * 25, -18, 1.025)], .018, .028, .012, J.c), bm); HEAD.add(strip);
     }
-    // the moustache: an arc over the mouth that runs down into the beard at the corners
-    const stache = new THREE.Mesh(new THREE.TorusGeometry(.054, .0095, 8, 26, Math.PI), bm);
-    stache.position.set(0, H * .6, .05 + H * .89); stache.rotation.x = -.32; stache.scale.set(1, .55, .7); HEAD.add(stache);
   }
   if (desc.hairStyle === 'bun') {
     // slicked-back hair with a top bun and bushy brows
@@ -441,6 +484,28 @@ function buildCharacterParts(desc = BOY) {
     lock(pt, [[.022, 0, -.03], [.038, -.1, -.09], [.044, -.26, -.1], [.028, -.42, -.07], [.036, -.52, -.05]], .05, .012, .03, tc);
     lock(pt, [[-.022, 0, -.03], [-.036, -.1, -.095], [-.04, -.25, -.11], [-.042, -.41, -.09], [-.026, -.5, -.08]], .05, .012, .03, tc);
     lock(pt, [[0, -.01, -.02], [.004, -.12, -.07], [-.01, -.28, -.075], [.01, -.44, -.05], [-.004, -.54, -.03]], .046, .01, .028, tc);
+    root.userData.bones = bones;
+    return { root, bones };
+  }
+  if (desc.hairStyle === 'crop') {
+    // v62b — short and close to the head, like the champion's: a high forehead, short sides
+    // (a tight fade over the ears) and a slightly wavy top with a little volume
+    const cap = new THREE.Mesh(new THREE.SphereGeometry(H * 1.025, 40, 24, 0, Math.PI * 2, 0, Math.PI * .47), mat.hair);
+    cap.rotation.x = -.46; cap.position.set(0, .015, -.012); cap.castShadow = true; hairRoot.add(cap);
+    for (const sx of [1, -1]) {                                                                  // the temples, down to the sideburns
+      lock(hairRoot, [onHead(sx * 62, 34, R0 * 1.0), onHead(sx * 70, 24, R0 * 1.015), onHead(sx * 78, 12, R0 * 1.015), onHead(sx * 84, 0, R0 * 1.0)], .05, .026, .014, [0, 0, 0]);
+      lock(hairRoot, [onHead(sx * 80, 40, R0 * 1.0), onHead(sx * 92, 28, R0 * 1.015), onHead(sx * 104, 16, R0 * 1.015), onHead(sx * 112, 4, R0 * 1.0)], .06, .04, .014, [0, 0, 0]);
+    }
+    // v62.1 — the short sides and back (a fade): a band under the cap, a shade lighter, everywhere
+    // but the forehead, down to the tops of the ears and a little lower at the back
+    const fade = new THREE.Mesh(new THREE.SphereGeometry(H * 1.012, 40, 8, Math.PI / 2 + .95, Math.PI * 2 - 1.9, Math.PI * .4, Math.PI * .095), M(desc.hairFade || desc.hair, { roughness: .8 }));
+    fade.rotation.x = -.6; fade.position.set(0, .006, -.01); hairRoot.add(fade);
+    // …and the nape: the lower back of the head, down to the neck
+    const nape = new THREE.Mesh(new THREE.SphereGeometry(H * 1.008, 32, 12, Math.PI * 1.5 - 1.2, 2.4, Math.PI * .5, Math.PI * .36), fade.material);
+    nape.scale.set(.98, 1.05, .98); hairRoot.add(nape);
+    // the wavy top: short soft locks lying back, a few lifted at the front
+    for (const [az, el] of [[-36, 64], [-12, 68], [12, 68], [36, 64], [-24, 86], [0, 90], [24, 86]])
+      blob(hairRoot, ...onHead(az, el, R0 * 1.03), .05, .02, .042, -.5, az * Math.PI / 180, 0, mat.hairLock);
     root.userData.bones = bones;
     return { root, bones };
   }

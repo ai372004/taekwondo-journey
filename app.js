@@ -13322,7 +13322,7 @@ if (typeof window !== 'undefined') window.RigBackend = RigBackend;
 // No WebGL → the 2D rig draws the same poses; nothing at all → a 🥋 card.
 // ============================================================================
 const PoseShots = (() => {
-  const VER = 'p18';                                 // v61.1: Bik Chagi like the coach's reel (lean ~40°) · v61: Bik Chagi leans from the chamber, eyes on the target · v60.8: Naeryeo pivot 45–90 · v60.7: Bik Chagi leans away at the strike · v60: Bik Chagi is a roundhouse kick · v59.9: Bik Chagi body upright · v59.8: Bik Chagi on the 45° line · v59.7: the coaches' angles · v56.2: Naeryeo lands with a straight leg, Bik Chagi hits with the instep · v54: the reference look (faces, hair, dobok, soft light, head ×0.78) · v51: legs ×1.2, new stance · bump when the rig, the kicks or the framing change (p2: kicks re-posed)
+  const VER = 'p19';                                 // v61.1: Bik Chagi like the coach's reel (lean ~40°) · v61: Bik Chagi leans from the chamber, eyes on the target · v60.8: Naeryeo pivot 45–90 · v60.7: Bik Chagi leans away at the strike · v60: Bik Chagi is a roundhouse kick · v59.9: Bik Chagi body upright · v59.8: Bik Chagi on the 45° line · v59.7: the coaches' angles · v56.2: Naeryeo lands with a straight leg, Bik Chagi hits with the instep · v54: the reference look (faces, hair, dobok, soft light, head ×0.78) · v51: legs ×1.2, new stance · bump when the rig, the kicks or the framing change (p2: kicks re-posed)
   const STORE = `tkdpose-${VER}`;
   const SIDE = -0.27, HERO = -0.95;                  // ¾ side view (like the games) · ¾ front view (portraits)
   const PX = 0.56;                                   // pixels per rig unit → a standing child ≈ 560 px tall
