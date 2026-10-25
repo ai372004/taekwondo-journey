@@ -1383,7 +1383,7 @@ class GameState {
         boy: 'Boy', girl: 'Girl',
         leaderboardTitle: '🏆 Leaderboard', leaderboardDesc: 'See how every player on this device ranks.', leaderboardMyStats: 'My Stats', leaderboardAllPlayers: 'All Players', leaderboardExport: '⬇️ Export Scores (CSV)', leaderboardSwitchPlayer: '🔁 Switch Player',
         changeCharacterTitle: '👤 Change Character', currentCharacter: 'Current Character:', selectNewCharacter: 'Select New Character:', select: 'Select',
-        coachYang: '👴 Coach Yang:',
+        coachName: '🧔🏽 Coach Seif:',
         coachInstruction1: 'Watch how I perform the front kick step by step!',
         learningTitle: '🎓 Learn Ap Chagi', learningSubtitle: 'Master the 5 stages of the front kick',
         preparation: 'Preparation (Junbi)', chamber: 'Chamber (Knee Lift)', extension: 'Extension (Kick)', recoil: 'Recoil (Pull Back)', return: 'Return to Stance',
@@ -1456,7 +1456,7 @@ class GameState {
 
         leaderboardTitle: '🏆 لوحة المتصدرين', leaderboardDesc: 'شوف ترتيبك مقارنة بكل اللاعبين على الجهاز ده.', leaderboardMyStats: 'إحصائياتي', leaderboardAllPlayers: 'كل اللاعبين', leaderboardExport: '⬇️ نزّل النتايج (CSV)', leaderboardSwitchPlayer: '🔁 غيّر اللاعب',
         changeCharacterTitle: '👤 غيّر الشخصية', currentCharacter: 'الشخصية دلوقتي:', selectNewCharacter: 'اختار شخصية جديدة:', select: 'اختار',
-        coachYang: '👴 سابوم نيم يانج:',        coachInstruction1: 'بص أنا بعمل الركلة الأمامية إزاي خطوة بخطوة!', learningTitle: '🎓 اتعلم آب تشاجي', learningSubtitle: 'اتقن المراحل الخمسة للركلة الأمامية',
+        coachName: '🧔🏽 كوتش سيف:',        coachInstruction1: 'بص أنا بعمل الركلة الأمامية إزاي خطوة بخطوة!', learningTitle: '🎓 اتعلم آب تشاجي', learningSubtitle: 'اتقن المراحل الخمسة للركلة الأمامية',
         preparation: 'الاستعداد (جونبي)', chamber: 'رفع الركبة', extension: 'فرد الركلة', recoil: 'سحب الرجل', return: 'الرجوع للوضعية',
         gamesCenter: '🎮 مركز الألعاب', chooseGame: 'اختار لعبة وابدأ التمرين', formControl: 'ظبّط الوضعية', formControlDesc: 'اسحب النقط وظبّط شكل الركلة',
         puzzleAssembly: 'رتّب المراحل', puzzleDesc: 'رتّب مراحل الركلة الخمسة', notStarted: 'لسه مابدأش', completed: 'خلصت',
@@ -1505,7 +1505,7 @@ class GameState {
       }
     };
 
-    // v53: the lesson's title, subtitle and Coach Yang's line name the kick being learnt
+    // v53: the lesson's title, subtitle and Coach Seif's line name the kick being learnt
     // (they always said "Ap Chagi / the front kick", even in the axe- and side-kick lessons)
     const lesson = GameState.LESSON_TEXT[this.currentSkill]?.[this.currentLanguage === 'ar' ? 'ar' : 'en'];
     document.querySelectorAll('[data-i18n]').forEach(element => {
@@ -3311,7 +3311,7 @@ class FormControlSystem {
         : `Drag the coloured dots onto the green circles`;
     }
 
-    // v53 — Coach Yang's 4 points describe the exact pose on the stage: the key moment of each
+    // v53 — Coach Seif's 4 points describe the exact pose on the stage: the key moment of each
     // kick (Ap Chagi and Bik Chagi: the hit · Naeryeo Chagi: the top of the swing up)
     const INSTRUCTION_SETS = {
       apchagi: {
@@ -4876,7 +4876,7 @@ class ActionSystem {
     sumPass:{ en: (a) => `${a}% — great kicking!`, ar: (a) => `${a}% — ركلات جامدة!` },
     sumFail:{ en: (a, p) => a >= 60 ? `${a}% — so close! You need ${p}%.` : `${a}% — let’s practise a bit more. You need ${p}%.`,
               ar: (a, p) => a >= 60 ? `${a}% — قربت! محتاج ${p}%.` : `${a}% — محتاجين نتمرن شوية. المطلوب ${p}%.` },
-    sumTip: { en: 'Coach Yang’s tip:', ar: 'نصيحة سابوم نيم يانج:' },
+    sumTip: { en: 'Coach Seif’s tip:', ar: 'نصيحة كوتش سيف:' },
     again:  { en: 'Try again', ar: 'جرّب تاني' }
   };
 
@@ -5262,7 +5262,7 @@ class ActionSystem {
       <div class="act-summary" dir="auto">
         <h3>${this.t(this.TXT.sumFail)(acc, PASS)}</h3>
         <ol class="act-sum-list">${this.results.map((r, i) => `<li class="${r.score >= PASS ? 'ok' : 'bad'}"><b>${r.score >= PASS ? '✓' : '✗'} ${r.score}%</b> <span>${TKD.esc(this.t(r.msg))}</span></li>`).join('')}</ol>
-        ${tip ? `<p class="act-sum-tip">👴 <b>${this.t(this.TXT.sumTip)}</b> ${TKD.esc(tip)}</p>` : ''}
+        ${tip ? `<p class="act-sum-tip">🧔🏽 <b>${this.t(this.TXT.sumTip)}</b> ${TKD.esc(tip)}</p>` : ''}
         <button type="button" class="btn btn-success act-again" id="act-again">🔁 ${this.t(this.TXT.again)}</button>
       </div>`;
     this.$('act-again')?.addEventListener('click', () => { this._summary = null; this.gameState.playSound('click'); this.initialize(this.gameState); });
@@ -9609,7 +9609,7 @@ function switchScreen(screenId) {
   CoachSprites.refresh(screenId);
 }
 
-// v42 — Coach Yang in 3D inside the coach boxes (lesson, feedback, winner).
+// v42 — the coach (Coach Seif since v62) in 3D inside the coach boxes (lesson, feedback, winner).
 // Mounted when the screen opens (a hidden box has no size to draw into); in the
 // lesson he bows (gyeongnye) first, then waits with his arms crossed.
 // v43 — the Korean commands of a real class (차렷 attention · 경례 bow · 준비 ready · 시작 begin):
@@ -10159,7 +10159,7 @@ class CertificateSystem {
     ctx.fillStyle = '#94a3b8';
     ctx.font = '20px ' + (isAr ? "Cairo, 'Noto Sans Arabic', Tahoma, sans-serif" : 'Roboto, system-ui, sans-serif');
     ctx.fillText((isAr ? 'التاريخ: ' : 'Date: ') + dateStr, 220, 640);
-    ctx.fillText(isAr ? 'المدرب: يانج (Coach Yang)' : 'Instructor: Master Yang', canvas.width - 240, 640);
+    ctx.fillText(isAr ? 'المدرب: كوتش سيف' : 'Instructor: Coach Seif', canvas.width - 240, 640);
 
     ctx.strokeStyle = '#e2e8f0';
     ctx.lineWidth = 1;
@@ -13306,7 +13306,7 @@ if (typeof window !== 'undefined') window.RigBackend = RigBackend;
 
 // ============================================================================
 // PoseShots (v47) — no more character pictures.
-// Every still of the boy, the girl and Coach Yang (lesson cards, puzzle
+// Every still of the boy, the girl and Coach Seif (lesson cards, puzzle
 // pieces, quiz pictures, avatars, the start screen, certificates …) is drawn
 // from the SAME 3D characters the arena games use: the exact pose of each
 // kick phase, rendered once into an image and kept on the device (Cache
@@ -13938,9 +13938,9 @@ class RigView {
     ang.textContent = `📐 ${this.ar ? 'الزوايا' : 'Angles'}`;
     ang.addEventListener('click', () => { this.angles = !this.angles; ang.setAttribute('aria-pressed', this.angles); ang.classList.toggle('on', this.angles); this._panelKey = ''; this.renderAngles(); });
     bar.appendChild(ang);
-    const demo = document.createElement('button');               // v43: Coach Yang shows the whole kick
+    const demo = document.createElement('button');               // v43: Coach Seif shows the whole kick
     demo.type = 'button'; demo.className = 'rig-btn';
-    demo.textContent = `🥋 ${this.ar ? 'سابوم نيم بيوريك' : 'Coach shows'}`;
+    demo.textContent = `🥋 ${this.ar ? 'كوتش سيف بيوريك' : 'Coach Seif shows'}`;
     demo.addEventListener('click', () => this.coachDemo());
     bar.appendChild(demo);
     const leg = document.createElement('button');                // v45: which leg kicks (mirror image)
@@ -14033,10 +14033,10 @@ class RigView {
     const ground = h * 0.95, x = w * 0.46 - (d.ankleB?.[0] || 0) * s;
     // floor
     g.fillStyle = 'rgba(0,0,0,0.18)'; g.beginPath(); g.ellipse(w * 0.46, ground, w * 0.3, h * 0.025, 0, 0, Math.PI * 2); g.fill();
-    if (this.demo && this.coachRig) {                       // v43: Coach Yang demonstrates instead
+    if (this.demo && this.coachRig) {                       // v43: Coach Seif demonstrates instead
       this.coachRig.skeleton.draw(g, x, ground, s);
       this.drawPow(g, x, ground, s);
-      const tag = this.ar ? '🥋 سابوم نيم يانج' : '🥋 Coach Yang';
+      const tag = this.ar ? '🥋 كوتش سيف' : '🥋 Coach Seif';
       g.font = '800 13px Cairo, Roboto, sans-serif'; const tw = g.measureText(tag).width + 16;
       g.fillStyle = 'rgba(10,14,30,.75)'; g.beginPath(); g.roundRect(10, 10, tw, 26, 13); g.fill();
       g.fillStyle = '#ffd166'; g.textAlign = 'left'; g.textBaseline = 'middle'; g.fillText(tag, 18, 23);
@@ -18290,12 +18290,12 @@ Object.assign(Journey, {
     box.innerHTML = `<div class="jr-coach-inner">
       <img class="jr-coach-img" src="${PoseShots.url('coach', 'coach')}" alt="">
       <div class="jr-coach-bubble">
-        <b>${TKD.t('Hi! I am Coach Yang 👋', 'أهلًا! أنا سابوم نيم يانج — يعني الأستاذ يانج 👋')}</b>
+        <b>${TKD.t('Hi! I am Coach Seif 👋', 'أهلًا! أنا كوتش سيف 👋')}</b>
         <p>${TKD.t(`${p?.name || ''}, this is your map! Walk the road one station at a time, collect the stars ⭐ — and at the end there's a treasure 🎁.`, `يا ${p?.name || 'بطل'}، دي خريطتك! امشي على الطريق محطة محطة، واجمع النجوم ⭐، وفي الآخر فيه كنز مستنيك 🎁.`)}</p>
         <button type="button" class="btn btn-success" data-a="go">${TKD.t("Let's go! 🚀", 'يلا بينا! 🚀')}</button>
       </div></div>`;
     anchor.after(box);
-    // v43: the 3D Coach Yang bows hello in place of his picture (the picture stays if 3D is off)
+    // v43: the 3D Coach Seif bows hello in place of his picture (the picture stays if 3D is off)
     if (window.RigSprite && window.RigBackend) RigBackend.lib().then(r => {
       const img = box.querySelector('.jr-coach-img'); if (!r || !img || !box.isConnected) return;
       const host = document.createElement('div'); host.className = 'jr-coach-3d'; img.replaceWith(host);
@@ -20675,7 +20675,7 @@ window.Boss = Boss;
 })();
 
 // =====================================================================
-// v57.1 — THE KICK TEST as a real moment: Sabeom-nim Yang bows and explains the test
+// v57.1 — THE KICK TEST as a real moment: Coach Seif bows and explains the test
 // before it starts; passing it ends with a ceremony — a new stripe on the white belt
 // (the belt stays white: these three kicks are all white-belt techniques) and the next
 // kick revealed.
@@ -20691,7 +20691,7 @@ const Exam = {
     ov.innerHTML = `<div class="tkd-modal-card exam-card" role="dialog">
       <div class="exam-coach" id="exam-coach"></div>
       <h2>📝 ${TKD.t(`${S.name.en} test`, `اختبار ${S.name.ar}`)}</h2>
-      <p class="exam-say">“${TKD.t(`I'm Sabeom-nim Yang. Show me what you learnt about ${S.name.en}!`, `أنا سابوم نيم يانج. وريني اتعلمت إيه في ${S.name.ar}!`)}”</p>
+      <p class="exam-say">“${TKD.t(`I'm Coach Seif. Show me what you learnt about ${S.name.en}!`, `أنا كوتش سيف. وريني اتعلمت إيه في ${S.name.ar}!`)}”</p>
       <ul class="exam-rules">
         <li>❓ ${TKD.t(`${n} questions — some with pictures of the kick`, `${TKD.count(n, 'question', 'ar')} — منهم أسئلة بصور الركلة`)}</li>
         <li>🎯 ${TKD.t(`${need} right answers to pass`, `${TKD.num(need)} إجابات صح عشان تعدّي`)}</li>
@@ -20747,7 +20747,7 @@ const Stickers = {
     ['dojang', '🏯', '도장', 'Dojang', 'The training hall', 'صالة التدريب'],
     ['dobok', '👘', '도복', 'Dobok', 'The Taekwondo uniform', 'بدلة التايكوندو'],
     ['tti', '🎗️', '띠', 'Tti', 'The belt', 'الحزام'],
-    ['sabeomnim', '👴', '사범님', 'Sabeom-nim', 'The master / teacher', 'الأستاذ (المدرب)'],
+    ['sabeomnim', '🧑‍🏫', '사범님', 'Sabeom-nim', 'The master / teacher', 'الأستاذ (المدرب)'],
     ['charyeot', '🧍', '차렷', 'Charyeot', 'Attention!', 'انتباه!'],
     ['gyeongnye', '🙇', '경례', 'Gyeongnye', 'Bow!', 'التحية!'],
     ['junbi', '✋', '준비', 'Junbi', 'Get ready!', 'استعداد!'],
@@ -21301,7 +21301,7 @@ const Certificate = {
     x.fillStyle = '#3d2e22'; F.fit(x, F.date(this.passedAt(sk)), 330, 890, 420, 34, 700);
     x.strokeStyle = '#6b5a4a'; x.lineWidth = 2; x.beginPath(); x.moveTo(150, 925); x.lineTo(510, 925); x.stroke();
     x.fillStyle = '#6b5a4a'; F.fit(x, TKD.t('Date', 'التاريخ'), 330, 960, 300, 26, 600);
-    x.fillStyle = '#1d3557'; F.fit(x, TKD.t('Sabeom-nim Yang', 'سابوم نيم يانج'), W - 330, 890, 420, 40, 800);
+    x.fillStyle = '#1d3557'; F.fit(x, TKD.t('Coach Seif', 'كوتش سيف'), W - 330, 890, 420, 40, 800);
     x.strokeStyle = '#6b5a4a'; x.beginPath(); x.moveTo(W - 510, 925); x.lineTo(W - 150, 925); x.stroke();
     x.fillStyle = '#6b5a4a'; F.fit(x, TKD.t('The coach', 'المدرب'), W - 330, 960, 300, 26, 600);
     x.fillStyle = '#c9972b'; x.beginPath(); x.arc(W / 2, 935, 74, 0, 7); x.fill();
