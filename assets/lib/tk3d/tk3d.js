@@ -60,7 +60,6 @@ function getRenderer() {
 }
 export function supported() { return !!getRenderer(); }
 // v51: how many meshes / textures live on the GPU (to check nothing piles up)
-export function gpuInfo() { return renderer ? { ...renderer.info.memory } : null; }
 
 // ------------------------------------------------------------------ data
 const DESC = { boy: BOY, girl: GIRL, coach: COACH };

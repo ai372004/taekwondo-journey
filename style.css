@@ -361,7 +361,7 @@ p {
 .center-buttons .btn { min-width: 280px; justify-content: center; }
 
 /* --- Character Animations --- */
-.character-visual, .character-change-visual, .character-display-large .character-visual {
+.character-change-visual {
   width: 100%;
   height: 100%;
   background-size: contain;
@@ -374,21 +374,18 @@ p {
 }
 
 /* IDLE state: gentle float + subtle shadow pulse */
-.character-visual.is-idle,
 .character-change-visual.is-idle {
   animation: idleFloat 2.8s ease-in-out infinite;
   filter: drop-shadow(0 8px 12px rgba(0,0,0,0.35));
 }
 
 /* KICK state: no float animation — let sprite frames do the work */
-.character-visual.is-kicking,
 .character-change-visual.is-kicking {
   animation: kickImpact 0.12s ease-out;
   filter: drop-shadow(0 6px 16px rgba(255,107,53,0.5));
 }
 
 /* WIN state: energetic bounce with color glow */
-.character-visual.is-winning,
 .character-change-visual.is-winning {
   animation: winBounce 0.9s ease-in-out infinite;
   filter: drop-shadow(0 0 20px rgba(255,215,0,0.6));
@@ -407,10 +404,6 @@ p {
 }
 
 /* Fallback for elements that don't get JS class (backward compat) */
-.character-visual:not(.is-kicking):not(.is-winning):not(.is-idle) {
-  animation: idleFloat 2.8s ease-in-out infinite;
-  filter: drop-shadow(0 8px 12px rgba(0,0,0,0.35));
-}
 
 @keyframes idleFloat {
   0%   { transform: translateY(0px) scale(1); }
@@ -433,93 +426,11 @@ p {
 }
 
 /* ===================================================================== */
-/* 4. MODALS                                                             */
+/* 4. TEXT INPUTS                                                        */
 /* ===================================================================== */
-.modal {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.92);
-  display: none;
-  justify-content: center;
-  z-index: 10000;
-  padding: var(--space-lg);
-  backdrop-filter: blur(8px);
-}
 
-.modal.active {
-  display: flex !important;
-  animation: modalFadeIn 0.3s ease-out;
-}
+/* --- Name / code inputs (coach PIN, club code, club name) --- */
 
-@keyframes modalFadeIn {
-  from { opacity: 0; backdrop-filter: blur(0); }
-  to { opacity: 1; backdrop-filter: blur(8px); }
-}
-
-.modal-content {
-  background: linear-gradient(145deg, var(--dark-color), var(--darker-color));
-  border-radius: var(--radius-large);
-  padding: var(--space-xl);
-  max-width: var(--max-width-medium);
-  width: 90%;
-  border: 3px solid var(--primary-color);
-  box-shadow: 0 0 50px var(--glow-primary);
-  animation: modalSlideIn 0.5s ease-out;
-  position: relative;
-  overflow: hidden;
-}
-
-.modal-content::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; height: 5px;
-  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-}
-
-@keyframes modalSlideIn {
-  from { opacity: 0; transform: translateY(-50px) scale(0.9); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-/* --- Language Options --- */
-.language-selection { text-align: center; padding: var(--space-xl); }
-.language-selection h2 { -webkit-text-fill-color: var(--primary-color); }
-.language-options { display: flex; justify-content: center; gap: var(--space-xl); margin: var(--space-xl) 0; flex-wrap: wrap; }
-.language-btn {
-  padding: var(--space-lg) var(--space-xl);
-  background: var(--surface-tint);
-  border: 2px solid transparent;
-  border-radius: var(--radius-large);
-  color: var(--text-white);
-  cursor: pointer;
-  display: flex; flex-direction: column; align-items: center; gap: var(--space-md);
-  min-width: 220px;
-  transition: all var(--transition-medium);
-}
-.language-btn:hover { background: rgba(255, 107, 53, 0.15); transform: scale(1.05); border-color: var(--primary-color); box-shadow: 0 12px 30px rgba(255, 107, 53, 0.25); }
-.language-btn .flag { font-size: 3.5rem; }
-.language-btn .language-name { font-weight: 600; font-size: var(--font-xl); }
-
-/* --- Character Options --- */
-.character-selection { text-align: center; padding: var(--space-xl); }
-.character-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-xl); max-width: 800px; margin: var(--space-xl) auto; }
-.character-option {
-  background: var(--surface-tint);
-  border-radius: var(--radius-large);
-  padding: var(--space-xl);
-  border: 2px solid transparent;
-  cursor: pointer;
-  transition: all var(--transition-medium);
-}
-.character-option:hover { background: rgba(255, 107, 53, 0.1); transform: scale(1.05); border-color: var(--primary-color); }
-.character-option.selected { background: rgba(255, 107, 53, 0.15); border-color: var(--primary-color); box-shadow: 0 10px 30px var(--glow-primary); }
-.character-preview { width: 220px; margin: 0 auto var(--space-lg); position: relative; }
-
-/* --- Player name / identity modal --- */
-.player-selection { text-align: center; padding: var(--space-xl); }
-.player-selection h2 { -webkit-text-fill-color: var(--primary-color); }
-.player-modal-note { color: var(--text-gray); margin: var(--space-sm) 0 var(--space-xl); }
-.player-name-row { display: flex; justify-content: center; gap: var(--space-md); flex-wrap: wrap; }
 .player-name-input {
   padding: var(--space-md) var(--space-lg);
   background: var(--surface-tint);
@@ -531,28 +442,6 @@ p {
   text-align: center;
 }
 .player-name-input:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(255,107,53,0.2); }
-.player-existing-list {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-sm);
-  margin-top: var(--space-xl);
-  max-width: 480px;
-  margin-left: auto; margin-right: auto;
-}
-.player-existing-list:not(:empty)::before {
-  content: attr(data-label);
-  display: block; width: 100%;
-  color: var(--text-gray); font-size: var(--font-sm); margin-bottom: var(--space-sm);
-}
-.player-chip {
-  padding: 8px 18px;
-  background: var(--surface-tint);
-  border: 2px solid rgba(255,255,255,0.15);
-  border-radius: 999px;
-  color: var(--text-white);
-  cursor: pointer;
-  font-weight: 600;
-  transition: all var(--transition-medium);
-}
-.player-chip:hover { border-color: var(--primary-color); background: rgba(255,107,53,0.15); transform: scale(1.04); }
 
 /* ===================================================================== */
 /* 5. HEADER & NAVIGATION                                                */
@@ -1131,12 +1020,6 @@ p {
   color: var(--primary-color);
 }
 
-@keyframes card-select {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
 /* ===================================================================== */
 /* 12. GAME 4: QUIZ                                                      */
 /* ===================================================================== */
@@ -1572,7 +1455,7 @@ html[dir="rtl"] #flash-container {
   .winner-controls { flex-direction: column; align-items: center; }
   .winner-controls .btn { width: 100%; }
   .control-point { width: 30px; height: 30px; }
-  .character-selector-form label { width: 100%; justify-content: center; }
+  
   .puzzle-pieces { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -2189,11 +2072,6 @@ html[dir="rtl"] .navigation.collapsible {
   pointer-events: none;
 }
 
-@keyframes targetPulse {
-  0%, 100% { border-color: var(--glow-success); transform: translate(-50%,-50%) scale(1); }
-  50%       { border-color: rgba(42,157,143,0.8); transform: translate(-50%,-50%) scale(1.15); }
-}
-
 /* Control point color states */
 .control-point.cp-far {
   background: rgba(230,57,70,0.9);
@@ -2257,44 +2135,6 @@ html[dir="rtl"] .navigation.collapsible {
   font-style: italic;
   color: var(--text-gray);
   line-height: 1.5;
-}
-
-/* Character selector radio labels */
-.char-radio-label {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  padding: 10px 16px;
-  background: var(--shadow-color);
-  border-radius: var(--radius-medium);
-  border: 2px solid transparent;
-  transition: all 0.25s ease;
-  min-width: 90px;
-}
-
-.char-radio-label:hover {
-  border-color: var(--primary-color);
-  background: rgba(255,107,53,0.1);
-}
-
-.char-radio-label input[type="radio"]:checked + .char-radio-thumb {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 12px rgba(255,107,53,0.5);
-}
-
-.char-radio-label input[type="radio"] { display: none; }
-
-.char-radio-thumb {
-  width: 48px;
-  height: 60px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: 2px solid transparent;
-  border-radius: var(--radius-small);
-  transition: all 0.25s ease;
 }
 
 /* Reward kick animation */
@@ -2412,56 +2252,6 @@ html[dir="rtl"] .navigation.collapsible {
   80%       { transform: translateX(4px); }
 }
 
-@keyframes urgentPulse {
-  0%, 100% { transform: scale(1); }
-  50%       { transform: scale(1.08); }
-}
-
-/* Zoom overlay for wrong answer */
-.zoom-overlay {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.85);
-  z-index: 5000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 20px;
-  animation: fadeIn 0.25s ease;
-  padding: 30px;
-}
-
-.zoom-overlay-img {
-  width: 280px;
-  height: 340px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: 4px solid var(--danger-color);
-  border-radius: var(--radius-large);
-  box-shadow: 0 0 40px rgba(230,57,70,0.5);
-  animation: zoomIn 0.4s cubic-bezier(0.34,1.56,0.64,1);
-}
-
-.zoom-overlay-img.ref-correct {
-  border-color: var(--success-color);
-  box-shadow: 0 0 40px rgba(42,157,143,0.5);
-}
-
-.zoom-overlay-msg {
-  text-align: center;
-  font-size: var(--font-lg);
-  color: var(--text-white);
-  max-width: 500px;
-  line-height: 1.6;
-}
-
-@keyframes zoomIn {
-  from { transform: scale(0.5); opacity: 0; }
-  to   { transform: scale(1);   opacity: 1; }
-}
-
 /* ===================================================================== */
 /* 22. WARM UP SYSTEM                                                    */
 /* ===================================================================== */
@@ -2476,8 +2266,6 @@ html[dir="rtl"] .navigation.collapsible {
   flex-wrap: wrap;
   z-index: 1;
 }
-
-/* Connecting track behind the dots, with a fill that grows as exercises complete */
 
 /* Main card */
 .warmup-card {
@@ -2516,12 +2304,6 @@ html[dir="rtl"] .navigation.collapsible {
   margin: 0;
   line-height: 1.5;
 }
-
-/* Body: character + timer */
-
-/* Character stage */
-
-/* Floor line */
 
 /* Ambient spotlight glow pulsing behind the animated character */
 
@@ -2569,10 +2351,6 @@ html[dir="rtl"] .navigation.collapsible {
   transition: opacity 0.25s ease;
 }
 
-/* Mirror for the "_right" variants that reuse a "_left"-shot clip */
-
-/* Pause icon/state also freezes the video, not just the SVG animation */
-
 /* Crossfade when swapping to a new exercise's character animation */
 
 .warmup-char-tip {
@@ -2619,22 +2397,6 @@ html[dir="rtl"] .navigation.collapsible {
   margin: 0;
   text-align: center;
 }
-
-/* Controls */
-
-/* ── Character exercise animations ────────────────────────────────── */
-
-/* Neck rolls — gentle head tilt */
-
-/* Shoulder rolls — up-down shrug */
-
-/* Arm circles — wide side rotation */
-
-/* Leg swings — pendulum side rock */
-
-/* Jumping jacks — bounce up-down with scale */
-
-/* High knees — alternating fast bounce */
 
 /* ── Completion screen ─────────────────────────────────────────────── */
 .warmup-complete {
@@ -2694,8 +2456,6 @@ html[dir="rtl"] .navigation.collapsible {
   color: var(--text-light);
   margin-bottom: 32px;
 }
-
-/* Rest-period ring (conic-gradient, no SVG needed) */
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -2912,8 +2672,6 @@ body[dir="rtl"] .skill-card.locked .lock-overlay {
   transition: width 0.6s ease;
 }
 
-/* Completed state */
-
 /* Mobile */
 @media (max-width: 600px) {
   .apchagi-menu-grid {
@@ -2975,8 +2733,6 @@ body[dir="rtl"] .skill-card.locked .lock-overlay {
   align-items: center;
 }
 
-/* Title */
-
 /* Dots */
 #warmup-screen .warmup-dots {
   margin-bottom: 16px;
@@ -2991,8 +2747,6 @@ body[dir="rtl"] .skill-card.locked .lock-overlay {
   border-radius: 20px;
   min-height: 0;
 }
-
-/* Body stretches */
 
 /* Bigger character */
 
@@ -3013,8 +2767,6 @@ body[dir="rtl"] .skill-card.locked .lock-overlay {
 #warmup-screen .warmup-ex-desc       { font-size: clamp(0.9rem, 1.4vw, 1.1rem); max-width: 560px; }
 #warmup-screen .warmup-char-tip      { font-size: clamp(0.9rem, 1.3vw, 1.05rem); max-width: 260px; }
 
-/* Bigger controls */
-
 /* Completion */
 #warmup-screen .warmup-complete {
   max-width: 680px;
@@ -3028,8 +2780,6 @@ body[dir="rtl"] .skill-card.locked .lock-overlay {
 
 #warmup-screen .warmup-complete-title { font-size: clamp(2rem, 3.5vw, 3rem); }
 #warmup-screen .warmup-complete-sub   { font-size: clamp(1rem, 1.6vw, 1.25rem); }
-
-/* Mobile */
 
 /* ===== Skill Technical Info Box (striking surface / target / pivot angle) ===== */
 .skill-technical-box {
@@ -3464,8 +3214,6 @@ body[dir="rtl"] .warmup-coach-badge {
   color: var(--danger-color);
 }
 
-/* شارة زر النطق الصوتي */
-
 /* تأثير اهتزاز الشاشة عند الركل القوي */
 .screen-kick-shake {
   animation: kickShake 0.25s cubic-bezier(.36,.07,.19,.97) both;
@@ -3813,16 +3561,7 @@ body[dir="rtl"] .warmup-coach-badge {
 .mission-box:active { transform: scale(.98); }
 .mission-box[disabled] { cursor: default; opacity: .65; }
 .mission-box.is-done { border-color: var(--star-gold); background: linear-gradient(135deg, rgba(255,209,102,.28), rgba(255,107,53,.16)); animation: missionGlow 1.6s ease-in-out infinite; }
-.mission-box.mission-pop { animation: missionPop .5s var(--ease-pop, ease) both; }
 @keyframes missionGlow { 0%, 100% { box-shadow: 0 0 0 0 rgba(255,209,102,.35); } 50% { box-shadow: 0 0 0 8px rgba(255,209,102,0); } }
-@keyframes missionPop { 0% { transform: scale(.9); } 55% { transform: scale(1.05); } 100% { transform: scale(1); } }
-.mission-ico { font-size: 1.5rem; flex: 0 0 auto; }
-.mission-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1 1 auto; }
-.mission-text b { font-size: .92rem; font-weight: 800; }
-.mission-text small { font-size: .76rem; opacity: .85; }
-.mission-dots { display: flex; gap: 4px; flex: 0 0 auto; }
-.mission-dots i { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,.2); display: block; }
-.mission-dots i.on { background: var(--star-gold); box-shadow: 0 0 6px rgba(255,209,102,.7); }
 
 /* =====================================================================
    DOJANG TROPHY ROOM
@@ -3874,16 +3613,6 @@ body[dir="rtl"] .warmup-coach-badge {
   gap: 16px;
   margin: 16px 0 24px;
 }
-.cooldown-card {
-  padding: 18px 14px;
-  border-radius: 16px;
-  text-align: center;
-  background: rgba(42, 157, 143, 0.12);
-  border: 2px solid rgba(42, 157, 143, 0.35);
-}
-.cooldown-card .cooldown-icon { font-size: 2.2rem; margin-bottom: 6px; }
-.cooldown-card h4 { margin: 4px 0; font-size: 0.95rem; color: var(--secondary-color, #2a9d8f); }
-.cooldown-card p { margin: 0; font-size: 0.85rem; line-height: 1.5; opacity: 0.9; }
 
 /* =====================================================================
    PRACTICE STREAK BADGE
@@ -4104,7 +3833,6 @@ video { height: auto; }
 .winner-visual::before { width: min(300px, 70vw); height: min(300px, 70vw); }
 #winner-screen { overflow-x: clip; }
 .character-celebration { width: min(280px, 72vw); height: auto; aspect-ratio: 280 / 340; max-height: 100%; }
-.character-preview { width: min(220px, 60vw); height: auto; aspect-ratio: 220 / 280; }
 
 @media (max-width: 480px) {
   .tech-info-row { max-width: 100%; flex-wrap: wrap; }
@@ -4126,12 +3854,6 @@ h1, h2, h3, .btn, .description, .coach-message { overflow-wrap: anywhere; }
 /* On short screens (landscape phones) the language/character picker was
    taller than the screen and vertically centred, so its top was cut off
    and unreachable. */
-.modal { align-items: safe center; overflow-y: auto; }
-.modal-content {
-  max-height: calc(100dvh - 2 * var(--space-lg, 24px));
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
 
 /* ---------- 6. Warm-up: controls always reachable --------------------- */
 /* Pause / Skip / Exit sat below the bottom of the screen on phones, tablets
@@ -4299,27 +4021,15 @@ h1, h2, h3, .btn, .description, .coach-message { overflow-wrap: anywhere; }
   background: radial-gradient(ellipse at top, rgba(38, 70, 83, 0.55), rgba(3, 7, 18, 0.85));
   box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5);
 }
-.eh-svg { display: block; width: 100%; height: 100%; }
 
 /* Hit zones: invisible until hovered / focused / answered */
-.eh-zone { fill: transparent; stroke: transparent; pointer-events: all; cursor: pointer; vector-effect: non-scaling-stroke; transition: fill 0.2s ease, stroke 0.2s ease; }
-@media (hover: hover) {
-  .eh-zone:hover { fill: rgba(69, 123, 157, 0.2); stroke: rgba(120, 175, 210, 0.9); stroke-width: 2.5px; stroke-dasharray: 6; }
-}
-.eh-zone:focus { outline: none; }
-.eh-zone:focus-visible { fill: rgba(255, 107, 53, 0.15); stroke: var(--primary-color); stroke-width: 3px; }
-.eh-zone.eh-correct { fill: rgba(42, 157, 143, 0.28); stroke: var(--success-color); stroke-width: 3px; stroke-dasharray: none; }
-.eh-zone.eh-wrong   { animation: ehWrong 0.6s ease; }
-@keyframes ehWrong {
-  0%, 100% { fill: transparent; stroke: transparent; }
-  30%      { fill: rgba(230, 57, 70, 0.3); stroke: var(--danger-color); stroke-width: 3px; }
-}
+
 @keyframes ehFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
 @media (max-width: 800px) { .eh-layout { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) {
   .eh-feedback { animation: none; }
-  .eh-zone.eh-wrong { animation: none; fill: rgba(230, 57, 70, 0.3); stroke: var(--danger-color); stroke-width: 3px; }
+  
 }
 
 /* ===================================================================== */
@@ -4368,7 +4078,6 @@ h1, h2, h3, .btn, .description, .coach-message { overflow-wrap: anywhere; }
 .act-callout.show { opacity: 1; }
 .act-callout.ok  { border-color: var(--success-color); color: #b8f5ec; }
 .act-callout.bad { border-color: var(--danger-color);  color: #ffb3b9; }
-.act-wobble { transform-origin: 50% 100%; animation: actWobble 0.8s ease; }
 @keyframes actWobble {
   0%, 100% { transform: rotate(0); }
   20% { transform: rotate(-7deg); } 45% { transform: rotate(6deg); } 70% { transform: rotate(-3deg); }
@@ -4384,21 +4093,6 @@ h1, h2, h3, .btn, .description, .coach-message { overflow-wrap: anywhere; }
 
 /* Ap Chagi: timing bar */
 .act-timing { width: 100%; display: flex; flex-direction: column; gap: var(--space-md); }
-.act-bar-labels { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-gray); }
-.act-bar {
-  position: relative; height: 58px; border-radius: 14px; cursor: pointer; touch-action: manipulation;
-  border: 2px solid var(--border-color);
-  background: linear-gradient(90deg, rgba(230, 57, 70, 0.35), rgba(233, 196, 106, 0.22) 50%, rgba(230, 57, 70, 0.35));
-}
-.act-zone {
-  position: absolute; top: 0; bottom: 0; display: flex; align-items: center; justify-content: center;
-  border: 2px solid var(--success-color); border-radius: 10px; background: rgba(42, 157, 143, 0.45);
-  font-size: 0.72rem; font-weight: 700; color: #fff; overflow: hidden; white-space: nowrap;
-}
-.act-marker {
-  position: absolute; top: -7px; bottom: -7px; left: 0; width: 8px; margin-left: -4px; border-radius: 4px;
-  background: #fff; box-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
-}
 
 /* Naeryeo Chagi: drag straight on the fighter -- the panel just carries the
    step instructions; the live pose + gauge on the stage itself is the
@@ -4473,7 +4167,7 @@ h1, h2, h3, .btn, .description, .coach-message { overflow-wrap: anywhere; }
   .act-panel { min-height: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .act-target.is-hit, .act-wobble { animation: none; }
+  .act-target.is-hit { animation: none; }
 }
 
 /* ===================================================================== */
@@ -5109,9 +4803,7 @@ body.start-open { overflow: hidden; }
 .hub-card-k { font-size: .85rem; color: var(--tkd-ink-2); font-weight: 700; }
 .hub-card-big { font-size: 1.25rem; font-weight: 900; }
 .hub-card-s { font-size: .8rem; color: var(--tkd-ink-2); }
-.hub-challenge { border-color: rgba(233,196,106,0.45); background: linear-gradient(160deg, rgba(120,90,20,0.55), rgba(21,35,44,0.95)); }
-.hub-league { border-color: var(--tier); }
-.hub-versus { border-color: rgba(230,57,70,0.45); background: linear-gradient(160deg, rgba(110,30,40,0.6), rgba(21,35,44,0.95)); }
+
 #resume-training-wrap { display: none; }
 @media (max-width: 760px) { .hub-cards { grid-template-columns: 1fr; } .hub-card { flex-direction: row; flex-wrap: wrap; align-items: baseline; column-gap: 10px; } .hub-card-k { width: 100%; } }
 @media (prefers-reduced-motion: reduce) { .hub-cta { animation: none; } }
@@ -5350,13 +5042,6 @@ body.start-open .nav-toggle-btn, body.start-open #collapsibleNav, body.start-ope
 .pf-a-bar { height: 6px; border-radius: 4px; background: var(--surface-tint); overflow: hidden; margin: 2px 0; }
 .pf-a-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--secondary-color), #7ee0cf); border-radius: 4px; }
 
-/* trophies */
-.pf-troph { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
-.pf-trophy { background: var(--tkd-surface-2); border-radius: 12px; padding: 10px; text-align: center; display: flex; flex-direction: column; gap: 2px; opacity: .55; }
-.pf-trophy.ok { opacity: 1; box-shadow: inset 0 0 0 2px rgba(233,196,106,0.45); }
-.pf-trophy span { font-size: 1.8rem; }
-.pf-trophy b { font-size: .85rem; }
-.pf-trophy small { font-size: .72rem; color: var(--tkd-ink-3); }
 /* records */
 .pf-recs { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; }
 .pf-rec { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto auto; column-gap: 10px; background: var(--tkd-surface-2); border-radius: 12px; padding: 10px; align-items: center; }
@@ -5586,8 +5271,7 @@ html { scroll-padding-bottom: 96px; }
 .card-next-tag { position: absolute; top: -10px; inset-inline-start: 12px; background: var(--star-gold); color: #1d2b36; font-weight: 900; font-size: .78rem; padding: 4px 10px; border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,.35); }
 .btn-quiet { opacity: .8; font-weight: 700; }
 /* v29: coach welcome + "show me more" */
-.hub-more { display: block; width: 100%; margin-top: 12px; min-height: 48px; border-radius: 14px; cursor: pointer; font: inherit; font-weight: 800; color: var(--star-gold);
-  background: rgba(255,209,102,.1); border: 1px dashed rgba(255,209,102,.5); }
+
 /* the first-run hello is a real pop-up: nothing (tab bar included) can cover it */
 .jr-coach { position: fixed; inset: 0; z-index: 3400; display: flex; align-items: center; justify-content: center; padding: 18px;
   background: rgba(6,8,14,0.74); animation: jrFadeIn .22s ease both; }   /* no backdrop blur: it re-blurs every frame the map animates */
@@ -5613,7 +5297,7 @@ html { scroll-padding-bottom: 96px; }
 }
 .btn:focus-visible, .hub-card:focus-visible, .game-card:focus-visible, .jr-dot:focus-visible, .jr-go:focus-visible, .ss-card:focus-visible { outline: 3px solid var(--star-gold); outline-offset: 3px; }
 /* progress bars glide instead of jumping */
-.progress-bar, .progress-fill, #warmup-energy-fill, .hub-sy-bar span, .cu-belt-pct span { transition: width .6s var(--ease-pop); }
+.progress-bar, #warmup-energy-fill, .hub-sy-bar span, .cu-belt-pct span { transition: width .6s var(--ease-pop); }
 /* the picture in a card lifts a little with the card */
 .game-card .game-icon, .skill-card .skill-icon { transition: transform .2s var(--ease-pop); }
 @media (hover: hover) { .game-card:hover .game-icon, .skill-card:hover .skill-icon { transform: scale(1.08) rotate(-3deg); } }
@@ -6032,7 +5716,6 @@ html.lite .winner-visual::before, html.lite .celebration-icon { animation-iterat
   .rig-controls.rig-controls-3d { gap: 4px; }
 }
 
-
 /* ===== v51 — 4D: the kick through time ===== */
 /* the lesson's 3D column: the character on top, then the time slider, the 4D tools and the
    play buttons in normal flow (they wrap on a narrow phone instead of covering each other) */
@@ -6113,9 +5796,7 @@ html.lite .winner-visual::before, html.lite .celebration-icon { animation-iterat
 .character-stage .comic-badge { font-size: clamp(0.85rem, 3.6cqw, 1.5rem); padding: 0.3em 0.9em; border-width: 3px; white-space: nowrap; }
 /* toasts are read-only: a finger dragging a joint under one goes straight through to the joint */
 .flash-message { pointer-events: none; }
-/* boy / girl side by side on a phone too (stacked they pushed Coach Yang's steps a screen down) */
-@media (max-width: 760px) { .character-selector-form label { width: auto; flex: 1 1 0; max-width: 150px; padding: 8px 10px; } }
-.char-radio-label:has(input:checked) { border-color: var(--primary-color); }
+
 /* phone: the pinned buttons in two rows (Check · then Reset / Show me / Skeleton) — three rows hid the stars */
 @media (max-width: 1024px) {
   body.has-tabbar #form-control-screen .game-controls { display: flex; flex-wrap: wrap; }
@@ -6256,9 +5937,7 @@ html.lite .winner-visual::before, html.lite .celebration-icon { animation-iterat
 .break-emoji { font-size: 2.6rem; }
 
 /* v55 — lesson card: one short sentence first (young kids), the full lesson one tap away */
-.phase-short { padding: 12px 14px; border-radius: 14px; background: rgba(255,255,255,.07); margin-bottom: 10px; }
-.phase-short p { margin: 0; font-size: 1.25rem; font-weight: 800; line-height: 1.6; }
-.phase-info-col:not(.is-short) .phase-short { display: none; }
+
 .phase-info-col.is-short .phase-focus-box, .phase-info-col.is-short .phase-tips-list { display: none; }
 .phase-more-btn { margin-top: 8px; min-height: 40px; padding: 6px 14px; border-radius: 99px; border: 1px dashed rgba(255,255,255,.35); background: transparent; color: #ffd166; font: inherit; font-weight: 800; cursor: pointer; }
 
@@ -6279,7 +5958,7 @@ html.lite .winner-visual::before, html.lite .celebration-icon { animation-iterat
 .bonus-unfold b { color: #ffd166; }
 .bonus-unfold:hover, .bonus-unfold:focus-visible { background: rgba(255, 209, 102, .16); }
 /* v55 — lesson viewer: advanced tools folded away until asked for */
-.phase-rig-host:not(.rig-adv-open) .rig-adv, :not(.rig-adv-open) > .rig-controls .rig-adv, :not(.rig-adv-open) > .rig-adv { display: none !important; }
+:not(.rig-adv-open) > .rig-controls .rig-adv, :not(.rig-adv-open) > .rig-adv { display: none !important; }
 .rig-btn.rig-more { border-style: dashed; }
 
 /* v55 — guided cool-down */
@@ -6327,7 +6006,6 @@ html.lite .winner-visual::before, html.lite .celebration-icon { animation-iterat
 .puzzle-slot.pz-play { transform: scale(1.12); box-shadow: 0 0 0 3px #ffd166, 0 0 24px rgba(255, 209, 102, .7); z-index: 2; transition: transform .18s ease, box-shadow .18s ease; }
 @media (prefers-reduced-motion: reduce) { .puzzle-slot.pz-play { transform: none; } }
 .report-share { display: block; margin: 12px auto 18px; }
-.hub-backup { display: block; width: 100%; margin: 8px 0; padding: 10px 14px; border-radius: 14px; border: 1px dashed rgba(184,245,236,.5); background: rgba(42,157,143,.12); color: #e6fffa; font: inherit; font-weight: 700; cursor: pointer; }
 
 /* v55 — lesson video captions (WebVTT): big, rounded, readable on a phone */
 #learning-video::cue, .cu-video::cue {

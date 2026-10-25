@@ -54,7 +54,6 @@ const LAYOUT = [
   ['RightFoot',       'RightLeg',    0,     -0.27,   0],
   ['RightToeBase',    'RightFoot',   0,     -0.03,   0.105],
 ];
-export const BONE_NAMES = LAYOUT.map(l => l[0]);
 
 // v54b — a lock of hair: a tapered tube along a smooth curve through `pts`, flattened so it lies on
 // the head (wide sideways, thin in the direction away from `center`), with a pointed tip

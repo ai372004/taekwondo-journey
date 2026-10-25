@@ -613,7 +613,6 @@ const GameConfig = {
     SEVERE_FAIL_SCORE: 40,             // below this an attempt counts as a "real" struggle, not just missing the pass bar
     SEVERE_FAIL_STREAK: 3,             // this many severe fails in a row → a friendly tip to look at the lesson again
     SKILL_UNLOCK_THRESHOLD: 80,        // (reports only) the overall % shown as "mastered"
-    GAMES_REQUIRED_PER_SKILL: 3, // puzzle, sparring, action — the 3 main games (Quiz is a separate "Test", not a game)
     SKILL_UNLOCK_MESSAGE: {
       en: '🎉 New Skill Unlocked! You can now learn {skill}!',
       ar: '🎉 مهارة جديدة اتفتحت! دلوقتي تقدر تتعلم {skill}!'
@@ -647,24 +646,15 @@ const GameConfig = {
 const Curriculum = (() => {
   const P = (en, ar) => ({ en, ar });
 
-  // media slots, by kind (picture + demo video)
+  // media, by kind (picture + demo video). v61.4: only what exists — a kick the 3D characters
+  // can do is pictured by them, the game's three kicks have their tutorial video; everything
+  // else shows "picture coming soon" instead of asking for files that are not there yet.
   function mediaFor(it) {
-    if (it.kind === 'kick') {
-      const f = it.folder || it.id;
-      return {
-        // v47: a kick the 3D characters can do is pictured by them (getter: PoseShots loads later)
-        get photo() { return PoseShots.has(`kick:${it.id}`) ? PoseShots.url(PoseShots.mine(), `kick:${it.id}`, 2) : `assets/images/curriculum/${it.id}_boy.webp`; },
-        video: it.video || `assets/videos/${f}-tutorial.mp4`
-      };
-    }
-    if (it.kind === 'poomsae') return {
-      photo: `assets/images/curriculum/${it.id}_diagram.webp`,
-      video: `assets/videos/curriculum/${it.id}.mp4`
+    if (it.kind === 'kick') return {
+      get photo() { return PoseShots.has(`kick:${it.id}`) ? PoseShots.url(PoseShots.mine(), `kick:${it.id}`, 2) : null; },   // (getter: PoseShots loads later)
+      video: it.video || null
     };
-    return {
-      photo: `assets/images/curriculum/${it.id}_boy.webp`,
-      video: `assets/videos/curriculum/${it.id}.mp4`
-    };
+    return { photo: null, video: null };
   }
 
   const KINDS = {
@@ -1373,30 +1363,25 @@ class GameState {
   applyLanguage() {
     const translations = {
       en: {
-        apChagiMenu: 'Ap Chagi',
         apChagiMenuDesc: 'Choose where to go in your Ap Chagi journey',
         learningStage: 'Learning Stage',
         learningStageDesc: 'Watch tutorials and study the 5 phases of Ap Chagi',
         gamesMenuDesc: 'Practice with interactive training games',
-        warmupMenuDesc: 'Prepare your body with warm-up exercises before training', warmupEnergyLabel: 'Readiness',
+        warmupMenuDesc: 'Prepare your body with warm-up exercises before training',
         tests: 'Tests',
         testsDesc: 'Test your knowledge and earn your achievement',
         watchTutorial: '🎥 Watch Ap Chagi Tutorial',
-        videoNotSupported: 'Your browser does not support HTML5 video. Please try another browser.',
-        play: 'Play', replay: 'Replay', markAsWatched: 'Mark as Watched',
+        play: 'Play', replay: 'Replay',
         videoInstruction1: 'Watch the complete video tutorial for Ap Chagi',
-        videoInstruction2: 'Pay attention to the 5 key stages: Preparation, Chamber, Extension, Recoil, Return',
-        videoInstruction3: 'You must watch at least 80% of the video to continue',
-        videoInstruction4: 'After watching, mark as completed to proceed to practice games',
+
         gameTitle: 'Taekwondo Journey', gameSubtitle: 'Educational Taekwondo Adventure',
         home: 'Home', learning: 'Learning', games: 'Games', changeCharacter: 'Change Character', quiz: 'Quiz', warmup: 'Warm Up',
         welcome: '👋 Welcome to Taekwondo Journey',
         homeDescription: 'Start your journey to master Taekwondo techniques. Complete each skill to unlock the next!',
         apChagi: 'Ap Chagi', frontKick: 'Front Kick', naroChagi: 'Naeryeo Chagi', bakChagi3: 'Bik Chagi',
-        completePrevious: 'Complete previous skill to unlock', startLearning: 'Start Learning', practiceGames: 'Practice Games',
-        selectCharacter: 'Choose Your Character', boy: 'Boy', boyDesc: 'Beginner Taekwondo Player', girl: 'Girl', girlDesc: 'Beginner Taekwondo Player', confirmSelect: 'Confirm Selection', characterNote: 'Selected character will appear in all games and activities',
-        playerModalTitle: "🏆 Who's Playing?", playerModalDesc: 'Enter a name to save your scores and join the leaderboard.', playerNamePlaceholder: 'Your name', playerNameConfirm: "Let's Go", playerExistingLabel: 'Or continue as:',
-        leaderboardTitle: '🏆 Leaderboard', leaderboardDesc: 'See how every player on this device ranks.', leaderboardMyStats: 'My Stats', leaderboardAllPlayers: 'All Players', leaderboardTotalPoints: 'Total Points', leaderboardGamesPlayed: 'Games Played', leaderboardAttempts: 'Attempts', leaderboardLastPlayed: 'Last Played', leaderboardExport: '⬇️ Export Scores (CSV)', leaderboardSwitchPlayer: '🔁 Switch Player', leaderboardEmpty: 'No scores yet — play a game to get on the board!', leaderboardYou: 'You',
+        completePrevious: 'Complete previous skill to unlock', startLearning: 'Start Learning',
+        boy: 'Boy', girl: 'Girl',
+        leaderboardTitle: '🏆 Leaderboard', leaderboardDesc: 'See how every player on this device ranks.', leaderboardMyStats: 'My Stats', leaderboardAllPlayers: 'All Players', leaderboardExport: '⬇️ Export Scores (CSV)', leaderboardSwitchPlayer: '🔁 Switch Player',
         changeCharacterTitle: '👤 Change Character', currentCharacter: 'Current Character:', selectNewCharacter: 'Select New Character:', select: 'Select',
         coachYang: '👴 Coach Yang:',
         coachInstruction1: 'Watch how I perform the front kick step by step!',
@@ -1405,16 +1390,16 @@ class GameState {
         gamesCenter: '🎮 Games Center', chooseGame: 'Choose a game to start training',
         formControl: 'Fix the Pose', formControlDesc: 'Drag the dots to fix the kick',
         puzzleAssembly: 'Order the Phases', puzzleDesc: 'Put the 5 phases in order',
-        quizDesc: 'Test your Taekwondo knowledge', notStarted: 'Not Started', inProgress: 'In Progress', completed: 'Completed',
+        notStarted: 'Not Started', completed: 'Completed',
         formControlGame: '🧍 Fix the Pose — Ap Chagi', formControlInstructions: 'Drag the coloured dots until the pose is right',
         instructions: '🎯 Instructions:', instruction1: 'Lift knee to chest height', instruction2: 'Extend foot straight forward', instruction3: 'Keep back straight and upright', instruction4: 'Balance on standing leg',
         accuracy: 'Accuracy:', checkForm: 'Check Form', autoPosition: 'Auto Position', formProgress: 'Form Progress:', backToGames: 'Back to Games',
         puzzleGame: '🧩 Order the Phases', puzzleInstructions: 'Put the 5 phases in order. One piece is wrong — leave it out!',
-        puzzlePieces: 'Drag pieces to slots:', readyStance: 'Ready Stance', kneeLift: 'Knee Lift', fullExtension: 'Full Extension', legRetract: 'Leg Retract', returnStance: 'Return to Stance',
+        puzzlePieces: 'Drag pieces to slots:',
         checkPuzzle: 'Check Sequence', hint: 'Hint', puzzleProgress: 'Puzzle Progress:',
         taekwondoQuiz: '❓ Taekwondo Knowledge Quiz', quizDescription: 'Test your understanding of Taekwondo techniques and terminology',
         question: 'Question', score: 'Score:', winner: '🏆 Congratulations!', achievementsUnlocked: 'Achievements Unlocked:',
-        firstCompletion: 'First Game Completed', perfectForm: 'Perfect Form Mastered', nextLevel: 'Next Level', tryAgain: 'Try Again',
+        nextLevel: 'Next Level', tryAgain: 'Try Again',
         backToMenu: 'Back to Home', coachCongrats: 'Well done champion! Your dedication to mastering Ap Chagi is impressive. Keep training!',
         reset: 'Reset',
         backToHome: 'Back to Home',
@@ -1436,7 +1421,7 @@ class GameState {
         paddleTitle: 'Target Paddles', paddleDesc: 'Hit the right paddle — fast!',
         rhythmTitle: 'Kick Rhythm', rhythmDesc: 'Tap the phases on the beat',
         coreGames: 'The 3 main games — pass each once (60%) to open the test', bonusGames: 'Bonus games',
-        dashboardNav: 'Player Dashboard', backToGames2: 'Back to Games',
+        dashboardNav: 'Player Dashboard',
         dashboardTitle: '📊 Player Dashboard', dashboardDesc: 'Scores and insights for every player on this device.',
         dashboardOpen: 'Open Player Dashboard', dashboardExportPlayer: 'This player (CSV)', dashboardExportAll: 'All players (CSV)',
         sparringTitle: 'Sparring', sparringDesc: 'Kick when the right target lights up',
@@ -1451,43 +1436,38 @@ class GameState {
         curriculumNav: 'Belt Syllabus', privacyNav: 'Privacy', curriculumTitle: '📚 Belt Syllabus', curriculumDesc: 'Every belt, every technique and every poomsae — tap one to learn it.'
       },
       ar: {
-        apChagiMenu: 'آب تشاجي',
         apChagiMenuDesc: 'اختار هتروح فين في رحلة آب تشاجي',
         learningStage: 'مرحلة التعلم',
         learningStageDesc: 'اتفرج على الدروس واتعلم المراحل الخمسة لركلة آب تشاجي',
         gamesMenuDesc: 'اتمرن مع الألعاب التفاعلية',
-        warmupMenuDesc: 'جهّز جسمك بتمارين الإحماء قبل التمرين', warmupEnergyLabel: 'الجاهزية',
+        warmupMenuDesc: 'جهّز جسمك بتمارين الإحماء قبل التمرين',
         tests: 'الاختبارات',
         testsDesc: 'اختبر معلوماتك وخد إنجازك',
         watchTutorial: '🎥 اتفرج على فيديو تعليم آب تشاجي',
-        videoNotSupported: 'المتصفح بتاعك مابيشغلش الفيديو. جرّب متصفح تاني.',
-        play: 'تشغيل', replay: 'إعادة', markAsWatched: 'اتفرجت',
+        play: 'تشغيل', replay: 'إعادة',
         videoInstruction1: 'اتفرج على الفيديو التعليمي كله لركلة آب تشاجي',
-        videoInstruction2: 'ركّز على المراحل الخمسة الأساسية: الاستعداد، رفع الركبة، الفرد، السحب، الرجوع',
-        videoInstruction3: 'لازم تتفرج على 80% من الفيديو على الأقل عشان تكمّل',
-        videoInstruction4: 'بعد ما تتفرج، دوس على "اتفرجت" عشان تروح لألعاب التمرين',
+
         gameTitle: 'رحلة التايكوندو', gameSubtitle: 'مغامرة تايكوندو تعليمية',
         home: 'الرئيسية', learning: 'التعلم', games: 'الألعاب', changeCharacter: 'غيّر الشخصية', quiz: 'الاختبار', warmup: 'الإحماء',
         welcome: '👋 أهلًا بيك في رحلة التايكوندو', homeDescription: 'ابدأ رحلتك عشان تحترف حركات التايكوندو. خلّص كل مهارة عشان تفتح اللي بعدها!',
         apChagi: 'آب تشاجي', frontKick: 'الركلة الأمامية المستقيمة', naroChagi: 'نارو تشاجي', bakChagi3: 'بيك تشاجي',
-        completePrevious: 'خلّص المهارة اللي قبلها عشان تفتح', startLearning: 'ابدأ اتعلم', practiceGames: 'ألعاب التمرين',
-        selectCharacter: 'اختار شخصيتك', boy: 'الولد', boyDesc: 'لاعب تايكوندو مبتدئ', girl: 'البنت', girlDesc: 'لاعبة تايكوندو مبتدئة',
-        confirmSelect: 'أكّد اختيارك', characterNote: 'الشخصية اللي اخترتها هتظهر في كل الألعاب والأنشطة',
-        playerModalTitle: '🏆 مين اللي بيلعب؟', playerModalDesc: 'اكتب اسمك عشان نحفظ نقاطك وتنضم للوحة المتصدرين.', playerNamePlaceholder: 'اسمك', playerNameConfirm: 'يلا نبدأ', playerExistingLabel: 'أو كمّل باسم:',
-        leaderboardTitle: '🏆 لوحة المتصدرين', leaderboardDesc: 'شوف ترتيبك مقارنة بكل اللاعبين على الجهاز ده.', leaderboardMyStats: 'إحصائياتي', leaderboardAllPlayers: 'كل اللاعبين', leaderboardTotalPoints: 'مجموع النقاط', leaderboardGamesPlayed: 'الألعاب اللي لعبتها', leaderboardAttempts: 'المحاولات', leaderboardLastPlayed: 'آخر لعب', leaderboardExport: '⬇️ نزّل النتايج (CSV)', leaderboardSwitchPlayer: '🔁 غيّر اللاعب', leaderboardEmpty: 'لسه معندكش نقاط — العب أي لعبة عشان تدخل اللوحة!', leaderboardYou: 'إنت',
+        completePrevious: 'خلّص المهارة اللي قبلها عشان تفتح', startLearning: 'ابدأ اتعلم',
+        boy: 'الولد', girl: 'البنت',
+
+        leaderboardTitle: '🏆 لوحة المتصدرين', leaderboardDesc: 'شوف ترتيبك مقارنة بكل اللاعبين على الجهاز ده.', leaderboardMyStats: 'إحصائياتي', leaderboardAllPlayers: 'كل اللاعبين', leaderboardExport: '⬇️ نزّل النتايج (CSV)', leaderboardSwitchPlayer: '🔁 غيّر اللاعب',
         changeCharacterTitle: '👤 غيّر الشخصية', currentCharacter: 'الشخصية دلوقتي:', selectNewCharacter: 'اختار شخصية جديدة:', select: 'اختار',
         coachYang: '👴 سابوم نيم يانج:',        coachInstruction1: 'بص أنا بعمل الركلة الأمامية إزاي خطوة بخطوة!', learningTitle: '🎓 اتعلم آب تشاجي', learningSubtitle: 'اتقن المراحل الخمسة للركلة الأمامية',
         preparation: 'الاستعداد (جونبي)', chamber: 'رفع الركبة', extension: 'فرد الركلة', recoil: 'سحب الرجل', return: 'الرجوع للوضعية',
         gamesCenter: '🎮 مركز الألعاب', chooseGame: 'اختار لعبة وابدأ التمرين', formControl: 'ظبّط الوضعية', formControlDesc: 'اسحب النقط وظبّط شكل الركلة',
-        puzzleAssembly: 'رتّب المراحل', puzzleDesc: 'رتّب مراحل الركلة الخمسة', quizDesc: 'اختبر معلوماتك في التايكوندو', notStarted: 'لسه مابدأش', inProgress: 'شغال', completed: 'خلصت',
+        puzzleAssembly: 'رتّب المراحل', puzzleDesc: 'رتّب مراحل الركلة الخمسة', notStarted: 'لسه مابدأش', completed: 'خلصت',
         formControlGame: '🧍 ظبّط الوضعية — آب تشاجي', formControlInstructions: 'اسحب النقط الملونة لحد ما الشكل يبقى صح',
         instructions: '🎯 التعليمات:', instruction1: 'ارفع ركبتك لحد صدرك', instruction2: 'افرد رجلك لقدام على طول', instruction3: 'خلي ضهرك مفرود', instruction4: 'اتوازن على رجل الارتكاز',
         accuracy: 'الدقة:', checkForm: 'اتأكد من الشكل', autoPosition: 'وضع أوتوماتيك', formProgress: 'تقدّمك في الشكل:', backToGames: 'ارجع للألعاب',
         puzzleGame: '🧩 رتّب المراحل', puzzleInstructions: 'رتّب المراحل الخمسة. فيه قطعة غلط — سيبها برّه!',
-        puzzlePieces: 'اسحب القطع للأماكن الفاضية:', readyStance: 'وقفة القتال', kneeLift: 'رفع الركبة', fullExtension: 'فرد كامل', legRetract: 'سحب الرجل', returnStance: 'الرجوع للوضعية',
+        puzzlePieces: 'اسحب القطع للأماكن الفاضية:',
         checkPuzzle: 'اتأكد من الترتيب', hint: 'تلميح', puzzleProgress: 'تقدّمك في التركيب:', taekwondoQuiz: '❓ اختبر معلوماتك في التايكوندو', quizDescription: 'اختبر فهمك لحركات ومصطلحات التايكوندو', question: 'سؤال', score: 'النقط:',
-        winner: '🏆 مبروك!', achievementsUnlocked: 'الإنجازات اللي اتفتحت:', firstCompletion: 'أول لعبة تخلّصها', perfectForm: 'أتقنت الشكل المثالي',
-        nextLevel: 'المستوى اللي بعده', tryAgain: 'جرّب تاني', backToMenu: 'ارجع للرئيسية', viewProgress: 'شوف تقدّمك',
+        winner: '🏆 مبروك!', achievementsUnlocked: 'الإنجازات اللي اتفتحت:',
+        nextLevel: 'المستوى اللي بعده', tryAgain: 'جرّب تاني', backToMenu: 'ارجع للرئيسية',
         coachCongrats: 'برافو يا بطل! تعبك في إتقان آب تشاجي يجنن. كمّل تمرين!',
         reset: 'ابدأ من جديد',
         backToHome: 'ارجع للرئيسية',
@@ -1509,7 +1489,7 @@ class GameState {
         paddleTitle: 'مضارب الأهداف', paddleDesc: 'اضرب المضرب الصح بسرعة!',
         rhythmTitle: 'إيقاع الركلة', rhythmDesc: 'دوس على المراحل مع الإيقاع',
         coreGames: 'الألعاب التلاتة الأساسية — عدّي كل واحدة مرة (٦٠٪) عشان يتفتح الاختبار', bonusGames: 'ألعاب زيادة',
-        dashboardNav: 'لوحة اللاعبين', backToGames2: 'رجوع للألعاب',
+        dashboardNav: 'لوحة اللاعبين',
         dashboardTitle: '📊 لوحة اللاعبين', dashboardDesc: 'النتائج والملاحظات لكل لاعب على الجهاز ده.',
         dashboardOpen: 'افتح لوحة اللاعبين', dashboardExportPlayer: 'اللاعب ده (CSV)', dashboardExportAll: 'كل اللاعبين (CSV)',
         sparringTitle: 'النزال', sparringDesc: 'اركل لما الهدف الصح ينوّر',
@@ -1716,8 +1696,6 @@ class GameState {
     ['current-character-large', 'learning-character-animation', 'winner-character']
       .forEach(id => this.createCharacterVisual(id, this.playerCharacter, 'IDLE'));
 
-    this.createCharacterVisual('preview-boy', 'boy', 'IDLE');
-    this.createCharacterVisual('preview-girl', 'girl', 'IDLE');
     this.createCharacterVisual('change-boy', 'boy', 'IDLE');
     this.createCharacterVisual('change-girl', 'girl', 'IDLE');
     
@@ -2058,11 +2036,6 @@ class ScreenManager {
     this.gameState.playSound('click');
     try {
 
-    if (screenId === 'language' || screenId === 'character') {
-      this.showModal(screenId);
-      this.gameState.isTransitioning = false;
-      return;
-    }
     
     if (this.gameState.failureCount >= 3 && screenId !== 'learning') {
       this.gameState.failureCount = 0;
@@ -2108,7 +2081,6 @@ class ScreenManager {
     }
     
     document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
-    document.querySelectorAll('.modal').forEach(modal => modal.classList.remove('active'));
     document.body.classList.toggle('overlay-screen', screenId === 'warmup');
     
     const targetScreen = document.getElementById(`${screenId}-screen`);
@@ -2150,21 +2122,6 @@ class ScreenManager {
     }
     } catch(e) { console.error('Screen switch error:', e); }
     this.gameState.isTransitioning = false;
-  }
-
-  showModal(modalId) {
-    this.gameState.playSound('click');
-    document.querySelectorAll('.modal').forEach(modal => modal.classList.remove('active'));
-    const modal = document.getElementById(`${modalId}-modal`);
-    if (modal) {
-      modal.classList.add('active');
-      this.gameState.currentScreen = modalId;
-      this.setBackground('HOME');
-    }
-  }
-
-  hideModals() {
-    document.querySelectorAll('.modal').forEach(modal => modal.classList.remove('active'));
   }
 
   // Screen backgrounds now live on two fixed layers that cross-fade with
@@ -3303,8 +3260,7 @@ class FormControlSystem {
       if (el.dataset.part && el.style.left) savedPositions[el.dataset.part] = { x: el.style.left, y: el.style.top };
     });
     this._savedPositions = Object.keys(savedPositions).length ? savedPositions : null;
-    // the character picker and the keyboard tip are written in the current language
-    document.querySelector('#form-control-screen .character-selector-form')?.remove();
+    // the keyboard tip is written in the current language
     document.querySelector('#form-control-screen .keyboard-controls')?.remove();
 
     this.limits = config.limits;
@@ -3386,8 +3342,6 @@ class FormControlSystem {
   static setupGame() {
     this._lastSetup = `${this.skillId}|${this.selectedCharacter}`;
     this.removeExistingControlPoints();
-    // v55: the game uses the fighter the child chose at the start (no second picker here)
-    document.querySelector('#form-control-screen .character-selector-form')?.remove();
     this.setupCharacterImages();
     this.removeTargetZones();                 // (every visit used to add another set of goal circles)
     this.createTargetZones();
@@ -3399,49 +3353,6 @@ class FormControlSystem {
     this.updateJointFeedbackPanel();
     this.updateSkeleton();
     this.syncSkeletonToggleUI();
-  }
-
-  static setupCharacterSelector() {
-    const instructionsDiv = document.querySelector('.game-instructions');
-    if (!instructionsDiv || instructionsDiv.querySelector('.character-selector-form')) return;
-    const ar = this.gameState.currentLanguage === 'ar';
-    instructionsDiv.insertAdjacentHTML('afterbegin', `
-      <div class="character-selector-form">
-        <h4 style="color:var(--primary-color);margin-bottom:10px;">👤 ${ar ? 'الشخصية:' : 'Character:'}</h4>
-        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-          <label class="char-radio-label">
-            <input type="radio" name="form-character" value="boy" ${this.selectedCharacter==='boy'?'checked':''}>
-            <div class="char-radio-thumb" style="background-image:url('${PoseShots.url('boy', 'portrait')}')"></div>
-            <span>${ar ? 'الولد' : 'Boy'}</span>
-          </label>
-          <label class="char-radio-label">
-            <input type="radio" name="form-character" value="girl" ${this.selectedCharacter==='girl'?'checked':''}>
-            <div class="char-radio-thumb" style="background-image:url('${PoseShots.url('girl', 'portrait')}')"></div>
-            <span>${ar ? 'البنت' : 'Girl'}</span>
-          </label>
-        </div>
-      </div>
-    `);
-    document.querySelectorAll('input[name="form-character"]').forEach(r => {
-      r.addEventListener('change', async (e) => {
-        this.selectedCharacter = e.target.value;
-        this._lastSetup = `${this.skillId}|${this.selectedCharacter}`;
-        this.rewardPlayed = false;
-        if (this.fc3d || FormControlSystem.FC_TARGET[this.skillId]) {     // v53: rebuild for the other character
-          document.getElementById('fc-canvas')?.remove();
-          const tok = ++this._initTok;
-          await this.init3D();
-          if (tok !== this._initTok) return;
-          this.removeExistingControlPoints(); this.createControlPoints(); this.createSkeletonOverlay(); this.setupEventListeners(); this.setupKeyboardControls();
-        }
-        this.setupCharacterImages();
-        this.initializeControlPoints();
-        this.removeTargetZones();
-        this.createTargetZones();
-        this.updateSkeleton();
-        this.updateJointFeedbackPanel();
-      });
-    });
   }
 
   static setupCharacterImages() {
@@ -8598,32 +8509,7 @@ class ReportSystem {
       this.gameState.playSound('click');
     });
 
-    cloneAndBind('lb-switch-player-btn', () => {
-      this.gameState.playSound('click');
-      const wrap = document.getElementById('player-existing-list');
-      if (wrap) {
-        const ar = this.gameState.currentLanguage === 'ar';
-        const players = PlayerSystem.getPlayers();
-        wrap.setAttribute('data-label', ar ? 'أو كمّل باسم:' : 'Or continue as:');
-        wrap.innerHTML = players
-          .sort((a, b) => b.createdAt - a.createdAt)
-          .map(p => `<span class="player-chip" data-player-id="${p.id}">${p.name}</span>`)
-          .join('');
-        wrap.querySelectorAll('.player-chip').forEach(chip => {
-          chip.addEventListener('click', () => {
-            PlayerSystem.selectPlayer(chip.dataset.playerId);
-            this.gameState.playSound('success');
-            ScreenManagerInstance.hideModals();
-            ScreenManagerInstance.switchScreen('home');
-          });
-        });
-      }
-      const input = document.getElementById('player-name-input');
-      if (input) input.value = '';
-      window._tkdEnterHomeAfterPlayer = () => ScreenManagerInstance.switchScreen('home');
-      ScreenManagerInstance.showModal('player');
-      document.getElementById('player-name-input')?.focus();
-    });
+    cloneAndBind('lb-switch-player-btn', () => { this.gameState.playSound('click'); StartScreen.show(); });
   }
 }
 
@@ -9677,106 +9563,11 @@ async function initGame() {
   setProgress(100, 'جاهزين! · Ready!');
   setTimeout(() => {
     if (loadingScreen) loadingScreen.classList.add('hidden');
-    if (window.StartScreen) StartScreen.show(); else ScreenManagerInstance.showModal('language');
+    StartScreen.show();
   }, 400);
 }
 
 function setupGlobalEventListeners() {
-  document.querySelectorAll('.language-btn').forEach(button => {
-    button.addEventListener('click', (event) => {
-      const language = event.currentTarget.dataset.lang;
-      GameStateInstance.setLanguage(language);
-      ScreenManagerInstance.hideModals();
-      setTimeout(() => ScreenManagerInstance.showModal('character'), 300);
-    });
-  });
-  
-  document.querySelectorAll('.character-option').forEach(option => {
-    option.addEventListener('click', (event) => {
-      document.querySelectorAll('.character-option').forEach(opt => opt.classList.remove('selected'));
-      event.currentTarget.classList.add('selected');
-      GameStateInstance.playSound('click');
-    });
-  });
-  
-  document.getElementById('confirm-character-btn')?.addEventListener('click', () => {
-    const selected = document.querySelector('.character-option.selected');
-    if (!selected) {
-      GameStateInstance.showNotification(
-        GameStateInstance.currentLanguage === 'ar' ? '⚠️ اختار شخصية الأول' : '⚠️ Please select a character first', 'warning'
-      );
-      return;
-    }
-    const character = selected.dataset.character;
-    GameStateInstance.playerCharacter = character;
-    GameStateInstance.saveToStorage();
-    GameStateInstance.playSound('success');
-    ScreenManagerInstance.hideModals();
-
-    const enterHome = () => {
-      ScreenManagerInstance.switchScreen('home');
-      const welcomeMessage = GameStateInstance.currentLanguage === 'ar'
-        ? `🎮 أهلًا ${character === 'boy' ? 'يا بطل' : 'يا بطلة'}! اتبسط برحلتك في التايكوندو.`
-        : `🎮 Welcome ${character === 'boy' ? 'Boy' : 'Girl'}! Enjoy your Taekwondo journey.`;
-      GameStateInstance.showNotification(welcomeMessage, 'success');
-    };
-
-    // A player already recognized on this device (browser/storage) skips
-    // straight to Home; a first-time device shows the name prompt so their
-    // scores can be tracked and ranked.
-    if (PlayerSystem.getCurrentPlayer()) {
-      enterHome();
-    } else {
-      renderExistingPlayerChips();
-      setTimeout(() => {
-        ScreenManagerInstance.showModal('player');
-        document.getElementById('player-name-input')?.focus();
-      }, 250);
-      window._tkdEnterHomeAfterPlayer = enterHome;
-    }
-  });
-
-  function renderExistingPlayerChips() {
-    const wrap = document.getElementById('player-existing-list');
-    if (!wrap) return;
-    const players = PlayerSystem.getPlayers();
-    const ar = GameStateInstance.currentLanguage === 'ar';
-    if (!players.length) { wrap.innerHTML = ''; wrap.removeAttribute('data-label'); return; }
-    wrap.setAttribute('data-label', ar ? 'أو كمّل باسم:' : 'Or continue as:');
-    wrap.innerHTML = players
-      .sort((a, b) => b.createdAt - a.createdAt)
-      .map(p => `<span class="player-chip" data-player-id="${p.id}">${p.name}</span>`)
-      .join('');
-    wrap.querySelectorAll('.player-chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        PlayerSystem.selectPlayer(chip.dataset.playerId);
-        GameStateInstance.playSound('success');
-        ScreenManagerInstance.hideModals();
-        (window._tkdEnterHomeAfterPlayer || (() => ScreenManagerInstance.switchScreen('home')))();
-      });
-    });
-  }
-
-  function confirmPlayerName() {
-    const input = document.getElementById('player-name-input');
-    const name = input?.value || '';
-    if (!name.trim()) {
-      GameStateInstance.showNotification(
-        GameStateInstance.currentLanguage === 'ar' ? '⚠️ اكتب اسمك الأول' : '⚠️ Please enter your name first', 'warning'
-      );
-      return;
-    }
-    PlayerSystem.createOrSelectPlayer(name);
-    GameStateInstance.playSound('success');
-    ScreenManagerInstance.hideModals();
-    (window._tkdEnterHomeAfterPlayer || (() => ScreenManagerInstance.switchScreen('home')))();
-  }
-
-  document.getElementById('player-name-confirm-btn')?.addEventListener('click', confirmPlayerName);
-  document.getElementById('player-name-input')?.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') confirmPlayerName();
-  });
-  
   document.querySelectorAll('.select-character-btn').forEach(button => {
     button.addEventListener('click', (event) => {
       const character = event.currentTarget.dataset.character;
@@ -13116,8 +12907,8 @@ const TKDAnim = (() => {
       else if (k === 'offset') { region.ox = +n[0]; region.oy = +n[1]; }
       else if (k === 'rotate') { region.rotate = n[0] === 'true' ? 90 : n[0] === 'false' ? 0 : +n[0]; }
     }
+    // a region stored sideways (rotate 90/270) keeps its ORIGINAL w/h, as in the 4.x "bounds"
     pages.forEach(p => Object.values(p.regions).forEach(r => {
-      if (r.rotate === 90 || r.rotate === 270) { /* stored sideways: w/h are the ORIGINAL size in 4.x "bounds" */ }
       if (!r.ow) { r.ow = r.w; r.oh = r.h; }
     }));
     return pages;
@@ -16099,7 +15890,6 @@ const StartScreen = {
       gs.setLanguage(lang);
       try { localStorage.setItem('taekwondoJourneyLangChosen', 'auto'); } catch (e) {}
     } else gs.setLanguage(gs.currentLanguage);
-    ScreenManagerInstance?.hideModals();
     el.hidden = false;
     document.body.classList.add('start-open');
     this.mode = PlayerSystem.getPlayers().length ? mode : 'new';
@@ -16543,7 +16333,7 @@ const Coach = {
       if (this._pin.length === 4) setTimeout(submit, 150);
     };
     const submit = () => {
-      if (this._pin.length !== 4) return;
+      if (this._pin.length !== 4) { TKD.gs()?.playSound('error'); return paint(TKD.t('Type the 4 numbers first', 'اكتب الـ ٤ أرقام الأول')); }
       if (setting) {
         if (!this._first) {
           if (this.isWeakPin(this._pin)) { this._pin = ''; return paint(TKD.t('That PIN is too easy to guess — pick different numbers.', 'الرقم ده سهل التخمين — اختار أرقام تانية.')); }
@@ -17952,11 +17742,12 @@ const CurriculumScreen = {
     const belt = Curriculum.BELTS.find(b => b.id === it.belt);
     const ok = this.isDone(it);
     const list = (arr, cls) => arr.length ? `<ul class="${cls}">${arr.map(p => `<li>${TKD.esc(this.L(p))}</li>`).join('')}</ul>` : '';
+    const photo = this.photo(it), video = this.video(it);
     const ov = document.createElement('div');
     ov.className = 'tkd-modal cu-modal';
     ov.innerHTML = `<div class="tkd-modal-card cu-card" role="dialog" aria-label="${TKD.esc(it.ko)}" style="--belt:${belt.color};--belt-2:${belt.accent}">
-      <div class="cu-media ${this.strobeKey(it) ? 'is-strobe' : ''}"><img src="${this.photo(it)}" alt="${this.strobeKey(it) ? TKD.esc(TKD.t('All five phases of the kick in one picture', 'الخمس مراحل بتوع الركلة في صورة واحدة')) : ''}" onerror="this.parentElement.classList.add('empty');this.remove()"><span class="cu-soon">📷 ${TKD.t('Picture coming soon', 'الصورة جاية قريب')}</span>${this.strobeKey(it) ? `<span class="cu-strobe-tag">🎞️ ${TKD.t('All 5 phases in one picture', 'الخمس مراحل في صورة واحدة')}</span>` : ''}</div>
-      <video class="cu-video" controls playsinline preload="metadata" hidden src="${this.video(it)}"${/-tutorial\.mp4$/.test(this.video(it) || '') ? ` poster="${this.video(it).replace(/\.mp4$/, '.webp')}"` : ''} onloadedmetadata="this.hidden=false" onerror="this.remove()">${LearningSystem.captionTracks(this.video(it), TKD.gs()?.currentLanguage === 'ar')}</video>
+      <div class="cu-media ${this.strobeKey(it) ? 'is-strobe' : ''} ${photo ? '' : 'empty'}">${photo ? `<img src="${photo}" alt="${this.strobeKey(it) ? TKD.esc(TKD.t('All five phases of the kick in one picture', 'الخمس مراحل بتوع الركلة في صورة واحدة')) : ''}" onerror="this.parentElement.classList.add('empty');this.remove()">` : ''}<span class="cu-soon">📷 ${TKD.t('Picture coming soon', 'الصورة جاية قريب')}</span>${this.strobeKey(it) ? `<span class="cu-strobe-tag">🎞️ ${TKD.t('All 5 phases in one picture', 'الخمس مراحل في صورة واحدة')}</span>` : ''}</div>
+      ${video ? `<video class="cu-video" controls playsinline preload="metadata" hidden src="${video}"${/-tutorial\.mp4$/.test(video) ? ` poster="${video.replace(/\.mp4$/, '.webp')}"` : ''} onloadedmetadata="this.hidden=false" onerror="this.remove()">${LearningSystem.captionTracks(video, TKD.gs()?.currentLanguage === 'ar')}</video>` : ''}
       <p class="cu-kind">${Curriculum.KINDS[it.kind].icon} ${TKD.esc(this.L(Curriculum.KINDS[it.kind].name))} · ${TKD.esc(this.L(belt.name))}</p>
       <h2>${TKD.esc(it.ko)} <span class="cu-hangul" lang="ko">${TKD.esc(it.hangul)}</span></h2>
       <p class="cu-sub">${TKD.esc(this.L(it.name))}${it.trigram ? ` · ${TKD.esc(it.trigram)}` : ''}${it.aka ? ` · <i>${TKD.esc(this.L(it.aka))}</i>` : ''}</p>
@@ -19456,7 +19247,6 @@ const Shop = {
     { id: 'move-bow', slot: 'move', icon: '🙇', seq: ['bow', 'win', 'win', 'bounce'], cost: 8, en: 'Respect first', ar: 'التحية الأول' }
   ],
   items() { return [...this.BELTS, ...this.HEADBANDS, ...this.COLLARS, ...this.MOVES, ...this.PARTIES, ...this.FRAMES]; },
-  forSale() { return [...this.HEADBANDS, ...this.COLLARS, ...this.MOVES, ...this.PARTIES, ...this.FRAMES]; },
   move(pid) { const d = this.data(pid); return this.find(d.equipped.move) || this.MOVES[0]; },
   find(id) { return this.items().find(x => x.id === id); },
 
@@ -19542,14 +19332,6 @@ const Shop = {
       if (seen !== null) setTimeout(() => TKD.toast(TKD.t(`🥋 Your character now wears the ${earned.name.en}!`, `🥋 شخصيتك لابسة دلوقتي ${earned.name.ar}!`), 'success'), 600);
     } else if (!earned && seen === null) TKD.write(k, '');
     return this._cos;
-  },
-  earnedBelt() {
-    try {
-      if (!window.Curriculum || !window.CurriculumScreen) return null;
-      const d = CurriculumScreen.done(); let got = null;
-      for (const b of Curriculum.BELTS) { if (b.items.every(i => CurriculumScreen.isDone(i, d))) got = b; else break; }
-      return got;
-    } catch (e) { return null; }
   },
 
   // ---------------------------------------------------------------- drawing
@@ -19792,7 +19574,6 @@ const Mission = {
     if (gained) { d.bonusStars = (d.bonusStars || 0) + gained; this.save(d); window.AudioKit?.sfx('star', { gain: 0.6 }); this.mount(); }
   },
   // the gift chest: once a day; bigger when all three missions are done
-  chestReady() { return !this.data().chest; },
   openChest() {
     const d = this.data(); if (d.chest) return 0;
     const all = this.list().every(m => m.done);
