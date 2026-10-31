@@ -456,7 +456,7 @@ const GameConfig = {
             ar: ['✅ الذراعان في حالة قبض أمام الصدر.']
           }, color: '#2a9d8f' },
         { num: 2, key: 'chamber',
-          title: { en: '2️⃣ Knee Lift (Chamber)', ar: '2️⃣ رفع الركبة (التجهيز)' },
+          title: { en: '2️⃣ Knee Lift', ar: '2️⃣ رفع الركبة' },
           image: poseImg('apchagi', 1),
           focus: { en: '👀 Lift and bend the kicking knee high toward the chest.', ar: '👀 ارفع واثني ركبة الرجل الضاربة عاليًا ناحية الصدر.' },
           tips: {
@@ -464,7 +464,7 @@ const GameConfig = {
             ar: ['💡 ملحوظة: كلما زاد ارتفاع ركبة الرجل، ارتفع مستوى الضرب.', '✅ لف قدم الارتكاز للخارج بزاوية ٤٥°:٩٠°.']
           }, color: '#e76f51' },
         { num: 3, key: 'extension',
-          title: { en: '3️⃣ The Main Phase', ar: '3️⃣ المرحلة الأساسية' },
+          title: { en: '3️⃣ Extend the Leg to the Target', ar: '3️⃣ مد الرجل للهدف' },
           image: poseImg('apchagi', 2),
           focus: { en: '👀 Straighten the kicking knee with power and speed forward toward the opponent (chest or face).', ar: '👀 افرد ركبة الرجل الضاربة بقوة وسرعة إلى الأمام في اتجاه المنافس (الصدر أو الوجه).' },
           tips: {
@@ -472,7 +472,7 @@ const GameConfig = {
             ar: ['✅ وجّه الركلة بقاعدة الأصابع (كلوة القدم).']
           }, color: '#ff6b35' },
         { num: 4, key: 'recoil',
-          title: { en: '4️⃣ Pulling the Leg Back (Return)', ar: '4️⃣ سحب الرجل (الرجوع)' },
+          title: { en: '4️⃣ Pull the Leg Back', ar: '4️⃣ سحب الرجل' },
           image: poseImg('apchagi', 3),
           focus: { en: '👀 Bend the kicking knee back to the body again, quickly, right after the kick.', ar: '👀 اثني ركبة الرجل الضاربة مرة ثانية إلى الجسم بسرعة عقب الانتهاء من الركل.' },
           tips: {
@@ -480,7 +480,7 @@ const GameConfig = {
             ar: []
           }, color: '#e9c46a' },
         { num: 5, key: 'return',
-          title: { en: '5️⃣ Back to the Ready Stance (Follow-through)', ar: '5️⃣ الرجوع لوضعية الاستعداد (المتابعة)' },
+          title: { en: '5️⃣ Back to the Ready Stance', ar: '5️⃣ الرجوع لوضع الاستعداد' },
           image: poseImg('apchagi', 4),
           focus: { en: '👀 Bring the leg down to the floor quickly.', ar: '👀 نزّل الرجل سريعًا إلى الأرض.' },
           tips: {
@@ -511,7 +511,7 @@ const GameConfig = {
             ar: ['✅ الذراعان في حالة قبض أمام الصدر.']
           }, color: '#2a9d8f' },
         { num: 2, key: 'rise',
-          title: { en: '2️⃣ The Preparation Phase', ar: '2️⃣ المرحلة التمهيدية' },
+          title: { en: '2️⃣ Raise the Leg High', ar: '2️⃣ رفع الرجل لأعلى' },
           image: poseImg('narochagi', 1),
           focus: { en: '👀 Lift the kicking leg high.', ar: '👀 ارفع الرجل الضاربة عاليًا.' },
           tips: {
@@ -519,7 +519,7 @@ const GameConfig = {
             ar: ['💡 ملحوظة: لازم الرجل تبقى أعلى من مستوى الهدف (رأس المنافس).', '✅ لف قدم الارتكاز للخارج قليلًا بزاوية ٤٥°:٩٠°.']
           }, color: '#e76f51' },
         { num: 3, key: 'strike',
-          title: { en: '3️⃣ The Main Phase', ar: '3️⃣ المرحلة الرئيسية' },
+          title: { en: '3️⃣ Drop the Heel on the Target', ar: '3️⃣ إنزال الكعب على الهدف' },
           image: poseImg('narochagi', 2),
           focus: { en: '👀 Swing the kicking leg from top to bottom.', ar: '👀 مرجح الرجل الضاربة من أعلى لأسفل.' },
           tips: {
@@ -527,7 +527,7 @@ const GameConfig = {
             ar: ['✅ نزّل كعب وباطن القدم الضاربة على رأس ووجه المنافس.']
           }, color: '#ff6b35' },
         { num: 4, key: 'recoil',
-          title: { en: '4️⃣ The Final Phase (Follow-through)', ar: '4️⃣ المرحلة النهائية (المتابعة)' },
+          title: { en: '4️⃣ Pull the Leg Back', ar: '4️⃣ سحب الرجل' },
           image: poseImg('narochagi', 3),
           focus: { en: '👀 Pull the kicking leg back and bring it down to the floor.', ar: '👀 اسحب الرجل الضاربة ونزّلها على الأرض.' },
           tips: {
@@ -535,7 +535,7 @@ const GameConfig = {
             ar: []
           }, color: '#e9c46a' },
         { num: 5, key: 'return',
-          title: { en: '5️⃣ The Final Phase (Follow-through)', ar: '5️⃣ المرحلة النهائية (المتابعة)' },
+          title: { en: '5️⃣ Back to the Ready Stance', ar: '5️⃣ الرجوع لوضع الاستعداد' },
           image: poseImg('narochagi', 4),
           focus: { en: '👀 Keep your body balanced.', ar: '👀 حافظ على توازن جسمك.' },
           tips: {
@@ -568,7 +568,7 @@ const GameConfig = {
             ar: ['✅ الذراعان في حالة قبض أمام الصدر.']
           }, color: '#2a9d8f' },
         { num: 2, key: 'chamber',
-          title: { en: '2️⃣ The Preparation Phase', ar: '2️⃣ المرحلة التمهيدية' },
+          title: { en: '2️⃣ Knee Lift', ar: '2️⃣ رفع الركبة' },
           image: poseImg('bakchagi3', 1),
           focus: { en: '👀 Lift the kicking knee high and forward toward the chest.', ar: '👀 ارفع ركبة الرجل الضاربة عاليًا وللأمام ناحية الصدر.' },
           tips: {
@@ -576,7 +576,7 @@ const GameConfig = {
             ar: ['✅ شد مشط رجلك لأسفل.', '✅ لف قدم الارتكاز للخارج ١٨٠° (يعني المشط للخلف والكعب لقدام في اتجاه المنافس).', '✅ ميّل بضهرك لورا.']
           }, color: '#e76f51' },
         { num: 3, key: 'extension',
-          title: { en: '3️⃣ The Main Phase', ar: '3️⃣ المرحلة الأساسية' },
+          title: { en: '3️⃣ Extend the Leg to the Target', ar: '3️⃣ مد الرجل للهدف' },
           image: poseImg('bakchagi3', 2),
           focus: { en: '👀 Straighten the kicking knee forward with power and speed.', ar: '👀 افرد ركبة الرجل الضاربة لقدام بقوة وسرعة.' },
           tips: {
@@ -584,7 +584,7 @@ const GameConfig = {
             ar: ['✅ اضرب بوجه القدم (مشط القدم) في بطن المنافس.']
           }, color: '#ff6b35' },
         { num: 4, key: 'recoil',
-          title: { en: '4️⃣ Pulling Back', ar: '4️⃣ السحب' },
+          title: { en: '4️⃣ Pull the Leg Back', ar: '4️⃣ سحب الرجل' },
           image: poseImg('bakchagi3', 3),
           focus: { en: '👀 Bend the kicking knee back toward your body quickly after the kick.', ar: '👀 اثني ركبة الرجل الضاربة تاني ناحية جسمك بسرعة بعد الركل.' },
           tips: {
@@ -592,7 +592,7 @@ const GameConfig = {
             ar: []
           }, color: '#e9c46a' },
         { num: 5, key: 'return',
-          title: { en: '5️⃣ The Final Phase', ar: '5️⃣ المرحلة النهائية' },
+          title: { en: '5️⃣ Back to the Ready Stance', ar: '5️⃣ الرجوع لوضع الاستعداد' },
           image: poseImg('bakchagi3', 4),
           focus: { en: '👀 Bring your leg down to the floor quickly.', ar: '👀 نزّل رجلك بسرعة على الأرض.' },
           tips: {
@@ -712,7 +712,7 @@ const Curriculum = (() => {
           points: [['Fist turns over at the very end', 'القبضة تلف في آخر لحظة'], ['Other fist pulls back to the hip', 'القبضة التانية ترجع على وسطك']],
           mistakes: [['Bent wrist', 'رسغ مكسور']] }),
         I('apchagi', 'kick', 'Ap Chagi', '앞차기', 'Front kick', 'الركلة الأمامية', { skillId: 'apchagi', folder: 'apchagi',
-          points: [['Knee up first, then snap the foot', 'ارفع الركبة الأول وبعدين افرد رجلك بسرعة'], ['Hit with the ball of the foot', 'اضرب بمشط رجلك']] }),
+          points: [['Knee up first, then snap the foot', 'ارفع الركبة الأول وبعدين افرد رجلك بسرعة'], ['Hit with the ball of the foot', 'اضرب بقاعدة الأصابع (كلوة القدم)']] }),
         I('ap-ollyeo-chagi', 'kick', 'Ap Ollyeo Chagi', '앞올려차기', 'Front rising kick', 'الركلة الأمامية الطالعة', {
           points: [['Straight leg swings up like a pendulum', 'الرجل مفرودة وبتطلع زي البندول'], ['Stretching kick — control it on the way down', 'ركلة إطالة — تحكّم فيها وهي نازلة']] }),
         T(1, 'Il', 'Keon ☰', 'Heaven and light — the beginning', 'السما والنور — البداية', 18, 'walking & front stance, low block, middle punch, front kick', 'وقفة المشي والأمامية، صدّة تحتانية، لكمة وسط، ركلة أمامية')
@@ -746,7 +746,7 @@ const Curriculum = (() => {
         I('dwit-kubi', 'stance', 'Dwit Kubi', '뒷굽이', 'Back stance', 'الوقفة الخلفية', {
           points: [['Feet in an L, about 70% weight on the back leg', 'رجليك على شكل حرف L وحوالي ٧٠٪ من وزنك على اللي ورا'], ['Both knees bent', 'الركبتين مثنيين']] }),
         I('beom-seogi', 'stance', 'Beom Seogi', '범서기', 'Tiger stance', 'وقفة النمر', {
-          points: [['Front foot touches with the ball only', 'الرجل اللي قدام بتلمس بالمشط بس'], ['Almost all weight on the back leg', 'تقريبًا كل وزنك على اللي ورا']] }),
+          points: [['Front foot touches with the ball only', 'الرجل اللي قدام بتلمس بقاعدة الأصابع بس'], ['Almost all weight on the back leg', 'تقريبًا كل وزنك على اللي ورا']] }),
         I('juchum-seogi', 'stance', 'Juchum Seogi', '주춤서기', 'Horse-riding stance', 'وقفة الفارس', {
           points: [['Feet two foot-lengths apart, toes forward', 'بين رجليك قد رجلين وصوابعك لقدام'], ['Knees pushed out, back straight', 'الركب لبرّه وضهرك مفرود']] }),
         I('sonnal-makki', 'block', 'Sonnal Makki', '손날막기', 'Knife-hand block', 'صدّة حد الإيد', {
@@ -787,7 +787,7 @@ const Curriculum = (() => {
       goal: P('Spinning and jumping kicks, Taegeuk 8, sparring rules and breaking.', 'الركلات اللي بتلف وبالنطة، تيجوك ٨، قوانين القتال والتكسير.'),
       items: [
         I('dwi-huryeo-chagi', 'kick', 'Dwi Huryeo Chagi', '뒤후려차기', 'Spinning hook kick', 'الركلة الخطافية اللي بتلف', {
-          points: [['Spin on the ball of the front foot', 'لف على مشط الرجل اللي قدام'], ['Head turns first, then the leg follows', 'راسك تلف الأول والرجل وراها']] }),
+          points: [['Spin on the ball of the front foot', 'لف على قاعدة أصابع الرجل اللي قدام'], ['Head turns first, then the leg follows', 'راسك تلف الأول والرجل وراها']] }),
         I('twio-dollyo-chagi', 'kick', 'Twio Dollyeo Chagi', '뛰어돌려차기', 'Jumping roundhouse kick', 'الركلة الدائرية بالنطة', {
           points: [['Jump up, not forward', 'نط لفوق مش لقدام'], ['Turn the hip in the air', 'لف وسطك وإنت في الهوا']] }),
         I('narae-chagi', 'kick', 'Narae Chagi', '나래차기', 'Double roundhouse kick', 'الركلة الدائرية المزدوجة', {
@@ -1394,7 +1394,7 @@ class GameState {
         formControlGame: '🧍 Fix the Pose — Ap Chagi', formControlInstructions: 'Drag the coloured dots until the pose is right',
         instructions: '🎯 Instructions:', instruction1: 'Lift knee to chest height', instruction2: 'Extend foot straight forward', instruction3: 'Keep back straight and upright', instruction4: 'Balance on standing leg',
         accuracy: 'Accuracy:', checkForm: 'Check Form', autoPosition: 'Auto Position', formProgress: 'Form Progress:', backToGames: 'Back to Games',
-        puzzleGame: '🧩 Order the Phases', puzzleInstructions: 'Put the 5 phases in order. One piece is wrong — leave it out!',
+        puzzleGame: '🧩 Order the Phases', puzzleInstructions: 'Put the phases of the kick in order, 1 to 5. There is one extra piece — leave it out.',
         puzzlePieces: 'Drag pieces to slots:',
         checkPuzzle: 'Check Sequence', hint: 'Hint', puzzleProgress: 'Puzzle Progress:',
         taekwondoQuiz: '❓ Taekwondo Knowledge Quiz', quizDescription: 'Test your understanding of Taekwondo techniques and terminology',
@@ -1420,7 +1420,7 @@ class GameState {
         boardBreakTitle: 'Board Break', boardBreakDesc: 'Pick the right part of the foot and break the board',
         paddleTitle: 'Target Paddles', paddleDesc: 'Hit the right paddle — fast!',
         rhythmTitle: 'Kick Rhythm', rhythmDesc: 'Tap the phases on the beat',
-        coreGames: 'The 3 main games — pass each once (60%) to open the test', bonusGames: 'Bonus games',
+        coreGames: 'The games in order — each one opens the next, and the last one opens the test', bonusGames: 'Bonus games',
         dashboardNav: 'Player Dashboard',
         dashboardTitle: '📊 Player Dashboard', dashboardDesc: 'Scores and insights for every player on this device.',
         dashboardOpen: 'Open Player Dashboard', dashboardExportPlayer: 'This player (CSV)', dashboardExportAll: 'All players (CSV)',
@@ -1430,7 +1430,7 @@ class GameState {
         leagueNav: 'Challenges', versusNav: 'Challenge a Friend', switchPlayerNav: 'Switch Player', coachNav: 'Coach Mode',
         leagueTitle: '🏆 Challenges', leagueDesc: "Play today's challenge, duel your friends and win weekly awards.",
         versusTitle: '⚔️ Challenge a Friend', versusDesc: 'Two players, one screen: the first to kick a legal target scores.',
-        coachTitle: '👩‍🏫 Coach Mode',
+        coachTitle: '🧔🏽 Coach Mode',
         profileNav: 'My Hero Page', playersNav: 'All Players',
         playersTitle: '👥 All Players', playersDesc: 'Everyone training on this device — tap a player to see their hero page.',
         curriculumNav: 'Belt Syllabus', privacyNav: 'Privacy', curriculumTitle: '📚 Belt Syllabus', curriculumDesc: 'Every belt, every technique and every poomsae — tap one to learn it.'
@@ -1458,13 +1458,13 @@ class GameState {
         changeCharacterTitle: '👤 غيّر الشخصية', currentCharacter: 'الشخصية دلوقتي:', selectNewCharacter: 'اختار شخصية جديدة:', select: 'اختار',
         coachName: '🧔🏽 كوتش سيف:',        coachInstruction1: 'بص أنا بعمل الركلة الأمامية إزاي خطوة بخطوة!', learningTitle: '🎓 اتعلم آب تشاجي', learningSubtitle: 'اتقن المراحل الخمسة للركلة الأمامية',
         preparation: 'الاستعداد (جونبي)', chamber: 'رفع الركبة', extension: 'فرد الركلة', recoil: 'سحب الرجل', return: 'الرجوع للوضعية',
-        gamesCenter: '🎮 مركز الألعاب', chooseGame: 'اختار لعبة وابدأ التمرين', formControl: 'ظبّط الوضعية', formControlDesc: 'اسحب النقط وظبّط شكل الركلة',
-        puzzleAssembly: 'رتّب المراحل', puzzleDesc: 'رتّب مراحل الركلة الخمسة', notStarted: 'لسه مابدأش', completed: 'خلصت',
-        formControlGame: '🧍 ظبّط الوضعية — آب تشاجي', formControlInstructions: 'اسحب النقط الملونة لحد ما الشكل يبقى صح',
+        gamesCenter: '🎮 مركز الألعاب', chooseGame: 'اختار لعبة وابدأ التمرين', formControl: 'ظبّط الوضعية', formControlDesc: 'اسحب النقاط لتصحيح شكل الركلة',
+        puzzleAssembly: 'رتّب المراحل', puzzleDesc: 'رتّب مراحل الركلة الخمس', notStarted: 'لسه مابدأش', completed: 'خلصت',
+        formControlGame: '🧍 ظبّط الوضعية — آب تشاجي', formControlInstructions: 'اسحب النقاط الملونة حتى يصبح شكل الركلة صحيحًا',
         instructions: '🎯 التعليمات:', instruction1: 'ارفع ركبتك لحد صدرك', instruction2: 'افرد رجلك لقدام على طول', instruction3: 'خلي ضهرك مفرود', instruction4: 'اتوازن على رجل الارتكاز',
         accuracy: 'الدقة:', checkForm: 'اتأكد من الشكل', autoPosition: 'وضع أوتوماتيك', formProgress: 'تقدّمك في الشكل:', backToGames: 'ارجع للألعاب',
-        puzzleGame: '🧩 رتّب المراحل', puzzleInstructions: 'رتّب المراحل الخمسة. فيه قطعة غلط — سيبها برّه!',
-        puzzlePieces: 'اسحب القطع للأماكن الفاضية:',
+        puzzleGame: '🧩 رتّب المراحل', puzzleInstructions: 'رتّب مراحل الركلة من ١ إلى ٥. هناك قطعة زائدة، اتركها خارج الترتيب.',
+        puzzlePieces: 'اسحب القطعة إلى الخانة المناسبة، أو اضغط على القطعة ثم على رقم الخانة.',
         checkPuzzle: 'اتأكد من الترتيب', hint: 'تلميح', puzzleProgress: 'تقدّمك في التركيب:', taekwondoQuiz: '❓ اختبر معلوماتك في التايكوندو', quizDescription: 'اختبر فهمك لحركات ومصطلحات التايكوندو', question: 'سؤال', score: 'النقط:',
         winner: '🏆 مبروك!', achievementsUnlocked: 'الإنجازات اللي اتفتحت:',
         nextLevel: 'المستوى اللي بعده', tryAgain: 'جرّب تاني', backToMenu: 'ارجع للرئيسية',
@@ -1479,26 +1479,26 @@ class GameState {
         coolDown: 'تهدئة', coolDownTitle: '🧘 وقت التهدئة', coolDownDesc: 'تمرين جامد! اعمل إطالة للعضلات دي 20 ثانية لكل واحدة عشان تخلّص بأمان.', coolDownDone: 'خلّصت الإطالة',
         reportNav: 'تقرير التقدم', reportTitle: '📊 تقرير التقدم', reportDesc: 'ملخص سريع للقراية بس، لأولياء الأمور والمدربين.',
         menuTitle: 'القائمة', navSectionTrain: 'التمرين', navSectionProgress: 'التقدم', navSectionData: 'البيانات',
-        actionTitle: 'تحدي الضربة', actionDesc: 'تحدي عملي مختلف لكل ركلة',
-        errorHuntTitle: 'صيّاد الأخطاء', errorHuntDesc: 'لاقي الغلطة المستخبية في الركلة',
-        errorHuntGame: '🔍 صيّاد الأخطاء', errorHuntInstructions: 'دوس على مكان الغلطة في الركلة',
-        quizBlastTitle: 'كويز الفضاء', quizBlastDesc: 'اضرب الإجابة الصح بالليزر',
-        quizBlastGame: '🚀 كويز الفضاء', quizBlastInstructions: 'حرّك الخوذة بالأسهم (أو بالسحب)، واضرب بالمسافة (أو زرار 🔥) وصيب الإجابة الصح. معاك 3 محاولات!',
+        actionTitle: 'تحدي الضربة', actionDesc: 'تحدٍّ عملي مختلف لكل ركلة',
+        errorHuntTitle: 'صيّاد الأخطاء', errorHuntDesc: 'اكتشف الخطأ المخفي في الركلة',
+        errorHuntGame: '🔍 صيّاد الأخطاء', errorHuntInstructions: 'اضغط على مكان الخطأ في الركلة',
+        quizBlastTitle: 'كويز الفضاء', quizBlastDesc: 'أصِب الإجابة الصحيحة بالليزر',
+        quizBlastGame: '🚀 كويز الفضاء', quizBlastInstructions: 'حرّك الخوذة بالأسهم (أو بالسحب)، واضغط المسافة (أو زر 🔥) لإصابة الإجابة الصحيحة. لديك ٣ محاولات!',
         downloadCertificate: 'نزّل شهادة الإتقان 📜',
-        boardBreakTitle: 'كسر الألواح', boardBreakDesc: 'اختار جزء القدم الصح واكسر اللوح',
-        paddleTitle: 'مضارب الأهداف', paddleDesc: 'اضرب المضرب الصح بسرعة!',
-        rhythmTitle: 'إيقاع الركلة', rhythmDesc: 'دوس على المراحل مع الإيقاع',
-        coreGames: 'الألعاب التلاتة الأساسية — عدّي كل واحدة مرة (٦٠٪) عشان يتفتح الاختبار', bonusGames: 'ألعاب زيادة',
+        boardBreakTitle: 'كسر الألواح', boardBreakDesc: 'اختر جزء القدم الصحيح واكسر اللوح',
+        paddleTitle: 'مضارب الأهداف', paddleDesc: 'اضرب المضرب الصحيح بسرعة!',
+        rhythmTitle: 'إيقاع الركلة', rhythmDesc: 'اضغط على المراحل مع الإيقاع',
+        coreGames: 'الألعاب بالترتيب — كل لعبة بتفتح اللي بعدها، وبعد آخر لعبة يتفتح الاختبار', bonusGames: 'ألعاب زيادة',
         dashboardNav: 'لوحة اللاعبين',
         dashboardTitle: '📊 لوحة اللاعبين', dashboardDesc: 'النتائج والملاحظات لكل لاعب على الجهاز ده.',
         dashboardOpen: 'افتح لوحة اللاعبين', dashboardExportPlayer: 'اللاعب ده (CSV)', dashboardExportAll: 'كل اللاعبين (CSV)',
-        sparringTitle: 'النزال', sparringDesc: 'اركل لما الهدف الصح ينوّر',
-        balanceTitle: 'اثبت واتوازن', balanceDesc: 'اثبت على رجل واحدة من غير ما تقع',
-        heavyBagTitle: 'كيس الركلات', heavyBagDesc: 'اركل الكيس في الوقت الصح',
+        sparringTitle: 'النزال', sparringDesc: 'اركل عندما يضيء الهدف الصحيح',
+        balanceTitle: 'اثبت واتوازن', balanceDesc: 'اثبت على رجل واحدة دون أن تسقط',
+        heavyBagTitle: 'كيس الركلات', heavyBagDesc: 'اركل الكيس في اللحظة المناسبة',
         leagueNav: 'التحديات', versusNav: 'تحدّى صاحبك', switchPlayerNav: 'غيّر اللاعب', coachNav: 'وضع المدرب',
         leagueTitle: '🏆 التحديات', leagueDesc: 'العب تحدي النهارده، واجه صحابك واكسب جوايز الأسبوع.',
         versusTitle: '⚔️ تحدّى صاحبك', versusDesc: 'لاعبين على شاشة واحدة: اللي يركل الأول في هدف صح ياخد النقط.',
-        coachTitle: '👩‍🏫 وضع المدرب',
+        coachTitle: '🧔🏽 وضع المدرب',
         profileNav: 'صفحة البطل بتاعتي', playersNav: 'كل اللاعبين',
         playersTitle: '👥 كل اللاعبين', playersDesc: 'كل اللي بيتمرنوا على الجهاز ده — دوس على أي لاعب تشوف صفحته.',
         curriculumNav: 'منهج الأحزمة', privacyNav: 'الخصوصية', curriculumTitle: '📚 منهج الأحزمة', curriculumDesc: 'كل حزام وكل حركة وكل بومسي — دوس على أي حاجة وتعلّمها.'
@@ -1911,6 +1911,7 @@ class GameState {
   static gamePassed(scores, key) { return ((scores || {})[key] || 0) >= GameConfig.SETTINGS.PASSING_SCORE; }
   // v59.2: every unit has its number of passed games (any of its games count)
   static allGamesDone(scores, sk = GameState.skillOfScores(scores)) {
+    if (Units.grandfathered(sk)) return true;                       // v63: a kick passed before the numbered road
     return [1, 2, 3].every(u => Units.gamesDone(scores, u, sk));
   }
   static quizPassed(scores) { return ((scores || {}).quiz || 0) >= GameConfig.SETTINGS.QUIZ_PASS; }
@@ -2960,7 +2961,7 @@ class FormControlSystem {
     const left = KickLeg.isLeft(), mirror = !!this.fc3d && left;
     const K = left ? ['الشمال', 'left'] : ['اليمين', 'right'], S = left ? ['اليمين', 'right'] : ['الشمال', 'left'];
     const side = (isLeft) => (isLeft !== mirror) ? ['الشمال', 'Left'] : ['اليمين', 'Right'];
-    const F = { ball: ['مشط', 'ball'], instep: ['وش', 'instep'] }[surf] || ['كعب', 'heel'];
+    const F = { ball: ['كلوة', 'ball'], instep: ['وش', 'instep'] }[surf] || ['كعب', 'heel'];
     const hL = side(true), hR = side(false);
     const N = {
       knee: [`ركبة الرجل ${K[0]}`, `${K[1]} knee`],
@@ -2979,7 +2980,7 @@ class FormControlSystem {
     const left = KickLeg.isLeft(), mirror = !!this.fc3d && left;
     const K = left ? ['الشمال', 'L'] : ['اليمين', 'R'], S = left ? ['اليمين', 'R'] : ['الشمال', 'L'];
     const surf = this.fc3d?.part || KickSpec[this.skillId]?.part;
-    const F = { ball: ['مشط', 'ball'], instep: ['وش القدم', 'instep'] }[surf] || ['الكعب', 'heel'];
+    const F = { ball: ['كلوة القدم', 'ball'], instep: ['وش القدم', 'instep'] }[surf] || ['الكعب', 'heel'];
     const hand = (isLeft) => (isLeft !== mirror) ? ['إيد شمال', 'L hand'] : ['إيد يمين', 'R hand'];
     const N = {
       knee: [`ركبة ${K[0]}`, `${K[1]} knee`],
@@ -3014,7 +3015,7 @@ class FormControlSystem {
   static FC_WHY = {
     apchagi: {
       knee:  ['الركبة بتطلع لفوق الأول وبعدين الرجل تتفرد — هي اللي بتوجّه الركلة لصدر الخصم.', 'The knee comes up first, then the leg snaps out — the knee aims the kick at the partner\'s chest.'],
-      foot:  ['اضرب بمشط القدم وصوابعك مسحوبة لورا عشان صوابعك متتعورش، والرجل مفرودة خالص.', 'Hit with the ball of the foot, toes pulled back so they don\'t get hurt, leg fully straight.'],
+      foot:  ['اضرب بقاعدة الأصابع (كلوة القدم) وصوابعك مسحوبة لورا عشان صوابعك متتعورش، والرجل مفرودة خالص.', 'Hit with the ball of the foot, toes pulled back so they don\'t get hurt, leg fully straight.'],
       guard: ['الإيدين قدّام صدرك ووشك بيحموك وإنت واقف على رجل واحدة.', 'Fists up in front of your chest and face protect you while you stand on one leg.'],
       pivot: ['قدم الارتكاز بتلف للخارج من ٤٥° لـ ٩٠° — ده بيفتح الوسط ويخلّي الركلة أبعد وأقوى.', 'The standing foot turns out 45°–90° — it opens the hips so the kick reaches further.']
     },
@@ -3316,7 +3317,7 @@ class FormControlSystem {
     const INSTRUCTION_SETS = {
       apchagi: {
         en: ['Knee up in front first, then snap the leg out straight', 'Hit with the ball of the foot, toes pulled back — at the partner\'s chest', 'Turn the standing foot out 45°–90°', 'Guard up in front of you, back straight'],
-        ar: ['ارفع الركبة لقدّام الأول، وبعدين افرد رجلك على طول', 'اضرب بمشط القدم وصوابعك مسحوبة لورا — في صدر الخصم', 'لفّ قدم الارتكاز للخارج من ٤٥° لـ ٩٠°', 'الحراسة مرفوعة قدّامك وضهرك مفرود']
+        ar: ['ارفع الركبة لقدّام الأول، وبعدين افرد رجلك على طول', 'اضرب بقاعدة الأصابع (كلوة القدم) وصوابعك مسحوبة لورا — في صدر الخصم', 'لفّ قدم الارتكاز للخارج من ٤٥° لـ ٩٠°', 'الحراسة مرفوعة قدّامك وضهرك مفرود']
       },
       narochagi: {
         en: ['Swing the leg up completely straight, as high as you can', 'Both knees straight — the heel goes up to face height or higher', 'Turn the standing foot outward a little, 45°–90°', 'Guard up — then the heel drops down like an axe'],
@@ -3912,7 +3913,7 @@ class FormControlSystem {
           <p style="margin:0;font-size:0.85rem;">
             <i class="fas fa-keyboard"></i>
             <strong>${ar ? 'الكيبورد:' : 'Keyboard:'}</strong>
-            ${ar ? 'دوس على نقطة ← وحرّكها بالأسهم' : 'Click a point → Arrow keys to move it'}
+            ${ar ? 'اضغط على نقطة ← وحرّكها بالأسهم' : 'Click a point → Arrow keys to move it'}
           </p>
         </div>
       `);
@@ -4326,20 +4327,18 @@ class PuzzleSystem {
         color: p.color
       };
     });
-    // Imposter piece: one phase's NAME on a picture of a clearly different moment (v54: any
-    // of the five names, chosen once per round — it used to be "Ready stance" every time).
-    // The picture is always from another group of poses — standing (1, 5) · knee up (2, 4) ·
-    // the strike (3) — so a child can really see that the name and the picture don't match
-    // (Ap Chagi's knee lift and recoil look almost the same, so they never pair up).
-    const [li, ii] = PuzzleSystem._fake || [0, 2];
-    const labelPhase = skill.phases[li] || skill.phases[0], imgPhase = skill.phases[ii] || skill.phases[2];
-    const fakeLabel = (ar ? labelPhase.title.ar : labelPhase.title.en).replace(/^[0-9]+[\u{FE0F}\u{20E3}]*\s*/u, '');
+    // v63: the extra piece is a phase of ANOTHER kick — its own name and its own picture, so it
+    // never repeats the name of a real piece (it used to be a real name on the wrong picture)
+    const sk = GameConfig.SKILLS[skillId] ? skillId : 'apchagi';
+    const other = { apchagi: 'narochagi', narochagi: 'apchagi', bakchagi3: 'narochagi' }[sk];
+    const xp = GameConfig.SKILLS[other].phases[1 + ((PuzzleSystem._fake ?? 0) % 2)];   // its knee/leg lift or its strike
+    const fakeLabel = (ar ? xp.title.ar : xp.title.en).replace(/^[0-9]+[\u{FE0F}\u{20E3}]*\s*/u, '');
     data.distractor = {
-      image: isBoy ? imgPhase.image.boy : imgPhase.image.girl,
+      image: isBoy ? xp.image.boy : xp.image.girl,
       label: fakeLabel,
-      desc:  ar ? `⚠️ دي القطعة الدخيلة: مكتوب عليها «${fakeLabel}» بس الصورة مش كده — بص على الرجل في الصورة! سيبها برّه.`
-                : `⚠️ This is the imposter: it says “${fakeLabel}” but the picture shows a different moment — look at the leg! Leave it out.`,
-      color: imgPhase.color
+      desc:  ar ? `⚠️ هذه هي القطعة الزائدة: «${fakeLabel}» ليست من مراحل ${TKD.skillName(sk)} — اتركها خارج الترتيب.`
+                : `⚠️ This is the extra piece: “${fakeLabel}” is not a phase of ${TKD.skillName(sk)} — leave it out.`,
+      color: xp.color
     };
     return data;
   }
@@ -4362,11 +4361,7 @@ class PuzzleSystem {
     }
   };
 
-  static PICK_FAKE() {
-    const li = Math.floor(Math.random() * 5);
-    const pics = { 0: [2], 1: [0, 4], 2: [0, 4], 3: [0, 4], 4: [2] }[li];
-    return [li, pics[Math.floor(Math.random() * pics.length)]];
-  }
+  static PICK_FAKE() { return Math.floor(Math.random() * 2); }   // which phase of the other kick is the extra piece
 
   static initialize(gameState) {
     const keep = this._keepRound === true && this.skillId === gameState.currentSkill;   // (a language switch keeps the round)
@@ -4376,7 +4371,7 @@ class PuzzleSystem {
     this.correctOrder = ['step1','step2','step3','step4','step5'];
     this.userOrder    = Array(5).fill(null);
     this.previewing   = false;
-    if (!keep || !this._fake) this._fake = PuzzleSystem.PICK_FAKE();
+    if (!keep || this._fake == null) this._fake = PuzzleSystem.PICK_FAKE();
     if (!keep) { this.mistakes = 0; this.hearts = Hearts.max(); }   // v54: wrong pieces set the score · v57: and cost a heart
     document.querySelector('#puzzle-screen .tkd-outcard')?.remove();
     Hearts.show('puzzle-screen', this.hearts);
@@ -4394,10 +4389,10 @@ class PuzzleSystem {
     const ar = this.gameState.currentLanguage === 'ar', name = TKD.skillName(GameConfig.SKILLS[this.skillId] ? this.skillId : 'apchagi');
     const t = document.getElementById('puzzle-title'), d = document.getElementById('puzzle-desc');
     if (t) { t.removeAttribute('data-i18n'); t.textContent = ar ? `🧩 رتّب المراحل — ${name}` : `🧩 Order the Phases — ${name}`; }
-    if (d) { d.removeAttribute('data-i18n'); d.textContent = ar ? `رتّب مراحل ${name} من ١ لـ ٥. فيه قطعة غلط — سيبها برّه!` : `Put the phases of ${name} in order, 1 to 5. One piece is wrong — leave it out!`; }
+    if (d) { d.removeAttribute('data-i18n'); d.textContent = ar ? 'رتّب مراحل الركلة من ١ إلى ٥. هناك قطعة زائدة، اتركها خارج الترتيب.' : `Put the phases of ${name} in order, 1 to 5. There is one extra piece — leave it out.`; }
     document.querySelectorAll('#puzzle-screen .puzzle-slot .slot-label').forEach(el => { const n = +el.closest('.puzzle-slot').dataset.step; el.textContent = ar ? TKD.num(n) : String(n); });
     const h = document.querySelector('#puzzle-screen .puzzle-pieces-container h3');
-    if (h) { h.removeAttribute('data-i18n'); h.textContent = ar ? 'دوس على قطعة وبعدين على رقم مكانها (أو اسحبها):' : 'Tap a piece, then the number of its place (or drag it):'; }
+    if (h) { h.removeAttribute('data-i18n'); h.textContent = ar ? 'اسحب القطعة إلى الخانة المناسبة، أو اضغط على القطعة ثم على رقم الخانة.' : 'Drag a piece to its place, or tap a piece and then the number of its place.'; }
   }
 
   static injectDescriptionBox() {
@@ -4841,18 +4836,18 @@ class ActionSystem {
   static COPY = {
     apchagi: {
       title: { en: '⚡ Strike Challenge: Timing', ar: '⚡ تحدي الضربة: التوقيت' },
-      how:   { en: 'The white line moves up and down the target. Tap KICK! while it is inside the green zone — the abdomen / face. Too low and the kick hits the knee, too high and it flies over.',
-               ar: 'الخط الأبيض بيطلع وينزل على الهدف. دوس «اركل!» وهو جوه المنطقة الخضرا، اللي هي البطن / الوش. لو واطي الركلة هتيجي في الركبة، ولو عالي هتعدّي من فوق.' }
+      how:   { en: 'The white line moves up and down. Press KICK! when it is inside the green zone — the abdomen or face.',
+               ar: 'يتحرك الخط الأبيض لأعلى ولأسفل. اضغط «اركل!» عندما يصبح داخل المنطقة الخضراء، وهي منطقة البطن أو الوجه.' }
     },
     narochagi: {
       title: { en: '⚡ Strike Challenge: Gravity Drop', ar: '⚡ تحدي الضربة: الجاذبية' },
       how:   { en: '1) Drag UP on your fighter in a straight line — the straight leg rises with your finger (a wobble means a bent knee). 2) Then drag DOWN as fast as you can to drop the heel.',
-               ar: '١) اسحب لفوق على اللاعب في خط مستقيم، ورجله هتطلع مفرودة مع صباعك (لو الخط اهتز يبقى ركبتك اتثنت). ٢) وبعدين اسحب لتحت بأسرع ما تقدر عشان الكعب ينزل.' }
+               ar: '١) اسحب لأعلى على اللاعب في خط مستقيم، فترتفع رجله مفرودة مع إصبعك (إذا اهتز الخط فركبتك انثنت). ٢) ثم اسحب لأسفل بأقصى سرعة لينزل الكعب.' }
     },
     bakchagi3: {
       title: { en: '⚡ Strike Challenge: The Pivot', ar: '⚡ تحدي الضربة: لفّة الارتكاز' },
       how:   { en: 'Turn the standing foot about 135° (120°–150°) until its heel points toward the target: drag around the dial (or use the arrow keys) and watch your fighter turn — then press KICK!',
-               ar: 'لفّ قدم الارتكاز حوالي 135° (من 120° لـ 150°) لحد ما الكعب يبص ناحية الهدف: اسحب حوالين القرص (أو استخدم الأسهم) وشوف اللاعب وهو بيلف، وبعدين دوس «اركل!».' }
+               ar: 'لُفّ قدم الارتكاز نحو 135° (من 120° إلى 150°) حتى يتجه الكعب نحو الهدف: اسحب حول القرص (أو استخدم الأسهم) وشاهد اللاعب وهو يلف، ثم اضغط «اركل!».' }
     }
   };
 
@@ -4860,19 +4855,18 @@ class ActionSystem {
     round:  { en: (r, n) => `Round ${r} / ${n}`, ar: (r, n) => `الجولة ${r} / ${n}` },
     score:  { en: (s) => `Score: ${s}`,            ar: (s) => `النتيجة: ${s}` },
     kick:   { en: 'KICK!',        ar: 'اركل!' },
-    low:    { en: 'Too low',      ar: 'واطية' },
-    high:   { en: 'Too high',     ar: 'عالية' },
-    zone:   { en: 'Abdomen / Face', ar: 'البطن / الوش' },
+    low:    { en: 'Too low',      ar: 'منخفضة' },
+    high:   { en: 'Too high',     ar: 'مرتفعة' },
+    zone:   { en: 'Abdomen or face', ar: 'البطن أو الوجه' },
     target: { en: 'Target',       ar: 'الهدف' },
     away:   { en: 'toes away',    ar: 'الصوابع بعيد' },
-    step1:  { en: '1) Drag UP in a straight line', ar: '١) اسحب لفوق في خط مستقيم' },
-    step2:  { en: '2) Now drag DOWN — fast!',      ar: '٢) دلوقتي اسحب لتحت — بسرعة!' },
-    higher: { en: 'Drag up a little higher first.', ar: 'اسحب لفوق شوية كمان الأول.' },
-    lower:  { en: 'Drag all the way down!',          ar: 'اسحب لحد تحت خالص!' },
-    bent:   { en: 'Wobble! Keep it straight',        ar: 'بتهتز! خليها مستقيمة' },
+    step1:  { en: '1) Drag UP in a straight line', ar: '١) اسحب لأعلى في خط مستقيم' },
+    step2:  { en: '2) Now drag DOWN — fast!',      ar: '٢) الآن اسحب لأسفل — بسرعة!' },
+    higher: { en: 'Drag up a little higher first.', ar: 'اسحب لأعلى قليلًا أولًا.' },
+    lower:  { en: 'Drag all the way down!',          ar: 'اسحب حتى النهاية لأسفل!' },
+    bent:   { en: 'Wobble! Keep it straight',        ar: 'الخط يهتز! حافظ عليه مستقيمًا' },
     dial:   { en: 'Standing-foot dial',              ar: 'قرص لفّة قدم الارتكاز' },
     ready:  { en: 'Get ready…',                      ar: 'استعد…' },
-    tapHint:{ en: 'Tap KICK! (or Space) when the line is in the green', ar: 'دوس «اركل!» (أو المسافة) لما الخط يبقى في الأخضر' },
     sumPass:{ en: (a) => `${a}% — great kicking!`, ar: (a) => `${a}% — ركلات جامدة!` },
     sumFail:{ en: (a, p) => a >= 60 ? `${a}% — so close! You need ${p}%.` : `${a}% — let’s practise a bit more. You need ${p}%.`,
               ar: (a, p) => a >= 60 ? `${a}% — قربت! محتاج ${p}%.` : `${a}% — محتاجين نتمرن شوية. المطلوب ${p}%.` },
@@ -5158,7 +5152,6 @@ class ActionSystem {
     const avg = this.average();
     set('act-score', this.t(this.TXT.score)(avg === null ? '—' : `${avg}%`));
     set('act-kick-label', this.t(this.TXT.kick));
-    set('act-tap-hint', this.t(this.TXT.tapHint));
     const dragzone = this.$('act-dragzone');
     if (dragzone) {
       dragzone.setAttribute('aria-label', this.t(copy.title));
@@ -5285,7 +5278,6 @@ class ActionSystem {
     if (this.skillId === 'apchagi') {
       panel.innerHTML = `
         <div class="act-timing">
-          <p class="act-tap-hint" id="act-tap-hint" dir="auto"></p>
           <button type="button" class="btn act-kick-btn" id="act-kick-btn" dir="auto"><i class="fas fa-shoe-prints"></i> <span id="act-kick-label"></span></button>
         </div>`;
       this.$('act-kick-btn').addEventListener('click', () => this.tapTiming(), sig);
@@ -5404,10 +5396,10 @@ class ActionSystem {
         : { en: 'Good hit!', ar: 'ضربة حلوة!' };
     } else if (st.pos < st.center) {
       kind = 'short';
-      msg = { en: 'Too low — that kick went to the knee. Lift the knee to the chest first.', ar: 'واطية أوي — الركلة راحت للركبة. ارفع ركبتك لحد صدرك الأول.' };
+      msg = { en: 'Too low — that kick went to the knee. Lift the knee to the chest first.', ar: 'منخفضة جدًا — ذهبت الركلة إلى الركبة. ارفع ركبتك إلى صدرك أولًا.' };
     } else {
       kind = 'over';
-      msg = { en: 'Too high — the kick flew over the target.', ar: 'عالية أوي — الركلة عدّت من فوق الهدف.' };
+      msg = { en: 'Too high — the kick flew over the target.', ar: 'مرتفعة جدًا — مرّت الركلة فوق الهدف.' };
     }
     const aim = -45 + st.pos * 85;                                      // the kick lands where the line was
     this.resolveRound({ score, kind, power: inZone ? 0.6 + 0.4 * (score - 85) / 15 : 0.3, msg, aim });
@@ -5861,7 +5853,7 @@ class ErrorHuntSystem {
     sk.viewYaw = -0.5;                                         // start a little turned, so it reads as 3D at once
     board.innerHTML = `<div class="eh-3d">
         <canvas class="eh-3d-cv" role="img" aria-label="${ar ? `لاعب ثلاثي الأبعاد بيعمل ${TKD.skillName(this.kick)} — لفّه ودوس على الغلطة` : `3D fighter doing ${TKD.skillName(this.kick)} — turn it and tap the mistake`}"></canvas>
-        <p class="eh-3d-hint">↔ ${ar ? 'اسحب عشان تلف حوالين اللاعب · دوس على الغلطة' : 'Drag to walk around the fighter · tap the mistake'}</p>
+        <p class="eh-3d-hint">↔ ${ar ? 'اسحب لتلف حول اللاعب · اضغط على الخطأ' : 'Drag to walk around the fighter · tap the mistake'}</p>
       </div>
       <div class="eh-3d-parts" role="group">${Object.keys(this.ZONES3D).map(z => `<button type="button" class="eh-3d-part" data-eh-zone="${z}">${this.pick(this.ZONE_LABELS[z])}</button>`).join('')}
         <button type="button" class="eh-3d-ghost" hidden aria-pressed="true">👻 ${ar ? 'قارن بالصح' : 'Compare with correct'}</button></div>`;
@@ -6093,8 +6085,8 @@ class QuizBlastSystem {
         a: ['آب تشاجي', 'Ap Chagi'],
         w: [['نارو تشاجي', 'Naeryeo Chagi'], ['آب أوليو تشاجي', 'Ap Ollyeo Chagi'], ['دوليو تشاجي', 'Dollyeo Chagi']] },
       { q: ['الركلة الأمامية المستقيمة بتضرب بيها المنافس بـ:', 'The straight front kick is delivered to the opponent with the:'],
-        a: ['مشط القدم', 'Ball of the foot'],
-        w: [['حرف القدم الخارجي', 'Blade (edge) of the foot'], ['باطن القدم', 'Sole of the foot'], ['وش القدم', 'Instep']] },
+        a: ['قاعدة الأصابع (كلوة القدم)', 'Ball of the foot'],
+        w: [['الكعب', 'Heel'], ['باطن القدم', 'Sole of the foot'], ['وش القدم', 'Instep']] },
       { q: ['أنهي حركة من دول بتتكرر في أول وآخر ركلة آب تشاجي؟', 'Which movement is repeated in both the preparatory and the final phase of Ap Chagi?'],
         a: ['ثني ركبة الرجل الضاربة', 'Bending the kicking-leg knee'],
         w: [['ثني ركبة رجل الارتكاز', 'Bending the standing-foot knee'], ['فرد ركبة رجل الارتكاز', 'Straightening the standing-foot knee'], ['فرد ركبة الرجل الضاربة', 'Straightening the kicking-leg knee']] },
@@ -6137,7 +6129,7 @@ class QuizBlastSystem {
         w: [['آب تشاجي', 'Ap Chagi'], ['آب أوليو تشاجي', 'Ap Ollyeo Chagi'], ['دوليو تشاجي', 'Dollyeo Chagi']] },
       { q: ['ضربة نارو تشاجي بتتعمل بأنهي جزء من القدم؟', 'Which part of the foot lands the strike in Naeryeo Chagi?'],
         a: ['الكعب', 'The heel'],
-        w: [['مشط القدم', 'Ball of the foot'], ['حرف القدم الخارجي', 'Blade of the foot'], ['وش القدم', 'Instep']] },
+        w: [['قاعدة الأصابع (كلوة القدم)', 'Ball of the foot'], ['صوابع القدم', 'Toes'], ['وش القدم', 'Instep']] },
       { q: ['إيه الهدف الأساسي لركلة نارو تشاجي؟', 'What is the main target of Naeryeo Chagi?'],
         a: ['الرأس والوجه', 'The head and the face'],
         w: [['الركبة', 'Knee'], ['البطن', 'Abdomen'], ['القدم', 'Foot']] },
@@ -6168,7 +6160,7 @@ class QuizBlastSystem {
         w: [['آب تشاجي', 'Ap Chagi'], ['نارو تشاجي', 'Naeryeo Chagi'], ['دوي تشاجي', 'Dwi Chagi']] },
       { q: ['ضربة بيك تشاجي بتتعمل بأنهي جزء من القدم؟', 'Which part of the foot strikes in Bik Chagi?'],
         a: ['وش القدم (ظهرها من فوق)', 'Instep (top of the foot)'],
-        w: [['مشط القدم', 'Ball of the foot'], ['الكعب', 'Heel'], ['صوابع القدم', 'Toes']] },
+        w: [['قاعدة الأصابع (كلوة القدم)', 'Ball of the foot'], ['الكعب', 'Heel'], ['صوابع القدم', 'Toes']] },
       { q: ['إيه الأهداف الأساسية لركلة بيك تشاجي؟', 'What are the main targets of Bik Chagi?'],
         a: ['البطن', 'The stomach'],
         w: [['الضهر', 'The back'], ['القدم', 'The foot'], ['الركبة', 'The knee']] },
@@ -6206,8 +6198,8 @@ class QuizBlastSystem {
       a: ['كيوروجي جونبي', 'Kyorugi Junbi'],
       w: [['تشاريوت', 'Charyeot'], ['شيجاك', 'Shijak'], ['كومان', 'Keuman']] },
     { q: ['في الركلات الهجومية، رجوع القدم الضاربة وثني الركبة تاني بيحصل في:', 'Pulling the kicking foot back and re-bending the knee happens in the:'],
-      a: ['المرحلة الأخيرة', 'Final phase'],
-      w: [['مرحلة الاستعداد', 'Ready phase'], ['المرحلة التمهيدية', 'Preparatory phase'], ['المرحلة الأساسية', 'Main phase']] },
+      a: ['سحب الرجل', 'Pulling the leg back'],
+      w: [['وضع الاستعداد', 'The ready stance'], ['رفع الركبة', 'The knee lift'], ['مد الرجل للهدف', 'Extending the leg to the target']] },
     { q: ['اللبس الرسمي بتاع لاعبين التايكوندو اسمه:', 'The official uniform of Taekwondo players is called:'],
       a: ['الدوبوك', 'Dobok'],
       w: [['الكيمونو', 'Kimono'], ['الهاكاما', 'Hakama'], ['الكيغوجي', 'Keikogi']] },
@@ -6817,11 +6809,11 @@ class QuizSystem {
         question: 'Which part of the foot makes contact in Ap Chagi?',
         questionAr: 'أنهي جزء من الرجل بنستخدمه في آب تشاجي؟',
         options: ['Toes', 'Heel', 'Ball of foot', 'Side of foot'],
-        optionsAr: ['صوابع القدم', 'الكعب', 'مشط القدم (الجزء اللي تحت الصوابع)', 'جنب الرجل'],
+        optionsAr: ['صوابع القدم', 'الكعب', 'قاعدة الأصابع (كلوة القدم)', 'جنب الرجل'],
         correctText: 'Ball of foot',
         get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
         explanation: 'The ball of the foot is the striking surface for Ap Chagi.',
-        explanationAr: 'مشط القدم (الجزء اللي قدام من باطن القدم تحت الصوابع) هو اللي بيلمس الهدف في آب تشاجي.'
+        explanationAr: 'قاعدة الأصابع (كلوة القدم) — الجزء اللي قدام من باطن القدم تحت الصوابع — هي اللي بتلمس الهدف في آب تشاجي.'
       },
       {
         question: 'What is the main TARGET of Ap Chagi?',
@@ -6955,13 +6947,13 @@ class QuizSystem {
       },
       {
         question: "When you strike with the ball of the foot, your toes are…",
-        questionAr: "لما بتضرب بمشط القدم، صوابع رجلك بتبقى…",
+        questionAr: "لما بتضرب بقاعدة الأصابع (كلوة القدم)، صوابع رجلك بتبقى…",
         options: ["Pulled back", "Pointed forward to hit first", "Curled under", "It doesn't matter"],
         optionsAr: ["مسحوبة لورا", "مفرودة لقدام عشان تضرب الأول", "مثنية لتحت", "مش فارقة"],
         correctText: "Pulled back",
         get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
         explanation: "Pull the toes back so the ball of the foot hits — kicking with the toes can hurt them.",
-        explanationAr: "اسحب صوابعك لورا عشان مشط القدم هو اللي يضرب، الضرب بالصوابع ممكن يعوّرها."
+        explanationAr: "اسحب صوابعك لورا عشان قاعدة الأصابع (كلوة القدم) هي اللي تضرب، الضرب بالصوابع ممكن يعوّرها."
       },
       {
         question: "What do you do right after the strike?",
@@ -7000,7 +6992,7 @@ class QuizSystem {
         question: 'Which part of the foot strikes in Naeryeo Chagi?',
         questionAr: 'أنهي جزء من الرجل بيضرب في نارو تشاجي؟',
         options: ['Ball of foot', 'Instep', 'Sole / heel', 'Toes'],
-        optionsAr: ['مشط القدم', 'وش القدم (ظهرها)', 'باطن / كعب الرجل', 'صوابع القدم'],
+        optionsAr: ['قاعدة الأصابع (كلوة القدم)', 'وش القدم (ظهرها)', 'باطن / كعب الرجل', 'صوابع القدم'],
         correctText: 'Sole / heel',
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 2); },
         explanation: 'Naeryeo Chagi strikes downward with the sole or heel of the foot.',
@@ -7153,7 +7145,7 @@ class QuizSystem {
         question: 'Which part of the foot strikes in Bik Chagi?',
         questionAr: 'أنهي جزء من الرجل بيضرب في بيك تشاجي؟',
         options: ['Instep / top of foot', 'Heel', 'Toes', 'Ball of the foot'],
-        optionsAr: ['وش القدم (ظهرها)', 'الكعب', 'صوابع القدم', 'مشط القدم'],
+        optionsAr: ['وش القدم (ظهرها)', 'الكعب', 'صوابع القدم', 'قاعدة الأصابع (كلوة القدم)'],
         correctText: 'Instep / top of foot',
         get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 2); },
         explanation: 'Bik Chagi strikes with the instep (the top of the foot), with the ankle stretched and the toes pointed.',
@@ -8688,70 +8680,70 @@ class WarmupSystem {
     return [
       {
         id: 'jumping_jacks', icon: '🤸', duration: 15, color: '#4cc9f0', type: 'cardio',
-        nameEn: 'Jumping Jacks', nameAr: 'تمرين القفز (جامبينج جاك)',
+        nameEn: 'Jumping Jacks', nameAr: 'القفز فتح وضم',
         video: 'assets/videos/warmup/jumping_jacks.mp4',
-        descEn: 'Jump your feet apart while your arms swing up over your head, then jump back together. Keep a steady rhythm.',
-        descAr: 'اقفز وافتح رجليك وارفع دراعاتك فوق راسك، وبعدين اقفز واقفلهم تاني. خلّي الإيقاع ثابت.',
+        descEn: '(Standing) Jump your feet apart and together, swinging your arms up over your head and down.',
+        descAr: '(وقوف) القفز فتح وضم مع تحريك الذراعين عاليًا ولأسفل.',
         tipEn: 'This wakes up your heart and warms every muscle before you stretch.',
         tipAr: 'ده بيصحّي قلبك ويدفّي كل عضلات جسمك قبل الإطالة.',
         key: []
       },
       {
         id: 'forward_lunge', icon: '🏃', duration: 15, color: '#2a9d8f', type: 'strength',
-        nameEn: 'Forward Lunges', nameAr: 'لانجز لقدّام',
+        nameEn: 'Forward Lunges', nameAr: 'الطعن أمامًا',
         video: 'assets/videos/warmup/forward_lunge.mp4',
-        descEn: 'Step one foot forward and bend both knees, then push back up and switch legs. Hands on your hips, back tall.',
-        descAr: 'اخطي خطوة لقدام وانزل بركبتيك الاتنين، وبعدين اطلع وبدّل رجلك. إيديك على وسطك وظهرك مفرود.',
+        descEn: '(Standing, feet apart — hands on the hips) Lunge forward, one leg then the other.',
+        descAr: '(وقوف فتحًا - الذراعان ثبات وسط) الطعن أمامًا للجانبين بالتبادل.',
         tipEn: 'Builds the strong standing leg and balance that holds you up while you kick.',
         tipAr: 'بيقوّي رجل الارتكاز والتوازن اللي بيشيلوك وإنت بتركل.',
         key: ['apchagi']
       },
       {
         id: 'lateral_lunge', icon: '🦵', duration: 15, color: '#f4a261', type: 'mobility',
-        nameEn: 'Side Lunge Shifts', nameAr: 'لانجز على الجنب',
+        nameEn: 'Deep Side Lunges', nameAr: 'الطعن العميق للجانبين',
         video: 'assets/videos/warmup/lateral_lunge.mp4',
-        descEn: 'Feet very wide. Sink down over one bent knee while the other leg stays straight, then slide across to the other side.',
-        descAr: 'افتح رجليك على الآخر. انزل على ركبة مثنية والرجل التانية مفرودة، وبعدين اتنقل للناحية التانية.',
+        descEn: '(Standing, feet apart) A deep lunge to one side, then the other, with your hands on the floor for support.',
+        descAr: '(وقوف فتحًا) الطعن العميق للجانبين بالتبادل مع السند باليدين على الأرض.',
         tipEn: 'Opens the inner thighs and hips — you need that to turn the hip over in a roundhouse kick.',
         tipAr: 'بيفتح الفخذ من جوه والوركين — ودي حاجة مهمة عشان تلف وسطك في الركلة الدائرية.',
         key: ['bakchagi3']
       },
       {
         id: 'straddle_fold', icon: '🙇', duration: 20, color: '#ff6b35', type: 'stretch',
-        nameEn: 'Wide-Leg Forward Fold', nameAr: 'انحناء لقدام ورجليك مفتوحة',
+        nameEn: 'Wide-Leg Forward Bend', nameAr: 'تباعد القدمين مع ميل الجذع أمامًا (البرجل)',
         video: 'assets/videos/warmup/straddle_fold.mp4',
-        descEn: 'Stand with your feet wide apart, fold forward from the hips and place your hands on the floor. Breathe and hold.',
-        descAr: 'اقف وافتح رجليك، وانزل لقدام من وسطك وحط إيديك على الأرض. خد نفسك واثبت كده.',
+        descEn: '(Standing, feet apart) Spread your feet wide to the sides, bend your trunk forward and put your hands on the floor.',
+        descAr: '(وقوف فتحًا) تباعد القدمين جانبًا مع ميل الجذع أمامًا والسند باليدين على الأرض.',
         tipEn: 'Stretches the back of your legs and inner thighs for higher, cleaner kicks.',
         tipAr: 'بيطوّل عضلات ورا الرجل والفخذ من جوه عشان ركلتك تبقى أعلى وأنضف.',
         key: ['narochagi']
       },
       {
         id: 'straddle_side_reach', icon: '🧘', duration: 20, color: '#9b5de5', type: 'stretch',
-        nameEn: 'Seated Straddle Reach', nameAr: 'إطالة جانبية وإنت قاعد',
+        nameEn: 'Seated Side Bends', nameAr: 'ميل الجذع للجانبين من الجلوس',
         video: 'assets/videos/warmup/straddle_side_reach.mp4',
-        descEn: 'Sit with your legs open wide. Reach both hands toward one foot, come back to the middle, then reach to the other foot.',
-        descAr: 'اقعد ورجليك مفتوحة على الآخر. مد إيديك الاتنين ناحية رجل، ارجع للنص، وبعدين للرجل التانية.',
+        descEn: '(Long sitting, legs apart) Bend your trunk to one side and then the other, touching the front of your feet.',
+        descAr: '(جلوس طويل فتحًا) ميل الجذع للجانبين بالتبادل مع لمس الأمشاط.',
         tipEn: 'Keep both legs straight and your chest open — this loosens the side of the hip.',
         tipAr: 'خلي رجليك مفرودة وصدرك مفتوح — ده بيفكّ جنب الورك.',
         key: ['bakchagi3', 'narochagi']
       },
       {
         id: 'single_leg_hamstring', icon: '🦶', duration: 20, color: '#43aa8b', type: 'stretch', side: true,
-        nameEn: 'Single-Leg Hamstring Stretch', nameAr: 'إطالة العضلة اللي ورا الفخذ برجل واحدة',
+        nameEn: 'One-Leg Forward Reach', nameAr: 'مد الركبة مع ميل الجذع أمامًا',
         video: 'assets/videos/warmup/single_leg_hamstring.mp4',
-        descEn: 'Sit with one leg straight and the other foot tucked in. Reach for the toes of the straight leg. Switch legs half-way.',
-        descAr: 'اقعد برجل مفرودة والتانية مثنية لجوه. امسك صوابع الرجل المفرودة. وفي النص بدّل رجلك.',
+        descEn: '(Half cross-legged sitting) Straighten one knee forward and bend your trunk forward and down to touch the front of that foot.',
+        descAr: '(جلوس تربيع نصفًا) مد ركبة إحدى الرجلين أمامًا وميل الجذع أمامًا أسفل للمس مشط الرجل.',
         tipEn: 'Reach with a long, straight back — tight hamstrings stop your leg from rising high.',
         tipAr: 'اتمد لقدام وظهرك مفرود — العضلة اللي ورا الفخذ لو مشدودة بتمنع رجلك تطلع لفوق.',
         key: ['narochagi', 'apchagi']
       },
       {
         id: 'double_leg_hamstring', icon: '🧎', duration: 20, color: '#3a86ff', type: 'stretch',
-        nameEn: 'Seated Forward Fold', nameAr: 'انحناء لقدام وإنت قاعد',
+        nameEn: 'Seated Forward Fold', nameAr: 'ميل الجذع أمامًا ومسك القدمين',
         video: 'assets/videos/warmup/double_leg_hamstring.mp4',
-        descEn: 'Sit with both legs straight together and reach forward to hold your feet. Relax and breathe slowly.',
-        descAr: 'اقعد ورجليك الاتنين مفرودين ولازقين في بعض، وامسك رجليك. ريّح جسمك وخد نفسك بهدوء.',
+        descEn: '(Long sitting — arms forward) Bend your trunk forward and down and hold the front of both feet.',
+        descAr: '(جلوس طويل - الذراعان أمامًا) ميل الجذع أمامًا ولأسفل ومسك مشطي القدمين.',
         tipEn: 'A calm finisher — your legs are now warm and ready to kick.',
         tipAr: 'ختام هادي — رجليك دلوقتي دافية وجاهزة تركل.',
         key: ['narochagi']
@@ -10896,7 +10888,7 @@ function footIconSVG(part) {
     ball:   '<ellipse cx="80" cy="57" rx="11" ry="6"/>',
     heel:   '<ellipse cx="22" cy="57" rx="10" ry="7"/>',
     instep: '<path d="M44 26 Q62 30 80 40 L76 46 Q60 38 42 34 Z"/>',
-    blade:  '<path d="M14 60 Q54 66 94 58 L94 63 Q54 71 14 65 Z"/>'
+    sole:   '<path d="M14 60 Q54 66 94 58 L94 63 Q54 71 14 65 Z"/>'
   }[part] || '';
   return `<svg viewBox="0 0 110 72" aria-hidden="true">
     <path class="foot" d="M24 2 L42 2 L44 24 Q60 28 84 40 Q100 46 100 54 Q100 62 90 62 L24 62 Q12 62 12 50 Q12 42 20 36 Z"/>
@@ -10989,8 +10981,8 @@ class ArenaGameBase {
       const ar = this.ar;
       ui.innerHTML = `<div class="ag-card ag-center ag-practice-done">
           <div class="ag-big">👏</div>
-          <p><b>${ar ? 'تمام كده! اتمرنت.' : 'Nice — that was the practice!'}</b><br>${ar ? 'دلوقتي الجولة الحقيقية — النتيجة هتتحسب.' : 'Now the real run — this one counts.'}</p>
-          <button type="button" class="btn btn-success" id="${this.PREFIX}-go"><i class="fas fa-play"></i> ${ar ? 'يلا بينا!' : 'Let\'s go!'}</button>
+          <p><b>${ar ? 'أحسنت! انتهى التدريب.' : 'Well done! Practice is over.'}</b><br>${ar ? 'الآن الجولة الحقيقية' : 'Now the real round'}</p>
+          <button type="button" class="btn btn-success" id="${this.PREFIX}-go"><i class="fas fa-play"></i> ${ar ? 'هيا نبدأ!' : 'Let\'s start!'}</button>
         </div>`;
       const go = this.$('go');
       go?.addEventListener('pointerdown', e => e.stopPropagation());
@@ -11038,7 +11030,7 @@ class ArenaGameBase {
   static setChip(suffix, text) {
     const el = this.$(suffix); if (!el) return;
     if (this.practice && suffix === 'round') text = `🎯 ${this.ar ? 'تجريبي' : 'Practice'} ${Math.min((this.scores?.length || 0) + 1, this.PRACTICE_N || 2)} / ${this.PRACTICE_N || 2}`;
-    if (this.practice && suffix === 'score') text = this.ar ? 'مش بتتحسب 🙂' : 'Not scored 🙂';
+    if (this.practice && suffix === 'score') text = this.ar ? 'لا تُحتسب 🙂' : 'Not scored 🙂';
     el.textContent = text;
   }
 
@@ -11113,28 +11105,28 @@ class BoardBreakGame extends ArenaGameBase {
   static COPY = {
     title: { en: '🪵 Board Break', ar: '🪵 كسر الألواح' },
     how: {
-      apchagi:   { en: 'Pick the right part of the foot, aim at the middle of the board and stop the power bar in the gold.', ar: 'اختار جزء القدم الصح، صوّب على نص اللوح، ووقّف العداد في الدهبي.' },
-      narochagi: { en: 'Pick the right part of the foot, aim at the middle of the board and stop the power bar in the gold — the heel comes down on it.', ar: 'اختار جزء القدم الصح، صوّب على نص اللوح، ووقّف العداد في الدهبي — الكعب بينزل من فوق.' },
-      bakchagi3: { en: 'Pick the right part of the foot, aim at the middle of the board at stomach height and stop the power bar in the gold.', ar: 'اختار جزء القدم الصح، صوّب على نص اللوح اللي في مستوى البطن، ووقّف العداد في الدهبي.' }
+      all: { en: 'Champ, pick the right part of the foot, aim at the middle of the board and stop the bar in the gold zone!',
+             ar: 'يا بطل، اختر جزء القدم الصحيح، وصوّب نحو منتصف اللوح، وأوقف الشريط في المنطقة الذهبية!' }
     }
   };
 
+  // v63: the coach's four parts, in his order (they stay in this order on the screen)
   static SURFACES = {
-    ball:   { en: 'Ball of the foot', ar: 'مشط القدم' },
+    sole:   { en: 'Sole of the foot', ar: 'باطن القدم' },
     heel:   { en: 'Heel', ar: 'الكعب' },
-    instep: { en: 'Top of the foot (instep)', ar: 'وش القدم' },
-    blade:  { en: 'Outer edge (blade)', ar: 'حرف القدم الخارجي' }
+    ball:   { en: 'Ball of the foot', ar: 'قاعدة الأصابع (كلوة القدم)' },
+    instep: { en: 'Top of the foot (instep)', ar: 'وش القدم' }
   };
   // full = 1, partial = 0.6
   static SURFACE_OK = {
-    apchagi:   { ball: 1, instep: 0.6 },
-    narochagi: { heel: 1 },
+    apchagi:   { ball: 1 },
+    narochagi: { heel: 1, sole: 1 },                // the lesson: "the heel or the sole of the foot"
     bakchagi3: { instep: 1 }
   };
   static SURFACE_WHY = {
-    apchagi:   { en: 'Ap Chagi strikes with the ball of the foot — toes pulled back.', ar: 'آب تشاجي بيضرب بمشط القدم — والصوابع مشدودة لورا.' },
-    narochagi: { en: 'Naeryeo Chagi drops the heel straight down onto the target.', ar: 'النارو تشاجي بينزّل الكعب لتحت على الهدف.' },
-    bakchagi3: { en: 'Bik Chagi lands with the instep (the top of the foot).', ar: 'بيك تشاجي بتضرب بوش القدم (ظهرها من فوق).' }
+    apchagi:   { en: 'Ap Chagi strikes with the ball of the foot — toes pulled back.', ar: 'تُوجَّه آب تشاجي بقاعدة الأصابع (كلوة القدم)، مع سحب الأصابع للخلف.' },
+    narochagi: { en: 'Naeryeo Chagi brings the heel or the sole straight down onto the target.', ar: 'تُنزِل نارو تشاجي الكعب أو باطن القدم مباشرةً على الهدف.' },
+    bakchagi3: { en: 'Bik Chagi lands with the instep (the top of the foot).', ar: 'تُوجَّه بيك تشاجي بوش القدم (ظهر القدم من أعلى).' }
   };
 
   static setupUI() {
@@ -11193,9 +11185,9 @@ class BoardBreakGame extends ArenaGameBase {
   static showSurfacePicker() {
     const ui = this.$('ui'); if (!ui) return;
     const ar = this.ar;
-    const parts = AG.shuffle(['ball', 'heel', 'instep', 'blade']);
+    const parts = Object.keys(this.SURFACES);
     ui.innerHTML = `<div class="ag-card ag-surface">
-        <p class="ag-q">${ar ? 'بأنهي جزء من القدم هتكسر اللوح؟' : 'Which part of the foot breaks the board?'}</p>
+        <p class="ag-q">${ar ? 'أيّ جزء من القدم توجّه به الركلة؟' : 'Which part of the foot do you kick with?'}</p>
         <div class="ag-surface-grid">${parts.map(p => `
           <button type="button" class="ag-surface-btn" data-part="${p}">${footIconSVG(p)}<span>${this.t(this.SURFACES[p])}</span></button>`).join('')}
         </div></div>`;
@@ -11216,7 +11208,7 @@ class BoardBreakGame extends ArenaGameBase {
       if (b === btn && v < 1) b.classList.add(v > 0 ? 'is-partial' : 'is-wrong');
     });
     const why = this.t(this.SURFACE_WHY[this.skillId]);
-    const msg = this.surfaceScore === 1 ? (this.ar ? '✅ صح! ' : '✅ Right! ') : this.surfaceScore > 0 ? (this.ar ? '🟡 قربت — ' : '🟡 Almost — ') : (this.ar ? '❌ لأ — ' : '❌ Not that one — ');
+    const msg = this.surfaceScore === 1 ? (this.ar ? '✅ إجابة صحيحة! ' : '✅ Right! ') : this.surfaceScore > 0 ? (this.ar ? '🟡 قريبة — ' : '🟡 Almost — ') : (this.ar ? '❌ ليست هذه — ' : '❌ Not that one — ');
     const p = document.createElement('p'); p.className = 'ag-why'; p.textContent = msg + why;
     ui?.querySelector('.ag-card')?.appendChild(p);
     this.gs.playSound(this.surfaceScore > 0 ? 'success' : 'error');
@@ -11231,13 +11223,13 @@ class BoardBreakGame extends ArenaGameBase {
 
   static startAim() {
     this.phase = 'aim';
-    const ui = this.$('ui'); if (ui) ui.innerHTML = `<div class="ag-hint">${this.ar ? '🎯 دوس لما النيشان يبقى في نص اللوح' : '🎯 Tap when the target is in the middle of the board'}</div>`;
+    const ui = this.$('ui'); if (ui) ui.innerHTML = `<div class="ag-hint">${this.ar ? '🎯 اضغط عندما يصبح التصويب في منتصف اللوح' : '🎯 Tap when the target is in the middle of the board'}</div>`;
     this.setAction(this.ar ? '🎯 صوّب' : '🎯 Aim');
   }
   static startPower() {
     this.phase = 'power';
     this.powerT = 0;
-    const ui = this.$('ui'); if (ui) ui.innerHTML = `<div class="ag-hint">${this.ar ? '⚡ وقّف العداد في المنطقة الذهبية!' : '⚡ Stop the power bar in the gold zone!'}</div>`;
+    const ui = this.$('ui'); if (ui) ui.innerHTML = `<div class="ag-hint">${this.ar ? '⚡ أوقف الشريط في المنطقة الذهبية!' : '⚡ Stop the power bar in the gold zone!'}</div>`;
     this.setAction(this.ar ? '⚡ اركل!' : '⚡ KICK!');
   }
 
@@ -11251,7 +11243,7 @@ class BoardBreakGame extends ArenaGameBase {
       this.aim = AG.clamp(1 - off / 0.85, 0, 1);
       this.aimLocked = this.aimValue();
       this.gs.playSound('click');
-      this.stage.text(this.boardCenter().x, this.boardCenter().y - 40, this.aim > 0.85 ? (this.ar ? 'في النص بالظبط!' : 'Bullseye!') : `${Math.round(this.aim * 100)}%`, { color: this.aim > 0.85 ? '#ffd166' : '#fff', size: 24 });
+      this.stage.text(this.boardCenter().x, this.boardCenter().y - 40, this.aim > 0.85 ? (this.ar ? 'في المنتصف تمامًا!' : 'Bullseye!') : `${Math.round(this.aim * 100)}%`, { color: this.aim > 0.85 ? '#ffd166' : '#fff', size: 24 });
       this.later(() => this.startPower(), 350);
     } else if (this.phase === 'power') {
       const v = this.powerValue();
@@ -11305,7 +11297,7 @@ class BoardBreakGame extends ArenaGameBase {
       st.sparks(hit.x, hit.y, '#ffd166', 30);
       st.chips(hit.x, hit.y, 26 + this.cfg.boards * 10, b.orient === 'v' ? 1 : 1, undefined, st.floorY());
       st.dust(hit.x, hit.y, 12);
-      st.text(c.x, c.y - 70, this.ar ? 'اتكسر! 💥' : 'CRACK! 💥', { color: '#ffd166', size: 40 });
+      st.text(c.x, c.y - 70, this.ar ? 'انكسر! 💥' : 'CRACK! 💥', { color: '#ffd166', size: 40 });
       st.text(c.x, c.y - 26, `+${score}`, { color: '#b8f5ec', size: 26, ttl: 1.3 });
       this.makePieces(hit);
     } else {
@@ -11314,7 +11306,7 @@ class BoardBreakGame extends ArenaGameBase {
       st.ring(hit.x, hit.y, '#ff6b6b', 60, 0.35, 4);
       this.wob = 1;
       this.fighter.wobble = 0.6;
-      const why = this.surfaceScore === 0 ? (this.ar ? 'جزء القدم غلط!' : 'Wrong part of the foot!') : this.aim < 0.5 ? (this.ar ? 'بعيد عن النص!' : 'Off centre!') : (this.ar ? 'قوة مش كفاية!' : 'Not enough power!');
+      const why = this.surfaceScore === 0 ? (this.ar ? 'جزء القدم غير صحيح!' : 'Wrong part of the foot!') : this.aim < 0.5 ? (this.ar ? 'بعيد عن المنتصف!' : 'Off centre!') : (this.ar ? 'القوة غير كافية!' : 'Not enough power!');
       st.text(c.x, c.y - 60, this.ar ? 'آي! 😣' : 'Ouch! 😣', { color: '#ffb3b9', size: 34 });
       st.text(c.x, c.y - 22, why, { color: '#fff', size: 18, ttl: 1.6 });
     }
@@ -11450,24 +11442,30 @@ class PaddleReflexGame extends ArenaGameBase {
   static COPY = {
     title: { en: '🎯 Target Paddles', ar: '🎯 مضارب الأهداف' },
     how: {
-      apchagi:   { en: 'Tap fast — only the paddle at the face or the belly!', ar: 'دوس بسرعة على المضرب اللي عند الوش أو البطن بس!' },
-      narochagi: { en: 'Tap fast — only the paddle held flat above the head!', ar: 'دوس بسرعة على المضرب اللي فوق الراس بس!' },
-      bakchagi3: { en: 'Tap fast — only the paddle at the stomach!', ar: 'دوس بسرعة على المضرب اللي عند البطن بس!' }
+      apchagi:   { en: 'Tap fast — only the paddle at the face or the abdomen!', ar: 'اضغط بسرعة على المضرب الموجود عند الوجه أو البطن فقط!' },
+      narochagi: { en: 'Tap fast — only the paddle held above the head!', ar: 'اضغط بسرعة على المضرب الموجود فوق الرأس فقط!' },
+      bakchagi3: { en: 'Tap fast — only the paddle at the abdomen!', ar: 'اضغط بسرعة على المضرب الموجود عند البطن فقط!' }
+    },
+    hit: {
+      apchagi:   { en: 'the face or the abdomen', ar: 'الوجه أو البطن' },
+      narochagi: { en: 'the head (from above)', ar: 'الرأس (من أعلى)' },
+      bakchagi3: { en: 'the abdomen', ar: 'البطن' }
     }
   };
 
   // Positions are relative to the fighter: dx/dy in body-heights.
+  // v63 (the coach): every round shows the same three paddles — the head / face (ONE target),
+  // the abdomen, and one wrong target (the back or the knee)
   static ZONES = {
-    overhead: { dx: 0.34, dy: 1.12, flat: true,  label: { en: 'Head (from above)', ar: 'الراس (من فوق)' } },
-    face:     { dx: 0.66, dy: 0.88, label: { en: 'Face', ar: 'الوش' } },
-    abdomen:  { dx: 0.86, dy: 0.56, label: { en: 'Abdomen', ar: 'البطن' } },
-    ribs:     { dx: 1.02, dy: 0.7,  label: { en: 'Ribs', ar: 'الضلوع' } },
-    knee:     { dx: 0.7,  dy: 0.3,  label: { en: 'Knee', ar: 'الركبة' } },
-    foot:     { dx: 1.12, dy: 0.15,  label: { en: 'Foot', ar: 'القدم' } },
-    behind:   { dx: -0.55, dy: 0.62, label: { en: 'Behind you', ar: 'وراك' } }
+    head:     { dx: 0.62, dy: 0.92, label: { en: 'Head / face', ar: 'الرأس / الوجه' },
+                fromAbove: { dx: 0.4, dy: 1.1, flat: true } },        // Naeryeo Chagi: the paddle is held flat above the head
+    abdomen:  { dx: 0.98, dy: 0.58, label: { en: 'Abdomen', ar: 'البطن' } },
+    knee:     { dx: 0.5,  dy: 0.28, label: { en: 'Knee', ar: 'الركبة' } },     // apart from the abdomen, so the labels never cover each other
+    back:     { dx: -0.55, dy: 0.62, label: { en: 'Back', ar: 'الظهر' } }
   };
-  static VALID = { apchagi: ['face', 'abdomen'], narochagi: ['overhead'], bakchagi3: ['abdomen'] };   // v60: Bik Chagi (the roundhouse kick) goes to the stomach
-  static DECOYS = { apchagi: ['overhead', 'knee', 'foot', 'behind'], narochagi: ['abdomen', 'knee', 'foot', 'behind'], bakchagi3: ['overhead', 'foot', 'behind', 'knee', 'face'] };
+  static VALID = { apchagi: ['head', 'abdomen'], narochagi: ['head'], bakchagi3: ['abdomen'] };   // v60: Bik Chagi (the roundhouse kick) goes to the stomach
+  static WRONG = ['back', 'knee'];
+  static zone(id) { const Z = this.ZONES[id]; return id === 'head' && this.skillId === 'narochagi' ? { ...Z, ...Z.fromAbove } : Z; }
 
   static setupUI() {
     const canvas = this.$('canvas');
@@ -11493,7 +11491,7 @@ class PaddleReflexGame extends ArenaGameBase {
 
   static showLegend() {
     const ui = this.$('ui'); if (!ui) return;
-    const valid = this.VALID[this.skillId].map(z => this.t(this.ZONES[z].label)).join(this.ar ? ' أو ' : ' or ');
+    const valid = this.t(this.COPY.hit[this.skillId]);
     ui.innerHTML = `<div class="ag-hint ag-hint-top">${this.ar ? `🎯 اضرب: <b>${valid}</b>` : `🎯 Hit: <b>${valid}</b>`}</div>`;
   }
   static refreshUI() { this.showLegend(); }
@@ -11510,7 +11508,7 @@ class PaddleReflexGame extends ArenaGameBase {
   }
 
   static placePaddle(p) {
-    const f = this.fighter, z = this.ZONES[p.zone];
+    const f = this.fighter, z = this.zone(p.zone);
     const W = this.stage.W;
     p.x = AG.clamp(f.x + z.dx * f.height, 50, W - 50);
     p.y = f.floor - z.dy * f.height;
@@ -11523,13 +11521,12 @@ class PaddleReflexGame extends ArenaGameBase {
     if (this.round > this.ROUNDS) { this.finish(); return; }
     this.renderHud();
     this.fighter.lookAt?.(null);
-    const valid = AG.pick(this.VALID[this.skillId]);
-    const decoys = AG.shuffle(this.DECOYS[this.skillId]).slice(0, this.round < 4 ? 1 : 2);
-    const zones = AG.shuffle([valid, ...decoys]);
+    const valid = this.VALID[this.skillId];
+    const zones = AG.shuffle(['head', 'abdomen', AG.pick(this.WRONG)]);
     const now = this.stage.time;
     this.life = AG.lerp(2.6, 1.35, (this.round - 1) / (this.ROUNDS - 1));
     this.paddles = zones.map((zone, i) => {
-      const p = { zone, valid: zone === valid, born: now + i * 0.05, state: 'in', vx: 0, vy: 0, rot: 0, vr: 0, idx: i + 1 };
+      const p = { zone, valid: valid.includes(zone), born: now + i * 0.05, state: 'in', vx: 0, vy: 0, rot: 0, vr: 0, idx: i + 1 };
       this.placePaddle(p);
       return p;
     });
@@ -11555,7 +11552,7 @@ class PaddleReflexGame extends ArenaGameBase {
       this.combo++; this.best = Math.max(this.best, this.combo);
       this.rts.push(rt); this.logRT(rt);
       this.scores.push(score);
-      const high = this.ZONES[p.zone].flat;
+      const high = this.zone(p.zone).flat;
       const reach = (p.x - f.x) - f.height * 0.45;
       f.aimAt?.(high ? null : p.y);                // v45: the foot goes to the paddle's height
       f.lookAt?.(p.x, p.y);
@@ -11582,9 +11579,8 @@ class PaddleReflexGame extends ArenaGameBase {
       p.state = 'wrong';
       ArenaSound.buzz(); this.gs.playSound('error');
       st.shake(4, 0.2); f.wobble = 0.8;
-      const valid = this.paddles.find(q => q.valid);
-      if (valid) valid.state = 'reveal';
-      st.text(p.x, p.y - p.r - 20, this.ar ? '✖ مش هدف صح' : '✖ Not a target', { color: '#ffb3b9', size: 20 });
+      this.paddles.forEach(q => { if (q.valid) q.state = 'reveal'; });
+      st.text(p.x, p.y - p.r - 20, this.ar ? '✖ ليس هدفًا صحيحًا' : '✖ Not a target', { color: '#ffb3b9', size: 20 });
     }
     this.renderHud();
     this.later(() => { this.paddles = []; this.later(() => this.nextRound(), 380); }, p.valid ? 650 : 1300);
@@ -11595,8 +11591,7 @@ class PaddleReflexGame extends ArenaGameBase {
     this.resolved = true;
     this.combo = 0;
     this.scores.push(0);
-    const valid = this.paddles.find(q => q.valid);
-    if (valid) { valid.state = 'reveal'; this.stage.text(valid.x, valid.y - valid.r - 20, this.ar ? '⏰ اتأخرت!' : '⏰ Too slow!', { color: '#ffe68a', size: 20 }); }
+    this.paddles.filter(q => q.valid).forEach((q, i) => { q.state = 'reveal'; if (!i) this.stage.text(q.x, q.y - q.r - 20, this.ar ? '⏰ تأخرت!' : '⏰ Too slow!', { color: '#ffe68a', size: 20 }); });
     this.paddles.forEach(q => { if (!q.valid) q.state = 'fade'; });
     this.gs.playSound('error');
     this.renderHud();
@@ -11623,7 +11618,7 @@ class PaddleReflexGame extends ArenaGameBase {
     let alpha = 1;
     if (p.state === 'fade') { alpha = Math.max(0, 1 - (p.fadeT || 0) * 3); s *= 1 - Math.min(1, (p.fadeT || 0)) * 0.5; }
     if (alpha <= 0) return;
-    const z = this.ZONES[p.zone];
+    const z = this.zone(p.zone);
     const bob = p.state === 'in' ? Math.sin(now * 5 + p.idx) * 3 : 0;
     c.save();
     c.globalAlpha = alpha;
@@ -11702,7 +11697,8 @@ class PhaseRhythmGame extends ArenaGameBase {
   static COPY = {
     title: { en: '🥁 Kick Rhythm', ar: '🥁 إيقاع الركلة' },
     how: {
-      all: { en: 'Tap the phase (or its number) when the note reaches the line.', ar: 'دوس على المرحلة (أو رقمها) لما النوتة توصل للخط.' }
+      all: { en: 'Tap the phase that matches the number when it reaches its slot.\n💡 Watch the fighter and follow the phases of the move.',
+             ar: 'اضغط على المرحلة المطابقة للرقم عندما يصل إلى خانته.\n💡 انظر إلى اللاعب وتابع مراحل الحركة.' }
     }
   };
 
@@ -12084,9 +12080,9 @@ class SparringDuelGame extends ArenaGameBase {
   static COPY = {
     title: { en: '🥊 Sparring', ar: '🥊 النزال' },
     how: {
-      apchagi:   { en: 'Kick when the body (+2) or the face (+3) lights up. The leg or a covered target? Wait!', ar: 'اركل لما الجسم (+٢) أو الوش (+٣) ينوّر. الرجل أو هدف متغطي؟ استنى!' },
-      narochagi: { en: 'Kick only when the head lights up (+3). Anything else? Wait!', ar: 'اركل بس لما الراس تنوّر (+٣). أي هدف تاني؟ استنى!' },
-      bakchagi3: { en: 'Kick when the body lights up (+2). The leg is a foul — wait!', ar: 'اركل لما الجسم ينوّر (+٢). الرجل ممنوعة — استنى!' }
+      apchagi:   { en: 'Kick when the target lights up:\nBody = 2 points\nFace = 3 points\nWait if the leg shows or the target is guarded!', ar: 'اركل عندما يضيء الهدف:\nالجسم = ٢ نقطة\nالوجه = ٣ نقاط\nوانتظر إذا ظهرت الساق أو كان الهدف محميًّا!' },
+      narochagi: { en: 'Kick only when the head lights up:\nHead = 3 points\nWait if any other target shows!', ar: 'اركل فقط عندما يضيء الرأس:\nالرأس = ٣ نقاط\nوانتظر إذا ظهر أي هدف آخر!' },
+      bakchagi3: { en: 'Kick when the body lights up:\nBody = 2 points\nWait if the leg shows — it is a foul!', ar: 'اركل عندما يضيء الجسم:\nالجسم = ٢ نقطة\nوانتظر إذا ظهرت الساق، فالركل عليها ممنوع!' }
     }
   };
 
@@ -12102,7 +12098,7 @@ class SparringDuelGame extends ArenaGameBase {
   }
   static OFF = { apchagi: [], narochagi: ['body'], bakchagi3: ['head'] };   // legal, but not this kick's target
   static LABEL = {
-    head: { en: 'Head', ar: 'الراس' }, body: { en: 'Body', ar: 'الجسم' }, leg: { en: 'Leg', ar: 'الرجل' }
+    head: { en: 'Head', ar: 'الرأس' }, body: { en: 'Body', ar: 'الجسم' }, leg: { en: 'Leg', ar: 'الساق' }
   };
 
   static setupUI() {
@@ -12191,7 +12187,7 @@ class SparringDuelGame extends ArenaGameBase {
       if (this._whiffCool > this.stage.time) return;
       this._whiffCool = this.stage.time + 0.8;
       this.playKick(null);
-      this.stage.text(this.fighter.x + this.fighter.height * 0.4, this.fighter.floor - this.fighter.height * 1.05, this.ar ? 'استنى الفتحة!' : 'Wait for an opening!', { color: '#ffe68a', size: 18 });
+      this.stage.text(this.fighter.x + this.fighter.height * 0.4, this.fighter.floor - this.fighter.height * 1.05, this.ar ? 'انتظر الفتحة!' : 'Wait for an opening!', { color: '#ffe68a', size: 18 });
       return;
     }
     if (this.state !== 'open') return;
@@ -12355,7 +12351,7 @@ class SparringDuelGame extends ArenaGameBase {
     c.strokeStyle = left < 0.3 ? '#ff6b6b' : 'rgba(255,255,255,0.9)'; c.lineWidth = 3;
     c.beginPath(); c.arc(z.x, z.y, r * 1.28, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * left); c.stroke();
     // label
-    const label = this.t(this.LABEL[t.zone]) + (t.kind === 'guard' ? (this.ar ? ' · متغطي' : ' · covered') : '');
+    const label = this.t(this.LABEL[t.zone]) + (t.kind === 'guard' ? (this.ar ? ' · محمي' : ' · guarded') : '');
     c.font = '800 14px Cairo, Roboto, sans-serif'; c.textAlign = 'center'; c.textBaseline = 'middle';
     const tw = c.measureText(label).width + 16;
     c.fillStyle = 'rgba(0,0,0,0.65)'; c.beginPath(); c.roundRect(z.x - tw / 2, z.y + r * 1.4, tw, 22, 8); c.fill();
@@ -12411,7 +12407,7 @@ class BalanceHoldGame extends ArenaGameBase {
   static COPY = {
     title: { en: '⚖️ Balance Hold', ar: '⚖️ اثبت واتوازن' },
     how: {
-      all: { en: 'Stand on one leg. Tap ◀ ▶ to keep the marker in the green.', ar: 'اثبت على رجل واحدة. دوس ◀ ▶ عشان المؤشر يفضل في الأخضر.' }
+      all: { en: 'Stand on one leg. Tap ◀ ▶ to keep the marker in the green.', ar: 'قف على رجل واحدة، واضغط ◀ ▶ ليبقى المؤشر في المنطقة الخضراء.' }
     }
   };
 
@@ -12623,7 +12619,7 @@ class HeavyBagGame extends ArenaGameBase {
   static COPY = {
     title: { en: '🥋 Heavy Bag', ar: '🥋 كيس الركلات' },
     how: {
-      all: { en: 'Kick when the bag swings back to you — not too early, not too late.', ar: 'اركل لما الكيس يرجع ناحيتك — مش بدري ومش متأخر.' }
+      all: { en: 'Wait for the bag to swing back to you, then kick at the right moment!', ar: 'انتظر عودة كيس الركل نحوك، ثم اركل في اللحظة المناسبة!' }
     }
   };
 
@@ -12845,7 +12841,7 @@ class HeavyBagGame extends ArenaGameBase {
     // sweet-spot assist marker at the fighter's strike height (first rounds only)
     if (this.assist && !this.kicked) {
       c.save(); c.font = '800 13px Cairo, Roboto, sans-serif'; c.textAlign = 'center'; c.fillStyle = this.inSweetSpot() ? '#7ee0cf' : 'rgba(255,255,255,0.6)';
-      c.fillText(this.inSweetSpot() ? (this.ar ? 'دلوقتي!' : 'NOW!') : (this.ar ? 'استنى الكيس…' : 'Wait for the bag…'), this.strike.x, this.strike.y - this.fighter.height * 0.22);
+      c.fillText(this.inSweetSpot() ? (this.ar ? 'الآن!' : 'NOW!') : (this.ar ? 'انتظر الكيس…' : 'Wait for the bag…'), this.strike.x, this.strike.y - this.fighter.height * 0.22);
       c.restore();
     }
     // power meter
@@ -15592,25 +15588,25 @@ window.TKDDifficulty = TKDDifficulty;
 const TKDHints = {
   // target: selector of the element the hand points at
   LIST: {
-    'warmup':        { target: '#wu2-media', en: 'Copy the video until the timer runs out', ar: 'اعمل زي اللي في الفيديو لحد ما العداد يخلص' },
-    'learning':      { target: '#learning-screen .game-container', en: 'Look at each step, then watch the video', ar: 'بص على كل خطوة، وبعدين اتفرج على الفيديو' },
-    'form-control':  { target: '#form-control-screen .game-container', en: 'Drag the coloured dots to fix the pose', ar: 'اسحب النقط الملونة عشان تظبط الوضعية' },
-    'puzzle':        { target: '#puzzle-screen .game-container', en: 'Drag the pieces into the right order', ar: 'اسحب القطع ورتّبها صح' },
-    'action':        { target: '#action-screen .game-container', en: 'Tap KICK! when the marker is in the green', ar: 'دوس «اركل!» لما المؤشر يبقى في الأخضر',
+    'warmup':        { target: '#wu2-media', en: 'Copy the video until the timer runs out', ar: 'قلّد الحركة في الفيديو حتى ينتهي العدّاد' },
+    'learning':      { target: '#learning-screen .game-container', en: 'Look at each step, then watch the video', ar: 'انظر إلى كل خطوة، ثم شاهد الفيديو' },
+    'form-control':  { target: '#form-control-screen .game-container', en: 'Drag the coloured dots to fix the pose', ar: 'اسحب النقاط الملونة لتصحيح الوضعية' },
+    'puzzle':        { target: '#puzzle-screen .game-container', en: 'Drag each piece to its place, or tap it and then its number', ar: 'اسحب القطعة إلى الخانة المناسبة، أو اضغط عليها ثم على رقم الخانة' },
+    'action':        { target: '#action-screen .game-container', en: 'Press KICK! when the line is in the green', ar: 'اضغط «اركل!» عندما يصبح الخط داخل المنطقة الخضراء',
                        bySkill: {
-                         narochagi: { en: 'Swipe UP straight, then swipe DOWN fast', ar: 'اسحب لفوق في خط مستقيم، وبعدين لتحت بسرعة' },
-                         bakchagi3: { en: 'Turn the dial to about 135°, then tap KICK!', ar: 'لفّ القرص لحد حوالي 135° وبعدين دوس «اركل!»' }
+                         narochagi: { en: 'Swipe UP straight, then swipe DOWN fast', ar: 'اسحب لأعلى في خط مستقيم، ثم لأسفل بسرعة' },
+                         bakchagi3: { en: 'Turn the dial to about 135°, then tap KICK!', ar: 'لُفّ القرص إلى نحو 135°، ثم اضغط «اركل!»' }
                        } },
-    'error-hunt':    { target: '#eh-board', en: 'Tap where the mistake is', ar: 'دوس على مكان الغلطة' },
-    'quiz-blast':    { target: '#qb-arena', en: 'Move and shoot the right answer', ar: 'اتحرك واضرب الإجابة الصح' },
-    'quiz':          { target: '#quiz-screen .game-container', en: 'Choose the right answer', ar: 'اختار الإجابة الصح' },
-    'board-break':   { target: '#bb-wrap', en: 'Pick the foot part, then tap when the target is in the middle', ar: 'اختار جزء القدم، وبعدين دوس لما النيشان يبقى في النص' },
-    'paddle-reflex': { target: '#pr-wrap', en: 'Tap only the paddle at the right target — fast!', ar: 'دوس بس على المضرب اللي عند الهدف الصح — بسرعة!' },
-    'phase-rhythm':  { target: '#rh-pads', en: 'Tap the matching number when the note hits the line', ar: 'دوس على الرقم لما النوتة توصل للخط' },
-    'sparring-duel': { target: '#sd-wrap', en: 'Tap when a good target lights up — wait on traps!', ar: 'دوس لما هدف صح ينوّر — واستنى لو فخ!' },
-    'balance-hold':  { target: '#bh-pads', en: 'Hold ◀ or ▶ to keep the needle in the green', ar: 'دوس ◀ أو ▶ عشان المؤشر يفضل في الأخضر' },
-    'heavy-bag':     { target: '#hb-wrap', en: 'Tap when the bag swings back to you', ar: 'دوس لما الكيس يرجع ناحيتك' },
-    'versus':        { target: '#vs-wrap', en: 'Each player taps their own side when a good target shows', ar: 'كل لاعب يدوس على ناحيته لما يظهر هدف صح' }
+    'error-hunt':    { target: '#eh-board', en: 'Tap where the mistake is', ar: 'اضغط على مكان الخطأ' },
+    'quiz-blast':    { target: '#qb-arena', en: 'Move and shoot the right answer', ar: 'تحرّك واضرب الإجابة الصحيحة' },
+    'quiz':          { target: '#quiz-screen .game-container', en: 'Choose the right answer', ar: 'اختر الإجابة الصحيحة' },
+    'board-break':   { target: '#bb-wrap', en: 'Pick the foot part, then tap when the target is in the middle', ar: 'اختر جزء القدم، ثم اضغط عندما يصبح التصويب في المنتصف' },
+    'paddle-reflex': { target: '#pr-wrap', en: 'Tap only the paddle at the right target — fast!', ar: 'اضغط فقط على المضرب الموجود عند الهدف الصحيح — بسرعة!' },
+    'phase-rhythm':  { target: '#rh-pads', en: 'Tap the phase matching the number when it reaches its slot', ar: 'اضغط على المرحلة المطابقة للرقم عندما يصل إلى خانته' },
+    'sparring-duel': { target: '#sd-wrap', en: 'Kick when a target lights up — wait if it is the leg or a guarded target!', ar: 'اركل عندما يضيء الهدف — وانتظر إذا ظهرت الساق أو كان الهدف محميًّا!' },
+    'balance-hold':  { target: '#bh-pads', en: 'Hold ◀ or ▶ to keep the needle in the green', ar: 'اضغط ◀ أو ▶ ليبقى المؤشر في المنطقة الخضراء' },
+    'heavy-bag':     { target: '#hb-wrap', en: 'Wait for the bag to swing back, then kick at the right moment', ar: 'انتظر عودة كيس الركل نحوك، ثم اركل في اللحظة المناسبة!' },
+    'versus':        { target: '#vs-wrap', en: 'Each player taps their own side when a good target shows', ar: 'يضغط كل لاعب على جهته عندما يظهر الهدف الصحيح' }
   },
   key() { return `taekwondoJourneyHints:${TKD.pid() || 'guest'}`; },
   seen(id) { return (TKD.read(this.key(), [])).includes(id); },
@@ -16307,7 +16303,7 @@ const Coach = {
     this._pin = ''; this._first = null;
     const paint = (msg) => {
       root.innerHTML = `<div class="co-pin">
-        <div class="co-pin-ico">👩‍🏫</div>
+        <div class="co-pin-ico">🧔🏽</div>
         <h3>${msg || (setting ? TKD.t('Choose a 4-digit coach PIN', 'اختار رقم سري للمدرب (٤ أرقام)') : TKD.t('Coach PIN', 'الرقم السري للمدرب'))}</h3>
         ${this._why ? `<p class="co-pin-why">🔐 ${TKD.esc(this._why)}</p>` : ''}
         <p class="co-pin-help">${setting
@@ -17925,11 +17921,11 @@ window.Review = Review;
 // ============================================================================
 const Units = {
   LIST: [
-    // v59.2: `need` = how many of the unit's games the child must pass (ANY of them) — the rest
-    // stay open for fun and stars, so a kick is about 4 games, not 12
-    { n: 1, icon: '👀', en: 'Know the kick', ar: 'اعرف الركلة', lesson: true, need: 1, games: ['form-control', 'puzzle', 'phase-rhythm'] },
-    { n: 2, icon: '💪', en: 'Practise it', ar: 'اتمرن عليها', need: 2, games: ['action', 'board-break', 'paddle-reflex', 'heavy-bag', 'balance-hold'] },
-    { n: 3, icon: '🏆', en: 'The big challenge', ar: 'التحدي الكبير', test: true, need: 1, games: ['sparring-duel', 'error-hunt', 'quiz-blast'] }
+    // v63 (the coach): ONE numbered road — every game counts and they are played in this order,
+    // each one opens the next (1 → 2 → 3 …) until the test
+    { n: 1, icon: '👀', en: 'Know the kick', ar: 'اعرف الركلة', lesson: true, games: ['puzzle', 'phase-rhythm', 'form-control'] },
+    { n: 2, icon: '💪', en: 'Practise it', ar: 'اتمرن عليها', games: ['paddle-reflex', 'action', 'board-break', 'heavy-bag', 'balance-hold'] },
+    { n: 3, icon: '🏆', en: 'The big challenge', ar: 'التحدي الكبير', test: true, games: ['sparring-duel', 'error-hunt', 'quiz-blast'] }
   ],
   ONLY: { 'error-hunt': 'apchagi' },                    // Mistake Hunter exists for Ap Chagi only
   get(u) { return this.LIST[Math.max(1, Math.min(3, u)) - 1]; },
@@ -17938,7 +17934,15 @@ const Units = {
   keyOf(g) { return GameState.GAME_KEY_MAP[g]; },
   passed(scores, g) { return GameState.gamePassed(scores, this.keyOf(g)); },
   unitOf(id) { if (id === 'learning') return 1; if (id === 'quiz') return 3; const U = this.LIST.find(x => x.games.includes(id)); return U ? U.n : 0; },
-  need(u, sk) { return Math.min(this.get(u).need || 1, this.games(u, sk).length); },
+  need(u, sk) { return this.games(u, sk).length; },                     // v63: all of them
+  // v63: the game's number on the road (1, 2, 3 … across the units)
+  number(g, sk) { return this.all(sk).indexOf(g) + 1; },
+  // a kick passed before v63 (when 1–2 games of a unit were enough) keeps every game open
+  grandfathered(sk) { return !!TKD.gs()?.completedSkills?.has(sk); },
+  // the game the child plays next (the first one of the road not passed yet)
+  nextOnRoad(scores, sk) { return this.all(sk).find(g => !this.passed(scores, g)) || null; },
+  // a game opens when the games before it are passed (a passed game can always be played again)
+  gameOpen(scores, g, sk) { return this.grandfathered(sk) || this.passed(scores, g) || this.nextOnRoad(scores, sk) === g; },
   passedIn(scores, u, sk) { return this.games(u, sk).filter(g => this.passed(scores, g)).length; },
   gamesDone(scores, u, sk) { return this.passedIn(scores, u, sk) >= this.need(u, sk); },
   // the scores that count for a kick: the best `need` games of every unit (for the % bars)
@@ -17951,6 +17955,7 @@ const Units = {
   },
   done(scores, u, sk) {
     const s = scores || {};
+    if (this.grandfathered(sk)) return true;
     if (u === 1 && !((s.learning || 0) > 0)) return false;
     if (!this.gamesDone(s, u, sk)) return false;
     return u !== 3 || GameState.quizPassed(s);
@@ -17977,7 +17982,11 @@ const Units = {
     if (id === 'learning') return null;
     if (!((s.learning || 0) > 0)) return TKD.t('🔒 Watch the lesson first', '🔒 اتفرج على الدرس الأول');
     if (!this.open(s, u, sk)) return TKD.t(`🔒 Finish unit ${u - 1} first`, `🔒 خلّص الوحدة ${TKD.num(u - 1)} الأول`);
-    if (id === 'quiz' && !this.gamesDone(s, 3, sk)) return TKD.t('🔒 Pass one game of unit 3 first', '🔒 عدّي لعبة واحدة من الوحدة ٣ الأول');
+    if (id === 'quiz' && !GameState.allGamesDone(s, sk)) return TKD.t('🔒 Finish all the games first', '🔒 خلّص كل الألعاب الأول');
+    if (id !== 'quiz' && !this.gameOpen(s, id, sk)) {
+      const nx = this.nextOnRoad(s, sk), k = this.number(nx, sk);
+      return TKD.t(`🔒 Play game ${k} (${TKD.gameName(nx)}) first`, `🔒 العب لعبة رقم ${TKD.num(k)} (${TKD.gameName(nx)}) الأول`);
+    }
     return null;
   }
 };
@@ -18033,9 +18042,9 @@ const Journey = {
     const complete = !!gs?.completedSkills?.has(skillId);
     const open = Units.open(s, u, skillId), learnt = sc('learning') > 0;
     const allGames = GameState.allGamesDone(s, skillId);
-    const enough = Units.gamesDone(s, u, skillId);                  // v59.2: the unit has its games → the rest are extra
-    const game = g => ({ id: 'g:' + g, stage: 'games', game: g, unit: u, icon: TKD.gameIcon(g), en: this.SHORT[g]?.en || g, ar: this.SHORT[g]?.ar || g,
-      optional: enough && !this.passed(skillId, g), done: this.passed(skillId, g), stars: this.starsFor(sc(this.KEY[g])), go: () => switchScreen(g) });
+    // v63: every game counts, in order (a kick passed before v63 keeps its missing games as extras)
+    const game = g => ({ id: 'g:' + g, stage: 'games', game: g, unit: u, num: Units.number(g, skillId), icon: TKD.gameIcon(g), en: this.SHORT[g]?.en || g, ar: this.SHORT[g]?.ar || g,
+      optional: complete && !this.passed(skillId, g), done: this.passed(skillId, g), stars: this.starsFor(sc(this.KEY[g])), go: () => switchScreen(g) });
     const st = [];
     if (u === 1) {
       st.push({ id: 'warmup', stage: 'warmup', icon: '🔥', en: 'Warm-up', ar: 'الإحماء', optional: true, done: sc('warmup') > 0, stars: sc('warmup') > 0 ? 3 : 0, go: () => switchScreen('warmup') });
@@ -18048,15 +18057,15 @@ const Journey = {
       st.push({ id: 'quiz', stage: 'quiz', icon: '📝', en: 'The test', ar: 'الاختبار', done: GameState.quizPassed(s), stars: GameState.quizPassed(s) ? this.starsFor(sc('quiz')) : 0, go: () => switchScreen(allGames ? 'quiz' : 'games') });
       st.push({ id: 'chest', stage: 'chest', icon: complete ? '🏅' : '🎁', en: 'Treasure', ar: 'الكنز', done: complete, stars: 0, go: () => switchScreen('trophy-room') });
     }
-    // inside an open unit: the lesson comes first, then its games in any order (the first
-    // unfinished one is "now"); v59.2: once the unit has its games the others are extra; a closed unit is all locked
+    // inside an open unit: the lesson comes first, then its games one after another (v63: the
+    // first unfinished one is "now", the ones after it wait); a closed unit is all locked
     const nowI = st.findIndex(x => !x.done && !x.optional);
     st.forEach((x, k) => {
       if (x.done) x.state = 'done';
       else if (!open) x.state = x.id === 'warmup' ? 'open' : 'locked';
       else if (x.optional) x.state = x.needs === false ? 'locked' : 'open';
       else if (k === nowI) x.state = 'now';
-      else if (x.game && learnt) x.state = 'open';
+      else if (x.game && learnt && Units.gameOpen(s, x.game, skillId)) x.state = 'open';
       else x.state = 'locked';
     });
     if (u === 3 && open) {                                            // the test is "now" only when the units have their games
@@ -18189,9 +18198,10 @@ const Journey = {
         </svg>
         ${st.map((x, i) => `
         <div class="jr-step is-${x.state} ${x.id === 'chest' ? 'is-chest' : ''}" data-step="${x.id}" style="${pct(pts[i])};--i:${i}">
-          <button type="button" class="jr-dot" data-go="${x.id}" aria-label="${TKD.esc(TKD.ar ? x.ar : x.en)}${x.state === 'locked' ? ' — ' + TKD.t('locked', 'مقفول') : x.state === 'done' ? ' — ' + TKD.t('done', 'خلصت') : ''}">
+          <button type="button" class="jr-dot" data-go="${x.id}" aria-label="${x.num ? TKD.num(x.num) + ' · ' : ''}${TKD.esc(TKD.ar ? x.ar : x.en)}${x.state === 'locked' ? ' — ' + TKD.t('locked', 'مقفول') : x.state === 'done' ? ' — ' + TKD.t('done', 'خلصت') : ''}">
             <span class="jr-ico">${x.state === 'locked' && x.id !== 'chest' ? '🔒' : x.icon}</span>
             ${x.state === 'done' && x.id !== 'chest' ? '<span class="jr-check" aria-hidden="true">✓</span>' : ''}
+            ${x.num ? `<span class="jr-num" aria-hidden="true">${TKD.num(x.num)}</span>` : ''}
           </button>
           ${starRow(x)}
           <span class="jr-lbl">${TKD.esc(TKD.ar ? x.ar : x.en)}</span>
@@ -18250,8 +18260,9 @@ const Journey = {
         TKD.toast(st.id === 'chest'
           ? TKD.t('The treasure opens after the test 🎁', 'الكنز بيتفتح بعد الاختبار 🎁')
           : !Units.open(this.scores(sk), u, sk) ? TKD.t(`Finish unit ${u - 1} first 😊`, `خلّص الوحدة ${TKD.num(u - 1)} الأول 😊`)
-          : st.id === 'quiz' ? TKD.t('The test opens after one game of this unit 😊', 'الاختبار بيتفتح بعد ما تعدّي لعبة من الوحدة دي 😊')
-          : TKD.t('Watch the lesson first 😊', 'اتفرج على الدرس الأول 😊'), 'warning');
+          : st.id === 'quiz' ? TKD.t('The test opens after all the games 😊', 'الاختبار بيتفتح بعد ما تخلّص كل الألعاب 😊')
+          : !((this.scores(sk).learning || 0) > 0) ? TKD.t('Watch the lesson first 😊', 'اتفرج على الدرس الأول 😊')
+          : (() => { const nx = Units.nextOnRoad(this.scores(sk), sk); return TKD.t(`Play game ${Units.number(nx, sk)} first 😊`, `العب لعبة رقم ${TKD.num(Units.number(nx, sk))} الأول 😊`); })(), 'warning');
         TKD.gs()?.playSound('error');
         return;
       }
@@ -18481,7 +18492,7 @@ const TabBar = {
       ] },
     { id: 'mine', icon: '🦸', en: 'My page', ar: 'صفحتي', screens: ['profile', 'trophy-room', 'players', 'character-change', 'winner'],
       direct: () => Profile.open() },
-    { id: 'coach', icon: '👩‍🏫', en: 'Coach mode', ar: 'وضع المدرب', screens: ['coach', 'dashboard', 'report'],
+    { id: 'coach', icon: '🧔🏽', en: 'Coach mode', ar: 'وضع المدرب', screens: ['coach', 'dashboard', 'report'],
       direct: () => Coach.open() }
   ],
   t(o) { return (typeof TKD !== 'undefined' && TKD.ar) ? o.ar : o.en; },
@@ -20417,7 +20428,7 @@ const Club = {
       ${this.isCoach() ? `<section class="club-box"><h3>🔑 ${TKD.t('Club code — type it on every device', 'كود النادي — اكتبه على كل جهاز')}</h3>
           <div class="club-code-big" dir="ltr" data-keep-digits>${TKD.esc(info.code || '······')}</div>
           <button type="button" class="btn btn-small" id="club-newcode">🔁 ${TKD.t('New code (the old one stops working)', 'كود جديد (القديم يبطل)')}</button></section>`
-        : `<button type="button" class="btn btn-small" id="club-claim">👩‍🏫 ${TKD.t('I am the coach (I have the recovery code)', 'أنا المدرب (معايا كود الاسترجاع)')}</button>`}
+        : `<button type="button" class="btn btn-small" id="club-claim">🧔🏽 ${TKD.t('I am the coach (I have the recovery code)', 'أنا المدرب (معايا كود الاسترجاع)')}</button>`}
       <section class="club-box"><h3>📱 ${TKD.t('Players of this device in the club', 'لاعبين الجهاز ده في النادي')}</h3>
         <ul class="club-local">${local.map(p => `<li>${TKD.avatar(p, 'sm')}<span>${TKD.esc(p.name)}</span>
           <label class="tkd-check"><input type="checkbox" data-share="${p.id}" ${p.clubOff ? '' : 'checked'}> ${TKD.t('shown in the club', 'ظاهر في النادي')}</label></li>`).join('') || `<li class="tkd-muted">—</li>`}</ul>
@@ -20454,7 +20465,7 @@ const Club = {
     TKD.$('club-claim')?.addEventListener('click', async () => {
       const code = await this.ask(TKD.t('Type the coach recovery code (you wrote it down when the club was made):', 'اكتب كود استرجاع المدرب (اللي كتبته لما النادي اتعمل):'), 'XXXXX-XXXXX');
       if (!code) return;
-      try { await this.claimCoach(code); TKD.toast(TKD.t('👩‍🏫 This device is now a coach device', '👩‍🏫 الجهاز ده بقى جهاز مدرب'), 'success'); Coach.render(); }
+      try { await this.claimCoach(code); TKD.toast(TKD.t('🧔🏽 This device is now a coach device', '🧔🏽 الجهاز ده بقى جهاز مدرب'), 'success'); Coach.render(); }
       catch (err) { msg(this.why(err.code || err.message), true); }
     });
     root.querySelectorAll('[data-share]').forEach(cb => cb.addEventListener('change', async () => {
@@ -20485,7 +20496,7 @@ const Club = {
         this._devUnsub = be.watchMembers(this.info().clubId, (list) => {
           const ul = TKD.$('club-devices'); if (!ul) { this._devUnsub?.(); this._devUnsub = null; return; }
           const me = be.uid();
-          ul.innerHTML = list.map(m => `<li><span>${m.role === 'coach' ? '👩‍🏫' : '📱'} ${TKD.esc(m.device || '?')}${m.uid === me ? ` <small>(${TKD.t('this device', 'الجهاز ده')})</small>` : ''}</span>
+          ul.innerHTML = list.map(m => `<li><span>${m.role === 'coach' ? '🧔🏽' : '📱'} ${TKD.esc(m.device || '?')}${m.uid === me ? ` <small>(${TKD.t('this device', 'الجهاز ده')})</small>` : ''}</span>
             ${m.uid === me ? '' : `<button type="button" class="btn btn-small btn-danger" data-rmd="${m.uid}">${TKD.t('Remove', 'شيله')}</button>`}</li>`).join('') || `<li class="tkd-muted">—</li>`;
           ul.querySelectorAll('[data-rmd]').forEach(b => b.addEventListener('click', async () => {
             if (!(await tkdConfirm(TKD.t('Remove this device from the club?', 'تشيل الجهاز ده من النادي؟'), TKD.t('Remove', 'شيله')))) return;
@@ -20758,7 +20769,7 @@ const Stickers = {
     ['apchagi', '🦶', '앞차기', 'Ap Chagi', 'Front kick', 'الركلة الأمامية'],
     ['naeryeo', '🪓', '내려차기', 'Naeryeo Chagi', 'Axe kick (from above)', 'الركلة النازلة من فوق'],
     ['yeop', '🌀', '돌려차기', 'Dollyeo Chagi', 'Roundhouse kick', 'الركلة الدائرية'],
-    ['apchuk', '👣', '앞축', 'Ap-chuk', 'Ball of the foot', 'مشط القدم'],
+    ['apchuk', '👣', '앞축', 'Ap-chuk', 'Ball of the foot', 'قاعدة الأصابع (كلوة القدم)'],
     ['baldeung', '🦵', '발등', 'Bal-deung', 'Instep (top of the foot)', 'وش القدم'],
     ['dwikkumchi', '🦶', '뒤꿈치', 'Dwi-kkumchi', 'Heel', 'الكعب'],
     ['eolgul', '🙂', '얼굴', 'Eolgul', 'Face level (high)', 'مستوى الوش (فوق)'],
@@ -21023,7 +21034,7 @@ setInterval(() => { try { FinalStretch.tick(); } catch (e) {} }, 400);
 const FirstTour = {
   key() { return `taekwondoJourneyTour:${TKD.pid() || 'guest'}`; },
   STEPS: [
-    { sel: null, en: "Hi champion! I'm your training buddy. Come, I'll show you around!", ar: 'أهلاً يا بطل! أنا صاحبك في التمرين. تعالى أفرّجك على اللعبة!' },
+    { sel: null, en: "Hi champion! I'm Coach Seif, your coach. Come, I'll show you around!", ar: 'أهلاً يا بطل! أنا كوتش سيف، مدربك في التمرين. تعالى أفرّجك على اللعبة!' },
     { sel: '.jr-units', en: 'Every kick has 3 units. Finish one and the next one opens.', ar: 'كل ركلة فيها ٣ وحدات. خلّص وحدة والوحدة اللي بعدها تتفتح.' },
     { sel: '.jr-board', en: 'This is your road. Every circle is a step, and your fighter stands on the next one.', ar: 'ده طريقك. كل دايرة خطوة، وبطلك واقف على الخطوة الجاية.' },
     { sel: '.jr-go', en: 'This big button always takes you to the next step.', ar: 'الزرار الكبير ده بيوديك على طول للخطوة الجاية.' },
@@ -21047,8 +21058,10 @@ const FirstTour = {
         <button type="button" class="ft-say" aria-label="${TKD.t('Hear it again', 'اسمعها تاني')}">🔊</button><button type="button" class="btn btn-success ft-next"></button></div></div></div>`;
     document.body.appendChild(ov);
     this.ov = ov; this.i = -1;
-    this.hero = new RigSprite(ov.querySelector('.ft-hero'), { ch: gs?.playerCharacter === 'girl' ? 'girl' : 'boy', anim: 'bounce', intro: 'bow', tap: 'win', height: 104 });
-    this.hero.start();
+    // v63: Coach Seif shows the child around (his picture when 3D is off)
+    const heroBox = ov.querySelector('.ft-hero');
+    this.hero = new RigSprite(heroBox, { ch: 'coach', anim: 'coach_idle', intro: 'bow', tap: 'bow', height: 124 });
+    this.hero.start().then(ok => { if (!ok && heroBox.isConnected && !heroBox.firstChild) heroBox.innerHTML = `<img class="ft-hero-img" src="${PoseShots.url('coach', 'coach')}" alt="">`; });
     ov.querySelector('.ft-skip').addEventListener('click', (e) => { e.stopPropagation(); this.close(); });
     ov.querySelector('.ft-say').addEventListener('click', (e) => { e.stopPropagation(); this.say(); });
     ov.addEventListener('click', () => this.next());
@@ -21393,7 +21406,7 @@ const UnitGames = {
       const grid = sec.querySelector('.unit-cards');
       U.games.forEach(g => { if (cards[g]) { cards[g].classList.remove('game-card-new'); cards[g].querySelector('.game-new-badge')?.remove(); grid.appendChild(cards[g]); } });
       if (U.lesson) grid.insertAdjacentHTML('afterbegin', `<div class="game-card unit-lesson" data-lesson="1"><div class="game-icon">🎓</div><h3>${TKD.t('The lesson', 'الدرس')}</h3><p>${TKD.t('Watch the video and the steps first', 'اتفرج على الفيديو والخطوات الأول')}</p><span class="game-status"></span></div>`);
-      if (U.test) grid.insertAdjacentHTML('beforeend', `<div class="game-card unit-test" data-test="1"><div class="game-icon">📝</div><h3>${TKD.t('The test', 'الاختبار')}</h3><p>${TKD.t('After one game of this unit', 'بعد ما تعدّي لعبة من الوحدة دي')}</p><span class="game-status"></span></div>`);
+      if (U.test) grid.insertAdjacentHTML('beforeend', `<div class="game-card unit-test" data-test="1"><div class="game-icon">📝</div><h3>${TKD.t('The test', 'الاختبار')}</h3><p>${TKD.t('After all the games', 'بعد ما تخلّص كل الألعاب')}</p><span class="game-status"></span></div>`);
       (anchor ? anchor.before(sec) : gc.appendChild(sec));
     });
     // the old "main / bonus" titles and grids are empty now
@@ -21420,15 +21433,19 @@ const UnitGames = {
       sec.querySelector('.us-n').textContent = done ? '✓' : locked ? '🔒' : TKD.num(n);
       sec.querySelector('.us-t').textContent = `${TKD.t(`Unit ${n}`, `الوحدة ${TKD.num(n)}`)} · ${U.icon} ${TKD.t(U.en, U.ar)}`;
       sec.querySelector('.us-c').textContent = `${TKD.num(d)}/${TKD.num(t)}`;
-      // v59.2: how many games this unit needs — any of them count
+      // v63: the games are played in order — each one opens the next
       let need = sec.querySelector('.us-need');
       if (!need) { need = document.createElement('p'); need.className = 'us-need'; sec.querySelector('.unit-sec-title')?.after(need); }
-      const k = Units.need(n, sk);
-      need.textContent = done ? TKD.t('Done! The other games are extra fun ⭐', 'خلصت! باقي الألعاب زيادة للمتعة والنجوم ⭐')
-        : k === 1 ? TKD.t('Pass ANY one game to finish this unit', 'عدّي أي لعبة واحدة عشان تخلّص الوحدة دي')
-        : TKD.t(`Pass ANY ${k} games to finish this unit`, `عدّي أي لعبتين عشان تخلّص الوحدة دي`);
-      // inside unit 1 the games wait for the lesson
-      sec.querySelectorAll('.game-card[data-game]').forEach(c => c.classList.toggle('needs-lesson', n === 1 && !learnt));
+      need.textContent = done ? TKD.t('Unit done! ⭐', 'خلصت الوحدة دي! ⭐')
+        : TKD.t('Play the games in order — each one opens the next', 'العب الألعاب بالترتيب — كل لعبة بتفتح اللي بعدها');
+      // inside unit 1 the games wait for the lesson; every game waits for the one before it
+      sec.querySelectorAll('.game-card[data-game]').forEach(c => {
+        const g = c.dataset.game, k = Units.number(g, sk);
+        c.classList.toggle('needs-lesson', n === 1 && !learnt);
+        c.classList.toggle('seq-locked', !locked && learnt && !Units.gameOpen(s, g, sk));
+        let b = c.querySelector('.game-num');
+        if (k > 0) { if (!b) { b = document.createElement('span'); b.className = 'game-num'; c.prepend(b); } b.textContent = TKD.num(k); } else b?.remove();
+      });
       const l = sec.querySelector('.unit-lesson .game-status'); if (l) l.textContent = learnt ? TKD.t('Done ✓', 'خلصت ✓') : TKD.t('Start here 👉', 'ابدأ من هنا 👉');
       const q = sec.querySelector('.unit-test .game-status'); if (q) q.textContent = GameState.quizPassed(s) ? TKD.t('Passed ✓', 'عدّيته ✓') : GameState.allGamesDone(s, sk) ? TKD.t('Ready!', 'جاهز!') : '🔒';
     });
