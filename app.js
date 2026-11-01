@@ -890,6 +890,66 @@ function watchVideoLoading(video) {
 // (no audio files needed) to (a) pronounce Korean Taekwondo terms and
 // (b) read instructions aloud for kids who can't read fluently yet.
 // =====================================================================
+// v63.3 — the reading voice: the best voice this device has for the language (a natural /
+// enhanced voice first, and for Arabic an Egyptian one first), or the one a grown-up picked in
+// Coach → Settings; and the text as a voice should hear it (no emoji, no Korean letters for an
+// Arabic or English voice, degrees and ranges in words)
+const SpeechVoice = {
+  KEY: 'taekwondoJourneyVoice',
+  list: [],
+  load() { try { this.list = window.speechSynthesis?.getVoices() || []; } catch (e) { this.list = []; } return this.list; },
+  of(lang) {
+    const L = String(lang).slice(0, 2).toLowerCase();
+    return (this.list.length ? this.list : this.load()).filter(v => String(v.lang || '').toLowerCase().startsWith(L));
+  },
+  score(v, lang) {
+    const n = `${v.name} ${v.voiceURI}`, l = String(v.lang || '').replace('_', '-');
+    let s = 0;
+    if (/natural|neural|enhanced|premium|wavenet|studio/i.test(n)) s += 6;
+    if (/google/i.test(n)) s += 3;
+    if (/online/i.test(n)) s += 2;
+    if (String(lang).startsWith('ar') && /^ar-EG/i.test(l)) s += 4;
+    if (/compact|eloquence|espeak/i.test(n)) s -= 4;
+    if (v.default) s += 1;
+    return s;
+  },
+  all() { try { return JSON.parse(localStorage.getItem(this.KEY) || '{}') || {}; } catch (e) { return {}; } },
+  saved(lang) { return this.all()[String(lang).slice(0, 2)] || ''; },
+  save(lang, name) {
+    const o = this.all(), L = String(lang).slice(0, 2);
+    if (name) o[L] = name; else delete o[L];
+    try { localStorage.setItem(this.KEY, JSON.stringify(o)); } catch (e) {}
+  },
+  pick(lang) {
+    const vs = this.of(lang); if (!vs.length) return null;
+    const want = this.saved(lang);
+    return (want && vs.find(v => v.name === want)) || vs.slice().sort((a, b) => this.score(b, lang) - this.score(a, lang))[0];
+  },
+  apply(u, lang) { const v = this.pick(lang); if (v) { u.voice = v; u.lang = v.lang; } else u.lang = lang; return v; },
+  text(s, lang) {
+    const ar = String(lang).startsWith('ar');
+    let t = String(s || '').replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}]/gu, '').replace(/[\u{FE0F}\u{200D}\u{20E3}]/gu, '');
+    if (!String(lang).startsWith('ko')) t = t.replace(/[\u1100-\u11FF\u3130-\u318F\uAC00-\uD7A3]+/g, '');
+    return t
+      .replace(/([\d٠-٩]+)\s*°\s*[:–-]\s*([\d٠-٩]+)\s*°/g, ar ? 'من $1 إلى $2 درجة' : '$1 to $2 degrees')
+      .replace(/([\d٠-٩]+)\s*°/g, ar ? '$1 درجة' : '$1 degrees')
+      .replace(/([\d٠-٩]+)\s*\/\s*([\d٠-٩]+)/g, ar ? '$1 من $2' : '$1 of $2')
+      .replace(/\s*\/\s*/g, ar ? ' أو ' : ' or ')
+      .replace(/\s*[←→]\s*/g, ar ? '، ثم ' : ', then ')
+      .replace(/\s*[—·|]\s*/g, ar ? '، ' : ', ')
+      .replace(/\(\s*\)|«\s*»/g, '').replace(/\s+/g, ' ').trim();
+  },
+  // no Arabic voice on this device → say once how a grown-up can add one
+  warned: false,
+  check(lang) {
+    if (this.warned || !String(lang).startsWith('ar') || !this.load().length || this.of('ar').length) return;
+    this.warned = true;
+    try { TKD.toast('🔇 مفيش صوت عربي على الجهاز ده — ولي الأمر يقدر ينزّله: وضع المدرب ← الإعدادات ← صوت القراءة', 'info'); } catch (e) {}
+  }
+};
+try { if (window.speechSynthesis) { SpeechVoice.load(); window.speechSynthesis.addEventListener?.('voiceschanged', () => SpeechVoice.load()); } } catch (e) {}
+window.SpeechVoice = SpeechVoice;
+
 const SpeechHelper = {
   supported: typeof window !== 'undefined' && 'speechSynthesis' in window,
 
@@ -897,15 +957,10 @@ const SpeechHelper = {
     if (!this.supported || !text) return;
     try {
       window.speechSynthesis.cancel(); // don't stack overlapping utterances
-      const utter = new SpeechSynthesisUtterance(text);
-      utter.lang = lang;
-      // Arabic: prefer an Egyptian voice (the texts are Egyptian colloquial),
-      // then any Arabic voice the device has.
-      if (lang.startsWith('ar')) {
-        const voices = window.speechSynthesis.getVoices() || [];
-        const v = voices.find(x => /^ar[-_]EG/i.test(x.lang)) || voices.find(x => /^ar\b/i.test(x.lang));
-        if (v) { utter.voice = v; utter.lang = v.lang; }
-      }
+      const said = SpeechVoice.text(text, lang); if (!said) return;
+      const utter = new SpeechSynthesisUtterance(said);
+      SpeechVoice.apply(utter, lang);                 // v63.3: the best (or the chosen) voice for the language
+      SpeechVoice.check(lang);
       utter.rate = 0.9;
       if (btn) {
         btn.classList.add('speaking');
@@ -16518,6 +16573,18 @@ const Coach = {
     const s = League.settings();
     const sel = (id, vals, cur) => `<select id="${id}">${vals.map(v => `<option value="${v}" ${v === cur ? 'selected' : ''}>${TKD.num(v)}</option>`).join('')}</select>`;
     return `<div class="co-settings">
+      <section class="co-data co-voice-set" id="co-voice-set"><h3>🔊 ${TKD.t('Reading voice', 'صوت القراءة')}</h3>
+        <label>${TKD.t('Arabic', 'العربي')} <select id="co-voice-ar"></select></label>
+        <label>${TKD.t('English', 'الإنجليزي')} <select id="co-voice-en"></select></label>
+        <div class="tkd-row wrap"><button type="button" class="btn btn-small btn-success" id="co-voice-test">▶️ ${TKD.t('Try the voice', 'جرّب الصوت')}</button></div>
+        <p class="tkd-muted" id="co-voice-none" hidden>⚠️ ${TKD.t('This device has no Arabic voice yet — add one (below), then open this page again.', 'الجهاز ده مافيهوش صوت عربي لسه — نزّل صوت (الخطوات تحت) وبعدين افتح الصفحة دي تاني.')}</p>
+        <details class="co-voice-how"><summary>${TKD.t('The voice sounds robotic? Add a better one', 'الصوت آلي أو مش موجود؟ نزّل صوت أحسن')}</summary>
+          <ul>
+            <li><b>${TKD.t('Android', 'أندرويد')}:</b> ${TKD.t('Settings → Text-to-speech → Google engine → Install voice data → Arabic → download a voice.', 'الإعدادات ← تحويل النص إلى كلام ← محرك Google ← تثبيت بيانات الصوت ← العربية ← نزّل صوت.')}</li>
+            <li><b>${TKD.t('iPhone / iPad', 'آيفون / آيباد')}:</b> ${TKD.t('Settings → Accessibility → Spoken Content → Voices → Arabic → Majed (Enhanced).', 'الإعدادات ← تسهيلات الاستخدام ← المحتوى المنطوق ← الأصوات ← العربية ← ماجد (المحسّن).')}</li>
+            <li><b>${TKD.t('Computer', 'الكمبيوتر')}:</b> ${TKD.t('Open the game in Microsoft Edge — it has natural Egyptian voices (Salma, Shakir).', 'افتح اللعبة من متصفح Microsoft Edge — فيه أصوات مصرية طبيعية (سلمى وشاكر).')}</li>
+          </ul></details>
+      </section>
       <label>🏆 ${TKD.t('Counted challenge tries per day', 'عدد محاولات التحدي المحسوبة في اليوم')} ${sel('co-tries', [1, 2, 3, 4, 5], s.tries)}</label>
       <label>🏅 ${TKD.t('Medal difficulty', 'صعوبة الميداليات')} <select id="co-medals">${[['easy', TKD.t('Easier', 'أسهل')], ['normal', TKD.t('Normal', 'عادي')], ['hard', TKD.t('Harder', 'أصعب')]].map(([v, l]) => `<option value="${v}" ${s.medals === v ? 'selected' : ''}>${l}</option>`).join('')}</select></label>
       <p class="tkd-muted">${TKD.t('Easier = ×0.7, harder = ×1.4 on the medals you earn by training (warm-ups, games, days…). Skill medals like strongest kick don\'t change.', 'أسهل = ×٠٫٧، أصعب = ×١٫٤ على ميداليات التمرين (إحماء، ألعاب، أيام…). ميداليات المهارة زي أقوى ركلة مابتتغيرش.')}</p>
@@ -16541,6 +16608,30 @@ const Coach = {
         <button type="button" class="btn btn-small" id="co-newpin">🔑 ${TKD.t('Change PIN', 'غيّر الرقم السري')}</button>
         <button type="button" class="btn btn-small btn-danger" id="co-erase">🗑️ ${TKD.t('Erase everything', 'امسح كل حاجة')}</button></div></div>`;
   },
+  // v63.3 — the reading voice of this device: "automatic" (the best one) or any voice it has
+  bindVoice() {
+    const SAMPLE = { ar: 'أهلًا يا بطل! أنا كوتش سيف. لف قدم الارتكاز للخارج بزاوية ٤٥°:٩٠°، واضرب بقاعدة الأصابع.', en: "Hi champ! I'm Coach Seif. Turn the standing foot out 45°–90°, and strike with the ball of the foot." };
+    const LANG = { ar: 'ar-EG', en: 'en-US' };
+    const fill = () => {
+      ['ar', 'en'].forEach(L => {
+        const sel = TKD.$(`co-voice-${L}`); if (!sel) return;
+        const vs = SpeechVoice.of(L).slice().sort((a, b) => SpeechVoice.score(b, LANG[L]) - SpeechVoice.score(a, LANG[L]));
+        const best = vs[0], cur = SpeechVoice.saved(L);
+        sel.innerHTML = `<option value="">${TKD.t('Automatic', 'تلقائي')}${best ? ` — ${TKD.esc(best.name)}` : ''}</option>` +
+          vs.map(v => `<option value="${TKD.esc(v.name)}" ${v.name === cur ? 'selected' : ''}>${TKD.esc(v.name)} (${TKD.esc(v.lang)})</option>`).join('');
+        sel.disabled = !vs.length;
+      });
+      const none = TKD.$('co-voice-none'); if (none) none.hidden = !(SpeechVoice.load().length && !SpeechVoice.of('ar').length);
+    };
+    fill();
+    if (!SpeechVoice.load().length) window.speechSynthesis?.addEventListener?.('voiceschanged', fill, { once: true });
+    ['ar', 'en'].forEach(L => TKD.$(`co-voice-${L}`)?.addEventListener('change', (e) => {
+      SpeechVoice.save(L, e.target.value);
+      SpeechHelper.speak(SAMPLE[L], LANG[L]);
+      TKD.toast(TKD.t('✅ Saved', '✅ اتحفظ'), 'success');
+    }));
+    TKD.$('co-voice-test')?.addEventListener('click', () => { const L = TKD.ar ? 'ar' : 'en'; SpeechHelper.speak(SAMPLE[L], LANG[L]); });
+  },
   // v45: one child's row — pace, kicking leg, measured reaction time and a suggested pace
   paceRow(p) {
     const R = window.ReactionLog?.summary(p.id), name = v => { const L = TKDPace.LIST.find(x => x[0] === v); return L ? TKD.t(L[1], L[2]) : v; };
@@ -16562,6 +16653,7 @@ const Coach = {
       League.save(st); TKD.toast(TKD.t('✅ Saved', '✅ اتحفظ'), 'success');
     };
     ['co-tries', 'co-medals', 'co-pace'].forEach(id => TKD.$(id)?.addEventListener('change', saveSettings));
+    this.bindVoice();
     TKD.$('co-backup').addEventListener('click', () => exportProgress());
     TKD.$('co-restore').addEventListener('change', (e) => importProgress(e.target));
     TKD.$('co-erase').addEventListener('click', () => hardResetGame());
@@ -18722,12 +18814,9 @@ const Voice = {
     const t = setTimeout(go, 1200 + String(text).length * 95);    // some phones never fire onend
     try {
       if (!('speechSynthesis' in window)) return go();
-      const u = new SpeechSynthesisUtterance(text); u.lang = lang; u.rate = 0.9;
-      if (lang.startsWith('ar')) {
-        const vs = window.speechSynthesis.getVoices() || [];
-        const v = vs.find(x => /^ar[-_]EG/i.test(x.lang)) || vs.find(x => /^ar\b/i.test(x.lang));
-        if (v) { u.voice = v; u.lang = v.lang; }
-      }
+      const said = SpeechVoice.text(text, lang); if (!said) return go();
+      const u = new SpeechSynthesisUtterance(said); u.rate = 0.9;
+      SpeechVoice.apply(u, lang);
       u.onend = go; u.onerror = go;
       window.speechSynthesis.speak(u);
     } catch (e) { go(); }
