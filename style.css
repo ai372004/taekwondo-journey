@@ -3405,6 +3405,15 @@ body[dir="rtl"] .warmup-coach-badge {
   box-shadow: 0 0 18px rgba(255, 215, 0, 0.65);
   transform: translateY(-4px) scale(1.04);
 }
+/* v63.7: the one-step hint — the piece that belongs in the lit place */
+.puzzle-piece.pz-hint {
+  outline: 3px solid var(--warning-color, #e9c46a);
+  outline-offset: 2px;
+  box-shadow: 0 0 22px rgba(233, 196, 106, 0.75);
+  animation: pzHint 0.9s ease-in-out infinite;
+}
+@keyframes pzHint { 50% { transform: translateY(-4px) scale(1.06); } }
+@media (prefers-reduced-motion: reduce) { .puzzle-piece.pz-hint { animation: none; } }
 .puzzle-slot.slot-selectable-target {
   outline: 3px dashed var(--secondary-color, #2a9d8f);
   outline-offset: 2px;

@@ -903,7 +903,7 @@ function watchVideoLoading(video) {
 // Arabic or English voice, degrees and ranges in words)
 // v63.4 — the version a tester can read on the start screen and in Coach → Settings (bump it
 // together with CACHE_VERSION in sw.js)
-const APP_VERSION = '63.6';
+const APP_VERSION = '63.7';
 
 const SpeechVoice = {
   KEY: 'taekwondoJourneyVoice',
@@ -4436,7 +4436,6 @@ class PuzzleSystem {
     this.skillId      = gameState.currentSkill;
     this.correctOrder = ['step1','step2','step3','step4','step5'];
     this.userOrder    = Array(5).fill(null);
-    this.previewing   = false;
     if (!keep || this._fake == null) this._fake = PuzzleSystem.PICK_FAKE();
     if (!keep) { this.mistakes = 0; this.hearts = Hearts.max(); }   // v54: wrong pieces set the score · v57: and cost a heart
     document.querySelector('#puzzle-screen .tkd-outcard')?.remove();
@@ -4649,16 +4648,8 @@ class PuzzleSystem {
     cloneBtn('reset-puzzle-btn',  () => this.resetPuzzle());
     cloneBtn('check-puzzle-btn',  () => this.checkPuzzle());
     cloneBtn('hint-puzzle-btn',   () => this.showHint());
-
-    const controls = document.querySelector('#puzzle-screen .game-controls');
-    if (controls && !document.getElementById('preview-puzzle-btn')) {
-      const ar = this.gameState.currentLanguage === 'ar';
-      const btn = document.createElement('button');
-      btn.className = 'btn'; btn.id = 'preview-puzzle-btn';
-      btn.innerHTML = `<i class="fas fa-play-circle"></i> ${ar ? 'اعرض الترتيب' : 'Preview Order'}`;
-      btn.addEventListener('click', () => this.previewSequence());
-      controls.appendChild(btn);
-    }
+    // v63.7: the "Preview order" button is gone — it gave away the same whole order as the hint
+    document.getElementById('preview-puzzle-btn')?.remove();
   }
 
   // Recreates a piece's tray element and wires up its drag + tap listeners —
@@ -4720,7 +4711,7 @@ class PuzzleSystem {
       <div class="piece-label">${data.label}</div>
     `;
     scanAndVerifyImages(slot);
-    slot.parentElement.classList.remove('slot-correct', 'slot-wrong');   // clear any stale result from a previous piece here
+    slot.parentElement.classList.remove('slot-correct', 'slot-wrong', 'preview-highlight');   // clear any stale result (or hint glow) from before
     slot.parentElement.classList.add('filled');
     piece.remove();
 
@@ -4784,40 +4775,38 @@ class PuzzleSystem {
     this.gameState.playSound('click');
   }
 
+  // v63.7 (the testers: "Hint" and "Preview order" did the same thing — both gave away the whole
+  // order): ONE hint, ONE step. The first place that is still empty (or wrong) lights up, with the
+  // piece that belongs there; the rest of the order stays for the child to work out.
   static showHint() {
+    if (this.hearts <= 0 || this._replaying) return;
     this.gameState.playSound('click');
-    const ar = this.gameState.currentLanguage === 'ar';
-    // Built from the current kick's own phases — it used to be the Ap Chagi
-    // order hard-coded for every kick.
-    const data  = PuzzleSystem.STEP_DATA(this.skillId, this.gameState.playerCharacter === 'boy', ar);
-    const order = this.correctOrder.map(id => data[id]?.label).filter(Boolean).join(ar ? ' ← ' : ' → ');
-    this.gameState.showNotification(`💡 ${ar ? 'الترتيب' : 'Order'}: ${order}`, 'info');
-  }
-
-  static previewSequence() {
-    if (this.previewing) return;
-    this.previewing = true;
-    const ar   = this.gameState.currentLanguage === 'ar';
-    const steps = this.correctOrder;
-    let i = 0;
-
-    const highlight = () => {
-      document.querySelectorAll('.puzzle-slot').forEach(s => s.classList.remove('preview-highlight'));
-      if (i >= steps.length) { this.previewing = false; return; }
-
-      const slot = document.querySelector(`.puzzle-slot[data-step="${i + 1}"]`);
-      if (slot) {
-        slot.classList.add('preview-highlight');
-        this.showStepDescription(steps[i]);
-      }
-      i++;
-      screenTimeout(highlight, 1200);
-    };
-
-    this.gameState.showNotification(
-      ar ? '▶️ نعرض لك الترتيب الصحيح...' : '▶️ Previewing correct order...', 'info'
-    );
-    highlight();
+    const ar = this.gameState.currentLanguage === 'ar', scr = document.getElementById('puzzle-screen');
+    const clear = () => scr?.querySelectorAll('.preview-highlight, .pz-hint').forEach(e => e.classList.remove('preview-highlight', 'pz-hint'));
+    clear(); clearTimeout(this._hintT);
+    const i = this.correctOrder.findIndex((id, k) => this.userOrder[k] !== id);
+    if (i < 0) {
+      this.gameState.showNotification(ar ? '✅ كل القطع في أماكنها — اضغط «تحقّق من الترتيب»' : '✅ Every piece is in place — tap “Check the order”', 'success');
+      return;
+    }
+    const want = this.correctOrder[i];
+    const slotEl = (n) => scr?.querySelector(`.puzzle-slot[data-step="${n}"]`);
+    // the place to fix: a wrong piece in place i+1, or the right piece sitting in a later place
+    const j = this.userOrder[i] ? i : this.userOrder.indexOf(want);
+    let lit;
+    if (j >= 0) {
+      lit = slotEl(j + 1); lit?.classList.add('preview-highlight');
+      this.gameState.showNotification(ar ? `💡 القطعة في المكان رقم ${TKD.num(j + 1)} ليست في مكانها الصحيح — اضغط عليها لتُرجعها`
+                                         : `💡 The piece in place ${j + 1} is in the wrong place — tap it to take it back`, 'info');
+    } else {
+      const piece = scr?.querySelector(`.puzzle-piece[data-piece="${want}"]`);
+      piece?.classList.add('pz-hint'); slotEl(i + 1)?.classList.add('preview-highlight');
+      lit = piece;
+      this.gameState.showNotification(ar ? `💡 القطعة المضيئة مكانها رقم ${TKD.num(i + 1)}` : `💡 The glowing piece goes in place ${i + 1}`, 'info');
+    }
+    const r = lit?.getBoundingClientRect();
+    if (r && (r.top < 60 || r.bottom > innerHeight - 90)) lit.scrollIntoView({ block: 'center', behavior: window.prefersReducedMotion?.() ? 'auto' : 'smooth' });
+    this._hintT = setTimeout(clear, 4000);
   }
 
   static checkPuzzle() {
@@ -7678,16 +7667,20 @@ class WinnerSystem {
       el.replaceWith(clone);
       clone.addEventListener('click', fn);
     };
-    // v59: after a game the child goes back to the MAP (the doctors: no chain of screens one
-    // after another) — the map shows the new stars and what is next in the unit
+    // v59: no chain of screens one after another — one button back.
+    // v63.7 (the testers): after a GAME it goes back to the games, like every game's own back
+    // button, where the next game in the order is lit; after the TEST it is still the map,
+    // where the kick's treasure opens.
+    const toMap = this.lastGame === 'quiz';
     const nextBtn = document.getElementById('next-level-btn');
     if (nextBtn) {
-      nextBtn.innerHTML = `<span aria-hidden="true">🗺️</span> ${TKD.t('Back to my map', 'ارجع إلى الخريطة')}`;
+      nextBtn.innerHTML = toMap ? `<span aria-hidden="true">🗺️</span> ${TKD.t('Back to my map', 'ارجع إلى الخريطة')}`
+                                : `<span aria-hidden="true">🎮</span> ${TKD.t('Back to the games', 'ارجع إلى الألعاب')}`;
       nextBtn.classList.add('jr-next');
     }
     // the old one-size certificate and the duplicate home button are gone (the kick test has its own certificate)
     ['download-cert-btn', 'back-to-home-btn'].forEach(id => { const b = document.getElementById(id); if (b) b.hidden = true; });
-    cloneAndBind('next-level-btn',   () => this.goHome());
+    cloneAndBind('next-level-btn',   () => { if (toMap) this.goHome(); else { ScreenManagerInstance.switchScreen('games'); this.gameState.playSound('click'); } });
     cloneAndBind('back-to-home-btn', () => this.goHome());
     cloneAndBind('try-again-btn',    () => this.tryAgain());
     cloneAndBind('cooldown-btn',     () => ScreenManagerInstance.switchScreen('cooldown'));
@@ -21469,7 +21462,16 @@ window.UnitGames = UnitGames;
 (function wireUnitGames() {
   // the old fold of "extra games" does not exist any more
   if (window.BonusFold) BonusFold.apply = () => {};
-  document.addEventListener('tkd:screen', (e) => { if (e.detail?.screenId === 'games') setTimeout(() => UnitGames.paint(), 40); });
+  document.addEventListener('tkd:screen', (e) => {
+    if (e.detail?.screenId !== 'games') return;
+    setTimeout(() => UnitGames.paint(), 40);
+    // v63.7: every "back" now lands here — bring the game to play next (👉) into view
+    setTimeout(() => {
+      const c = document.querySelector('#games-screen.active .game-card.is-next:not(.hidden)'); if (!c) return;
+      const r = c.getBoundingClientRect();
+      if (r.top < 70 || r.bottom > innerHeight - 90) c.scrollIntoView({ block: 'center', behavior: window.prefersReducedMotion?.() ? 'auto' : 'smooth' });
+    }, 420);
+  });
   const up = GameState.prototype.updateGameProgress;
   GameState.prototype.updateGameProgress = function (...a) { const r = up.apply(this, a); try { if (document.querySelector('#games-screen.active')) UnitGames.paint(); } catch (er) {} return r; };
   document.addEventListener('tkd:lang', () => { const scr = document.getElementById('games-screen'); scr?.querySelectorAll('.unit-lesson h3, .unit-test h3').forEach(h => { h.textContent = h.closest('.unit-lesson') ? TKD.t('The lesson', 'الدرس') : TKD.t('The test', 'الاختبار'); }); setTimeout(() => UnitGames.paint(), 60); });
