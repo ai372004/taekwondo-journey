@@ -556,7 +556,7 @@ const GameConfig = {
       technical: {
         strikingSurface: { en: 'The top of the foot (instep)', ar: 'وجه القدم (مشط القدم)' },
         target: { en: 'Momtong (the belly)', ar: 'مومتونج (البطن)' },
-        pivotAngle: { en: '90°–180°', ar: '٩٠°:١٨٠°' }
+        pivotAngle: { en: 'about 135°', ar: 'حوالي ١٣٥°' }      // v63: the coach — one number for the lesson, the games and the test
       },
       phases: [
         { num: 1, key: 'ready',
@@ -572,8 +572,8 @@ const GameConfig = {
           image: poseImg('bakchagi3', 1),
           focus: { en: '👀 Lift the kicking knee high and forward toward the chest.', ar: '👀 ارفع ركبة الرجل الضاربة عاليًا وللأمام ناحية الصدر.' },
           tips: {
-            en: ['✅ Point your foot down.', '✅ Turn the standing foot outward 180° (the ball of the foot back, the heel forward toward the opponent).', '✅ Lean your back backward.'],
-            ar: ['✅ شد مشط رجلك لأسفل.', '✅ لف قدم الارتكاز للخارج ١٨٠° (يعني المشط للخلف والكعب لقدام في اتجاه المنافس).', '✅ ميّل بضهرك لورا.']
+            en: ['✅ Point your foot down.', '✅ Turn the standing foot outward about 135° (the ball of the foot back, the heel toward the opponent).', '✅ Lean your back backward.'],
+            ar: ['✅ شد مشط رجلك لأسفل.', '✅ لف قدم الارتكاز للخارج حوالي ١٣٥° (يعني المشط للخلف والكعب في اتجاه المنافس).', '✅ ميّل بضهرك لورا.']
           }, color: '#e76f51' },
         { num: 3, key: 'extension',
           title: { en: '3️⃣ Extend the Leg to the Target', ar: '3️⃣ مد الرجل للهدف' },
@@ -1471,7 +1471,7 @@ class GameState {
         coachCongrats: 'برافو يا بطل! تعبك في إتقان آب تشاجي يجنن. كمّل تمرين!',
         reset: 'ابدأ من جديد',
         backToHome: 'ارجع للرئيسية',
-        nextQuestion: 'السؤال اللي بعده',
+        nextQuestion: 'السؤال التالي',
         resetData: 'امسح البيانات',
         backupExport: 'احفظ نسخة احتياطية', backupImport: 'رجّع نسخة احتياطية',
         locked: 'مقفول', naroChagiDesc: 'الركلة المطرقية من فوق لتحت', bakChagi3Desc: 'الركلة الدائرية',
@@ -3030,7 +3030,7 @@ class FormControlSystem {
       front: ['الإيد اللي قدّام مرفوعة وبتحمي وشك وإنت بتلف.', 'The front hand stays up and guards your face while you turn.'],
       back:  ['الإيد اللي ورا قريبة من جسمك وبتحميك وبتوازنك.', 'The back hand stays close to your body — it guards you and keeps your balance.'],
       guard: ['الحراسة مرفوعة وإنت بتلف.', 'Guard up while you turn.'],
-      pivot: ['قدم الارتكاز بتلف حوالي ١٣٥° (من ٩٠° لـ ١٨٠°) — والكعب ناحية الهدف — وده اللي بيفتح الوسط.', 'The standing foot turns about 135° (90°–180°) — heel toward the target — that is what opens the hips.']
+      pivot: ['قدم الارتكاز بتلف حوالي ١٣٥° — والكعب ناحية الهدف — وده اللي بيفتح الوسط.', 'The standing foot turns about 135° — heel toward the target — that is what opens the hips.']
     }
   };
 
@@ -6165,7 +6165,7 @@ class QuizBlastSystem {
         a: ['البطن', 'The stomach'],
         w: [['الضهر', 'The back'], ['القدم', 'The foot'], ['الركبة', 'The knee']] },
       { q: ['قدم الارتكاز بتلف قد إيه في بيك تشاجي؟', 'How far does the standing foot pivot in Bik Chagi?'],
-        a: ['حوالي 135° (من 90° لـ 180°)', 'About 135° (90°–180°)'],
+        a: ['حوالي ١٣٥°', 'About 135°'],
         w: [['360°', '360°'], ['من 0° لـ 45°', '0°–45°'], ['مابتلفّش', 'No pivot']] },
       { q: ['رجل الركلة بتروح للهدف إزاي في بيك تشاجي؟', 'How does the kicking leg travel in Bik Chagi?'],
         a: ['في لفّة دايرية مستوية', 'Round in a level circle'],
@@ -6791,488 +6791,342 @@ class QuizBlastSystem {
 // =====================================================================
 class QuizSystem {
 
-  // Parallel question sections per skill: Korean term, pivot angle, target, striking
-  // surface, and phase order — each skill gets its own bank, pulled by currentSkill.
+  // v63.1 — the coach's test bank (formal Arabic): every question belongs to a part of the kick —
+  // its facts ('info') or one of its five phases ('p1'…'p5') — and a test walks through them in
+  // that order (PLAN: how many questions from each part)
   static QUESTION_BANK = {
     apchagi: [
-      {
-        question: 'What is the Korean name for front kick?',
-        questionAr: 'إيه الاسم الكوري للركلة الأمامية؟',
-        options: ['Ap Chagi', 'Naeryeo Chagi', 'Bik Chagi', 'Dwi Chagi'],
-        optionsAr: ['آب تشاجي', 'نارو تشاجي', 'بيك تشاجي', 'دوي تشاجي'],
-        correctText: 'Ap Chagi',
+      { sec: "info",
+        question: "What is the Korean name of the straight front kick?", questionAr: "ما الاسم الكوري للركلة الأمامية المستقيمة؟",
+        options: ["Ap Chagi", "Naeryeo Chagi", "Bik Chagi", "Dwi Chagi"], optionsAr: ["آب تشاجي", "نارو تشاجي", "بيك تشاجي", "دوي تشاجي"],
+        correctText: "Ap Chagi",
         get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
-        explanation: 'Ap Chagi (앞차기) literally means "front kick" in Korean.',
-        explanationAr: 'آب تشاجي معناها "الركلة الأمامية" بالكوري.'
-      },
-      {
-        question: 'Which part of the foot makes contact in Ap Chagi?',
-        questionAr: 'أنهي جزء من الرجل بنستخدمه في آب تشاجي؟',
-        options: ['Toes', 'Heel', 'Ball of foot', 'Side of foot'],
-        optionsAr: ['صوابع القدم', 'الكعب', 'قاعدة الأصابع (كلوة القدم)', 'جنب الرجل'],
-        correctText: 'Ball of foot',
-        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
-        explanation: 'The ball of the foot is the striking surface for Ap Chagi.',
-        explanationAr: 'قاعدة الأصابع (كلوة القدم) — الجزء اللي قدام من باطن القدم تحت الصوابع — هي اللي بتلمس الهدف في آب تشاجي.'
-      },
-      {
-        question: 'What is the main TARGET of Ap Chagi?',
-        questionAr: 'إيه الهدف الأساسي لركلة آب تشاجي؟',
-        options: ['The back', 'Face / Abdomen', 'Knee', 'Shoulder'],
-        optionsAr: ['الضهر', 'الوش / البطن', 'الركبة', 'الكتف'],
-        correctText: 'Face / Abdomen',
-        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
-        explanation: 'Ap Chagi targets the opponent\'s face or abdomen with a straight forward strike.',
-        explanationAr: 'آب تشاجي بتضرب وش الخصم أو بطنه بضربة مستقيمة لقدام.'
-      },
-      {
-        question: 'What is the pivot angle used in Ap Chagi?',
-        questionAr: 'قدم الارتكاز بتلف بزاوية قد إيه في آب تشاجي؟',
-        options: ['45°–90°', '360°', '180°', 'No pivot at all'],
-        optionsAr: ['من 45° لـ 90°', '360°', '180°', 'من غير أي لف خالص'],
-        correctText: '45°–90°',
-        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 1); },
-        explanation: 'The standing (support) foot turns outward 45°–90° as the knee lifts.',
-        explanationAr: 'قدم الارتكاز (اللي واقف عليها) بتلف للخارج من 45° لـ 90° وإنت بترفع الركبة.'
-      },
-      {
-        question: 'What is the FIRST phase of Ap Chagi?',
-        questionAr: 'إيه أول مرحلة في آب تشاجي؟',
-        options: ['Kick extension', 'Knee lift', 'Ready stance', 'Recoil'],
-        optionsAr: ['فرد الرجل', 'رفع الركبة', 'وقفة القتال', 'السحب'],
-        correctText: 'Ready stance',
-        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 0); },
-        explanation: 'The ready stance (Junbi) is always the first step.',
-        explanationAr: 'وقفة القتال (كيوروجي جونبي) دايمًا هي أول خطوة.'
-      },
-      {
-        question: 'How many main phases does a complete Ap Chagi have?',
-        questionAr: 'آب تشاجي الكاملة فيها كام مرحلة أساسية؟',
-        options: ['3', '4', '5', '6'],
-        optionsAr: ['3', '4', '5', '6'],
-        correctText: '5',
-        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 1); },
-        explanation: 'Ap Chagi has 5 phases: Ready Stance → Knee Lift → Extension → Recoil → Return.',
-        explanationAr: 'آب تشاجي ليها 5 مراحل: الاستعداد ← رفع الركبة ← فرد الرجل ← السحب ← الرجوع.'
-      },
-      {
-        question: 'What does "Junbi" mean in Taekwondo?',
-        questionAr: 'يعني إيه كلمة "جونبي" في التايكوندو؟',
-        options: ['Attack', 'Ready', 'Stop', 'Kick'],
-        optionsAr: ['هجوم', 'استعداد', 'وقوف', 'ركلة'],
-        correctText: 'Ready',
-        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 0); },
-        explanation: 'Junbi (준비) means "ready" — the preparation position.',
-        explanationAr: 'جونبي معناها "استعداد" — وضعية التحضير.'
-      },
-      {
-        question: 'Why is the recoil phase important in Ap Chagi?',
-        questionAr: 'ليه مرحلة السحب مهمة في آب تشاجي؟',
-        options: ['To score more points', 'To maintain balance and guard', 'To kick faster', 'To look better'],
-        optionsAr: ['عشان نجيب نقط أكتر', 'عشان نحافظ على التوازن والحراسة', 'عشان تركل أسرع', 'عشان الشكل يبقى أحلى'],
-        correctText: 'To maintain balance and guard',
-        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 3); },
-        explanation: 'Pulling the leg back quickly restores balance and protects against counter-attacks.',
-        explanationAr: 'لما تسحب رجلك لورا بسرعة بترجّع توازنك وبتحمي نفسك من الهجمات المضادة.'
-      },
-      {
-        question: 'What does "Chagi" mean in Korean?',
-        questionAr: 'يعني إيه كلمة "تشاجي" بالكوري؟',
-        options: ['Block', 'Punch', 'Kick', 'Stance'],
-        optionsAr: ['صد', 'لكمة', 'ركلة', 'وضعية'],
-        correctText: 'Kick',
-        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
-        explanation: 'Chagi (차기) means "kick" in Korean — used in all kick names.',
-        explanationAr: 'تشاجي معناها "ركلة" بالكوري، وبتيجي في أسامي كل الركلات.'
-      },
-      {
-        question: 'A coach says a student\'s kick reaches the target but has very little power. What is the most likely cause?',
-        questionAr: 'المدرب لاحظ إن ركلة الطالب بتوصل الهدف بس قوتها ضعيفة أوي — إيه أرجح سبب؟',
-        options: ['The knee never lifted to chest height before extension', 'The standing foot pivoted slightly', 'The hands stayed up in guard', 'The leg recoiled quickly after the strike'],
-        optionsAr: ['الركبة ما ارتفعتش لمستوى الصدر قبل فرد الرجل', 'قدم الارتكاز لفّت شوية', 'الإيدين فضلوا في وضع الحراسة', 'الرجل اتسحبت بسرعة بعد الضربة'],
-        correctText: 'The knee never lifted to chest height before extension',
-        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 1); },
-        explanation: 'The chamber (knee lift) is where the kick stores its power — skip the height and the extension has nothing to release.',
-        explanationAr: 'رفع الركبة هو اللي بيخزّن قوة الركلة — لو الركبة مطلعتش كفاية، مفيش طاقة تطلع وقت فرد الرجل.'
-      },
-      {
-        question: "In the chamber, how high does the knee go?",
-        questionAr: "في التجهيز، الركبة بتطلع لحد فين؟",
-        options: ["Up to the chest", "Only to the belt", "To the other knee", "Above the head"],
-        optionsAr: ["لحد الصدر", "لحد الحزام بس", "لحد الركبة التانية", "فوق الراس"],
-        correctText: "Up to the chest",
-        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 1); },
-        explanation: "The knee rises to chest height first — then the leg snaps straight out.",
-        explanationAr: "الركبة بتطلع لحد الصدر الأول، وبعدين الرجل تتفرد بسرعة."
-      },
-      {
-        question: "Where do your eyes look during Ap Chagi?",
-        questionAr: "عينك بتبص فين وإنت بتعمل آب تشاجي؟",
-        options: ["At the target", "At your own foot", "At the floor", "At the ceiling"],
-        optionsAr: ["على الهدف", "على رجلك", "على الأرض", "على السقف"],
-        correctText: "At the target",
-        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
-        explanation: "Eyes stay on the target the whole time — looking down at your foot breaks your balance and your aim.",
-        explanationAr: "عينك تفضل على الهدف طول الوقت، لو بصّيت على رجلك هتفقد توازنك وتصويبك."
-      },
-      {
-        question: "Where are your hands while you kick?",
-        questionAr: "إيديك بتبقى فين وإنت بتركل؟",
-        options: ["Up in front of the chest (guard)", "Down by your sides", "Behind your back", "On your hips"],
-        optionsAr: ["مرفوعين قدام صدرك (الحراسة)", "نازلين جنبك", "ورا ضهرك", "على وسطك"],
-        correctText: "Up in front of the chest (guard)",
-        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
-        explanation: "The guard stays up in front of the chest to protect you, even while you kick.",
-        explanationAr: "الحراسة بتفضل مرفوعة قدام صدرك عشان تحميك، حتى وإنت بتركل."
-      },
-      {
-        question: "In Ap Chagi, the knee lifts…",
-        questionAr: "في آب تشاجي، الركبة بتطلع…",
-        options: ["Straight forward, pointing at the target", "Out to the side", "Backwards", "Down toward the floor"],
-        optionsAr: ["لقدام على طول ناحية الهدف", "لبرّه على الجنب", "لورا", "لتحت ناحية الأرض"],
-        correctText: "Straight forward, pointing at the target",
-        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 1); },
-        explanation: "The knee lifts straight forward toward the target. Lifting it out to the side turns it into a roundhouse kick.",
-        explanationAr: "الركبة بتطلع لقدام على طول ناحية الهدف، لو طلعت على الجنب بتبقى ركلة دائرية."
-      },
-      {
-        question: "What do the hips do as the leg extends?",
-        questionAr: "وسطك بيعمل إيه وإنت بتفرد رجلك؟",
-        options: ["They push forward into the kick", "They stay far back", "They turn away from the target", "They drop down"],
-        optionsAr: ["بيتزق لقدام مع الركلة", "بيفضل لورا خالص", "بيلف بعيد عن الهدف", "بينزل لتحت"],
-        correctText: "They push forward into the kick",
-        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
-        explanation: "Pushing the hips forward adds your body weight to the kick — that is where the power comes from.",
-        explanationAr: "زقة الوسط لقدام بتحط وزن جسمك في الركلة، ومن هنا بتيجي القوة."
-      },
-      {
-        question: "When you strike with the ball of the foot, your toes are…",
-        questionAr: "لما بتضرب بقاعدة الأصابع (كلوة القدم)، صوابع رجلك بتبقى…",
-        options: ["Pulled back", "Pointed forward to hit first", "Curled under", "It doesn't matter"],
-        optionsAr: ["مسحوبة لورا", "مفرودة لقدام عشان تضرب الأول", "مثنية لتحت", "مش فارقة"],
-        correctText: "Pulled back",
-        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
-        explanation: "Pull the toes back so the ball of the foot hits — kicking with the toes can hurt them.",
-        explanationAr: "اسحب صوابعك لورا عشان قاعدة الأصابع (كلوة القدم) هي اللي تضرب، الضرب بالصوابع ممكن يعوّرها."
-      },
-      {
-        question: "What do you do right after the strike?",
-        questionAr: "بتعمل إيه على طول بعد الضربة؟",
-        options: ["Snap the leg back (recoil)", "Leave the leg up in the air", "Drop it heavily on the floor", "Jump"],
-        optionsAr: ["اسحب رجلك لورا بسرعة (السحب)", "سيب رجلك في الهوا", "ارميها بتقل على الأرض", "اتنطّ"],
-        correctText: "Snap the leg back (recoil)",
-        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 3); },
-        explanation: "Pull the leg back as fast as it went out, so nobody can catch it and you stay balanced.",
-        explanationAr: "اسحب رجلك بنفس سرعة ما فردتها، عشان محدش يمسكها وتفضل متوازن."
-      },
-      {
-        question: "What does “Ap” mean in Korean?",
-        questionAr: "كلمة «آب» معناها إيه بالكوري؟",
-        options: ["Front", "Side", "Back", "Down"],
-        optionsAr: ["قدّام", "جنب", "ورا", "تحت"],
+        explanation: "Ap Chagi means \"front kick\" in Korean.", explanationAr: "آب تشاجي تعني «الركلة الأمامية» باللغة الكورية." },
+      { sec: "info",
+        question: "What does the Korean word \"Ap\" mean?", questionAr: "ماذا تعني كلمة «آب» باللغة الكورية؟",
+        options: ["Front", "Side", "Back", "Down"], optionsAr: ["أمام", "جانب", "خلف", "أسفل"],
         correctText: "Front",
         get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
-        explanation: "Ap (앞) means front — Ap Chagi is the front kick.",
-        explanationAr: "آب (앞) معناها قدّام، وآب تشاجي يعني الركلة الأمامية."
-      }
+        explanation: "\"Ap\" (앞) means front, so Ap Chagi is the front kick.", explanationAr: "«آب» (앞) تعني أمام، و«آب تشاجي» تعني الركلة الأمامية." },
+      { sec: "info",
+        question: "What does the Korean word \"Chagi\" mean?", questionAr: "ماذا تعني كلمة «تشاجي» باللغة الكورية؟",
+        options: ["Kick", "Block", "Punch", "Stance"], optionsAr: ["ركلة", "صدّ", "لكمة", "وضعية"],
+        correctText: "Kick",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
+        explanation: "\"Chagi\" means kick — it is in the name of every kick.", explanationAr: "«تشاجي» تعني ركلة، وتأتي في أسماء كل الركلات." },
+      { sec: "info",
+        question: "Which part of the foot does Ap Chagi strike with?", questionAr: "بأيّ جزء من القدم تُوجَّه ركلة آب تشاجي؟",
+        options: ["The ball of the foot", "The heel", "The toes", "The edge of the foot"], optionsAr: ["قاعدة الأصابع (كلوة القدم)", "الكعب", "أصابع القدم", "حرف القدم"],
+        correctText: "The ball of the foot",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
+        explanation: "Ap Chagi strikes with the ball of the foot — the front of the sole, under the toes.", explanationAr: "تُوجَّه آب تشاجي بقاعدة الأصابع (كلوة القدم)، وهي الجزء الأمامي من باطن القدم تحت الأصابع." },
+      { sec: "info",
+        question: "What is the target of Ap Chagi?", questionAr: "ما هدف ركلة آب تشاجي؟",
+        options: ["The face or the abdomen", "The back", "The knee", "The shoulder"], optionsAr: ["الوجه أو البطن", "الظهر", "الركبة", "الكتف"],
+        correctText: "The face or the abdomen",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
+        explanation: "(Eolgul) the head and face, and (Momtong) the chest or abdomen.", explanationAr: "(أولجول) منطقة الرأس والوجه، و(مومتونج) منطقة الصدر أو البطن." },
+      { sec: "info",
+        question: "How many phases does Ap Chagi have?", questionAr: "كم عدد مراحل ركلة آب تشاجي؟",
+        options: ["5", "3", "4", "6"], optionsAr: ["٥", "٣", "٤", "٦"],
+        correctText: "5",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
+        explanation: "Ready stance → knee lift → extend the leg to the target → pull the leg back → back to the ready stance.", explanationAr: "وضع الاستعداد ← رفع الركبة ← مد الرجل للهدف ← سحب الرجل ← الرجوع لوضع الاستعداد." },
+      { sec: "p1",
+        question: "What is the first phase of Ap Chagi?", questionAr: "ما المرحلة الأولى في آب تشاجي؟",
+        options: ["The ready stance (Kyorugi Junbi)", "The knee lift", "Extending the leg to the target", "Pulling the leg back"], optionsAr: ["وضع الاستعداد (كيوروجي جونبي)", "رفع الركبة", "مد الرجل للهدف", "سحب الرجل"],
+        correctText: "The ready stance (Kyorugi Junbi)",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 0); },
+        explanation: "The ready stance always comes first.", explanationAr: "وضع الاستعداد هو دائمًا الخطوة الأولى." },
+      { sec: "p1",
+        question: "What does \"Junbi\" mean?", questionAr: "ماذا تعني كلمة «جونبي»؟",
+        options: ["Ready", "Attack", "Standing", "Kick"], optionsAr: ["استعداد", "هجوم", "وقوف", "ركلة"],
+        correctText: "Ready",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 0); },
+        explanation: "\"Junbi\" means ready — the position you prepare in.", explanationAr: "«جونبي» تعني الاستعداد، أي وضعية التحضير." },
+      { sec: "p1",
+        question: "Where is the kicking leg in the ready stance?", questionAr: "أين تكون الرجل الضاربة في وضع الاستعداد؟",
+        options: ["Behind, with the free (standing) leg in front", "In front, with the free leg behind", "Both legs side by side", "Lifted off the floor"], optionsAr: ["خلفًا، والرجل الحرة (الارتكاز) أمامًا", "أمامًا، والرجل الحرة خلفًا", "الرجلان متجاورتان", "مرفوعة عن الأرض"],
+        correctText: "Behind, with the free (standing) leg in front",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 0); },
+        explanation: "The kicking leg is behind and the free (standing) leg is in front.", explanationAr: "الرجل الضاربة خلفًا والرجل الحرة (الارتكاز) أمامًا." },
+      { sec: "p1",
+        question: "Where are your arms while you kick?", questionAr: "أين تكون الذراعان أثناء الركل؟",
+        options: ["Fists up in front of the chest (the guard)", "Down by your sides", "Behind your back", "On your hips"], optionsAr: ["في حالة قبض أمام الصدر (الحراسة)", "بجانب الجسم", "خلف الظهر", "على الوسط"],
+        correctText: "Fists up in front of the chest (the guard)",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 0); },
+        explanation: "Keep your fists up in front of your chest to protect yourself, even while you kick.", explanationAr: "الذراعان في حالة قبض أمام الصدر لحمايتك، حتى وأنت تركل." },
+      { sec: "p2",
+        question: "How high does the knee go in the knee lift?", questionAr: "إلى أين ترتفع الركبة في مرحلة رفع الركبة؟",
+        options: ["High, toward the chest", "Only to the belt", "To the other knee", "Above the head"], optionsAr: ["عاليًا ناحية الصدر", "إلى مستوى الحزام فقط", "إلى مستوى الركبة الأخرى", "فوق الرأس"],
+        correctText: "High, toward the chest",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 1); },
+        explanation: "Lift and bend the kicking knee high toward the chest — the higher the knee, the higher the kick.", explanationAr: "ترتفع ركبة الرجل الضاربة وتنثني عاليًا ناحية الصدر؛ وكلما زاد ارتفاعها ارتفع مستوى الضرب." },
+      { sec: "p2",
+        question: "In Ap Chagi the knee comes up…", questionAr: "في آب تشاجي ترتفع الركبة…",
+        options: ["Straight forward, toward the target", "Out to the side", "Backward", "Down"], optionsAr: ["إلى الأمام مباشرة نحو الهدف", "إلى الخارج جانبًا", "إلى الخلف", "إلى أسفل"],
+        correctText: "Straight forward, toward the target",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 1); },
+        explanation: "The knee comes straight forward; if it comes up at the side it becomes a roundhouse kick.", explanationAr: "ترتفع الركبة إلى الأمام مباشرة؛ إذا ارتفعت جانبًا تصبح ركلة دائرية." },
+      { sec: "p2",
+        question: "How far does the standing foot turn outward in Ap Chagi?", questionAr: "بأيّ زاوية تلف قدم الارتكاز للخارج في آب تشاجي؟",
+        options: ["45° to 90°", "360°", "180°", "It does not turn"], optionsAr: ["من ٤٥° إلى ٩٠°", "٣٦٠°", "١٨٠°", "لا تلف إطلاقًا"],
+        correctText: "45° to 90°",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 1); },
+        explanation: "The standing foot turns outward 45°–90° as the knee comes up.", explanationAr: "تلف قدم الارتكاز للخارج بزاوية ٤٥°:٩٠° مع رفع الركبة." },
+      { sec: "p2",
+        question: "The coach sees that a kick reaches the target but is weak. What is the most likely reason?", questionAr: "لاحظ المدرب أن ركلة اللاعب تصل إلى الهدف لكنها ضعيفة. ما السبب الأرجح؟",
+        options: ["The knee did not reach chest height before the leg extended", "The standing foot turned a little", "The arms stayed in the guard", "The leg was pulled back quickly after the kick"], optionsAr: ["لم ترتفع الركبة إلى مستوى الصدر قبل مد الرجل", "لفّ قدم الارتكاز قليلًا", "بقيت الذراعان في وضع الحراسة", "سحب الرجل بسرعة بعد الضربة"],
+        correctText: "The knee did not reach chest height before the leg extended",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 1); },
+        explanation: "The knee lift stores the power — if the knee is too low, the kick is weak.", explanationAr: "رفع الركبة هو الذي يخزّن قوة الركلة؛ إذا لم ترتفع بما يكفي ضعفت الضربة." },
+      { sec: "p3",
+        question: "What do the hips do as the leg extends?", questionAr: "ماذا يفعل الوسط أثناء مد الرجل؟",
+        options: ["Push forward with the kick", "Stay far back", "Turn away from the target", "Drop down"], optionsAr: ["يندفع إلى الأمام مع الركلة", "يبقى للخلف تمامًا", "يلف بعيدًا عن الهدف", "ينزل لأسفل"],
+        correctText: "Push forward with the kick",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
+        explanation: "Pushing the hips forward puts your body weight into the kick — that is where the power comes from.", explanationAr: "اندفاع الوسط إلى الأمام يضع وزن الجسم في الركلة، ومنه تأتي القوة." },
+      { sec: "p3",
+        question: "When you strike with the ball of the foot, your toes are…", questionAr: "عند الضرب بقاعدة الأصابع (كلوة القدم)، تكون أصابع القدم…",
+        options: ["Pulled back", "Pointed forward to hit first", "Curled down", "It does not matter"], optionsAr: ["مسحوبة للخلف", "مفرودة للأمام لتضرب أولًا", "مثنية لأسفل", "لا يهم"],
+        correctText: "Pulled back",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
+        explanation: "Pull your toes back so the ball of the foot strikes — hitting with the toes can hurt them.", explanationAr: "اسحب أصابعك للخلف لتضرب قاعدة الأصابع، فالضرب بالأصابع قد يؤذيها." },
+      { sec: "p3",
+        question: "Where do you look during Ap Chagi?", questionAr: "أين تنظر أثناء أداء آب تشاجي؟",
+        options: ["At the target", "At your leg", "At the floor", "At the ceiling"], optionsAr: ["إلى الهدف", "إلى رجلك", "إلى الأرض", "إلى السقف"],
+        correctText: "At the target",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
+        explanation: "Keep your eyes on the target all the time — looking at your leg costs balance and aim.", explanationAr: "تبقى عيناك على الهدف طوال الوقت؛ النظر إلى رجلك يُفقدك التوازن والتصويب." },
+      { sec: "p4",
+        question: "What do you do right after the strike?", questionAr: "ماذا تفعل مباشرة بعد الضربة؟",
+        options: ["Bend the kicking knee and pull the leg back quickly", "Leave the leg in the air", "Drop it heavily to the floor", "Jump"], optionsAr: ["أثني ركبة الرجل الضاربة وأسحبها بسرعة", "أترك رجلي في الهواء", "أُنزلها بثقل على الأرض", "أقفز"],
+        correctText: "Bend the kicking knee and pull the leg back quickly",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 3); },
+        explanation: "Bend the kicking knee back to your body quickly, right after the kick.", explanationAr: "اثنِ ركبة الرجل الضاربة مرة ثانية إلى الجسم بسرعة عقب الانتهاء من الركل." },
+      { sec: "p4",
+        question: "Why is pulling the leg back important?", questionAr: "لماذا مرحلة سحب الرجل مهمة؟",
+        options: ["To keep your balance and your guard", "To score more points", "To make the kick faster", "To make it look nicer"], optionsAr: ["للحفاظ على التوازن والحراسة", "لجمع نقاط أكثر", "لتكون الركلة أسرع", "ليكون الشكل أجمل"],
+        correctText: "To keep your balance and your guard",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 3); },
+        explanation: "Pulling the leg back quickly brings back your balance and protects you from counter-attacks.", explanationAr: "سحب الرجل بسرعة يعيد توازنك ويحميك من الهجمات المضادة." },
+      { sec: "p5",
+        question: "What do you do in the last phase of Ap Chagi?", questionAr: "ماذا تفعل في المرحلة الأخيرة من آب تشاجي؟",
+        options: ["Bring the leg down quickly and keep my balance", "Keep my leg up", "Sit on the floor", "Spin around"], optionsAr: ["أُنزل الرجل سريعًا إلى الأرض وأحافظ على توازني", "أبقي رجلي مرفوعة", "أجلس على الأرض", "أدور حول نفسي"],
+        correctText: "Bring the leg down quickly and keep my balance",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 4); },
+        explanation: "Bring the leg down to the floor quickly and keep your body balanced.", explanationAr: "نزّل الرجل سريعًا إلى الأرض وحافظ على توازن جسمك." }
     ],
-
     narochagi: [
-      {
-        question: 'What is the Korean name for this axe-style kick?',
-        questionAr: 'إيه الاسم الكوري للركلة اللي شكلها زي الفاس دي؟',
-        options: ['Naeryeo Chagi', 'Ap Chagi', 'Bik Chagi', 'Dollyo Chagi'],
-        optionsAr: ['نارو تشاجي', 'آب تشاجي', 'بيك تشاجي', 'دوليو تشاجي'],
-        correctText: 'Naeryeo Chagi',
-        get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 1); },
-        explanation: 'Naeryeo Chagi is the vertical axe kick — the leg rises straight then drops.',
-        explanationAr: 'نارو تشاجي هي ركلة الفاس العمودية — الرجل بتطلع مفرودة وبعدين تنزل.'
-      },
-      {
-        question: 'Which part of the foot strikes in Naeryeo Chagi?',
-        questionAr: 'أنهي جزء من الرجل بيضرب في نارو تشاجي؟',
-        options: ['Ball of foot', 'Instep', 'Sole / heel', 'Toes'],
-        optionsAr: ['قاعدة الأصابع (كلوة القدم)', 'وش القدم (ظهرها)', 'باطن / كعب الرجل', 'صوابع القدم'],
-        correctText: 'Sole / heel',
+      { sec: "info",
+        question: "What is the Korean name of the axe kick (from top to bottom)?", questionAr: "ما الاسم الكوري للركلة المطرقية (من أعلى لأسفل)؟",
+        options: ["Naeryeo Chagi", "Ap Chagi", "Bik Chagi", "Dollyeo Chagi"], optionsAr: ["نارو تشاجي", "آب تشاجي", "بيك تشاجي", "دوليو تشاجي"],
+        correctText: "Naeryeo Chagi",
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 2); },
-        explanation: 'Naeryeo Chagi strikes downward with the sole or heel of the foot.',
-        explanationAr: 'نارو تشاجي بتضرب لتحت بالكعب (أو باطن القدم).'
-      },
-      {
-        question: 'What is the main TARGET of Naeryeo Chagi?',
-        questionAr: 'إيه الهدف الأساسي لركلة نارو تشاجي؟',
-        options: ['Knee', 'Abdomen', 'The head and the face', 'Foot'],
-        optionsAr: ['الركبة', 'البطن', 'الرأس والوجه', 'القدم'],
-        correctText: 'The head and the face',
+        explanation: "Naeryeo Chagi is the axe kick: the leg rises straight, then comes down on the target.", explanationAr: "نارو تشاجي هي الركلة المطرقية: ترتفع الرجل مفرودة ثم تنزل على الهدف." },
+      { sec: "info",
+        question: "What does \"Naeryeo\" mean?", questionAr: "ماذا تعني كلمة «نارو»؟",
+        options: ["Down / coming down", "Front", "Side", "Turning"], optionsAr: ["لأسفل / نازل", "أمام", "جانب", "يلف"],
+        correctText: "Down / coming down",
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 2); },
-        explanation: 'Naeryeo Chagi brings the heel and the sole down on the head and the face.',
-        explanationAr: 'نارو تشاجي بتنزّل الكعب وباطن القدم على الرأس والوجه.'
-      },
-      {
-        question: 'What pivot angle does Naeryeo Chagi use on the standing foot?',
-        questionAr: 'قدم الارتكاز بتلف بزاوية قد إيه في نارو تشاجي؟',
-        options: ['No pivot at all', '45°–90°', '360°', '180°'],
-        optionsAr: ['من غير أي لف خالص', '٤٥°:٩٠°', '360°', '180°'],
-        correctText: '45°–90°',
-        get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 1); },
-        explanation: 'In Naeryeo Chagi the standing foot turns outward a little, 45°–90°.',
-        explanationAr: 'في نارو تشاجي قدم الارتكاز بتلف للخارج قليلًا بزاوية ٤٥°:٩٠°.'
-      },
-      {
-        question: 'What is the SECOND phase of Naeryeo Chagi?',
-        questionAr: 'إيه المرحلة التانية في نارو تشاجي؟',
-        options: ['Heel drop', 'Vertical rise', 'Recoil', 'Return to stance'],
-        optionsAr: ['نزول الكعب', 'الرفع لفوق مستقيم', 'السحب', 'الرجوع للوضعية'],
-        correctText: 'Vertical rise',
-        get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 1); },
-        explanation: 'After the ready stance, the leg rises straight and vertically before the strike.',
-        explanationAr: 'بعد وقفة القتال، الرجل بتطلع مفرودة لفوق قبل الضربة.'
-      },
-      {
-        question: 'Why must the leg stay LOCKED STRAIGHT during the rise?',
-        questionAr: 'ليه لازم الرجل تفضل مفرودة خالص وإنت بترفعها؟',
-        options: ['It looks better', 'To generate a sharp, powerful downward strike', 'It is easier', 'It is not required'],
-        optionsAr: ['شكلها أحلى', 'عشان تطلع ضربة نازلة قوية وحادة', 'أسهل', 'مش مهم'],
-        correctText: 'To generate a sharp, powerful downward strike',
-        get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 1); },
-        explanation: 'A locked straight leg lets the heel snap down with maximum force.',
-        explanationAr: 'لما الرجل تبقى مفرودة خالص، الكعب بينزل بأقصى قوة.'
-      },
-      {
-        question: 'A student\'s strike lands but feels weak and soft, not sharp. What is the likely cause?',
-        questionAr: 'الطالب عمل الركلة بس الضربة جت خفيفة وناعمة مش حادة — إيه أرجح سبب؟',
-        options: ['They pivoted 90° on the standing foot', 'Their knee bent slightly before the heel dropped', 'They struck with the heel', 'They kept the leg straight during the rise'],
-        optionsAr: ['لفّ قدم الارتكاز 90°', 'ركبته اتثنت شوية قبل ما الكعب ينزل', 'ضرب بالكعب', 'فضل فارد رجله وهو بيرفعها'],
-        correctText: 'Their knee bent slightly before the heel dropped',
-        get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 2); },
-        explanation: 'Any bend in the knee before the drop bleeds off the force the strike needed.',
-        explanationAr: 'أي ثنية في الركبة قبل النزول بتضيّع جزء من قوة الضربة.'
-      },
-      {
-        question: "Which way does Naeryeo Chagi travel to hit?",
-        questionAr: "نارو تشاجي بتضرب في أنهي اتجاه؟",
-        options: ["From top to bottom", "From the side", "Straight forward", "From bottom to top"],
-        optionsAr: ["من فوق لتحت", "من الجنب", "لقدام على طول", "من تحت لفوق"],
+        explanation: "\"Naeryeo\" (내려) means down — the kick comes down on the target.", explanationAr: "«نارو» (내려) تعني لأسفل، والركلة تنزل على الهدف." },
+      { sec: "info",
+        question: "In which direction does Naeryeo Chagi strike?", questionAr: "في أيّ اتجاه تضرب نارو تشاجي؟",
+        options: ["From top to bottom", "From the side", "Straight forward", "From bottom to top"], optionsAr: ["من أعلى لأسفل", "من الجانب", "إلى الأمام مباشرة", "من أسفل لأعلى"],
         correctText: "From top to bottom",
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 2); },
-        explanation: "It is the axe kick: the heel comes DOWN onto the target from above.",
-        explanationAr: "دي الركلة المطرقية: الكعب بينزل من فوق على الهدف."
-      },
-      {
-        question: "While the leg rises, it is…",
-        questionAr: "وإنت بترفع رجلك، بتكون…",
-        options: ["Straight (or almost straight)", "Folded tight", "Bent out to the side", "Loose and bent"],
-        optionsAr: ["مفرودة (أو مفرودة تقريبًا)", "مطوية خالص", "مثنية على الجنب", "مرتخية ومثنية"],
+        explanation: "It is the axe kick: the heel comes down on the target from above.", explanationAr: "هي الركلة المطرقية: ينزل الكعب من أعلى على الهدف." },
+      { sec: "info",
+        question: "Which part of the foot does Naeryeo Chagi strike with?", questionAr: "بأيّ جزء من القدم تضرب نارو تشاجي؟",
+        options: ["The heel or the sole", "The ball of the foot", "The instep", "The toes"], optionsAr: ["الكعب أو باطن القدم", "قاعدة الأصابع (كلوة القدم)", "وش القدم", "أصابع القدم"],
+        correctText: "The heel or the sole",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 2); },
+        explanation: "Bring the heel and the sole of the kicking foot down on the opponent's head and face.", explanationAr: "نزّل كعب وباطن القدم الضاربة على رأس ووجه المنافس." },
+      { sec: "info",
+        question: "What is the target of Naeryeo Chagi?", questionAr: "ما هدف ركلة نارو تشاجي؟",
+        options: ["The head and face", "The knee", "The abdomen", "The foot"], optionsAr: ["الرأس والوجه", "الركبة", "البطن", "القدم"],
+        correctText: "The head and face",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 2); },
+        explanation: "Naeryeo Chagi brings the heel and sole down on the head and face.", explanationAr: "تنزل نارو تشاجي بالكعب وباطن القدم على الرأس والوجه." },
+      { sec: "p1",
+        question: "Where is the kicking leg in the ready stance?", questionAr: "أين تكون الرجل الضاربة في وضع الاستعداد؟",
+        options: ["Behind, with the free (standing) leg in front", "In front, with the free leg behind", "Both legs side by side", "Lifted off the floor"], optionsAr: ["خلفًا، والرجل الحرة (الارتكاز) أمامًا", "أمامًا، والرجل الحرة خلفًا", "الرجلان متجاورتان", "مرفوعة عن الأرض"],
+        correctText: "Behind, with the free (standing) leg in front",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 0); },
+        explanation: "The kicking leg is behind and the free (standing) leg is in front.", explanationAr: "الرجل الضاربة خلفًا والرجل الحرة (الارتكاز) أمامًا." },
+      { sec: "p1",
+        question: "Where are your arms in Naeryeo Chagi?", questionAr: "أين تكون الذراعان في نارو تشاجي؟",
+        options: ["Fists up in front of the chest for protection", "Swinging behind you", "Down by your sides", "Holding your leg"], optionsAr: ["في حالة قبض أمام الصدر للحماية", "تتأرجحان خلفك", "بجانب الجسم", "تمسكان الرجل"],
+        correctText: "Fists up in front of the chest for protection",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 0); },
+        explanation: "The guard stays up — it also helps your balance while the leg is high.", explanationAr: "تبقى الحراسة مرفوعة، وتساعدك أيضًا على التوازن والرجل مرفوعة." },
+      { sec: "p2",
+        question: "What is the second phase of Naeryeo Chagi?", questionAr: "ما المرحلة الثانية في نارو تشاجي؟",
+        options: ["Raising the leg high", "Dropping the heel on the target", "Pulling the leg back", "Back to the ready stance"], optionsAr: ["رفع الرجل لأعلى", "إنزال الكعب على الهدف", "سحب الرجل", "الرجوع لوضع الاستعداد"],
+        correctText: "Raising the leg high",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 1); },
+        explanation: "After the ready stance the kicking leg rises high before the strike.", explanationAr: "بعد وضع الاستعداد ترتفع الرجل الضاربة عاليًا قبل الضربة." },
+      { sec: "p2",
+        question: "How high do you raise the leg in Naeryeo Chagi?", questionAr: "إلى أيّ ارتفاع ترفع الرجل في نارو تشاجي؟",
+        options: ["Higher than the target (the opponent's head)", "To the abdomen", "To the knee", "To the belt"], optionsAr: ["أعلى من مستوى الهدف (رأس المنافس)", "إلى مستوى البطن", "إلى مستوى الركبة", "إلى مستوى الحزام"],
+        correctText: "Higher than the target (the opponent's head)",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 1); },
+        explanation: "The leg must go higher than the target (the opponent's head).", explanationAr: "يجب أن تكون الرجل أعلى من مستوى الهدف (رأس المنافس)." },
+      { sec: "p2",
+        question: "How is the leg while you raise it?", questionAr: "كيف تكون الرجل وأنت ترفعها؟",
+        options: ["Straight (or almost straight)", "Fully folded", "Bent to the side", "Loose and bent"], optionsAr: ["مفرودة (أو شبه مفرودة)", "مطوية تمامًا", "مثنية جانبًا", "مرتخية ومثنية"],
         correctText: "Straight (or almost straight)",
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 1); },
-        explanation: "Keep the leg straight on the way up — a bent knee steals the power of the drop.",
-        explanationAr: "خلّي رجلك مفرودة وهي طالعة، لأن الركبة المثنية بتضيّع قوة النزول."
-      },
-      {
-        question: "The strongest strike comes when the leg is about … from vertical on the way down.",
-        questionAr: "أقوى ضربة بتيجي لما الرجل تبقى نازلة بزاوية حوالي … من الوضع الرأسي.",
-        options: ["45°", "0°", "90°", "180°"],
-        optionsAr: ["45°", "0°", "90°", "180°"],
-        correctText: "45°",
-        get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 2); },
-        explanation: "The heel is fastest and strongest at about 45° from vertical as it comes down.",
-        explanationAr: "الكعب بيبقى أسرع وأقوى وهو نازل بزاوية حوالي 45° من الوضع الرأسي."
-      },
-      {
-        question: "On the drop, how far does your upper body lean back?",
-        questionAr: "وإنت بتنزّل رجلك، جسمك بيميل لورا قد إيه؟",
-        options: ["Only a little — about 10°", "Not at all, exactly 0°", "Very far — about 45°", "Lying back — 90°"],
-        optionsAr: ["شوية صغيرين — حوالي 10°", "مابيميلش خالص — صفر بالظبط", "كتير — حوالي 45°", "نايم لورا — 90°"],
-        correctText: "Only a little — about 10°",
-        get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 2); },
-        explanation: "A small lean back (about 10°) balances the leg. Leaning further makes you fall backward.",
-        explanationAr: "ميلة صغيرة لورا (حوالي 10°) بتوازن رجلك، وأكتر من كده ممكن تقع لورا."
-      },
-      {
-        question: "What does “Naeryeo” mean?",
-        questionAr: "كلمة «نارو» معناها إيه؟",
-        options: ["Down / downward", "Front", "Side", "Turning"],
-        optionsAr: ["لتحت / نازل", "قدّام", "جنب", "بيلف"],
-        correctText: "Down / downward",
-        get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 2); },
-        explanation: "Naeryeo (내려) means down — the kick comes down on the target.",
-        explanationAr: "نارو (내려) معناها لتحت، والركلة بتنزل على الهدف."
-      },
-      {
-        question: "Where are your hands during Naeryeo Chagi?",
-        questionAr: "إيديك بتبقى فين في نارو تشاجي؟",
-        options: ["Up in guard in front of you", "Swinging behind you", "Down at your sides", "Holding the leg up"],
-        optionsAr: ["مرفوعة للحماية قدّامك", "بتتمرجح وراك", "نازلة جنبك", "ماسكة رجلك"],
-        correctText: "Up in guard in front of you",
+        explanation: "Keep the leg straight as it rises — a bent knee loses the power of the drop.", explanationAr: "أبقِ رجلك مفرودة وهي ترتفع، فالركبة المثنية تُضيّع قوة النزول." },
+      { sec: "p2",
+        question: "Why must the leg stay straight as you raise it?", questionAr: "لماذا يجب أن تبقى الرجل مفرودة وأنت ترفعها؟",
+        options: ["So the downward strike is strong and sharp", "So it looks nicer", "Because it is easier", "It does not matter"], optionsAr: ["لتكون الضربة النازلة قوية وحادة", "ليكون شكلها أجمل", "لأنها أسهل", "غير مهم"],
+        correctText: "So the downward strike is strong and sharp",
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 1); },
-        explanation: "The guard stays up — it also helps your balance while the leg is high.",
-        explanationAr: "الحراسة بتفضل مرفوعة، وكمان بتساعدك على التوازن والرجل فوق."
-      },
-      {
-        question: "Why must you not lean far back while raising the leg?",
-        questionAr: "ليه ماينفعش تميل لورا كتير وإنت بترفع رجلك؟",
-        options: ["You can fall backward and lose power", "It makes the kick faster", "It hides the kick", "There is no reason"],
-        optionsAr: ["ممكن تقع لورا والركلة تضعف", "عشان الركلة تبقى أسرع", "عشان الركلة تستخبى", "مفيش سبب"],
-        correctText: "You can fall backward and lose power",
+        explanation: "With the leg fully straight, the heel comes down with the most power.", explanationAr: "عندما تكون الرجل مفرودة تمامًا ينزل الكعب بأقصى قوة." },
+      { sec: "p2",
+        question: "How far does the standing foot turn in Naeryeo Chagi?", questionAr: "بأيّ زاوية تلف قدم الارتكاز في نارو تشاجي؟",
+        options: ["A little outward, 45°–90°", "It does not turn", "360°", "180°"], optionsAr: ["للخارج قليلًا بزاوية ٤٥°:٩٠°", "لا تلف إطلاقًا", "٣٦٠°", "١٨٠°"],
+        correctText: "A little outward, 45°–90°",
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 1); },
-        explanation: "Leaning far back is the classic mistake: your balance goes and the heel has no power coming down.",
-        explanationAr: "الميل الكتير لورا هو أشهر غلطة: توازنك بيروح والكعب بينزل من غير قوة."
-      },
-      {
-        question: "After the heel strikes, what does the leg do?",
-        questionAr: "بعد ضربة الكعب، الرجل بتعمل إيه؟",
-        options: ["Keeps coming down straight until the foot lands", "Bends at the knee and goes back up", "Stays on the target", "Spins around"],
-        optionsAr: ["تكمّل نزول وهي مفرودة لحد ما القدم توصل الأرض", "الركبة تتثني والرجل تطلع لفوق تاني", "تفضل على الهدف", "تلف حوالين نفسها"],
-        correctText: "Keeps coming down straight until the foot lands",
+        explanation: "Turn the standing foot a little outward, 45°–90°.", explanationAr: "لف قدم الارتكاز للخارج قليلًا بزاوية ٤٥°:٩٠°." },
+      { sec: "p2",
+        question: "Why should you not lean back a lot as you raise the leg?", questionAr: "لماذا لا يجب أن تميل للخلف كثيرًا وأنت ترفع رجلك؟",
+        options: ["You may fall back and the kick gets weak", "To make the kick faster", "To hide the kick", "There is no reason"], optionsAr: ["قد تسقط للخلف وتضعف الركلة", "لتكون الركلة أسرع", "لتختبئ الركلة", "لا يوجد سبب"],
+        correctText: "You may fall back and the kick gets weak",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 1); },
+        explanation: "Leaning far back is a common mistake: you lose balance and the heel comes down without power.", explanationAr: "الميل الكثير للخلف خطأ شائع: يضيع التوازن وينزل الكعب بلا قوة." },
+      { sec: "p3",
+        question: "A player did the kick but the strike was soft, not sharp. What is the most likely reason?", questionAr: "نفّذ اللاعب الركلة لكن الضربة جاءت خفيفة وغير حادة. ما السبب الأرجح؟",
+        options: ["The knee bent a little before the heel came down", "The standing foot turned 90°", "The heel struck", "The leg stayed straight as it rose"], optionsAr: ["انثنت ركبته قليلًا قبل نزول الكعب", "لفّ قدم الارتكاز ٩٠°", "ضرب بالكعب", "أبقى رجله مفرودة وهو يرفعها"],
+        correctText: "The knee bent a little before the heel came down",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 2); },
+        explanation: "Any bend in the knee before the drop loses part of the power.", explanationAr: "أيّ انثناء في الركبة قبل النزول يُضيّع جزءًا من قوة الضربة." },
+      { sec: "p4",
+        question: "What does the leg do after the heel strike?", questionAr: "ماذا تفعل الرجل بعد ضربة الكعب؟",
+        options: ["It keeps coming down straight until the foot reaches the floor", "The knee bends and the leg goes up again", "It stays on the target", "It spins around"], optionsAr: ["تكمل نزولها مفرودة حتى تصل القدم إلى الأرض", "تنثني الركبة وترتفع الرجل مرة أخرى", "تبقى على الهدف", "تلف حول نفسها"],
+        correctText: "It keeps coming down straight until the foot reaches the floor",
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 3); },
-        explanation: "The leg stays straight all the way down — no knee bend at the end — and the foot lands under control, guard up.",
-        explanationAr: "الرجل تفضل مفرودة طول النزول — من غير ما الركبة تتثني في الآخر — والقدم تنزل على الأرض وإنت متحكم فيها وإيديك مرفوعة."
-      }
+        explanation: "Pull the kicking leg back and bring it down to the floor, straight and under control.", explanationAr: "اسحب الرجل الضاربة ونزّلها على الأرض وهي مفرودة، وأنت متحكم فيها." },
+      { sec: "p5",
+        question: "What do you do with the standing foot in the last phase of Naeryeo Chagi?", questionAr: "ماذا تفعل بقدم الارتكاز في المرحلة الأخيرة من نارو تشاجي؟",
+        options: ["Turn it back inward and keep my balance", "Leave it as it is", "Lift it off the floor", "Jump on it"], optionsAr: ["ألفّها للداخل بشكل عكسي وأحافظ على توازني", "أتركها كما هي", "أرفعها عن الأرض", "أقفز عليها"],
+        correctText: "Turn it back inward and keep my balance",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 4); },
+        explanation: "Keep your body balanced and turn the standing foot back inward.", explanationAr: "حافظ على توازن جسمك، ولف قدم الارتكاز للداخل بشكل عكسي." }
     ],
-
     bakchagi3: [
-      {
-        question: 'What is the Korean name of this kick?',
-        questionAr: 'إيه الاسم الكوري للركلة دي؟',
-        options: ['Bik Chagi', 'Ap Chagi', 'Naeryeo Chagi', 'Dwi Chagi'],
-        optionsAr: ['بيك تشاجي', 'آب تشاجي', 'نارو تشاجي', 'دوي تشاجي'],
-        correctText: 'Bik Chagi',
+      { sec: "info",
+        question: "What is the name of the front roundhouse kick to the abdomen?", questionAr: "ما اسم الركلة الأمامية الدائرية في البطن؟",
+        options: ["Bik Chagi", "Ap Chagi", "Naeryeo Chagi", "Dwi Chagi"], optionsAr: ["بيك تشاجي", "آب تشاجي", "نارو تشاجي", "دوي تشاجي"],
+        correctText: "Bik Chagi",
         get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 2); },
-        explanation: 'Bik Chagi is the roundhouse kick (Dollyeo Chagi): the standing foot pivots about 135° (heel toward the target), the hip turns over and the instep hits the stomach.',
-        explanationAr: 'بيك تشاجي هي الركلة الدائرية (دوليو تشاجي): قدم الارتكاز بتلف حوالي 135° والكعب ناحية الهدف، والوسط بيلف، ووش القدم بيضرب في البطن.'
-      },
-      {
-        question: 'Which part of the foot strikes in Bik Chagi?',
-        questionAr: 'أنهي جزء من الرجل بيضرب في بيك تشاجي؟',
-        options: ['Instep / top of foot', 'Heel', 'Toes', 'Ball of the foot'],
-        optionsAr: ['وش القدم (ظهرها)', 'الكعب', 'صوابع القدم', 'قاعدة الأصابع (كلوة القدم)'],
-        correctText: 'Instep / top of foot',
-        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 2); },
-        explanation: 'Bik Chagi strikes with the instep (the top of the foot), with the ankle stretched and the toes pointed.',
-        explanationAr: 'بيك تشاجي بتضرب بوش القدم (ظهرها من فوق)، والكاحل مفرود وصوابعك ممدودة.'
-      },
-      {
-        question: 'What are the main TARGETS of Bik Chagi?',
-        questionAr: 'إيه الأهداف الأساسية لركلة بيك تشاجي؟',
-        options: ['The stomach', 'The back', 'The knee', 'The foot'],
-        optionsAr: ['البطن', 'الضهر', 'الركبة', 'القدم'],
-        correctText: 'The stomach',
-        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 2); },
-        explanation: 'In this game Bik Chagi is aimed at the stomach, with the instep.',
-        explanationAr: 'في اللعبة دي بيك تشاجي بتضرب بوش القدم في البطن.'
-      },
-      {
-        question: 'What pivot angle does Bik Chagi use on the standing foot?',
-        questionAr: 'قدم الارتكاز بتلف بزاوية قد إيه في بيك تشاجي؟',
-        options: ['Slight pivot', 'About 135° (90°–180°)', '360°', 'No pivot'],
-        optionsAr: ['لفة خفيفة', 'حوالي 135° (من 90° لـ 180°)', '360°', 'من غير لف'],
-        correctText: 'About 135° (90°–180°)',
-        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 1); },
-        explanation: 'The standing foot pivots about 135° (between 90° and 180°) until the heel points toward the target, so the hip can turn over.',
-        explanationAr: 'قدم الارتكاز بتلف حوالي 135° (ما بين 90° و 180°) لحد ما الكعب يبص ناحية الهدف، عشان وسطك يقدر يلف.'
-      },
-      {
-        question: 'In the chamber, how is the folded kicking leg?',
-        questionAr: 'في التجهيز، الرجل المطوية بتبقى عاملة إزاي؟',
-        options: ['Hanging straight down', 'Level, knee pointing at the target', 'Behind you', 'Straight out'],
-        optionsAr: ['متدلية لتحت', 'نايمة مستوية والركبة ناحية الهدف', 'وراك', 'مفرودة على طول'],
-        correctText: 'Level, knee pointing at the target',
-        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 2); },
-        explanation: 'Turn the knee over until the folded leg is level — then the lower leg can whip round into the target.',
-        explanationAr: 'لفّ ركبتك لحد ما الرجل المطوية تبقى مستوية — ساعتها الجزء اللي تحت يقدر يلف ويضرب الهدف.'
-      },
-      {
-        question: 'Why must you keep your guard up while you turn?',
-        questionAr: 'ليه لازم تفضل حارس نفسك وإنت بتلف؟',
-        options: ['It is optional', 'You are briefly more exposed while your body turns', 'It slows the kick', 'No reason'],
-        optionsAr: ['مش ضروري', 'إنت بتبقى مكشوف شوية وإنت بتلف جسمك', 'بتبطّأ الركلة', 'مفيش سبب'],
-        correctText: 'You are briefly more exposed while your body turns',
-        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 1); },
-        explanation: 'While you turn you see less of the opponent for a moment, so guard and control matter throughout the pivot.',
-        explanationAr: 'وإنت بتلف بتشوف الخصم أقل لثواني، عشان كده الحراسة والتحكم مهمين طول اللفة.'
-      },
-      {
-        question: 'A student\'s Bik Chagi lands weak and off-balance. What is the most likely cause?',
-        questionAr: 'ركلة بيك تشاجي بتاعة الطالب وصلت ضعيفة وهو مش متوازن — إيه أرجح سبب؟',
-        options: ['They pivoted about 135°', 'The hip never turned over with the kick', 'They struck with the instep', 'They kept their guard up'],
-        optionsAr: ['لفّ قدم الارتكاز حوالي 135°', 'وسطه ما لفّش مع الركلة', 'ضرب بوش القدم', 'فضل رافع إيديه للحراسة'],
-        correctText: 'The hip never turned over with the kick',
-        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 1); },
-        explanation: 'The power of a roundhouse kick comes from turning the hip over — without it the leg only swings weakly.',
-        explanationAr: 'قوة الركلة الدائرية جاية من لفّة الوسط — من غيرها الرجل بتتهز بس من غير قوة.'
-      },
-      {
-        question: "What do the hips do as you kick?",
-        questionAr: "وسطك بيعمل إيه وإنت بتركل؟",
-        options: ["Turn over into the kick", "Stay still", "Drop down", "Lean far back"],
-        optionsAr: ["بيلف مع الركلة", "بيفضل ثابت", "بينزل لتحت", "بيميل لورا خالص"],
-        correctText: "Turn over into the kick",
-        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 1); },
-        explanation: "Bik Chagi is a roundhouse kick: the hip turns over so the leg can swing round into the stomach.",
-        explanationAr: "بيك تشاجي ركلة دائرية: الوسط بيلف عشان الرجل تلف وتضرب البطن."
-      },
-      {
-        question: "In the chamber, the kicking knee is…",
-        questionAr: "في التجهيز، ركبة الرجل اللي هتضرب بتبقى…",
-        options: ["Lifted and turned over, the leg folded level", "Straight", "Low at the belt", "Behind you"],
-        optionsAr: ["مرفوعة ولافّة والرجل مطوية مستوية", "مفرودة", "واطية عند الحزام", "وراك"],
-        correctText: "Lifted and turned over, the leg folded level",
-        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 1); },
-        explanation: "Lift the knee and turn it over with the leg folded — that stored spring is what you release into the kick.",
-        explanationAr: "ارفع ركبتك ولفّها والرجل مطوية — الركبة المطوية بتخزّن القوة اللي بتطلع في الضربة."
-      },
-      {
-        question: "The kicking leg travels to the target…",
-        questionAr: "رجل الركلة بتروح للهدف…",
-        options: ["Round in a level circle", "In a straight line", "From top to bottom", "In an upward arc"],
-        optionsAr: ["في لفّة دايرية مستوية", "في خط مستقيم", "من فوق لتحت", "في قوس لفوق"],
-        correctText: "Round in a level circle",
-        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 2); },
-        explanation: "The roundhouse kick swings round in a level circle and lands on the stomach.",
-        explanationAr: "الركلة الدائرية بتلف في دايرة مستوية وتنزل على البطن."
-      },
-      {
-        question: "At full pivot, the toes of the standing foot point…",
-        questionAr: "لما تكمّل اللفة، صوابع قدم الارتكاز بتبص فين؟",
-        options: ["Away from the target (the heel toward it)", "At the target", "Straight up", "Only a little to the side"],
-        optionsAr: ["بعيد عن الهدف (والكعب ناحيته)", "ناحية الهدف", "لفوق", "لجنب شوية بس"],
-        correctText: "Away from the target (the heel toward it)",
-        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 2); },
-        explanation: "With the pivot (about 135°) the standing heel points toward the target and the toes away from it — the hips open.",
-        explanationAr: "مع اللفّة (حوالي 135°) كعب قدم الارتكاز بيبص ناحية الهدف وصوابعها بعيد عنه، والوسط بيتفتح."
-      },
-      {
-        question: "Bik Chagi is the roundhouse kick. What is its Korean name?",
-        questionAr: "بيك تشاجي هي الركلة الدائرية. اسمها الكوري إيه؟",
-        options: ["Dollyeo Chagi", "Yeop Chagi", "Ap Chagi", "Naeryeo Chagi"],
-        optionsAr: ["دوليو تشاجي", "يوب تشاجي", "آب تشاجي", "نارو تشاجي"],
+        explanation: "Bik Chagi is the roundhouse kick (Dollyeo Chagi): the instep strikes the abdomen.", explanationAr: "بيك تشاجي هي الركلة الدائرية (دوليو تشاجي)، ويضرب فيها وش القدم البطن." },
+      { sec: "info",
+        question: "Bik Chagi is a roundhouse kick. What is its other Korean name?", questionAr: "بيك تشاجي ركلة دائرية. ما اسمها الكوري الآخر؟",
+        options: ["Dollyeo Chagi", "Yeop Chagi", "Ap Chagi", "Naeryeo Chagi"], optionsAr: ["دوليو تشاجي", "يوب تشاجي", "آب تشاجي", "نارو تشاجي"],
         correctText: "Dollyeo Chagi",
         get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 2); },
-        explanation: "Dollyeo (돌려) means turning — the roundhouse kick.",
-        explanationAr: "دوليو (돌려) معناها لفّ، يعني الركلة الدائرية."
-      },
-      {
-        question: "After the strike, the leg comes back…",
-        questionAr: "بعد الضربة، الرجل بترجع…",
-        options: ["Folded straight back to the chamber", "By dropping to the floor", "With a spin", "It stays out"],
-        optionsAr: ["بتتطوي على طول لوضع الطي", "بتقع على الأرض", "وهي بتلف", "بتفضل برّه"],
-        correctText: "Folded straight back to the chamber",
-        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 3); },
-        explanation: "Fold it straight back to the chamber, then put it down under control.",
-        explanationAr: "اطويها على طول لوضع الطي، وبعدين نزّلها وإنت متحكم فيها."
-      },
-      {
-        question: "Your toes on the kicking foot are…",
-        questionAr: "صوابع رجل الركلة بتبقى…",
-        options: ["Pointed (the instep leads)", "Pulled back (the heel leads)", "Pointing up to the sky", "Curled under"],
-        optionsAr: ["ممدودة (وش القدم هو اللي بيضرب)", "مسحوبة لورا (الكعب هو اللي بيضرب)", "بتبص لفوق", "مثنية لتحت"],
-        correctText: "Pointed (the instep leads)",
+        explanation: "\"Dollyeo\" (돌려) means turning — the roundhouse kick.", explanationAr: "«دوليو» (돌려) تعني اللف، أي الركلة الدائرية." },
+      { sec: "info",
+        question: "Which part of the foot does Bik Chagi strike with?", questionAr: "بأيّ جزء من القدم تضرب بيك تشاجي؟",
+        options: ["The instep (top of the foot)", "The heel", "The toes", "The ball of the foot"], optionsAr: ["وش القدم (ظهر القدم)", "الكعب", "أصابع القدم", "قاعدة الأصابع (كلوة القدم)"],
+        correctText: "The instep (top of the foot)",
         get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 2); },
-        explanation: "Stretch the ankle and point the toes so the instep (the top of the foot) leads into the target.",
-        explanationAr: "افرد الكاحل ومدّ صوابعك عشان وش القدم (ظهرها من فوق) هو اللي يضرب الهدف."
-      }
+        explanation: "Strike the opponent's abdomen with the top of the foot (the instep).", explanationAr: "اضرب بوجه القدم (مشط القدم) في بطن المنافس." },
+      { sec: "info",
+        question: "What is the target of Bik Chagi?", questionAr: "ما هدف ركلة بيك تشاجي؟",
+        options: ["The abdomen (Momtong)", "The back", "The knee", "The foot"], optionsAr: ["البطن (مومتونج)", "الظهر", "الركبة", "القدم"],
+        correctText: "The abdomen (Momtong)",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 2); },
+        explanation: "Bik Chagi strikes the abdomen with the instep.", explanationAr: "تضرب بيك تشاجي بوش القدم في البطن." },
+      { sec: "info",
+        question: "How does the leg travel to the target in Bik Chagi?", questionAr: "كيف تتحرك الرجل نحو الهدف في بيك تشاجي؟",
+        options: ["In a level circle", "In a straight line", "From top to bottom", "In an upward arc"], optionsAr: ["في دائرة أفقية", "في خط مستقيم", "من أعلى لأسفل", "في قوس لأعلى"],
+        correctText: "In a level circle",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 2); },
+        explanation: "The roundhouse kick turns in a level circle and lands on the abdomen.", explanationAr: "الركلة الدائرية تلف في دائرة أفقية وتصل إلى البطن." },
+      { sec: "p1",
+        question: "Where are the arms in the ready stance?", questionAr: "أين تكون الذراعان في وضع الاستعداد؟",
+        options: ["Fists in front of the chest", "Down by the sides", "Behind the back", "Above the head"], optionsAr: ["في حالة قبض أمام الصدر", "بجانب الجسم", "خلف الظهر", "فوق الرأس"],
+        correctText: "Fists in front of the chest",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 0); },
+        explanation: "The arms are held as fists in front of the chest.", explanationAr: "الذراعان في حالة قبض أمام الصدر." },
+      { sec: "p1",
+        question: "Where is the kicking leg in the ready stance?", questionAr: "أين تكون الرجل الضاربة في وضع الاستعداد؟",
+        options: ["Behind, with the free (standing) leg in front", "In front, with the free leg behind", "Both legs side by side", "Lifted off the floor"], optionsAr: ["خلفًا، والرجل الحرة (الارتكاز) أمامًا", "أمامًا، والرجل الحرة خلفًا", "الرجلان متجاورتان", "مرفوعة عن الأرض"],
+        correctText: "Behind, with the free (standing) leg in front",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 0); },
+        explanation: "The kicking leg is behind and the free (standing) leg is in front.", explanationAr: "الرجل الضاربة خلفًا والرجل الحرة (الارتكاز) أمامًا." },
+      { sec: "p2",
+        question: "In the knee lift, how is the kicking knee?", questionAr: "في مرحلة رفع الركبة، كيف تكون ركبة الرجل الضاربة؟",
+        options: ["Up and turned, with the folded leg level", "Straight", "Low at the belt", "Behind you"], optionsAr: ["مرفوعة وملفوفة والرجل مطوية بشكل أفقي", "مفرودة", "منخفضة عند الحزام", "خلفك"],
+        correctText: "Up and turned, with the folded leg level",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 1); },
+        explanation: "Lift and turn the knee with the leg folded — the folded knee stores the power of the strike.", explanationAr: "ارفع ركبتك ولفّها والرجل مطوية؛ فالركبة المطوية تخزّن القوة التي تخرج في الضربة." },
+      { sec: "p2",
+        question: "How is the folded leg in the knee lift?", questionAr: "كيف تكون الرجل المطوية في مرحلة رفع الركبة؟",
+        options: ["Level, with the knee toward the target", "Hanging down", "Behind you", "Fully straight"], optionsAr: ["أفقية والركبة نحو الهدف", "متدلية لأسفل", "خلفك", "مفرودة تمامًا"],
+        correctText: "Level, with the knee toward the target",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 1); },
+        explanation: "Turn the knee until the folded leg is level — then the lower leg can swing round and hit the target.", explanationAr: "لُفّ ركبتك حتى تصبح الرجل المطوية أفقية، فيستطيع الجزء السفلي أن يلف ويضرب الهدف." },
+      { sec: "p2",
+        question: "How far does the standing foot turn in Bik Chagi?", questionAr: "بأيّ زاوية تلف قدم الارتكاز في بيك تشاجي؟",
+        options: ["About 135° (the heel toward the opponent)", "45°", "360°", "It does not turn"], optionsAr: ["حوالي ١٣٥° (والكعب نحو المنافس)", "٤٥°", "٣٦٠°", "لا تلف إطلاقًا"],
+        correctText: "About 135° (the heel toward the opponent)",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 1); },
+        explanation: "Turn the standing foot outward about 135° (the ball of the foot back, the heel toward the opponent).", explanationAr: "لف قدم الارتكاز للخارج حوالي ١٣٥° (يعني المشط للخلف والكعب في اتجاه المنافس)." },
+      { sec: "p2",
+        question: "When the turn is complete, where do the toes of the standing foot point?", questionAr: "عند اكتمال اللفة، أين تتجه أصابع قدم الارتكاز؟",
+        options: ["Away from the target (the heel toward it)", "Toward the target", "Up", "Only a little to the side"], optionsAr: ["بعيدًا عن الهدف (والكعب نحوه)", "نحو الهدف", "لأعلى", "جانبًا قليلًا فقط"],
+        correctText: "Away from the target (the heel toward it)",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 1); },
+        explanation: "With the turn, the heel of the standing foot points at the target and the toes away from it, and the hips open.", explanationAr: "مع اللفة يتجه كعب قدم الارتكاز نحو الهدف وأصابعها بعيدًا عنه، وينفتح الوسط." },
+      { sec: "p2",
+        question: "What do you do with your back in the knee lift?", questionAr: "ماذا تفعل بظهرك في مرحلة رفع الركبة؟",
+        options: ["Lean my back backward", "Bend forward", "Keep it perfectly upright", "Turn it away from the target"], optionsAr: ["أميل بظهري للخلف", "أنحني للأمام", "أبقيه مستقيمًا تمامًا", "ألفّه بعيدًا عن الهدف"],
+        correctText: "Lean my back backward",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 1); },
+        explanation: "The coach says: lean your back backward.", explanationAr: "من كلام المدرب: «ميّل بضهرك لورا»." },
+      { sec: "p3",
+        question: "What do the hips do during the kick?", questionAr: "ماذا يفعل الوسط أثناء الركل؟",
+        options: ["Turn with the kick", "Stay still", "Drop down", "Lean all the way back"], optionsAr: ["يلف مع الركلة", "يبقى ثابتًا", "ينزل لأسفل", "يميل للخلف تمامًا"],
+        correctText: "Turn with the kick",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 2); },
+        explanation: "Bik Chagi is a roundhouse kick: the hips turn so the leg swings round to the abdomen.", explanationAr: "بيك تشاجي ركلة دائرية: يلف الوسط لتلف الرجل وتضرب البطن." },
+      { sec: "p3",
+        question: "A player's kick was weak and off-balance. What is the most likely reason?", questionAr: "وصلت ركلة اللاعب ضعيفة وهو غير متوازن. ما السبب الأرجح؟",
+        options: ["The hips did not turn with the kick", "The standing foot turned", "The instep struck", "The hands stayed up in the guard"], optionsAr: ["لم يلف وسطه مع الركلة", "لفّ قدم الارتكاز", "ضرب بوش القدم", "أبقى يديه مرفوعتين للحراسة"],
+        correctText: "The hips did not turn with the kick",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 2); },
+        explanation: "The power of a roundhouse kick comes from the hip turn — without it the leg just swings.", explanationAr: "قوة الركلة الدائرية تأتي من لفة الوسط؛ بدونها تتحرك الرجل بلا قوة." },
+      { sec: "p3",
+        question: "Why must you keep your guard up while you turn?", questionAr: "لماذا يجب أن تحافظ على الحراسة وأنت تلف؟",
+        options: ["You are a little open while your body turns", "It is not needed", "It slows the kick", "There is no reason"], optionsAr: ["لأنك تكون مكشوفًا قليلًا أثناء لف جسمك", "غير ضروري", "لأنها تبطئ الركلة", "لا يوجد سبب"],
+        correctText: "You are a little open while your body turns",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 2); },
+        explanation: "While you turn you see the opponent less for a moment, so the guard and control matter all through the turn.", explanationAr: "أثناء اللف ترى المنافس أقل للحظات، لذلك الحراسة والتحكم مهمان طوال اللفة." },
+      { sec: "p3",
+        question: "How are the toes of the kicking foot?", questionAr: "كيف تكون أصابع قدم الرجل الضاربة؟",
+        options: ["Pointed, with the foot stretched down", "Pulled back", "Pointing up", "Curled down"], optionsAr: ["ممدودة، مع شدّ مشط القدم لأسفل", "مسحوبة للخلف", "تتجه لأعلى", "مثنية لأسفل"],
+        correctText: "Pointed, with the foot stretched down",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 2); },
+        explanation: "Point your foot down and stretch your toes so the instep hits the target.", explanationAr: "شُدّ مشط رجلك لأسفل ومدّ أصابعك ليضرب وش القدم الهدف." },
+      { sec: "p4",
+        question: "After the strike, what does the leg do?", questionAr: "بعد الضربة، ماذا تفعل الرجل؟",
+        options: ["The knee bends back toward the body quickly", "It falls to the floor", "It stays out", "It spins around"], optionsAr: ["تنثني الركبة بسرعة ناحية الجسم", "تسقط على الأرض", "تبقى بالخارج", "تلف حول نفسها"],
+        correctText: "The knee bends back toward the body quickly",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 3); },
+        explanation: "Bend the kicking knee back toward your body quickly after the kick.", explanationAr: "اثنِ ركبة الرجل الضاربة ناحية جسمك بسرعة بعد الركل." },
+      { sec: "p5",
+        question: "What do you do in the last phase of Bik Chagi?", questionAr: "ماذا تفعل في المرحلة الأخيرة من بيك تشاجي؟",
+        options: ["Bring my leg down quickly and turn the standing foot back inward", "Keep my leg up", "Jump back", "Sit on the floor"], optionsAr: ["أُنزل رجلي بسرعة وألفّ قدم الارتكاز للداخل بشكل عكسي", "أبقي رجلي مرفوعة", "أقفز للخلف", "أجلس على الأرض"],
+        correctText: "Bring my leg down quickly and turn the standing foot back inward",
+        get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 4); },
+        explanation: "Bring your leg down to the floor quickly, keep your balance and turn the standing foot back inward.", explanationAr: "نزّل رجلك بسرعة على الأرض، وحافظ على توازنك، ولف قدم الارتكاز للداخل بشكل عكسي." }
     ]
   };
+  static PLAN = [["info", 2], ["p1", 1], ["p2", 2], ["p3", 2], ["p4", 2], ["p5", 1]];
 
   static initialize(gameState) {
     this.gameState           = gameState;
@@ -7302,9 +7156,9 @@ class QuizSystem {
       pool = [];
       unlocked.filter(sk => QuizSystem.QUESTION_BANK[sk]).forEach(sk => pool.push(...pick(sk, sk === this.skillId ? 5 : 3, 1)));
     } else {
-      pool = pick(QuizSystem.QUESTION_BANK[this.skillId] ? this.skillId : 'apchagi', this.SESSION, 3);
+      pool = this.ordered(QuizSystem.QUESTION_BANK[this.skillId] ? this.skillId : 'apchagi');
     }
-    this.sessionQuestions = this.shuffleArray(pool);
+    this.sessionQuestions = this.interleaved ? this.shuffleArray(pool) : pool;   // v63.1: in the order of the kick
 
     const totalEl = document.getElementById('total-questions');
     if (totalEl) totalEl.textContent = this.sessionQuestions.length;
@@ -7327,8 +7181,8 @@ class QuizSystem {
     if (d) {
       d.removeAttribute('data-i18n');
       d.textContent = ar
-        ? `${TKD.num(n)} أسئلة — جاوب صح على ${TKD.num(need)} عشان تعدّي ${last ? 'وتقفل الركلات كلها 🏆' : 'وتفتح الركلة الجاية 🔓'}`
-        : `${n} questions — get ${need} right to pass ${last ? 'and finish all the kicks 🏆' : 'and open the next kick 🔓'}`;
+        ? `${TKD.num(n)} أسئلة بترتيب الركلة — أجب إجابة صحيحة عن ${TKD.num(need)} منها لتنجح ${last ? 'وتُنهي كل الركلات 🏆' : 'وتفتح الركلة التالية 🔓'}`
+        : `${n} questions in the order of the kick — get ${need} right to pass ${last ? 'and finish all the kicks 🏆' : 'and open the next kick 🔓'}`;
     }
     let dots = scr.querySelector('.quiz-dots');
     if (!dots) { dots = document.createElement('ol'); dots.className = 'quiz-dots'; dots.setAttribute('aria-hidden', 'true'); scr.querySelector('.quiz-header')?.after(dots); }
@@ -7343,6 +7197,22 @@ class QuizSystem {
   }
 
   static SESSION = 10;
+  // v63.1 — one test in the order of the kick: the kick's facts, then phases 1 → 5 (random
+  // questions inside each part, so a retry is a new test); in phases 2, 3 and 4 one of the two
+  // is the picture question "which phase is this?"
+  static ordered(sk) {
+    const bank = QuizSystem.QUESTION_BANK[sk] || [], pics = this.phaseQuestions(sk), out = [];
+    for (const [sec, n] of this.PLAN) {
+      const pic = ['p2', 'p3', 'p4'].includes(sec) ? pics[+sec[1] - 1] : null;
+      const own = this.shuffleArray(bank.filter(q => q.sec === sec));
+      const take = (pic ? [pic] : []).concat(own).slice(0, n);
+      out.push(...this.shuffleArray(take));
+    }
+    // (a short part is filled up with more facts, so a test always has SESSION questions)
+    const extra = this.shuffleArray(bank.filter(q => q.sec === 'info' && !out.includes(q)));
+    while (out.length < this.SESSION && extra.length) out.splice(2, 0, extra.pop());
+    return out.map(q => Object.assign(Object.create(q), { _fromSkill: sk }));
+  }
   // "Which phase is this?" — the picture is the player's own fighter in that phase
   static phaseQuestions(sk) {
     const S = GameConfig.SKILLS[sk]; if (!S?.phases) return [];
@@ -7353,7 +7223,7 @@ class QuizSystem {
       const opts = [names[i], ...others];
       return {
         question: `Which phase of ${S.name.en} is this?`,
-        questionAr: `دي أنهي مرحلة في ${S.name.ar}؟`,
+        questionAr: `ما هذه المرحلة من ${S.name.ar}؟`,
         options: opts.map(o => o.en), optionsAr: opts.map(o => o.ar),
         correctText: names[i].en,
         get image() { return PoseShots.phase(PoseShots.mine(), sk, i); },
@@ -7478,7 +7348,7 @@ class QuizSystem {
       nextBtn.disabled = false;
       const lastQ = this.currentQuestionIndex >= this.sessionQuestions.length - 1;
       const lbl = nextBtn.querySelector('span');
-      if (lbl) { lbl.removeAttribute('data-i18n'); lbl.textContent = lastQ ? (ar ? 'شوف النتيجة 🏁' : 'See my result 🏁') : (ar ? 'السؤال اللي بعده' : 'Next question'); }
+      if (lbl) { lbl.removeAttribute('data-i18n'); lbl.textContent = lastQ ? (ar ? 'اعرض النتيجة 🏁' : 'See my result 🏁') : (ar ? 'السؤال التالي' : 'Next question'); }
       // v57: on a phone the explanation and the button sit below the answers — bring them up
       setTimeout(() => document.getElementById('quiz-feedback')?.scrollIntoView({ block: 'nearest', behavior: window.prefersReducedMotion?.() ? 'auto' : 'smooth' }), 120);
     }
@@ -7493,11 +7363,11 @@ class QuizSystem {
 
     feedback.classList.remove('hidden');
     if (isCorrect) {
-      title.textContent = ar ? '🎉 إجابة صح!' : '🎉 Correct!';
+      title.textContent = ar ? '🎉 إجابة صحيحة!' : '🎉 Correct!';
       title.style.color = 'var(--success-color)';
     } else {
       title.textContent = ar
-        ? `❌ غلط — الإجابة الصح: "${correctAnswerText}"`
+        ? `❌ إجابة خاطئة — الإجابة الصحيحة: «${correctAnswerText}»`
         : `❌ Wrong — Correct answer: "${correctAnswerText}"`;
       title.style.color = 'var(--danger-color)';
     }
@@ -7517,7 +7387,7 @@ class QuizSystem {
     const scoreEl = document.getElementById('quiz-score');
     if (scoreEl) scoreEl.textContent = TKD.num(Math.round(this.score / 20));   // v57: right answers, not points
     const lbl = scoreEl?.previousElementSibling;
-    if (lbl) { lbl.removeAttribute('data-i18n'); lbl.textContent = this.gameState.currentLanguage === 'ar' ? '✅ صح:' : '✅ Right:'; }
+    if (lbl) { lbl.removeAttribute('data-i18n'); lbl.textContent = this.gameState.currentLanguage === 'ar' ? '✅ الإجابات الصحيحة:' : '✅ Right:'; }
   }
 
   static nextQuestion() {
@@ -20704,8 +20574,8 @@ const Exam = {
       <h2>📝 ${TKD.t(`${S.name.en} test`, `اختبار ${S.name.ar}`)}</h2>
       <p class="exam-say">“${TKD.t(`I'm Coach Seif. Show me what you learnt about ${S.name.en}!`, `أنا كوتش سيف. وريني اتعلمت إيه في ${S.name.ar}!`)}”</p>
       <ul class="exam-rules">
-        <li>❓ ${TKD.t(`${n} questions — some with pictures of the kick`, `${TKD.count(n, 'question', 'ar')} — منهم أسئلة بصور الركلة`)}</li>
-        <li>🎯 ${TKD.t(`${need} right answers to pass`, `${TKD.num(need)} إجابات صح عشان تعدّي`)}</li>
+        <li>❓ ${TKD.t(`${n} questions in the order of the kick — some with pictures`, `${TKD.count(n, 'question', 'ar')} بترتيب مراحل الركلة، بعضها بالصور`)}</li>
+        <li>🎯 ${TKD.t(`${need} right answers to pass`, `${TKD.num(need)} إجابات صحيحة للنجاح`)}</li>
         <li>🎗️ ${TKD.t('Pass → a new stripe on your white belt', 'لو عدّيت ← شريطة جديدة على حزامك الأبيض')}${next ? ` · 🔓 ${TKD.t(next.name.en, next.name.ar)}` : ` · 🏆 ${TKD.t('all kicks done!', 'خلّصت كل الركلات!')}`}</li>
       </ul>
       <button type="button" class="btn btn-success" data-a="go">🙇 ${TKD.t('Gyeongnye! Start', 'كيونجنيه! يلا نبدأ')}</button></div>`;
