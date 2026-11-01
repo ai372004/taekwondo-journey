@@ -615,7 +615,7 @@ const GameConfig = {
     SKILL_UNLOCK_THRESHOLD: 80,        // (reports only) the overall % shown as "mastered"
     SKILL_UNLOCK_MESSAGE: {
       en: '🎉 New Skill Unlocked! You can now learn {skill}!',
-      ar: '🎉 مهارة جديدة اتفتحت! دلوقتي تقدر تتعلم {skill}!'
+      ar: '🎉 فُتحت مهارة جديدة! الآن يمكنك أن تتعلم {skill}!'
     }
   }
 };
@@ -679,137 +679,137 @@ const Curriculum = (() => {
       `Taegeuk ${n}`, `تيجوك ${['١', '٢', '٣', '٤', '٥', '٦', '٧', '٨'][n - 1]}`, {
         trigram, moves,
         points: [[`Meaning: ${meaningEn}`, `المعنى: ${meaningAr}`], [`${moves} movements — ${focusEn}`, `${moves} ${moves >= 3 && moves <= 10 ? 'حركات' : 'حركة'} — ${focusAr}`],
-                 ['Start and finish on the same spot', 'تبدأ وتخلّص في نفس النقطة']],
-        mistakes: [['Rushing — every move must finish before the next starts', 'الاستعجال — كل حركة لازم تخلص قبل اللي بعدها']]
+                 ['Start and finish on the same spot', 'تبدأ وتنتهي في النقطة نفسها']],
+        mistakes: [['Rushing — every move must finish before the next starts', 'التسرّع — يجب أن تنتهي كل حركة قبل التي تليها']]
       });
 
   const BELTS = [
     { id: 'white', color: '#f8fafc', accent: '#cbd5e1', geup: P('10th–9th Geup', 'الجوب ١٠–٩'), name: P('White Belt', 'الحزام الأبيض'),
-      goal: P('Learn to stand, bow, punch and do the front kick.', 'تتعلم تقف صح وتحيّي وتلكم وتعمل الركلة الأمامية.'),
+      goal: P('Learn to stand, bow, punch and do the front kick.', 'تتعلم الوقوف الصحيح والتحية واللكم والركلة الأمامية.'),
       items: [
         I('gyeongnye', 'basics', 'Charyeot · Gyeongnye', '차렷 · 경례', 'Attention & bow', 'انتباه وتحية', {
-          points: [['Heels together, hands by your sides', 'الكعبين لازقين والإيدين جنبك'], ['Bow about 30°, eyes down', 'انحني حوالي ٣٠° وعينك لتحت']],
-          mistakes: [['Bowing with the head only', 'إنك تحني راسك بس']] }),
+          points: [['Heels together, hands by your sides', 'الكعبان متلاصقان واليدان بجانبك'], ['Bow about 30°, eyes down', 'انحنِ نحو ٣٠° وعيناك إلى أسفل']],
+          mistakes: [['Bowing with the head only', 'أن تحني رأسك فقط']] }),
         I('junbi', 'basics', 'Junbi', '준비', 'Ready stance', 'وقفة الاستعداد', {
-          points: [['Feet one foot apart, fists in front of the belt', 'رجليك بينهم قد رجل، وقبضاتك قدام الحزام'], ['Breathe out and focus', 'خد نفس وركّز']] }),
+          points: [['Feet one foot apart, fists in front of the belt', 'المسافة بين قدميك بطول قدم، وقبضتاك أمام الحزام'], ['Breathe out and focus', 'خذ نفسًا وركّز']] }),
         I('gihap', 'basics', 'Gihap', '기합', 'Kihap (the shout)', 'الكيهاب (صرخة القوة)', {
-          points: [['Short and strong, from the belly', 'قصيرة وقوية من بطنك'], ['Shout at the moment of the strike', 'اصرخ لحظة الضربة بالظبط']] }),
-        I('counting', 'basics', 'Hana · Dul · Set …', '하나 · 둘 · 셋 …', 'Counting 1–10 in Korean', 'العد من ١ لـ ١٠ بالكوري', {
+          points: [['Short and strong, from the belly', 'قصيرة وقوية من البطن'], ['Shout at the moment of the strike', 'اصرخ لحظة الضربة تمامًا']] }),
+        I('counting', 'basics', 'Hana · Dul · Set …', '하나 · 둘 · 셋 …', 'Counting 1–10 in Korean', 'العدّ من ١ إلى ١٠ بالكورية', {
           points: [['Hana, dul, set, net, daseot', 'هانا، دول، سيت، نيت، داسوت'], ['Yeoseot, ilgop, yeodeol, ahop, yeol', 'يوسوت، إلجوب، يودول، آهوب، يول']] }),
         I('naranhi-seogi', 'stance', 'Naranhi Seogi', '나란히서기', 'Parallel stance', 'الوقفة المتوازية', {
-          points: [['Feet parallel, one foot-width apart', 'رجليك متوازيين وبينهم عرض رجل'], ['Weight in the middle', 'وزنك في النص']] }),
+          points: [['Feet parallel, one foot-width apart', 'قدماك متوازيتان وبينهما عرض قدم'], ['Weight in the middle', 'وزنك في المنتصف']] }),
         I('ap-seogi', 'stance', 'Ap Seogi', '앞서기', 'Walking stance', 'وقفة المشي', {
-          points: [['One natural step long', 'طولها خطوة عادية'], ['Both legs straight, weight in the middle', 'الرجلين مفرودين ووزنك في النص']],
-          mistakes: [['Feet on one line (you lose balance)', 'الرجلين على خط واحد (هتفقد توازنك)']] }),
+          points: [['One natural step long', 'طولها خطوة عادية'], ['Both legs straight, weight in the middle', 'الرجلان مفرودتان ووزنك في المنتصف']],
+          mistakes: [['Feet on one line (you lose balance)', 'الرجلان على خط واحد (ستفقد توازنك)']] }),
         I('ap-kubi', 'stance', 'Ap Kubi', '앞굽이', 'Front stance', 'الوقفة الأمامية', {
-          points: [['Long stance, front knee over the toes', 'وقفة طويلة والركبة اللي قدام فوق صوابعك'], ['Back leg straight, about 2/3 weight on the front', 'الرجل اللي ورا مفرودة وحوالي ٢/٣ وزنك قدام']],
-          mistakes: [['Back heel lifted', 'كعب الرجل اللي ورا مرفوع']] }),
-        I('arae-makki', 'block', 'Arae Makki', '아래막기', 'Low block', 'الصدّة التحتانية', {
-          points: [['Start the fist at the opposite shoulder', 'القبضة تبدأ عند الكتف التاني'], ['Stop one fist above the thigh', 'تقف فوق الفخد بمسافة قبضة']] }),
-        I('momtong-an-makki', 'block', 'Momtong An Makki', '몸통안막기', 'Middle inside block', 'صدّة الوسط من جوّه', {
-          points: [['Forearm sweeps from outside to the centre', 'الدراع بيلف من برّه لنص جسمك'], ['Fist at shoulder height', 'القبضة في مستوى كتفك']] }),
+          points: [['Long stance, front knee over the toes', 'وقفة طويلة والركبة الأمامية فوق أصابع القدم'], ['Back leg straight, about 2/3 weight on the front', 'الرجل الخلفية مفرودة ونحو ثلثي وزنك في الأمام']],
+          mistakes: [['Back heel lifted', 'كعب الرجل الخلفية مرفوع']] }),
+        I('arae-makki', 'block', 'Arae Makki', '아래막기', 'Low block', 'الصدّة السفلية', {
+          points: [['Start the fist at the opposite shoulder', 'تبدأ القبضة عند الكتف الآخر'], ['Stop one fist above the thigh', 'تتوقف فوق الفخذ بمسافة قبضة']] }),
+        I('momtong-an-makki', 'block', 'Momtong An Makki', '몸통안막기', 'Middle inside block', 'صدّة الوسط من الداخل', {
+          points: [['Forearm sweeps from outside to the centre', 'يلف الذراع من الخارج إلى منتصف جسمك'], ['Fist at shoulder height', 'القبضة في مستوى كتفك']] }),
         I('momtong-jireugi', 'strike', 'Momtong Jireugi', '몸통지르기', 'Middle punch', 'لكمة الوسط', {
-          points: [['Fist turns over at the very end', 'القبضة تلف في آخر لحظة'], ['Other fist pulls back to the hip', 'القبضة التانية ترجع على وسطك']],
-          mistakes: [['Bent wrist', 'رسغ مكسور']] }),
+          points: [['Fist turns over at the very end', 'تلف القبضة في اللحظة الأخيرة'], ['Other fist pulls back to the hip', 'تعود القبضة الأخرى إلى وسطك']],
+          mistakes: [['Bent wrist', 'رسغ منثنٍ']] }),
         I('apchagi', 'kick', 'Ap Chagi', '앞차기', 'Front kick', 'الركلة الأمامية', { skillId: 'apchagi', folder: 'apchagi',
-          points: [['Knee up first, then snap the foot', 'ارفع الركبة الأول وبعدين افرد رجلك بسرعة'], ['Hit with the ball of the foot', 'اضرب بقاعدة الأصابع (كلوة القدم)']] }),
-        I('ap-ollyeo-chagi', 'kick', 'Ap Ollyeo Chagi', '앞올려차기', 'Front rising kick', 'الركلة الأمامية الطالعة', {
-          points: [['Straight leg swings up like a pendulum', 'الرجل مفرودة وبتطلع زي البندول'], ['Stretching kick — control it on the way down', 'ركلة إطالة — تحكّم فيها وهي نازلة']] }),
-        T(1, 'Il', 'Keon ☰', 'Heaven and light — the beginning', 'السما والنور — البداية', 18, 'walking & front stance, low block, middle punch, front kick', 'وقفة المشي والأمامية، صدّة تحتانية، لكمة وسط، ركلة أمامية')
+          points: [['Knee up first, then snap the foot', 'ارفع الركبة أولًا، ثم افرد رجلك بسرعة'], ['Hit with the ball of the foot', 'اضرب بقاعدة الأصابع (كلوة القدم)']] }),
+        I('ap-ollyeo-chagi', 'kick', 'Ap Ollyeo Chagi', '앞올려차기', 'Front rising kick', 'الركلة الأمامية الصاعدة', {
+          points: [['Straight leg swings up like a pendulum', 'الرجل مفرودة وترتفع مثل البندول'], ['Stretching kick — control it on the way down', 'ركلة إطالة — تحكّم فيها وهي تنزل']] }),
+        T(1, 'Il', 'Keon ☰', 'Heaven and light — the beginning', 'السماء والنور — البداية', 18, 'walking & front stance, low block, middle punch, front kick', 'وقفة المشي والوقفة الأمامية، صدّة سفلية، لكمة وسط، ركلة أمامية')
       ] },
 
     { id: 'yellow', color: '#facc15', accent: '#a16207', geup: P('8th–7th Geup', 'الجوب ٨–٧'), name: P('Yellow Belt', 'الحزام الأصفر'),
-      goal: P('High block, the roundhouse and axe kicks, Taegeuk 2 and 3.', 'الصدّة العالية، الركلة الدائرية والمطرقية، وتيجوك ٢ و٣.'),
+      goal: P('High block, the roundhouse and axe kicks, Taegeuk 2 and 3.', 'الصدّة العالية، والركلة الدائرية والمطرقية، وتيجوك ٢ و٣.'),
       items: [
         I('olgul-makki', 'block', 'Eolgul Makki', '얼굴막기', 'High block', 'الصدّة العالية', {
-          points: [['Forearm one fist above the forehead', 'الدراع فوق جبهتك بمسافة قبضة'], ['Arm slightly angled so the hit slides off', 'الدراع مايل شوية عشان الضربة تتزحلق']] }),
-        I('bakkat-makki', 'block', 'Momtong Bakkat Makki', '몸통바깥막기', 'Middle outside block', 'صدّة الوسط لبرّه', {
-          points: [['Forearm sweeps from the centre outwards', 'الدراع يلف من نص جسمك لبرّه'], ['Fist at shoulder height', 'القبضة في مستوى كتفك']] }),
-        I('dubeon-jireugi', 'strike', 'Dubeon Jireugi', '두번지르기', 'Double punch', 'لكمتين ورا بعض', {
-          points: [['Two punches, one rhythm', 'لكمتين في إيقاع واحد'], ['Hips stay square', 'وسطك يفضل مستقيم']] }),
-        I('sonnal-mok-chigi', 'strike', 'Sonnal Mok Chigi', '손날목치기', 'Knife-hand neck strike', 'ضربة حد الإيد للرقبة', {
-          points: [['Hit with the edge of the open hand', 'اضرب بحرف إيدك وهي مفتوحة'], ['Palm faces up at the end', 'كف إيدك لفوق في الآخر']] }),
+          points: [['Forearm one fist above the forehead', 'الذراع فوق جبهتك بمسافة قبضة'], ['Arm slightly angled so the hit slides off', 'الذراع مائل قليلًا لتنزلق الضربة']] }),
+        I('bakkat-makki', 'block', 'Momtong Bakkat Makki', '몸통바깥막기', 'Middle outside block', 'صدّة الوسط إلى الخارج', {
+          points: [['Forearm sweeps from the centre outwards', 'يلف الذراع من منتصف جسمك إلى الخارج'], ['Fist at shoulder height', 'القبضة في مستوى كتفك']] }),
+        I('dubeon-jireugi', 'strike', 'Dubeon Jireugi', '두번지르기', 'Double punch', 'لكمتان متتاليتان', {
+          points: [['Two punches, one rhythm', 'لكمتان في إيقاع واحد'], ['Hips stay square', 'يبقى وسطك مستقيمًا']] }),
+        I('sonnal-mok-chigi', 'strike', 'Sonnal Mok Chigi', '손날목치기', 'Knife-hand neck strike', 'ضربة حد اليد للرقبة', {
+          points: [['Hit with the edge of the open hand', 'اضرب بحرف يدك وهي مفتوحة'], ['Palm faces up at the end', 'كف يدك إلى أعلى في النهاية']] }),
         I('dollyo-chagi', 'kick', 'Dollyeo Chagi', '돌려차기', 'Roundhouse kick', 'الركلة الدائرية', { skillId: 'bakchagi3', folder: 'bikchagi', video: 'assets/videos/bikchagi-tutorial.mp4', aka: P('In the game: Bik Chagi', 'في اللعبة: بيك تشاجي'),
-          points: [['Pivot the standing foot and turn the hip over', 'لف قدم الارتكاز ولف وسطك'], ['Hit with the instep (top of the foot)', 'اضرب بوش رجلك']],
-          mistakes: [['Kicking without turning the hip', 'تركل من غير ما تلف وسطك']] }),
-        I('bandal-chagi', 'kick', 'Bandal Chagi', '반달차기', 'Half-moon (crescent) kick', 'ركلة نص القمر', {
-          points: [['Halfway between front and roundhouse kick', 'في النص بين الأمامية والدائرية'], ['Fast and short — great for sparring', 'سريعة وقصيرة — ممتازة في القتال']] }),
+          points: [['Pivot the standing foot and turn the hip over', 'لف قدم الارتكاز ولف وسطك'], ['Hit with the instep (top of the foot)', 'اضرب بوش القدم']],
+          mistakes: [['Kicking without turning the hip', 'أن تركل دون أن تلف وسطك']] }),
+        I('bandal-chagi', 'kick', 'Bandal Chagi', '반달차기', 'Half-moon (crescent) kick', 'ركلة نصف القمر', {
+          points: [['Halfway between front and roundhouse kick', 'بين الأمامية والدائرية'], ['Fast and short — great for sparring', 'سريعة وقصيرة — ممتازة في القتال']] }),
         I('naeryeo-chagi', 'kick', 'Naeryeo Chagi', '내려차기', 'Axe kick', 'الركلة المطرقية', { skillId: 'narochagi', folder: 'narochagi', video: 'assets/videos/naeryeochagi-tutorial.mp4', aka: P('In the game: Naeryeo Chagi', 'في اللعبة: نارو تشاجي'),
-          points: [['Leg rises high and straight', 'الرجل تطلع لفوق ومفرودة'], ['Heel drops down hard', 'الكعب ينزل بقوة لتحت']] }),
-        T(2, 'I', 'Tae ☱', 'Joy — calm inside, strong outside', 'الفرحة — هادي من جوّه وقوي من برّه', 18, 'high block and front kick + punch combos', 'صدّة عالية وتركيبات ركلة أمامية + لكمة'),
-        T(3, 'Sam', 'Ri ☲', 'Fire — energy and passion', 'النار — طاقة وحماس', 20, 'knife-hand strikes, back stance, double punches', 'ضربات حد الإيد، الوقفة الخلفية، لكمتين ورا بعض')
+          points: [['Leg rises high and straight', 'ترتفع الرجل إلى أعلى وهي مفرودة'], ['Heel drops down hard', 'ينزل الكعب بقوة إلى أسفل']] }),
+        T(2, 'I', 'Tae ☱', 'Joy — calm inside, strong outside', 'الفرح — هادئ من الداخل وقوي من الخارج', 18, 'high block and front kick + punch combos', 'صدّة عالية وتركيبات ركلة أمامية مع لكمة'),
+        T(3, 'Sam', 'Ri ☲', 'Fire — energy and passion', 'النار — طاقة وحماس', 20, 'knife-hand strikes, back stance, double punches', 'ضربات حد اليد، والوقفة الخلفية، ولكمتان متتاليتان')
       ] },
 
     { id: 'green', color: '#22c55e', accent: '#15803d', geup: P('6th–5th Geup', 'الجوب ٦–٥'), name: P('Green Belt', 'الحزام الأخضر'),
-      goal: P('Back stance, the side kick and push kick, Taegeuk 4 and 5.', 'الوقفة الخلفية، الركلة الجانبية وركلة الدفع، وتيجوك ٤ و٥.'),
+      goal: P('Back stance, the side kick and push kick, Taegeuk 4 and 5.', 'الوقفة الخلفية، والركلة الجانبية وركلة الدفع، وتيجوك ٤ و٥.'),
       items: [
         I('dwit-kubi', 'stance', 'Dwit Kubi', '뒷굽이', 'Back stance', 'الوقفة الخلفية', {
-          points: [['Feet in an L, about 70% weight on the back leg', 'رجليك على شكل حرف L وحوالي ٧٠٪ من وزنك على اللي ورا'], ['Both knees bent', 'الركبتين مثنيين']] }),
+          points: [['Feet in an L, about 70% weight on the back leg', 'القدمان على شكل حرف L ونحو ٧٠٪ من وزنك على الرجل الخلفية'], ['Both knees bent', 'الركبتان مثنيتان']] }),
         I('beom-seogi', 'stance', 'Beom Seogi', '범서기', 'Tiger stance', 'وقفة النمر', {
-          points: [['Front foot touches with the ball only', 'الرجل اللي قدام بتلمس بقاعدة الأصابع بس'], ['Almost all weight on the back leg', 'تقريبًا كل وزنك على اللي ورا']] }),
+          points: [['Front foot touches with the ball only', 'تلمس الرجل الأمامية الأرض بقاعدة الأصابع فقط'], ['Almost all weight on the back leg', 'معظم وزنك تقريبًا على الرجل الخلفية']] }),
         I('juchum-seogi', 'stance', 'Juchum Seogi', '주춤서기', 'Horse-riding stance', 'وقفة الفارس', {
-          points: [['Feet two foot-lengths apart, toes forward', 'بين رجليك قد رجلين وصوابعك لقدام'], ['Knees pushed out, back straight', 'الركب لبرّه وضهرك مفرود']] }),
-        I('sonnal-makki', 'block', 'Sonnal Makki', '손날막기', 'Knife-hand block', 'صدّة حد الإيد', {
-          points: [['Usually done in back stance', 'غالبًا بتتعمل في الوقفة الخلفية'], ['Both hands open, the back one guards the solar plexus', 'الإيدين مفتوحين واللي ورا بتحمي بطنك']] }),
-        I('deung-jumeok', 'strike', 'Deung Jumeok Ap Chigi', '등주먹앞치기', 'Back-fist strike', 'ضربة ضهر القبضة', {
-          points: [['Snap from the elbow', 'الضربة طالعة من الكوع بسرعة'], ['Hit with the two big knuckles', 'اضرب بالعقلتين الكبار']] }),
-        I('palkup-chigi', 'strike', 'Palkup Dollyeo Chigi', '팔굽돌려치기', 'Turning elbow strike', 'ضربة الكوع الدائرية', {
-          points: [['Turn the hips with the elbow', 'لف وسطك مع الكوع'], ['Short distance, big power', 'مسافة قصيرة وقوة كبيرة']] }),
+          points: [['Feet two foot-lengths apart, toes forward', 'المسافة بين قدميك بطول قدمين وأصابعك إلى الأمام'], ['Knees pushed out, back straight', 'الركبتان إلى الخارج وظهرك مستقيم']] }),
+        I('sonnal-makki', 'block', 'Sonnal Makki', '손날막기', 'Knife-hand block', 'صدّة حد اليد', {
+          points: [['Usually done in back stance', 'تُؤدّى غالبًا في الوقفة الخلفية'], ['Both hands open, the back one guards the solar plexus', 'اليدان مفتوحتان والخلفية تحمي بطنك']] }),
+        I('deung-jumeok', 'strike', 'Deung Jumeok Ap Chigi', '등주먹앞치기', 'Back-fist strike', 'ضربة ظهر القبضة', {
+          points: [['Snap from the elbow', 'تنطلق الضربة من المرفق بسرعة'], ['Hit with the two big knuckles', 'اضرب بالمفصلين الكبيرين']] }),
+        I('palkup-chigi', 'strike', 'Palkup Dollyeo Chigi', '팔굽돌려치기', 'Turning elbow strike', 'ضربة المرفق الدائرية', {
+          points: [['Turn the hips with the elbow', 'لف وسطك مع المرفق'], ['Short distance, big power', 'مسافة قصيرة وقوة كبيرة']] }),
         I('yeop-chagi', 'kick', 'Yeop Chagi', '옆차기', 'Side kick', 'الركلة الجانبية', {
-          points: [['Body turns side-on, standing foot pivots', 'جسمك يلف بجنبه وقدم الارتكاز تلف'], ['Hit with the heel / blade of the foot', 'اضرب بالكعب أو حرف القدم الخارجي']] }),
+          points: [['Body turns side-on, standing foot pivots', 'يلتف جسمك جانبًا وتلف قدم الارتكاز'], ['Hit with the heel / blade of the foot', 'اضرب بالكعب أو حرف القدم الخارجي']] }),
         I('mireo-chagi', 'kick', 'Mireo Chagi', '밀어차기', 'Push kick', 'ركلة الدفع', {
-          points: [['Push with the whole sole', 'ادفع بكل باطن رجلك'], ['Used to make distance', 'بتستخدمها عشان تبعد المنافس']] }),
-        T(4, 'Sa', 'Jin ☳', 'Thunder — courage and calm in danger', 'الرعد — شجاعة وهدوء وقت الخطر', 20, 'knife-hand blocks, side kicks, back-fist', 'صدّات حد الإيد، ركلات جانبية، ضربة ضهر القبضة'),
-        T(5, 'O', 'Seon ☴', 'Wind — gentle but strong', 'الريح — هادية بس قوية', 20, 'hammer-fist, elbow strikes, side kick', 'ضربة المطرقة، ضربات الكوع، الركلة الجانبية')
+          points: [['Push with the whole sole', 'ادفع بباطن القدم كله'], ['Used to make distance', 'تستخدمها لإبعاد المنافس']] }),
+        T(4, 'Sa', 'Jin ☳', 'Thunder — courage and calm in danger', 'الرعد — شجاعة وهدوء وقت الخطر', 20, 'knife-hand blocks, side kicks, back-fist', 'صدّات حد اليد، وركلات جانبية، وضربة ظهر القبضة'),
+        T(5, 'O', 'Seon ☴', 'Wind — gentle but strong', 'الريح — هادئة لكنها قوية', 20, 'hammer-fist, elbow strikes, side kick', 'ضربة المطرقة، وضربات المرفق، والركلة الجانبية')
       ] },
 
     { id: 'blue', color: '#3b82f6', accent: '#1d4ed8', geup: P('4th–3rd Geup', 'الجوب ٤–٣'), name: P('Blue Belt', 'الحزام الأزرق'),
-      goal: P('Back kick, hook kick, jumping kicks, Taegeuk 6 and 7, first sparring.', 'الركلة الخلفية، الخطافية، الركلات بالنطة، تيجوك ٦ و٧، وأول قتال.'),
+      goal: P('Back kick, hook kick, jumping kicks, Taegeuk 6 and 7, first sparring.', 'الركلة الخلفية، والخطافية، والركلات بالقفز، وتيجوك ٦ و٧، وأول قتال.'),
       items: [
         I('hecheo-makki', 'block', 'Hecheo Makki', '헤쳐막기', 'Wedging block', 'الصدّة المفتوحة', {
-          points: [['Both forearms open outwards together', 'الدراعين يفتحوا لبرّه مع بعض'], ['Fists at shoulder width', 'القبضات قد عرض كتافك']] }),
-        I('pyeonsonkkeut', 'strike', 'Pyeonsonkkeut Sewo Jjireugi', '편손끝세워찌르기', 'Spear-hand thrust', 'طعنة أطراف الصوابع', {
-          points: [['Fingers together and slightly bent', 'صوابعك لازقين ومثنيين شوية'], ['Other hand presses under the elbow', 'الإيد التانية تحت الكوع']] }),
+          points: [['Both forearms open outwards together', 'ينفتح الذراعان إلى الخارج معًا'], ['Fists at shoulder width', 'القبضتان بعرض كتفيك']] }),
+        I('pyeonsonkkeut', 'strike', 'Pyeonsonkkeut Sewo Jjireugi', '편손끝세워찌르기', 'Spear-hand thrust', 'طعنة أطراف الأصابع', {
+          points: [['Fingers together and slightly bent', 'أصابعك متلاصقة ومثنية قليلًا'], ['Other hand presses under the elbow', 'اليد الأخرى تحت المرفق']] }),
         I('dwi-chagi', 'kick', 'Dwi Chagi', '뒤차기', 'Back kick', 'الركلة الخلفية', {
-          points: [['Look over the shoulder before you kick', 'بص من فوق كتفك قبل ما تركل'], ['Kick in a straight line, heel first', 'اركل في خط مستقيم والكعب الأول']],
-          mistakes: [['Spinning all the way round (turns into a side kick)', 'تلف لفة كاملة (بتقلب ركلة جانبية)']] }),
+          points: [['Look over the shoulder before you kick', 'انظر من فوق كتفك قبل أن تركل'], ['Kick in a straight line, heel first', 'اركل في خط مستقيم بالكعب أولًا']],
+          mistakes: [['Spinning all the way round (turns into a side kick)', 'أن تلف لفة كاملة (فتتحول إلى ركلة جانبية)']] }),
         I('huryeo-chagi', 'kick', 'Huryeo Chagi', '후려차기', 'Hook kick', 'الركلة الخطافية', {
-          points: [['Kick past the target, then hook back', 'اركل جنب الهدف وبعدين اسحب لورا'], ['Hit with the heel or sole', 'اضرب بالكعب أو باطن القدم']] }),
-        I('twio-ap-chagi', 'kick', 'Twio Ap Chagi', '뛰어앞차기', 'Jumping front kick', 'الركلة الأمامية بالنطة', {
-          points: [['Drive the other knee up to jump', 'ارفع الركبة التانية عشان تنط'], ['Land on both feet, guard up', 'انزل على رجليك الاتنين وإيديك فوق']] }),
+          points: [['Kick past the target, then hook back', 'اركل بجانب الهدف ثم اسحب إلى الخلف'], ['Hit with the heel or sole', 'اضرب بالكعب أو باطن القدم']] }),
+        I('twio-ap-chagi', 'kick', 'Twio Ap Chagi', '뛰어앞차기', 'Jumping front kick', 'الركلة الأمامية بالقفز', {
+          points: [['Drive the other knee up to jump', 'ارفع الركبة الأخرى لتقفز'], ['Land on both feet, guard up', 'انزل على رجليك الاثنتين ويداك مرفوعتان']] }),
         I('hanbeon-kyorugi', 'sparring', 'Hanbeon Kyorugi', '한번겨루기', 'One-step sparring', 'القتال بخطوة واحدة', {
-          points: [['Partner attacks once, you defend and counter', 'زميلك يهجم مرة وإنت تصد وترد'], ['Control every strike — never hit for real', 'تحكّم في كل ضربة — ماتضربش بجد']] }),
-        T(6, 'Yuk', 'Gam ☵', 'Water — keep going around obstacles', 'المية — كمّل حتى لو فيه عقبات', 19, 'roundhouse kicks, high knife-hand, wedging block', 'ركلات دائرية، حد الإيد العالي، الصدّة المفتوحة'),
-        T(7, 'Chil', 'Gan ☶', 'Mountain — stop and move at the right moment', 'الجبل — اقف واتحرك في الوقت الصح', 25, 'tiger stance, crescent kicks, knee strike', 'وقفة النمر، ركلات نص القمر، ضربة الركبة')
+          points: [['Partner attacks once, you defend and counter', 'يهاجم زميلك مرة وأنت تصدّ وتردّ'], ['Control every strike — never hit for real', 'تحكّم في كل ضربة — لا تضرب بقوة حقيقية']] }),
+        T(6, 'Yuk', 'Gam ☵', 'Water — keep going around obstacles', 'الماء — استمر حتى لو وُجدت عقبات', 19, 'roundhouse kicks, high knife-hand, wedging block', 'ركلات دائرية، وحد اليد العالي، والصدّة المفتوحة'),
+        T(7, 'Chil', 'Gan ☶', 'Mountain — stop and move at the right moment', 'الجبل — اثبت وتحرك في الوقت المناسب', 25, 'tiger stance, crescent kicks, knee strike', 'وقفة النمر، وركلات نصف القمر، وضربة الركبة')
       ] },
 
     { id: 'red', color: '#ef4444', accent: '#b91c1c', geup: P('2nd–1st Geup', 'الجوب ٢–١'), name: P('Red Belt', 'الحزام الأحمر'),
-      goal: P('Spinning and jumping kicks, Taegeuk 8, sparring rules and breaking.', 'الركلات اللي بتلف وبالنطة، تيجوك ٨، قوانين القتال والتكسير.'),
+      goal: P('Spinning and jumping kicks, Taegeuk 8, sparring rules and breaking.', 'الركلات الدائرية بالدوران وبالقفز، وتيجوك ٨، وقوانين القتال والتكسير.'),
       items: [
-        I('dwi-huryeo-chagi', 'kick', 'Dwi Huryeo Chagi', '뒤후려차기', 'Spinning hook kick', 'الركلة الخطافية اللي بتلف', {
-          points: [['Spin on the ball of the front foot', 'لف على قاعدة أصابع الرجل اللي قدام'], ['Head turns first, then the leg follows', 'راسك تلف الأول والرجل وراها']] }),
-        I('twio-dollyo-chagi', 'kick', 'Twio Dollyeo Chagi', '뛰어돌려차기', 'Jumping roundhouse kick', 'الركلة الدائرية بالنطة', {
-          points: [['Jump up, not forward', 'نط لفوق مش لقدام'], ['Turn the hip in the air', 'لف وسطك وإنت في الهوا']] }),
+        I('dwi-huryeo-chagi', 'kick', 'Dwi Huryeo Chagi', '뒤후려차기', 'Spinning hook kick', 'الركلة الخطافية بالدوران', {
+          points: [['Spin on the ball of the front foot', 'لف على قاعدة أصابع الرجل الأمامية'], ['Head turns first, then the leg follows', 'يلف رأسك أولًا ثم تتبعه الرجل']] }),
+        I('twio-dollyo-chagi', 'kick', 'Twio Dollyeo Chagi', '뛰어돌려차기', 'Jumping roundhouse kick', 'الركلة الدائرية بالقفز', {
+          points: [['Jump up, not forward', 'اقفز إلى أعلى لا إلى الأمام'], ['Turn the hip in the air', 'لف وسطك وأنت في الهواء']] }),
         I('narae-chagi', 'kick', 'Narae Chagi', '나래차기', 'Double roundhouse kick', 'الركلة الدائرية المزدوجة', {
-          points: [['Two roundhouse kicks, left-right, with a small jump', 'ركلتين دائريتين شمال ويمين بنطة صغيرة'], ['Keep the rhythm fast', 'خلي الإيقاع سريع']] }),
+          points: [['Two roundhouse kicks, left-right, with a small jump', 'ركلتان دائريتان يسارًا ويمينًا بقفزة صغيرة'], ['Keep the rhythm fast', 'اجعل الإيقاع سريعًا']] }),
         I('kyorugi', 'sparring', 'Kyorugi', '겨루기', 'Sparring rules', 'قوانين القتال', {
-          points: [['Points for kicks to the body and head, punches to the body', 'نقط للركلات على الجسم والراس وللكمات على الجسم'], ['No attacks below the belt or to the back of the head', 'ممنوع تحت الحزام أو ورا الراس']] }),
+          points: [['Points for kicks to the body and head, punches to the body', 'نقاط للركلات على الجسم والرأس وللكمات على الجسم'], ['No attacks below the belt or to the back of the head', 'ممنوع الضرب تحت الحزام أو خلف الرأس']] }),
         I('gyeokpa', 'sparring', 'Gyeokpa', '격파', 'Board breaking', 'تكسير الخشب', {
-          points: [['Aim through the board, not at it', 'صوّب لورا اللوح مش عليه'], ['Only with the coach and the right boards', 'مع المدرب وبالألواح المناسبة بس']] }),
-        T(8, 'Pal', 'Gon ☷', 'Earth — the end and a new beginning', 'الأرض — النهاية وبداية جديدة', 24, 'jumping double front kick, back stance, elbow strikes', 'ركلة أمامية مزدوجة بالنطة، الوقفة الخلفية، ضربات الكوع')
+          points: [['Aim through the board, not at it', 'صوّب إلى ما خلف اللوح لا عليه'], ['Only with the coach and the right boards', 'مع المدرب وبالألواح المناسبة فقط']] }),
+        T(8, 'Pal', 'Gon ☷', 'Earth — the end and a new beginning', 'الأرض — النهاية وبداية جديدة', 24, 'jumping double front kick, back stance, elbow strikes', 'ركلة أمامية مزدوجة بالقفز، والوقفة الخلفية، وضربات المرفق')
       ] },
 
     { id: 'black', color: '#111827', accent: '#f59e0b', geup: P('1st Poom / Dan', 'البوم / الدان الأول'), name: P('Black Belt', 'الحزام الأسود'),
-      goal: P('Koryo, all eight Taegeuk, free sparring and breaking.', 'كوريو، كل التيجوك التمانية، القتال الحر والتكسير.'),
+      goal: P('Koryo, all eight Taegeuk, free sparring and breaking.', 'كوريو، وكل التيجوك الثمانية، والقتال الحر والتكسير.'),
       items: [
         I('hakdari-seogi', 'stance', 'Hakdari Seogi', '학다리서기', 'Crane stance', 'وقفة الكركي', {
-          points: [['Stand on one leg, the other foot at the knee', 'اقف على رجل واحدة والتانية عند ركبتك'], ['Standing knee slightly bent', 'الركبة الواقفة مثنية شوية']] }),
+          points: [['Stand on one leg, the other foot at the knee', 'قف على رجل واحدة والأخرى عند ركبتك'], ['Standing knee slightly bent', 'الركبة التي تقف عليها مثنية قليلًا']] }),
         I('koryo', 'poomsae', 'Koryo', '고려', 'Koryo', 'كوريو', { moves: 30,
-          points: [['Meaning: the strong spirit of the Koryo people', 'المعنى: روح شعب كوريو القوية'], ['30 movements — first black-belt form', '٣٠ حركة — أول شكل للحزام الأسود'], ['Double side kicks, knife-hand and crane stance', 'ركلات جانبية مزدوجة، حد الإيد، ووقفة الكركي']] }),
+          points: [['Meaning: the strong spirit of the Koryo people', 'المعنى: روح شعب كوريو القوية'], ['30 movements — first black-belt form', '٣٠ حركة — أول شكل للحزام الأسود'], ['Double side kicks, knife-hand and crane stance', 'ركلات جانبية مزدوجة، وحد اليد، ووقفة الكركي']] }),
         I('taegeuk-review', 'poomsae', 'Taegeuk 1–8', '태극 1–8장', 'All Taegeuk review', 'مراجعة كل التيجوك', {
-          points: [['Any Taegeuk, called by the examiner', 'أي تيجوك يطلبه الممتحن'], ['Power, speed and rhythm are marked', 'بيتقيّم القوة والسرعة والإيقاع']] }),
+          points: [['Any Taegeuk, called by the examiner', 'أي تيجوك يطلبه الممتحن'], ['Power, speed and rhythm are marked', 'تُقيَّم القوة والسرعة والإيقاع']] }),
         I('free-kyorugi', 'sparring', 'Jayu Kyorugi', '자유겨루기', 'Free sparring', 'القتال الحر', {
-          points: [['Full gear: helmet, chest guard, shin and arm guards, mouth guard', 'كل الحماية: خوذة، صدرية، واقي رجل ودراع، وواقي سنان'], ['Respect the referee and the partner', 'احترم الحكم والزميل']] })
+          points: [['Full gear: helmet, chest guard, shin and arm guards, mouth guard', 'كل الواقيات: خوذة، وصدرية، وواقي الساق والذراع، وواقي الأسنان'], ['Respect the referee and the partner', 'احترم الحكم والزميل']] })
       ] }
   ];
 
@@ -903,7 +903,7 @@ function watchVideoLoading(video) {
 // Arabic or English voice, degrees and ranges in words)
 // v63.4 — the version a tester can read on the start screen and in Coach → Settings (bump it
 // together with CACHE_VERSION in sw.js)
-const APP_VERSION = '63.4';
+const APP_VERSION = '63.5';
 
 const SpeechVoice = {
   KEY: 'taekwondoJourneyVoice',
@@ -955,7 +955,7 @@ const SpeechVoice = {
   check(lang) {
     if (this.warned || !String(lang).startsWith('ar') || !this.load().length || this.of('ar').length) return;
     this.warned = true;
-    try { TKD.toast('🔇 مفيش صوت عربي على الجهاز ده — ولي الأمر يقدر ينزّله: وضع المدرب ← الإعدادات ← صوت القراءة', 'info'); } catch (e) {}
+    try { TKD.toast('🔇 لا يوجد صوت عربي على هذا الجهاز — يمكن لولي الأمر تنزيله من: وضع المدرب ← الإعدادات ← صوت القراءة', 'info'); } catch (e) {}
   }
 };
 try { if (window.speechSynthesis) { SpeechVoice.load(); window.speechSynthesis.addEventListener?.('voiceschanged', () => SpeechVoice.load()); } } catch (e) {}
@@ -993,7 +993,7 @@ const SpeechHelper = {
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'speak-btn';
-    btn.title = (typeof TKD !== 'undefined' && TKD.ar) ? 'اسمع' : 'Listen';   // v53: in the child's language
+    btn.title = (typeof TKD !== 'undefined' && TKD.ar) ? 'استمع' : 'Listen';   // v53: in the child's language
     btn.setAttribute('aria-label', btn.title);
     btn.innerHTML = '<i class="fas fa-volume-up"></i>';
     btn.addEventListener('click', (e) => {
@@ -1179,7 +1179,7 @@ class GameState {
       } else this.practiceStreak = 1;
       if (dayGap >= 1 && this.practiceStreak > 0 && this.practiceStreak % 7 === 0 && this.streakShields < 2) {
         this.streakShields += 1;
-        setTimeout(() => window.TKD?.toast(TKD.t('🛡️ 7 days in a row — you earned a day shield!', '🛡️ ٧ أيام ورا بعض — كسبت درع يوم!'), 'success'), 3200);
+        setTimeout(() => window.TKD?.toast(TKD.t('🛡️ 7 days in a row — you earned a day shield!', '🛡️ ٧ أيام متتالية — ربحت درع يوم!'), 'success'), 3200);
       }
     } else {
       this.practiceStreak = 1; // very first visit ever
@@ -1403,13 +1403,13 @@ class GameState {
 
   static LESSON_TEXT = {
     apchagi: {
-      ar: { learningTitle: '🎓 اتعلم آب تشاجي', learningSubtitle: 'اتقن المراحل الخمسة للركلة الأمامية', coachInstruction1: 'بص أنا بعمل الركلة الأمامية إزاي خطوة بخطوة!' },
+      ar: { learningTitle: '🎓 تعلّم آب تشاجي', learningSubtitle: 'أتقن المراحل الخمس للركلة الأمامية', coachInstruction1: 'انظر كيف أؤدي الركلة الأمامية خطوة بخطوة!' },
       en: { learningTitle: '🎓 Learn Ap Chagi', learningSubtitle: 'Master the 5 stages of the front kick', coachInstruction1: 'Watch how I perform the front kick step by step!' } },
     narochagi: {
-      ar: { learningTitle: '🎓 اتعلم نارو تشاجي', learningSubtitle: 'اتقن المراحل الخمسة للركلة المطرقية', coachInstruction1: 'بص أنا بعمل الركلة المطرقية إزاي خطوة بخطوة!' },
+      ar: { learningTitle: '🎓 تعلّم نارو تشاجي', learningSubtitle: 'أتقن المراحل الخمس للركلة المطرقية', coachInstruction1: 'انظر كيف أؤدي الركلة المطرقية خطوة بخطوة!' },
       en: { learningTitle: '🎓 Learn Naeryeo Chagi', learningSubtitle: 'Master the 5 stages of the axe kick', coachInstruction1: 'Watch how I perform the axe kick step by step!' } },
     bakchagi3: {
-      ar: { learningTitle: '🎓 اتعلم بيك تشاجي', learningSubtitle: 'اتقن المراحل الخمسة للركلة الدائرية (اسمها كمان دوليو تشاجي)', coachInstruction1: 'بص أنا بعمل الركلة الدائرية إزاي خطوة بخطوة!' },
+      ar: { learningTitle: '🎓 تعلّم بيك تشاجي', learningSubtitle: 'أتقن المراحل الخمس للركلة الدائرية (واسمها أيضًا دوليو تشاجي)', coachInstruction1: 'انظر كيف أؤدي الركلة الدائرية خطوة بخطوة!' },
       en: { learningTitle: '🎓 Learn Bik Chagi', learningSubtitle: 'Master the 5 stages of the roundhouse kick (also called Dollyeo Chagi)', coachInstruction1: 'Watch how I perform the roundhouse kick step by step!' } }
   };
   // v53: texts written for Ap Chagi that are really about "the kick you're learning" (the
@@ -1502,72 +1502,72 @@ class GameState {
         curriculumNav: 'Belt Syllabus', privacyNav: 'Privacy', curriculumTitle: '📚 Belt Syllabus', curriculumDesc: 'Every belt, every technique and every poomsae — tap one to learn it.'
       },
       ar: {
-        apChagiMenuDesc: 'اختار هتروح فين في رحلة آب تشاجي',
+        apChagiMenuDesc: 'اختر وجهتك في رحلة آب تشاجي',
         learningStage: 'مرحلة التعلم',
-        learningStageDesc: 'اتفرج على الدروس واتعلم المراحل الخمسة لركلة آب تشاجي',
-        gamesMenuDesc: 'اتمرن مع الألعاب التفاعلية',
+        learningStageDesc: 'شاهد الدروس وتعلّم المراحل الخمس لركلة آب تشاجي',
+        gamesMenuDesc: 'تمرّن مع الألعاب التفاعلية',
         warmupMenuDesc: 'جهّز جسمك بتمارين الإحماء قبل التمرين',
         tests: 'الاختبارات',
-        testsDesc: 'اختبر معلوماتك وخد إنجازك',
-        watchTutorial: '🎥 اتفرج على فيديو تعليم آب تشاجي',
+        testsDesc: 'اختبر معلوماتك واحصل على إنجازك',
+        watchTutorial: '🎥 شاهد فيديو تعليم آب تشاجي',
         play: 'تشغيل', replay: 'إعادة',
-        videoInstruction1: 'اتفرج على الفيديو التعليمي كله لركلة آب تشاجي',
+        videoInstruction1: 'شاهد الفيديو التعليمي كاملًا لركلة آب تشاجي',
 
         gameTitle: 'رحلة التايكوندو', gameSubtitle: 'مغامرة تايكوندو تعليمية',
         home: 'الرئيسية', learning: 'التعلم', games: 'الألعاب', changeCharacter: 'غيّر الشخصية', quiz: 'الاختبار', warmup: 'الإحماء',
-        welcome: '👋 أهلًا بيك في رحلة التايكوندو', homeDescription: 'ابدأ رحلتك عشان تحترف حركات التايكوندو. خلّص كل مهارة عشان تفتح اللي بعدها!',
+        welcome: '👋 أهلًا بك في رحلة التايكوندو', homeDescription: 'ابدأ رحلتك لتحترف حركات التايكوندو. أنهِ كل مهارة لتفتح المهارة التالية!',
         apChagi: 'آب تشاجي', frontKick: 'الركلة الأمامية المستقيمة', naroChagi: 'نارو تشاجي', bakChagi3: 'بيك تشاجي',
-        completePrevious: 'خلّص المهارة اللي قبلها عشان تفتح', startLearning: 'ابدأ اتعلم',
+        completePrevious: 'أنهِ المهارة السابقة لتفتح هذه', startLearning: 'ابدأ التعلّم',
         boy: 'الولد', girl: 'البنت',
 
-        leaderboardTitle: '🏆 لوحة المتصدرين', leaderboardDesc: 'شوف ترتيبك مقارنة بكل اللاعبين على الجهاز ده.', leaderboardMyStats: 'إحصائياتي', leaderboardAllPlayers: 'كل اللاعبين', leaderboardExport: '⬇️ نزّل النتايج (CSV)', leaderboardSwitchPlayer: '🔁 غيّر اللاعب',
-        changeCharacterTitle: '👤 غيّر الشخصية', currentCharacter: 'الشخصية دلوقتي:', selectNewCharacter: 'اختار شخصية جديدة:', select: 'اختار',
-        coachName: '🧔🏽 كوتش سيف:',        coachInstruction1: 'بص أنا بعمل الركلة الأمامية إزاي خطوة بخطوة!', learningTitle: '🎓 اتعلم آب تشاجي', learningSubtitle: 'اتقن المراحل الخمسة للركلة الأمامية',
-        preparation: 'الاستعداد (جونبي)', chamber: 'رفع الركبة', extension: 'فرد الركلة', recoil: 'سحب الرجل', return: 'الرجوع للوضعية',
-        gamesCenter: '🎮 مركز الألعاب', chooseGame: 'اختار لعبة وابدأ التمرين', formControl: 'ظبّط الوضعية', formControlDesc: 'اسحب النقاط لتصحيح شكل الركلة',
-        puzzleAssembly: 'رتّب المراحل', puzzleDesc: 'رتّب مراحل الركلة الخمس', notStarted: 'لسه مابدأش', completed: 'خلصت',
-        formControlGame: '🧍 ظبّط الوضعية — آب تشاجي', formControlInstructions: 'اسحب النقاط الملونة حتى يصبح شكل الركلة صحيحًا',
-        instructions: '🎯 التعليمات:', instruction1: 'ارفع ركبتك لحد صدرك', instruction2: 'افرد رجلك لقدام على طول', instruction3: 'خلي ضهرك مفرود', instruction4: 'اتوازن على رجل الارتكاز',
-        accuracy: 'الدقة:', checkForm: 'اتأكد من الشكل', autoPosition: 'وضع أوتوماتيك', formProgress: 'تقدّمك في الشكل:', backToGames: 'ارجع للألعاب',
+        leaderboardTitle: '🏆 لوحة المتصدرين', leaderboardDesc: 'شاهد ترتيبك مقارنةً بكل اللاعبين على هذا الجهاز.', leaderboardMyStats: 'إحصائياتي', leaderboardAllPlayers: 'كل اللاعبين', leaderboardExport: '⬇️ حمّل النتائج (CSV)', leaderboardSwitchPlayer: '🔁 غيّر اللاعب',
+        changeCharacterTitle: '👤 غيّر الشخصية', currentCharacter: 'الشخصية الحالية:', selectNewCharacter: 'اختر شخصية جديدة:', select: 'اختر',
+        coachName: '🧔🏽 كوتش سيف:',        coachInstruction1: 'انظر كيف أؤدي الركلة الأمامية خطوة بخطوة!', learningTitle: '🎓 تعلّم آب تشاجي', learningSubtitle: 'أتقن المراحل الخمس للركلة الأمامية',
+        preparation: 'الاستعداد (جونبي)', chamber: 'رفع الركبة', extension: 'مد الرجل', recoil: 'سحب الرجل', return: 'الرجوع إلى وضع الاستعداد',
+        gamesCenter: '🎮 مركز الألعاب', chooseGame: 'اختر لعبة وابدأ التمرين', formControl: 'اضبط الوضعية', formControlDesc: 'اسحب النقاط لتصحيح شكل الركلة',
+        puzzleAssembly: 'رتّب المراحل', puzzleDesc: 'رتّب مراحل الركلة الخمس', notStarted: 'لم تبدأ بعد', completed: 'انتهيت',
+        formControlGame: '🧍 اضبط الوضعية — آب تشاجي', formControlInstructions: 'اسحب النقاط الملونة حتى يصبح شكل الركلة صحيحًا',
+        instructions: '🎯 التعليمات:', instruction1: 'ارفع ركبتك إلى صدرك', instruction2: 'افرد رجلك إلى الأمام مباشرة', instruction3: 'أبقِ ظهرك مستقيمًا', instruction4: 'حافظ على توازنك على رجل الارتكاز',
+        accuracy: 'الدقة:', checkForm: 'تحقّق من الشكل', autoPosition: 'وضع تلقائي', formProgress: 'تقدّمك في الشكل:', backToGames: 'ارجع إلى الألعاب',
         puzzleGame: '🧩 رتّب المراحل', puzzleInstructions: 'رتّب مراحل الركلة من ١ إلى ٥.\nهناك قطعة زائدة، اتركها خارج الترتيب.',
         puzzlePieces: 'اسحب القطعة إلى الخانة المناسبة، أو اضغط على القطعة ثم على رقم الخانة.',
-        checkPuzzle: 'اتأكد من الترتيب', hint: 'تلميح', puzzleProgress: 'تقدّمك في التركيب:', taekwondoQuiz: '❓ اختبر معلوماتك في التايكوندو', quizDescription: 'اختبر فهمك لحركات ومصطلحات التايكوندو', question: 'سؤال', score: 'النقط:',
-        winner: '🏆 مبروك!', achievementsUnlocked: 'الإنجازات اللي اتفتحت:',
-        nextLevel: 'المستوى اللي بعده', tryAgain: 'جرّب تاني', backToMenu: 'ارجع للرئيسية',
-        coachCongrats: 'برافو يا بطل! تعبك في إتقان آب تشاجي يجنن. كمّل تمرين!',
+        checkPuzzle: 'تحقّق من الترتيب', hint: 'تلميح', puzzleProgress: 'تقدّمك في التركيب:', taekwondoQuiz: '❓ اختبر معلوماتك في التايكوندو', quizDescription: 'اختبر فهمك لحركات ومصطلحات التايكوندو', question: 'سؤال', score: 'النقاط:',
+        winner: '🏆 مبروك!', achievementsUnlocked: 'الإنجازات التي فُتحت:',
+        nextLevel: 'المستوى التالي', tryAgain: 'حاول مرة أخرى', backToMenu: 'ارجع إلى الرئيسية',
+        coachCongrats: 'أحسنت يا بطل! مجهودك في إتقان آب تشاجي رائع. واصل التمرين!',
         reset: 'ابدأ من جديد',
-        backToHome: 'ارجع للرئيسية',
+        backToHome: 'ارجع إلى الرئيسية',
         nextQuestion: 'السؤال التالي',
-        resetData: 'امسح البيانات',
-        backupExport: 'احفظ نسخة احتياطية', backupImport: 'رجّع نسخة احتياطية',
-        locked: 'مقفول', naroChagiDesc: 'الركلة المطرقية من فوق لتحت', bakChagi3Desc: 'الركلة الدائرية',
-        trophyRoom: 'فاترينة الإنجازات', trophyRoomTitle: '🏆 فاترينة إنجازات الدوجانج', trophyRoomDesc: 'كل ميدالية وكاس وشهادة خدتها في رحلتك',
-        coolDown: 'تهدئة', coolDownTitle: '🧘 وقت التهدئة', coolDownDesc: 'تمرين جامد! اعمل إطالة للعضلات دي 20 ثانية لكل واحدة عشان تخلّص بأمان.', coolDownDone: 'خلّصت الإطالة',
-        reportNav: 'تقرير التقدم', reportTitle: '📊 تقرير التقدم', reportDesc: 'ملخص سريع للقراية بس، لأولياء الأمور والمدربين.',
+        resetData: 'احذف البيانات',
+        backupExport: 'احفظ نسخة احتياطية', backupImport: 'استرجع نسخة احتياطية',
+        locked: 'مغلق', naroChagiDesc: 'الركلة المطرقية من أعلى لأسفل', bakChagi3Desc: 'الركلة الدائرية',
+        trophyRoom: 'خزانة الإنجازات', trophyRoomTitle: '🏆 خزانة إنجازات الدوجانج', trophyRoomDesc: 'كل ميدالية وكأس وشهادة حصلت عليها في رحلتك',
+        coolDown: 'تهدئة', coolDownTitle: '🧘 وقت التهدئة', coolDownDesc: 'تمرين رائع! أطِل هذه العضلات ٢٠ ثانية لكل منها لتُنهي التمرين بأمان.', coolDownDone: 'أنهيت الإطالة',
+        reportNav: 'تقرير التقدم', reportTitle: '📊 تقرير التقدم', reportDesc: 'ملخص سريع للقراءة فقط، لأولياء الأمور والمدربين.',
         menuTitle: 'القائمة', navSectionTrain: 'التمرين', navSectionProgress: 'التقدم', navSectionData: 'البيانات',
         actionTitle: 'تحدي الضربة', actionDesc: 'تحدٍّ عملي مختلف لكل ركلة',
         errorHuntTitle: 'صيّاد الأخطاء', errorHuntDesc: 'اكتشف الخطأ المخفي في الركلة',
         errorHuntGame: '🔍 صيّاد الأخطاء', errorHuntInstructions: 'اضغط على مكان الخطأ في الركلة',
         quizBlastTitle: 'كويز الفضاء', quizBlastDesc: 'أصِب الإجابة الصحيحة بالليزر',
         quizBlastGame: '🚀 كويز الفضاء', quizBlastInstructions: 'حرّك الخوذة بالأسهم (أو بالسحب)، واضغط المسافة (أو زر 🔥) لإصابة الإجابة الصحيحة. لديك ٣ محاولات!',
-        downloadCertificate: 'نزّل شهادة الإتقان 📜',
+        downloadCertificate: 'حمّل شهادة الإتقان 📜',
         boardBreakTitle: 'كسر الألواح', boardBreakDesc: 'اختر جزء القدم الصحيح واكسر اللوح',
         paddleTitle: 'مضارب الأهداف', paddleDesc: 'اضرب المضرب الصحيح بسرعة!',
         rhythmTitle: 'إيقاع الركلة', rhythmDesc: 'اضغط على المراحل مع الإيقاع',
-        coreGames: 'الألعاب بالترتيب — كل لعبة بتفتح اللي بعدها، وبعد آخر لعبة يتفتح الاختبار', bonusGames: 'ألعاب زيادة',
+        coreGames: 'الألعاب بالترتيب — كل لعبة تفتح التي تليها، وبعد آخر لعبة يُفتح الاختبار', bonusGames: 'ألعاب إضافية',
         dashboardNav: 'لوحة اللاعبين',
-        dashboardTitle: '📊 لوحة اللاعبين', dashboardDesc: 'النتائج والملاحظات لكل لاعب على الجهاز ده.',
-        dashboardOpen: 'افتح لوحة اللاعبين', dashboardExportPlayer: 'اللاعب ده (CSV)', dashboardExportAll: 'كل اللاعبين (CSV)',
+        dashboardTitle: '📊 لوحة اللاعبين', dashboardDesc: 'النتائج والملاحظات لكل لاعب على هذا الجهاز.',
+        dashboardOpen: 'افتح لوحة اللاعبين', dashboardExportPlayer: 'هذا اللاعب (CSV)', dashboardExportAll: 'كل اللاعبين (CSV)',
         sparringTitle: 'النزال', sparringDesc: 'اركل عندما يضيء الهدف الصحيح',
-        balanceTitle: 'اثبت واتوازن', balanceDesc: 'اثبت على رجل واحدة دون أن تسقط',
+        balanceTitle: 'اثبت وتوازن', balanceDesc: 'اثبت على رجل واحدة دون أن تسقط',
         heavyBagTitle: 'كيس الركلات', heavyBagDesc: 'اركل الكيس في اللحظة المناسبة',
-        leagueNav: 'التحديات', versusNav: 'تحدّى صاحبك', switchPlayerNav: 'غيّر اللاعب', coachNav: 'وضع المدرب',
-        leagueTitle: '🏆 التحديات', leagueDesc: 'العب تحدي النهارده، واجه صحابك واكسب جوايز الأسبوع.',
-        versusTitle: '⚔️ تحدّى صاحبك', versusDesc: 'لاعبين على شاشة واحدة: اللي يركل الأول في هدف صح ياخد النقط.',
+        leagueNav: 'التحديات', versusNav: 'تحدَّ صديقك', switchPlayerNav: 'غيّر اللاعب', coachNav: 'وضع المدرب',
+        leagueTitle: '🏆 التحديات', leagueDesc: 'العب تحدي اليوم، وواجه أصدقاءك، واربح جوائز الأسبوع.',
+        versusTitle: '⚔️ تحدَّ صديقك', versusDesc: 'لاعبان على شاشة واحدة: من يركل هدفًا صحيحًا أولًا يحصل على النقاط.',
         coachTitle: '🧔🏽 وضع المدرب',
-        profileNav: 'صفحة البطل بتاعتي', playersNav: 'كل اللاعبين',
-        playersTitle: '👥 كل اللاعبين', playersDesc: 'كل اللي بيتمرنوا على الجهاز ده — دوس على أي لاعب تشوف صفحته.',
-        curriculumNav: 'منهج الأحزمة', privacyNav: 'الخصوصية', curriculumTitle: '📚 منهج الأحزمة', curriculumDesc: 'كل حزام وكل حركة وكل بومسي — دوس على أي حاجة وتعلّمها.'
+        profileNav: 'صفحتي يا بطل', playersNav: 'كل اللاعبين',
+        playersTitle: '👥 كل اللاعبين', playersDesc: 'كل من يتمرن على هذا الجهاز — اضغط على أي لاعب لتشاهد صفحته.',
+        curriculumNav: 'منهج الأحزمة', privacyNav: 'الخصوصية', curriculumTitle: '📚 منهج الأحزمة', curriculumDesc: 'كل حزام وكل حركة وكل بومسي — اضغط على أي منها لتتعلّمه.'
       }
     };
 
@@ -1582,7 +1582,7 @@ class GameState {
     });
 
     // v53: every 🔊 button is named in the child's language (they all said "Listen")
-    const listen = this.currentLanguage === 'ar' ? 'اسمع' : 'Listen';
+    const listen = this.currentLanguage === 'ar' ? 'استمع' : 'Listen';
     document.querySelectorAll('.speak-btn').forEach(b => { b.title = listen; b.setAttribute('aria-label', listen); });
     document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
       const key = element.getAttribute('data-i18n-placeholder');
@@ -1657,9 +1657,9 @@ class GameState {
     if (!el) return;
     const ar = this.currentLanguage === 'ar';
     if (this.practiceStreak >= 2) {
-      el.innerHTML = `<div class="streak-badge"><span class="streak-flame">🔥</span><span class="streak-label">${ar ? `${TKD.count(this.practiceStreak, 'day', 'ar')} ورا بعض` : `${this.practiceStreak}-day streak`}</span></div>`;
+      el.innerHTML = `<div class="streak-badge"><span class="streak-flame">🔥</span><span class="streak-label">${ar ? `${TKD.count(this.practiceStreak, 'day', 'ar')} على التوالي` : `${this.practiceStreak}-day streak`}</span></div>`;
     } else {
-      el.innerHTML = `<div class="streak-badge streak-badge-new"><span class="streak-flame">🔥</span><span class="streak-label">${ar ? 'ابدأ سلسلتك النهارده!' : 'Start your streak today!'}</span></div>`;
+      el.innerHTML = `<div class="streak-badge streak-badge-new"><span class="streak-flame">🔥</span><span class="streak-label">${ar ? 'ابدأ سلسلتك اليوم!' : 'Start your streak today!'}</span></div>`;
     }
   }
 
@@ -1692,7 +1692,7 @@ class GameState {
     if (target.done) {
       wrap.innerHTML = `
         <button class="btn btn-success" onclick="switchScreen('trophy-room')">
-          <i class="fas fa-trophy"></i> ${ar ? 'خلّصت كل حاجة! شوف إنجازاتك' : "You've completed everything! See your trophies"}
+          <i class="fas fa-trophy"></i> ${ar ? 'أنهيت كل شيء! شاهد إنجازاتك' : "You've completed everything! See your trophies"}
         </button>`;
       return;
     }
@@ -1706,7 +1706,7 @@ class GameState {
     };
     const stageName = ar ? stageLabels[target.stage].ar : stageLabels[target.stage].en;
     const label = ar
-      ? `كمّل من مكان ما وقفت — ${skillName} (${stageName})`
+      ? `أكمل من حيث توقفت — ${skillName} (${stageName})`
       : `Continue Training — ${skillName} (${stageName})`;
     wrap.innerHTML = `
       <button class="btn btn-success" onclick="resumeTraining()">
@@ -1725,8 +1725,8 @@ class GameState {
   static BELTS = [
     { id: 'white-0', threshold: 0, stripes: 0, color: '#f8fafc', accent: '#cbd5e1', name: { en: 'White Belt',                    ar: 'الحزام الأبيض' } },
     { id: 'white-1', threshold: 1, stripes: 1, color: '#f8fafc', accent: '#cbd5e1', name: { en: 'White Belt — 1st Stripe',       ar: 'الحزام الأبيض — الشريط الأول' } },
-    { id: 'white-2', threshold: 2, stripes: 2, color: '#f8fafc', accent: '#cbd5e1', name: { en: 'White Belt — 2nd Stripe',       ar: 'الحزام الأبيض — الشريط التاني' } },
-    { id: 'white-3', threshold: 3, stripes: 3, color: '#f8fafc', accent: '#cbd5e1', name: { en: 'White Belt — 3rd Stripe',       ar: 'الحزام الأبيض — الشريط التالت' } }
+    { id: 'white-2', threshold: 2, stripes: 2, color: '#f8fafc', accent: '#cbd5e1', name: { en: 'White Belt — 2nd Stripe',       ar: 'الحزام الأبيض — الشريط الثاني' } },
+    { id: 'white-3', threshold: 3, stripes: 3, color: '#f8fafc', accent: '#cbd5e1', name: { en: 'White Belt — 3rd Stripe',       ar: 'الحزام الأبيض — الشريط الثالث' } }
   ];
 
   getBeltInfo() {
@@ -1796,11 +1796,11 @@ class GameState {
       if (progressBar) progressBar.style.width = `${game.progress}%`;
       if (statusElement) {
         if (game.progress >= GameConfig.SETTINGS.PASSING_SCORE) {
-          statusElement.textContent = this.currentLanguage === 'ar' ? 'خلصت' : 'Completed';
+          statusElement.textContent = this.currentLanguage === 'ar' ? 'انتهيت' : 'Completed';
         } else if (game.progress > 0) {
-          statusElement.textContent = this.currentLanguage === 'ar' ? 'شغال' : 'In Progress';
+          statusElement.textContent = this.currentLanguage === 'ar' ? 'قيد اللعب' : 'In Progress';
         } else {
-          statusElement.textContent = this.currentLanguage === 'ar' ? 'لسه مابدأش' : 'Not Started';
+          statusElement.textContent = this.currentLanguage === 'ar' ? 'لم تبدأ بعد' : 'Not Started';
         }
       }
       // v30: the same ★★★ as the map, so a child sees at a glance which game to improve
@@ -1849,7 +1849,7 @@ class GameState {
     const ar = this.currentLanguage === 'ar';
     
     if (this.completedSkills.has('apchagi')) {
-      if (apChagiStatus) apChagiStatus.textContent = ar ? 'خلصت ✓' : 'Completed ✓';
+      if (apChagiStatus) apChagiStatus.textContent = ar ? 'انتهيت ✓' : 'Completed ✓';
       this.unlockSkill('narochagi');
       this.unlockSkillCard('narochagi', 'naroChagiDesc');
     }
@@ -1937,7 +1937,7 @@ class GameState {
       const belt = this.getBeltInfo();
       const ar = this.currentLanguage === 'ar';
       const message = ar
-        ? `🎖️ مبروك! خلّصت مهارة ${skillName}! حزامك دلوقتي: ${belt.name.ar}`
+        ? `🎖️ مبروك! أنهيت مهارة ${skillName}! حزامك الآن: ${belt.name.ar}`
         : `🎖️ Congratulations! You mastered ${skillName}! Your belt is now: ${belt.name.en}`;
       this.showNotification(message, 'success');
       return true;
@@ -2065,7 +2065,7 @@ class GameState {
       this.saveToStorage();
       this.showNotification(
         this.currentLanguage === 'ar'
-          ? '💡 نصيحة: بص على الدرس تاني بسرعة، وبعدين جرّب — إنت قدها!'
+          ? '💡 نصيحة: راجع الدرس بسرعة، ثم حاول — أنت قادر على ذلك!'
           : '💡 Tip: take a quick look at the lesson again, then try — you can do it!',
         'info'
       );
@@ -2360,7 +2360,7 @@ class LearningSystem {
 
           <div class="phase-card-header" style="background: ${phase.color}22">
             <h2 class="phase-title">${phase.title}</h2>
-            <button type="button" class="say-mini phase-say" id="phase-say" aria-label="${ar ? 'اقرالي' : 'Read it to me'}"><span aria-hidden="true">🔊</span></button>
+            <button type="button" class="say-mini phase-say" id="phase-say" aria-label="${ar ? 'اقرأ لي' : 'Read it to me'}"><span aria-hidden="true">🔊</span></button>
             <span class="phase-counter">${ar ? `${this.currentPhase + 1} / ${total}` : `${this.currentPhase + 1} / ${total}`}</span>
           </div>
 
@@ -2386,12 +2386,12 @@ class LearningSystem {
               : '<span></span>'
             }
             <div class="phase-read-badge" id="phase-read-badge" style="display:${this.phasesRead.has(this.currentPhase) ? 'flex' : 'none'}">
-              <i class="fas fa-check-circle"></i> ${ar ? 'قريتها' : 'Read!'}
+              <i class="fas fa-check-circle"></i> ${ar ? 'قرأتها' : 'Read!'}
             </div>
             <button class="btn btn-success" id="phase-next-btn">
               ${this.currentPhase === total - 1
-                ? (ar ? 'اتفرج على الفيديو 🎥' : 'Watch Video 🎥')
-                : (ar ? 'اللي بعده ←' : 'Next →')
+                ? (ar ? 'شاهد الفيديو 🎥' : 'Watch Video 🎥')
+                : (ar ? 'التالي ←' : 'Next →')
               }
             </button>
           </div>
@@ -2414,7 +2414,7 @@ class LearningSystem {
       this.gameState.playSound('click');
       const col = container.querySelector('.phase-info-col'), b = container.querySelector('#phase-more-btn');
       col?.classList.toggle('is-short', this.shortMode());
-      if (b) b.textContent = this.shortMode() ? (ar ? '📖 اقرا الشرح كله' : '📖 Read the whole lesson') : (ar ? '👶 كلام أقصر' : '👶 Shorter, please');
+      if (b) b.textContent = this.shortMode() ? (ar ? '📖 اقرأ الشرح كاملًا' : '📖 Read the whole lesson') : (ar ? '👶 كلام أقصر' : '👶 Shorter, please');
     });
 
     // v27: the character really moves into this phase (skeletal animation), when the kick has one
@@ -2474,7 +2474,7 @@ class LearningSystem {
       </div>
 
       <div class="video-container">
-        <h3>🎥 ${ar ? `اتفرج دلوقتي: ${skillName} كامل` : `Now Watch: Full ${skillName} Tutorial`}</h3>
+        <h3>🎥 ${ar ? `شاهد الآن: ${skillName} كاملًا` : `Now Watch: Full ${skillName} Tutorial`}</h3>
         <div class="video-wrapper">
           <video id="learning-video" controls preload="metadata" playsinline${/-tutorial\.mp4$/.test(skill.video || '') ? ` poster="${skill.video.replace(/\.mp4$/, '.webp')}"` : ''}>
             <source src="${skill.video}" type="video/mp4">
@@ -2483,15 +2483,15 @@ class LearningSystem {
           <div class="video-controls">
             <button class="btn btn-small" id="play-pause-btn"><i class="fas fa-play"></i> ${ar ? 'تشغيل' : 'Play'}</button>
             <button class="btn btn-small" id="replay-btn"><i class="fas fa-redo"></i> ${ar ? 'إعادة' : 'Replay'}</button>
-            ${/-tutorial\.mp4$/.test(skill.video || '') && !FILE_MODE ? `<button class="btn btn-small" id="captions-btn" aria-pressed="true">💬 ${ar ? 'الكلام مكتوب' : 'Captions'}</button>` : ''}
+            ${/-tutorial\.mp4$/.test(skill.video || '') && !FILE_MODE ? `<button class="btn btn-small" id="captions-btn" aria-pressed="true">💬 ${ar ? 'النص مكتوب' : 'Captions'}</button>` : ''}
             <button class="btn btn-small btn-success" id="mark-complete-btn" disabled>
-              <i class="fas fa-check"></i> ${ar ? 'اتفرجت ✓' : 'Mark as Watched ✓'}
+              <i class="fas fa-check"></i> ${ar ? 'شاهدته ✓' : 'Mark as Watched ✓'}
             </button>
           </div>
           <div class="video-progress-bar-wrap">
             <div class="video-progress-bar-fill" id="vid-progress-fill" style="width:0%"></div>
           </div>
-          <p class="video-hint">${ar ? '⏱️ اتفرج على 80% على الأقل عشان زرار الإكمال يشتغل' : '⏱️ Watch at least 80% to unlock the completion button'}</p>
+          <p class="video-hint">${ar ? '⏱️ شاهد ٨٠٪ على الأقل ليعمل زر الإكمال' : '⏱️ Watch at least 80% to unlock the completion button'}</p>
         </div>
         <button class="btn" id="back-to-phases-btn" style="margin-top:10px">
           <i class="fas fa-arrow-left"></i> ${ar ? 'راجع المراحل' : 'Review Phases'}
@@ -2590,7 +2590,7 @@ class LearningSystem {
     this.gameState.playSound('success');
     this.gameState.showNotification(
       this.gameState.currentLanguage === 'ar'
-        ? '🎉 برافو! دلوقتي تقدر تخلّص مرحلة التعلم.'
+        ? '🎉 أحسنت! الآن يمكنك إنهاء مرحلة التعلّم.'
         : '🎉 Great job! You can now complete the learning phase.',
       'success'
     );
@@ -2602,7 +2602,7 @@ class LearningSystem {
     this.gameState.playSound('success');
     this.gameState.showNotification(
       this.gameState.currentLanguage === 'ar'
-        ? '🎉 مبروك! خلّصت مرحلة التعلم بنجاح!'
+        ? '🎉 مبروك! أنهيت مرحلة التعلّم بنجاح!'
         : '🎉 Congratulations! Learning phase complete!',
       'success'
     );
@@ -2628,7 +2628,7 @@ class LearningSystem {
     this.gameState.updateHomeProgress();
     this.gameState.showNotification(
       this.gameState.currentLanguage === 'ar'
-        ? '🎓 برافو! قريت كل المراحل — الألعاب اتفتحت دلوقتي! اتفرج على الفيديو عشان تخلّص التعلم كله.'
+        ? '🎓 أحسنت! قرأت كل المراحل — فُتحت الألعاب الآن! شاهد الفيديو لتُنهي التعلّم كله.'
         : '🎓 Well done! All phases read — games are now unlocked! Watch the video to fully complete learning.',
       'success'
     );
@@ -3025,16 +3025,16 @@ class FormControlSystem {
   static partLabel(part, ar) {
     const surf = this.fc3d?.part || KickSpec[this.skillId]?.part;
     const left = KickLeg.isLeft(), mirror = !!this.fc3d && left;
-    const K = left ? ['الشمال', 'left'] : ['اليمين', 'right'], S = left ? ['اليمين', 'right'] : ['الشمال', 'left'];
-    const side = (isLeft) => (isLeft !== mirror) ? ['الشمال', 'Left'] : ['اليمين', 'Right'];
-    const F = { ball: ['كلوة', 'ball'], instep: ['وش', 'instep'] }[surf] || ['كعب', 'heel'];
+    const K = left ? ['اليسرى', 'left'] : ['اليمنى', 'right'], S = left ? ['اليمنى', 'right'] : ['اليسرى', 'left'];
+    const side = (isLeft) => (isLeft !== mirror) ? ['اليسرى', 'Left'] : ['اليمنى', 'Right'];
+    const F = { ball: ['كلوة', 'ball'], instep: ['وجه', 'instep'] }[surf] || ['كعب', 'heel'];
     const hL = side(true), hR = side(false);
     const N = {
       knee: [`ركبة الرجل ${K[0]}`, `${K[1]} knee`],
-      foot: [`${F[0]} الرجل ${K[0]}`, `${K[1]} ${F[1]}`],
-      guard: ['الإيدين (الحراسة)', 'Both fists (guard)'],
-      'hand-left': [`الإيد ${hL[0]}`, `${hL[1]} hand`],
-      'hand-right': [`الإيد ${hR[0]}`, `${hR[1]} hand`],
+      foot: [`${F[0]} القدم ${K[0]}`, `${K[1]} ${F[1]}`],
+      guard: ['اليدان (الحراسة)', 'Both fists (guard)'],
+      'hand-left': [`اليد ${hL[0]}`, `${hL[1]} hand`],
+      'hand-right': [`اليد ${hR[0]}`, `${hR[1]} hand`],
       pivot: [`لفّة القدم ${S[0]} (قدم الارتكاز)`, `${S[1]} foot turn (standing foot)`]
     }[part];
     if (!N) return part;
@@ -3044,14 +3044,14 @@ class FormControlSystem {
   // the short tag printed under each touch point
   static partTag(part, ar) {
     const left = KickLeg.isLeft(), mirror = !!this.fc3d && left;
-    const K = left ? ['الشمال', 'L'] : ['اليمين', 'R'], S = left ? ['اليمين', 'R'] : ['الشمال', 'L'];
+    const K = left ? ['اليسرى', 'L'] : ['اليمنى', 'R'], S = left ? ['اليمنى', 'R'] : ['اليسرى', 'L'];
     const surf = this.fc3d?.part || KickSpec[this.skillId]?.part;
-    const F = { ball: ['كلوة القدم', 'ball'], instep: ['وش القدم', 'instep'] }[surf] || ['الكعب', 'heel'];
-    const hand = (isLeft) => (isLeft !== mirror) ? ['إيد شمال', 'L hand'] : ['إيد يمين', 'R hand'];
+    const F = { ball: ['كلوة القدم', 'ball'], instep: ['وجه القدم', 'instep'] }[surf] || ['الكعب', 'heel'];
+    const hand = (isLeft) => (isLeft !== mirror) ? ['اليد اليسرى', 'L hand'] : ['اليد اليمنى', 'R hand'];
     const N = {
       knee: [`ركبة ${K[0]}`, `${K[1]} knee`],
       foot: [`${F[0]} ${K[0]}`, `${K[1]} ${F[1]}`],
-      guard: ['الإيدين', 'fists'],
+      guard: ['اليدان', 'fists'],
       'hand-left': hand(true), 'hand-right': hand(false),
       pivot: [`قدم ${S[0]}`, `${S[1]} foot`]
     }[part];
@@ -3065,38 +3065,38 @@ class FormControlSystem {
     const R = fwd > 0 ? '→' : '←', B = fwd > 0 ? '←' : '→';
     if (part === 'pivot') {
       const now = this.fcPivotDeg(cur), goal = this.fcRangeText(ar), n = v => (ar ? TKD.num(v) : v);
-      return now < F.dial.lo ? [`لفّ قدم الارتكاز أكتر 🔄 (دلوقتي ${n(now)}° — الصح ${goal})`, `Turn the standing foot more 🔄 (now ${n(now)}° — right: ${goal})`][A]
-                             : [`لفّ قدم الارتكاز أقل ↩️ (دلوقتي ${n(now)}° — الصح ${goal})`, `Turn the standing foot less ↩️ (now ${n(now)}° — right: ${goal})`][A];
+      return now < F.dial.lo ? [`لُفّ قدم الارتكاز أكثر 🔄 (الآن ${n(now)}° — الصحيح ${goal})`, `Turn the standing foot more 🔄 (now ${n(now)}° — right: ${goal})`][A]
+                             : [`لُفّ قدم الارتكاز أقل ↩️ (الآن ${n(now)}° — الصحيح ${goal})`, `Turn the standing foot less ↩️ (now ${n(now)}° — right: ${goal})`][A];
     }
     const name = this.partLabel(part, ar);
     if (Math.abs(dy) >= Math.abs(dx)) {
-      return dy > 0 ? [`ارفع ${name} لفوق ↑`, `Lift the ${name.toLowerCase()} higher ↑`][A]
-                    : [`نزّل ${name} شوية ↓`, `Bring the ${name.toLowerCase()} down a little ↓`][A];
+      return dy > 0 ? [`ارفع ${name} إلى أعلى ↑`, `Lift the ${name.toLowerCase()} higher ↑`][A]
+                    : [`أنزِل ${name} قليلًا ↓`, `Bring the ${name.toLowerCase()} down a little ↓`][A];
     }
     const goForward = dx * fwd < 0;
-    return goForward ? [`قدّم ${name} لقدّام ${R}`, `Move the ${name.toLowerCase()} forward ${R}`][A]
-                     : [`رجّع ${name} لورا ${B}`, `Bring the ${name.toLowerCase()} back ${B}`][A];
+    return goForward ? [`قدّم ${name} إلى الأمام ${R}`, `Move the ${name.toLowerCase()} forward ${R}`][A]
+                     : [`أرجِع ${name} إلى الخلف ${B}`, `Bring the ${name.toLowerCase()} back ${B}`][A];
   }
   // why each point matters, per kick (the 3D version — the targets are the real key moment)
   static FC_WHY = {
     apchagi: {
-      knee:  ['الركبة بتطلع لفوق الأول وبعدين الرجل تتفرد — هي اللي بتوجّه الركلة لصدر الخصم.', 'The knee comes up first, then the leg snaps out — the knee aims the kick at the partner\'s chest.'],
-      foot:  ['اضرب بقاعدة الأصابع (كلوة القدم) وصوابعك مسحوبة لورا عشان صوابعك متتعورش، والرجل مفرودة خالص.', 'Hit with the ball of the foot, toes pulled back so they don\'t get hurt, leg fully straight.'],
-      guard: ['الإيدين قدّام صدرك ووشك بيحموك وإنت واقف على رجل واحدة.', 'Fists up in front of your chest and face protect you while you stand on one leg.'],
-      pivot: ['قدم الارتكاز بتلف للخارج من ٤٥° لـ ٩٠° — ده بيفتح الوسط ويخلّي الركلة أبعد وأقوى.', 'The standing foot turns out 45°–90° — it opens the hips so the kick reaches further.']
+      knee:  ['ترتفع الركبة أولًا ثم تُفرد الرجل — فهي التي توجّه الركلة إلى صدر الخصم.', 'The knee comes up first, then the leg snaps out — the knee aims the kick at the partner\'s chest.'],
+      foot:  ['اضرب بقاعدة الأصابع (كلوة القدم) مع سحب أصابعك للخلف حتى لا تُصاب، والرجل مفرودة تمامًا.', 'Hit with the ball of the foot, toes pulled back so they don\'t get hurt, leg fully straight.'],
+      guard: ['اليدان أمام صدرك ووجهك تحميانك وأنت واقف على رجل واحدة.', 'Fists up in front of your chest and face protect you while you stand on one leg.'],
+      pivot: ['تلف قدم الارتكاز للخارج من ٤٥° إلى ٩٠° — فيفتح ذلك الوسط ويجعل الركلة أبعد وأقوى.', 'The standing foot turns out 45°–90° — it opens the hips so the kick reaches further.']
     },
     narochagi: {
-      knee:  ['الرجل بتطلع مفرودة خالص — الركبة مش بتتني خالص في الطلعة.', 'The leg rises completely straight — the knee does not bend on the way up.'],
-      foot:  ['الكعب يطلع لأعلى مكان تقدر عليه (لمستوى الوش أو أعلى) عشان ينزل بقوة زي الفاس.', 'The heel goes as high as you can (face height or higher) so it can drop like an axe.'],
-      pivot: ['قدم الارتكاز بتلف للخارج قليلًا بزاوية ٤٥°:٩٠°.', 'The standing foot turns outward a little, 45°–90° — the body stays facing the target.']
+      knee:  ['ترتفع الرجل مفرودة تمامًا — ولا تنثني الركبة أبدًا أثناء الصعود.', 'The leg rises completely straight — the knee does not bend on the way up.'],
+      foot:  ['يرتفع الكعب إلى أعلى مكان تستطيعه (مستوى الوجه أو أعلى) لينزل بقوة مثل الفأس.', 'The heel goes as high as you can (face height or higher) so it can drop like an axe.'],
+      pivot: ['تلف قدم الارتكاز للخارج قليلًا بزاوية ٤٥°:٩٠°.', 'The standing foot turns outward a little, 45°–90° — the body stays facing the target.']
     },
     bakchagi3: {
-      knee:  ['الركبة بتبص ناحية الهدف والرجل مطوية مستوية — ومنها الجزء اللي تحت من الرجل بيلف ويضرب بسرعة.', 'The knee points at the target with the leg folded level — then the lower leg whips round fast.'],
-      foot:  ['اضرب بوش القدم (ظهرها من فوق)، والكاحل مفرود وصوابعك ممدودة.', 'Strike with the instep (the top of the foot), ankle stretched and toes pointed.'],
-      front: ['الإيد اللي قدّام مرفوعة وبتحمي وشك وإنت بتلف.', 'The front hand stays up and guards your face while you turn.'],
-      back:  ['الإيد اللي ورا قريبة من جسمك وبتحميك وبتوازنك.', 'The back hand stays close to your body — it guards you and keeps your balance.'],
-      guard: ['الحراسة مرفوعة وإنت بتلف.', 'Guard up while you turn.'],
-      pivot: ['قدم الارتكاز بتلف حوالي ١٣٥° — والكعب ناحية الهدف — وده اللي بيفتح الوسط.', 'The standing foot turns about 135° — heel toward the target — that is what opens the hips.']
+      knee:  ['تتجه الركبة نحو الهدف والرجل مطوية بشكل أفقي — ومنها يلف الجزء السفلي من الرجل ويضرب بسرعة.', 'The knee points at the target with the leg folded level — then the lower leg whips round fast.'],
+      foot:  ['اضرب بوجه القدم (ظهر القدم)، والكاحل مفرود وأصابعك ممدودة.', 'Strike with the instep (the top of the foot), ankle stretched and toes pointed.'],
+      front: ['اليد الأمامية مرفوعة تحمي وجهك وأنت تلف.', 'The front hand stays up and guards your face while you turn.'],
+      back:  ['اليد الخلفية قريبة من جسمك تحميك وتحافظ على توازنك.', 'The back hand stays close to your body — it guards you and keeps your balance.'],
+      guard: ['الحراسة مرفوعة وأنت تلف.', 'Guard up while you turn.'],
+      pivot: ['تلف قدم الارتكاز نحو ١٣٥° — والكعب نحو الهدف — وهذا ما يفتح الوسط.', 'The standing foot turns about 135° — heel toward the target — that is what opens the hips.']
     }
   };
 
@@ -3180,13 +3180,13 @@ class FormControlSystem {
       },
       why: {
         knee:         { en: 'A higher knee stores more energy, which converts into explosive power at extension.',
-                        ar: 'الركبة العالية بتخزّن طاقة أكبر بتتحول لقوة انفجارية وقت ما تفرد رجلك.' },
+                        ar: 'الركبة العالية تخزّن طاقة أكبر تتحول إلى قوة انفجارية عندما تفرد رجلك.' },
         foot:         { en: 'Full forward extension delivers the strike at maximum reach and power.',
-                        ar: 'إنك تفرد القدم على الآخر لقدام بيوصّل الضربة لأبعد مسافة وبأقصى قوة.' },
+                        ar: 'فرد القدم إلى الأمام تمامًا يوصل الضربة إلى أبعد مسافة وبأقصى قوة.' },
         'hand-left':  { en: 'A high guard protects your face and chest from counter-attacks while you kick.',
-                        ar: 'الحراسة العالية بتحمي وشك وصدرك من أي هجمة مضادة وإنت بتركل.' },
+                        ar: 'الحراسة العالية تحمي وجهك وصدرك من أي هجمة مضادة وأنت تركل.' },
         'hand-right': { en: 'A high guard protects your face and chest from counter-attacks while you kick.',
-                        ar: 'الحراسة العالية بتحمي وشك وصدرك من أي هجمة مضادة وإنت بتركل.' }
+                        ar: 'الحراسة العالية تحمي وجهك وصدرك من أي هجمة مضادة وأنت تركل.' }
       }
     },
     narochagi: {
@@ -3205,13 +3205,13 @@ class FormControlSystem {
       },
       why: {
         knee:         { en: 'A full vertical rise gives the heel enough travel distance to drop with real force.',
-                        ar: 'الرفع العمودي الكامل بيدّي الكعب مسافة كفاية عشان ينزل بقوة حقيقية.' },
+                        ar: 'الرفع العمودي الكامل يمنح الكعب مسافة كافية لينزل بقوة حقيقية.' },
         foot:         { en: 'The foot must clear head height for the downward heel strike to be effective.',
-                        ar: 'لازم القدم توصل فوق مستوى الراس عشان ضربة الكعب النازلة تبقى فعّالة.' },
+                        ar: 'يجب أن تصل القدم فوق مستوى الرأس لتكون ضربة الكعب النازلة فعّالة.' },
         'hand-left':  { en: 'Keeping the guard up matters here too — you are momentarily off-balance during the rise.',
-                        ar: 'الحراسة مهمة هنا عشان تحميك وإنت طالع لفوق.' },
+                        ar: 'الحراسة مهمة هنا لتحميك وأنت ترفع رجلك.' },
         'hand-right': { en: 'Keeping the guard up matters here too — you are momentarily off-balance during the rise.',
-                        ar: 'الحراسة مهمة هنا عشان تحميك وإنت طالع لفوق.' }
+                        ar: 'الحراسة مهمة هنا لتحميك وأنت ترفع رجلك.' }
       }
     },
     bakchagi3: {
@@ -3232,15 +3232,15 @@ class FormControlSystem {
       },
       why: {
         knee:         { en: 'Lifting the knee and turning it over while the hip turns builds the momentum the strike depends on.',
-                        ar: 'رفع الركبة ولفّها مع لفّة الوسط هو اللي بيبني الزخم اللي الضربة معتمدة عليه.' },
+                        ar: 'رفع الركبة ولفّها مع لفّة الوسط هو ما يبني الزخم الذي تعتمد عليه الضربة.' },
         foot:         { en: 'A stretched ankle lets the instep meet the target with full speed and power.',
-                        ar: 'لما الكاحل يبقى مفرود، وش القدم بيوصل للهدف بأقصى سرعة وقوة.' },
+                        ar: 'عندما يكون الكاحل مفرودًا يصل وجه القدم إلى الهدف بأقصى سرعة وقوة.' },
         'hand-left':  { en: 'Guard must stay up while the body turns into the kick.',
-                        ar: 'لازم الحراسة تفضل مرفوعة وإنت بتلف في الركلة.' },
+                        ar: 'يجب أن تبقى الحراسة مرفوعة وأنت تلف في الركلة.' },
         'hand-right': { en: 'Guard must stay up while the body turns into the kick.',
-                        ar: 'لازم الحراسة تفضل مرفوعة وإنت بتلف في الركلة.' },
+                        ar: 'يجب أن تبقى الحراسة مرفوعة وأنت تلف في الركلة.' },
         pivot:        { en: 'Turning the standing foot about 135° (heel toward the target) opens the hips — the real power source.',
-                        ar: 'لفّة قدم الارتكاز حوالي 135° (والكعب ناحية الهدف) بتفتح الوسط — ودي مصدر القوة الحقيقي.' }
+                        ar: 'لفّة قدم الارتكاز نحو ١٣٥° (والكعب نحو الهدف) تفتح الوسط — وهي مصدر القوة الحقيقي.' }
       }
     }
   };
@@ -3249,51 +3249,51 @@ class FormControlSystem {
     knee: {
       label: { en: 'Knee', ar: 'الركبة' },
       hints: {
-        up:    { en: 'Knee is too high ↓', ar: 'الركبة عالية أوي ↓' },
-        down:  { en: 'Lift the knee higher ↑', ar: 'ارفع الركبة لفوق أكتر ↑' },
-        left:  { en: 'Bring knee inward →', ar: 'دخّل الركبة لجوه →' },
-        right: { en: 'Bring knee outward ←', ar: 'طلّع الركبة لبرّه ←' },
-        great: { en: '✅ Knee — Perfect!', ar: '✅ الركبة — جامدة!' }
+        up:    { en: 'Knee is too high ↓', ar: 'الركبة مرتفعة جدًا ↓' },
+        down:  { en: 'Lift the knee higher ↑', ar: 'ارفع الركبة أكثر ↑' },
+        left:  { en: 'Bring knee inward →', ar: 'أدخِل الركبة إلى الداخل →' },
+        right: { en: 'Bring knee outward ←', ar: 'أخرِج الركبة إلى الخارج ←' },
+        great: { en: '✅ Knee — Perfect!', ar: '✅ الركبة — ممتازة!' }
       }
     },
     foot: {
       label: { en: 'Foot', ar: 'القدم' },
       hints: {
-        up:    { en: 'Lower the foot slightly ↓', ar: 'نزّل القدم شوية ↓' },
-        down:  { en: 'Extend foot further ↑', ar: 'مدّ القدم لقدام أكتر ↑' },
-        left:  { en: 'Push foot further forward →', ar: 'زق القدم لقدام →' },
-        right: { en: 'Bring foot back ←', ar: 'رجّع القدم لورا ←' },
-        great: { en: '✅ Foot — Perfect!', ar: '✅ القدم — جامدة!' }
+        up:    { en: 'Lower the foot slightly ↓', ar: 'أنزِل القدم قليلًا ↓' },
+        down:  { en: 'Extend foot further ↑', ar: 'مُدّ القدم إلى الأمام أكثر ↑' },
+        left:  { en: 'Push foot further forward →', ar: 'ادفع القدم إلى الأمام →' },
+        right: { en: 'Bring foot back ←', ar: 'أرجِع القدم إلى الخلف ←' },
+        great: { en: '✅ Foot — Perfect!', ar: '✅ القدم — ممتازة!' }
       }
     },
     'hand-left': {
-      label: { en: 'Left Hand', ar: 'الإيد الشمال' },
+      label: { en: 'Left Hand', ar: 'اليد اليسرى' },
       hints: {
-        up:    { en: 'Lower left hand ↓', ar: 'نزّل الإيد الشمال ↓' },
-        down:  { en: 'Raise left hand ↑', ar: 'ارفع الإيد الشمال ↑' },
-        left:  { en: 'Move left hand right →', ar: 'حرّك الشمال لليمين →' },
-        right: { en: 'Move left hand left ←', ar: 'حرّك الشمال للشمال ←' },
-        great: { en: '✅ Left hand — Perfect!', ar: '✅ الإيد الشمال — جامدة!' }
+        up:    { en: 'Lower left hand ↓', ar: 'أنزِل اليد اليسرى ↓' },
+        down:  { en: 'Raise left hand ↑', ar: 'ارفع اليد اليسرى ↑' },
+        left:  { en: 'Move left hand right →', ar: 'حرّك اليسرى إلى اليمين →' },
+        right: { en: 'Move left hand left ←', ar: 'حرّك اليسرى إلى اليسار ←' },
+        great: { en: '✅ Left hand — Perfect!', ar: '✅ اليد اليسرى — ممتازة!' }
       }
     },
     'hand-right': {
-      label: { en: 'Right Hand', ar: 'الإيد اليمين' },
+      label: { en: 'Right Hand', ar: 'اليد اليمنى' },
       hints: {
-        up:    { en: 'Lower right hand ↓', ar: 'نزّل الإيد اليمين ↓' },
-        down:  { en: 'Raise right hand ↑', ar: 'ارفع الإيد اليمين ↑' },
-        left:  { en: 'Move right hand right →', ar: 'حرّك اليمين لليمين →' },
-        right: { en: 'Move right hand left ←', ar: 'حرّك اليمين للشمال ←' },
-        great: { en: '✅ Right hand — Perfect!', ar: '✅ الإيد اليمين — جامدة!' }
+        up:    { en: 'Lower right hand ↓', ar: 'أنزِل اليد اليمنى ↓' },
+        down:  { en: 'Raise right hand ↑', ar: 'ارفع اليد اليمنى ↑' },
+        left:  { en: 'Move right hand right →', ar: 'حرّك اليمنى إلى اليمين →' },
+        right: { en: 'Move right hand left ←', ar: 'حرّك اليمنى إلى اليسار ←' },
+        great: { en: '✅ Right hand — Perfect!', ar: '✅ اليد اليمنى — ممتازة!' }
       }
     },
     pivot: {
       label: { en: 'Pivot Foot', ar: 'قدم الارتكاز' },
       hints: {
-        up:    { en: 'Rotate less ↓', ar: 'لفّ أقل ↓' },
-        down:  { en: 'Rotate further, toward 135° ↑', ar: 'لفّ أكتر، لحد حوالي 135° ↑' },
-        left:  { en: 'Shift pivot inward →', ar: 'دخّل الارتكاز لجوه →' },
-        right: { en: 'Shift pivot outward ←', ar: 'طلّع الارتكاز لبرّه ←' },
-        great: { en: '✅ Pivot — Perfect rotation!', ar: '✅ الارتكاز — دوران جامد!' }
+        up:    { en: 'Rotate less ↓', ar: 'لُفّ أقل ↓' },
+        down:  { en: 'Rotate further, toward 135° ↑', ar: 'لُفّ أكثر حتى نحو ١٣٥° ↑' },
+        left:  { en: 'Shift pivot inward →', ar: 'أدخِل قدم الارتكاز إلى الداخل →' },
+        right: { en: 'Shift pivot outward ←', ar: 'أخرِج قدم الارتكاز إلى الخارج ←' },
+        great: { en: '✅ Pivot — Perfect rotation!', ar: '✅ الارتكاز — دوران ممتاز!' }
       }
     }
   };
@@ -3368,13 +3368,13 @@ class FormControlSystem {
     const titleEl = document.getElementById('form-control-title');
     if (titleEl) {
       titleEl.removeAttribute('data-i18n');
-      titleEl.textContent = ar ? `🧍 ظبّط الوضعية — ${skillName}` : `🧍 Fix the Pose — ${skillName}`;
+      titleEl.textContent = ar ? `🧍 اضبط الوضعية — ${skillName}` : `🧍 Fix the Pose — ${skillName}`;
     }
     const descEl = document.getElementById('form-control-desc');
     if (descEl) {
       descEl.removeAttribute('data-i18n');
       descEl.textContent = ar
-        ? `اسحب النقط الملونة للدواير الخضرا`
+        ? `اسحب النقاط الملونة إلى الدوائر الخضراء`
         : `Drag the coloured dots onto the green circles`;
     }
 
@@ -3383,15 +3383,15 @@ class FormControlSystem {
     const INSTRUCTION_SETS = {
       apchagi: {
         en: ['Knee up in front first, then snap the leg out straight', 'Hit with the ball of the foot, toes pulled back — at the partner\'s chest', 'Turn the standing foot out 45°–90°', 'Guard up in front of you, back straight'],
-        ar: ['ارفع الركبة لقدّام الأول، وبعدين افرد رجلك على طول', 'اضرب بقاعدة الأصابع (كلوة القدم) وصوابعك مسحوبة لورا — في صدر الخصم', 'لفّ قدم الارتكاز للخارج من ٤٥° لـ ٩٠°', 'الحراسة مرفوعة قدّامك وضهرك مفرود']
+        ar: ['ارفع الركبة إلى الأمام أولًا، ثم افرد رجلك مباشرة', 'اضرب بقاعدة الأصابع (كلوة القدم) مع سحب الأصابع للخلف — في صدر الخصم', 'لُفّ قدم الارتكاز للخارج من ٤٥° إلى ٩٠°', 'الحراسة مرفوعة أمامك وظهرك مستقيم']
       },
       narochagi: {
         en: ['Swing the leg up completely straight, as high as you can', 'Both knees straight — the heel goes up to face height or higher', 'Turn the standing foot outward a little, 45°–90°', 'Guard up — then the heel drops down like an axe'],
-        ar: ['طلّع رجلك لفوق وهي مفرودة خالص، لأعلى ما تقدر', 'الركبتين الاتنين مفرودين — والكعب يطلع لمستوى الوش أو أعلى', 'لف قدم الارتكاز للخارج قليلًا بزاوية ٤٥°:٩٠°', 'الحراسة مرفوعة — وبعدها الكعب ينزل زي الفاس']
+        ar: ['ارفع رجلك إلى أعلى وهي مفرودة تمامًا، إلى أعلى ما تستطيع', 'الركبتان مفرودتان — والكعب يرتفع إلى مستوى الوجه أو أعلى', 'لُفّ قدم الارتكاز للخارج قليلًا بزاوية ٤٥°:٩٠°', 'الحراسة مرفوعة — ثم ينزل الكعب مثل الفأس']
       },
       bakchagi3: {
         en: ['Lift the knee and turn it over, the leg folded level', 'Turn the standing foot about 135° — heel toward the target', 'Whip the leg round and hit the stomach with the instep, toes pointed', 'Lean your body away from the kick and keep the guard up'],
-        ar: ['ارفع ركبتك ولفّها والرجل مطوية مستوية', 'لفّ قدم الارتكاز حوالي ١٣٥° — والكعب ناحية الهدف', 'لفّ رجلك واضرب البطن بوش القدم وصوابعك ممدودة', 'ميّل جسمك بعيد عن الركلة وخلّي الحراسة مرفوعة']
+        ar: ['ارفع ركبتك ولفّها والرجل مطوية بشكل أفقي', 'لُفّ قدم الارتكاز نحو ١٣٥° — والكعب نحو الهدف', 'لُفّ رجلك واضرب البطن بوجه القدم وأصابعك ممدودة', 'أمِل جسمك بعيدًا عن الركلة وأبقِ الحراسة مرفوعة']
       }
     };
     const iSet = INSTRUCTION_SETS[this.skillId] || INSTRUCTION_SETS.apchagi;
@@ -3642,7 +3642,7 @@ class FormControlSystem {
       pb.style.left = `${D.cx + side * D.rx * 0.55}%`; pb.style.top = `${D.cy - D.ry - 4}%`; pb.style.borderColor = cP;
       pb.style.transform = `translate(${side < 0 ? '-100%' : '0'}, -50%)`;
       pb.textContent = `🔄 ${ar ? TKD.num(deg) : deg}° ${ar ? '←' : '→'} ${this.fcRangeText(ar)}`;
-      pb.title = ar ? 'لفّة قدم الارتكاز: دلوقتي ← الهدف' : 'Standing-foot turn: now → goal';
+      pb.title = ar ? 'لفّة قدم الارتكاز: الآن ← الهدف' : 'Standing-foot turn: now → goal';
     }
     // the knee angle the child made
     const v1 = { x: A.kickingHip.x - kn.x, y: (A.kickingHip.y - kn.y) / 1.2 }, v2 = { x: ft.x - kn.x, y: (ft.y - kn.y) / 1.2 };   // % → same units both ways
@@ -3805,8 +3805,8 @@ class FormControlSystem {
 
     if (txt) {
       txt.textContent = this.skeletonVisible
-        ? (ar ? 'الهيكل: شغّال' : 'Skeleton: ON')
-        : (ar ? 'الهيكل: مقفول' : 'Skeleton: OFF');
+        ? (ar ? 'الهيكل: يعمل' : 'Skeleton: ON')
+        : (ar ? 'الهيكل: مغلق' : 'Skeleton: OFF');
     }
   }
 
@@ -3877,7 +3877,7 @@ class FormControlSystem {
         const icon = FormControlSystem.KID_ICONS[part] || '🥋';
         let hint, color, why = '';
         if (d <= tolerance) {
-          hint = ar ? '✅ مظبوط!' : '✅ Perfect!'; color = '#2a9d8f';
+          hint = ar ? '✅ مضبوط!' : '✅ Perfect!'; color = '#2a9d8f';
           const w = W[part] || (part.startsWith('hand') ? (W[part === this.fc3d.frontHand ? 'front' : 'back'] || W.guard) : null);
           if (w) why = `<div class="joint-why">🎯 ${w[ar ? 0 : 1]}</div>`;
         } else {
@@ -3978,7 +3978,7 @@ class FormControlSystem {
         <div class="keyboard-controls">
           <p style="margin:0;font-size:0.85rem;">
             <i class="fas fa-keyboard"></i>
-            <strong>${ar ? 'الكيبورد:' : 'Keyboard:'}</strong>
+            <strong>${ar ? 'لوحة المفاتيح:' : 'Keyboard:'}</strong>
             ${ar ? 'اضغط على نقطة ← وحرّكها بالأسهم' : 'Click a point → Arrow keys to move it'}
           </p>
         </div>
@@ -4126,7 +4126,7 @@ class FormControlSystem {
       if (r.snapped && this.draggedElement.dataset.wasSnapped !== 'true') {
         this.draggedElement.dataset.wasSnapped = 'true';
         const ar = this.gameState.currentLanguage === 'ar';
-        this.spawnComicPopup(ar ? '🔒 اتقفلت!' : '🔒 Locked!', r.x, Math.max(2, r.y - 6));
+        this.spawnComicPopup(ar ? '🔒 قُفلت!' : '🔒 Locked!', r.x, Math.max(2, r.y - 6));
         this.gameState.playSound('success');
         if (navigator.vibrate && !prefersReducedMotion()) navigator.vibrate(15);
       } else if (!r.snapped) this.draggedElement.dataset.wasSnapped = 'false';
@@ -4142,7 +4142,7 @@ class FormControlSystem {
     if (snap.snapped && this.draggedElement.dataset.wasSnapped !== 'true') {
       this.draggedElement.dataset.wasSnapped = 'true';
       const ar = this.gameState.currentLanguage === 'ar';
-      this.spawnComicPopup(ar ? '🔒 اتقفلت!' : '🔒 Locked!', x, Math.max(2, y - 6));
+      this.spawnComicPopup(ar ? '🔒 قُفلت!' : '🔒 Locked!', x, Math.max(2, y - 6));
       this.gameState.playSound('success');
       if (navigator.vibrate && !prefersReducedMotion()) navigator.vibrate(15);   // tiny haptic "click"
     } else if (!snap.snapped) {
@@ -4255,7 +4255,7 @@ class FormControlSystem {
     this.gameState.playSound('win');
     charEl.style.animation = 'rewardKick 0.5s ease-in-out 2';
     this.gameState.showNotification(
-      ar ? '🔥 برافو! الشكل جامد! دوس "تحقق من الشكل" عشان تخلّص.'
+      ar ? '🔥 أحسنت! الشكل رائع! اضغط «تحقّق من الشكل» لتُنهي.'
          : '🔥 Great form! Press "Check Form" to complete!',
       'success'
     );
@@ -4282,7 +4282,7 @@ class FormControlSystem {
     this.calculateAccuracy();
     this.updateSkeleton();
     this.gameState.playSound('click');
-    this.showFeedback(this.gameState.currentLanguage === 'ar' ? '🔄 رجّعنا كل حاجة من الأول' : '🔄 Reset complete', 'info');
+    this.showFeedback(this.gameState.currentLanguage === 'ar' ? '🔄 أعدنا كل شيء من البداية' : '🔄 Reset complete', 'info');
   }
 
   // "Auto Position" used to be a free, unlimited "I win" button: one click
@@ -4296,7 +4296,7 @@ class FormControlSystem {
     if (this.autoPositionUsed) {
       this.gameState.playSound('error');
       this.showFeedback(
-        ar ? '💪 إنت استخدمت التلميح خلاص — جرّب تحرك المفاصل بنفسك دلوقتي!'
+        ar ? '💪 استخدمت التلميح بالفعل — حاول أن تحرّك المفاصل بنفسك الآن!'
            : "💪 You've already used the hint — try moving the joints yourself now!",
         'error'
       );
@@ -4313,7 +4313,7 @@ class FormControlSystem {
     this.updateSkeleton();
     this.gameState.playSound('success');
     this.showFeedback(
-      ar ? '✨ دي الوضعية المظبوطة — حاول تحفظ شكلها! دوس Reset لو عايز تتمرن من الأول.'
+      ar ? '✨ هذه هي الوضعية الصحيحة — حاول أن تحفظ شكلها! اضغط Reset إذا أردت التمرن من البداية.'
          : "✨ That's perfect form — try to remember it! Press Reset if you want to practice from scratch.",
       'success'
     );
@@ -4326,8 +4326,8 @@ class FormControlSystem {
     const ar = this.gameState.currentLanguage === 'ar';
     const label = btn.querySelector('span');
     if (label) label.textContent = this.autoPositionUsed
-      ? (ar ? 'التلميح اتاستخدم' : 'Hint used')
-      : (ar ? 'الوضعية المظبوطة' : 'Auto Position');
+      ? (ar ? 'استُخدم التلميح' : 'Hint used')
+      : (ar ? 'الوضعية الصحيحة' : 'Auto Position');
   }
 
   static checkForm() {
@@ -4339,7 +4339,7 @@ class FormControlSystem {
     if (off && this.accuracy >= GameConfig.SETTINGS.PASSING_SCORE) {
       this.gameState.playSound('error');
       const lbl = `${FormControlSystem.KID_ICONS[off] || ''} ${this.partLabel(off, ar)}`;
-      this.showFeedback(ar ? `⚠️ ${TKD.num(this.accuracy)}% — قرّبت! بس ${lbl} لسه بعيد (الأحمر). ${this.fcHint(off, this.fcPos(off), this.idealPositions[off], ar)}`
+      this.showFeedback(ar ? `⚠️ ${TKD.num(this.accuracy)}% — اقتربت! لكن ${lbl} ما زال بعيدًا (الأحمر). ${this.fcHint(off, this.fcPos(off), this.idealPositions[off], ar)}`
                            : `⚠️ ${this.accuracy}% — so close! But the ${lbl} is still off (red). ${this.fcHint(off, this.fcPos(off), this.idealPositions[off], ar)}`, 'error');
       document.getElementById(`cp-${off}`)?.animate?.([{ transform: 'translate(-50%,-50%) scale(1)' }, { transform: 'translate(-50%,-50%) scale(1.5)' }, { transform: 'translate(-50%,-50%) scale(1)' }], { duration: 450, iterations: 2 });
       this.gameState.trackFailure(this.accuracy, 'form-control');
@@ -4347,12 +4347,12 @@ class FormControlSystem {
     }
     if (this.accuracy >= GameConfig.SETTINGS.PASSING_SCORE) {
       this.gameState.playSound('win');
-      this.showFeedback(`🎉 ${ar ? 'برافو! دقتك' : 'Excellent! Accuracy:'} ${ar ? TKD.num(this.accuracy) : this.accuracy}%`, 'success');
+      this.showFeedback(`🎉 ${ar ? 'أحسنت! دقتك' : 'Excellent! Accuracy:'} ${ar ? TKD.num(this.accuracy) : this.accuracy}%`, 'success');
       const isFirstClear = this.gameState.completeGame('form-control', this.accuracy);
       screenTimeout(() => WinnerSystem.show('form-control', this.accuracy, this.gameState, isFirstClear), 1500);
     } else {
       this.gameState.playSound('error');
-      this.showFeedback(`⚠️ ${ar ? 'دقتك' : 'Accuracy:'} ${ar ? TKD.num(this.accuracy) : this.accuracy}% — ${ar ? 'امشي على إرشادات المفاصل وحرّك النقط الحمرا' : 'Follow the joint guidance and move the red points'}`, 'error');
+      this.showFeedback(`⚠️ ${ar ? 'دقتك' : 'Accuracy:'} ${ar ? TKD.num(this.accuracy) : this.accuracy}% — ${ar ? 'اتبع إرشادات المفاصل وحرّك النقاط الحمراء' : 'Follow the joint guidance and move the red points'}`, 'error');
       this.gameState.trackFailure(this.accuracy, 'form-control');
     }
   }
@@ -4415,15 +4415,15 @@ class PuzzleSystem {
   static SEQUENCE_RATIONALE = {
     apchagi: {
       en: 'Why this order matters: the knee lift STORES power before the leg snaps into extension — skip it, and the kick loses most of its force.',
-      ar: 'ليه الترتيب ده مهم: رفع الركبة بيخزّن الطاقة قبل ما الرجل تتفرد — لو نطّيت المرحلة دي، الركلة بتخسر معظم قوتها.'
+      ar: 'لماذا هذا الترتيب مهم: رفع الركبة يخزّن الطاقة قبل أن تُفرد الرجل — إذا تخطّيت هذه المرحلة تفقد الركلة معظم قوتها.'
     },
     narochagi: {
       en: 'Why this order matters: the leg must rise fully BEFORE the heel drops — dropping early turns a powerful axe strike into a weak push.',
-      ar: 'ليه الترتيب ده مهم: الرجل لازم تطلع لفوق خالص الأول قبل ما الكعب ينزل — لو نزلت بدري، ضربة الفأس القوية هتبقى زقّة ضعيفة.'
+      ar: 'لماذا هذا الترتيب مهم: يجب أن ترتفع الرجل إلى أعلى تمامًا قبل أن ينزل الكعب — إذا نزلت مبكرًا تتحول ضربة الفأس القوية إلى دفعة ضعيفة.'
     },
     bakchagi3: {
       en: 'Why this order matters: the hip rotation builds momentum THROUGH the pivot — cutting the spin short kills the power the whole kick depends on.',
-      ar: 'ليه الترتيب ده مهم: لفّة الوسط بتبني الزخم وإنت بترتكز — لو وقفت اللفّة بدري، هتضيّع القوة اللي الركلة كلها معتمدة عليها.'
+      ar: 'لماذا هذا الترتيب مهم: لفّة الوسط تبني الزخم وأنت ترتكز — إذا أوقفت اللفّة مبكرًا ضاعت القوة التي تعتمد عليها الركلة كلها.'
     }
   };
 
@@ -4468,7 +4468,7 @@ class PuzzleSystem {
     const box = document.createElement('div');
     box.id = 'step-description-box';
     box.className = 'step-description-box';
-    box.innerHTML = `<p>${ar ? '💡 اسحب قطعة للمكان الفاضي عشان تشوف شرح المرحلة هنا!' : '💡 Drop a piece into a slot to see the phase explanation here!'}</p>`;
+    box.innerHTML = `<p>${ar ? '💡 اسحب قطعة إلى المكان الفارغ لتشاهد شرح المرحلة هنا!' : '💡 Drop a piece into a slot to see the phase explanation here!'}</p>`;
     container.insertAdjacentElement('afterend', box);
   }
 
@@ -4655,7 +4655,7 @@ class PuzzleSystem {
       const ar = this.gameState.currentLanguage === 'ar';
       const btn = document.createElement('button');
       btn.className = 'btn'; btn.id = 'preview-puzzle-btn';
-      btn.innerHTML = `<i class="fas fa-play-circle"></i> ${ar ? 'شوف الترتيب' : 'Preview Order'}`;
+      btn.innerHTML = `<i class="fas fa-play-circle"></i> ${ar ? 'اعرض الترتيب' : 'Preview Order'}`;
       btn.addEventListener('click', () => this.previewSequence());
       controls.appendChild(btn);
     }
@@ -4767,7 +4767,7 @@ class PuzzleSystem {
       btn.scrollIntoView({ block: 'center', behavior: (window.prefersReducedMotion?.() ? 'auto' : 'smooth') });
     }
     window.AudioKit?.sfx('ui-pop', { gain: 0.4 });
-    TKD?.toast(TKD.t('Now tap “Check the order” ✅', 'دلوقتي دوس «اتأكد من الترتيب» ✅'), 'info');
+    TKD?.toast(TKD.t('Now tap “Check the order” ✅', 'الآن اضغط «تحقّق من الترتيب» ✅'), 'info');
   }
 
   static updateProgress() {
@@ -4815,7 +4815,7 @@ class PuzzleSystem {
     };
 
     this.gameState.showNotification(
-      ar ? '▶️ بنوريك الترتيب الصح...' : '▶️ Previewing correct order...', 'info'
+      ar ? '▶️ نعرض لك الترتيب الصحيح...' : '▶️ Previewing correct order...', 'info'
     );
     highlight();
   }
@@ -4824,7 +4824,7 @@ class PuzzleSystem {
     if (this.userOrder.some(p => p === null)) {
       this.gameState.playSound('error');
       this.gameState.showNotification(
-        this.gameState.currentLanguage === 'ar' ? '⚠️ حط كل القطع الأول' : '⚠️ Place all pieces first', 'error'
+        this.gameState.currentLanguage === 'ar' ? '⚠️ ضع كل القطع أولًا' : '⚠️ Place all pieces first', 'error'
       );
       return;
     }
@@ -4839,7 +4839,7 @@ class PuzzleSystem {
       const isFirstClear = this.gameState.completeGame('puzzle', accuracy, { mistakes: m });
       this.gameState.playSound('success');
       this.gameState.showNotification(ar
-        ? `🎉 برافو! الترتيب صح — ${m ? `${m === 1 ? 'غلطة واحدة' : m === 2 ? 'غلطتين' : m <= 10 ? `${TKD.num(m)} غلطات` : `${TKD.num(m)} غلطة`} في السكة، دقتك ${TKD.num(accuracy)}%` : 'من غير ولا غلطة! ١٠٠%'}`
+        ? `🎉 أحسنت! الترتيب صحيح — ${m ? `${m === 1 ? 'خطأ واحد' : m === 2 ? 'خطآن' : m <= 10 ? `${TKD.num(m)} أخطاء` : `${TKD.num(m)} خطأ`} في الطريق، دقتك ${TKD.num(accuracy)}%` : 'من دون أي خطأ! ١٠٠٪'}`
         : `🎉 Well done! Right order — ${m ? `${m} wrong ${m > 1 ? 'tries' : 'try'}, accuracy ${accuracy}%` : 'not a single mistake! 100%'}`, 'success');
       this.showSequenceRationale();
       // v55: the five pieces light up one after the other, like a flip-book of the kick
@@ -4850,7 +4850,7 @@ class PuzzleSystem {
     } else {
       this.gameState.playSound('error');
       this.gameState.showNotification(
-        ar ? `⚠️ ${TKD.num(correct)} من ٥ صح — دوس على المكان الأحمر عشان ترجّع القطعة وجرّب تاني!` : `⚠️ ${correct}/5 correct — tap a red place to take its piece back and try again!`, 'error'
+        ar ? `⚠️ ${TKD.num(correct)} من ٥ صحيحة — اضغط على المكان الأحمر لتُرجع القطعة وحاول مرة أخرى!` : `⚠️ ${correct}/5 correct — tap a red place to take its piece back and try again!`, 'error'
       );
     }
   }
@@ -4926,7 +4926,7 @@ class ActionSystem {
     high:   { en: 'Too high',     ar: 'مرتفعة' },
     zone:   { en: 'Abdomen or face', ar: 'البطن أو الوجه' },
     target: { en: 'Target',       ar: 'الهدف' },
-    away:   { en: 'toes away',    ar: 'الصوابع بعيد' },
+    away:   { en: 'toes away',    ar: 'الأصابع بعيدًا' },
     step1:  { en: '1) Drag UP in a straight line', ar: '١) اسحب لأعلى في خط مستقيم' },
     step2:  { en: '2) Now drag DOWN — fast!',      ar: '٢) الآن اسحب لأسفل — بسرعة!' },
     higher: { en: 'Drag up a little higher first.', ar: 'اسحب لأعلى قليلًا أولًا.' },
@@ -4934,11 +4934,11 @@ class ActionSystem {
     bent:   { en: 'Wobble! Keep it straight',        ar: 'الخط يهتز! حافظ عليه مستقيمًا' },
     dial:   { en: 'Standing-foot dial',              ar: 'قرص لفّة قدم الارتكاز' },
     ready:  { en: 'Get ready…',                      ar: 'استعد…' },
-    sumPass:{ en: (a) => `${a}% — great kicking!`, ar: (a) => `${a}% — ركلات جامدة!` },
+    sumPass:{ en: (a) => `${a}% — great kicking!`, ar: (a) => `${a}% — ركلات رائعة!` },
     sumFail:{ en: (a, p) => a >= 60 ? `${a}% — so close! You need ${p}%.` : `${a}% — let’s practise a bit more. You need ${p}%.`,
-              ar: (a, p) => a >= 60 ? `${a}% — قربت! محتاج ${p}%.` : `${a}% — محتاجين نتمرن شوية. المطلوب ${p}%.` },
+              ar: (a, p) => a >= 60 ? `${a}% — اقتربت! تحتاج إلى ${p}%.` : `${a}% — نحتاج إلى بعض التمرين. المطلوب ${p}%.` },
     sumTip: { en: 'Coach Seif’s tip:', ar: 'نصيحة كوتش سيف:' },
-    again:  { en: 'Try again', ar: 'جرّب تاني' }
+    again:  { en: 'Try again', ar: 'حاول مرة أخرى' }
   };
 
   static gameState = null;
@@ -5461,8 +5461,8 @@ class ActionSystem {
     if (inZone) {
       kind = 'hit';
       msg = d <= 0.25
-        ? { en: 'Perfect timing! Straight into the target.', ar: 'توقيت مظبوط! الركلة جت في الهدف على طول.' }
-        : { en: 'Good hit!', ar: 'ضربة حلوة!' };
+        ? { en: 'Perfect timing! Straight into the target.', ar: 'توقيت مضبوط! وصلت الركلة إلى الهدف مباشرة.' }
+        : { en: 'Good hit!', ar: 'ضربة جميلة!' };
     } else if (st.pos < st.center) {
       kind = 'short';
       msg = { en: 'Too low — that kick went to the knee. Lift the knee to the chest first.', ar: 'منخفضة جدًا — ذهبت الركلة إلى الركبة. ارفع ركبتك إلى صدرك أولًا.' };
@@ -5597,13 +5597,13 @@ class ActionSystem {
     const score = Math.round((0.4 * st.riseScore + 0.6 * dropScore) * (1 - 0.4 * st.wobble));
     let msg;
     if (score >= GameConfig.SETTINGS.PASSING_SCORE) {
-      msg = { en: 'Power strike! Straight rise, fast drop.', ar: 'ضربة جامدة! طلعة مستقيمة ونزلة سريعة.' };
+      msg = { en: 'Power strike! Straight rise, fast drop.', ar: 'ضربة رائعة! صعود مستقيم ونزول سريع.' };
     } else if (st.wobble > 0.4) {
-      msg = { en: 'Keep the drag straight — a wobble means a bent knee.', ar: 'خلّي السحبة مستقيمة — الاهتزاز معناه إن ركبتك متنية.' };
+      msg = { en: 'Keep the drag straight — a wobble means a bent knee.', ar: 'اجعل السحبة مستقيمة — الاهتزاز يعني أن ركبتك منثنية.' };
     } else if (st.riseScore < dropScore) {
-      msg = { en: 'Raise the leg higher before you drop it.', ar: 'ارفع رجلك أعلى قبل ما تنزّلها.' };
+      msg = { en: 'Raise the leg higher before you drop it.', ar: 'ارفع رجلك أعلى قبل أن تُنزلها.' };
     } else {
-      msg = { en: 'Snap down faster — let gravity do the work.', ar: 'نزّلها أسرع — سيب الجاذبية تشتغل.' };
+      msg = { en: 'Snap down faster — let gravity do the work.', ar: 'أنزِلها أسرع — دع الجاذبية تعمل.' };
     }
     this.$('act-hint')?.classList.add('hidden');
     this.$('act-stage')?.classList.remove('act-danger');
@@ -5700,16 +5700,16 @@ class ActionSystem {
     let kind, msg;
     if (err === 0) {
       kind = 'hit';
-      msg = { en: `Perfect pivot (${a}°)! Heel toward the target — the hips open.`, ar: `لفّة مظبوطة (${TKD.num(a)}°)! الكعب ناحية الهدف — والوسط اتفتح.` };
+      msg = { en: `Perfect pivot (${a}°)! Heel toward the target — the hips open.`, ar: `لفّة مضبوطة (${TKD.num(a)}°)! الكعب نحو الهدف — وانفتح الوسط.` };
     } else if (score >= GameConfig.SETTINGS.PASSING_SCORE) {
       kind = 'hit';
-      msg = { en: `Good pivot (${a}°) — the best is about ${G}°.`, ar: `لفّة حلوة (${TKD.num(a)}°) — الأحسن حوالي ${TKD.num(G)}°.` };
+      msg = { en: `Good pivot (${a}°) — the best is about ${G}°.`, ar: `لفّة جميلة (${TKD.num(a)}°) — الأفضل نحو ${TKD.num(G)}°.` };
     } else if (a < G) {
       kind = 'short';
-      msg = { en: `You turned only ${a}° — the hips stay closed and the kick falls short.`, ar: `لفّيت ${a}° بس — الوسط بيفضل مقفول والركلة بتيجي قصيرة.` };
+      msg = { en: `You turned only ${a}° — the hips stay closed and the kick falls short.`, ar: `لففت ${a}° فقط — يبقى الوسط مغلقًا وتأتي الركلة قصيرة.` };
     } else {
       kind = 'fall';
-      msg = { en: `You turned ${a}° — too far. You lose your balance.`, ar: `لفّيت ${a}° — أكتر من اللازم. كده هتفقد توازنك.` };
+      msg = { en: `You turned ${a}° — too far. You lose your balance.`, ar: `لففت ${a}° — أكثر من اللازم، وبهذا ستفقد توازنك.` };
     }
     const from = this.view?.t || 0;
     const aim = kind === 'short' ? -Math.min(40, (G - a) * 0.5) : 0;      // a closed hip = a low, weak kick
@@ -5737,72 +5737,72 @@ class ErrorHuntSystem {
   // after a wrong tap and the "why" shown when it is found.
   static RUN_LENGTH = 5;
   static GUARD_TXT = {
-    hint:    { en: 'Look at the hands — where is the guard?', ar: 'بص على الإيدين: فين الحراسة؟' },
-    success: { en: 'Eagle eye! Both hands stay up in front of the chest while you kick, to protect you.', ar: 'عين صقر! إيديك الاتنين لازم يفضلوا مرفوعين قدام صدرك وإنت بتركل عشان يحموك.' }
+    hint:    { en: 'Look at the hands — where is the guard?', ar: 'انظر إلى اليدين: أين الحراسة؟' },
+    success: { en: 'Eagle eye! Both hands stay up in front of the chest while you kick, to protect you.', ar: 'عين صقر! يجب أن تبقى يداك مرفوعتين أمام صدرك وأنت تركل لتحمياك.' }
   };
   static POOLS = {
     apchagi: [
       { id: 'head', zone: 'head', topic: 'head',
-        hint:    { en: 'Look at where the fighter is looking.', ar: 'بص اللاعب باصص على فين.' },
-        success: { en: 'Spot on! Head up and eyes on the target — never look down at your own foot.', ar: 'عينك حلوة! خلّي راسك مرفوعة وعينك على الهدف، وماتبصش على رجلك وإنت بتركل.' } },
+        hint:    { en: 'Look at where the fighter is looking.', ar: 'انظر: إلى أين ينظر اللاعب؟' },
+        success: { en: 'Spot on! Head up and eyes on the target — never look down at your own foot.', ar: 'عينك قوية! أبقِ رأسك مرفوعًا وعينيك على الهدف، ولا تنظر إلى رجلك وأنت تركل.' } },
       { id: 'knee', zone: 'kick', topic: 'knee',
-        hint:    { en: 'Look at the kicking leg — is it fully straight?', ar: 'بص على رجل الركلة: هي مفرودة على الآخر؟' },
-        success: { en: 'Great! At the end of the kick the knee snaps fully straight — a bent knee steals the power.', ar: 'جامد! في آخر الركلة الركبة لازم تتفرد على الآخر، الركبة المتنية بتضعّف الضربة.' } },
+        hint:    { en: 'Look at the kicking leg — is it fully straight?', ar: 'انظر إلى رجل الركلة: هل هي مفرودة تمامًا؟' },
+        success: { en: 'Great! At the end of the kick the knee snaps fully straight — a bent knee steals the power.', ar: 'رائع! في نهاية الركلة يجب أن تُفرد الركبة تمامًا، فالركبة المنثنية تُضعف الضربة.' } },
       { id: 'lean', zone: 'torso', topic: 'lean',
-        hint:    { en: 'Look at the body — upright, or falling back?', ar: 'بص على الجسم: مفرود ولا مايل لورا؟' },
-        success: { en: 'Exactly! Leaning far back drains the kick and throws you off balance. Keep the body upright.', ar: 'صح! الميل الكتير لورا بيضيّع قوة الركلة ويوقعك. خلّي جسمك مفرود.' } },
+        hint:    { en: 'Look at the body — upright, or falling back?', ar: 'انظر إلى الجسم: هل هو مستقيم أم مائل إلى الخلف؟' },
+        success: { en: 'Exactly! Leaning far back drains the kick and throws you off balance. Keep the body upright.', ar: 'صحيح! الميل الكثير إلى الخلف يُضيّع قوة الركلة ويُسقطك. أبقِ جسمك مستقيمًا.' } },
       { id: 'heel', zone: 'stand', topic: 'heel',
-        hint:    { en: 'Look at the standing foot — is it planted on the floor?', ar: 'بص على قدم الارتكاز: لازقة في الأرض كويس؟' },
-        success: { en: 'Excellent! The standing heel stays down at impact, so you stay solid.', ar: 'برافو! كعب قدم الارتكاز يفضل على الأرض وقت الضربة عشان تبقى ثابت.' } },
+        hint:    { en: 'Look at the standing foot — is it planted on the floor?', ar: 'انظر إلى قدم الارتكاز: هل هي ثابتة على الأرض جيدًا؟' },
+        success: { en: 'Excellent! The standing heel stays down at impact, so you stay solid.', ar: 'أحسنت! يبقى كعب قدم الارتكاز على الأرض وقت الضربة لتبقى ثابتًا.' } },
       { id: 'guard', zone: 'torso', topic: 'guard' },
       { id: 'pivot', zone: 'stand', topic: 'pivot',
-        hint:    { en: 'Look at the standing foot — did it turn out?', ar: 'بص على قدم الارتكاز: لفّت لبرّه ولا لأ؟' },
-        success: { en: 'Right! The standing foot turns out 45°–90° — it opens the hips so the kick goes further and harder.', ar: 'صح! قدم الارتكاز لازم تلف للخارج من 45° لـ 90°، ده بيفتح وسطك ويخلّي الركلة أبعد وأقوى.' } },
+        hint:    { en: 'Look at the standing foot — did it turn out?', ar: 'انظر إلى قدم الارتكاز: هل لفّت إلى الخارج أم لا؟' },
+        success: { en: 'Right! The standing foot turns out 45°–90° — it opens the hips so the kick goes further and harder.', ar: 'صحيح! يجب أن تلف قدم الارتكاز للخارج من ٤٥° إلى ٩٠°، فهذا يفتح وسطك ويجعل الركلة أبعد وأقوى.' } },
       { id: 'low', zone: 'kick', topic: 'target',
-        hint:    { en: 'Look at the kicking leg — which target is it going to?', ar: 'بص على رجل الركلة: رايحة على أنهي هدف؟' },
-        success: { en: 'Exactly! Ap Chagi goes to the abdomen or the face, not the knee. Lift the knee to the chest first.', ar: 'بالظبط! آب تشاجي بتروح للبطن أو الوش، مش للركبة. ارفع ركبتك لحد صدرك الأول.' } }
+        hint:    { en: 'Look at the kicking leg — which target is it going to?', ar: 'انظر إلى رجل الركلة: إلى أيّ هدف تتجه؟' },
+        success: { en: 'Exactly! Ap Chagi goes to the abdomen or the face, not the knee. Lift the knee to the chest first.', ar: 'تمامًا! تتجه آب تشاجي إلى البطن أو الوجه، لا إلى الركبة. ارفع ركبتك إلى صدرك أولًا.' } }
     ],
     narochagi: [
       { id: 'knee', zone: 'kick', topic: 'knee',
-        hint:    { en: 'Look at the kicking leg on its way up — is it straight?', ar: 'بص على رجل الركلة وهي طالعة: مفرودة؟' },
-        success: { en: 'Right! In Naeryeo Chagi the leg rises completely straight — a bent knee wastes the drop.', ar: 'صح! في نارو تشاجي الرجل تطلع مفرودة خالص، الركبة المتنية بتضيّع قوة النزول.' } },
+        hint:    { en: 'Look at the kicking leg on its way up — is it straight?', ar: 'انظر إلى رجل الركلة وهي ترتفع: هل هي مفرودة؟' },
+        success: { en: 'Right! In Naeryeo Chagi the leg rises completely straight — a bent knee wastes the drop.', ar: 'صحيح! في نارو تشاجي ترتفع الرجل مفرودة تمامًا، والركبة المنثنية تُضيّع قوة النزول.' } },
       { id: 'lean', zone: 'torso', topic: 'lean',
-        hint:    { en: 'Look at the body — how far back does it lean?', ar: 'بص على الجسم: مايل لورا قد إيه؟' },
-        success: { en: 'Well done! Lean far back and you fall. Lean back only a tiny bit and keep the body almost upright.', ar: 'برافو! لو ميّلت لورا كتير هتقع. ميّل سنة صغيرة بس وخلّي جسمك تقريبًا مفرود.' } },
+        hint:    { en: 'Look at the body — how far back does it lean?', ar: 'انظر إلى الجسم: كم يميل إلى الخلف؟' },
+        success: { en: 'Well done! Lean far back and you fall. Lean back only a tiny bit and keep the body almost upright.', ar: 'أحسنت! إذا ملت إلى الخلف كثيرًا ستسقط. مِل قليلًا جدًا وأبقِ جسمك شبه مستقيم.' } },
       { id: 'guard', zone: 'torso', topic: 'guard' },
       { id: 'pivot', zone: 'stand', topic: 'pivot',
-        hint:    { en: 'Look at the standing foot — how far did it turn?', ar: 'بص على قدم الارتكاز: لفّت قد إيه؟' },
-        success: { en: 'Right! In Naeryeo Chagi the standing foot turns outward 45°–90°.', ar: 'صح! في نارو تشاجي قدم الارتكاز بتلف للخارج بزاوية ٤٥°:٩٠°.' } },
+        hint:    { en: 'Look at the standing foot — how far did it turn?', ar: 'انظر إلى قدم الارتكاز: كم لفّت؟' },
+        success: { en: 'Right! In Naeryeo Chagi the standing foot turns outward 45°–90°.', ar: 'صحيح! في نارو تشاجي تلف قدم الارتكاز للخارج بزاوية ٤٥°:٩٠°.' } },
       { id: 'head', zone: 'head', topic: 'head',
-        hint:    { en: 'Look at where the fighter is looking.', ar: 'بص اللاعب باصص على فين.' },
-        success: { en: 'Eyes on the target, always — looking at the floor, you cannot drop the heel in the right place.', ar: 'عينك على الهدف دايمًا، لو بصّيت على الأرض مش هتعرف تنزّل الكعب في المكان الصح.' } },
+        hint:    { en: 'Look at where the fighter is looking.', ar: 'انظر: إلى أين ينظر اللاعب؟' },
+        success: { en: 'Eyes on the target, always — looking at the floor, you cannot drop the heel in the right place.', ar: 'عينك على الهدف دائمًا؛ إذا نظرت إلى الأرض فلن تستطيع إنزال الكعب في المكان الصحيح.' } },
       { id: 'toes', zone: 'kick', topic: 'surface', base: 'ok-hit',
-        hint:    { en: 'Look at the striking foot — which part lands?', ar: 'بص على القدم اللي بتضرب: بتنزل بأنهي جزء؟' },
-        success: { en: 'Great! Naeryeo Chagi lands with the heel — the toes point up, they never hit.', ar: 'جامد! نارو تشاجي بتنزل بالكعب، وصوابعك تبقى لفوق، مش بتضرب بيها.' } }
+        hint:    { en: 'Look at the striking foot — which part lands?', ar: 'انظر إلى القدم الضاربة: بأيّ جزء تنزل؟' },
+        success: { en: 'Great! Naeryeo Chagi lands with the heel — the toes point up, they never hit.', ar: 'رائع! تنزل نارو تشاجي بالكعب، وتبقى أصابعك إلى أعلى، فلا تضرب بها.' } }
     ],
     bakchagi3: [
       { id: 'pivot', zone: 'stand', topic: 'pivot',
-        hint:    { en: 'Look at the standing foot — how far did it turn?', ar: 'بص على قدم الارتكاز: لفّت لحد فين؟' },
-        success: { en: 'Right! In Bik Chagi the standing foot turns about 135°, heel toward the target — that opens the hips.', ar: 'صح! في بيك تشاجي قدم الارتكاز بتلف حوالي 135° والكعب ناحية الهدف — وده اللي بيفتح الوسط.' } },
+        hint:    { en: 'Look at the standing foot — how far did it turn?', ar: 'انظر إلى قدم الارتكاز: إلى أيّ حد لفّت؟' },
+        success: { en: 'Right! In Bik Chagi the standing foot turns about 135°, heel toward the target — that opens the hips.', ar: 'صحيح! في بيك تشاجي تلف قدم الارتكاز نحو ١٣٥° والكعب نحو الهدف — وهذا ما يفتح الوسط.' } },
       { id: 'knee', zone: 'kick', topic: 'knee',
-        hint:    { en: 'Look at the kicking leg — fully straight?', ar: 'بص على رجل الركلة: اتفردت على الآخر؟' },
-        success: { en: 'Well done! At the strike the leg straightens all the way into the stomach.', ar: 'برافو! وقت الضربة الرجل لازم تتفرد على الآخر لحد البطن.' } },
+        hint:    { en: 'Look at the kicking leg — fully straight?', ar: 'انظر إلى رجل الركلة: هل فُردت تمامًا؟' },
+        success: { en: 'Well done! At the strike the leg straightens all the way into the stomach.', ar: 'أحسنت! وقت الضربة يجب أن تُفرد الرجل تمامًا حتى البطن.' } },
       { id: 'foot', zone: 'kick', topic: 'surface',
-        hint:    { en: 'Look at the striking foot — which part leads?', ar: 'بص على القدم اللي بتضرب: بأنهي جزء؟' },
-        success: { en: 'Right! Bik Chagi hits with the instep (the top of the foot) — never with the heel or the toes.', ar: 'صح! بيك تشاجي بتضرب بوش القدم (ظهرها من فوق)، مش بالكعب ولا بالصوابع.' } },
+        hint:    { en: 'Look at the striking foot — which part leads?', ar: 'انظر إلى القدم الضاربة: بأيّ جزء تضرب؟' },
+        success: { en: 'Right! Bik Chagi hits with the instep (the top of the foot) — never with the heel or the toes.', ar: 'صحيح! تضرب بيك تشاجي بوجه القدم (ظهر القدم)، لا بالكعب ولا بالأصابع.' } },
       { id: 'guard', zone: 'torso', topic: 'guard' },
       { id: 'head', zone: 'head', topic: 'head',
-        hint:    { en: 'Look at the head — is it facing the target?', ar: 'بص على الراس: باصة ناحية الهدف؟' },
-        success: { en: 'Eagle eye! Even while you turn, your eyes stay on the target.', ar: 'عين صقر! حتى وإنت بتلف عينك تفضل على الهدف.' } },
+        hint:    { en: 'Look at the head — is it facing the target?', ar: 'انظر إلى الرأس: هل يتجه نحو الهدف؟' },
+        success: { en: 'Eagle eye! Even while you turn, your eyes stay on the target.', ar: 'عين صقر! حتى وأنت تلف تبقى عيناك على الهدف.' } },
       { id: 'lean', zone: 'torso', topic: 'lean',
-        hint:    { en: 'Look at the body — which way does it lean?', ar: 'بص على الجسم: مايل لأنهي ناحية؟' },
-        success: { en: 'Right! The body leans away from the kick, in one line with the leg — bend forward and the kick goes weak and off-balance.', ar: 'صح! الجسم بيميل بعيد عن الركلة وعلى خط واحد مع الرجل، لو انحنيت لقدام الركلة بتضعف وتفقد توازنك.' } }
+        hint:    { en: 'Look at the body — which way does it lean?', ar: 'انظر إلى الجسم: إلى أيّ جهة يميل؟' },
+        success: { en: 'Right! The body leans away from the kick, in one line with the leg — bend forward and the kick goes weak and off-balance.', ar: 'صحيح! يميل الجسم بعيدًا عن الركلة وعلى خط واحد مع الرجل؛ إذا انحنيت إلى الأمام ضعفت الركلة وفقدت توازنك.' } }
     ]
   };
-  static TITLE = { en: '🔎 One thing is wrong in this kick — find it!', ar: '🔎 فيه غلطة واحدة في الركلة دي — لاقيها!' };
+  static TITLE = { en: '🔎 One thing is wrong in this kick — find it!', ar: '🔎 يوجد خطأ واحد في هذه الركلة — اكتشفه!' };
   static DESC  = { en: 'Turn around the fighter and check the head, the body and hands, the kicking leg and the standing foot.',
-                   ar: 'لفّ حوالين اللاعب وبص على الراس، والجسم والإيدين، ورجل الركلة، وقدم الارتكاز.' };
-  static FAIL_TITLE = { en: 'Not this part', ar: 'مش الجزء ده' };
+                   ar: 'لُفّ حول اللاعب وانظر إلى الرأس، والجسم واليدين، ورجل الركلة، وقدم الارتكاز.' };
+  static FAIL_TITLE = { en: 'Not this part', ar: 'ليس هذا الجزء' };
   // the run being played (filled in initialize)
   static LEVELS = [];
   static kick = 'apchagi';
@@ -5813,15 +5813,15 @@ class ErrorHuntSystem {
   }
 
   static ZONE_LABELS = {
-    head:  { en: 'Head and eyes',   ar: 'الراس والعينين' },
-    torso: { en: 'Body and hands',  ar: 'الجسم والإيدين' },
+    head:  { en: 'Head and eyes',   ar: 'الرأس والعينان' },
+    torso: { en: 'Body and hands',  ar: 'الجسم واليدان' },
     kick:  { en: 'Kicking leg',     ar: 'رجل الركلة' },
     stand: { en: 'Standing foot',   ar: 'قدم الارتكاز' }
   };
 
   static MISS_HINT = {
     en: 'Tap right on the fighter: the head, the body and hands, the kicking leg or the standing foot.',
-    ar: 'دوس على اللاعب نفسه: الراس، أو الجسم والإيدين، أو رجل الركلة، أو قدم الارتكاز.'
+    ar: 'اضغط على اللاعب نفسه: الرأس، أو الجسم واليدين، أو رجل الركلة، أو قدم الارتكاز.'
   };
 
 
@@ -5858,7 +5858,7 @@ class ErrorHuntSystem {
     try { this.rig3d?.skeleton?.dispose?.(); this._ghost?.dispose?.(); } catch (e) {}   // v51: the last game's fighter
     this.rig3d = null; this._ghost = null;
     const board = document.getElementById('eh-board');
-    if (board) board.innerHTML = `<p class="eh-3d-hint">⏳ ${this.ar ? 'بنجهّز اللاعب…' : 'Getting the fighter ready…'}</p>`;
+    if (board) board.innerHTML = `<p class="eh-3d-hint">⏳ ${this.ar ? 'نجهّز اللاعب…' : 'Getting the fighter ready…'}</p>`;
     (async () => {
       let r = window.RigBackend ? await RigBackend.character(ch) : null;
       if (!r?.is3D) { try { const m = await loadTK3D(); r = m.supported() ? m.character(ch) : null; } catch (e) { r = null; } }
@@ -5868,7 +5868,7 @@ class ErrorHuntSystem {
       this.rig3d = r;
       if (r) { this.loadLevel(); return; }
       // no WebGL at all on this device: nothing to draw the fighter with
-      gameState.showNotification(this.ar ? '😕 اللعبة دي محتاجة رسوم 3D والجهاز ده مش بيدعمها — جرّب لعبة تانية' : '😕 This game needs 3D graphics, which this device doesn\'t support — try another game', 'warning');
+      gameState.showNotification(this.ar ? '😕 تحتاج هذه اللعبة إلى رسوم ثلاثية الأبعاد لا يدعمها هذا الجهاز — جرّب لعبة أخرى' : '😕 This game needs 3D graphics, which this device doesn\'t support — try another game', 'warning');
       screenTimeout(() => ScreenManagerInstance.switchScreen('games'), 1800);
     });
   }
@@ -5921,11 +5921,11 @@ class ErrorHuntSystem {
     rig.poseAt(sk, `err-${this.kick}-${level.id}`, 0);
     sk.viewYaw = -0.5;                                         // start a little turned, so it reads as 3D at once
     board.innerHTML = `<div class="eh-3d">
-        <canvas class="eh-3d-cv" role="img" aria-label="${ar ? `لاعب ثلاثي الأبعاد بيعمل ${TKD.skillName(this.kick)} — لفّه ودوس على الغلطة` : `3D fighter doing ${TKD.skillName(this.kick)} — turn it and tap the mistake`}"></canvas>
+        <canvas class="eh-3d-cv" role="img" aria-label="${ar ? `لاعب ثلاثي الأبعاد يؤدي ${TKD.skillName(this.kick)} — لُفّه واضغط على الخطأ` : `3D fighter doing ${TKD.skillName(this.kick)} — turn it and tap the mistake`}"></canvas>
         <p class="eh-3d-hint">↔ ${ar ? 'اسحب لتلف حول اللاعب · اضغط على الخطأ' : 'Drag to walk around the fighter · tap the mistake'}</p>
       </div>
       <div class="eh-3d-parts" role="group">${Object.keys(this.ZONES3D).map(z => `<button type="button" class="eh-3d-part" data-eh-zone="${z}">${this.pick(this.ZONE_LABELS[z])}</button>`).join('')}
-        <button type="button" class="eh-3d-ghost" hidden aria-pressed="true">👻 ${ar ? 'قارن بالصح' : 'Compare with correct'}</button></div>`;
+        <button type="button" class="eh-3d-ghost" hidden aria-pressed="true">👻 ${ar ? 'قارن بالشكل الصحيح' : 'Compare with correct'}</button></div>`;
     const cv = board.querySelector('canvas');
     this._fx = null; this._ghostOn = true;
     // v43: the correct form, shown as a green ghost once the mistake is found
@@ -5986,7 +5986,7 @@ class ErrorHuntSystem {
       this._ghost.viewYaw = this.rig3d.skeleton.viewYaw;
       g.save(); g.filter = 'sepia(1) hue-rotate(80deg) saturate(4) brightness(1.1)';
       this._ghost.draw(g, V.x, V.y, V.s, false, 0.36); g.restore();
-      const tag = this.ar ? '👻 ده الشكل الصح' : '👻 This is the right way';
+      const tag = this.ar ? '👻 هذا هو الشكل الصحيح' : '👻 This is the right way';
       g.save(); g.font = '800 13px Cairo, Roboto, sans-serif'; const tw = g.measureText(tag).width + 16;
       g.fillStyle = 'rgba(10,40,30,.85)'; g.beginPath(); g.roundRect(V.w / 2 - tw / 2, 30, tw, 26, 13); g.fill();
       g.fillStyle = '#7ee0b0'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(tag, V.w / 2, 43); g.restore();
@@ -6039,7 +6039,7 @@ class ErrorHuntSystem {
     box.classList.remove('hidden', 'ok', 'bad');
     box.classList.add(ok ? 'ok' : 'bad');
     set('eh-fb-icon', ok ? '✓' : '✕');
-    set('eh-fb-title', ok ? (ar ? 'جبتها!' : 'Nailed it!') : this.pick(this.FAIL_TITLE));
+    set('eh-fb-title', ok ? (ar ? 'وجدته!' : 'Nailed it!') : this.pick(this.FAIL_TITLE));
     // after a wrong part the child gets a nudge towards the right one (never the answer itself)
     set('eh-fb-msg', kind === 'success' ? this.pick(level.success)
                    : kind === 'fail'    ? `💡 ${this.pick(level.hint)}`
@@ -6047,7 +6047,7 @@ class ErrorHuntSystem {
     if (nextBtn) {
       nextBtn.classList.toggle('hidden', !ok);
       const last = this.levelIndex === this.LEVELS.length - 1;
-      set('eh-next-label', last ? (ar ? 'خلّص' : 'Finish') : (ar ? 'المستوى اللي بعده' : 'Next Level'));
+      set('eh-next-label', last ? (ar ? 'إنهاء' : 'Finish') : (ar ? 'المستوى التالي' : 'Next Level'));
     }
   }
 
@@ -6105,7 +6105,7 @@ class ErrorHuntSystem {
     } else {
       gs.playSound('error');
       gs.showNotification(
-        ar ? `محتاج تركّز أكتر: ${accuracy}%. جرّب تاني!`
+        ar ? `تحتاج إلى تركيز أكثر: ${accuracy}%. حاول مرة أخرى!`
            : `Look a little closer: ${accuracy}%. Try again!`,
         'error'
       );
@@ -6150,171 +6150,171 @@ class QuizBlastSystem {
 
     // Ap Chagi -- straight front kick
     apchagi: [
-      { q: ['الركلة الأمامية المستقيمة في التايكوندو اسمها:', 'In Taekwondo, the straight front kick is called:'],
+      { q: ['اسم الركلة الأمامية المستقيمة في التايكوندو:', 'In Taekwondo, the straight front kick is called:'],
         a: ['آب تشاجي', 'Ap Chagi'],
         w: [['نارو تشاجي', 'Naeryeo Chagi'], ['آب أوليو تشاجي', 'Ap Ollyeo Chagi'], ['دوليو تشاجي', 'Dollyeo Chagi']] },
-      { q: ['الركلة الأمامية المستقيمة بتضرب بيها المنافس بـ:', 'The straight front kick is delivered to the opponent with the:'],
+      { q: ['تُوجَّه الركلة الأمامية المستقيمة إلى المنافس بـ:', 'The straight front kick is delivered to the opponent with the:'],
         a: ['قاعدة الأصابع (كلوة القدم)', 'Ball of the foot'],
         w: [['الكعب', 'Heel'], ['باطن القدم', 'Sole of the foot'], ['وش القدم', 'Instep']] },
-      { q: ['أنهي حركة من دول بتتكرر في أول وآخر ركلة آب تشاجي؟', 'Which movement is repeated in both the preparatory and the final phase of Ap Chagi?'],
+      { q: ['أيّ هذه الحركات تتكرر في بداية ركلة آب تشاجي ونهايتها؟', 'Which movement is repeated in both the preparatory and the final phase of Ap Chagi?'],
         a: ['ثني ركبة الرجل الضاربة', 'Bending the kicking-leg knee'],
         w: [['ثني ركبة رجل الارتكاز', 'Bending the standing-foot knee'], ['فرد ركبة رجل الارتكاز', 'Straightening the standing-foot knee'], ['فرد ركبة الرجل الضاربة', 'Straightening the kicking-leg knee']] },
-      { q: ['الركلة الأمامية المستقيمة اللي بتروح للراس بتجيب للاعب:', 'A straight front kick to the head scores:'],
-        a: ['تلات نقط', 'Three points'],
-        w: [['نقطتين', 'Two points'], ['خمس نقط', 'Five points'], ['أربع نقط', 'Four points']] },
-      { q: ['إيه الهدف الأساسي لركلة آب تشاجي؟', 'What is the main target of Ap Chagi?'],
+      { q: ['الركلة الأمامية المستقيمة التي تصيب الرأس تمنح اللاعب:', 'A straight front kick to the head scores:'],
+        a: ['ثلاث نقاط', 'Three points'],
+        w: [['نقطتين', 'Two points'], ['خمس نقاط', 'Five points'], ['أربع نقاط', 'Four points']] },
+      { q: ['ما الهدف الأساسي لركلة آب تشاجي؟', 'What is the main target of Ap Chagi?'],
         a: ['الرأس والوجه / الصدر أو البطن', 'Head & face / chest or belly'],
-        w: [['الركبة بس', 'Knee only'], ['الكتف', 'Shoulder'], ['القدم', 'Foot']] },
-      { q: ['قدم الارتكاز بتلف بزاوية قد إيه تقريبًا في آب تشاجي؟', 'About how far does the standing foot pivot in Ap Chagi?'],
-        a: ['من 45° لـ 90° للخارج', '45°–90° outward'],
-        w: [['180° كاملين', 'A full 180°'], ['360°', '360°'], ['مابتلفّش خالص', 'It does not pivot']] },
-      { q: ['إيه أول مرحلة في آب تشاجي؟', 'What is the first phase of Ap Chagi?'],
+        w: [['الركبة فقط', 'Knee only'], ['الكتف', 'Shoulder'], ['القدم', 'Foot']] },
+      { q: ['بأيّ زاوية تقريبًا تلف قدم الارتكاز في آب تشاجي؟', 'About how far does the standing foot pivot in Ap Chagi?'],
+        a: ['من ٤٥° إلى ٩٠° للخارج', '45°–90° outward'],
+        w: [['١٨٠° كاملة', 'A full 180°'], ['360°', '360°'], ['لا تلف إطلاقًا', 'It does not pivot']] },
+      { q: ['ما المرحلة الأولى في آب تشاجي؟', 'What is the first phase of Ap Chagi?'],
         a: ['وضع الاستعداد (جونبي)', 'Ready stance (Junbi)'],
-        w: [['رفع الركبة', 'Knee lift'], ['فرد الرجل', 'Kick extension'], ['سحب الرجل', 'Recoil']] },
-      { q: ['آب تشاجي الكاملة فيها كام مرحلة أساسية؟', 'How many main phases does a complete Ap Chagi have?'],
-        a: ['5 مراحل', '5 phases'],
-        w: [['3 مراحل', '3 phases'], ['4 مراحل', '4 phases'], ['6 مراحل', '6 phases']] },
-      { q: ['بنرفع الركبة لحد فين قبل ما نفرد الرجل؟', 'How high is the knee lifted before the leg extends?'],
-        a: ['لحد مستوى الصدر', 'To chest level'],
-        w: [['لحد مستوى الكاحل', 'To ankle level'], ['لحد مستوى الركبة التانية', 'To the level of the other knee'], ['فوق الراس', 'Above the head']] },
-      { q: ['بنعمل إيه بصوابع الرجل واحنا بنضرب آب تشاجي؟', 'What do you do with your toes when striking in Ap Chagi?'],
-        a: ['نشدّها لورا', 'Pull them back'],
-        w: [['نفردها لقدام', 'Point them forward'], ['نتنيها لتحت', 'Curl them down'], ['نفتحها للجناب', 'Spread them apart']] },
-      { q: ['ليه بنرجّع الرجل بسرعة بعد الضربة؟', 'Why do we pull the leg back quickly after the strike?'],
-        a: ['عشان نحافظ على التوازن والحراسة', 'To keep balance and guard'],
-        w: [['عشان نجيب نقط أكتر', 'To score more points'], ['عشان الحركة تبان أحلى', 'To make it look nicer'], ['عشان الحكم عايز كده', 'Because the referee asks for it']] }
+        w: [['رفع الركبة', 'Knee lift'], ['مد الرجل', 'Kick extension'], ['سحب الرجل', 'Recoil']] },
+      { q: ['كم مرحلة أساسية في ركلة آب تشاجي الكاملة؟', 'How many main phases does a complete Ap Chagi have?'],
+        a: ['٥ مراحل', '5 phases'],
+        w: [['٣ مراحل', '3 phases'], ['٤ مراحل', '4 phases'], ['٦ مراحل', '6 phases']] },
+      { q: ['إلى أين نرفع الركبة قبل أن نفرد الرجل؟', 'How high is the knee lifted before the leg extends?'],
+        a: ['إلى مستوى الصدر', 'To chest level'],
+        w: [['إلى مستوى الكاحل', 'To ankle level'], ['إلى مستوى الركبة الأخرى', 'To the level of the other knee'], ['فوق الرأس', 'Above the head']] },
+      { q: ['ماذا نفعل بأصابع القدم ونحن نضرب آب تشاجي؟', 'What do you do with your toes when striking in Ap Chagi?'],
+        a: ['نسحبها إلى الخلف', 'Pull them back'],
+        w: [['نفردها إلى الأمام', 'Point them forward'], ['نثنيها إلى أسفل', 'Curl them down'], ['نفتحها إلى الجانبين', 'Spread them apart']] },
+      { q: ['لماذا نسحب الرجل بسرعة بعد الضربة؟', 'Why do we pull the leg back quickly after the strike?'],
+        a: ['لنحافظ على التوازن والحراسة', 'To keep balance and guard'],
+        w: [['لنحصل على نقاط أكثر', 'To score more points'], ['ليبدو شكل الحركة أجمل', 'To make it look nicer'], ['لأن الحكم يريد ذلك', 'Because the referee asks for it']] }
     ],
 
     // Naeryeo Chagi (Naro Chagi) -- the hammer / axe kick
     narochagi: [
-      { q: ['في ركلة نارو تشاجي، القدم الضاربة بتروح للهدف في مسار:', 'In Naeryeo Chagi the kicking foot travels toward the target along a path going:'],
-        a: ['من فوق لتحت', 'From top to bottom'],
-        w: [['من برا لجوا', 'From outside to inside'], ['من تحت لفوق', 'From bottom to top'], ['من قدام لورا', 'From front to back']] },
-      { q: ['ركلة نارو تشاجي في التايكوندو معروفة باسم:', 'Naeryeo Chagi is also known as the:'],
+      { q: ['في ركلة نارو تشاجي، تتجه القدم الضاربة إلى الهدف في مسار:', 'In Naeryeo Chagi the kicking foot travels toward the target along a path going:'],
+        a: ['من أعلى لأسفل', 'From top to bottom'],
+        w: [['من الخارج إلى الداخل', 'From outside to inside'], ['من أسفل لأعلى', 'From bottom to top'], ['من الأمام إلى الخلف', 'From front to back']] },
+      { q: ['تُعرف ركلة نارو تشاجي في التايكوندو باسم:', 'Naeryeo Chagi is also known as the:'],
         a: ['الركلة المطرقية', 'Hammer (axe) kick'],
-        w: [['الركلة الأمامية الدائرية في البطن', 'Front circular kick to the abdomen'], ['الركلة الأمامية المستقيمة', 'Straight front kick'], ['الركلة الأمامية الدائرية في الوش', 'Front circular kick to the face']] },
-      { q: ['الركلة الهجومية اللي بتنزل من فوق لتحت على راس المنافس اسمها:', 'The kick that travels from top to bottom toward the opponent\'s head is:'],
+        w: [['الركلة الأمامية الدائرية في البطن', 'Front circular kick to the abdomen'], ['الركلة الأمامية المستقيمة', 'Straight front kick'], ['الركلة الأمامية الدائرية في الوجه', 'Front circular kick to the face']] },
+      { q: ['اسم الركلة الهجومية التي تنزل من أعلى لأسفل على رأس المنافس:', 'The kick that travels from top to bottom toward the opponent\'s head is:'],
         a: ['نارو تشاجي', 'Naeryeo Chagi'],
         w: [['آب تشاجي', 'Ap Chagi'], ['آب أوليو تشاجي', 'Ap Ollyeo Chagi'], ['دوليو تشاجي', 'Dollyeo Chagi']] },
-      { q: ['ضربة نارو تشاجي بتتعمل بأنهي جزء من القدم؟', 'Which part of the foot lands the strike in Naeryeo Chagi?'],
+      { q: ['بأيّ جزء من القدم تُؤدّى ضربة نارو تشاجي؟', 'Which part of the foot lands the strike in Naeryeo Chagi?'],
         a: ['الكعب', 'The heel'],
-        w: [['قاعدة الأصابع (كلوة القدم)', 'Ball of the foot'], ['صوابع القدم', 'Toes'], ['وش القدم', 'Instep']] },
-      { q: ['إيه الهدف الأساسي لركلة نارو تشاجي؟', 'What is the main target of Naeryeo Chagi?'],
+        w: [['قاعدة الأصابع (كلوة القدم)', 'Ball of the foot'], ['أصابع القدم', 'Toes'], ['وش القدم', 'Instep']] },
+      { q: ['ما الهدف الأساسي لركلة نارو تشاجي؟', 'What is the main target of Naeryeo Chagi?'],
         a: ['الرأس والوجه', 'The head and the face'],
         w: [['الركبة', 'Knee'], ['البطن', 'Abdomen'], ['القدم', 'Foot']] },
-      { q: ['قدم الارتكاز بتلف قد إيه في نارو تشاجي؟', 'How far does the standing foot pivot in Naeryeo Chagi?'],
+      { q: ['كم تلف قدم الارتكاز في نارو تشاجي؟', 'How far does the standing foot pivot in Naeryeo Chagi?'],
         a: ['٤٥°:٩٠° للخارج', '45°–90° outward'],
         w: [['90°', '90°'], ['180°', '180°'], ['360°', '360°']] },
-      { q: ['إيه المرحلة التانية في نارو تشاجي؟', 'What is the second phase of Naeryeo Chagi?'],
-        a: ['الرفع لفوق مستقيم', 'Vertical rise'],
-        w: [['نزول الكعب', 'Heel drop'], ['سحب الرجل', 'Recoil'], ['الرجوع للوضعية', 'Return to stance']] },
-      { q: ['مرحلة الضربة في نارو تشاجي اسمها إيه؟', 'What is the striking phase of Naeryeo Chagi called?'],
-        a: ['نزول الكعب', 'Heel drop'],
-        w: [['الرفع لفوق مستقيم', 'Vertical rise'], ['وقفة القتال', 'Ready stance'], ['رفع الركبة', 'Knee lift']] },
-      { q: ['الرجل بتطلع إزاي قبل ما تنزل؟', 'How does the leg rise before it drops?'],
-        a: ['لفوق ومستقيمة', 'Straight up, vertically'],
-        w: [['في لفّة دايرية لبرا', 'In a circle to the outside'], ['بالعرض لقدام', 'Horizontally forward'], ['لورا مع ثني الركبة', 'Backward with a bent knee']] },
-      { q: ['ليه الرجل لازم تفضل مفرودة خالص وهي طالعة؟', 'Why must the leg stay straight during the rise?'],
-        a: ['عشان تطلع ضربة نازلة قوية', 'To generate a powerful downward strike'],
-        w: [['عشان شكلها أحلى', 'Because it looks better'], ['عشان أسهل في الأداء', 'Because it is easier'], ['مش مطلوب أصلًا', 'It is not required']] },
-      { q: ['الجذع بيعمل إيه والرجل طالعة لفوق؟', 'What does the torso do while the leg rises?'],
-        a: ['بيميل لورا شوية عشان التوازن', 'Leans back slightly for balance'],
-        w: [['بينحني لقدام أوي', 'Bends far forward'], ['بيلف 180°', 'Turns 180°'], ['بيتني على الجنب', 'Folds to the side']] }
+      { q: ['ما المرحلة الثانية في نارو تشاجي؟', 'What is the second phase of Naeryeo Chagi?'],
+        a: ['رفع الرجل لأعلى', 'Vertical rise'],
+        w: [['إنزال الكعب على الهدف', 'Heel drop'], ['سحب الرجل', 'Recoil'], ['الرجوع لوضع الاستعداد', 'Return to stance']] },
+      { q: ['ما اسم مرحلة الضربة في نارو تشاجي؟', 'What is the striking phase of Naeryeo Chagi called?'],
+        a: ['إنزال الكعب على الهدف', 'Heel drop'],
+        w: [['رفع الرجل لأعلى', 'Vertical rise'], ['وضع الاستعداد', 'Ready stance'], ['رفع الركبة', 'Knee lift']] },
+      { q: ['كيف ترتفع الرجل قبل أن تنزل؟', 'How does the leg rise before it drops?'],
+        a: ['إلى أعلى وهي مستقيمة', 'Straight up, vertically'],
+        w: [['في لفّة دائرية إلى الخارج', 'In a circle to the outside'], ['بالعرض إلى الأمام', 'Horizontally forward'], ['إلى الخلف مع ثني الركبة', 'Backward with a bent knee']] },
+      { q: ['لماذا يجب أن تبقى الرجل مفرودة تمامًا وهي ترتفع؟', 'Why must the leg stay straight during the rise?'],
+        a: ['لتكون الضربة النازلة قوية', 'To generate a powerful downward strike'],
+        w: [['ليكون شكلها أجمل', 'Because it looks better'], ['لأنها أسهل في الأداء', 'Because it is easier'], ['ليس ذلك مطلوبًا أصلًا', 'It is not required']] },
+      { q: ['ماذا يفعل الجذع والرجل ترتفع إلى أعلى؟', 'What does the torso do while the leg rises?'],
+        a: ['يميل إلى الخلف قليلًا للتوازن', 'Leans back slightly for balance'],
+        w: [['ينحني إلى الأمام كثيرًا', 'Bends far forward'], ['يلف ١٨٠°', 'Turns 180°'], ['ينثني إلى الجانب', 'Folds to the side']] }
     ],
 
     // Bik Chagi -- the ROUNDHOUSE kick to the stomach (Dollyeo Chagi; as taught in this game's Learning stage and Test)
     bakchagi3: [
-      { q: ['الركلة الدائرية دي اسمها إيه في اللعبة؟', 'What is this roundhouse kick called in the game?'],
+      { q: ['ما اسم هذه الركلة الدائرية في اللعبة؟', 'What is this roundhouse kick called in the game?'],
         a: ['بيك تشاجي', 'Bik Chagi'],
         w: [['آب تشاجي', 'Ap Chagi'], ['نارو تشاجي', 'Naeryeo Chagi'], ['دوي تشاجي', 'Dwi Chagi']] },
-      { q: ['ضربة بيك تشاجي بتتعمل بأنهي جزء من القدم؟', 'Which part of the foot strikes in Bik Chagi?'],
-        a: ['وش القدم (ظهرها من فوق)', 'Instep (top of the foot)'],
-        w: [['قاعدة الأصابع (كلوة القدم)', 'Ball of the foot'], ['الكعب', 'Heel'], ['صوابع القدم', 'Toes']] },
-      { q: ['إيه الأهداف الأساسية لركلة بيك تشاجي؟', 'What are the main targets of Bik Chagi?'],
+      { q: ['بأيّ جزء من القدم تُؤدّى ضربة بيك تشاجي؟', 'Which part of the foot strikes in Bik Chagi?'],
+        a: ['وش القدم (ظهر القدم)', 'Instep (top of the foot)'],
+        w: [['قاعدة الأصابع (كلوة القدم)', 'Ball of the foot'], ['الكعب', 'Heel'], ['أصابع القدم', 'Toes']] },
+      { q: ['ما الهدف الأساسي لركلة بيك تشاجي؟', 'What are the main targets of Bik Chagi?'],
         a: ['البطن', 'The stomach'],
-        w: [['الضهر', 'The back'], ['القدم', 'The foot'], ['الركبة', 'The knee']] },
-      { q: ['قدم الارتكاز بتلف قد إيه في بيك تشاجي؟', 'How far does the standing foot pivot in Bik Chagi?'],
+        w: [['الظهر', 'The back'], ['القدم', 'The foot'], ['الركبة', 'The knee']] },
+      { q: ['كم تلف قدم الارتكاز في بيك تشاجي؟', 'How far does the standing foot pivot in Bik Chagi?'],
         a: ['حوالي ١٣٥°', 'About 135°'],
-        w: [['360°', '360°'], ['من 0° لـ 45°', '0°–45°'], ['مابتلفّش', 'No pivot']] },
-      { q: ['رجل الركلة بتروح للهدف إزاي في بيك تشاجي؟', 'How does the kicking leg travel in Bik Chagi?'],
-        a: ['في لفّة دايرية مستوية', 'Round in a level circle'],
-        w: [['من فوق لتحت', 'From top to bottom'], ['لفوق على طول', 'Straight up'], ['مابتتحركش', 'It does not move']] },
-      { q: ['جسمك بيبقى عامل إزاي وقت الضربة؟', 'How is your body at the strike?'],
-        a: ['مايل لورا بعيد عن الركلة حوالي ٤٠°', 'Leaning back, away from the kick, about 40°'],
-        w: [['واقف مفرود خالص', 'Standing fully upright'], ['منحني لقدام', 'Bent forward'], ['قاعد على الأرض', 'Sitting on the floor']] },
-      { q: ['بنعمل إيه في المرحلة التانية من بيك تشاجي؟', 'What happens in the second phase of Bik Chagi?'],
+        w: [['360°', '360°'], ['من ٠° إلى ٤٥°', '0°–45°'], ['لا تلف', 'No pivot']] },
+      { q: ['كيف تتجه رجل الركلة إلى الهدف في بيك تشاجي؟', 'How does the kicking leg travel in Bik Chagi?'],
+        a: ['في لفّة دائرية أفقية', 'Round in a level circle'],
+        w: [['من أعلى لأسفل', 'From top to bottom'], ['إلى أعلى مباشرة', 'Straight up'], ['لا تتحرك', 'It does not move']] },
+      { q: ['كيف يكون جسمك وقت الضربة؟', 'How is your body at the strike?'],
+        a: ['مائل إلى الخلف بعيدًا عن الركلة نحو ٤٠°', 'Leaning back, away from the kick, about 40°'],
+        w: [['واقف مستقيم تمامًا', 'Standing fully upright'], ['منحنٍ إلى الأمام', 'Bent forward'], ['جالس على الأرض', 'Sitting on the floor']] },
+      { q: ['ماذا نفعل في المرحلة الثانية من بيك تشاجي؟', 'What happens in the second phase of Bik Chagi?'],
         a: ['نرفع الركبة ونلفّها', 'Lift the knee and turn it over'],
-        w: [['نفرد الرجل على طول', 'Extend the leg straight away'], ['نقعد على الأرض', 'Sit on the floor'], ['ننط لورا', 'Jump backward']] },
-      { q: ['ليه بنفضل رافعين إيدينا واحنا بنلف؟', 'Why do we keep the hands up while turning?'],
-        a: ['عشان الجسم بيبقى مكشوف أكتر وهو بيلف', 'The body is more exposed while turning'],
-        w: [['عشان ده اختياري', 'Because it is optional'], ['عشان بتبطّأ الركلة', 'Because it slows the kick'], ['مفيش سبب', 'There is no reason']] },
-      { q: ['بنرجّع الرجل إزاي بعد ضربة بيك تشاجي؟', 'How do you pull the leg back after a Bik Chagi strike?'],
-        a: ['نطويها على طول والركبة مرفوعة', 'Fold it straight back, knee up'],
-        w: [['نسيبها برّه', 'Leave it out'], ['نسيبها متدلدلة', 'Let it dangle'], ['نخبطها جامد في الأرض', 'Stamp it down hard']] },
-      { q: ['ركلة دائرية ضعيفة ومش متوازنة — إيه أكتر سبب محتمل؟', 'A roundhouse kick lands weak and off-balance. What is the most likely cause?'],
-        a: ['الوسط ماتلفّش مع الركلة', 'The hip did not turn over with the kick'],
-        w: [['لفّ قدم الارتكاز حوالي 135°', 'He pivoted about 135°'], ['ضرب بوش القدم', 'He struck with the instep'], ['خلّى إيديه للحراسة', 'He kept his guard up']] },
-      { q: ['بيك تشاجي الكاملة فيها كام مرحلة أساسية؟', 'How many main phases does a complete Bik Chagi have?'],
-        a: ['5 مراحل', '5 phases'],
-        w: [['3 مراحل', '3 phases'], ['4 مراحل', '4 phases'], ['6 مراحل', '6 phases']] }
+        w: [['نفرد الرجل مباشرة', 'Extend the leg straight away'], ['نجلس على الأرض', 'Sit on the floor'], ['نقفز إلى الخلف', 'Jump backward']] },
+      { q: ['لماذا نبقي أيدينا مرفوعة ونحن نلف؟', 'Why do we keep the hands up while turning?'],
+        a: ['لأن الجسم يكون مكشوفًا أكثر وهو يلف', 'The body is more exposed while turning'],
+        w: [['لأن ذلك اختياري', 'Because it is optional'], ['لأنها تبطئ الركلة', 'Because it slows the kick'], ['لا يوجد سبب', 'There is no reason']] },
+      { q: ['كيف نُرجع الرجل بعد ضربة بيك تشاجي؟', 'How do you pull the leg back after a Bik Chagi strike?'],
+        a: ['نطويها مباشرة والركبة مرفوعة', 'Fold it straight back, knee up'],
+        w: [['نتركها في الخارج', 'Leave it out'], ['نتركها متدلية', 'Let it dangle'], ['نضربها بقوة في الأرض', 'Stamp it down hard']] },
+      { q: ['ركلة دائرية ضعيفة وغير متوازنة — ما السبب الأكثر احتمالًا؟', 'A roundhouse kick lands weak and off-balance. What is the most likely cause?'],
+        a: ['لم يلف الوسط مع الركلة', 'The hip did not turn over with the kick'],
+        w: [['لفّ قدم الارتكاز نحو ١٣٥°', 'He pivoted about 135°'], ['ضرب بوجه القدم', 'He struck with the instep'], ['أبقى يديه للحراسة', 'He kept his guard up']] },
+      { q: ['كم مرحلة أساسية في ركلة بيك تشاجي الكاملة؟', 'How many main phases does a complete Bik Chagi have?'],
+        a: ['٥ مراحل', '5 phases'],
+        w: [['٣ مراحل', '3 phases'], ['٤ مراحل', '4 phases'], ['٦ مراحل', '6 phases']] }
     ]
   };
 
   // ---- general Taekwondo questions (not tied to one kick) ------------
   // A few of these are mixed into every run -- see GENERAL_PER_ROUND.
   static GENERAL = [
-    { q: ['وضع الاستعداد اللي اللاعب بياخده في الأول قبل الركلات الهجومية اسمه:', 'The starting ready position a player takes before attacking kicks is called:'],
+    { q: ['اسم وضع الاستعداد الذي يتخذه اللاعب في البداية قبل الركلات الهجومية:', 'The starting ready position a player takes before attacking kicks is called:'],
       a: ['كيورجي جونبي', 'Kyorugi Junbi'],
       w: [['تشاريوت', 'Charyeot'], ['شيجاك', 'Shijak'], ['كومان', 'Keuman']] },
-    { q: ['في الركلات الهجومية، رجوع القدم الضاربة وثني الركبة تاني بيحصل في:', 'Pulling the kicking foot back and re-bending the knee happens in the:'],
+    { q: ['في الركلات الهجومية، يحدث رجوع القدم الضاربة وثني الركبة مرة أخرى في مرحلة:', 'Pulling the kicking foot back and re-bending the knee happens in the:'],
       a: ['سحب الرجل', 'Pulling the leg back'],
       w: [['وضع الاستعداد', 'The ready stance'], ['رفع الركبة', 'The knee lift'], ['مد الرجل للهدف', 'Extending the leg to the target']] },
-    { q: ['اللبس الرسمي بتاع لاعبين التايكوندو اسمه:', 'The official uniform of Taekwondo players is called:'],
+    { q: ['اسم الزي الرسمي للاعبي التايكوندو:', 'The official uniform of Taekwondo players is called:'],
       a: ['الدوبوك', 'Dobok'],
       w: [['الكيمونو', 'Kimono'], ['الهاكاما', 'Hakama'], ['الكيغوجي', 'Keikogi']] },
-    { q: ['في ماتش الكروجي بنفرّق بين اللاعبين باللونين:', 'Players in a Kyorugi (sparring) match are told apart by the colors:'],
+    { q: ['في مباراة الكيورجي نميّز بين اللاعبين باللونين:', 'Players in a Kyorugi (sparring) match are told apart by the colors:'],
       a: ['الأحمر والأزرق', 'Red and blue'],
       w: [['الأزرق والأبيض', 'Blue and white'], ['الأحمر والأصفر', 'Red and yellow'], ['الأزرق والأخضر', 'Blue and green']] },
-    { q: ['واقي الصدر اللي بيلبسه لاعب التايكوندو اسمه:', 'The chest protector a Taekwondo player wears is called:'],
+    { q: ['اسم واقي الصدر الذي يلبسه لاعب التايكوندو:', 'The chest protector a Taekwondo player wears is called:'],
       a: ['الهوجو', 'Hogu'],
-      w: [['الهيد جارد', 'Head guard'], ['الشين جارد', 'Shin guard'], ['الدوبوك', 'Dobok']] },
-    { q: ['في منافسات الكروجي، مسموح باللكمة المستقيمة على منطقة:', 'In Kyorugi, a straight punch may be aimed at the:'],
+      w: [['واقي الرأس', 'Head guard'], ['واقي الساق', 'Shin guard'], ['الدوبوك', 'Dobok']] },
+    { q: ['في منافسات الكيورجي، يُسمح باللكمة المستقيمة على منطقة:', 'In Kyorugi, a straight punch may be aimed at the:'],
       a: ['الصدر', 'Chest'],
-      w: [['الراس', 'Head'], ['الضهر', 'Back'], ['الرجل', 'Leg']] },
-    { q: ['في ماتشات الكروجي، اسم «شونج» بيتقال على اللاعب اللي لابس اللون:', 'In Kyorugi, the player in which color is called "Chung"?'],
+      w: [['الرأس', 'Head'], ['الظهر', 'Back'], ['الساق', 'Leg']] },
+    { q: ['في مباريات الكيورجي، يُطلق اسم «شونج» على اللاعب الذي يلبس اللون:', 'In Kyorugi, the player in which color is called "Chung"?'],
       a: ['الأزرق', 'Blue'],
       w: [['الأصفر', 'Yellow'], ['الأخضر', 'Green'], ['الأحمر', 'Red']] },
-    { q: ['في ماتشات الكروجي، اسم «هونج» بيتقال على اللاعب اللي لابس اللون:', 'In Kyorugi, the player in which color is called "Hong"?'],
+    { q: ['في مباريات الكيورجي، يُطلق اسم «هونج» على اللاعب الذي يلبس اللون:', 'In Kyorugi, the player in which color is called "Hong"?'],
       a: ['الأحمر', 'Red'],
       w: [['الأصفر', 'Yellow'], ['الأخضر', 'Green'], ['الأزرق', 'Blue']] },
-    { q: ['اللاعب ياخد إنذار (كام جام) لما:', 'A gam-jeom (penalty) is given to a player when:'],
-      a: ['جزء من القدم يطلع برا خط الحدود', 'Part of the foot leaves the boundary line'],
-      w: [['الرجلين يفضلوا جوا خط الحدود', 'Both feet stay inside the line'], ['يقف على خط الحدود', 'Standing on the line'], ['إنك تقرّب من خط الحدود', 'Getting close to the line']] },
-    { q: ['ماتش الكيورجي بيبقى فيه:', 'A Kyorugi match consists of:'],
-      a: ['تلات جولات', 'Three rounds'],
+    { q: ['يحصل اللاعب على إنذار (كام جام) عندما:', 'A gam-jeom (penalty) is given to a player when:'],
+      a: ['يخرج جزء من القدم خارج خط الحدود', 'Part of the foot leaves the boundary line'],
+      w: [['تبقى القدمان داخل خط الحدود', 'Both feet stay inside the line'], ['يقف على خط الحدود', 'Standing on the line'], ['يقترب من خط الحدود', 'Getting close to the line']] },
+    { q: ['تتكون مباراة الكيورجي من:', 'A Kyorugi match consists of:'],
+      a: ['ثلاث جولات', 'Three rounds'],
       w: [['جولتين', 'Two rounds'], ['أربع جولات', 'Four rounds'], ['خمس جولات', 'Five rounds']] },
-    { q: ['الجولة الواحدة في ماتش الكيورجي مدتها قد إيه؟', 'One round of a Kyorugi match lasts:'],
-      a: ['دقيقتين', 'Two minutes'],
-      w: [['دقيقة واحدة', 'One minute'], ['دقيقة ونص', 'One and a half minutes'], ['دقيقتين ونص', 'Two and a half minutes']] },
-    { q: ['لما اللاعب ياخد إنذار (كام جام)، إيه اللي بيحصل؟', 'When a gam-jeom is given to a player, the result is:'],
-      a: ['المنافس بياخد نقطة', 'A point for the opponent'],
-      w: [['بيتخصم نقطة من اللاعب', 'A point off the player'], ['بيتخصم نقطتين من المنافس', 'Two points off the opponent'], ['اللاعب بيتوقف', 'The player is suspended']] }
+    { q: ['كم مدة الجولة الواحدة في مباراة الكيورجي؟', 'One round of a Kyorugi match lasts:'],
+      a: ['دقيقتان', 'Two minutes'],
+      w: [['دقيقة واحدة', 'One minute'], ['دقيقة ونصف', 'One and a half minutes'], ['دقيقتان ونصف', 'Two and a half minutes']] },
+    { q: ['عندما يحصل اللاعب على إنذار (كام جام)، ماذا يحدث؟', 'When a gam-jeom is given to a player, the result is:'],
+      a: ['يحصل المنافس على نقطة', 'A point for the opponent'],
+      w: [['تُخصم نقطة من اللاعب', 'A point off the player'], ['تُخصم نقطتان من المنافس', 'Two points off the opponent'], ['يُوقَف اللاعب', 'The player is suspended']] }
   ];
 
   // ---- texts ----------------------------------------------------------
   static TXT = {
     badge:  { en: (n, t) => `Question ${n} / ${t}`, ar: (n, t) => `سؤال ${n} / ${t}` },
-    points: { en: (p) => `Points: ${p}`,            ar: (p) => `النقط: ${p}` },
-    lives:  { en: (n) => `${n} lives left`,         ar: (n) => `المحاولات اللي فاضلة: ${n}` },
-    correct: { en: 'Correct!',                      ar: 'إجابة صح!' },
-    wrong:  { en: 'Not that one - try again',       ar: 'مش دي - جرّب تاني' },
-    overTitle: { en: 'Out of lives',                ar: 'المحاولات خلصت' },
+    points: { en: (p) => `Points: ${p}`,            ar: (p) => `النقاط: ${p}` },
+    lives:  { en: (n) => `${n} lives left`,         ar: (n) => `المحاولات المتبقية: ${n}` },
+    correct: { en: 'Correct!',                      ar: 'إجابة صحيحة!' },
+    wrong:  { en: 'Not that one - try again',       ar: 'ليست هذه — حاول مرة أخرى' },
+    overTitle: { en: 'Out of lives',                ar: 'انتهت المحاولات' },
     overMsg:   { en: (n, t) => `You answered ${n} of ${t} questions. Try again!`,
-                 ar: (n, t) => `جاوبت ${TKD.num(n)} من ${TKD.count(t, 'question', 'ar')}. جرّب تاني!` },
-    retry:  { en: 'Try again',                      ar: 'جرّب تاني' },
+                 ar: (n, t) => `أجبت عن ${TKD.num(n)} من ${TKD.count(t, 'question', 'ar')}. حاول مرة أخرى!` },
+    retry:  { en: 'Try again',                      ar: 'حاول مرة أخرى' },
     arena:  { en: 'Game area: move with the arrow keys, fire with Space, or tap the correct answer.',
-              ar: 'منطقة اللعب: اتحرك بالأسهم واضرب بالمسافة، أو دوس على الإجابة الصح.' },
-    moveLeft:  { en: 'Move left',  ar: 'شمال' },
+              ar: 'منطقة اللعب: تحرّك بالأسهم واضرب بالمسافة، أو اضغط على الإجابة الصحيحة.' },
+    moveLeft:  { en: 'Move left',  ar: 'يسار' },
     moveRight: { en: 'Move right', ar: 'يمين' },
     fire:      { en: 'Fire',       ar: 'اضرب' }
   };
@@ -6690,7 +6690,7 @@ class QuizBlastSystem {
     window.Review?.noteText(this.round?.[this.qIndex]?.q?.[1], false, this.gameState?.currentSkill || TKD.gs()?.currentSkill);
     this.targets.forEach(o => { if (!o.dead) { o.dead = true; o.el.classList.add('is-gone'); } });
     this.gameState.playSound('error');
-    this.toast(this.ar ? `⏰ الإجابة الصح: ${this.pick(t.pair)}` : `⏰ The answer was: ${this.pick(t.pair)}`, 'bad', 2100);
+    this.toast(this.ar ? `⏰ الإجابة الصحيحة: ${this.pick(t.pair)}` : `⏰ The answer was: ${this.pick(t.pair)}`, 'bad', 2100);
     this.renderChrome();
     this.later(() => {
       this.qIndex++;
@@ -7495,11 +7495,11 @@ class QuizSystem {
     const right = (q) => ar ? q.optionsAr[q.options.indexOf(q.correctText)] : q.correctText;
     card.innerHTML = `
       <div class="qr-ring" style="--p:${accuracy}"><b>${ar ? TKD.num(accuracy) : accuracy}%</b></div>
-      <h3>${ar ? `${accuracy >= 50 ? 'قربت جدًا!' : 'محتاجين نراجع شوية.'} المطلوب ${TKD.num(PASS)}%` : `${accuracy >= 50 ? 'So close!' : 'Let’s review a little.'} You need ${PASS}%`}</h3>
-      <p>${ar ? 'راجع الإجابات دي وبعدين جرّب تاني — الأسئلة هتتغير:' : 'Review these answers, then try again — the questions will change:'}</p>
+      <h3>${ar ? `${accuracy >= 50 ? 'اقتربت جدًا!' : 'نحتاج إلى بعض المراجعة.'} المطلوب ${TKD.num(PASS)}%` : `${accuracy >= 50 ? 'So close!' : 'Let’s review a little.'} You need ${PASS}%`}</h3>
+      <p>${ar ? 'راجع هذه الإجابات ثم حاول مرة أخرى — ستتغير الأسئلة:' : 'Review these answers, then try again — the questions will change:'}</p>
       <ol class="quiz-review">${this.wrongs.map(q => `<li><span>${TKD.esc(ar ? q.questionAr : q.question)}</span><b>✓ ${TKD.esc(right(q))}</b></li>`).join('')}</ol>
       <div class="quiz-result-btns">
-        <button type="button" class="btn btn-success" id="quiz-retry">🔁 ${ar ? 'جرّب تاني' : 'Try again'}</button>
+        <button type="button" class="btn btn-success" id="quiz-retry">🔁 ${ar ? 'حاول مرة أخرى' : 'Try again'}</button>
         <button type="button" class="btn" id="quiz-to-lesson">🎓 ${ar ? 'راجع الدرس' : 'Review the lesson'}</button>
       </div>`;
     box.appendChild(card);
@@ -7535,19 +7535,19 @@ class WinnerSystem {
       'learning':     { icon: '🎓', text: 'Learning Completed' }
     },
     ar: {
-      'form-control': { icon: '🧍', text: 'ظبّطت الوضعية' },
-      'puzzle':       { icon: '🧩', text: 'رتّبت المراحل صح' },
-      'action':       { icon: '⚡', text: 'خلّصت تحدي الضربة' },
-      'error-hunt':   { icon: '🔍', text: 'لقيت كل الأغلاط' },
-      'quiz-blast':   { icon: '🚀', text: 'خلّصت كويز الفضاء' },
+      'form-control': { icon: '🧍', text: 'ضبطت الوضعية' },
+      'puzzle':       { icon: '🧩', text: 'رتّبت المراحل بشكل صحيح' },
+      'action':       { icon: '⚡', text: 'أنهيت تحدي الضربة' },
+      'error-hunt':   { icon: '🔍', text: 'وجدت كل الأخطاء' },
+      'quiz-blast':   { icon: '🚀', text: 'أنهيت كويز الفضاء' },
       'board-break':  { icon: '🪵', text: 'كسرت الألواح' },
-      'paddle-reflex':{ icon: '🎯', text: 'خلّصت مضارب الأهداف' },
-      'phase-rhythm': { icon: '🥁', text: 'اتقنت إيقاع الركلة' },
-      'sparring-duel': { icon: '🥊', text: 'كسبت النزال' },
-      'balance-hold':  { icon: '⚖️', text: 'توازن مظبوط' },
-      'heavy-bag':     { icon: '🥋', text: 'غلبت كيس الركلات' },
-      'quiz':         { icon: '❓', text: 'خلّصت الاختبار' },
-      'learning':     { icon: '🎓', text: 'خلّصت التعلم' }
+      'paddle-reflex':{ icon: '🎯', text: 'أنهيت مضارب الأهداف' },
+      'phase-rhythm': { icon: '🥁', text: 'أتقنت إيقاع الركلة' },
+      'sparring-duel': { icon: '🥊', text: 'فزت في النزال' },
+      'balance-hold':  { icon: '⚖️', text: 'توازن مضبوط' },
+      'heavy-bag':     { icon: '🥋', text: 'تغلّبت على كيس الركلات' },
+      'quiz':         { icon: '❓', text: 'أنهيت الاختبار' },
+      'learning':     { icon: '🎓', text: 'أنهيت التعلّم' }
     }
   };
 
@@ -7567,7 +7567,7 @@ class WinnerSystem {
     if (isFirstClear) {
       items.push({
         icon: '🥇',
-        text: ar ? 'أول لعبة تخلّصها' : 'First Game Completed'
+        text: ar ? 'أول لعبة تُنهيها' : 'First Game Completed'
       });
     }
 
@@ -7631,19 +7631,19 @@ class WinnerSystem {
         'learning': 'Congratulations! You completed your learning successfully!'
       },
       ar: {
-        'form-control': `برافو! اتقنت التحكم في وضعية ${skillName}!`,
-        'puzzle': `جامد! فهمت حركة ${skillName} كلها بالترتيب!`,
-        'action': `عاش! اتقنت تحدي ${skillName}!`,
-        'error-hunt': `عين خبيرة! لقطت الأخطاء الفنية في ${skillName}.`,
-        'quiz-blast': `انطلاقة جامدة! خلّصت أسئلة ${skillName} بنجاح!`,
-        'board-break': `كسرت الألواح بـ ${skillName} بجد!`,
-        'paddle-reflex': `سريع زي البرق! ضربت كل أهداف ${skillName} الصح!`,
-        'phase-rhythm': `ماشي على الإيقاع! حافظ مراحل ${skillName} صم!`,
-        'sparring-duel': `قراية حلوة للنزال — سجّلت بس على أهداف ${skillName} القانونية!`,
-        'balance-hold': `ثابت زي الصخرة في كل مراحل ${skillName}!`,
-        'heavy-bag': `توقيت مظبوط — ${skillName} بتاعتك ضربت الكيس بقوة بجد!`,
-        'quiz': 'برافو! معلوماتك في التايكوندو تجنن!',
-        'learning': 'مبروك! خلّصت التعلم بنجاح!'
+        'form-control': `أحسنت! أتقنت التحكم في وضعية ${skillName}!`,
+        'puzzle': `رائع! فهمت حركة ${skillName} كلها بالترتيب!`,
+        'action': `أحسنت! أتقنت تحدي ${skillName}!`,
+        'error-hunt': `عين خبيرة! اكتشفت الأخطاء الفنية في ${skillName}.`,
+        'quiz-blast': `انطلاقة رائعة! أنهيت أسئلة ${skillName} بنجاح!`,
+        'board-break': `كسرت الألواح بـ ${skillName} حقًّا!`,
+        'paddle-reflex': `سريع كالبرق! أصبت كل أهداف ${skillName} الصحيحة!`,
+        'phase-rhythm': `تسير على الإيقاع! تحفظ مراحل ${skillName} عن ظهر قلب!`,
+        'sparring-duel': `قراءة جيدة للنزال — سجّلت فقط على أهداف ${skillName} القانونية!`,
+        'balance-hold': `ثابت كالصخرة في كل مراحل ${skillName}!`,
+        'heavy-bag': `توقيت مضبوط — ضربت ${skillName} الكيس بقوة حقيقية!`,
+        'quiz': 'أحسنت! معلوماتك في التايكوندو رائعة!',
+        'learning': 'مبروك! أنهيت التعلّم بنجاح!'
       }
     };
     
@@ -7682,7 +7682,7 @@ class WinnerSystem {
     // after another) — the map shows the new stars and what is next in the unit
     const nextBtn = document.getElementById('next-level-btn');
     if (nextBtn) {
-      nextBtn.innerHTML = `<span aria-hidden="true">🗺️</span> ${TKD.t('Back to my map', 'ارجع للخريطة')}`;
+      nextBtn.innerHTML = `<span aria-hidden="true">🗺️</span> ${TKD.t('Back to my map', 'ارجع إلى الخريطة')}`;
       nextBtn.classList.add('jr-next');
     }
     // the old one-size certificate and the duplicate home button are gone (the kick test has its own certificate)
@@ -7731,113 +7731,113 @@ class TrophyRoomSystem {
   static TROPHIES = [
     {
       id: 'first-step', icon: '🥉',
-      name: { en: 'First Steps', ar: 'أول الخطوات' },
-      desc: { en: 'Completed your very first training game', ar: 'خلّصت أول لعبة تدريب ليك' },
-      how: { en: 'Finish any training game', ar: 'خلّص أي لعبة تدريب' },
+      name: { en: 'First Steps', ar: 'الخطوات الأولى' },
+      desc: { en: 'Completed your very first training game', ar: 'أنهيت أول لعبة تدريب لك' },
+      how: { en: 'Finish any training game', ar: 'أنهِ أي لعبة تدريب' },
       prog: (gs) => gs.completedGames.size > 0 ? 1 : 0,
       condition: (gs) => gs.completedGames.size > 0
     },
     {
       id: 'white-belt-1st-stripe', icon: '🥋',
       name: { en: 'White Belt — 1st Stripe', ar: 'الحزام الأبيض — الشريط الأول' },
-      desc: { en: 'Mastered Ap Chagi', ar: 'اتقنت مهارة آب تشاجي' },
-      how: { en: 'Master Ap Chagi (finish its three units and the test)', ar: 'اتقن آب تشاجي (خلّص وحداتها التلاتة والاختبار)' },
+      desc: { en: 'Mastered Ap Chagi', ar: 'أتقنت مهارة آب تشاجي' },
+      how: { en: 'Master Ap Chagi (finish its three units and the test)', ar: 'أتقِن آب تشاجي (أنهِ وحداتها الثلاث والاختبار)' },
       prog: (gs) => TrophyRoomSystem.skillProg(gs, 'apchagi'),
       condition: (gs) => gs.completedSkills.has('apchagi')
     },
     {
       id: 'white-belt-2nd-stripe', icon: '🥋',
-      name: { en: 'White Belt — 2nd Stripe', ar: 'الحزام الأبيض — الشريط التاني' },
-      desc: { en: 'Mastered Naeryeo Chagi', ar: 'اتقنت مهارة نارو تشاجي' },
-      how: { en: 'Master Naeryeo Chagi', ar: 'اتقن نارو تشاجي' },
+      name: { en: 'White Belt — 2nd Stripe', ar: 'الحزام الأبيض — الشريط الثاني' },
+      desc: { en: 'Mastered Naeryeo Chagi', ar: 'أتقنت مهارة نارو تشاجي' },
+      how: { en: 'Master Naeryeo Chagi', ar: 'أتقِن نارو تشاجي' },
       prog: (gs) => TrophyRoomSystem.skillProg(gs, 'narochagi'),
       condition: (gs) => gs.completedSkills.has('narochagi')
     },
     {
       id: 'white-belt-3rd-stripe', icon: '🥋',
-      name: { en: 'White Belt — 3rd Stripe (Beginner Tier Complete)', ar: 'الحزام الأبيض — الشريط التالت (خلّصت مرحلة الأساسيات)' },
-      desc: { en: 'Mastered every skill in the Dojang', ar: 'اتقنت كل مهارات الدوجانج' },
-      how: { en: 'Master Bik Chagi', ar: 'اتقن بيك تشاجي' },
+      name: { en: 'White Belt — 3rd Stripe (Beginner Tier Complete)', ar: 'الحزام الأبيض — الشريط الثالث (أنهيت مرحلة الأساسيات)' },
+      desc: { en: 'Mastered every skill in the Dojang', ar: 'أتقنت كل مهارات الدوجانج' },
+      how: { en: 'Master Bik Chagi', ar: 'أتقِن بيك تشاجي' },
       prog: (gs) => TrophyRoomSystem.skillProg(gs, 'bakchagi3'),
       condition: (gs) => gs.completedSkills.has('bakchagi3')
     },
     {
       id: 'puzzle-master', icon: '📋',
       name: { en: 'Sequence Master', ar: 'ملك الترتيب' },
-      desc: { en: 'Scored 100% in Order the Phases', ar: 'جبت 100% في رتّب المراحل' },
-      how: { en: 'Score 100% in Order the Phases', ar: 'جيب 100% في رتّب المراحل' },
+      desc: { en: 'Scored 100% in Order the Phases', ar: 'حصلت على ١٠٠٪ في رتّب المراحل' },
+      how: { en: 'Score 100% in Order the Phases', ar: 'احصل على ١٠٠٪ في رتّب المراحل' },
       prog: (gs) => TrophyRoomSystem.best(gs, 'puzzle') / 100,
       condition: (gs) => Object.values(gs.skillGameScores).some(s => (s.puzzle || 0) >= 100)
     },
     {
       id: 'kick-master', icon: '⚡',
       name: { en: 'Kick Master', ar: 'ملك الركلات' },
-      desc: { en: 'Scored 100% on a Strike Challenge', ar: 'جبت 100% في تحدي الضربة' },
-      how: { en: 'Score 100% in a Strike Challenge', ar: 'جيب 100% في تحدي الضربة' },
+      desc: { en: 'Scored 100% on a Strike Challenge', ar: 'حصلت على ١٠٠٪ في تحدي الضربة' },
+      how: { en: 'Score 100% in a Strike Challenge', ar: 'احصل على ١٠٠٪ في تحدي الضربة' },
       prog: (gs) => TrophyRoomSystem.best(gs, 'action') / 100,
       condition: (gs) => Object.values(gs.skillGameScores).some(s => (s.action || 0) >= 100)
     },
     {
       id: 'quiz-genius', icon: '🧠',
       name: { en: 'Quiz Genius', ar: 'عبقري الاختبارات' },
-      desc: { en: 'Scored 100% on a knowledge quiz', ar: 'جبت 100% في اختبار المعلومات' },
-      how: { en: 'Score 100% in a test', ar: 'جيب 100% في اختبار' },
+      desc: { en: 'Scored 100% on a knowledge quiz', ar: 'حصلت على ١٠٠٪ في اختبار المعلومات' },
+      how: { en: 'Score 100% in a test', ar: 'احصل على ١٠٠٪ في اختبار' },
       prog: (gs) => TrophyRoomSystem.best(gs, 'quiz') / 100,
       condition: (gs) => Object.values(gs.skillGameScores).some(s => (s.quiz || 0) >= 100)
     },
     {
       id: 'board-breaker', icon: '🪵',
       name: { en: 'Board Breaker', ar: 'كاسر الألواح' },
-      desc: { en: 'Passed Board Break with every kick', ar: 'عدّيت كسر الألواح بكل الركلات' },
-      how: { en: 'Pass Board Break with all 3 kicks', ar: 'عدّي كسر الألواح بالركلات التلاتة' },
+      desc: { en: 'Passed Board Break with every kick', ar: 'نجحت في كسر الألواح بكل الركلات' },
+      how: { en: 'Pass Board Break with all 3 kicks', ar: 'انجح في كسر الألواح بالركلات الثلاث' },
       prog: (gs) => TrophyRoomSystem.passed(gs, 'boardBreak') / 3,
       condition: (gs) => GameConfig.SKILL_ORDER.every(sk => (gs.skillGameScores[sk]?.boardBreak || 0) >= GameConfig.SETTINGS.PASSING_SCORE)
     },
     {
       id: 'lightning', icon: '⚡',
-      name: { en: 'Lightning Reflexes', ar: 'سريع زي البرق' },
-      desc: { en: 'Scored 95%+ on Target Paddles', ar: 'جبت 95% أو أكتر في مضارب الأهداف' },
-      how: { en: 'Score 95% or more in Target Paddles', ar: 'جيب 95% أو أكتر في مضارب الأهداف' },
+      name: { en: 'Lightning Reflexes', ar: 'سريع كالبرق' },
+      desc: { en: 'Scored 95%+ on Target Paddles', ar: 'حصلت على ٩٥٪ أو أكثر في مضارب الأهداف' },
+      how: { en: 'Score 95% or more in Target Paddles', ar: 'احصل على ٩٥٪ أو أكثر في مضارب الأهداف' },
       prog: (gs) => TrophyRoomSystem.best(gs, 'paddleReflex') / 95,
       condition: (gs) => Object.values(gs.skillGameScores).some(s => (s.paddleReflex || 0) >= 95)
     },
     {
       id: 'rhythm-master', icon: '🥁',
       name: { en: 'Rhythm Master', ar: 'ملك الإيقاع' },
-      desc: { en: 'Scored 95%+ on Kick Rhythm', ar: 'جبت 95% أو أكتر في إيقاع الركلة' },
-      how: { en: 'Score 95% or more in Kick Rhythm', ar: 'جيب 95% أو أكتر في إيقاع الركلة' },
+      desc: { en: 'Scored 95%+ on Kick Rhythm', ar: 'حصلت على ٩٥٪ أو أكثر في إيقاع الركلة' },
+      how: { en: 'Score 95% or more in Kick Rhythm', ar: 'احصل على ٩٥٪ أو أكثر في إيقاع الركلة' },
       prog: (gs) => TrophyRoomSystem.best(gs, 'phaseRhythm') / 95,
       condition: (gs) => Object.values(gs.skillGameScores).some(s => (s.phaseRhythm || 0) >= 95)
     },
     {
       id: 'ring-champion', icon: '🥊',
       name: { en: 'Ring Champion', ar: 'بطل الحلبة' },
-      desc: { en: 'Passed Sparring with every kick', ar: 'عدّيت النزال بكل الركلات' },
-      how: { en: 'Pass Sparring with all 3 kicks', ar: 'عدّي النزال بالركلات التلاتة' },
+      desc: { en: 'Passed Sparring with every kick', ar: 'نجحت في النزال بكل الركلات' },
+      how: { en: 'Pass Sparring with all 3 kicks', ar: 'انجح في النزال بالركلات الثلاث' },
       prog: (gs) => TrophyRoomSystem.passed(gs, 'sparringDuel') / 3,
       condition: (gs) => GameConfig.SKILL_ORDER.every(sk => (gs.skillGameScores[sk]?.sparringDuel || 0) >= GameConfig.SETTINGS.PASSING_SCORE)
     },
     {
       id: 'iron-balance', icon: '⚖️',
-      name: { en: 'Iron Balance', ar: 'توازن حديد' },
-      desc: { en: 'Scored 95%+ on Balance Hold', ar: 'جبت 95% أو أكتر في اثبت واتوازن' },
-      how: { en: 'Score 95% or more in Balance Hold', ar: 'جيب 95% أو أكتر في اثبت واتوازن' },
+      name: { en: 'Iron Balance', ar: 'توازن حديدي' },
+      desc: { en: 'Scored 95%+ on Balance Hold', ar: 'حصلت على ٩٥٪ أو أكثر في اثبت وتوازن' },
+      how: { en: 'Score 95% or more in Balance Hold', ar: 'احصل على ٩٥٪ أو أكثر في اثبت وتوازن' },
       prog: (gs) => TrophyRoomSystem.best(gs, 'balanceHold') / 95,
       condition: (gs) => Object.values(gs.skillGameScores).some(s => (s.balanceHold || 0) >= 95)
     },
     {
       id: 'power-kicker', icon: '💥',
       name: { en: 'Power Kicker', ar: 'ركلة جبارة' },
-      desc: { en: 'Scored 95%+ on Heavy Bag', ar: 'جبت 95% أو أكتر في كيس الركلات' },
-      how: { en: 'Score 95% or more in Heavy Bag', ar: 'جيب 95% أو أكتر في كيس الركلات' },
+      desc: { en: 'Scored 95%+ on Heavy Bag', ar: 'حصلت على ٩٥٪ أو أكثر في كيس الركلات' },
+      how: { en: 'Score 95% or more in Heavy Bag', ar: 'احصل على ٩٥٪ أو أكثر في كيس الركلات' },
       prog: (gs) => TrophyRoomSystem.best(gs, 'heavyBag') / 95,
       condition: (gs) => Object.values(gs.skillGameScores).some(s => (s.heavyBag || 0) >= 95)
     },
     {
       id: 'certified', icon: '📜',
-      name: { en: 'Certified', ar: 'معاه شهادة' },
-      desc: { en: 'Earned an official mastery certificate', ar: 'خدت شهادة إتقان رسمية' },
-      how: { en: 'Master any kick to earn its certificate', ar: 'اتقن أي ركلة وخد شهادتها' },
+      name: { en: 'Certified', ar: 'حاصل على شهادة' },
+      desc: { en: 'Earned an official mastery certificate', ar: 'حصلت على شهادة إتقان رسمية' },
+      how: { en: 'Master any kick to earn its certificate', ar: 'أتقِن أي ركلة واحصل على شهادتها' },
       prog: (gs) => Math.max(...GameConfig.SKILL_ORDER.map(sk => TrophyRoomSystem.skillProg(gs, sk))),
       condition: (gs) => gs.completedSkills.size > 0
     }
@@ -7863,7 +7863,7 @@ class TrophyRoomSystem {
     const counter = document.getElementById('trophy-room-counter');
     if (counter) {
       counter.textContent = ar
-        ? `جمّعت ${unlockedCount} من ${this.TROPHIES.length}`
+        ? `جمعت ${unlockedCount} من ${this.TROPHIES.length}`
         : `${unlockedCount} of ${this.TROPHIES.length} collected`;
     }
 
@@ -7904,27 +7904,27 @@ class CooldownSystem {
   static STRETCHES = [
     {
       icon: '🦵', secs: 20, video: null,
-      nameEn: 'Standing Quad Stretch', nameAr: 'إطالة عضلة الفخذ اللي قدام',
+      nameEn: 'Standing Quad Stretch', nameAr: 'إطالة العضلة الأمامية للفخذ',
       descEn: 'Hold a wall, pull one heel gently toward your bottom and hold. Then the other leg.',
-      descAr: 'اسند على الحيطة، واسحب كعبك بالراحة ناحية وسطك من ورا واثبت. وبعدين الرجل التانية.'
+      descAr: 'استند إلى الحائط، واسحب كعبك بهدوء نحو مقعدتك واثبت. ثم الرجل الأخرى.'
     },
     {
       icon: '🧘', secs: 20, video: 'assets/videos/warmup/double_leg_hamstring.mp4',
-      nameEn: 'Seated Hamstring Stretch', nameAr: 'إطالة عضلة الفخذ اللي ورا',
+      nameEn: 'Seated Hamstring Stretch', nameAr: 'إطالة العضلة الخلفية للفخذ',
       descEn: 'Sit with straight legs and reach slowly toward your toes. No bouncing — breathe slowly.',
-      descAr: 'اقعد ورجليك مفرودين ومد إيديك بالراحة ناحية صوابع رجليك. من غير هز، وخد نفسك بالراحة.'
+      descAr: 'اجلس ورجلاك مفرودتان، ومُدّ يديك بهدوء نحو أصابع قدميك. دون اهتزاز، وتنفّس بهدوء.'
     },
     {
       icon: '🦶', secs: 20, video: null,
-      nameEn: 'Calf Stretch & Ankle Circles', nameAr: 'إطالة السمانة ولف الكاحل',
+      nameEn: 'Calf Stretch & Ankle Circles', nameAr: 'إطالة عضلة السمانة ولف الكاحل',
       descEn: 'Lean on a wall with one leg back, heel down. Then draw slow circles with each ankle.',
-      descAr: 'اسند على الحيطة ومد رجل لورا والكعب على الأرض. وبعدين لف كل كاحل لفّات بطيئة.'
+      descAr: 'استند إلى الحائط ومُدّ رجلًا إلى الخلف والكعب على الأرض. ثم لُفّ كل كاحل لفّات بطيئة.'
     },
     {
       icon: '🌬️', secs: 40, breathe: true,
       nameEn: 'Deep Breathing', nameAr: 'نفس عميق',
       descEn: 'Follow the circle: breathe in while it grows, breathe out while it shrinks.',
-      descAr: 'امشي مع الدايرة: خد نفس وهي بتكبر، وطلّعه وهي بتصغر.'
+      descAr: 'اتبع الدائرة: خذ شهيقًا وهي تكبر، وأخرجه زفيرًا وهي تصغر.'
     }
   ];
   static gameState = null;
@@ -7982,8 +7982,8 @@ class CooldownSystem {
         <p>${ar ? S.descAr : S.descEn}</p>
         <div class="cd-timer" id="cd-ring"><b id="cd-timer-n"></b><small>${ar ? 'ثانية' : 'sec'}</small></div>
         <div class="cd-btns">
-          <button type="button" class="btn" id="cd-pause">${this.paused ? (ar ? '▶ كمّل' : '▶ Go on') : (ar ? '⏸ وقّف' : '⏸ Pause')}</button>
-          <button type="button" class="btn btn-success" id="cd-next">${this.i < n - 1 ? (ar ? 'اللي بعده ⏭' : 'Next ⏭') : (ar ? 'خلّصت ✓' : 'Done ✓')}</button>
+          <button type="button" class="btn" id="cd-pause">${this.paused ? (ar ? '▶ استمر' : '▶ Go on') : (ar ? '⏸ إيقاف مؤقت' : '⏸ Pause')}</button>
+          <button type="button" class="btn btn-success" id="cd-next">${this.i < n - 1 ? (ar ? 'التالي ⏭' : 'Next ⏭') : (ar ? 'انتهيت ✓' : 'Done ✓')}</button>
         </div>
       </div>`;
     this.paintTimer();
@@ -7997,8 +7997,8 @@ class CooldownSystem {
     const list = document.getElementById('cooldown-list'); if (!list) return;
     const ar = this.ar;
     list.innerHTML = `<div class="cd-card cd-finish"><div class="cd-emoji">🙇</div>
-      <h3>${ar ? 'برافو! جسمك هادي ومرتاح.' : 'Well done! Your body is calm and relaxed.'}</h3>
-      <p>${ar ? 'في آخر التمرين بنعمل تحية (كيونجنيه) للمدرب وللصالة.' : 'At the end of training we bow (Gyeongnye) to the coach and the dojang.'}</p></div>`;
+      <h3>${ar ? 'أحسنت! جسمك هادئ ومرتاح.' : 'Well done! Your body is calm and relaxed.'}</h3>
+      <p>${ar ? 'في نهاية التمرين نؤدي التحية (كيونجنيه) للمدرب وللصالة.' : 'At the end of training we bow (Gyeongnye) to the coach and the dojang.'}</p></div>`;
     try { window.KoreanCall?.show?.('gyeongnye', list.querySelector('.cd-finish')); } catch (e) {}
   }
 }
@@ -8241,7 +8241,7 @@ class ReportSystem {
     const streakEl = document.getElementById('report-streak');
     if (streakEl) {
       streakEl.textContent = ar
-        ? `🔥 ${TKD.count(gameState.practiceStreak, 'day', 'ar')} ورا بعض دلوقتي (الأحسن: ${gameState.bestStreak})`
+        ? `🔥 ${TKD.count(gameState.practiceStreak, 'day', 'ar')} على التوالي الآن (الأفضل: ${gameState.bestStreak})`
         : `🔥 ${gameState.practiceStreak}-day streak right now (best: ${gameState.bestStreak})`;
     }
 
@@ -8255,7 +8255,7 @@ class ReportSystem {
       })();
       lastPlayedEl.textContent = gameState.lastPlayedDate
         ? (ar ? `📅 آخر تمرين: ${day}` : `📅 Last practiced: ${day}`)
-        : (ar ? '📅 لسه ما بدأش التدريب' : '📅 No training yet');
+        : (ar ? '📅 لم يبدأ التدريب بعد' : '📅 No training yet');
     }
 
     const grid = document.getElementById('report-skills-grid');
@@ -8268,8 +8268,8 @@ class ReportSystem {
         const avg = attempted.length ? Math.round(attempted.reduce((a, b) => a + b, 0) / attempted.length) : 0;
 
         let statusLabel, statusClass;
-        if (gameState.completedSkills.has(skillId)) { statusLabel = ar ? '✅ خلصت' : '✅ Completed'; statusClass = 'report-status-done'; }
-        else if (gameState.unlockedSkills.has(skillId)) { statusLabel = ar ? '🟡 شغال عليها' : '🟡 In Progress'; statusClass = 'report-status-progress'; }
+        if (gameState.completedSkills.has(skillId)) { statusLabel = ar ? '✅ انتهى' : '✅ Completed'; statusClass = 'report-status-done'; }
+        else if (gameState.unlockedSkills.has(skillId)) { statusLabel = ar ? '🟡 قيد العمل' : '🟡 In Progress'; statusClass = 'report-status-progress'; }
         else {
           // Tell parents/coaches exactly which skill unlocks this one, instead
           // of a bare "Locked" with no next step — skill order is sequential
@@ -8279,8 +8279,8 @@ class ReportSystem {
           const prevSkill = prevSkillId ? GameConfig.SKILLS[prevSkillId] : null;
           const prevName = prevSkill ? (ar ? prevSkill.name.ar : prevSkill.name.en) : '';
           statusLabel = prevName
-            ? (ar ? `🔒 مقفولة — خلّص ${prevName} الأول` : `🔒 Locked — finish ${prevName} first`)
-            : (ar ? '🔒 مقفولة' : '🔒 Locked');
+            ? (ar ? `🔒 مغلقة — أنهِ ${prevName} أولًا` : `🔒 Locked — finish ${prevName} first`)
+            : (ar ? '🔒 مغلقة' : '🔒 Locked');
           statusClass = 'report-status-locked';
         }
 
@@ -8304,7 +8304,7 @@ class ReportSystem {
       grid.after(b);
     }
     const sb = document.getElementById('report-share');
-    if (sb) sb.textContent = ar ? '📤 ابعت التقرير كصورة' : '📤 Send the report as a picture';
+    if (sb) sb.textContent = ar ? '📤 أرسل التقرير كصورة' : '📤 Send the report as a picture';
   }
 
   static async shareImage() {
@@ -8336,7 +8336,7 @@ class ReportSystem {
       const y = 790 + i * 150, S = GameConfig.SKILLS[sk], sc = gs.skillGameScores[sk] || {};
       const dims = ['formControl', 'puzzle', 'action', 'quiz'].map(k => sc[k] || 0).filter(v => v > 0);
       const avg = dims.length ? Math.round(dims.reduce((a, b) => a + b, 0) / dims.length) : 0;
-      const st = gs.completedSkills.has(sk) ? (ar ? '✅ خلّصها' : '✅ Mastered') : gs.unlockedSkills.has(sk) ? (ar ? '🟡 شغّال عليها' : '🟡 In progress') : (ar ? '🔒 لسه' : '🔒 Not yet');
+      const st = gs.completedSkills.has(sk) ? (ar ? '✅ أنهاها' : '✅ Mastered') : gs.unlockedSkills.has(sk) ? (ar ? '🟡 يعمل عليها' : '🟡 In progress') : (ar ? '🔒 لم تُفتح بعد' : '🔒 Not yet');
       g.fillStyle = 'rgba(255,255,255,.07)'; g.beginPath(); g.roundRect(90, y - 50, W - 180, 128, 24); g.fill();
       g.fillStyle = '#fff'; g.font = F(800, 40); g.fillText(`${ar ? S.name.ar : S.name.en} — ${st}`, W / 2, y - 10);
       g.fillStyle = 'rgba(255,255,255,.15)'; g.beginPath(); g.roundRect(170, y + 30, W - 340, 18, 9); g.fill();
@@ -8356,7 +8356,7 @@ class ReportSystem {
     } catch (e) { if (e?.name === 'AbortError') return; }
     const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click();
     setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 2000);
-    TKD.toast(ar ? '📥 الصورة اتحفظت — ابعتها على واتساب' : '📥 Picture saved — send it on WhatsApp', 'success');
+    TKD.toast(ar ? '📥 حُفظت الصورة — أرسلها عبر واتساب' : '📥 Picture saved — send it on WhatsApp', 'success');
   }
 
   static fmtDate(ts, ar) {
@@ -8372,14 +8372,14 @@ class ReportSystem {
     const mineEl = document.getElementById('lb-panel-mine');
     if (mineEl) {
       if (!player) {
-        mineEl.innerHTML = `<p class="lb-empty">${ar ? 'لسه ماسجّلتش باسمك.' : "You haven't registered a name yet."}</p>`;
+        mineEl.innerHTML = `<p class="lb-empty">${ar ? 'لم تسجّل باسمك بعد.' : "You haven't registered a name yet."}</p>`;
       } else {
         const s = PlayerSystem.statsFor(player.id);
         mineEl.innerHTML = `
           <div class="lb-player-name-banner">🥋 ${player.name}</div>
           <div class="lb-stat-grid">
             <div class="lb-stat-tile"><span class="lb-stat-value">${s.totalPoints}</span><span class="lb-stat-label">${ar ? 'مجموع النقاط' : 'Total Points'}</span></div>
-            <div class="lb-stat-tile"><span class="lb-stat-value">${s.gamesPlayed}</span><span class="lb-stat-label">${ar ? 'الألعاب اللي لعبتها' : 'Games Played'}</span></div>
+            <div class="lb-stat-tile"><span class="lb-stat-value">${s.gamesPlayed}</span><span class="lb-stat-label">${ar ? 'الألعاب التي لعبتها' : 'Games Played'}</span></div>
             <div class="lb-stat-tile"><span class="lb-stat-value">${s.attempts}</span><span class="lb-stat-label">${ar ? 'المحاولات' : 'Attempts'}</span></div>
             <div class="lb-stat-tile"><span class="lb-stat-value">${this.fmtDate(s.lastPlayed, ar)}</span><span class="lb-stat-label">${ar ? 'آخر لعب' : 'Last Played'}</span></div>
           </div>`;
@@ -8391,7 +8391,7 @@ class ReportSystem {
     if (allEl) {
       const board = PlayerSystem.leaderboard();
       if (!board.length) {
-        allEl.innerHTML = `<p class="lb-empty">${ar ? 'لسه معندكش نقاط — العب أي لعبة عشان تدخل اللوحة!' : 'No scores yet — play a game to get on the board!'}</p>`;
+        allEl.innerHTML = `<p class="lb-empty">${ar ? 'ليست لديك نقاط بعد — العب أي لعبة لتدخل اللوحة!' : 'No scores yet — play a game to get on the board!'}</p>`;
       } else {
         allEl.innerHTML = `<div class="lb-rank-list">${board.map((p, i) => {
           const rank = i + 1;
@@ -8399,7 +8399,7 @@ class ReportSystem {
           return `
             <div class="lb-rank-row lb-rank-${rank} ${isMe ? 'lb-me' : ''}">
               <span class="lb-rank-num">${rank <= 3 ? ['🥇', '🥈', '🥉'][rank - 1] : rank}</span>
-              <span class="lb-rank-name">${p.name}${isMe ? ` (${ar ? 'إنت' : 'You'})` : ''}
+              <span class="lb-rank-name">${p.name}${isMe ? ` (${ar ? 'أنت' : 'You'})` : ''}
                 <div class="lb-rank-sub">${TKD.count(p.gamesPlayed, 'game', ar ? 'ar' : 'en')} · ${TKD.count(p.attempts, 'attempt', ar ? 'ar' : 'en')}</div>
               </span>
               <span class="lb-rank-points">${p.totalPoints}</span>
@@ -8528,7 +8528,7 @@ class SkillMenuSystem {
     const t = skill.technical;
     box.innerHTML = `
       <div class="tech-info-row">
-        <span class="tech-info-label">${ar ? '🎯 الجزء اللي بيضرب:' : '🎯 Striking Surface:'}</span>
+        <span class="tech-info-label">${ar ? '🎯 الجزء الذي يضرب:' : '🎯 Striking Surface:'}</span>
         <span class="tech-info-value">${ar ? t.strikingSurface.ar : t.strikingSurface.en}</span>
       </div>
       <div class="tech-info-row">
@@ -8571,7 +8571,7 @@ class SkillMenuSystem {
     if (attempted.length < 2) {
       box.innerHTML = `
         <div class="mastery-icon">🧭</div>
-        <p>${ar ? 'كمّل نشاطين على الأقل من الخمسة عشان تشوف ملخص إتقانك كله.'
+        <p>${ar ? 'أكمل نشاطين على الأقل من الخمسة لتشاهد ملخص إتقانك كله.'
                 : 'Complete at least 2 of the 5 activities to see your full mastery summary.'}</p>
       `;
       return;
@@ -8584,11 +8584,11 @@ class SkillMenuSystem {
 
     let msg;
     if (gap < 15) {
-      msg = ar ? '⚖️ أداءك متوازن في كل حاجة — كمّل كده!'
+      msg = ar ? '⚖️ أداؤك متوازن في كل شيء — استمر هكذا!'
                : "⚖️ Well-balanced performance across the board — keep it up!";
     } else {
       msg = ar
-        ? `💪 إنت قوي في <b>${strongest.label.ar}</b> (${strongest.score}%)، ركّز أكتر على <b>${weakest.label.ar}</b> (${weakest.score}%).`
+        ? `💪 أنت قوي في <b>${strongest.label.ar}</b> (${strongest.score}%)، ركّز أكثر على <b>${weakest.label.ar}</b> (${weakest.score}%).`
         : `💪 Strong in <b>${strongest.label.en}</b> (${strongest.score}%) — focus more on <b>${weakest.label.en}</b> (${weakest.score}%).`;
     }
 
@@ -8624,7 +8624,7 @@ class WarmupSystem {
         descEn: '(Standing) Jump your feet apart and together, swinging your arms up over your head and down.',
         descAr: '(وقوف) القفز فتح وضم مع تحريك الذراعين عالياً و لأسفل.',
         tipEn: 'This wakes up your heart and warms every muscle before you stretch.',
-        tipAr: 'ده بيصحّي قلبك ويدفّي كل عضلات جسمك قبل الإطالة.',
+        tipAr: 'يوقظ قلبك ويدفئ كل عضلات جسمك قبل الإطالة.',
         key: []
       },
       {
@@ -8634,7 +8634,7 @@ class WarmupSystem {
         descEn: '(Standing, feet apart — hands on the hips) Lunge forward, one leg then the other.',
         descAr: '(وقوف فتحاً - ذراعين ثبات وسط) الطعن اماماً للجانبين بالتبادل.',
         tipEn: 'Builds the strong standing leg and balance that holds you up while you kick.',
-        tipAr: 'بيقوّي رجل الارتكاز والتوازن اللي بيشيلوك وإنت بتركل.',
+        tipAr: 'يقوّي رجل الارتكاز والتوازن اللذين يحملانك وأنت تركل.',
         key: ['apchagi']
       },
       {
@@ -8644,7 +8644,7 @@ class WarmupSystem {
         descEn: '(Standing, feet apart) A deep lunge to one side, then the other, with your hands on the floor for support.',
         descAr: '(وقوف فتحاً) الطعن العميق للجانبين بالتبادل مع السند باليدين على الارض.',
         tipEn: 'Opens the inner thighs and hips — you need that to turn the hip over in a roundhouse kick.',
-        tipAr: 'بيفتح الفخذ من جوه والوركين — ودي حاجة مهمة عشان تلف وسطك في الركلة الدائرية.',
+        tipAr: 'يفتح الفخذ من الداخل والوركين — وهذا مهم لتلف وسطك في الركلة الدائرية.',
         key: ['bakchagi3']
       },
       {
@@ -8654,7 +8654,7 @@ class WarmupSystem {
         descEn: '(Standing, feet apart) Spread your feet wide to the sides, bend your trunk forward and put your hands on the floor.',
         descAr: '(وقوف فتحاً) تباعد القدمين جانباً مع ميل الجذع اماماً و السند باليدين على الأرض. (برجل)',
         tipEn: 'Stretches the back of your legs and inner thighs for higher, cleaner kicks.',
-        tipAr: 'بيطوّل عضلات ورا الرجل والفخذ من جوه عشان ركلتك تبقى أعلى وأنضف.',
+        tipAr: 'يطيل عضلات خلف الرجل والفخذ من الداخل لتكون ركلتك أعلى وأنظف.',
         key: ['narochagi']
       },
       {
@@ -8664,7 +8664,7 @@ class WarmupSystem {
         descEn: '(Long sitting, legs apart) Bend your trunk to one side and then the other, touching the front of your feet.',
         descAr: '(جلوس طويل فتحاً) ميل الجذع للجانبين بالتبادل مع لمس الأمشاط.',
         tipEn: 'Keep both legs straight and your chest open — this loosens the side of the hip.',
-        tipAr: 'خلي رجليك مفرودة وصدرك مفتوح — ده بيفكّ جنب الورك.',
+        tipAr: 'أبقِ رجليك مفرودتين وصدرك مفتوحًا — فهذا يُرخي جانب الورك.',
         key: ['bakchagi3', 'narochagi']
       },
       {
@@ -8674,7 +8674,7 @@ class WarmupSystem {
         descEn: '(Half cross-legged sitting) Straighten one knee forward and bend your trunk forward and down to touch the front of that foot.',
         descAr: '(جلوس تربيع نصفاً) مد ركبة إحدى الرجلين اماماً وميل الجذع اماماً أسفل للمس مشط الرجل.',
         tipEn: 'Reach with a long, straight back — tight hamstrings stop your leg from rising high.',
-        tipAr: 'اتمد لقدام وظهرك مفرود — العضلة اللي ورا الفخذ لو مشدودة بتمنع رجلك تطلع لفوق.',
+        tipAr: 'تمدّد إلى الأمام وظهرك مستقيم — العضلة الخلفية للفخذ إذا كانت مشدودة تمنع رجلك من الارتفاع.',
         key: ['narochagi', 'apchagi']
       },
       {
@@ -8684,7 +8684,7 @@ class WarmupSystem {
         descEn: '(Long sitting — arms forward) Bend your trunk forward and down and hold the front of both feet.',
         descAr: '(جلوس طويل - ذراعان اماماً) ميل الجذع اماماً ولأسفل ومسك مشطي القدمين.',
         tipEn: 'A calm finisher — your legs are now warm and ready to kick.',
-        tipAr: 'ختام هادي — رجليك دلوقتي دافية وجاهزة تركل.',
+        tipAr: 'ختام هادئ — رجلاك الآن دافئتان وجاهزتان للركل.',
         key: ['narochagi']
       }
     ];
@@ -8745,27 +8745,27 @@ class WarmupSystem {
       chip.after(b);
     }
     const ar = this.ar;
-    b.textContent = this.quick ? (ar ? '🐢 عايز الإحماء الكامل (٧)' : '🐢 Full warm-up (7)') : (ar ? '⚡ إحماء سريع (٣ تمارين)' : '⚡ Quick warm-up (3)');
+    b.textContent = this.quick ? (ar ? '🐢 أريد الإحماء الكامل (٧)' : '🐢 Full warm-up (7)') : (ar ? '⚡ إحماء سريع (٣ تمارين)' : '⚡ Quick warm-up (3)');
     b.setAttribute('aria-pressed', String(this.quick));
   }
   static localise() {
     const ar = this.ar;
     try { this.mountQuickToggle(); } catch (e) {}
     const skill = GameConfig.SKILLS[this.skillId] || GameConfig.SKILLS.apchagi;
-    this.setText('wu2-title', ar ? '🔥 يلا نعمل إحماء!' : '🔥 Warm Up Time!');
+    this.setText('wu2-title', ar ? '🔥 هيا نؤدي الإحماء!' : '🔥 Warm Up Time!');
     const nEx = (this.exercises || WarmupSystem.EXERCISES()).length;   // counted, so the copy can't drift from the list again
     this.setText('wu2-subtitle', ar
       ? `${TKD.count(nEx, 'exercise', 'ar')} قصيرة تجهّز جسمك قبل التمرين`
       : `${nEx} short exercises to get your body ready`);
-    this.setText('wu2-kick-chip', ar ? `🥋 بنجهّز لـ ${skill.name.ar}` : `🥋 Getting ready for ${skill.name.en}`);
+    this.setText('wu2-kick-chip', ar ? `🥋 نستعد لـ ${skill.name.ar}` : `🥋 Getting ready for ${skill.name.en}`);
     this.setText('warmup-energy-label', ar ? '⚡ جاهزيتك' : '⚡ Readiness');
     this.setText('warmup-timer-label', ar ? 'ثانية' : 'sec');
-    this.setText('warmup-next-label', ar ? 'عدّي' : 'Skip');
-    this.setText('wu2-rest-title', ar ? 'استراحة صغيرة' : 'Quick rest');
-    this.setText('wu2-rest-next-label', ar ? 'اللي جاي:' : 'Next up:');
-    this.setText('wu2-rest-skip-label', ar ? 'يلا نبدأ' : "I'm ready");
-    this.setText('warmup-go-learn', ar ? 'يلا نتعلم 🎓' : 'Start Learning 🎓');
-    this.setText('warmup-go-repeat', ar ? 'إحماء تاني 🔁' : 'Repeat Warm Up 🔁');
+    this.setText('warmup-next-label', ar ? 'تخطَّ' : 'Skip');
+    this.setText('wu2-rest-title', ar ? 'استراحة قصيرة' : 'Quick rest');
+    this.setText('wu2-rest-next-label', ar ? 'التالي:' : 'Next up:');
+    this.setText('wu2-rest-skip-label', ar ? 'هيا نبدأ' : "I'm ready");
+    this.setText('warmup-go-learn', ar ? 'هيا نتعلم 🎓' : 'Start Learning 🎓');
+    this.setText('warmup-go-repeat', ar ? 'إحماء مرة أخرى 🔁' : 'Repeat Warm Up 🔁');
     this.setText('warmup-go-home', ar ? 'الرئيسية 🏠' : 'Home 🏠');
     this.$('warmup-exit-btn')?.setAttribute('aria-label', ar ? 'خروج' : 'Exit');
     this.syncPauseBtn();
@@ -8849,7 +8849,7 @@ class WarmupSystem {
     if (key) {
       const skill = GameConfig.SKILLS[this.skillId] || GameConfig.SKILLS.apchagi;
       key.hidden = !ex.key.includes(this.skillId);
-      key.textContent = ar ? `⭐ مهم أوي لـ ${skill.name.ar}` : `⭐ Key for ${skill.name.en}`;
+      key.textContent = ar ? `⭐ مهم جدًا لـ ${skill.name.ar}` : `⭐ Key for ${skill.name.en}`;
     }
     const tag = this.$('wu2-media-tag');
     if (tag) tag.textContent = ex.video ? (ar ? '🎥 فيديو شرح' : '🎥 Demo video') : (ar ? '✏️ شرح متحرك' : '✏️ Animated demo');
@@ -9013,7 +9013,7 @@ class WarmupSystem {
     const ar = this.ar;
     const icon = this.$('warmup-pause-icon');
     if (icon) icon.className = this.isPaused ? 'fas fa-play' : 'fas fa-pause';
-    this.setText('warmup-pause-label', this.isPaused ? (ar ? 'كمّل' : 'Resume') : (ar ? 'وقّف' : 'Pause'));
+    this.setText('warmup-pause-label', this.isPaused ? (ar ? 'استمر' : 'Resume') : (ar ? 'إيقاف' : 'Pause'));
   }
 
   static exit() {
@@ -9116,10 +9116,10 @@ class WarmupSystem {
       Journey.bindNextButton('jr-next-warm');
       btns.querySelectorAll('.btn').forEach(b => { if (b.id !== 'jr-next-warm') b.classList.add('btn-quiet'); });
     }
-    this.setText('warmup-complete-title', ar ? '🎉 خلّصت الإحماء!' : '🎉 Warm-up done!');
+    this.setText('warmup-complete-title', ar ? '🎉 أنهيت الإحماء!' : '🎉 Warm-up done!');
     this.setText('warmup-complete-sub', doneCount === total
-      ? (ar ? 'عملت كل التمارين! جسمك جاهز خالص للتمرين.' : 'You did every exercise — your body is fully ready!')
-      : (ar ? `عملت ${TKD.num(doneCount)} من ${TKD.count(total, 'exercise', 'ar')}. المرة الجاية جرّب تخلّصهم كلهم!` : `You did ${doneCount} of ${total} exercises. Next time try to finish them all!`));
+      ? (ar ? 'أدّيت كل التمارين! جسمك جاهز تمامًا للتمرين.' : 'You did every exercise — your body is fully ready!')
+      : (ar ? `أدّيت ${TKD.num(doneCount)} من ${TKD.count(total, 'exercise', 'ar')}. في المرة القادمة حاول أن تُنهيها كلها!` : `You did ${doneCount} of ${total} exercises. Next time try to finish them all!`));
 
     const list = this.$('wu2-done-list');
     if (list) {
@@ -9131,7 +9131,7 @@ class WarmupSystem {
     const completeChar = this.$('warmup-complete-char');
     if (completeChar) gs.createCharacterVisual('warmup-complete-char', gs.playerCharacter, 'WIN');
     this.spawnConfetti();
-    gs.showNotification(ar ? '🔥 الإحماء خلص! جسمك جاهز للتمرين!' : '🔥 Warm-up complete! Body is ready!', 'success');
+    gs.showNotification(ar ? '🔥 انتهى الإحماء! جسمك جاهز للتمرين!' : '🔥 Warm-up complete! Body is ready!', 'success');
   }
 
   static spawnConfetti() {
@@ -9470,10 +9470,10 @@ async function initGame() {
     if (loadingText) loadingText.textContent = text;
   };
 
-  setProgress(20, 'بنجهّز… · Getting ready…');   // v53: both languages (the child's choice isn't known yet)
+  setProgress(20, 'نستعد… · Getting ready…');   // v53: both languages (the child's choice isn't known yet)
   GameStateInstance = new GameState();
 
-  setProgress(50, 'بنحمّل… · Loading…');
+  setProgress(50, 'جارٍ التحميل… · Loading…');
   // init() itself no longer blocks on the full animation preload — see the
   // comment inside GameState.init() — so this resolves quickly and the
   // language/character picker appears without waiting on every image.
@@ -9481,17 +9481,17 @@ async function initGame() {
 
   // v47: the characters are drawn by the 3D rig — have the start screen's
   // pictures ready (rendered once, then kept on the device) before it shows
-  setProgress(70, 'بنرسم الأبطال… · Drawing the heroes…');
+  setProgress(70, 'نرسم الأبطال… · Drawing the heroes…');
   await Promise.race([
     Promise.all(['boy', 'girl'].map(ch => PoseShots.prepare(ch, ['hero', 'portrait']))),
     new Promise(r => setTimeout(r, 4000))
   ]);
 
-  setProgress(80, 'يلا بينا… · Starting…');
+  setProgress(80, 'هيا بنا… · Starting…');
   ScreenManagerInstance = new ScreenManager(GameStateInstance);
   setupGlobalEventListeners();
 
-  setProgress(100, 'جاهزين! · Ready!');
+  setProgress(100, 'جاهزون! · Ready!');
   setTimeout(() => {
     if (loadingScreen) loadingScreen.classList.add('hidden');
     StartScreen.show();
@@ -9509,7 +9509,7 @@ function setupGlobalEventListeners() {
       GameStateInstance.updateCharacterDisplays();
       GameStateInstance.playSound('click');
       const message = GameStateInstance.currentLanguage === 'ar'
-        ? `👤 غيّرنا الشخصية لـ ${character === 'boy' ? 'الولد' : 'البنت'}`
+        ? `👤 غيّرنا الشخصية إلى ${character === 'boy' ? 'الولد' : 'البنت'}`
         : `👤 Character changed to ${character === 'boy' ? 'Boy' : 'Girl'}`;
       GameStateInstance.showNotification(message, 'success');
     });
@@ -9526,7 +9526,7 @@ function setupGlobalEventListeners() {
         GameStateInstance.playSound('error');
         GameStateInstance.showNotification(
           GameStateInstance.currentLanguage === 'ar'
-            ? '🔒 خلّص التعلم واتفرج على الفيديو الأول'
+            ? '🔒 أنهِ التعلّم وشاهد الفيديو أولًا'
             : '🔒 Please complete the video learning first',
           'warning'
         );
@@ -9634,7 +9634,7 @@ function exportProgress() {
   const ar = GameStateInstance?.currentLanguage === 'ar';
   if (!keys.length) {
     GameStateInstance?.showNotification(
-      ar ? '⚠️ لسه مفيش تقدم متسجل عشان تصدّره' : '⚠️ No saved progress yet to export',
+      ar ? '⚠️ لا يوجد تقدم مسجّل بعد لتصديره' : '⚠️ No saved progress yet to export',
       'warning'
     );
     return;
@@ -9659,7 +9659,7 @@ function exportProgress() {
   setTimeout(() => URL.revokeObjectURL(url), 4000);
   try { localStorage.setItem('taekwondoJourneyLastBackup', String(Date.now())); } catch (e) {}   // v55: for the backup reminder
   GameStateInstance?.showNotification(
-    ar ? '✅ النسخة الاحتياطية اتحفظت' : '✅ Backup saved',
+    ar ? '✅ حُفظت النسخة الاحتياطية' : '✅ Backup saved',
     'success'
   );
 }
@@ -9675,9 +9675,9 @@ async function importProgress(fileInput) {
   const ar = GameStateInstance?.currentLanguage === 'ar';
 
   const confirmMsg = ar
-    ? 'أي تقدم موجود دلوقتي هيتبدل بالنسخة الاحتياطية دي. تكمل؟'
+    ? 'سيُستبدل أي تقدم موجود الآن بهذه النسخة الاحتياطية. هل تريد المتابعة؟'
     : 'This will replace any current progress with this backup. Continue?';
-  if (!(await tkdConfirm(confirmMsg, ar ? 'رجّع النسخة' : 'Restore'))) return;
+  if (!(await tkdConfirm(confirmMsg, ar ? 'استرجع النسخة' : 'Restore'))) return;
 
   const reader = new FileReader();
   reader.onload = () => {
@@ -9686,7 +9686,7 @@ async function importProgress(fileInput) {
       if (parsed?.app === 'taekwondo-journey-backup' && parsed.version >= 2 && parsed.keys && typeof parsed.keys === 'object') {
         Object.entries(parsed.keys).forEach(([k, v]) => { if (k.startsWith('taekwondoJourney') && typeof v === 'string') localStorage.setItem(k, v); });
         if (GameStateInstance) GameStateInstance._importing = true;
-        GameStateInstance?.showNotification(ar ? '✅ النسخة الاحتياطية رجعت، بنحمّل تاني...' : '✅ Backup restored, reloading...', 'success');
+        GameStateInstance?.showNotification(ar ? '✅ استُرجعت النسخة الاحتياطية، جارٍ التحميل من جديد...' : '✅ Backup restored, reloading...', 'success');
         setTimeout(() => window.location.reload(), 900);
         return;
       }
@@ -9703,21 +9703,21 @@ async function importProgress(fileInput) {
       // otherwise overwrite the backup we just restored with in-memory state.
       if (GameStateInstance) GameStateInstance._importing = true;
       GameStateInstance?.showNotification(
-        ar ? '✅ النسخة الاحتياطية رجعت، بنحمّل تاني...' : '✅ Backup restored, reloading...',
+        ar ? '✅ استُرجعت النسخة الاحتياطية، جارٍ التحميل من جديد...' : '✅ Backup restored, reloading...',
         'success'
       );
       setTimeout(() => window.location.reload(), 900);
     } catch (err) {
       console.error('Import failed:', err);
       GameStateInstance?.showNotification(
-        ar ? '❌ ملف النسخة الاحتياطية مش سليم' : '❌ Invalid backup file',
+        ar ? '❌ ملف النسخة الاحتياطية غير سليم' : '❌ Invalid backup file',
         'error'
       );
     }
   };
   reader.onerror = () => {
     GameStateInstance?.showNotification(
-      ar ? '❌ مش قادرين نقرا الملف' : '❌ Could not read the file',
+      ar ? '❌ لا يمكننا قراءة الملف' : '❌ Could not read the file',
       'error'
     );
   };
@@ -9740,7 +9740,7 @@ function switchToSkill(skillId) {
   if (!GameStateInstance.unlockedSkills.has(skillId)) {
     GameStateInstance.playSound('error');
     GameStateInstance.showNotification(
-      GameStateInstance.currentLanguage === 'ar' ? '🔒 المهارة دي لسه مقفولة' : '🔒 This skill is still locked',
+      GameStateInstance.currentLanguage === 'ar' ? '🔒 هذه المهارة ما زالت مغلقة' : '🔒 This skill is still locked',
       'warning'
     );
     return;
@@ -9768,13 +9768,13 @@ function attemptStageNav(stage) {
       && Date.now() - (GameStateInstance.lastWarmupAt || 0) < WarmupSystem.RECENT_WARMUP_MS) {
     s.warmup = 100;
     GameStateInstance.saveToStorage();
-    GameStateInstance.showNotification(ar ? '🔥 جسمك لسه دافي من الإحماء — يلا نتعلم!' : '🔥 You are still warm from your warm-up — let\'s learn!', 'success');
+    GameStateInstance.showNotification(ar ? '🔥 جسمك ما زال دافئًا من الإحماء — هيا نتعلم!' : '🔥 You are still warm from your warm-up — let\'s learn!', 'success');
   }
   // v57: the warm-up is recommended, not required
   if (stage === 'games' && !((s.learning || 0) > 0)) {
-    reason = ar ? '🔒 كمّل مرحلة التعلم الأول' : '🔒 Complete the learning stage first';
+    reason = ar ? '🔒 أكمل مرحلة التعلّم أولًا' : '🔒 Complete the learning stage first';
   } else if (stage === 'quiz' && !GameState.allGamesDone(s, skillId)) {
-    reason = ar ? '🔒 عدّي الألعاب المطلوبة في الوحدات التلاتة الأول' : '🔒 Pass the games each unit needs first';
+    reason = ar ? '🔒 أنهِ الألعاب المطلوبة في الوحدات الثلاث أولًا' : '🔒 Pass the games each unit needs first';
   }
 
   if (reason) {
@@ -9854,7 +9854,7 @@ function toggleLanguage() {
   GameStateInstance.playSound('click');
 
   const message = newLang === 'ar'
-    ? '🌐 اللغة اتغيرت للعربي'
+    ? '🌐 تغيّرت اللغة إلى العربية'
     : '🌐 Language changed to English';
   GameStateInstance.showNotification(message, 'success');
 
@@ -9964,9 +9964,9 @@ function toggleLanguage() {
 async function hardResetGame() {
   const ar = GameStateInstance?.currentLanguage === 'ar';
   const msg = ar
-    ? 'إنت متأكد إنك عايز تمسح كل التقدم؟ كل اللاعبين ونتايجهم هيتمسحوا ومش هتقدر ترجّعهم (إلا لو معاك نسخة احتياطية).'
+    ? 'هل أنت متأكد أنك تريد حذف كل التقدم؟ سيُحذف كل اللاعبين ونتائجهم ولن تستطيع استرجاعهم (إلا إذا كانت لديك نسخة احتياطية).'
     : 'Erase ALL progress? Every player and every score is deleted and cannot come back (unless you have a backup).';
-  if (await tkdConfirm(msg, ar ? 'امسح كل حاجة' : 'Erase everything')) {
+  if (await tkdConfirm(msg, ar ? 'احذف كل شيء' : 'Erase everything')) {
     try { WarmupSystem.stopTimer(); } catch(e) {}
     tkdStorageKeys().forEach(k => localStorage.removeItem(k));
     location.reload();
@@ -10064,7 +10064,7 @@ class CertificateSystem {
 
     ctx.fillStyle = '#ffffff';
     ctx.font = '22px ' + (isAr ? "Cairo, 'Noto Sans Arabic', Tahoma, sans-serif" : 'Roboto, system-ui, sans-serif');
-    ctx.fillText(isAr ? 'الاتحاد التعليمي للتايكوندو بيشهد إن اللاعب:' : 'This certifies that the player:', canvas.width / 2, 280);
+    ctx.fillText(isAr ? 'يشهد الاتحاد التعليمي للتايكوندو بأن اللاعب:' : 'This certifies that the player:', canvas.width / 2, 280);
 
     // اسم اللاعب
     ctx.fillStyle = '#ff6b35';
@@ -10075,7 +10075,7 @@ class CertificateSystem {
     ctx.fillStyle = '#cbd5e1';
     ctx.font = '24px ' + (isAr ? "Cairo, 'Noto Sans Arabic', Tahoma, sans-serif" : 'Roboto, system-ui, sans-serif');
     const msg = isAr 
-      ? `خلّص بنجاح كل اختبارات الحركة والمعلومات النظرية لمهارة: (${technique})`
+      ? `أنهى بنجاح كل اختبارات الحركة والمعلومات النظرية لمهارة: (${technique})`
       : `Has successfully mastered all biomechanical and technical stages of: (${technique})`;
     ctx.fillText(msg, canvas.width / 2, 430);
 
@@ -10106,7 +10106,7 @@ class CertificateSystem {
     link.click();
 
     gameState.playSound('win');
-    gameState.showNotification(isAr ? '🎉 شهادة الإتقان نزلت بنجاح!' : '🎉 Certificate downloaded successfully!', 'success');
+    gameState.showNotification(isAr ? '🎉 نُزّلت شهادة الإتقان بنجاح!' : '🎉 Certificate downloaded successfully!', 'success');
   }
 }
 
@@ -10904,7 +10904,7 @@ class ArenaGameBase {
     document.querySelectorAll('.ag-practice').forEach(n => n.remove());
     const tag = document.createElement('div');
     tag.className = 'ag-practice' + (hud ? ' in-hud' : '');      // next to the round chip, never over the arena
-    tag.innerHTML = `<span>🎯 ${this.ar ? 'جولة تجريبية — مش بتتحسب' : 'Practice — this one doesn\'t count'}</span><button type="button">${this.ar ? 'تخطّي ⏭' : 'Skip ⏭'}</button>`;
+    tag.innerHTML = `<span>🎯 ${this.ar ? 'جولة تجريبية — لا تُحتسب' : 'Practice — this one doesn\'t count'}</span><button type="button">${this.ar ? 'تخطَّ ⏭' : 'Skip ⏭'}</button>`;
     host.appendChild(tag);
     tag.querySelector('button').addEventListener('pointerdown', e => e.stopPropagation());
     tag.querySelector('button').addEventListener('click', e => { e.stopPropagation(); Practice.mark(this.GAME_ID); this.initialize(this.gs); });
@@ -10943,7 +10943,7 @@ class ArenaGameBase {
     this.D = { ...B, speed: B.speed * (1 + 0.07 * k), window: B.window * (1 - 0.07 * k), tol: B.tol * (1 - 0.05 * k), tuned: k };
     this.applyDifficulty && this.applyDifficulty(this.D);
     const st = this.stage; if (!st) return;
-    st.text(st.W / 2, st.H * 0.2, d > 0 ? (this.ar ? '⚡ ممتاز! هنسرّع شوية' : '⚡ Great! A little faster') : (this.ar ? '🌿 خد نفسك — هنهدّي شوية' : '🌿 Breathe — a little calmer'), { color: d > 0 ? '#ffd166' : '#9be8d8', size: 20, ttl: 1.6, rise: 12 });
+    st.text(st.W / 2, st.H * 0.2, d > 0 ? (this.ar ? '⚡ ممتاز! سنسرّع قليلًا' : '⚡ Great! A little faster') : (this.ar ? '🌿 خذ نفسًا — سنهدّئ قليلًا' : '🌿 Breathe — a little calmer'), { color: d > 0 ? '#ffd166' : '#9be8d8', size: 20, ttl: 1.6, rise: 12 });
   }
   // reaction time of a quick decision (seconds) → the coach's view
   static logRT(sec) { if (!this.practice) window.ReactionLog?.add(this.GAME_ID, sec); }
@@ -11006,7 +11006,7 @@ class ArenaGameBase {
         WinnerSystem.show(this.GAME_ID, acc, gs, first);
       } else {
         gs.playSound('error'); window.Voice?.cue('again');
-        gs.showNotification(this.ar ? `${acc}% — قربت! جرّب تاني عشان توصل ${GameConfig.SETTINGS.PASSING_SCORE}%` : `${acc}% — so close! Try again to reach ${GameConfig.SETTINGS.PASSING_SCORE}%`, 'warning');
+        gs.showNotification(this.ar ? `${acc}% — اقتربت! حاول مرة أخرى لتصل إلى ${GameConfig.SETTINGS.PASSING_SCORE}%` : `${acc}% — so close! Try again to reach ${GameConfig.SETTINGS.PASSING_SCORE}%`, 'warning');
         if (gs.trackFailure(acc, this.GAME_ID, this.lastMeta || null)) return;
         this.showRetry(acc);
       }
@@ -11018,8 +11018,8 @@ class ArenaGameBase {
     const ar = this.ar;
     ui.innerHTML = `<div class="ag-card ag-center">
         <div class="ag-big">${acc}%</div>
-        <p>${ar ? `محتاج ${GameConfig.SETTINGS.PASSING_SCORE}% عشان تعدّي. جرّب تاني!` : `You need ${GameConfig.SETTINGS.PASSING_SCORE}% to pass. Have another go!`}</p>
-        <button type="button" class="btn btn-success" id="${this.PREFIX}-retry"><i class="fas fa-redo"></i> ${ar ? 'جرّب تاني' : 'Try again'}</button>
+        <p>${ar ? `تحتاج إلى ${GameConfig.SETTINGS.PASSING_SCORE}% لتنجح. حاول مرة أخرى!` : `You need ${GameConfig.SETTINGS.PASSING_SCORE}% to pass. Have another go!`}</p>
+        <button type="button" class="btn btn-success" id="${this.PREFIX}-retry"><i class="fas fa-redo"></i> ${ar ? 'حاول مرة أخرى' : 'Try again'}</button>
       </div>`;
     this.on(this.$('retry'), 'click', () => this.initialize(this.gs));
   }
@@ -11742,7 +11742,7 @@ class PhaseRhythmGame extends ArenaGameBase {
     note.judged = kind; note.score = val;
     this.scores.push(val);
     const st = this.stage, x = this.laneX(note.lane), y = this.hitY;
-    const label = { perfect: this.ar ? 'برافو!' : 'PERFECT!', great: this.ar ? 'جامد!' : 'GREAT!', good: this.ar ? 'كويس' : 'GOOD', miss: this.ar ? 'فاتتك' : 'MISS' }[kind];
+    const label = { perfect: this.ar ? 'أحسنت!' : 'PERFECT!', great: this.ar ? 'رائع!' : 'GREAT!', good: this.ar ? 'جيد' : 'GOOD', miss: this.ar ? 'فاتتك' : 'MISS' }[kind];
     const color = { perfect: '#ffd166', great: '#7ee0cf', good: '#b3c7ff', miss: '#ff8a8a' }[kind];
     if (kind !== 'miss') {
       this.streak++; this.bestStreak = Math.max(this.bestStreak, this.streak);
@@ -11791,7 +11791,7 @@ class PhaseRhythmGame extends ArenaGameBase {
     while (this.beatIdx < this.beats.length && this.beats[this.beatIdx].t <= t) {
       const b = this.beats[this.beatIdx++];
       ArenaSound.drum(b.kind);
-      if (b.count !== undefined) this.stage.text(this.stage.W * 0.71, this.stage.H * 0.4, b.count === 0 ? (this.ar ? 'يلا!' : 'GO!') : String(b.count), { color: '#fff', size: 54, ttl: 0.55, rise: 0 });
+      if (b.count !== undefined) this.stage.text(this.stage.W * 0.71, this.stage.H * 0.4, b.count === 0 ? (this.ar ? 'هيا!' : 'GO!') : String(b.count), { color: '#fff', size: 54, ttl: 0.55, rise: 0 });
     }
     this.notes.forEach(n => { if (!n.judged && t - n.t > this.WIN.good) this.judge(n, 'miss'); });
     this.laneFlash = this.laneFlash.map(v => (v > 0 ? Math.max(0, v - raw * 4) : v < 0 ? Math.min(0, v + raw * 4) : 0));
@@ -12179,8 +12179,8 @@ class SparringDuelGame extends ArenaGameBase {
       this.scores.push(0);
       o.knock(this.fighter.height * 0.6);
       ArenaSound.thud(); st.shake(4, 0.2); this.fighter.wobble = 0.5;
-      st.text(z.x, z.y - 36, ar ? '🛡️ اتصدّت!' : '🛡️ Blocked!', { color: '#ffe68a', size: 28 });
-      st.text(z.x, z.y + 4, ar ? 'الحراسة كانت مغطية الهدف' : 'The guard was covering it', { color: '#fff', size: 15, ttl: 1.6, rise: 16 });
+      st.text(z.x, z.y - 36, ar ? '🛡️ صُدّت!' : '🛡️ Blocked!', { color: '#ffe68a', size: 28 });
+      st.text(z.x, z.y + 4, ar ? 'كانت الحراسة تغطي الهدف' : 'The guard was covering it', { color: '#fff', size: 15, ttl: 1.6, rise: 16 });
     } else {
       // leg = below the belt → foul (gam-jeom gives the opponent 1 point); off = legal but not this kick's target
       this.scores.push(0);
@@ -12191,7 +12191,7 @@ class SparringDuelGame extends ArenaGameBase {
         st.text(st.W / 2, st.H * 0.3, ar ? '⚠️ گام-جوم! تحت الحزام' : '⚠️ Gam-jeom! Below the belt', { color: '#ff8a8a', size: 26, ttl: 1.6, rise: 16 });
       } else {
         ArenaSound.thud();
-        st.text(z.x, z.y - 36, ar ? 'الركلة دي مش على الهدف ده' : 'Not a target for this kick', { color: '#ffe68a', size: 20, ttl: 1.5 });
+        st.text(z.x, z.y - 36, ar ? 'هذه الركلة لا تُوجَّه إلى هذا الهدف' : 'Not a target for this kick', { color: '#ffe68a', size: 20, ttl: 1.5 });
       }
       o.knock(this.fighter.height * 0.5);
     }
@@ -12218,15 +12218,15 @@ class SparringDuelGame extends ArenaGameBase {
         const px = this.fighter.x + this.fighter.height * 0.1, py = this.fighter.floor - this.fighter.height * 0.6;
         st.ring(px, py, '#ff6b6b', 80, 0.4, 5); st.sparks(px, py, '#ff8a8a', 16, 380);
         st.text(px, py - 50, ar ? '+٢ للمنافس' : '+2 Red', { color: '#ff8a8a', size: 26 });
-        st.text(st.W / 2, st.H * 0.28, ar ? '⏰ الفتحة فاتتك!' : '⏰ Missed the opening!', { color: '#ffe68a', size: 22, ttl: 1.4, rise: 12 });
+        st.text(st.W / 2, st.H * 0.28, ar ? '⏰ فاتتك الفتحة!' : '⏰ Missed the opening!', { color: '#ffe68a', size: 22, ttl: 1.4, rise: 12 });
         this.gs.playSound('error');
       }, 180);
       this.later(() => { if (this.opp) this.opp.stepTarget = 0; }, 650);
     } else {
       this.scores.push(100);
       const z = this.opp.zone(t.zone);
-      st.text(z.x, z.y - 40, ar ? '👀 قريتها صح!' : '👀 Good read!', { color: '#9be8d8', size: 24 });
-      st.text(z.x, z.y - 8, t.kind === 'illegal' ? (ar ? 'تحت الحزام ممنوع' : 'Below the belt is illegal') : t.kind === 'guard' ? (ar ? 'الحراسة كانت مغطية' : 'It was covered') : (ar ? 'الركلة دي مش على الهدف ده' : 'Not this kick\'s target'), { color: '#fff', size: 15, rise: 16, ttl: 1.4 });
+      st.text(z.x, z.y - 40, ar ? '👀 قرأتها بشكل صحيح!' : '👀 Good read!', { color: '#9be8d8', size: 24 });
+      st.text(z.x, z.y - 8, t.kind === 'illegal' ? (ar ? 'الضرب تحت الحزام ممنوع' : 'Below the belt is illegal') : t.kind === 'guard' ? (ar ? 'كانت الحراسة تغطيه' : 'It was covered') : (ar ? 'هذه الركلة لا تُوجَّه إلى هذا الهدف' : 'Not this kick\'s target'), { color: '#fff', size: 15, rise: 16, ttl: 1.4 });
       ArenaSound.chime(2);
     }
     this.renderHud();
@@ -12250,10 +12250,10 @@ class SparringDuelGame extends ArenaGameBase {
     if (won) {
       this.opp.setPose('hitBody', 99);
       st.confetti(st.W * 0.3, st.H * 0.3, 60);
-      st.text(st.W / 2, st.H * 0.36, ar ? `🏆 كسبت ${this.blue} – ${this.red}` : `🏆 You win ${this.blue} – ${this.red}`, { color: '#ffd166', size: 34, ttl: 2.2, rise: 10 });
+      st.text(st.W / 2, st.H * 0.36, ar ? `🏆 فزت ${this.blue} – ${this.red}` : `🏆 You win ${this.blue} – ${this.red}`, { color: '#ffd166', size: 34, ttl: 2.2, rise: 10 });
     } else {
       this.opp.setPose('win', 99);
-      st.text(st.W / 2, st.H * 0.36, ar ? `${this.blue} – ${this.red} · المرة الجاية إن شاء الله!` : `${this.blue} – ${this.red} · Next time!`, { color: '#ffe68a', size: 30, ttl: 2.2, rise: 10 });
+      st.text(st.W / 2, st.H * 0.36, ar ? `${this.blue} – ${this.red} · في المرة القادمة إن شاء الله!` : `${this.blue} – ${this.red} · Next time!`, { color: '#ffe68a', size: 30, ttl: 2.2, rise: 10 });
     }
     const avgRt = this.rts.length ? this.rts.reduce((a, b) => a + b, 0) / this.rts.length : 0;
     this.lastMeta = { points: this.blue, against: this.red, fouls: this.fouls, avgReaction: +avgRt.toFixed(2) };
@@ -12304,7 +12304,7 @@ class SparringDuelGame extends ArenaGameBase {
     c.fillStyle = 'rgba(5,10,16,0.82)'; c.beginPath(); c.roundRect(x - 4, y - 4, w + 8, h + 8, 14); c.fill();
     const half = (w - 8) / 2;
     const pop = (side) => (this.scorePop?.side === side ? 1 + this.scorePop.t * 0.25 : 1);
-    [['blue', x, '#1f5fd1', '#123a80', this.blue, ar ? 'إنت' : 'YOU'], ['red', x + half + 8, '#d12a37', '#7d1720', this.red, this.t(this.oppSet?.name || { en: 'Rival', ar: 'المنافس' })]].forEach(([side, bx, c1, c2, val, name]) => {
+    [['blue', x, '#1f5fd1', '#123a80', this.blue, ar ? 'أنت' : 'YOU'], ['red', x + half + 8, '#d12a37', '#7d1720', this.red, this.t(this.oppSet?.name || { en: 'Rival', ar: 'المنافس' })]].forEach(([side, bx, c1, c2, val, name]) => {
       const g = c.createLinearGradient(0, y, 0, y + h); g.addColorStop(0, c1); g.addColorStop(1, c2);
       c.fillStyle = g; c.beginPath(); c.roundRect(bx, y, half, h, 10); c.fill();
       c.fillStyle = 'rgba(255,255,255,0.85)'; c.font = '800 11px Cairo, Roboto, sans-serif'; c.textAlign = 'center'; c.textBaseline = 'top';
@@ -12344,7 +12344,7 @@ class BalanceHoldGame extends ArenaGameBase {
   static totalRounds() { return this.ROUNDS.length * this.HOLD_POSES.length; }
 
   static COPY = {
-    title: { en: '⚖️ Balance Hold', ar: '⚖️ اثبت واتوازن' },
+    title: { en: '⚖️ Balance Hold', ar: '⚖️ اثبت وتوازن' },
     how: {
       all: { en: 'Stand on one leg. Tap ◀ ▶ to keep the marker in the green.', ar: 'قف على رجل واحدة، واضغط ◀ ▶ ليبقى المؤشر في المنطقة الخضراء.' }
     }
@@ -12355,7 +12355,7 @@ class BalanceHoldGame extends ArenaGameBase {
     const ui = this.$('ui'); if (ui) ui.innerHTML = '';
     const pads = this.$('pads');
     if (pads) {
-      pads.innerHTML = `<button type="button" class="bh-pad" data-dir="-1" aria-label="${this.ar ? 'ميّل شمال' : 'Lean left'}">◀</button><button type="button" class="bh-pad" data-dir="1" aria-label="${this.ar ? 'ميّل يمين' : 'Lean right'}">▶</button>`;
+      pads.innerHTML = `<button type="button" class="bh-pad" data-dir="-1" aria-label="${this.ar ? 'مِل يسارًا' : 'Lean left'}">◀</button><button type="button" class="bh-pad" data-dir="1" aria-label="${this.ar ? 'مِل يمينًا' : 'Lean right'}">▶</button>`;
       pads.querySelectorAll('.bh-pad').forEach(b => {
         const dir = +b.dataset.dir;
         const down = (e) => { e.preventDefault(); try { b.setPointerCapture(e.pointerId); } catch (_) {} b.classList.add('on'); if (dir < 0) this.input.l = true; else this.input.r = true; };
@@ -12429,7 +12429,7 @@ class BalanceHoldGame extends ArenaGameBase {
     const st = this.stage, f = this.fighter;
     const tx = Math.min(st.W - 90, f.x + f.height * 0.75), ty = f.floor - f.height * 0.45;
     if (!h.fell) {
-      st.text(tx, ty, score >= 90 ? (this.ar ? 'ثابت زي الصخرة! 🪨' : 'Rock solid! 🪨') : `${score}%`, { color: score >= 85 ? '#9be8d8' : '#fff', size: 26 });
+      st.text(tx, ty, score >= 90 ? (this.ar ? 'ثابت كالصخرة! 🪨' : 'Rock solid! 🪨') : `${score}%`, { color: score >= 85 ? '#9be8d8' : '#fff', size: 26 });
       if (score >= 90) { st.sparks(tx, ty + 40, '#9be8d8', 18, 300); ArenaSound.chime(4); } else ArenaSound.chime(1);
     }
     this.renderHud();
@@ -12444,7 +12444,7 @@ class BalanceHoldGame extends ArenaGameBase {
     const st = this.stage, f = this.fighter;
     ArenaSound.thud(); this.gs.playSound('error');
     st.shake(6, 0.3); st.dust(f.x + Math.sign(this.theta) * f.height * 0.2, f.floor, 12);
-    st.text(Math.min(st.W - 90, f.x + f.height * 0.75), f.floor - f.height * 0.55, this.ar ? 'أوبس! 😅' : 'Oops! 😅', { color: '#ffb3b9', size: 28 });
+    st.text(Math.min(st.W - 90, f.x + f.height * 0.75), f.floor - f.height * 0.55, this.ar ? 'عفوًا! 😅' : 'Oops! 😅', { color: '#ffb3b9', size: 28 });
     f.setPose(0, 0.15, false);
     this.theta = 0; this.omega = 0;
     // the hold ends here; time left counts as off-balance
@@ -12662,7 +12662,7 @@ class HeavyBagGame extends ArenaGameBase {
     this.scores.push(score);
     if (verdict === 'air') {
       this.fighter.wobble = 0.7;
-      st.text(sx + 20, sy - 40, ar ? 'هوا! 💨 بدري' : 'Air! 💨 Too early', { color: '#ffe68a', size: 22 });
+      st.text(sx + 20, sy - 40, ar ? 'هواء! 💨 مبكرًا' : 'Air! 💨 Too early', { color: '#ffe68a', size: 22 });
       this.gs.playSound('error');
     } else {
       const power = Math.round((380 + 70 * this.round) * q + AG.rand(-15, 15));
@@ -12674,8 +12674,8 @@ class HeavyBagGame extends ArenaGameBase {
       st.shake(4 + q * 10, 0.3); st.ring(hx, sy, '#ffd166', 70 + q * 70, 0.45, 6);
       st.dust(hx, sy, 6 + Math.round(q * 10), 'rgba(255,230,200,');
       if (verdict === 'perfect') { st.slowmo(0.3, 0.22); st.flash('#fff', 0.3); st.sparks(hx, sy, '#ffd166', 24, 480); }
-      if (verdict === 'jammed') { this.fighter.wobble = 0.8; st.text(hx, sy - 50, ar ? 'اتزنقت! قرّبت أوي' : 'Jammed! Too close', { color: '#ffb3b9', size: 22 }); }
-      else st.text(hx, sy - 54, verdict === 'perfect' ? (ar ? 'في الجون! 💥' : 'PERFECT! 💥') : (ar ? 'حلوة! 👍' : 'Good! 👍'), { color: verdict === 'perfect' ? '#ffd166' : '#b8f5ec', size: verdict === 'perfect' ? 34 : 26 });
+      if (verdict === 'jammed') { this.fighter.wobble = 0.8; st.text(hx, sy - 50, ar ? 'اقتربت كثيرًا!' : 'Jammed! Too close', { color: '#ffb3b9', size: 22 }); }
+      else st.text(hx, sy - 54, verdict === 'perfect' ? (ar ? 'في الهدف! 💥' : 'PERFECT! 💥') : (ar ? 'جميلة! 👍' : 'Good! 👍'), { color: verdict === 'perfect' ? '#ffd166' : '#b8f5ec', size: verdict === 'perfect' ? 34 : 26 });
       st.text(hx + 40, sy - 18, `💪 ${power}`, { color: '#fff', size: 18, rise: 30 });
       this.gs.playSound(verdict === 'jammed' ? 'click' : 'success');
     }
@@ -13646,19 +13646,19 @@ const RigSupport = {
 // lands ~45° from vertical). The lesson's 📐 view shows each one live against its target.
 const KickSpec = {
   NAMES: {
-    knee:    ['Kicking knee', 'ركبة الرجل اللي بتضرب'],
+    knee:    ['Kicking knee', 'ركبة الرجل الضاربة'],
     supKnee: ['Standing knee', 'ركبة رجل الارتكاز'],
     legs:    ['Angle between the legs', 'الزاوية بين الرجلين'],
-    thigh:   ['Thigh above level', 'الفخد فوق الأفقي'],
+    thigh:   ['Thigh above level', 'الفخذ فوق الأفقي'],
     drop:    ['Leg from vertical', 'الرجل من الوضع الرأسي'],
     pivot:   ['Standing-foot pivot', 'لفّة قدم الارتكاز'],
     hips:    ['Hips turned', 'لفّة الوسط'],
-    lean:    ['Body lean back', 'ميل الجسم لورا'],
-    tilt:    ['Body leans away from the kick', 'ميل الجسم بعيد عن الركلة'],
-    toes:    ['Toes pulled back', 'الصوابع مسحوبة لورا'],
+    lean:    ['Body lean back', 'ميل الجسم إلى الخلف'],
+    tilt:    ['Body leans away from the kick', 'ميل الجسم بعيدًا عن الركلة'],
+    toes:    ['Toes pulled back', 'الأصابع مسحوبة إلى الخلف'],
     foot:    ['Foot height', 'ارتفاع القدم']
   },
-  LEVELS: { floor: ['floor', 'الأرض'], knee: ['knee', 'الركبة'], belly: ['belly', 'البطن'], chest: ['chest', 'الصدر'], shoulder: ['shoulder', 'الكتف'], face: ['face', 'الوش'], head: ['head', 'الراس'] },
+  LEVELS: { floor: ['floor', 'الأرض'], knee: ['knee', 'الركبة'], belly: ['belly', 'البطن'], chest: ['chest', 'الصدر'], shoulder: ['shoulder', 'الكتف'], face: ['face', 'الوجه'], head: ['head', 'الرأس'] },
   // per skill: the striking part, then one row set per phase (ready · chamber · strike · recoil · return)
   apchagi: { part: 'ball', phases: [
     { lean: [-6, 6], supKnee: [150, 178] },
@@ -13877,7 +13877,7 @@ class RigView {
       const more = document.createElement('button');
       more.type = 'button'; more.className = 'rig-btn rig-more';
       const open = () => { let v = false; try { v = localStorage.getItem('taekwondoJourneyRigTools') === 'open'; } catch (e) {} return v; };
-      const label = () => { const o = this.host.classList.contains('rig-adv-open'); more.textContent = `🧰 ${this.ar ? (o ? 'أدوات أقل' : 'أدوات أكتر') : (o ? 'Fewer tools' : 'More tools')}`; more.setAttribute('aria-expanded', String(o)); };
+      const label = () => { const o = this.host.classList.contains('rig-adv-open'); more.textContent = `🧰 ${this.ar ? (o ? 'أدوات أقل' : 'أدوات أكثر') : (o ? 'Fewer tools' : 'More tools')}`; more.setAttribute('aria-expanded', String(o)); };
       this.host.classList.toggle('rig-adv-open', open());
       more.addEventListener('click', () => { const o = !this.host.classList.contains('rig-adv-open'); this.host.classList.toggle('rig-adv-open', o); try { localStorage.setItem('taekwondoJourneyRigTools', o ? 'open' : 'closed'); } catch (e) {} label(); });
       label(); b.appendChild(more);
@@ -13891,7 +13891,7 @@ class RigView {
     const sk = this.rig.skeleton, cv = this.canvas;
     const spin = document.createElement('button');
     spin.type = 'button'; spin.className = 'rig-btn'; spin.setAttribute('aria-pressed', 'false');
-    spin.textContent = `🔄 ${this.ar ? 'لف 360°' : 'Turn 360°'}`;
+    spin.textContent = `🔄 ${this.ar ? 'لُفّ ٣٦٠°' : 'Turn 360°'}`;
     spin.addEventListener('click', () => { this.spin = !this.spin; spin.setAttribute('aria-pressed', this.spin); spin.classList.toggle('on', this.spin); });
     bar.appendChild(spin);
     const ang = document.createElement('button');                 // v42: knee / hip angles on the moving body
@@ -13901,22 +13901,22 @@ class RigView {
     bar.appendChild(ang);
     const demo = document.createElement('button');               // v43: Coach Seif shows the whole kick
     demo.type = 'button'; demo.className = 'rig-btn';
-    demo.textContent = `🥋 ${this.ar ? 'كوتش سيف بيوريك' : 'Coach Seif shows'}`;
+    demo.textContent = `🥋 ${this.ar ? 'كوتش سيف يريك' : 'Coach Seif shows'}`;
     demo.addEventListener('click', () => this.coachDemo());
     bar.appendChild(demo);
     const leg = document.createElement('button');                // v45: which leg kicks (mirror image)
     leg.type = 'button'; leg.className = 'rig-btn rig-adv';
-    const legLabel = () => { const L = KickLeg.isLeft(); leg.textContent = `🦵 ${this.ar ? (L ? 'بالشمال' : 'باليمين') : (L ? 'Left leg' : 'Right leg')}`; leg.setAttribute('aria-pressed', String(L)); leg.classList.toggle('on', L); };
+    const legLabel = () => { const L = KickLeg.isLeft(); leg.textContent = `🦵 ${this.ar ? (L ? 'باليسرى' : 'باليمنى') : (L ? 'Left leg' : 'Right leg')}`; leg.setAttribute('aria-pressed', String(L)); leg.classList.toggle('on', L); };
     legLabel();
     sk.mirror = this.onion.mirror = KickLeg.isLeft();
     leg.addEventListener('click', () => { KickLeg.set(KickLeg.isLeft() ? 'right' : 'left'); sk.mirror = this.onion.mirror = KickLeg.isLeft(); legLabel(); });
     bar.appendChild(leg);
-    cv.classList.add('rig-3d'); cv.title = this.ar ? 'اسحب عشان تلف حوالين اللاعب' : 'Drag to look around';
+    cv.classList.add('rig-3d'); cv.title = this.ar ? 'اسحب لتلف حول اللاعب' : 'Drag to look around';
     sk.viewYaw = -0.25;                                            // v46: start in a slight ¾ view (double-tap = straight side)
     cv.style.touchAction = 'pan-y'; cv.style.cursor = 'grab';
     // v50 — look from above / eye level / below (a phone keeps vertical swipes for scrolling,
     // so the button does it there; a mouse can also drag up and down)
-    const PITCH = [[0, '👁️', 'مستوى العين', 'Eye level'], [0.42, '⬇️', 'من فوق', 'From above'], [-0.3, '⬆️', 'من تحت', 'From below']];
+    const PITCH = [[0, '👁️', 'مستوى العين', 'Eye level'], [0.42, '⬇️', 'من أعلى', 'From above'], [-0.3, '⬆️', 'من أسفل', 'From below']];
     let pv = 0;
     const view = document.createElement('button');
     view.type = 'button'; view.className = 'rig-btn rig-adv';
@@ -14022,7 +14022,7 @@ class RigView {
     row.className = 'rig-controls rig-4d rig-adv';
     row.innerHTML = `<button type="button" class="rig-btn" data-a="path">〰️ ${ar ? 'مسار القدم' : 'Foot path'}</button>
       <button type="button" class="rig-btn" data-a="strobe">🎞️ ${ar ? 'كل المراحل' : 'All phases'}</button>
-      <button type="button" class="rig-btn" data-a="feel" aria-label="${ar ? 'إحساس الضربة: اهتزاز وصوت لحظة ما الرجل توصل' : 'Feel the kick: a buzz and a snap the moment it lands'}">📳 4D</button>`;
+      <button type="button" class="rig-btn" data-a="feel" aria-label="${ar ? 'إحساس الضربة: اهتزاز وصوت لحظة وصول الرجل' : 'Feel the kick: a buzz and a snap the moment it lands'}">📳 4D</button>`;
     this.host.appendChild(row);
     const btn = (a, on) => { const x = row.querySelector(`[data-a="${a}"]`); x.setAttribute('aria-pressed', String(!!on)); x.classList.toggle('on', !!on); return x; };
     const path = btn('path', this.path), feel = btn('feel', Kick4D.feelOn());
@@ -14392,7 +14392,7 @@ const KickReplay = {
     const ar = AG.ar();
     const box = document.createElement('div');
     box.className = 'kick-replay';
-    box.innerHTML = `<canvas aria-hidden="true"></canvas><span>🔁 ${ar ? 'إعادة بالبطيء' : 'Slow-motion replay'}</span>`;
+    box.innerHTML = `<canvas aria-hidden="true"></canvas><span>🔁 ${ar ? 'إعادة بالتصوير البطيء' : 'Slow-motion replay'}</span>`;
     if (getComputedStyle(host).position === 'static') host.style.position = 'relative';
     host.appendChild(box);
     const cv = box.querySelector('canvas'), sk = rig.skeleton, P = rig.player;
@@ -14658,7 +14658,7 @@ const DashboardSystem = {
   GAMES: {
     'warmup':        { icon: '🔥', en: 'Warm-up',          ar: 'الإحماء' },
     'learning':      { icon: '🎓', en: 'Learning',         ar: 'التعلم' },
-    'form-control':  { icon: '🧍', en: 'Fix the Pose',     ar: 'ظبّط الوضعية' },
+    'form-control':  { icon: '🧍', en: 'Fix the Pose',     ar: 'اضبط الوضعية' },
     'puzzle':        { icon: '🧩', en: 'Order the Phases', ar: 'رتّب المراحل' },
     'action':        { icon: '⚡', en: 'Strike Challenge', ar: 'تحدي الضربة' },
     'error-hunt':    { icon: '🔍', en: 'Mistake Hunter',   ar: 'صيّاد الأخطاء' },
@@ -14667,7 +14667,7 @@ const DashboardSystem = {
     'paddle-reflex': { icon: '🎯', en: 'Target Paddles',   ar: 'مضارب الأهداف' },
     'phase-rhythm':  { icon: '🥁', en: 'Kick Rhythm',      ar: 'إيقاع الركلة' },
     'sparring-duel': { icon: '🥊', en: 'Sparring',         ar: 'النزال' },
-    'balance-hold':  { icon: '⚖️', en: 'Balance Hold',     ar: 'اثبت واتوازن' },
+    'balance-hold':  { icon: '⚖️', en: 'Balance Hold',     ar: 'اثبت وتوازن' },
     'heavy-bag':     { icon: '🥋', en: 'Heavy Bag',        ar: 'كيس الركلات' },
     'quiz':          { icon: '📝', en: 'Test',             ar: 'الاختبار' }
   },
@@ -14740,7 +14740,7 @@ const DashboardSystem = {
     const out = [];
     const PASS = GameConfig.SETTINGS.PASSING_SCORE;
     if (!S.played.length) {
-      out.push({ icon: '🌱', tone: 'info', title: this.t('Just getting started', 'لسه في الأول'), text: this.t('Play any game to see scores and tips here.', 'العب أي لعبة عشان تشوف النتايج والنصايح هنا.') });
+      out.push({ icon: '🌱', tone: 'info', title: this.t('Just getting started', 'ما زال في البداية'), text: this.t('Play any game to see scores and tips here.', 'العب أي لعبة لتشاهد النتائج والنصائح هنا.') });
       return out;
     }
     const games = Object.entries(S.perGame).map(([id, g]) => ({ id, avg: Math.round(g.sum / g.n), ...g }));
@@ -14748,7 +14748,7 @@ const DashboardSystem = {
     const weak = [...games].filter(g => g.n >= 1).sort((a, b) => a.avg - b.avg)[0];
     out.push({ icon: '💪', tone: 'good', title: this.t('Strongest game', 'أقوى لعبة'), text: `${this.GAMES[strong.id]?.icon || ''} ${this.gName(strong.id)} — ${this.t('average', 'المتوسط')} ${strong.avg}%` });
     if (weak && weak.id !== strong.id) {
-      out.push({ icon: '🎯', tone: weak.avg < PASS ? 'warn' : 'info', title: this.t('Needs the most practice', 'محتاجة تمرين أكتر'), text: `${this.GAMES[weak.id]?.icon || ''} ${this.gName(weak.id)} — ${this.t('average', 'المتوسط')} ${weak.avg}%${weak.best < PASS ? this.t(`, best ${weak.best}% (pass is ${PASS}%)`, `، أحسن نتيجة ${weak.best}% (النجاح من ${PASS}%)`) : ''}` });
+      out.push({ icon: '🎯', tone: weak.avg < PASS ? 'warn' : 'info', title: this.t('Needs the most practice', 'تحتاج إلى تمرين أكثر'), text: `${this.GAMES[weak.id]?.icon || ''} ${this.gName(weak.id)} — ${this.t('average', 'المتوسط')} ${weak.avg}%${weak.best < PASS ? this.t(`, best ${weak.best}% (pass is ${PASS}%)`, `، أفضل نتيجة ${weak.best}% (النجاح من ${PASS}%)`) : ''}` });
     }
     // trend: last 5 vs previous 5
     const sc = S.played.map(a => a.score);
@@ -14757,33 +14757,33 @@ const DashboardSystem = {
       const recent = sc.slice(-n).reduce((s, v) => s + v, 0) / n;
       const before = sc.slice(-2 * n, -n).reduce((s, v) => s + v, 0) / n;
       const d = Math.round(recent - before);
-      if (d >= 3) out.push({ icon: '📈', tone: 'good', title: this.t('Improving', 'بيتحسن'), text: this.t(`Last ${n} games average ${d} points higher than the ${n} before.`, `متوسط آخر ${TKD.count(n, 'game', 'ar')} أعلى بـ ${TKD.count(d, 'point', 'ar')} من الـ ${n} اللي قبلهم.`) });
-      else if (d <= -3) out.push({ icon: '📉', tone: 'warn', title: this.t('Dipping lately', 'نزل شوية'), text: this.t(`Last ${n} games are ${-d} points lower than before — a short warm-up and the Learning cards usually help.`, `آخر ${TKD.count(n, 'game', 'ar')} أقل بـ ${TKD.count(-d, 'point', 'ar')} — إحماء صغير وكروت التعلم هيساعدوك.`) });
-      else out.push({ icon: '➖', tone: 'info', title: this.t('Steady', 'ثابت'), text: this.t('Scores are holding steady.', 'النتايج ثابتة.') });
+      if (d >= 3) out.push({ icon: '📈', tone: 'good', title: this.t('Improving', 'يتحسن'), text: this.t(`Last ${n} games average ${d} points higher than the ${n} before.`, `متوسط آخر ${TKD.count(n, 'game', 'ar')} أعلى بـ ${TKD.count(d, 'point', 'ar')} من الـ ${n} التي قبلها.`) });
+      else if (d <= -3) out.push({ icon: '📉', tone: 'warn', title: this.t('Dipping lately', 'انخفض قليلًا'), text: this.t(`Last ${n} games are ${-d} points lower than before — a short warm-up and the Learning cards usually help.`, `آخر ${TKD.count(n, 'game', 'ar')} أقل بـ ${TKD.count(-d, 'point', 'ar')} — إحماء قصير وبطاقات التعلّم ستساعدك.`) });
+      else out.push({ icon: '➖', tone: 'info', title: this.t('Steady', 'ثابت'), text: this.t('Scores are holding steady.', 'النتائج ثابتة.') });
     }
     // retries
     const retried = games.filter(g => g.n >= 3);
     if (retried.length) {
       const g = retried.sort((a, b) => b.n - a.n)[0];
-      out.push({ icon: '🔁', tone: 'info', title: this.t('Never gives up', 'مش بيستسلم'), text: this.t(`${g.n} tries at ${this.gName(g.id)} — best ${g.best}%.`, `${TKD.count(g.n, 'try', 'ar')} في ${this.gName(g.id)} — أحسن نتيجة ${g.best}%.`) });
+      out.push({ icon: '🔁', tone: 'info', title: this.t('Never gives up', 'لا يستسلم'), text: this.t(`${g.n} tries at ${this.gName(g.id)} — best ${g.best}%.`, `${TKD.count(g.n, 'try', 'ar')} في ${this.gName(g.id)} — أفضل نتيجة ${g.best}%.`) });
     }
     // warm-up habit
     const sessions = S.days.size;
     if (sessions) {
       const wuDays = new Set(S.list.filter(a => a.gameId === 'warmup').map(a => this.day(a.ts))).size;
       const pct = Math.round((wuDays / sessions) * 100);
-      out.push({ icon: '🔥', tone: pct >= 70 ? 'good' : 'warn', title: this.t('Warm-up habit', 'عادة الإحماء'), text: this.t(`Warmed up on ${wuDays} of ${sessions} training days (${pct}%).`, `عمل إحماء في ${TKD.num(wuDays)} من ${TKD.count(sessions, 'trainDay', 'ar')} (${pct}%).`) + (pct < 70 ? this.t(' Warming up first protects the legs.', ' الإحماء الأول بيحمي الرجلين.') : '') });
+      out.push({ icon: '🔥', tone: pct >= 70 ? 'good' : 'warn', title: this.t('Warm-up habit', 'عادة الإحماء'), text: this.t(`Warmed up on ${wuDays} of ${sessions} training days (${pct}%).`, `أدّى الإحماء في ${TKD.num(wuDays)} من ${TKD.count(sessions, 'trainDay', 'ar')} (${pct}%).`) + (pct < 70 ? this.t(' Warming up first protects the legs.', ' الإحماء أولًا يحمي الرجلين.') : '') });
     }
     // reaction time
     const pr = S.list.filter(a => a.gameId === 'paddle-reflex' && a.meta?.avgReaction);
     if (pr.length) {
       const bestRt = Math.min(...pr.map(a => a.meta.avgReaction));
-      out.push({ icon: '⚡', tone: 'info', title: this.t('Reaction time', 'سرعة رد الفعل'), text: this.t(`Best average reaction ${bestRt.toFixed(2)} s in Target Paddles.`, `أحسن متوسط رد فعل ${bestRt.toFixed(2)} ث في مضارب الأهداف.`) });
+      out.push({ icon: '⚡', tone: 'info', title: this.t('Reaction time', 'سرعة رد الفعل'), text: this.t(`Best average reaction ${bestRt.toFixed(2)} s in Target Paddles.`, `أفضل متوسط رد فعل ${bestRt.toFixed(2)} ث في مضارب الأهداف.`) });
     }
     // untried games
     const tried = new Set(S.played.map(a => a.gameId));
     const untried = ['board-break', 'paddle-reflex', 'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag', 'quiz-blast'].filter(g => !tried.has(g));
-    if (untried.length) out.push({ icon: '🆕', tone: 'info', title: this.t('Not tried yet', 'لسه متجربتش'), text: untried.map(g => `${this.GAMES[g].icon} ${this.gName(g)}`).join(' · ') });
+    if (untried.length) out.push({ icon: '🆕', tone: 'info', title: this.t('Not tried yet', 'لم تُجرَّب بعد'), text: untried.map(g => `${this.GAMES[g].icon} ${this.gName(g)}`).join(' · ') });
     // next step for the current kick (only makes sense for the signed-in player on this device)
     if (this.state.playerId === PlayerSystem.getCurrentPlayerId()) {
       const sk = this.gs.currentSkill, s = this.gs.skillGameScores[sk] || {};
@@ -14792,11 +14792,11 @@ const DashboardSystem = {
       const keyToGame = Object.fromEntries(Object.entries(GameState.GAME_KEY_MAP).map(([g, k]) => [k, g]));
       let text;
       if (!(s.warmup > 0)) text = this.t(`Start ${this.sName(sk)} with the warm-up.`, `ابدأ ${this.sName(sk)} بالإحماء.`);
-      else if (!(s.learning > 0)) text = this.t(`Watch the ${this.sName(sk)} lesson next.`, `اتفرج على درس ${this.sName(sk)} بعد كده.`);
-      else if (need) text = this.t(`Get ${this.gName(keyToGame[need])} to ${PASS}% for ${this.sName(sk)} (now ${s[need] || 0}%).`, `وصّل ${this.gName(keyToGame[need])} لـ ${PASS}% في ${this.sName(sk)} (دلوقتي ${s[need] || 0}%).`);
+      else if (!(s.learning > 0)) text = this.t(`Watch the ${this.sName(sk)} lesson next.`, `شاهد درس ${this.sName(sk)} بعد ذلك.`);
+      else if (need) text = this.t(`Get ${this.gName(keyToGame[need])} to ${PASS}% for ${this.sName(sk)} (now ${s[need] || 0}%).`, `أوصِل ${this.gName(keyToGame[need])} إلى ${PASS}% في ${this.sName(sk)} (الآن ${s[need] || 0}%).`);
       else if ((s.quiz || 0) < PASS) text = this.t(`Ready for the ${this.sName(sk)} test!`, `جاهز لاختبار ${this.sName(sk)}!`);
-      else text = this.t('Everything passed for this kick — try the bonus games for a higher score.', 'عدّيت كل حاجة في الركلة دي — جرّب الألعاب الزيادة عشان تجيب نتيجة أعلى.');
-      out.unshift({ icon: '👉', tone: 'next', title: this.t('Next step', 'الخطوة الجاية'), text });
+      else text = this.t('Everything passed for this kick — try the bonus games for a higher score.', 'نجحت في كل شيء في هذه الركلة — جرّب الألعاب الإضافية لتحصل على نتيجة أعلى.');
+      out.unshift({ icon: '👉', tone: 'next', title: this.t('Next step', 'الخطوة التالية'), text });
     }
     return out;
   },
@@ -14807,7 +14807,7 @@ const DashboardSystem = {
     if (!root) return;
     const players = PlayerSystem.getPlayers();
     if (!players.length) {
-      root.innerHTML = `<div class="db-empty">${this.t('No players yet — register a name to start tracking scores.', 'لسه مفيش لاعبين — سجّل اسم عشان نبدأ نتابع النتايج.')}</div>`;
+      root.innerHTML = `<div class="db-empty">${this.t('No players yet — register a name to start tracking scores.', 'لا يوجد لاعبون بعد — سجّل اسمًا لنبدأ متابعة النتائج.')}</div>`;
       return;
     }
     const board = players.map(p => {
@@ -14822,26 +14822,26 @@ const DashboardSystem = {
     const seg = (name, opts, val) => `<div class="db-seg" role="radiogroup" data-seg="${name}">${opts.map(([v, l]) => `<button type="button" role="radio" aria-checked="${v === val}" class="${v === val ? 'on' : ''}" data-v="${v}">${l}</button>`).join('')}</div>`;
 
     root.innerHTML = `
-      <div class="db-players" role="tablist" aria-label="${this.t('Players', 'اللاعبين')}">
+      <div class="db-players" role="tablist" aria-label="${this.t('Players', 'اللاعبون')}">
         ${board.map((r, i) => `
           <button type="button" role="tab" aria-selected="${r.p.id === me.p.id}" class="db-player ${r.p.id === me.p.id ? 'on' : ''}" data-pid="${r.p.id}">
             <span class="db-avatar" style="--h:${(r.p.name.charCodeAt(0) * 47) % 360}">${this.esc(r.p.name.trim().charAt(0).toUpperCase())}</span>
-            <span class="db-pname">${this.esc(r.p.name)}${r.p.id === currentId ? ` <em>${this.t('(you)', '(إنت)')}</em>` : ''}</span>
+            <span class="db-pname">${this.esc(r.p.name)}${r.p.id === currentId ? ` <em>${this.t('(you)', '(أنت)')}</em>` : ''}</span>
             <span class="db-ppts">${i < 3 && r.S.points ? ['🥇', '🥈', '🥉'][i] + ' ' : ''}${r.S.points} ${this.t('pts', 'نقطة')}</span>
           </button>`).join('')}
       </div>
 
       <div class="db-filters">
         ${seg('skill', [['all', this.t('All kicks', 'كل الركلات')], ...GameConfig.SKILL_ORDER.map(s => [s, this.sName(s)])], this.state.skill)}
-        ${seg('range', [['7d', this.t('7 days', '٧ أيام')], ['30d', this.t('30 days', '٣٠ يوم')], ['all', this.t('All time', 'من الأول')]], this.state.range)}
+        ${seg('range', [['7d', this.t('7 days', '٧ أيام')], ['30d', this.t('30 days', '٣٠ يوم')], ['all', this.t('All time', 'من البداية')]], this.state.range)}
       </div>
 
       <div class="db-kpis">
-        ${this.kpi(this.t('Total points', 'مجموع النقاط'), S.points, this.t('sum of best scores', 'مجموع أحسن النتايج'))}
-        ${this.kpi(this.t('Games played', 'ألعاب اتلعبت'), S.attempts, this.t(TKD.count(S.days.size, 'trainDay', 'en'), TKD.count(S.days.size, 'trainDay', 'ar')))}
+        ${this.kpi(this.t('Total points', 'مجموع النقاط'), S.points, this.t('sum of best scores', 'مجموع أفضل النتائج'))}
+        ${this.kpi(this.t('Games played', 'ألعاب لُعبت'), S.attempts, this.t(TKD.count(S.days.size, 'trainDay', 'en'), TKD.count(S.days.size, 'trainDay', 'ar')))}
         ${this.kpi(this.t('Average score', 'متوسط النتيجة'), S.avg === null ? '—' : S.avg + '%', this.t('across all attempts', 'على كل المحاولات'))}
         ${this.kpi(this.t('Pass rate', 'نسبة النجاح'), S.passRate === null ? '—' : S.passRate + '%', this.t(`attempts ≥ ${GameConfig.SETTINGS.PASSING_SCORE}%`, `محاولات ≥ ${GameConfig.SETTINGS.PASSING_SCORE}%`))}
-        ${this.kpi(this.t('Warm-ups', 'مرات الإحماء'), S.warmups, this.t('completed', 'خلصت'))}
+        ${this.kpi(this.t('Warm-ups', 'مرات الإحماء'), S.warmups, this.t('completed', 'انتهى'))}
         ${this.kpi(this.t('Last played', 'آخر لعب'), this.fmtDate(S.last), S.last ? this.fmtDate(S.last, true).split(/,\s*/).pop() : '')}
       </div>
 
@@ -14851,7 +14851,7 @@ const DashboardSystem = {
       </section>
 
       <section class="db-panel">
-        <h3>💡 ${this.t('Insights', 'ملاحظات ونصايح')}</h3>
+        <h3>💡 ${this.t('Insights', 'ملاحظات ونصائح')}</h3>
         <div class="db-insights">${this.insights(S).map(i => `
           <div class="db-insight tone-${i.tone}"><span class="db-ins-icon">${i.icon}</span><div><b>${i.title}</b><p>${i.text}</p></div></div>`).join('')}
         </div>
@@ -14864,11 +14864,11 @@ const DashboardSystem = {
           <div class="db-chart" id="db-trend"></div>
         </section>
         <section class="db-panel">
-          <h3>🧩 ${this.t('Best score by game and kick', 'أحسن نتيجة في كل لعبة وركلة')}</h3>
+          <h3>🧩 ${this.t('Best score by game and kick', 'أفضل نتيجة في كل لعبة وركلة')}</h3>
           <div class="db-heat" id="db-heat"></div>
         </section>
         <section class="db-panel">
-          <h3>🎮 ${this.t('What they practise most', 'أكتر حاجة بيتمرن عليها')}</h3>
+          <h3>🎮 ${this.t('What they practise most', 'أكثر ما يتمرن عليه')}</h3>
           <div class="db-chart" id="db-mix"></div>
         </section>
       </div>
@@ -14913,7 +14913,7 @@ const DashboardSystem = {
     return `<div class="db-mastery">${this.masteryFor(playerId).map(m => {
       const col = this.SKILL_COLORS[m.sk];
       const bar = (label, v) => `<div class="db-mbar"><span>${label}</span><span class="db-mbar-track"><i style="width:${v}%;background:${col}"></i></span><b>${v}%</b></div>`;
-      const status = m.overall >= T ? `✔ ${this.t('Mastered', 'اتقنتها')}` : m.overall > 0 ? this.t('In progress', 'شغّال عليها') : this.t('Not started', 'لسه مابدأتش');
+      const status = m.overall >= T ? `✔ ${this.t('Mastered', 'أتقنتها')}` : m.overall > 0 ? this.t('In progress', 'قيد العمل') : this.t('Not started', 'لم تبدأ بعد');
       return `<div class="db-mcard">
         <div class="db-ring" role="img" aria-label="${this.sName(m.sk)} ${m.overall}%">
           <svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="30" class="db-ring-bg"/>
@@ -14925,7 +14925,7 @@ const DashboardSystem = {
           ${bar(this.t('Learning', 'التعلم'), m.learning)}
           ${bar(this.t('Unit games', 'ألعاب الوحدات'), m.gamesAvg)}
           ${bar(this.t('Test', 'الاختبار'), m.quiz)}
-          <p class="db-msub">${m.warm ? '🔥' : '·'} ${this.t(`${TKD.count(m.bonus, 'game', 'en')} passed`, `عدّيت ${TKD.count(m.bonus, 'game', 'ar')} زيادة`)}</p>
+          <p class="db-msub">${m.warm ? '🔥' : '·'} ${this.t(`${TKD.count(m.bonus, 'game', 'en')} passed`, `نجحت في ${TKD.count(m.bonus, 'game', 'ar')} إضافية`)}</p>
         </div></div>`;
     }).join('')}</div>`;
   },
@@ -14947,7 +14947,7 @@ const DashboardSystem = {
     link.href = url; link.download = `taekwondo-${who}-${this.day(Date.now())}.csv`;
     document.body.appendChild(link); link.click(); link.remove();
     setTimeout(() => URL.revokeObjectURL(url), 2000);
-    this.gs?.showNotification(this.t(`⬇️ Exported ${TKD.count(rows.length, 'attempt', 'en')}`, `⬇️ اتصدّر ${TKD.count(rows.length, 'attempt', 'ar')}`), 'success');
+    this.gs?.showNotification(this.t(`⬇️ Exported ${TKD.count(rows.length, 'attempt', 'en')}`, `⬇️ صُدِّر ${TKD.count(rows.length, 'attempt', 'ar')}`), 'success');
   },
 
   kpi(label, value, sub) {
@@ -14962,9 +14962,9 @@ const DashboardSystem = {
 
   recentHTML(S) {
     const rows = [...S.list].reverse().slice(0, 12);
-    if (!rows.length) return `<p class="db-muted">${this.t('Nothing yet in this period.', 'مفيش حاجة في الفترة دي.')}</p>`;
+    if (!rows.length) return `<p class="db-muted">${this.t('Nothing yet in this period.', 'لا يوجد شيء في هذه الفترة.')}</p>`;
     return `<div class="db-table-wrap"><table class="db-table">
-      <thead><tr><th>${this.t('When', 'إمتى')}</th><th>${this.t('Kick', 'الركلة')}</th><th>${this.t('Activity', 'النشاط')}</th><th>${this.t('Score', 'النتيجة')}</th></tr></thead>
+      <thead><tr><th>${this.t('When', 'متى')}</th><th>${this.t('Kick', 'الركلة')}</th><th>${this.t('Activity', 'النشاط')}</th><th>${this.t('Score', 'النتيجة')}</th></tr></thead>
       <tbody>${rows.map(a => {
         const pass = a.score >= GameConfig.SETTINGS.PASSING_SCORE;
         return `<tr><td>${this.fmtDate(a.ts, true)}</td><td><i class="db-dot" style="background:${this.SKILL_COLORS[a.skillId] || '#888'}"></i>${this.sName(a.skillId)}</td>
@@ -14975,7 +14975,7 @@ const DashboardSystem = {
 
   compareHTML(board) {
     return `<div class="db-table-wrap"><table class="db-table db-compare">
-      <thead><tr><th>#</th><th>${this.t('Player', 'اللاعب')}</th><th>${this.t('Points', 'النقاط')}</th><th>${this.t('Games', 'الألعاب')}</th><th>${this.t('Average', 'المتوسط')}</th><th>${this.t('Pass rate', 'نسبة النجاح')}</th><th>${this.t('Best kick', 'أحسن ركلة')}</th><th>${this.t('Last played', 'آخر لعب')}</th></tr></thead>
+      <thead><tr><th>#</th><th>${this.t('Player', 'اللاعب')}</th><th>${this.t('Points', 'النقاط')}</th><th>${this.t('Games', 'الألعاب')}</th><th>${this.t('Average', 'المتوسط')}</th><th>${this.t('Pass rate', 'نسبة النجاح')}</th><th>${this.t('Best kick', 'أفضل ركلة')}</th><th>${this.t('Last played', 'آخر لعب')}</th></tr></thead>
       <tbody>${board.map((r, i) => {
         const bySkill = {};
         r.S.played.forEach(a => { (bySkill[a.skillId] ||= []).push(a.score); });
@@ -14991,7 +14991,7 @@ const DashboardSystem = {
   drawTrend(S) {
     const el = document.getElementById('db-trend'); if (!el) return;
     const pts = S.played;
-    if (pts.length < 2) { el.innerHTML = `<p class="db-muted db-center">${this.t('Play at least 2 games to see a trend.', 'العب لعبتين على الأقل عشان الرسم يظهر.')}</p>`; return; }
+    if (pts.length < 2) { el.innerHTML = `<p class="db-muted db-center">${this.t('Play at least 2 games to see a trend.', 'العب لعبتين على الأقل ليظهر الرسم.')}</p>`; return; }
     const W = 640, H = 240, m = { l: 36, r: 12, t: 12, b: 26 };
     const iw = W - m.l - m.r, ih = H - m.t - m.b;
     const n = pts.length;
@@ -15050,7 +15050,7 @@ const DashboardSystem = {
   drawMix(S) {
     const el = document.getElementById('db-mix'); if (!el) return;
     const rows = Object.entries(S.perGame).map(([id, g]) => ({ id, n: g.n, avg: Math.round(g.sum / g.n) })).sort((a, b) => b.n - a.n).slice(0, 8);
-    if (!rows.length) { el.innerHTML = `<p class="db-muted db-center">${this.t('No games yet.', 'مفيش ألعاب لسه.')}</p>`; return; }
+    if (!rows.length) { el.innerHTML = `<p class="db-muted db-center">${this.t('No games yet.', 'لا توجد ألعاب بعد.')}</p>`; return; }
     const max = Math.max(...rows.map(r => r.n));
     el.innerHTML = `<div class="db-bars">${rows.map(r => `
       <div class="db-bar-row" tabindex="0" data-tip="${this.esc(`${r.n} ${this.t('attempts', 'محاولات')} · ${this.t('average', 'المتوسط')} ${r.avg}%`)}">
@@ -15335,27 +15335,27 @@ const TKD = {
   // v55: "a number + a word" written the way people say it — "يوم واحد / يومين / ٣ أيام / ١٥ يوم",
   // "1 day / 2 days" — instead of "1 أيام" or "1 tries"
   COUNT: {
-    day:      { ar: ['يوم واحد', 'يومين', 'أيام', 'يوم'],                    en: ['day', 'days'] },
-    trainDay: { ar: ['يوم تمرين واحد', 'يومين تمرين', 'أيام تمرين', 'يوم تمرين'], en: ['training day', 'training days'] },
-    point:    { ar: ['نقطة واحدة', 'نقطتين', 'نقط', 'نقطة'],               en: ['point', 'points'] },
-    pt:       { ar: ['نقطة واحدة', 'نقطتين', 'نقط', 'نقطة'],               en: ['pt', 'pts'] },
-    thing:    { ar: ['حاجة واحدة', 'حاجتين', 'حاجات', 'حاجة'],             en: ['thing', 'things'] },
-    try:      { ar: ['محاولة واحدة', 'محاولتين', 'محاولات', 'محاولة'],     en: ['try', 'tries'] },
-    attempt:  { ar: ['محاولة واحدة', 'محاولتين', 'محاولات', 'محاولة'],     en: ['attempt', 'attempts'] },
-    game:     { ar: ['لعبة واحدة', 'لعبتين', 'ألعاب', 'لعبة'],             en: ['game', 'games'] },
-    star:     { ar: ['نجمة واحدة', 'نجمتين', 'نجوم', 'نجمة'],              en: ['star', 'stars'] },
-    medal:    { ar: ['ميدالية واحدة', 'ميداليتين', 'ميداليات', 'ميدالية'], en: ['medal', 'medals'] },
-    week:     { ar: ['أسبوع واحد', 'أسبوعين', 'أسابيع', 'أسبوع'],          en: ['week', 'weeks'] },
-    question: { ar: ['سؤال واحد', 'سؤالين', 'أسئلة', 'سؤال'],               en: ['question', 'questions'] },
-    exercise: { ar: ['تمرين واحد', 'تمرينين', 'تمارين', 'تمرين'],          en: ['exercise', 'exercises'] },
-    move:     { ar: ['حركة واحدة', 'حركتين', 'حركات', 'حركة'],             en: ['movement', 'movements'] },
-    mistake:  { ar: ['غلطة واحدة', 'غلطتين', 'غلطات', 'غلطة'],             en: ['mistake', 'mistakes'] },
-    loss:     { ar: ['خسارة واحدة', 'خسارتين', 'خسارات', 'خسارة'],          en: ['loss', 'losses'] },
-    challenge:{ ar: ['تحدي واحد', 'تحديين', 'تحديات', 'تحدي'],             en: ['challenge', 'challenges'] },
-    kick:     { ar: ['ركلة واحدة', 'ركلتين', 'ركلات', 'ركلة'],             en: ['kick', 'kicks'] },
-    kid:      { ar: ['طفل واحد', 'طفلين', 'أطفال', 'طفل'],                en: ['kid', 'kids'] },
-    hero:     { ar: ['بطل واحد', 'بطلين', 'أبطال', 'بطل'],                en: ['hero', 'heroes'] },
-    stripe:   { ar: ['شريطة واحدة', 'شريطتين', 'شرايط', 'شريطة'],          en: ['stripe', 'stripes'] }
+    day:      { ar: ['يوم واحد', 'يومان', 'أيام', 'يوم'],                    en: ['day', 'days'] },
+    trainDay: { ar: ['يوم تمرين واحد', 'يوما تمرين', 'أيام تمرين', 'يوم تمرين'], en: ['training day', 'training days'] },
+    point:    { ar: ['نقطة واحدة', 'نقطتان', 'نقاط', 'نقطة'],               en: ['point', 'points'] },
+    pt:       { ar: ['نقطة واحدة', 'نقطتان', 'نقاط', 'نقطة'],               en: ['pt', 'pts'] },
+    thing:    { ar: ['شيء واحد', 'شيئان', 'أشياء', 'شيء'],             en: ['thing', 'things'] },
+    try:      { ar: ['محاولة واحدة', 'محاولتان', 'محاولات', 'محاولة'],     en: ['try', 'tries'] },
+    attempt:  { ar: ['محاولة واحدة', 'محاولتان', 'محاولات', 'محاولة'],     en: ['attempt', 'attempts'] },
+    game:     { ar: ['لعبة واحدة', 'لعبتان', 'ألعاب', 'لعبة'],             en: ['game', 'games'] },
+    star:     { ar: ['نجمة واحدة', 'نجمتان', 'نجوم', 'نجمة'],              en: ['star', 'stars'] },
+    medal:    { ar: ['ميدالية واحدة', 'ميداليتان', 'ميداليات', 'ميدالية'], en: ['medal', 'medals'] },
+    week:     { ar: ['أسبوع واحد', 'أسبوعان', 'أسابيع', 'أسبوع'],          en: ['week', 'weeks'] },
+    question: { ar: ['سؤال واحد', 'سؤالان', 'أسئلة', 'سؤال'],               en: ['question', 'questions'] },
+    exercise: { ar: ['تمرين واحد', 'تمرينان', 'تمارين', 'تمرين'],          en: ['exercise', 'exercises'] },
+    move:     { ar: ['حركة واحدة', 'حركتان', 'حركات', 'حركة'],             en: ['movement', 'movements'] },
+    mistake:  { ar: ['خطأ واحد', 'خطآن', 'أخطاء', 'خطأ'],             en: ['mistake', 'mistakes'] },
+    loss:     { ar: ['خسارة واحدة', 'خسارتان', 'خسارات', 'خسارة'],          en: ['loss', 'losses'] },
+    challenge:{ ar: ['تحدٍّ واحد', 'تحدّيان', 'تحديات', 'تحدٍّ'],             en: ['challenge', 'challenges'] },
+    kick:     { ar: ['ركلة واحدة', 'ركلتان', 'ركلات', 'ركلة'],             en: ['kick', 'kicks'] },
+    kid:      { ar: ['طفل واحد', 'طفلان', 'أطفال', 'طفل'],                en: ['kid', 'kids'] },
+    hero:     { ar: ['بطل واحد', 'بطلان', 'أبطال', 'بطل'],                en: ['hero', 'heroes'] },
+    stripe:   { ar: ['شريط واحد', 'شريطان', 'أشرطة', 'شريط'],          en: ['stripe', 'stripes'] }
   },
   // count(5, 'day') → "٥ أيام" / "5 days"; lang 'ar' | 'en' forces a language
   count(n, key, lang) {
@@ -15392,7 +15392,7 @@ window.TKD = TKD;
 // child's own Easy / Normal / Hard. speed scales how fast things move, window and
 // tol how long / how wide the moment to react is, time every countdown.
 const TKDPace = {
-  LIST: [['calm', 'Calm', 'هادي'], ['normal', 'Normal', 'عادي'], ['fast', 'Fast', 'سريع']],
+  LIST: [['calm', 'Calm', 'هادئ'], ['normal', 'Normal', 'عادي'], ['fast', 'Fast', 'سريع']],
   F: {
     calm:   { speed: 0.82, window: 1.3,  tol: 1.15, time: 1.35 },
     normal: { speed: 1,    window: 1,    tol: 1,    time: 1 },
@@ -15495,7 +15495,7 @@ const TKDDifficulty = {
     if (d.fails[gameId] >= 2 && cur !== 'easy') {
       d.levels[gameId] = cur === 'hard' ? 'normal' : 'easy';
       d.fails[gameId] = 0;
-      setTimeout(() => TKD.toast(TKD.t('💪 We made it a little easier — you can switch back any time.', '💪 خليناها أسهل شوية — تقدر ترجّعها في أي وقت.'), 'info'), 1600);
+      setTimeout(() => TKD.toast(TKD.t('💪 We made it a little easier — you can switch back any time.', '💪 جعلناها أسهل قليلًا — يمكنك إرجاعها في أي وقت.'), 'info'), 1600);
     }
     TKD.write(this.key(), d);
   },
@@ -15505,7 +15505,7 @@ const TKDDifficulty = {
     let box = hud.querySelector('.tkd-diff');
     if (!box) { box = document.createElement('div'); box.className = 'tkd-diff'; box.setAttribute('role', 'radiogroup'); hud.appendChild(box); }
     if (this.locked(G.GAME_ID)) {
-      box.innerHTML = `<span class="tkd-diff-lock">🏆 ${TKD.t('Daily challenge · Normal', 'تحدي النهارده · عادي')}</span>`;
+      box.innerHTML = `<span class="tkd-diff-lock">🏆 ${TKD.t('Daily challenge · Normal', 'تحدي اليوم · عادي')}</span>`;
       return;
     }
     const cur = this.get(G.GAME_ID);
@@ -15672,7 +15672,7 @@ const Challenge = {
     const c = this.today();
     this.active = { ...c, date: c.day, prevSkill: gs.currentSkill };
     gs.currentSkill = c.skillId;
-    if (!this.triesLeft()) TKD.toast(TKD.t('No counted tries left today — this one is practice only.', 'خلصت محاولاتك المحسوبة النهارده — دي تمرين بس.'), 'warning');
+    if (!this.triesLeft()) TKD.toast(TKD.t('No counted tries left today — this one is practice only.', 'انتهت محاولاتك المحسوبة اليوم — هذه للتمرين فقط.'), 'warning');
     switchScreen(c.gameId);
   },
   end() {
@@ -15700,7 +15700,7 @@ const Challenge = {
     const rank = this.ranking().findIndex(r => r.pid === TKD.pid()) + 1;
     const left = this.triesLeft();
     TKD.toast(TKD.t(`🏆 Challenge: ${score}% · you are #${rank} today · ${left} ${left === 1 ? 'try' : 'tries'} left`,
-      `🏆 التحدي: ${score}% · ترتيبك #${rank} النهارده · فاضل ${left} ${left === 1 ? 'محاولة' : 'محاولات'}`), 'success');
+      `🏆 التحدي: ${score}% · ترتيبك #${rank} اليوم · تبقّى ${left} ${left === 1 ? 'محاولة' : 'محاولات'}`), 'success');
   }
 };
 window.Challenge = Challenge;
@@ -15715,7 +15715,7 @@ const League = {
   KEY: 'taekwondoJourneyLeague',
   AWARDS: {
     'week-champion':  { icon: '🏆', en: 'Champion of the Week', ar: 'بطل الأسبوع' },
-    'most-improved':  { icon: '📈', en: 'Most Improved', ar: 'أكتر واحد اتحسّن' },
+    'most-improved':  { icon: '📈', en: 'Most Improved', ar: 'الأكثر تحسّنًا' },
     'warmup-king':    { icon: '🔥', en: 'Warm-up King', ar: 'ملك الإحماء' },
     'tournament-champion': { icon: '👑', en: 'Tournament Champion', ar: 'بطل البطولة' }
   },
@@ -15788,10 +15788,10 @@ const League = {
     ov.className = 'tkd-modal';
     ov.innerHTML = `<div class="tkd-modal-card tkd-celebrate">
       <div class="tkd-celebrate-burst">🎉</div>
-      <h2>${TKD.t(`Well done, ${TKD.esc(p.name)}!`, `برافو يا ${TKD.esc(p.name)}!`)}</h2>
+      <h2>${TKD.t(`Well done, ${TKD.esc(p.name)}!`, `أحسنت يا ${TKD.esc(p.name)}!`)}</h2>
       <ul>${items.map(it => `<li><b>${this.awardName(it.id)}</b>
         <button type="button" class="btn btn-small" data-cert="${it.id}" data-week="${it.week || ''}">📜 ${TKD.t('Certificate', 'الشهادة')}</button></li>`).join('')}</ul>
-      <button type="button" class="btn btn-success tkd-close">${TKD.t('Yay! 🎊', 'هييييه! 🎊')}</button></div>`;
+      <button type="button" class="btn btn-success tkd-close">${TKD.t('Yay! 🎊', 'هيييه! 🎊')}</button></div>`;
     document.body.appendChild(ov);
     TKD.gs()?.playSound('win');
     ov.querySelector('.tkd-close').addEventListener('click', () => ov.remove());
@@ -15820,7 +15820,7 @@ const Certificates = {
     g.font = '150px system-ui, "Segoe UI Emoji", sans-serif'; g.fillText(icon, W / 2, 250);
     g.fillStyle = '#1d3557'; g.font = '800 46px Cairo, Roboto, sans-serif'; g.fillText(TKD.t('CERTIFICATE', 'شهادة تقدير'), W / 2, 390);
     g.fillStyle = '#c1121f'; g.font = '900 88px Cairo, Roboto, sans-serif'; g.fillText(title, W / 2, 500);
-    g.fillStyle = '#555'; g.font = '500 40px Cairo, Roboto, sans-serif'; g.fillText(TKD.t('proudly presented to', 'بكل فخر لـ'), W / 2, 610);
+    g.fillStyle = '#555'; g.font = '500 40px Cairo, Roboto, sans-serif'; g.fillText(TKD.t('proudly presented to', 'بكل فخر إلى'), W / 2, 610);
     g.fillStyle = '#111'; g.font = '900 110px Cairo, Roboto, sans-serif'; g.fillText(name, W / 2, 730);
     g.strokeStyle = '#b8860b'; g.lineWidth = 3; g.beginPath(); g.moveTo(W / 2 - 380, 800); g.lineTo(W / 2 + 380, 800); g.stroke();
     g.fillStyle = '#1d3557'; g.font = '700 44px Cairo, Roboto, sans-serif'; g.fillText(`🥋 ${line}`, W / 2, 880);
@@ -15830,7 +15830,7 @@ const Certificates = {
       l.href = url; l.download = `certificate-${String(name).replace(/[^\w؀-ۿ-]+/g, '_')}.png`;
       document.body.appendChild(l); l.click(); l.remove(); setTimeout(() => URL.revokeObjectURL(url), 3000);
     });
-    TKD.toast(TKD.t('📜 Certificate downloaded', '📜 الشهادة اتنزلت'), 'success');
+    TKD.toast(TKD.t('📜 Certificate downloaded', '📜 نُزّلت الشهادة'), 'success');
   }
 };
 window.Certificates = Certificates;
@@ -15875,17 +15875,17 @@ const StartScreen = {
         <div class="ss-new">
           <label class="ss-name"><span>${TKD.t('Your name', 'اسمك')}</span>
             <input id="ss-name-input" type="text" maxlength="18" autocomplete="off" placeholder="${TKD.t('Type your name', 'اكتب اسمك')}"></label>
-          <div class="ss-names" aria-label="${TKD.t('Or pick a fighter name', 'أو اختار اسم بطل')}"><small>${TKD.t('Can’t type yet? Pick a fighter name:', 'لسه مش بتعرف تكتب؟ اختار اسم بطل:')}</small>
+          <div class="ss-names" aria-label="${TKD.t('Or pick a fighter name', 'أو اختر اسم بطل')}"><small>${TKD.t('Can’t type yet? Pick a fighter name:', 'لا تعرف الكتابة بعد؟ اختر اسم بطل:')}</small>
             ${(TKD.ar ? ['🐯 النمر', '🦅 الصقر', '🐉 التنين', '⚡ البرق'] : ['🐯 Tiger', '🦅 Eagle', '🐉 Dragon', '⚡ Lightning']).map(n => `<button type="button" class="ss-name-chip" data-name="${n.replace(/^\S+\s/, '')}">${n}</button>`).join('')}</div>
           <div class="ss-chars" role="radiogroup" aria-label="${TKD.t('Character', 'الشخصية')}">
             ${['boy', 'girl'].map(c => `<button type="button" role="radio" aria-checked="${this.newChar === c}" class="ss-char ${this.newChar === c ? 'on' : ''}" data-ch="${c}">
               <img src="${PoseShots.url(c, 'hero')}" alt=""><span>${c === 'boy' ? TKD.t('Boy', 'ولد') : TKD.t('Girl', 'بنت')}</span></button>`).join('')}
           </div>
-          <button type="button" class="btn btn-success ss-go" id="ss-go">${TKD.t("Let's go! 🚀", 'يلا بينا! 🚀')}</button>
+          <button type="button" class="btn btn-success ss-go" id="ss-go">${TKD.t("Let's go! 🚀", 'هيا بنا! 🚀')}</button>
           ${players.length ? `<button type="button" class="btn btn-small ss-back" id="ss-back">${TKD.t('← Back', '→ رجوع')}</button>` : ''}
         </div>`;
     } else {
-      body = `<h2 class="ss-q">${TKD.t("Who's training today?", 'مين هيتمرن النهارده؟')}</h2>
+      body = `<h2 class="ss-q">${TKD.t("Who's training today?", 'من سيتمرن اليوم؟')}</h2>
         <div class="ss-grid">
           ${players.map(({ p }) => {
             const streak = TKD.read(GameState.storageKey(p.id), {})?.practiceStreak || 0;
@@ -15920,7 +15920,7 @@ const StartScreen = {
   },
   create() {
     const name = (TKD.$('ss-name-input')?.value || '').trim();
-    if (!name) { TKD.toast(TKD.t('⚠️ Type your name first', '⚠️ اكتب اسمك الأول'), 'warning'); TKD.$('ss-name-input')?.focus(); return; }
+    if (!name) { TKD.toast(TKD.t('⚠️ Type your name first', '⚠️ اكتب اسمك أولًا'), 'warning'); TKD.$('ss-name-input')?.focus(); return; }
     const existing = PlayerSystem.getPlayers().find(p => p.name.toLowerCase() === name.toLowerCase());
     const p = PlayerSystem.createOrSelectPlayer(name, this.newChar);
     if (!existing) { TKD.gs().playerCharacter = this.newChar; TKD.gs().saveToStorage(); }
@@ -15936,8 +15936,8 @@ const StartScreen = {
     League.process();
     switchScreen('home');
     const p = PlayerSystem.getCurrentPlayer();
-    gs.showNotification(isNew ? TKD.t(`🎉 Welcome, ${p.name}! Let's start with a warm-up.`, `🎉 أهلاً يا ${p.name}! يلا نبدأ بالإحماء.`)
-      : TKD.t(`👋 Welcome back, ${p.name}!`, `👋 نورت يا ${p.name}!`), 'success');
+    gs.showNotification(isNew ? TKD.t(`🎉 Welcome, ${p.name}! Let's start with a warm-up.`, `🎉 أهلًا يا ${p.name}! هيا نبدأ بالإحماء.`)
+      : TKD.t(`👋 Welcome back, ${p.name}!`, `👋 أهلًا بعودتك يا ${p.name}!`), 'success');
     setTimeout(() => League.celebratePending(), 900);
     this.shortcut();
   },
@@ -15965,17 +15965,17 @@ const HomeHub = {
     if (!gs || !p) { el.innerHTML = ''; return; }
     League.process();
     const target = gs.getResumeTarget();
-    const sub = target.done ? TKD.t('Everything done — see your trophies', 'خلّصت كل حاجة — شوف إنجازاتك')
+    const sub = target.done ? TKD.t('Everything done — see your trophies', 'أنهيت كل شيء — شاهد إنجازاتك')
       : `${TKD.skillName(target.skillId)} · ${TKD.ar ? this.STAGE[target.stage].ar : this.STAGE[target.stage].en}`;
     // v59.3: the home screen is the map only (the coach asked to remove the backup reminder, today's
     // challenge, the league, 1 × 1 and the belt syllabus here — they stay in the menus); the club card
     // shows only when the gym is online
     const club = !!window.Club?.joined();
     el.innerHTML = `
-      <div class="hub-player"><button type="button" class="hub-me" id="hub-me" aria-label="${TKD.t('My hero page', 'صفحة البطل بتاعتي')}">${TKD.avatar(p)}</button><div class="hub-player-txt"><b>${TKD.esc(p.name)}</b>${gs.practiceStreak >= 2 ? `<small>🔥 ${TKD.num(gs.practiceStreak)}</small>` : ''}</div>
+      <div class="hub-player"><button type="button" class="hub-me" id="hub-me" aria-label="${TKD.t('My hero page', 'صفحتي يا بطل')}">${TKD.avatar(p)}</button><div class="hub-player-txt"><b>${TKD.esc(p.name)}</b>${gs.practiceStreak >= 2 ? `<small>🔥 ${TKD.num(gs.practiceStreak)}</small>` : ''}</div>
         <button type="button" class="btn btn-small btn-success" id="hub-profile">🏅 ${TKD.t('My page', 'صفحتي')}</button>
         <button type="button" class="btn btn-small hub-switch" id="hub-switch">👥 ${TKD.t('Switch player', 'غيّر اللاعب')}</button></div>
-      ${window.Journey ? Journey.html() : `<button type="button" class="hub-cta" id="hub-cta"><span class="hub-cta-main">▶ ${TKD.t("Let's train!", 'يلا نتمرن!')}</span><span class="hub-cta-sub">${sub}</span></button>`}
+      ${window.Journey ? Journey.html() : `<button type="button" class="hub-cta" id="hub-cta"><span class="hub-cta-main">▶ ${TKD.t("Let's train!", 'هيا نتمرن!')}</span><span class="hub-cta-sub">${sub}</span></button>`}
       ${window.Review ? Review.card() : ''}
       ${club ? `<div class="hub-cards">${(() => {   // v56: the gym's heroes, live
           const all = Club.rows(), wk = League.table();
@@ -15983,8 +15983,8 @@ const HomeHub = {
           return `<button type="button" class="hub-card hub-club" id="hub-club">
           <span class="hub-card-k">🏟️ ${TKD.esc(Club.info()?.name || TKD.t('The club', 'النادي'))}</span>
           <span class="hub-card-big">${TKD.count(all.length, 'hero')}</span>
-          <span class="hub-card-s">${top ? TKD.t(`Top this week: ${TKD.esc(top.p.name)}`, `الأول الأسبوع ده: ${TKD.esc(top.p.name)}`) : TKD.t('Nobody has points yet this week', 'لسه محدش جاب نقط الأسبوع ده')}</span>
-          <span class="hub-card-s">${{ online: '☁️', offline: '📴', connecting: '⏳', error: '⚠️' }[Club.status] || '☁️'} ${TKD.t('See everyone\'s medals', 'شوف ميداليات الكل')}</span>
+          <span class="hub-card-s">${top ? TKD.t(`Top this week: ${TKD.esc(top.p.name)}`, `الأول هذا الأسبوع: ${TKD.esc(top.p.name)}`) : TKD.t('Nobody has points yet this week', 'لم يحصل أحد على نقاط هذا الأسبوع بعد')}</span>
+          <span class="hub-card-s">${{ online: '☁️', offline: '📴', connecting: '⏳', error: '⚠️' }[Club.status] || '☁️'} ${TKD.t('See everyone\'s medals', 'شاهد ميداليات الجميع')}</span>
         </button>`; })()}</div>` : ''}`;
     TKD.$('hub-switch').addEventListener('click', () => StartScreen.show());
     TKD.$('hub-profile').addEventListener('click', () => window.Profile?.open());
@@ -16020,7 +16020,7 @@ const LeagueScreen = {
   render() {
     const root = TKD.$('league-root'); if (!root) return;
     const club = !!window.Club?.joined();
-    const tabs = [['today', `🏆 ${TKD.t('Today', 'النهارده')}`], ['awards', `🎖️ ${TKD.t('Awards', 'الجوايز')}`], ['versus', `⚔️ ${TKD.t('Duels', 'المواجهات')}`], ['gym', club ? `🏟️ ${TKD.t('Club heroes', 'أبطال النادي')}` : `🏟️ ${TKD.t('Gym', 'الصالة')}`]];
+    const tabs = [['today', `🏆 ${TKD.t('Today', 'اليوم')}`], ['awards', `🎖️ ${TKD.t('Awards', 'الجوائز')}`], ['versus', `⚔️ ${TKD.t('Duels', 'المواجهات')}`], ['gym', club ? `🏟️ ${TKD.t('Club heroes', 'أبطال النادي')}` : `🏟️ ${TKD.t('Gym', 'الصالة')}`]];
     root.innerHTML = `<div class="lg-tabs" role="tablist">${tabs.map(([k, l]) => `<button type="button" role="tab" aria-selected="${this.tab === k}" class="${this.tab === k ? 'on' : ''}" data-tab="${k}">${l}</button>`).join('')}</div>
       <div class="lg-body">${this[this.tab + 'HTML']()}</div>`;
     root.querySelectorAll('[data-tab]').forEach(b => b.addEventListener('click', () => { this.tab = b.dataset.tab; TKD.gs()?.playSound('click'); this.render(); }));
@@ -16048,10 +16048,10 @@ const LeagueScreen = {
     return `${window.Club?.joined() ? Club.statusLine() : ''}<div class="lg-challenge">
         <div class="lg-ch-icon">${TKD.gameIcon(c.gameId)}</div>
         <div><h3>${TKD.gameName(c.gameId)} · ${TKD.skillName(c.skillId)}</h3>
-          <p>${TKD.t('Same game and kick for everyone today, on Normal. Your best of the first 3 tries counts.', 'نفس اللعبة والركلة للكل النهارده، على مستوى عادي. أحسن نتيجة من أول ٣ محاولات هي اللي بتتحسب.')}</p></div>
-        <button type="button" class="btn btn-success" id="lg-play">${left ? TKD.t(`Play (${left} left)`, `العب (فاضل ${TKD.num(left)})`) : TKD.t('Practice', 'اتمرن')}</button></div>
-      ${rk.length ? `<ol class="lg-list">${rk.map((r, i) => this.row(i, players.find(p => p.id === r.pid) || { id: r.pid, name: r.name, character: r.character }, `${TKD.num(r.score)}%`, r.remote ? `🌍 ${TKD.t('another device', 'جهاز تاني')}` : new Date(r.ts).toLocaleTimeString(TKD.ar ? 'ar-EG' : 'en-GB', { hour: '2-digit', minute: '2-digit' }))).join('')}</ol>`
-        : `<p class="lg-empty">${TKD.t('Nobody has played today yet — be the first! 🚀', 'لسه محدش لعب النهارده — خليك الأول! 🚀')}</p>`}`;
+          <p>${TKD.t('Same game and kick for everyone today, on Normal. Your best of the first 3 tries counts.', 'اللعبة نفسها والركلة نفسها للجميع اليوم، بمستوى عادي. تُحتسب أفضل نتيجة من أول ٣ محاولات.')}</p></div>
+        <button type="button" class="btn btn-success" id="lg-play">${left ? TKD.t(`Play (${left} left)`, `العب (تبقّى ${TKD.num(left)})`) : TKD.t('Practice', 'تمرّن')}</button></div>
+      ${rk.length ? `<ol class="lg-list">${rk.map((r, i) => this.row(i, players.find(p => p.id === r.pid) || { id: r.pid, name: r.name, character: r.character }, `${TKD.num(r.score)}%`, r.remote ? `🌍 ${TKD.t('another device', 'جهاز آخر')}` : new Date(r.ts).toLocaleTimeString(TKD.ar ? 'ar-EG' : 'en-GB', { hour: '2-digit', minute: '2-digit' }))).join('')}</ol>`
+        : `<p class="lg-empty">${TKD.t('Nobody has played today yet — be the first! 🚀', 'لم يلعب أحد اليوم بعد — كن الأول! 🚀')}</p>`}`;
   },
   awardsHTML() {
     const st = League.load(); const players = PlayerSystem.getPlayers();
@@ -16065,29 +16065,29 @@ const LeagueScreen = {
         ${p.remote ? '' : `<button type="button" class="btn btn-small" data-cert="${id}" data-pid="${p.id}" data-week="${last.week}">📜</button>`}</li>`;
     }).join('') : '';
     const badges = (me?.badges || []).slice().reverse();
-    return `<h3 class="lg-sub">${TKD.t('Last week', 'الأسبوع اللي فات')}${last ? ` <small>(${last.week})</small>` : ''}</h3>
-      ${awards ? `<ul class="lg-awards">${awards}</ul>` : `<p class="lg-empty">${TKD.t('Awards are given when the week ends (Friday night).', 'الجوايز بتتوزع لما الأسبوع يخلص (يوم الجمعة بالليل).')}</p>`}
+    return `<h3 class="lg-sub">${TKD.t('Last week', 'الأسبوع الماضي')}${last ? ` <small>(${last.week})</small>` : ''}</h3>
+      ${awards ? `<ul class="lg-awards">${awards}</ul>` : `<p class="lg-empty">${TKD.t('Awards are given when the week ends (Friday night).', 'تُوزَّع الجوائز عندما ينتهي الأسبوع (مساء الجمعة).')}</p>`}
       <h3 class="lg-sub">${TKD.t('My badges', 'شاراتي')}</h3>
-      ${badges.length ? `<div class="lg-badges">${badges.map(b => `<span class="lg-badge" title="${b.week || ''}">${League.awardName(b.id)}</span>`).join('')}</div>` : `<p class="lg-empty">${TKD.t('No badges yet — keep training! 💪', 'لسه مفيش شارات — كمّل تمرين! 💪')}</p>`}`;
+      ${badges.length ? `<div class="lg-badges">${badges.map(b => `<span class="lg-badge" title="${b.week || ''}">${League.awardName(b.id)}</span>`).join('')}</div>` : `<p class="lg-empty">${TKD.t('No badges yet — keep training! 💪', 'لا توجد شارات بعد — واصل التمرين! 💪')}</p>`}`;
   },
   versusHTML() {
     const rows = (window.Versus ? Versus.standings() : []);
     const champs = window.Versus ? Versus.champions() : [];
-    return `<div class="lg-head"><div>${TKD.t('Wins in 1 × 1 duels on this device', 'المكسب في مواجهات ١×١ على الجهاز ده')}</div>
+    return `<div class="lg-head"><div>${TKD.t('Wins in 1 × 1 duels on this device', 'الفوز في مواجهات ١×١ على هذا الجهاز')}</div>
         <button type="button" class="btn btn-success btn-small" id="lg-duel">⚔️ ${TKD.t('New duel', 'مواجهة جديدة')}</button></div>
       ${rows.length ? `<ol class="lg-list">${rows.map((r, i) => this.row(i, r.p, `${TKD.num(r.w)} ${TKD.t('W', 'فوز')}`, TKD.t(`${r.l} losses · ${r.pts} points scored`, `${TKD.count(r.l, 'loss', 'ar')} · ${TKD.count(r.pts, 'point', 'ar')}`))).join('')}</ol>`
-        : `<p class="lg-empty">${TKD.t('No duels yet.', 'لسه مفيش مواجهات.')}</p>`}
+        : `<p class="lg-empty">${TKD.t('No duels yet.', 'لا توجد مواجهات بعد.')}</p>`}
       ${champs.length ? `<h3 class="lg-sub">👑 ${TKD.t('Tournament champions', 'أبطال البطولات')}</h3><ul class="lg-awards">${champs.map(c => `<li class="lg-award">${TKD.avatar(c.p)}<span><b>${TKD.esc(c.p.name)}</b><small>${TKD.esc(c.name)} · ${c.date}</small></span></li>`).join('')}</ul>` : ''}`;
   },
   gymHTML() {
     if (window.Club?.joined()) return Club.wallHTML();          // v56: the whole club, live
     const rows = window.GymBoard ? GymBoard.rows() : [];
-    return `<div class="lg-head"><div>${TKD.t('Players from every device your coach scanned (this week)', 'لاعبين من كل الأجهزة اللي المدرب مسح كروتهم (الأسبوع ده)')}</div>
-        <div class="tkd-row"><button type="button" class="btn btn-small" id="lg-mycard">📇 ${TKD.t('My card', 'كارتي')}</button>
-        <button type="button" class="btn btn-small" id="lg-scan">📷 ${TKD.t('Add cards (coach)', 'ضيف كروت (المدرب)')}</button></div></div>
-      ${window.Club?.usable() ? `<p class="club-hint">☁️ ${TKD.t('Tip: the coach can join this device to the online club (Coach → Club) — then everybody of the gym shows here, live.', 'نصيحة: المدرب يقدر يوصّل الجهاز ده بالنادي أونلاين (المدرب ← النادي) — وساعتها كل الصالة تظهر هنا على طول.')}</p>` : ''}
-      ${rows.length ? `<ol class="lg-list">${rows.map((r, i) => this.row(i, r.p, `${TKD.num(r.points)}`, `${r.local ? TKD.t('this device', 'الجهاز ده') : TKD.t(`card from ${r.updated}`, `كارت ${r.updated}`)}${r.stale ? ' · ⏳' : ''}`)).join('')}</ol>`
-        : `<p class="lg-empty">${TKD.t('No players yet.', 'لسه مفيش لاعبين.')}</p>`}`;
+    return `<div class="lg-head"><div>${TKD.t('Players from every device your coach scanned (this week)', 'لاعبون من كل الأجهزة التي مسح المدرب بطاقاتهم (هذا الأسبوع)')}</div>
+        <div class="tkd-row"><button type="button" class="btn btn-small" id="lg-mycard">📇 ${TKD.t('My card', 'بطاقتي')}</button>
+        <button type="button" class="btn btn-small" id="lg-scan">📷 ${TKD.t('Add cards (coach)', 'أضف بطاقات (المدرب)')}</button></div></div>
+      ${window.Club?.usable() ? `<p class="club-hint">☁️ ${TKD.t('Tip: the coach can join this device to the online club (Coach → Club) — then everybody of the gym shows here, live.', 'نصيحة: يمكن للمدرب ربط هذا الجهاز بالنادي عبر الإنترنت (المدرب ← النادي) — وعندها تظهر الصالة كلها هنا مباشرة.')}</p>` : ''}
+      ${rows.length ? `<ol class="lg-list">${rows.map((r, i) => this.row(i, r.p, `${TKD.num(r.points)}`, `${r.local ? TKD.t('this device', 'هذا الجهاز') : TKD.t(`card from ${r.updated}`, `بطاقة ${r.updated}`)}${r.stale ? ' · ⏳' : ''}`)).join('')}</ol>`
+        : `<p class="lg-empty">${TKD.t('No players yet.', 'لا يوجد لاعبون بعد.')}</p>`}`;
   }
 };
 window.LeagueScreen = LeagueScreen;
@@ -16098,7 +16098,7 @@ function tkdConfirm(text, okLabel) {
     const ov = document.createElement('div');
     ov.className = 'tkd-modal';
     ov.innerHTML = `<div class="tkd-modal-card"><p class="tkd-confirm-txt">${TKD.esc(text)}</p>
-      <div class="tkd-row"><button type="button" class="btn" data-a="0">${TKD.t('Cancel', 'إلغاء')}</button><button type="button" class="btn btn-danger" data-a="1">${okLabel || TKD.t('Yes', 'أيوه')}</button></div></div>`;
+      <div class="tkd-row"><button type="button" class="btn" data-a="0">${TKD.t('Cancel', 'إلغاء')}</button><button type="button" class="btn btn-danger" data-a="1">${okLabel || TKD.t('Yes', 'نعم')}</button></div></div>`;
     document.body.appendChild(ov);
     ov.querySelectorAll('[data-a]').forEach(b => b.addEventListener('click', () => { ov.remove(); res(b.dataset.a === '1'); }));
   });
@@ -16135,16 +16135,16 @@ const PlayerCard = {
     const ov = document.createElement('div');
     ov.className = 'tkd-modal';
     ov.innerHTML = `<div class="tkd-modal-card tkd-card-view">
-      <h2>📇 ${TKD.t('Player card', 'كارت اللاعب')}</h2>
-      <div class="tkd-card-id">${TKD.avatar(p)}<div><b>${TKD.esc(p.name)}</b><small>${TKD.count(card.wp, 'point')} ${TKD.t('this week', 'الأسبوع ده')}</small></div></div>
+      <h2>📇 ${TKD.t('Player card', 'بطاقة اللاعب')}</h2>
+      <div class="tkd-card-id">${TKD.avatar(p)}<div><b>${TKD.esc(p.name)}</b><small>${TKD.count(card.wp, 'point')} ${TKD.t('this week', 'هذا الأسبوع')}</small></div></div>
       <div class="tkd-qr" id="tkd-qr"></div>
-      <p class="tkd-muted">${TKD.t("Show this to your coach's camera, or send the code.", 'وري الكارت ده لكاميرا المدرب، أو ابعتله الكود.')}</p>
+      <p class="tkd-muted">${TKD.t("Show this to your coach's camera, or send the code.", 'اعرض هذه البطاقة لكاميرا المدرب، أو أرسل إليه الرمز.')}</p>
       <textarea readonly class="tkd-code" rows="2" aria-label="code">${code}</textarea>
       <div class="tkd-row wrap">
-        <button type="button" class="btn btn-small" data-a="copy">📋 ${TKD.t('Copy code', 'انسخ الكود')}</button>
+        <button type="button" class="btn btn-small" data-a="copy">📋 ${TKD.t('Copy code', 'انسخ الرمز')}</button>
         ${navigator.share ? `<button type="button" class="btn btn-small" data-a="share">📤 ${TKD.t('Share', 'شارك')}</button>` : ''}
         <button type="button" class="btn btn-small" data-a="png">⬇️ ${TKD.t('Save picture', 'احفظ الصورة')}</button>
-        <button type="button" class="btn btn-success btn-small" data-a="close">${TKD.t('Done', 'تمام')}</button></div></div>`;
+        <button type="button" class="btn btn-success btn-small" data-a="close">${TKD.t('Done', 'حسنًا')}</button></div></div>`;
     document.body.appendChild(ov);
     const box = ov.querySelector('#tkd-qr');
     let canvas = null;
@@ -16153,7 +16153,7 @@ const PlayerCard = {
     ov.querySelectorAll('[data-a]').forEach(b => b.addEventListener('click', async () => {
       const a = b.dataset.a;
       if (a === 'close') ov.remove();
-      if (a === 'copy') { try { await navigator.clipboard.writeText(code); TKD.toast(TKD.t('📋 Code copied', '📋 الكود اتنسخ'), 'success'); } catch (e) { const ta = ov.querySelector('.tkd-code'); ta.select(); TKD.toast(TKD.t('Select and copy the code below', 'حدّد الكود اللي تحت وانسخه'), 'info'); } }
+      if (a === 'copy') { try { await navigator.clipboard.writeText(code); TKD.toast(TKD.t('📋 Code copied', '📋 نُسخ الرمز'), 'success'); } catch (e) { const ta = ov.querySelector('.tkd-code'); ta.select(); TKD.toast(TKD.t('Select and copy the code below', 'حدّد الرمز الموجود في الأسفل وانسخه'), 'info'); } }
       if (a === 'share') { try { await navigator.share({ title: 'Taekwondo Journey', text: code }); } catch (e) {} }
       if (a === 'png' && canvas) { const l = document.createElement('a'); l.href = canvas.toDataURL('image/png'); l.download = `card-${p.name}.png`; document.body.appendChild(l); l.click(); l.remove(); }
     }));
@@ -16231,9 +16231,9 @@ const Coach = {
     if (!this.unlocked) return this.renderPin(root);
     const views = { panel: () => this.panelHTML(), club: () => Club.coachHTML(), import: () => this.importHTML(), voice: () => this.voiceHTML(), settings: () => this.settingsHTML() };
     root.innerHTML = `<div class="co-top">
-        <div class="co-nav">${[['panel', `👥 ${TKD.t('Players', 'اللاعبين')}`], ...(window.Club?.configured() ? [['club', `☁️ ${TKD.t('Club', 'النادي')}`]] : []), ['import', `📷 ${TKD.t('Scan cards', 'امسح كروت')}`], ['voice', `🎙️ ${TKD.t('Record voice', 'سجّل الصوت')}`], ['settings', `⚙️ ${TKD.t('Settings', 'الإعدادات')}`]]
+        <div class="co-nav">${[['panel', `👥 ${TKD.t('Players', 'اللاعبون')}`], ...(window.Club?.configured() ? [['club', `☁️ ${TKD.t('Club', 'النادي')}`]] : []), ['import', `📷 ${TKD.t('Scan cards', 'امسح البطاقات')}`], ['voice', `🎙️ ${TKD.t('Record voice', 'سجّل الصوت')}`], ['settings', `⚙️ ${TKD.t('Settings', 'الإعدادات')}`]]
           .map(([k, l]) => `<button type="button" class="${this.view === k ? 'on' : ''}" data-v="${k}">${l}</button>`).join('')}</div>
-        <button type="button" class="btn btn-small" id="co-lock">🔒 ${TKD.t('Lock', 'اقفل')}</button></div>
+        <button type="button" class="btn btn-small" id="co-lock">🔒 ${TKD.t('Lock', 'إغلاق')}</button></div>
       <div class="co-body">${views[this.view]()}</div>`;
     root.querySelectorAll('[data-v]').forEach(b => b.addEventListener('click', () => { this.stopCamera(); this.view = b.dataset.v; this.render(); }));
     TKD.$('co-lock').addEventListener('click', () => { this.lock(); this.render(); });
@@ -16245,8 +16245,8 @@ const Coach = {
     const a = 6 + Math.floor(Math.random() * 7), b = 12 + Math.floor(Math.random() * 8);
     root.innerHTML = `<div class="co-pin">
       <div class="co-pin-ico">🔑</div>
-      <h3>${TKD.t('Grown-ups only', 'للكبار بس')}</h3>
-      <p class="co-pin-help">${TKD.t(`To choose a new PIN, type the answer: ${a} × ${b}`, `عشان تختار رقم سري جديد، اكتب ناتج: ${TKD.num(a)} × ${TKD.num(b)}`)}</p>
+      <h3>${TKD.t('Grown-ups only', 'للكبار فقط')}</h3>
+      <p class="co-pin-help">${TKD.t(`To choose a new PIN, type the answer: ${a} × ${b}`, `لتختار رقمًا سريًا جديدًا، اكتب ناتج: ${TKD.num(a)} × ${TKD.num(b)}`)}</p>
       <input id="co-gate" class="player-name-input" inputmode="numeric" autocomplete="off" dir="ltr" style="max-width:160px;text-align:center">
       <div class="tkd-row"><button type="button" class="btn btn-success btn-small" id="co-gate-ok">${TKD.t('Reset PIN', 'غيّر الرقم')}</button>
       <button type="button" class="btn btn-small" id="co-gate-back">${TKD.t('Back', 'رجوع')}</button></div>
@@ -16255,7 +16255,7 @@ const Coach = {
     const ok = () => {
       const v = parseInt(String(inp.value).replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d)), 10);
       if (v === a * b) { const c = TKD.read(this.KEY, {}); delete c.pin; TKD.write(this.KEY, c); this.unlocked = false; this.render(); }
-      else { TKD.$('co-gate-msg').textContent = TKD.t('Not right — try again.', 'مش مظبوط — جرّب تاني.'); inp.value = ''; }
+      else { TKD.$('co-gate-msg').textContent = TKD.t('Not right — try again.', 'غير صحيح — حاول مرة أخرى.'); inp.value = ''; }
     };
     TKD.$('co-gate-ok').addEventListener('click', ok);
     inp.addEventListener('keydown', e => { if (e.key === 'Enter') ok(); });
@@ -16269,15 +16269,15 @@ const Coach = {
     const paint = (msg) => {
       root.innerHTML = `<div class="co-pin">
         <div class="co-pin-ico">🧔🏽</div>
-        <h3>${msg || (setting ? TKD.t('Choose a 4-digit coach PIN', 'اختار رقم سري للمدرب (٤ أرقام)') : TKD.t('Coach PIN', 'الرقم السري للمدرب'))}</h3>
+        <h3>${msg || (setting ? TKD.t('Choose a 4-digit coach PIN', 'اختر رقمًا سريًا للمدرب (٤ أرقام)') : TKD.t('Coach PIN', 'الرقم السري للمدرب'))}</h3>
         ${this._why ? `<p class="co-pin-why">🔐 ${TKD.esc(this._why)}</p>` : ''}
         <p class="co-pin-help">${setting
-          ? (this._first ? TKD.t('Type the same 4 numbers again to confirm.', 'اكتب نفس الـ ٤ أرقام اللي لسه كاتبها عشان نتأكد.')
-                         : TKD.t('There is no ready-made PIN: pick any 4 numbers you will remember. Kids should not know it.', 'مفيش رقم جاهز: اختار أي ٤ أرقام هتفتكرها، وماتقولهاش للأطفال.'))
+          ? (this._first ? TKD.t('Type the same 4 numbers again to confirm.', 'اكتب الأرقام الأربعة نفسها التي كتبتها للتو لنتأكد.')
+                         : TKD.t('There is no ready-made PIN: pick any 4 numbers you will remember. Kids should not know it.', 'لا يوجد رقم جاهز: اختر أي ٤ أرقام ستتذكرها، ولا تُخبر بها الأطفال.'))
           : ''}</p>
-        ${setting && !this._first ? `<ul class="co-pin-what"><li>👥 ${TKD.t('Follow every player: who needs help, where kids get stuck', 'تابع كل لاعب: مين محتاج مساعدة، والأطفال بيتعثروا فين')}</li>
+        ${setting && !this._first ? `<ul class="co-pin-what"><li>👥 ${TKD.t('Follow every player: who needs help, where kids get stuck', 'تابع كل لاعب: من يحتاج إلى مساعدة، وأين يتعثر الأطفال')}</li>
           <li>🎙️ ${TKD.t('Record the game in your own voice', 'سجّل كلام اللعبة بصوتك')}</li>
-          <li>⚙️ ${TKD.t('Challenge rules, game pace, backups', 'قواعد التحدي، سرعة الألعاب، والنسخ الاحتياطية')}</li></ul>` : ''}
+          <li>⚙️ ${TKD.t('Challenge rules, game pace, backups', 'قواعد التحدي، وسرعة الألعاب، والنسخ الاحتياطية')}</li></ul>` : ''}
         <div class="co-dots">${[0, 1, 2, 3].map(i => `<i class="${i < this._pin.length ? 'on' : ''}"></i>`).join('')}</div>
         <div class="co-pad" dir="ltr">${[1, 2, 3, 4, 5, 6, 7, 8, 9, '⌫', 0, '✓'].map(k => `<button type="button" data-k="${k}">${k}</button>`).join('')}</div>
         ${setting ? '' : `<button type="button" class="co-forgot" id="co-forgot">${TKD.t('Forgot the PIN?', 'نسيت الرقم السري؟')}</button>`}
@@ -16294,18 +16294,18 @@ const Coach = {
       if (this._pin.length === 4) setTimeout(submit, 150);
     };
     const submit = () => {
-      if (this._pin.length !== 4) { TKD.gs()?.playSound('error'); return paint(TKD.t('Type the 4 numbers first', 'اكتب الـ ٤ أرقام الأول')); }
+      if (this._pin.length !== 4) { TKD.gs()?.playSound('error'); return paint(TKD.t('Type the 4 numbers first', 'اكتب الأرقام الأربعة أولًا')); }
       if (setting) {
         if (!this._first) {
-          if (this.isWeakPin(this._pin)) { this._pin = ''; return paint(TKD.t('That PIN is too easy to guess — pick different numbers.', 'الرقم ده سهل التخمين — اختار أرقام تانية.')); }
-          this._first = this._pin; this._pin = ''; return paint(TKD.t('Type it again', 'اكتبه تاني'));
+          if (this.isWeakPin(this._pin)) { this._pin = ''; return paint(TKD.t('That PIN is too easy to guess — pick different numbers.', 'هذا الرقم سهل التخمين — اختر أرقامًا أخرى.')); }
+          this._first = this._pin; this._pin = ''; return paint(TKD.t('Type it again', 'اكتبه مرة أخرى'));
         }
-        if (this._first !== this._pin) { this._first = null; this._pin = ''; return paint(TKD.t('Not the same — try again', 'مش زي بعض — جرّب تاني')); }
+        if (this._first !== this._pin) { this._first = null; this._pin = ''; return paint(TKD.t('Not the same — try again', 'الرقمان غير متطابقين — حاول مرة أخرى')); }
         TKD.write(this.KEY, { ...TKD.read(this.KEY, {}), pin: this.pinHash(this._pin) });
         this.unlocked = true; TKD.gs()?.playSound('success'); this.render(); return this.runPending();
       }
       if (this.pinHash(this._pin) === TKD.read(this.KEY, {}).pin) { this.unlocked = true; TKD.gs()?.playSound('success'); this.render(); return this.runPending(); }
-      this._pin = ''; TKD.gs()?.playSound('error'); paint(TKD.t('Wrong PIN', 'الرقم غلط'));
+      this._pin = ''; TKD.gs()?.playSound('error'); paint(TKD.t('Wrong PIN', 'الرقم خطأ'));
     };
     this._keyHandler && document.removeEventListener('keydown', this._keyHandler);
     this._keyHandler = (e) => {
@@ -16327,9 +16327,9 @@ const Coach = {
     const save = TKD.read(GameState.storageKey(p.id), null) || PlayerSystem.rebuildState(p.id) || {};
     const unlocked = save.unlockedSkills || ['apchagi'];
     const help = [];
-    if (avg5 !== null && avg5 < 60 && last5.length >= 3) help.push(TKD.t(`low scores (avg ${avg5}%)`, `نتايج واطية (متوسط ${avg5}%)`));
-    if (failRun >= 3) help.push(TKD.t(`${failRun} misses in a row`, `${TKD.count(failRun, 'try', 'ar')} مش ناجحة ورا بعض`));
-    if (last && Date.now() - last > 7 * 864e5) help.push(TKD.t('no training for a week', 'متمرنش من أسبوع'));
+    if (avg5 !== null && avg5 < 60 && last5.length >= 3) help.push(TKD.t(`low scores (avg ${avg5}%)`, `نتائج منخفضة (المتوسط ${avg5}%)`));
+    if (failRun >= 3) help.push(TKD.t(`${failRun} misses in a row`, `${TKD.count(failRun, 'try', 'ar')} دون نجاح على التوالي`));
+    if (last && Date.now() - last > 7 * 864e5) help.push(TKD.t('no training for a week', 'لم يتمرن منذ أسبوع'));
     return { avg5, failRun, last, help, save, unlocked, week: League.pointsFor(p.id).total, streak: save.practiceStreak || 0 };
   },
   // ---------- across every player: which station (kick × mini-game) trips kids up
@@ -16352,16 +16352,16 @@ const Coach = {
   },
   panelHTML() {
     const players = PlayerSystem.getPlayers();
-    if (!players.length) return `<p class="lg-empty">${TKD.t('No players yet.', 'لسه مفيش لاعبين.')}</p>`;
+    if (!players.length) return `<p class="lg-empty">${TKD.t('No players yet.', 'لا يوجد لاعبون بعد.')}</p>`;
     const rows = players.map(p => ({ p, s: this.stats(p) }));
     const needs = rows.filter(r => r.s.help.length);
     const stuck = this.stuckReport();
     const fmt = (ts) => ts ? new Date(ts).toLocaleDateString(TKD.ar ? 'ar-EG' : 'en-GB', { day: 'numeric', month: 'short' }) : '—';
-    return `${needs.length ? `<section class="co-help"><h3>🆘 ${TKD.t('Needs help', 'محتاجين مساعدة')}</h3>
+    return `${needs.length ? `<section class="co-help"><h3>🆘 ${TKD.t('Needs help', 'يحتاجون إلى مساعدة')}</h3>
         <ul>${needs.map(r => `<li>${TKD.avatar(r.p)}<b>${TKD.esc(r.p.name)}</b> ${r.s.help.map(h => `<span class="co-chip">${h}</span>`).join('')}</li>`).join('')}</ul></section>` : ''}
-      ${stuck.length ? `<section class="co-stuck"><h3>🧩 ${TKD.t('Where kids get stuck', 'فين الأطفال بيتعثروا')}</h3>
+      ${stuck.length ? `<section class="co-stuck"><h3>🧩 ${TKD.t('Where kids get stuck', 'أين يتعثر الأطفال')}</h3>
         <ul>${stuck.map(r => `<li><b>${TKD.skillName(r.skillId)}</b> · ${TKD.gameIcon(r.gameId)} ${TKD.gameName(r.gameId)}
-          <span class="co-chip co-chip-bad">${TKD.t(`${Math.round(r.rate * 100)}% of tries missed`, `${TKD.num(Math.round(r.rate * 100))}٪ من المحاولات ماعدّتش`)}</span>
+          <span class="co-chip co-chip-bad">${TKD.t(`${Math.round(r.rate * 100)}% of tries missed`, `${TKD.num(Math.round(r.rate * 100))}٪ من المحاولات لم تنجح`)}</span>
           <span class="co-chip">${TKD.count(r.players, 'kid')}</span></li>`).join('')}</ul></section>` : ''}
       <div class="co-tools">
         <button type="button" class="btn btn-small" data-tool="tournament">👑 ${TKD.t('New tournament', 'بطولة جديدة')}</button>
@@ -16370,18 +16370,18 @@ const Coach = {
         <button type="button" class="btn btn-small" data-tool="backup">⬇️ ${TKD.t('Backup (all players)', 'نسخة احتياطية (كل اللاعبين)')}</button>
       </div>
       <div class="db-table-wrap"><table class="co-table">
-        <thead><tr><th>${TKD.t('Player', 'اللاعب')}</th><th>${TKD.t('Week pts', 'نقط الأسبوع')}</th><th>🔥</th><th>${TKD.t('Kicks open', 'الركلات المفتوحة')}</th><th>${TKD.t('Last 5 avg', 'متوسط آخر ٥')}</th><th>${TKD.t('Last played', 'آخر لعب')}</th><th></th></tr></thead>
+        <thead><tr><th>${TKD.t('Player', 'اللاعب')}</th><th>${TKD.t('Week pts', 'نقاط الأسبوع')}</th><th>🔥</th><th>${TKD.t('Kicks open', 'الركلات المفتوحة')}</th><th>${TKD.t('Last 5 avg', 'متوسط آخر ٥')}</th><th>${TKD.t('Last played', 'آخر لعب')}</th><th></th></tr></thead>
         <tbody>${rows.map(({ p, s }) => `<tr data-pid="${p.id}">
           <td class="co-who">${TKD.avatar(p)} <b>${TKD.esc(p.name)}</b></td>
-          <td data-l="${TKD.t('Week pts', 'نقط الأسبوع')}">${TKD.num(s.week)}</td><td data-l="🔥">${TKD.num(s.streak)}</td>
+          <td data-l="${TKD.t('Week pts', 'نقاط الأسبوع')}">${TKD.num(s.week)}</td><td data-l="🔥">${TKD.num(s.streak)}</td>
           <td data-l="${TKD.t('Kicks', 'الركلات')}">${GameConfig.SKILL_ORDER.map(sk => `<span class="co-kick ${s.unlocked.includes(sk) ? 'on' : ''}" title="${TKD.skillName(sk)}">${TKD.num(GameConfig.SKILL_ORDER.indexOf(sk) + 1)}</span>`).join('')}</td>
           <td data-l="${TKD.t('Last 5', 'آخر ٥')}">${s.avg5 === null ? '—' : TKD.num(s.avg5) + (TKD.ar ? '٪' : '%')}</td><td data-l="${TKD.t('Last played', 'آخر لعب')}">${fmt(s.last)}</td>
           <td class="co-acts">
-            <button type="button" title="${TKD.t('Play as', 'العب بيه')}" data-act="play">▶<span class="co-act-l">${TKD.t('Play as', 'العب بيه')}</span></button>
-            <button type="button" title="${TKD.t('Move to a kick', 'انقله لركلة')}" data-act="stage">🎯<span class="co-act-l">${TKD.t('Move', 'انقله')}</span></button>
-            <button type="button" title="${TKD.t("Give back today's tries", 'رجّع محاولات النهارده')}" data-act="tries">↺<span class="co-act-l">${TKD.t('Tries', 'المحاولات')}</span></button>
-            <button type="button" title="${TKD.t('Player card (QR)', 'كارت اللاعب (QR)')}" data-act="card">📇<span class="co-act-l">${TKD.t('Card', 'الكارت')}</span></button>
-            <button type="button" title="${TKD.t('Delete', 'امسح')}" data-act="del">🗑️<span class="co-act-l">${TKD.t('Delete', 'امسح')}</span></button></td></tr>`).join('')}</tbody></table></div>`;
+            <button type="button" title="${TKD.t('Play as', 'العب به')}" data-act="play">▶<span class="co-act-l">${TKD.t('Play as', 'العب به')}</span></button>
+            <button type="button" title="${TKD.t('Move to a kick', 'انقله إلى ركلة')}" data-act="stage">🎯<span class="co-act-l">${TKD.t('Move', 'انقله')}</span></button>
+            <button type="button" title="${TKD.t("Give back today's tries", 'أعِد محاولات اليوم')}" data-act="tries">↺<span class="co-act-l">${TKD.t('Tries', 'المحاولات')}</span></button>
+            <button type="button" title="${TKD.t('Player card (QR)', 'كارت اللاعب (QR)')}" data-act="card">📇<span class="co-act-l">${TKD.t('Card', 'البطاقة')}</span></button>
+            <button type="button" title="${TKD.t('Delete', 'احذف')}" data-act="del">🗑️<span class="co-act-l">${TKD.t('Delete', 'احذف')}</span></button></td></tr>`).join('')}</tbody></table></div>`;
   },
   bind_club(root) { Club.bindCoach(root); },
   bind_panel(root) {
@@ -16400,15 +16400,15 @@ const Coach = {
       if (act === 'tries') {
         // v55: extra tries for today — the score the child already got (and its weekly points) stays
         const day = TKD.dayKey(), used = Challenge.attemptsFor(pid, day).length, n = League.settings().tries;
-        if (Challenge.triesLeft(pid, day) >= n) { TKD.toast(TKD.t(`${p.name} still has all of today's tries (${n})`, `محاولات ${p.name} النهارده لسه كاملة (${TKD.count(n, 'try', 'ar')})`), 'info'); return; }
+        if (Challenge.triesLeft(pid, day) >= n) { TKD.toast(TKD.t(`${p.name} still has all of today's tries (${n})`, `محاولات ${p.name} اليوم ما زالت كاملة (${TKD.count(n, 'try', 'ar')})`), 'info'); return; }
         const st = League.load(); st.bonus = st.bonus || {};
         st.bonus[pid] = { d: day, n: used };                            // triesLeft = tries + bonus − used = tries
         League.save(st);
-        TKD.toast(TKD.t(`↺ ${p.name} has ${n} tries again today (the best score so far is kept)`, `↺ ${p.name}: رجعت ${TKD.count(n, 'try', 'ar')} للنهارده، وأحسن نتيجة اتجابت بتفضل محسوبة`), 'success');
+        TKD.toast(TKD.t(`↺ ${p.name} has ${n} tries again today (the best score so far is kept)`, `↺ ${p.name}: أُعيدت ${TKD.count(n, 'try', 'ar')} لليوم، وتبقى أفضل نتيجة حصل عليها محسوبة`), 'success');
         this.render();
       }
       if (act === 'del') {
-        if (await tkdConfirm(TKD.t(`Delete ${p.name} and all their scores?`, `تمسح ${p.name} وكل نتايجه؟`), TKD.t('Delete', 'امسح'))) {
+        if (await tkdConfirm(TKD.t(`Delete ${p.name} and all their scores?`, `هل تحذف ${p.name} وكل نتائجه؟`), TKD.t('Delete', 'احذف'))) {
           const wasMe = PlayerSystem.getCurrentPlayerId() === pid;
           PlayerSystem.deletePlayer(pid);
           GymBoard.remove(pid);
@@ -16427,10 +16427,10 @@ const Coach = {
   stageDialog(p) {
     const ov = document.createElement('div');
     ov.className = 'tkd-modal';
-    ov.innerHTML = `<div class="tkd-modal-card"><h2>🎯 ${TKD.t(`Move ${TKD.esc(p.name)} to…`, `انقل ${TKD.esc(p.name)} لـ…`)}</h2>
-      <p class="tkd-muted">${TKD.t('Opens this kick (and the ones before it). Useful when a child already knows a kick from class.', 'بيفتح الركلة دي (واللي قبلها). مفيد لو الطفل عارف الركلة من التمرين.')}</p>
+    ov.innerHTML = `<div class="tkd-modal-card"><h2>🎯 ${TKD.t(`Move ${TKD.esc(p.name)} to…`, `انقل ${TKD.esc(p.name)} إلى…`)}</h2>
+      <p class="tkd-muted">${TKD.t('Opens this kick (and the ones before it). Useful when a child already knows a kick from class.', 'يفتح هذه الركلة (والركلات التي قبلها). مفيد إذا كان الطفل يعرف الركلة من التمرين.')}</p>
       <div class="tkd-col">${GameConfig.SKILL_ORDER.map((sk, i) => `<button type="button" class="btn" data-sk="${sk}">${i + 1}. ${TKD.skillName(sk)}</button>`).join('')}</div>
-      <label class="tkd-check"><input type="checkbox" id="co-skip" checked> ${TKD.t('Mark warm-up and lesson as done', 'اعتبر الإحماء والدرس خلصوا')}</label>
+      <label class="tkd-check"><input type="checkbox" id="co-skip" checked> ${TKD.t('Mark warm-up and lesson as done', 'اعتبر الإحماء والدرس منتهيين')}</label>
       <div class="tkd-row"><button type="button" class="btn" data-x>${TKD.t('Cancel', 'إلغاء')}</button></div></div>`;
     document.body.appendChild(ov);
     ov.querySelector('[data-x]').addEventListener('click', () => ov.remove());
@@ -16465,26 +16465,26 @@ const Coach = {
     return `<div class="co-import">
         ${cam ? `<div class="co-cam"><video id="co-video" playsinline muted></video><div class="co-cam-frame"></div>
           <button type="button" class="btn btn-success" id="co-cam-btn">📷 ${TKD.t('Start camera', 'شغّل الكاميرا')}</button></div>`
-          : `<p class="tkd-muted">📷 ${TKD.t("This browser can't read QR codes with the camera — paste the code instead (players can copy it from their card).", 'المتصفح ده مبيقراش QR بالكاميرا — الصق الكود بدل كده (اللاعب يقدر ينسخه من الكارت بتاعه).')}</p>`}
-        <label class="co-paste"><span>${TKD.t('…or paste a code', '…أو الصق الكود')}</span><textarea id="co-code" rows="2" placeholder="TKD1…"></textarea></label>
-        <div class="tkd-row wrap"><button type="button" class="btn btn-success btn-small" id="co-add">➕ ${TKD.t('Add', 'ضيف')}</button>
+          : `<p class="tkd-muted">📷 ${TKD.t("This browser can't read QR codes with the camera — paste the code instead (players can copy it from their card).", 'هذا المتصفح لا يقرأ رمز QR بالكاميرا — الصق الرمز بدلًا من ذلك (يستطيع اللاعب نسخه من بطاقته).')}</p>`}
+        <label class="co-paste"><span>${TKD.t('…or paste a code', '…أو الصق الرمز')}</span><textarea id="co-code" rows="2" placeholder="TKD1…"></textarea></label>
+        <div class="tkd-row wrap"><button type="button" class="btn btn-success btn-small" id="co-add">➕ ${TKD.t('Add', 'أضف')}</button>
           ${cam ? `<label class="btn btn-small co-file">🖼️ ${TKD.t('From a picture', 'من صورة')}<input type="file" accept="image/*" id="co-file" hidden></label>` : ''}</div>
-        <h3 class="lg-sub">${TKD.t('Cards on this device', 'الكروت اللي على الجهاز ده')} (${TKD.num(cards.length)})</h3>
+        <h3 class="lg-sub">${TKD.t('Cards on this device', 'البطاقات الموجودة على هذا الجهاز')} (${TKD.num(cards.length)})</h3>
         <div id="co-cards-box">${this.cardsHTML(cards)}</div>
       </div>`;
   },
   cardsHTML(cards = Object.values(GymBoard.load().cards)) {
     const day = (d) => { try { return new Date(d + 'T12:00:00').toLocaleDateString(TKD.ar ? 'ar-EG' : 'en-GB', { day: 'numeric', month: 'short' }); } catch (e) { return d; } };
-    return cards.length ? `<ul class="co-cards">${cards.map(c => `<li>${TKD.avatar({ character: c.c })}<b>${TKD.esc(c.n)}</b><small>${TKD.count(c.wp, 'pt')} · ${TKD.t('card from', 'كارت يوم')} ${day(c.d)}</small><button type="button" data-rm="${c.id}" aria-label="${TKD.t('Remove', 'شيله')}">✖</button></li>`).join('')}</ul>`
-      : `<p class="lg-empty">${TKD.t('No cards yet — scan a player card from another phone.', 'لسه مفيش كروت — امسح كارت لاعب من موبايل تاني.')}</p>`;
+    return cards.length ? `<ul class="co-cards">${cards.map(c => `<li>${TKD.avatar({ character: c.c })}<b>${TKD.esc(c.n)}</b><small>${TKD.count(c.wp, 'pt')} · ${TKD.t('card from', 'بطاقة يوم')} ${day(c.d)}</small><button type="button" data-rm="${c.id}" aria-label="${TKD.t('Remove', 'احذفه')}">✖</button></li>`).join('')}</ul>`
+      : `<p class="lg-empty">${TKD.t('No cards yet — scan a player card from another phone.', 'لا توجد بطاقات بعد — امسح بطاقة لاعب من هاتف آخر.')}</p>`;
   },
   bind_import(root) {
     const take = (text) => {
       const card = PlayerCard.decode(text);
-      if (!card) { TKD.toast(TKD.t('❌ Not a player card', '❌ ده مش كارت لاعب'), 'error'); return false; }
+      if (!card) { TKD.toast(TKD.t('❌ Not a player card', '❌ هذه ليست بطاقة لاعب'), 'error'); return false; }
       const r = GymBoard.add(card);
       TKD.gs()?.playSound('success');
-      TKD.toast(r === 'older' ? TKD.t(`${card.n}: a newer card is already saved`, `${card.n}: فيه كارت أحدث متسجل`) : TKD.t(`✅ ${card.n} added to the gym leaderboard`, `✅ ${card.n} اتضاف لترتيب الصالة`), 'success');
+      TKD.toast(r === 'older' ? TKD.t(`${card.n}: a newer card is already saved`, `${card.n}: توجد بطاقة أحدث مسجّلة`) : TKD.t(`✅ ${card.n} added to the gym leaderboard`, `✅ أُضيف ${card.n} إلى ترتيب الصالة`), 'success');
       const box = TKD.$('co-cards-box'); if (box) box.innerHTML = this.cardsHTML();   // the list updates while the camera keeps scanning
       return true;
     };
@@ -16495,8 +16495,8 @@ const Coach = {
       try {
         const det = new BarcodeDetector({ formats: ['qr_code'] });
         const res = await det.detect(await createImageBitmap(f));
-        if (!res.length || !take(res[0].rawValue)) TKD.toast(TKD.t('No card found in the picture', 'ملقيناش كارت في الصورة'), 'warning');
-      } catch (err) { TKD.toast(TKD.t('Could not read the picture', 'مقدرناش نقرا الصورة'), 'error'); }
+        if (!res.length || !take(res[0].rawValue)) TKD.toast(TKD.t('No card found in the picture', 'لم نجد بطاقة في الصورة'), 'warning');
+      } catch (err) { TKD.toast(TKD.t('Could not read the picture', 'لم نستطع قراءة الصورة'), 'error'); }
     });
     TKD.$('co-cam-btn')?.addEventListener('click', () => this.startCamera(take));
   },
@@ -16514,20 +16514,20 @@ const Coach = {
           res.forEach(r => { if (!seen.has(r.rawValue)) { seen.add(r.rawValue); take(r.rawValue); } });
         } catch (e) {}
       }, 400);
-    } catch (e) { TKD.toast(TKD.t('Camera not available', 'الكاميرا مش متاحة'), 'error'); }
+    } catch (e) { TKD.toast(TKD.t('Camera not available', 'الكاميرا غير متاحة'), 'error'); }
   },
   stopCamera() { clearInterval(this._scan); this.stream?.getTracks().forEach(t => t.stop()); this.stream = null; },
 
   // ---------- voice recording (record the game's Egyptian lines on this phone)
   voiceHTML() {
     return `<div class="co-voice">
-      <p class="tkd-muted">${TKD.t("Record the game's lines in your own voice — right here, no computer needed. Recordings stay on this device and play instead of the phone voice.", 'سجّل جمل اللعبة بصوتك من هنا على طول — مش محتاج كومبيوتر. التسجيلات بتفضل على الجهاز ده وبتتسمع بدل صوت الموبايل.')}</p>
-      ${VoiceRecorder.supported() ? '' : `<p class="co-voice-warn">⚠️ ${TKD.t("This browser can't record audio.", 'المتصفح ده مايقدرش يسجّل صوت.')}</p>`}
+      <p class="tkd-muted">${TKD.t("Record the game's lines in your own voice — right here, no computer needed. Recordings stay on this device and play instead of the phone voice.", 'سجّل جمل اللعبة بصوتك من هنا مباشرة — لا تحتاج إلى حاسوب. تبقى التسجيلات على هذا الجهاز وتُسمع بدلًا من صوت الهاتف.')}</p>
+      ${VoiceRecorder.supported() ? '' : `<p class="co-voice-warn">⚠️ ${TKD.t("This browser can't record audio.", 'لا يستطيع هذا المتصفح تسجيل الصوت.')}</p>`}
       <div class="co-voice-progress" id="vr-prog"></div>
-      <div class="co-voice-export"><button type="button" class="btn btn-small btn-success" id="vr-export">⬇️ ${TKD.t('Download all recordings (.zip)', 'نزّل كل التسجيلات (zip)')}</button>
-        <small class="tkd-muted">${TKD.t('Unzip it into the game folder assets/audio/ — then every phone that gets the game hears your voice.', 'فك الملف جوه فولدر اللعبة assets/audio/ — وبكده كل موبايل ينزل اللعبة هيسمع صوتك.')}</small></div>
+      <div class="co-voice-export"><button type="button" class="btn btn-small btn-success" id="vr-export">⬇️ ${TKD.t('Download all recordings (.zip)', 'حمّل كل التسجيلات (zip)')}</button>
+        <small class="tkd-muted">${TKD.t('Unzip it into the game folder assets/audio/ — then every phone that gets the game hears your voice.', 'فُكّ الملف داخل مجلد اللعبة assets/audio/ — وبذلك يسمع صوتك كل هاتف يُنزّل اللعبة.')}</small></div>
       <div class="co-voice-filters" id="vr-filters"></div>
-      <ul class="co-voice-list" id="vr-list"><li class="tkd-muted">${TKD.t('Loading…', 'بيحمّل…')}</li></ul>
+      <ul class="co-voice-list" id="vr-list"><li class="tkd-muted">${TKD.t('Loading…', 'جارٍ التحميل…')}</li></ul>
     </div>`;
   },
   async bind_voice(root) {
@@ -16545,7 +16545,7 @@ const Coach = {
       const { recorded, total } = await VoiceRecorder.count();
       const pct = total ? Math.round(recorded / total * 100) : 0;
       TKD.$('vr-prog').innerHTML = `<div class="vr-bar"><div class="vr-bar-fill" style="width:${pct}%"></div></div>
-        <span>${TKD.t(`${recorded} / ${total} recorded`, `${TKD.num(recorded)} / ${TKD.num(total)} متسجلين`)}</span>`;
+        <span>${TKD.t(`${recorded} / ${total} recorded`, `${TKD.num(recorded)} / ${TKD.num(total)} مسجّلة`)}</span>`;
     };
     const rowHTML = (l) => {
       const recorded = VoiceRecorder.has(l.key);
@@ -16560,16 +16560,16 @@ const Coach = {
     };
     const paintList = () => {
       const filtered = lines.filter(l => (state.group === 'all' || l.group === state.group) && (!state.onlyMissing || !VoiceRecorder.has(l.key)) && (!state.top || l.priority === 1));
-      TKD.$('vr-list').innerHTML = filtered.length ? filtered.map(rowHTML).join('') : `<li class="tkd-muted">${TKD.t('Nothing here.', 'مفيش حاجة هنا.')}</li>`;
+      TKD.$('vr-list').innerHTML = filtered.length ? filtered.map(rowHTML).join('') : `<li class="tkd-muted">${TKD.t('Nothing here.', 'لا يوجد شيء هنا.')}</li>`;
     };
     TKD.$('vr-filters').innerHTML = `
       <select id="vr-group"><option value="all">${TKD.t('All parts', 'كل الأجزاء')}</option>${groups.map(g => `<option value="${g}">${TKD.esc(TKD.t(...(VOICE_GROUPS[g] || [g, g])))}</option>`).join('')}</select>
-      <label class="tkd-row" style="gap:4px"><input type="checkbox" id="vr-missing"> ${TKD.t("Only what's missing", 'اللي لسه ناقص بس')}</label>
-      <label class="tkd-row" style="gap:4px"><input type="checkbox" id="vr-top"> ⭐ ${TKD.t('Most important first', 'الأهم بس')} (${TKD.num(lines.filter(l => l.priority === 1).length)})</label>`;
+      <label class="tkd-row" style="gap:4px"><input type="checkbox" id="vr-missing"> ${TKD.t("Only what's missing", 'الناقص فقط')}</label>
+      <label class="tkd-row" style="gap:4px"><input type="checkbox" id="vr-top"> ⭐ ${TKD.t('Most important first', 'الأهم فقط')} (${TKD.num(lines.filter(l => l.priority === 1).length)})</label>`;
     TKD.$('vr-group').addEventListener('change', e => { state.group = e.target.value; paintList(); });
     TKD.$('vr-export')?.addEventListener('click', async () => {
       const n = await VoiceRecorder.exportPack();
-      TKD.toast(n ? TKD.t(`⬇️ ${n} recordings saved in one .zip`, `⬇️ اتحفظ ${TKD.count(n, 'thing', 'ar')} في ملف zip واحد`) : TKD.t('Nothing recorded yet.', 'لسه مفيش تسجيلات.'), n ? 'success' : 'info');
+      TKD.toast(n ? TKD.t(`⬇️ ${n} recordings saved in one .zip`, `⬇️ حُفظ ${TKD.count(n, 'thing', 'ar')} في ملف zip واحد`) : TKD.t('Nothing recorded yet.', 'لا توجد تسجيلات بعد.'), n ? 'success' : 'info');
     });
     TKD.$('vr-missing').addEventListener('change', e => { state.onlyMissing = e.target.checked; paintList(); });
     TKD.$('vr-top').addEventListener('change', e => { state.top = e.target.checked; paintList(); });
@@ -16584,21 +16584,21 @@ const Coach = {
           clearTimeout(this._recCap);
           await VoiceRecorder.stop(true); li.outerHTML = rowHTML(line); await paintProgress();
         } else if (VoiceRecorder.recording()) {
-          TKD.toast(TKD.t('Stop the line you are recording first (⏹️).', 'وقّف الجملة اللي بتسجلها الأول (⏹️).'), 'info');
+          TKD.toast(TKD.t('Stop the line you are recording first (⏹️).', 'أوقف الجملة التي تسجّلها أولًا (⏹️).'), 'info');
         } else {
-          if (!VoiceRecorder.supported()) { TKD.toast(TKD.t('Recording is not supported here', 'التسجيل مش متاح هنا'), 'error'); return; }
+          if (!VoiceRecorder.supported()) { TKD.toast(TKD.t('Recording is not supported here', 'التسجيل غير متاح هنا'), 'error'); return; }
           try {
             await VoiceRecorder.start(key); li.classList.add('is-recording'); btn.textContent = '⏹️';
             // a forgotten recording stops (and is kept) by itself after 30 seconds
             clearTimeout(this._recCap);
             this._recCap = setTimeout(async () => { if (VoiceRecorder.recording() !== key) return; await VoiceRecorder.stop(true); const row = document.querySelector(`.vr-row[data-key="${key}"]`); if (row) row.outerHTML = rowHTML(line); await paintProgress(); }, 30000);
-          } catch (err) { TKD.toast(TKD.t('Could not use the microphone', 'ماقدرناش نستخدم المايك'), 'error'); }
+          } catch (err) { TKD.toast(TKD.t('Could not use the microphone', 'لم نستطع استخدام الميكروفون'), 'error'); }
         }
       } else if (btn.dataset.act === 'play') {
         activeAudio?.pause(); const url = VoiceRecorder.urlFor(key); if (!url) return;
         activeAudio = new Audio(url); activeAudio.play().catch(() => {});
       } else if (btn.dataset.act === 'del') {
-        if (!(await tkdConfirm(TKD.t('Delete this recording?', 'تمسح التسجيل ده؟')))) return;
+        if (!(await tkdConfirm(TKD.t('Delete this recording?', 'هل تحذف هذا التسجيل؟')))) return;
         await VoiceRecorder.remove(key); li.outerHTML = rowHTML(line); await paintProgress();
       }
     });
@@ -16611,39 +16611,39 @@ const Coach = {
     const sel = (id, vals, cur) => `<select id="${id}">${vals.map(v => `<option value="${v}" ${v === cur ? 'selected' : ''}>${TKD.num(v)}</option>`).join('')}</select>`;
     return `<div class="co-settings">
       <section class="co-data co-voice-set" id="co-voice-set"><h3>🔊 ${TKD.t('Reading voice', 'صوت القراءة')}</h3>
-        <label>${TKD.t('Arabic', 'العربي')} <select id="co-voice-ar"></select></label>
-        <label>${TKD.t('English', 'الإنجليزي')} <select id="co-voice-en"></select></label>
+        <label>${TKD.t('Arabic', 'العربية')} <select id="co-voice-ar"></select></label>
+        <label>${TKD.t('English', 'الإنجليزية')} <select id="co-voice-en"></select></label>
         <div class="tkd-row wrap"><button type="button" class="btn btn-small btn-success" id="co-voice-test">▶️ ${TKD.t('Try the voice', 'جرّب الصوت')}</button></div>
-        <p class="tkd-muted" id="co-voice-none" hidden>⚠️ ${TKD.t('This device has no Arabic voice yet — add one (below), then open this page again.', 'الجهاز ده مافيهوش صوت عربي لسه — نزّل صوت (الخطوات تحت) وبعدين افتح الصفحة دي تاني.')}</p>
-        <details class="co-voice-how"><summary>${TKD.t('The voice sounds robotic? Add a better one', 'الصوت آلي أو مش موجود؟ نزّل صوت أحسن')}</summary>
+        <p class="tkd-muted" id="co-voice-none" hidden>⚠️ ${TKD.t('This device has no Arabic voice yet — add one (below), then open this page again.', 'لا يوجد على هذا الجهاز صوت عربي بعد — نزّل صوتًا (الخطوات بالأسفل) ثم افتح هذه الصفحة مرة أخرى.')}</p>
+        <details class="co-voice-how"><summary>${TKD.t('The voice sounds robotic? Add a better one', 'الصوت آلي أو غير موجود؟ نزّل صوتًا أفضل')}</summary>
           <ul>
-            <li><b>${TKD.t('Android', 'أندرويد')}:</b> ${TKD.t('Settings → Text-to-speech → Google engine → Install voice data → Arabic → download a voice.', 'الإعدادات ← تحويل النص إلى كلام ← محرك Google ← تثبيت بيانات الصوت ← العربية ← نزّل صوت.')}</li>
+            <li><b>${TKD.t('Android', 'أندرويد')}:</b> ${TKD.t('Settings → Text-to-speech → Google engine → Install voice data → Arabic → download a voice.', 'الإعدادات ← تحويل النص إلى كلام ← محرك Google ← تثبيت بيانات الصوت ← العربية ← نزّل صوتًا.')}</li>
             <li><b>${TKD.t('iPhone / iPad', 'آيفون / آيباد')}:</b> ${TKD.t('Settings → Accessibility → Spoken Content → Voices → Arabic → Majed (Enhanced).', 'الإعدادات ← تسهيلات الاستخدام ← المحتوى المنطوق ← الأصوات ← العربية ← ماجد (المحسّن).')}</li>
-            <li><b>${TKD.t('Computer', 'الكمبيوتر')}:</b> ${TKD.t('Open the game in Microsoft Edge — it has natural Egyptian voices (Salma, Shakir).', 'افتح اللعبة من متصفح Microsoft Edge — فيه أصوات مصرية طبيعية (سلمى وشاكر).')}</li>
+            <li><b>${TKD.t('Computer', 'الحاسوب')}:</b> ${TKD.t('Open the game in Microsoft Edge — it has natural Egyptian voices (Salma, Shakir).', 'افتح اللعبة من متصفح Microsoft Edge — ففيه أصوات مصرية طبيعية (سلمى وشاكر).')}</li>
           </ul></details>
       </section>
       <label>🏆 ${TKD.t('Counted challenge tries per day', 'عدد محاولات التحدي المحسوبة في اليوم')} ${sel('co-tries', [1, 2, 3, 4, 5], s.tries)}</label>
       <label>🏅 ${TKD.t('Medal difficulty', 'صعوبة الميداليات')} <select id="co-medals">${[['easy', TKD.t('Easier', 'أسهل')], ['normal', TKD.t('Normal', 'عادي')], ['hard', TKD.t('Harder', 'أصعب')]].map(([v, l]) => `<option value="${v}" ${s.medals === v ? 'selected' : ''}>${l}</option>`).join('')}</select></label>
-      <p class="tkd-muted">${TKD.t('Easier = ×0.7, harder = ×1.4 on the medals you earn by training (warm-ups, games, days…). Skill medals like strongest kick don\'t change.', 'أسهل = ×٠٫٧، أصعب = ×١٫٤ على ميداليات التمرين (إحماء، ألعاب، أيام…). ميداليات المهارة زي أقوى ركلة مابتتغيرش.')}</p>
+      <p class="tkd-muted">${TKD.t('Easier = ×0.7, harder = ×1.4 on the medals you earn by training (warm-ups, games, days…). Skill medals like strongest kick don\'t change.', 'أسهل = ×٠٫٧، أصعب = ×١٫٤ على ميداليات التمرين (الإحماء، الألعاب، الأيام…). ميداليات المهارة مثل أقوى ركلة لا تتغير.')}</p>
       <label>🐢 ${TKD.t('Game pace', 'إيقاع الألعاب')} <select id="co-pace">${TKDPace.LIST.map(([v, en, ar]) => `<option value="${v}" ${s.pace === v ? 'selected' : ''}>${TKD.t(en, ar)}</option>`).join('')}</select></label>
-      <p class="tkd-muted">${TKD.t('How fast notes, answers, targets and timers move in every game on this device. Calm gives children more time to see, read and react; each child can still pick Easy / Normal / Hard inside a game.', 'سرعة النوتات والإجابات والأهداف والعدادات في كل الألعاب على الجهاز ده. "هادي" بيدي الأطفال وقت أكتر يشوفوا ويقروا ويردوا، وكل طفل لسه يقدر يختار سهل / عادي / صعب جوه اللعبة.')}</p>
+      <p class="tkd-muted">${TKD.t('How fast notes, answers, targets and timers move in every game on this device. Calm gives children more time to see, read and react; each child can still pick Easy / Normal / Hard inside a game.', 'سرعة النوتات والإجابات والأهداف والعدّادات في كل الألعاب على هذا الجهاز. «هادئ» يمنح الأطفال وقتًا أطول ليروا ويقرؤوا ويستجيبوا، ويستطيع كل طفل أن يختار سهل / عادي / صعب داخل اللعبة.')}</p>
       <details class="co-pace-players" ${PlayerSystem.getPlayers().some(p => p.pace) ? 'open' : ''}>
         <summary>👧👦 ${TKD.t('Pace for each player', 'إيقاع لكل لاعب')}</summary>
-        <p class="tkd-muted">${TKD.t('Overrides the pace above for one child. Saved straight away.', 'بيغلب الإيقاع اللي فوق لطفل واحد بس. بيتحفظ على طول.')}</p>
-        <div class="co-pace-list">${PlayerSystem.getPlayers().map(p => this.paceRow(p)).join('') || `<p class="tkd-muted">${TKD.t('No players yet.', 'مفيش لاعبين لسه.')}</p>`}</div>
-        <p class="tkd-muted">${TKD.t('⚡ = average reaction time in the quick games (Sparring, Target Paddles, Quiz Blast, Mistake Hunter). 🦵 = the leg the child kicks with — the 3D character mirrors for left-footers.', '⚡ = متوسط سرعة رد الفعل في الألعاب السريعة (النزال، مضارب الأهداف، كويز الفضاء، صيّاد الأخطاء). 🦵 = الرجل اللي الطفل بيركل بيها — الشخصية الـ3D بتتعكس للي بيركل بالشمال.')}</p>
+        <p class="tkd-muted">${TKD.t('Overrides the pace above for one child. Saved straight away.', 'يتقدّم على الإيقاع العام لطفل واحد فقط. يُحفظ مباشرة.')}</p>
+        <div class="co-pace-list">${PlayerSystem.getPlayers().map(p => this.paceRow(p)).join('') || `<p class="tkd-muted">${TKD.t('No players yet.', 'لا يوجد لاعبون بعد.')}</p>`}</div>
+        <p class="tkd-muted">${TKD.t('⚡ = average reaction time in the quick games (Sparring, Target Paddles, Quiz Blast, Mistake Hunter). 🦵 = the leg the child kicks with — the 3D character mirrors for left-footers.', '⚡ = متوسط سرعة رد الفعل في الألعاب السريعة (النزال، مضارب الأهداف، كويز الفضاء، صيّاد الأخطاء). 🦵 = الرجل التي يركل بها الطفل — تنعكس الشخصية ثلاثية الأبعاد لمن يركل باليسرى.')}</p>
       </details>
-      <p class="co-autosave">✅ ${TKD.t('Every change is saved straight away.', 'أي تغيير بيتحفظ على طول.')} · ${TKD.t('Version', 'الإصدار')} ${APP_VERSION}</p>
-      <section class="co-data" id="co-data"><h3>💾 ${TKD.t('Data on this device', 'البيانات اللي على الجهاز')}</h3>
+      <p class="co-autosave">✅ ${TKD.t('Every change is saved straight away.', 'يُحفظ أي تغيير مباشرة.')} · ${TKD.t('Version', 'الإصدار')} ${APP_VERSION}</p>
+      <section class="co-data" id="co-data"><h3>💾 ${TKD.t('Data on this device', 'البيانات الموجودة على هذا الجهاز')}</h3>
         <div class="tkd-row wrap">
           <button type="button" class="btn btn-small btn-success" id="co-backup">⬇️ ${TKD.t('Save a backup', 'احفظ نسخة احتياطية')}</button>
-          <label class="btn btn-small co-file">📂 ${TKD.t('Restore a backup', 'رجّع نسخة احتياطية')}<input type="file" accept="application/json,.json" id="co-restore" hidden></label>
+          <label class="btn btn-small co-file">📂 ${TKD.t('Restore a backup', 'استرجع نسخة احتياطية')}<input type="file" accept="application/json,.json" id="co-restore" hidden></label>
         </div>
-        <p class="tkd-muted">${TKD.t('The backup holds every player, score and setting — keep it somewhere safe (WhatsApp to yourself, Drive…).', 'النسخة فيها كل اللاعبين والنتايج والإعدادات — احفظها في مكان أمان (ابعتها لنفسك واتساب، أو على درايف…).')}</p>
+        <p class="tkd-muted">${TKD.t('The backup holds every player, score and setting — keep it somewhere safe (WhatsApp to yourself, Drive…).', 'تضم النسخة كل اللاعبين والنتائج والإعدادات — احفظها في مكان آمن (أرسلها لنفسك عبر واتساب، أو على Drive…).')}</p>
       </section>
       <div class="tkd-row wrap">
         <button type="button" class="btn btn-small" id="co-newpin">🔑 ${TKD.t('Change PIN', 'غيّر الرقم السري')}</button>
-        <button type="button" class="btn btn-small btn-danger" id="co-erase">🗑️ ${TKD.t('Erase everything', 'امسح كل حاجة')}</button></div></div>`;
+        <button type="button" class="btn btn-small btn-danger" id="co-erase">🗑️ ${TKD.t('Erase everything', 'احذف كل شيء')}</button></div></div>`;
   },
   // v63.3 — the reading voice of this device: "automatic" (the best one) or any voice it has
   bindVoice() {
@@ -16665,29 +16665,29 @@ const Coach = {
     ['ar', 'en'].forEach(L => TKD.$(`co-voice-${L}`)?.addEventListener('change', (e) => {
       SpeechVoice.save(L, e.target.value);
       SpeechHelper.speak(SAMPLE[L], LANG[L]);
-      TKD.toast(TKD.t('✅ Saved', '✅ اتحفظ'), 'success');
+      TKD.toast(TKD.t('✅ Saved', '✅ تم الحفظ'), 'success');
     }));
     TKD.$('co-voice-test')?.addEventListener('click', () => { const L = TKD.ar ? 'ar' : 'en'; SpeechHelper.speak(SAMPLE[L], LANG[L]); });
   },
   // v45: one child's row — pace, kicking leg, measured reaction time and a suggested pace
   paceRow(p) {
     const R = window.ReactionLog?.summary(p.id), name = v => { const L = TKDPace.LIST.find(x => x[0] === v); return L ? TKD.t(L[1], L[2]) : v; };
-    let info = `<span class="co-rt muted">⚡ ${TKD.t('not enough play yet', 'لسه مالعبش كفاية')}</span>`;
+    let info = `<span class="co-rt muted">⚡ ${TKD.t('not enough play yet', 'لم يلعب بما يكفي بعد')}</span>`;
     if (R) {
-      const pct = Math.round((R.ratio - 1) * 100), feel = pct > 30 ? TKD.t('needs more time', 'محتاج وقت أكتر') : pct < -22 ? TKD.t('very quick', 'سريع جدًا') : TKD.t('on track', 'تمام');
+      const pct = Math.round((R.ratio - 1) * 100), feel = pct > 30 ? TKD.t('needs more time', 'يحتاج إلى وقت أطول') : pct < -22 ? TKD.t('very quick', 'سريع جدًا') : TKD.t('on track', 'مناسب');
       const cur = p.pace || League.settings().pace || 'normal';
       info = `<span class="co-rt">⚡ ${feel} <small>(${pct > 0 ? '+' : ''}${pct}% · ${R.n} ${TKD.t('tries', 'محاولة')})</small>${R.suggest !== cur ? ` <button type="button" class="co-rt-apply" data-rt-pid="${p.id}" data-rt-v="${R.suggest}">💡 ${TKD.t('Try', 'جرّب')} ${name(R.suggest)}</button>` : ''}</span>`;
     }
     return `<div class="co-pace-row">${TKD.avatar(p, 'sm')}<span>${TKD.esc(p.name)}</span>
-          <select data-pace-pid="${p.id}" aria-label="${TKD.t('Pace', 'الإيقاع')}"><option value="">${TKD.t('Same as device', 'زي الجهاز')}</option>${TKDPace.LIST.map(([v, en, ar]) => `<option value="${v}" ${p.pace === v ? 'selected' : ''}>${TKD.t(en, ar)}</option>`).join('')}</select>
-          <select data-leg-pid="${p.id}" aria-label="${TKD.t('Kicking leg', 'رجل الركل')}"><option value="right">🦵 ${TKD.t('Right', 'يمين')}</option><option value="left" ${p.kickLeg === 'left' ? 'selected' : ''}>🦵 ${TKD.t('Left', 'شمال')}</option></select>
+          <select data-pace-pid="${p.id}" aria-label="${TKD.t('Pace', 'الإيقاع')}"><option value="">${TKD.t('Same as device', 'مثل الجهاز')}</option>${TKDPace.LIST.map(([v, en, ar]) => `<option value="${v}" ${p.pace === v ? 'selected' : ''}>${TKD.t(en, ar)}</option>`).join('')}</select>
+          <select data-leg-pid="${p.id}" aria-label="${TKD.t('Kicking leg', 'رجل الركل')}"><option value="right">🦵 ${TKD.t('Right', 'يمين')}</option><option value="left" ${p.kickLeg === 'left' ? 'selected' : ''}>🦵 ${TKD.t('Left', 'يسار')}</option></select>
           ${info}</div>`;
   },
   bind_settings() {
     const saveSettings = () => {
       const st = League.load();
       st.settings = { tries: +TKD.$('co-tries').value, medals: TKD.$('co-medals').value, pace: TKD.$('co-pace')?.value || 'normal' };
-      League.save(st); TKD.toast(TKD.t('✅ Saved', '✅ اتحفظ'), 'success');
+      League.save(st); TKD.toast(TKD.t('✅ Saved', '✅ تم الحفظ'), 'success');
     };
     ['co-tries', 'co-medals', 'co-pace'].forEach(id => TKD.$(id)?.addEventListener('change', saveSettings));
     this.bindVoice();
@@ -16697,16 +16697,16 @@ const Coach = {
     if (this._focusData) { this._focusData = false; const d = TKD.$('co-data'); d?.scrollIntoView({ block: 'center' }); d?.classList.add('co-flash'); }
     document.querySelectorAll('[data-pace-pid]').forEach(sel => sel.addEventListener('change', () => {
       PlayerSystem.updatePlayer(sel.dataset.pacePid, { pace: sel.value || null });
-      TKD.toast(TKD.t('✅ Saved', '✅ اتحفظ'), 'success');
+      TKD.toast(TKD.t('✅ Saved', '✅ تم الحفظ'), 'success');
     }));
     document.querySelectorAll('[data-leg-pid]').forEach(sel => sel.addEventListener('change', () => {
       PlayerSystem.updatePlayer(sel.dataset.legPid, { kickLeg: sel.value === 'left' ? 'left' : 'right' });
-      TKD.toast(TKD.t('✅ Saved', '✅ اتحفظ'), 'success');
+      TKD.toast(TKD.t('✅ Saved', '✅ تم الحفظ'), 'success');
     }));
     document.querySelectorAll('[data-rt-pid]').forEach(b => b.addEventListener('click', () => {
       PlayerSystem.updatePlayer(b.dataset.rtPid, { pace: b.dataset.rtV });
       const sel = document.querySelector(`[data-pace-pid="${b.dataset.rtPid}"]`); if (sel) sel.value = b.dataset.rtV;
-      b.remove(); TKD.toast(TKD.t('✅ Saved', '✅ اتحفظ'), 'success');
+      b.remove(); TKD.toast(TKD.t('✅ Saved', '✅ تم الحفظ'), 'success');
     }));
     TKD.$('co-newpin').addEventListener('click', () => { const c = TKD.read(this.KEY, {}); delete c.pin; TKD.write(this.KEY, c); this.unlocked = false; this.render(); });
   }
@@ -16780,7 +16780,7 @@ const Versus = {
   sel: { p1: null, p2: null, skill: 'apchagi', picks: [] },
   WIN_POINTS: 10, MAX_EX: 12,
   VALID: { apchagi: ['body', 'head'], narochagi: ['head'], bakchagi3: ['body'] },
-  LABEL: { head: { en: 'HEAD', ar: 'الراس', icon: '🎯' }, body: { en: 'BODY', ar: 'الجسم', icon: '🎯' }, leg: { en: 'LEG', ar: 'الرجل', icon: '🦵' }, covered: { en: 'COVERED', ar: 'متغطي', icon: '🛡️' } },
+  LABEL: { head: { en: 'HEAD', ar: 'الرأس', icon: '🎯' }, body: { en: 'BODY', ar: 'الجسم', icon: '🎯' }, leg: { en: 'LEG', ar: 'الساق', icon: '🦵' }, covered: { en: 'COVERED', ar: 'محمي', icon: '🛡️' } },
 
   load() { return TKD.read(this.KEY, { matches: [], champions: [] }); },
   save(d) { TKD.write(this.KEY, d); },
@@ -16831,16 +16831,16 @@ const Versus = {
     let body;
     if (this.mode === 'friendly') {
       body = `<div class="vs-setup">${opt('p1')}<div class="vs-vs">VS</div>${opt('p2')}</div>
-        <h4 class="vs-h">${TKD.t('Kick for this match', 'الركلة في المباراة دي')}</h4>${kicks}
-        <p class="tkd-muted">${TKD.t('Hold the tablet between you. Player 1 taps the blue side (or A), player 2 the red side (or L).', 'امسكوا التابلت بينكم. اللاعب ١ يدوس على الأزرق (أو حرف A)، واللاعب ٢ على الأحمر (أو حرف L).')}</p>
+        <h4 class="vs-h">${TKD.t('Kick for this match', 'الركلة في هذه المباراة')}</h4>${kicks}
+        <p class="tkd-muted">${TKD.t('Hold the tablet between you. Player 1 taps the blue side (or A), player 2 the red side (or L).', 'أمسكا الجهاز بينكما. يضغط اللاعب ١ على الأزرق (أو حرف A)، واللاعب ٢ على الأحمر (أو حرف L).')}</p>
         <button type="button" class="btn btn-success vs-start" id="vs-go">⚔️ ${TKD.t('Start the duel', 'ابدأ المواجهة')}</button>`;
     } else if (t) {                                   // running, or finished and not cleared yet
       body = `<div id="vs-bracket-inline"></div>`;
     } else {
       if (!this.sel.picks.length) this.sel.picks = players.slice(0, 8).map(p => p.id);
-      body = `<h4 class="vs-h">${TKD.t('Who is in? (3 to 8 players)', 'مين داخل البطولة؟ (من ٣ لـ ٨ لاعبين)')}</h4>
+      body = `<h4 class="vs-h">${TKD.t('Who is in? (3 to 8 players)', 'من يشارك في البطولة؟ (من ٣ إلى ٨ لاعبين)')}</h4>
         <div class="vs-pick-list">${players.map(p => `<button type="button" class="vs-chip ${this.sel.picks.includes(p.id) ? 'on' : ''}" data-pick="${p.id}">${TKD.avatar(p)}<span>${TKD.esc(p.name)}</span></button>`).join('')}</div>
-        ${players.length < 3 ? `<p class="tkd-muted">⚠️ ${TKD.t('Register at least 3 players first.', 'سجّل ٣ لاعبين على الأقل الأول.')}</p>` : ''}
+        ${players.length < 3 ? `<p class="tkd-muted">⚠️ ${TKD.t('Register at least 3 players first.', 'سجّل ٣ لاعبين على الأقل أولًا.')}</p>` : ''}
         <h4 class="vs-h">${TKD.t('Kick for the tournament', 'الركلة في البطولة')}</h4>${kicks}
         <button type="button" class="btn btn-success vs-start" id="vs-tour-go" ${this.sel.picks.length < 3 ? 'disabled' : ''}>👑 ${TKD.t(`Start the tournament (${this.sel.picks.length})`, `ابدأ البطولة (${TKD.num(this.sel.picks.length)})`)}</button>`;
     }
@@ -16919,7 +16919,7 @@ const Versus = {
     const rn = (ri) => { const left = t.rounds.length - ri; return left === 1 ? TKD.t('Final', 'النهائي') : left === 2 ? TKD.t('Semi-finals', 'قبل النهائي') : TKD.t('Quarter-finals', 'ربع النهائي'); };
     const nm = this.nextMatch(t);
     root.innerHTML = `<div class="vs-tour-head"><h3>👑 ${TKD.esc(t.name)} · ${TKD.skillName(t.skill)}</h3>
-        <button type="button" class="btn btn-small btn-danger" id="vs-tour-cancel">✖ ${TKD.t('Cancel tournament', 'الغي البطولة')}</button></div>
+        <button type="button" class="btn btn-small btn-danger" id="vs-tour-cancel">✖ ${TKD.t('Cancel tournament', 'ألغِ البطولة')}</button></div>
       <div class="vs-bracket">${t.rounds.map((round, ri) => `<div class="vs-round"><h4>${rn(ri)}</h4>${round.map((m, mi) => `
         <div class="vs-match ${nm && nm.ri === ri && nm.mi === mi ? 'next' : ''}">
           <span class="${m.winner && m.winner === m.a ? 'win' : ''}">${m.a || ri === 0 ? name(m.a) : '…'}</span>
@@ -16927,8 +16927,8 @@ const Versus = {
       ${t.done ? `<div class="vs-champ">🏆 ${TKD.t('Champion', 'البطل')}: <b>${name(t.champion)}</b>
           <button type="button" class="btn btn-small" id="vs-cert">📜 ${TKD.t('Certificate', 'الشهادة')}</button>
           <button type="button" class="btn btn-success btn-small" id="vs-tour-new">${TKD.t('New tournament', 'بطولة جديدة')}</button></div>`
-        : nm ? `<button type="button" class="btn btn-success vs-start" id="vs-tour-play">⚔️ ${TKD.t('Next match', 'الماتش الجاي')}: ${name(nm.m.a)} × ${name(nm.m.b)}</button>` : ''}`;
-    TKD.$('vs-tour-cancel')?.addEventListener('click', async () => { if (await tkdConfirm(TKD.t('Cancel this tournament?', 'تلغي البطولة دي؟'))) { localStorage.removeItem(this.TKEY); this.renderSetup(); } });
+        : nm ? `<button type="button" class="btn btn-success vs-start" id="vs-tour-play">⚔️ ${TKD.t('Next match', 'المباراة التالية')}: ${name(nm.m.a)} × ${name(nm.m.b)}</button>` : ''}`;
+    TKD.$('vs-tour-cancel')?.addEventListener('click', async () => { if (await tkdConfirm(TKD.t('Cancel this tournament?', 'هل تلغي هذه البطولة؟'))) { localStorage.removeItem(this.TKEY); this.renderSetup(); } });
     TKD.$('vs-tour-new')?.addEventListener('click', () => { localStorage.removeItem(this.TKEY); this.renderSetup(); });
     TKD.$('vs-cert')?.addEventListener('click', () => { const p = players.find(x => x.id === t.champion); if (p) Certificates.draw({ icon: '👑', title: TKD.t('Tournament Champion', 'بطل البطولة'), name: p.name, line: t.name, date: TKD.dayKey() }); });
     TKD.$('vs-tour-play')?.addEventListener('click', () => {
@@ -16962,7 +16962,7 @@ const Versus = {
     const root = TKD.$('vs-root');
     root.innerHTML = `<div class="arena-wrap vs-wrap" id="vs-wrap"><canvas class="arena-canvas" id="vs-canvas" aria-label="Duel"></canvas><div class="arena-ui" id="vs-ui"></div></div>
       <div class="vs-pads" id="vs-pads" dir="ltr"></div>
-      <div class="center-buttons"><button type="button" class="btn btn-small" id="vs-quit">✖ ${TKD.t('Stop', 'وقّف')}</button></div>`;
+      <div class="center-buttons"><button type="button" class="btn btn-small" id="vs-quit">✖ ${TKD.t('Stop', 'إيقاف')}</button></div>`;
     this.renderPads();
     TKD.$('vs-quit').addEventListener('click', () => { this.teardown(); this.tourMatch = null; this.renderSetup(); });
     this.stage = new ArenaStage(TKD.$('vs-canvas'));
@@ -16991,7 +16991,7 @@ const Versus = {
   },
   renderPads() {
     const pads = TKD.$('vs-pads'); if (!pads || !this.P) return;
-    pads.innerHTML = this.P.map((p, i) => `<button type="button" class="vs-pad p${i + 1}" data-i="${i}">🦶 ${TKD.esc(p.name)}<small>${i === 0 ? TKD.t('key A', 'زرار A') : TKD.t('key L', 'زرار L')}</small><span class="vs-hint"></span></button>`).join('');
+    pads.innerHTML = this.P.map((p, i) => `<button type="button" class="vs-pad p${i + 1}" data-i="${i}">🦶 ${TKD.esc(p.name)}<small>${i === 0 ? TKD.t('key A', 'زر A') : TKD.t('key L', 'زر L')}</small><span class="vs-hint"></span></button>`).join('');
     pads.querySelectorAll('.vs-pad').forEach(b => b.addEventListener('pointerdown', (e) => { e.preventDefault(); b.classList.add('on'); setTimeout(() => b.classList.remove('on'), 120); this.press(+b.dataset.i); }));
   },
   later(fn, ms) { const tok = this.tok; const id = setTimeout(() => { if (tok === this.tok) fn(); }, ms); (this._t ||= []).push(id); },
@@ -17013,7 +17013,7 @@ const Versus = {
     if (this.over || !this.stage) return;
     const [a, b] = this.score;
     if (!this.golden && (a >= this.WIN_POINTS || b >= this.WIN_POINTS || this.ex >= this.MAX_EX)) {
-      if (a === b) { this.golden = true; this.stage.text(this.stage.W / 2, this.stage.H * 0.35, TKD.t('⭐ Golden point!', '⭐ النقطة الدهبية!'), { color: '#ffd166', size: 34, ttl: 1.4 }); }
+      if (a === b) { this.golden = true; this.stage.text(this.stage.W / 2, this.stage.H * 0.35, TKD.t('⭐ Golden point!', '⭐ النقطة الذهبية!'), { color: '#ffd166', size: 34, ttl: 1.4 }); }
       else return this.endMatch();
     } else if (this.golden && a !== b) return this.endMatch();
     this.ex++;
@@ -17038,7 +17038,7 @@ const Versus = {
       this.score[other] += 1; this.pop = { i: other, t: 1 };
       ArenaSound.buzz();
       const f = this.F[i]; f.wobble = 0.6;
-      st.text(f.x, f.floor - f.height * 1.05, TKD.t('Too early! +1 ⟶', 'بدري! +١ للتاني'), { color: '#ffb3b9', size: 20 });
+      st.text(f.x, f.floor - f.height * 1.05, TKD.t('Too early! +1 ⟶', 'مبكرًا! +١ للآخر'), { color: '#ffb3b9', size: 20 });
       return;
     }
     if (this.state !== 'open') return;
@@ -17064,7 +17064,7 @@ const Versus = {
       this.score[other] += 1; this.pop = { i: other, t: 1 };
       ArenaSound.buzz(); TKD.gs()?.playSound('error');
       this.F[i].wobble = 0.8;
-      st.text(st.W / 2, st.H * 0.32, s.kind === 'leg' ? TKD.t('⚠️ Gam-jeom — below the belt! +1 ⟶', '⚠️ گام-جوم — تحت الحزام! +١ للتاني') : TKD.t('🛡️ It was covered! +1 ⟶', '🛡️ كان متغطي! +١ للتاني'), { color: '#ff9f9f', size: 22, ttl: 1.5, rise: 12 });
+      st.text(st.W / 2, st.H * 0.32, s.kind === 'leg' ? TKD.t('⚠️ Gam-jeom — below the belt! +1 ⟶', '⚠️ گام-جوم — تحت الحزام! +١ للآخر') : TKD.t('🛡️ It was covered! +1 ⟶', '🛡️ كان محميًّا! +١ للآخر'), { color: '#ff9f9f', size: 22, ttl: 1.5, rise: 12 });
     }
     this.later(() => this.nextExchange(), 1300);
   },
@@ -17093,13 +17093,13 @@ const Versus = {
       pads.dataset.state = this.state;
       pads.querySelectorAll('.vs-pad').forEach((b, i) => {
         const hint = b.querySelector('.vs-hint');
-        if (hint) hint.textContent = this.state === 'open' ? TKD.t('Legal target? KICK!', 'هدف صح؟ اركل!') : this.state === 'wait' ? TKD.t('wait for the board…', 'استنى اللوحة…') : '';
+        if (hint) hint.textContent = this.state === 'open' ? TKD.t('Legal target? KICK!', 'هدف صحيح؟ اركل!') : this.state === 'wait' ? TKD.t('wait for the board…', 'انتظر اللوحة…') : '';
       });
     }
     if (this.state === 'open' && this.signal && this.stage.time - this.signal.born > 2.0) {
       this.state = 'resolving';
       const st = this.stage;
-      st.text(st.W / 2, st.H * 0.32, this.signal.valid ? TKD.t('⏰ Nobody kicked!', '⏰ محدش ركل!') : TKD.t('👀 Both read it right!', '👀 الاتنين قروها صح!'), { color: '#ffe68a', size: 22, ttl: 1.3, rise: 10 });
+      st.text(st.W / 2, st.H * 0.32, this.signal.valid ? TKD.t('⏰ Nobody kicked!', '⏰ لم يركل أحد!') : TKD.t('👀 Both read it right!', '👀 قرأها الاثنان بشكل صحيح!'), { color: '#ffe68a', size: 22, ttl: 1.3, rise: 10 });
       this.later(() => this.nextExchange(), 1100);
     }
     if (this.pop) { this.pop.t -= dt * 2; if (this.pop.t <= 0) this.pop = null; }
@@ -17122,7 +17122,7 @@ const Versus = {
       c.font = '900 26px "Roboto Mono", Roboto, monospace'; c.textBaseline = 'middle'; c.fillStyle = '#fff'; c.fillText(String(this.score[i]), 0, 0); c.restore();
     });
     c.fillStyle = 'rgba(255,255,255,0.7)'; c.font = '700 12px Cairo, Roboto, sans-serif'; c.textAlign = 'center'; c.textBaseline = 'top';
-    c.fillText(this.golden ? TKD.t('⭐ golden point', '⭐ النقطة الدهبية') : TKD.t(`exchange ${Math.max(1, this.ex)} / ${this.MAX_EX} · first to ${this.WIN_POINTS}`, `جولة ${Math.max(1, this.ex)} / ${this.MAX_EX} · أول واحد يوصل ${this.WIN_POINTS}`), W / 2, y + h + 10);
+    c.fillText(this.golden ? TKD.t('⭐ golden point', '⭐ النقطة الذهبية') : TKD.t(`exchange ${Math.max(1, this.ex)} / ${this.MAX_EX} · first to ${this.WIN_POINTS}`, `جولة ${Math.max(1, this.ex)} / ${this.MAX_EX} · أول من يصل إلى ${this.WIN_POINTS}`), W / 2, y + h + 10);
     c.restore();
     // referee board
     const cx = W / 2, cy = H * 0.42;
@@ -17140,7 +17140,7 @@ const Versus = {
     } else if (this.state === 'wait') {
       c.globalAlpha = 0.6 + 0.2 * Math.sin(this.stage.time * 6);
       c.font = '800 18px Cairo, Roboto, sans-serif'; c.fillStyle = '#fff'; c.textAlign = 'center';
-      c.fillText(TKD.t('Ready…', 'استعدوا…'), cx, cy);
+      c.fillText(TKD.t('Ready…', 'استعدّا…'), cx, cy);
     }
     c.restore();
   },
@@ -17164,11 +17164,11 @@ const Versus = {
       ui.innerHTML = `<div class="ag-card ag-center vs-result">
         <div class="vs-result-av">${TKD.avatar(W, 'lg')}</div>
         <div class="ag-big">🏆 ${TKD.esc(W.name)}</div>
-        <p>${TKD.num(a)} – ${TKD.num(b)} · ${TKD.t(`well played, ${TKD.esc(L.name)}!`, `لعبت حلو يا ${TKD.esc(L.name)}!`)}</p>
+        <p>${TKD.num(a)} – ${TKD.num(b)} · ${TKD.t(`well played, ${TKD.esc(L.name)}!`, `لعبت جيدًا يا ${TKD.esc(L.name)}!`)}</p>
         ${inTour && t?.done ? `<p class="vs-champ-line">👑 ${TKD.t('Tournament champion!', 'بطل البطولة!')}</p>` : ''}
         <div class="tkd-row wrap">
-          ${inTour ? `<button type="button" class="btn btn-success" id="vs-r-bracket">👑 ${TKD.t('Back to the bracket', 'رجوع للبطولة')}</button>`
-            : `<button type="button" class="btn btn-success" id="vs-r-again">🔁 ${TKD.t('Rematch', 'ماتش تاني')}</button><button type="button" class="btn" id="vs-r-setup">⚙️ ${TKD.t('Change players', 'غيّر اللاعبين')}</button>`}
+          ${inTour ? `<button type="button" class="btn btn-success" id="vs-r-bracket">👑 ${TKD.t('Back to the bracket', 'العودة إلى البطولة')}</button>`
+            : `<button type="button" class="btn btn-success" id="vs-r-again">🔁 ${TKD.t('Rematch', 'مباراة أخرى')}</button><button type="button" class="btn" id="vs-r-setup">⚙️ ${TKD.t('Change players', 'غيّر اللاعبين')}</button>`}
         </div></div>`;
       TKD.$('vs-r-again')?.addEventListener('click', () => this.startMatch(this.P[0], this.P[1], this.skill));
       TKD.$('vs-r-setup')?.addEventListener('click', () => { this.teardown(); this.renderSetup(); });
@@ -17204,7 +17204,7 @@ const Profile = {
   month: 0,          // 0 = this month, -1 = last month …
   showAllTimeline: false,
   PLAYED_EXCLUDE: new Set(['warmup', 'learning']),
-  TIER_NAMES: [{ en: 'Bronze', ar: 'برونز', icon: '🥉', color: '#c08457' }, { en: 'Silver', ar: 'فضة', icon: '🥈', color: '#aab4be' }, { en: 'Gold', ar: 'دهب', icon: '🥇', color: '#e9c46a' }],
+  TIER_NAMES: [{ en: 'Bronze', ar: 'برونزي', icon: '🥉', color: '#c08457' }, { en: 'Silver', ar: 'فضي', icon: '🥈', color: '#aab4be' }, { en: 'Gold', ar: 'ذهبي', icon: '🥇', color: '#e9c46a' }],
 
   // ------------------------------------------------------------ data
   ctx(pid) {
@@ -17279,18 +17279,18 @@ const Profile = {
   ACH: [
     { id: 'warmups',    icon: '🔥', en: 'Warm-up Hero',   ar: 'بطل الإحماء',     den: 'warm-ups',        dar: 'إحماء',          t: [5, 25, 60],   scale: true, v: c => c.warmups },
     { id: 'days',       icon: '📅', en: 'Regular',        ar: 'منتظم',           den: 'training days',   dar: 'يوم تمرين',      t: [4, 20, 50],   scale: true, v: c => c.days.length },
-    { id: 'streak',     icon: '⚡', en: 'On Fire',        ar: 'مولّع',            den: 'weeks in a row (2+ days)', dar: 'أسبوع ورا بعض (يومين+)', t: [2, 6, 12], scale: true, v: c => c.bestWeekStreak },
-    { id: 'games',      icon: '🎮', en: 'Gamer',          ar: 'لعّيب',            den: 'games played',    dar: 'لعبة',           t: [20, 100, 300], scale: true, v: c => c.played.length },
-    { id: 'passes',     icon: '✅', en: 'Passer',         ar: 'بيعدّي',           den: 'passes (85%+)',   dar: 'نجاح (٨٥٪+)',    t: [5, 40, 120],  scale: true, v: c => c.passes },
-    { id: 'perfect',    icon: '💯', en: 'Perfectionist',  ar: 'مية مية',          den: 'perfect 100%',    dar: 'مرة ١٠٠٪',      t: [1, 5, 15],    scale: true, v: c => c.perfect },
+    { id: 'streak',     icon: '⚡', en: 'On Fire',        ar: 'متحمّس',            den: 'weeks in a row (2+ days)', dar: 'أسبوع متتالٍ (يومان+)', t: [2, 6, 12], scale: true, v: c => c.bestWeekStreak },
+    { id: 'games',      icon: '🎮', en: 'Gamer',          ar: 'لاعب نشيط',            den: 'games played',    dar: 'لعبة',           t: [20, 100, 300], scale: true, v: c => c.played.length },
+    { id: 'passes',     icon: '✅', en: 'Passer',         ar: 'ينجح',           den: 'passes (85%+)',   dar: 'نجاح (٨٥٪+)',    t: [5, 40, 120],  scale: true, v: c => c.passes },
+    { id: 'perfect',    icon: '💯', en: 'Perfectionist',  ar: 'مئة بالمئة',          den: 'perfect 100%',    dar: 'مرة ١٠٠٪',      t: [1, 5, 15],    scale: true, v: c => c.perfect },
     { id: 'kicks',      icon: '🥋', en: 'Kick Master',    ar: 'أستاذ الركلات',    den: 'kicks mastered',  dar: 'ركلة متقنة',     t: [1, 2, 3],     v: c => c.mastered },
     { id: 'explorer',   icon: '🧭', en: 'Explorer',       ar: 'مستكشف',          den: 'different games', dar: 'لعبة مختلفة',    t: [4, 8, 13],    v: c => c.tried.size },
-    { id: 'challenges', icon: '🏆', en: 'Challenger',     ar: 'بتاع التحديات',    den: 'daily challenges', dar: 'تحدي يومي',     t: [3, 15, 40],   scale: true, v: c => c.challengeDays.length },
+    { id: 'challenges', icon: '🏆', en: 'Challenger',     ar: 'صاحب التحديات',    den: 'daily challenges', dar: 'تحدٍّ يومي',     t: [3, 15, 40],   scale: true, v: c => c.challengeDays.length },
     { id: 'daywins',    icon: '🥇', en: 'Top of the Day', ar: 'الأول في اليوم',   den: 'days ranked #1',  dar: 'يوم في المركز الأول', t: [1, 4, 10], scale: true, v: c => c.challengeWins },
-    { id: 'duels',      icon: '⚔️', en: 'Duelist',        ar: 'مقاتل',           den: 'duels won',       dar: 'مواجهة كسبها',   t: [1, 8, 25],    scale: true, v: c => c.duelWins },
+    { id: 'duels',      icon: '⚔️', en: 'Duelist',        ar: 'مقاتل',           den: 'duels won',       dar: 'مواجهة فاز بها',   t: [1, 8, 25],    scale: true, v: c => c.duelWins },
     { id: 'titles',     icon: '👑', en: 'Champion',       ar: 'البطل',            den: 'tournaments won', dar: 'بطولة',          t: [1, 2, 4],     v: c => c.titles.length },
-    { id: 'awards',     icon: '🎖️', en: 'Decorated',      ar: 'متكرّم',           den: 'weekly awards',   dar: 'جايزة أسبوعية',  t: [1, 3, 6],     scale: true, v: c => c.awards.length },
-    { id: 'power',      icon: '💥', en: 'Power Kicker',   ar: 'رجل حديد',         den: 'power points',    dar: 'نقطة قوة',          t: [450, 650, 850], v: c => Profile.metaBest(c, ['heavy-bag'], 'bestPower')?.v || 0 },
+    { id: 'awards',     icon: '🎖️', en: 'Decorated',      ar: 'مُكرَّم',           den: 'weekly awards',   dar: 'جائزة أسبوعية',  t: [1, 3, 6],     scale: true, v: c => c.awards.length },
+    { id: 'power',      icon: '💥', en: 'Power Kicker',   ar: 'رجل حديدي',         den: 'power points',    dar: 'نقطة قوة',          t: [450, 650, 850], v: c => Profile.metaBest(c, ['heavy-bag'], 'bestPower')?.v || 0 },
     { id: 'reflex',     icon: '⚡', en: 'Lightning',      ar: 'البرق',            den: 's reaction',      dar: 'ث رد فعل',       t: [1.1, 0.85, 0.65], lower: true, v: c => Profile.metaBest(c, ['paddle-reflex', 'sparring-duel'], 'avgReaction', true)?.v || 0, fmt: v => v ? v.toFixed(2) : '—' }
   ],
   // coach setting: easier ×0.7 · normal ×1 · harder ×1.4 (count medals only)
@@ -17332,17 +17332,17 @@ const Profile = {
     add('power', '💥', 'Strongest kick', 'أقوى ركلة', this.metaBest(c, ['heavy-bag'], 'bestPower'), v => `💪 ${TKD.num(v)}`);
     const sp = this.metaBest(c, ['sparring-duel'], 'points');
     const duelBest = c.duelBest ? { v: c.duelBest } : null;
-    add('points', '🥊', 'Most points in a fight', 'أكتر نقط في نزال', sp && (!duelBest || sp.v >= duelBest.v) ? sp : duelBest, v => TKD.t(TKD.count(v, 'pt', 'en'), TKD.count(v, 'point', 'ar')));
+    add('points', '🥊', 'Most points in a fight', 'أكثر نقاط في نزال', sp && (!duelBest || sp.v >= duelBest.v) ? sp : duelBest, v => TKD.t(TKD.count(v, 'pt', 'en'), TKD.count(v, 'point', 'ar')));
     add('rhythm', '🥁', 'Longest rhythm streak', 'أطول سلسلة إيقاع', this.metaBest(c, ['phase-rhythm'], 'bestStreak'), v => TKD.t(`${v} notes`, `${TKD.num(v)} نوتة`));
-    add('combo', '🎯', 'Best paddle combo', 'أحسن كومبو مضارب', this.metaBest(c, ['paddle-reflex'], 'bestCombo'), v => `× ${TKD.num(v)}`);
+    add('combo', '🎯', 'Best paddle combo', 'أفضل كومبو مضارب', this.metaBest(c, ['paddle-reflex'], 'bestCombo'), v => `× ${TKD.num(v)}`);
     const bal = c.att.filter(a => a.gameId === 'balance-hold' && a.meta && a.meta.falls === 0).reduce((m, a) => (!m || a.score > m.v ? { v: a.score, ts: a.ts } : m), null);
-    add('balance', '⚖️', 'Best balance (no falls)', 'أحسن توازن (من غير وقوع)', bal, v => `${TKD.num(v)}%`);
+    add('balance', '⚖️', 'Best balance (no falls)', 'أفضل توازن (دون سقوط)', bal, v => `${TKD.num(v)}%`);
     const ch = c.att.filter(a => a.meta?.challenge).reduce((m, a) => (!m || a.score > m.v ? { v: a.score, ts: a.ts } : m), null);
-    add('challenge', '🏆', 'Best challenge score', 'أحسن نتيجة في التحدي', ch, v => `${TKD.num(v)}%`);
+    add('challenge', '🏆', 'Best challenge score', 'أفضل نتيجة في التحدي', ch, v => `${TKD.num(v)}%`);
     add('streak', '🔥', 'Longest weekly streak', 'أطول سلسلة أسابيع', c.bestWeekStreak ? { v: c.bestWeekStreak } : null, v => TKD.t(TKD.count(v, 'week', 'en'), TKD.count(v, 'week', 'ar')));
     const weeks = [...new Set(c.days.map(d => TKD.weekKey(new Date(d + 'T12:00:00'))))];
     const bw = weeks.map(w => ({ v: League.pointsFor(c.p.id, w).total, ts: new Date(w + 'T12:00:00').getTime() })).sort((a, b) => b.v - a.v)[0];
-    add('week', '📈', 'Best week', 'أحسن أسبوع', bw && bw.v ? bw : null, v => TKD.t(TKD.count(v, 'pt', 'en'), TKD.count(v, 'point', 'ar')));
+    add('week', '📈', 'Best week', 'أفضل أسبوع', bw && bw.v ? bw : null, v => TKD.t(TKD.count(v, 'pt', 'en'), TKD.count(v, 'point', 'ar')));
     return r;
   },
 
@@ -17356,14 +17356,14 @@ const Profile = {
       const first = c.att.find(a => a.skillId === sk && a.gameId !== 'warmup');
       if (first && sk !== 'apchagi') push(first.ts, '🔓', TKD.t(`Started ${TKD.skillName(sk)}`, `بدأ ${TKD.skillName(sk)}`));
       const q = c.att.find(a => a.skillId === sk && a.gameId === 'quiz' && a.score >= GameConfig.SETTINGS.PASSING_SCORE);
-      push(q?.ts, '🎓', TKD.t(`Passed the ${TKD.skillName(sk)} test`, `عدّى اختبار ${TKD.skillName(sk)}`));
+      push(q?.ts, '🎓', TKD.t(`Passed the ${TKD.skillName(sk)} test`, `نجح في اختبار ${TKD.skillName(sk)}`));
     });
     const perf = c.played.find(a => a.score >= 100); push(perf?.ts, '💯', TKD.t(`First 100% — ${TKD.gameName(perf?.gameId)}`, `أول ١٠٠٪ — ${TKD.gameName(perf?.gameId)}`));
     (c.p.badges || []).filter(b => b.id !== 'promoted').forEach(b => push(new Date((b.week || TKD.dayKey()) + 'T20:00:00').getTime(), League.AWARDS[b.id]?.icon || '🏅', League.awardName(b.id).replace(/^\S+\s/, '')));
     const dw = c.att.find(a => a.meta?.challenge && Challenge.ranking(a.meta.challenge)[0]?.pid === c.p.id);
     push(dw?.ts, '🥇', TKD.t('First day ranked #1 in the challenge', 'أول يوم في المركز الأول في التحدي'));
     const duel = window.Versus ? Versus.load().matches.find(m => m.winner === c.p.id) : null;
-    push(duel?.ts, '⚔️', TKD.t('First duel won', 'أول مواجهة كسبها'));
+    push(duel?.ts, '⚔️', TKD.t('First duel won', 'أول مواجهة فاز بها'));
     return ev.sort((a, b) => b.ts - a.ts);
   },
 
@@ -17373,7 +17373,7 @@ const Profile = {
   render() {
     const root = TKD.$('profile-root'); if (!root) return;
     const c = this.ctx(this.pid);
-    if (!c) { root.innerHTML = `<p class="lg-empty">${TKD.t('No players yet.', 'لسه مفيش لاعبين.')}</p>`; return; }
+    if (!c) { root.innerHTML = `<p class="lg-empty">${TKD.t('No players yet.', 'لا يوجد لاعبون بعد.')}</p>`; return; }
     const achs = this.achievements(c), trophies = this.trophies(c), lv = this.level(achs, trophies);
     const me = c.p.id === PlayerSystem.getCurrentPlayerId();
     const medals = [0, 1, 2].map(i => achs.filter(a => a.tier > i).length);
@@ -17384,12 +17384,12 @@ const Profile = {
     const got = trophies.filter(t => t.ok).length;
     const body = {
       me: () => `${this.compareHTML(c)}
-      ${(() => { const w = window.Review ? Review.weakest(c.p.id, 3) : []; return w.length ? `<section class="pf-sec pf-review"><h3>🧠 ${TKD.t('Worth reviewing', 'محتاج يراجع')}</h3><ul>${w.map(x => `<li>${TKD.esc(Review.label(x))}</li>`).join('')}</ul></section>` : ''; })()}
+      ${(() => { const w = window.Review ? Review.weakest(c.p.id, 3) : []; return w.length ? `<section class="pf-sec pf-review"><h3>🧠 ${TKD.t('Worth reviewing', 'يحتاج إلى مراجعة')}</h3><ul>${w.map(x => `<li>${TKD.esc(Review.label(x))}</li>`).join('')}</ul></section>` : ''; })()}
       <section class="pf-sec"><h3>🥋 ${TKD.t('Kicks', 'الركلات')}</h3>${window.DashboardSystem ? DashboardSystem.masteryHTML(c.p.id) : ''}</section>`,
-      ach: () => `<section class="pf-sec pf-troph-sum"><h3>🏆 ${TKD.t('Trophies', 'الكاسات')} <small>${TKD.num(got)} / ${TKD.num(trophies.length)}</small></h3>
-        <div class="pf-troph-row">${trophies.filter(t => t.ok).map(t => `<span title="${TKD.esc(TKD.ar ? t.name.ar : t.name.en)}">${t.icon}</span>`).join('') || `<small>${TKD.t('No trophies yet — they are waiting for you!', 'لسه مفيش كاسات — مستنياك!')}</small>`}</div>
-        ${me ? `<button type="button" class="btn btn-small" id="pf-trophy-room">🏆 ${TKD.t('Open the trophy room', 'افتح فاترينة الكاسات')}</button>` : ''}</section>
-      <section class="pf-sec"><h3>🏅 ${TKD.t('Achievements', 'الإنجازات')} <small>${TKD.t(`${medals[0]} bronze · ${medals[1]} silver · ${medals[2]} gold`, `${TKD.num(medals[0])} برونز · ${TKD.num(medals[1])} فضة · ${TKD.num(medals[2])} دهب`)}</small></h3>
+      ach: () => `<section class="pf-sec pf-troph-sum"><h3>🏆 ${TKD.t('Trophies', 'الكؤوس')} <small>${TKD.num(got)} / ${TKD.num(trophies.length)}</small></h3>
+        <div class="pf-troph-row">${trophies.filter(t => t.ok).map(t => `<span title="${TKD.esc(TKD.ar ? t.name.ar : t.name.en)}">${t.icon}</span>`).join('') || `<small>${TKD.t('No trophies yet — they are waiting for you!', 'لا توجد كؤوس بعد — إنها في انتظارك!')}</small>`}</div>
+        ${me ? `<button type="button" class="btn btn-small" id="pf-trophy-room">🏆 ${TKD.t('Open the trophy room', 'افتح خزانة الكؤوس')}</button>` : ''}</section>
+      <section class="pf-sec"><h3>🏅 ${TKD.t('Achievements', 'الإنجازات')} <small>${TKD.t(`${medals[0]} bronze · ${medals[1]} silver · ${medals[2]} gold`, `${TKD.num(medals[0])} برونزي · ${TKD.num(medals[1])} فضي · ${TKD.num(medals[2])} ذهبي`)}</small></h3>
         <div class="pf-ach">${achs.map(a => this.achHTML(a)).join('')}</div></section>
       <section class="pf-sec"><h3>📊 ${TKD.t('Personal records', 'أرقامي القياسية')}</h3>
         <div class="pf-recs">${recs.map(r => `<div class="pf-rec ${r.v === null ? 'empty' : ''}"><span class="pf-rec-i">${r.icon}</span><span class="pf-rec-l">${r.label}</span><b>${r.text}</b>${r.ts ? `<small>${new Date(r.ts).toLocaleDateString(TKD.ar ? 'ar-EG' : 'en-GB', { day: 'numeric', month: 'short' })}</small>` : ''}</div>`).join('')}</div></section>`,
@@ -17409,20 +17409,20 @@ const Profile = {
     return `<section class="pf-hero" style="--tier:${belt.accent || '#ffd166'}">
       <div class="pf-hero-av">${TKD.avatar(c.p, 'xl')}<span class="pf-lvl" title="${TKD.t('Level', 'المستوى')}">${TKD.num(lv.level)}</span></div>
       <div class="pf-hero-main">
-        <h2>${TKD.esc(c.p.name)}${me ? ` <em>${TKD.t('(you)', '(إنت)')}</em>` : ''}</h2>
+        <h2>${TKD.esc(c.p.name)}${me ? ` <em>${TKD.t('(you)', '(أنت)')}</em>` : ''}</h2>
         <div class="pf-tags">
           <span class="pf-belt"><i style="background:${belt.color};border-color:${belt.accent}">${'<b></b>'.repeat(belt.stripes)}</i>${TKD.esc(TKD.ar ? belt.name.ar : belt.name.en)}</span></div>
-        <div class="pf-xp"><span>${TKD.t(`Level ${lv.level}`, `المستوى ${TKD.num(lv.level)}`)}</span><div class="pf-xp-bar"><i style="width:${(lv.into / 3) * 100}%"></i></div><small>${TKD.t(`${3 - lv.into} more medals to level ${lv.level + 1}`, `فاضل ${TKD.count(3 - lv.into, 'medal', 'ar')} للمستوى ${TKD.num(lv.level + 1)}`)}</small></div>
+        <div class="pf-xp"><span>${TKD.t(`Level ${lv.level}`, `المستوى ${TKD.num(lv.level)}`)}</span><div class="pf-xp-bar"><i style="width:${(lv.into / 3) * 100}%"></i></div><small>${TKD.t(`${3 - lv.into} more medals to level ${lv.level + 1}`, `تبقّى ${TKD.count(3 - lv.into, 'medal', 'ar')} للمستوى ${TKD.num(lv.level + 1)}`)}</small></div>
       </div>
       <div class="pf-tiles">
-        <div><b>🔥 ${TKD.num(c.weekStreak)}</b><small>${TKD.t('weeks in a row', 'أسبوع ورا بعض')}</small></div>
-        <div><b>${TKD.num(League.pointsFor(c.p.id).total)}</b><small>${TKD.t('pts this week', 'نقطة الأسبوع ده')}</small></div>
-        <div><b>🥇 ${TKD.num(medals[2])}</b><small>${TKD.t('gold medals', 'ميدالية دهب')}</small></div>
-        <div><b>🏆 ${TKD.num(trophies.filter(t => t.ok).length)}</b><small>${TKD.t('trophies', 'كاس')}</small></div>
+        <div><b>🔥 ${TKD.num(c.weekStreak)}</b><small>${TKD.t('weeks in a row', 'أسبوع متتالٍ')}</small></div>
+        <div><b>${TKD.num(League.pointsFor(c.p.id).total)}</b><small>${TKD.t('pts this week', 'نقطة هذا الأسبوع')}</small></div>
+        <div><b>🥇 ${TKD.num(medals[2])}</b><small>${TKD.t('gold medals', 'ميدالية ذهبية')}</small></div>
+        <div><b>🏆 ${TKD.num(trophies.filter(t => t.ok).length)}</b><small>${TKD.t('trophies', 'كأس')}</small></div>
       </div>
       <div class="pf-hero-btns">
-        <button type="button" class="btn btn-success btn-small" id="pf-share">🖼️ ${TKD.t('Save my card', 'احفظ الكارت بتاعي')}</button>
-        ${!me ? `<button type="button" class="btn btn-small" id="pf-duel">⚔️ ${TKD.t('Challenge', 'تحدّاه')}</button>` : ''}
+        <button type="button" class="btn btn-success btn-small" id="pf-share">🖼️ ${TKD.t('Save my card', 'احفظ بطاقتي')}</button>
+        ${!me ? `<button type="button" class="btn btn-small" id="pf-duel">⚔️ ${TKD.t('Challenge', 'تحدَّه')}</button>` : ''}
         <button type="button" class="btn btn-small" id="pf-all">👥 ${TKD.t('All players', 'كل اللاعبين')}</button>
       </div></section>`;
   },
@@ -17435,11 +17435,11 @@ const Profile = {
       const d = x - y, cls = d > 0 ? 'up' : d < 0 ? 'down' : '';
       return `<div class="pf-cmp-c"><small>${label}</small><b>${TKD.num(x)}${unit}</b><span class="${cls}">${d > 0 ? '▲' : d < 0 ? '▼' : '＝'} ${TKD.num(Math.abs(d))}${unit}</span></div>`;
     };
-    const msg = a.pts > b.pts ? TKD.t(`You're ahead of last week by ${a.pts - b.pts} points — keep it up! 💪`, `إنت متقدم عن الأسبوع اللي فات بـ${TKD.count(a.pts - b.pts, 'point', 'ar')} — كمّل كده! 💪`)
-      : a.pts === b.pts ? TKD.t('Level with last week — one more warm-up puts you ahead!', 'زي الأسبوع اللي فات بالظبط — إحماء واحد كمان وتبقى متقدم!')
-      : TKD.t(`${b.pts - a.pts} points to beat last week — you can do it!`, `فاضل ${TKD.count(b.pts - a.pts, 'point', 'ar')} وتكسب الأسبوع اللي فات — تقدر!`);
-    return `<section class="pf-sec pf-cmp"><h3>📈 ${TKD.t('This week vs last week', 'الأسبوع ده قصاد اللي فات')}</h3>
-      <div class="pf-cmp-row">${cell(TKD.t('Points', 'النقط'), a.pts, b.pts)}${cell(TKD.t('Games', 'الألعاب'), a.games, b.games)}${cell(TKD.t('Average', 'المتوسط'), a.avg, b.avg, '%')}${cell(TKD.t('Warm-up days', 'أيام الإحماء'), a.warm, b.warm)}</div>
+    const msg = a.pts > b.pts ? TKD.t(`You're ahead of last week by ${a.pts - b.pts} points — keep it up! 💪`, `أنت متقدّم عن الأسبوع الماضي بـ${TKD.count(a.pts - b.pts, 'point', 'ar')} — استمر هكذا! 💪`)
+      : a.pts === b.pts ? TKD.t('Level with last week — one more warm-up puts you ahead!', 'مثل الأسبوع الماضي تمامًا — إحماء واحد آخر وتصبح متقدّمًا!')
+      : TKD.t(`${b.pts - a.pts} points to beat last week — you can do it!`, `تبقّى ${TKD.count(b.pts - a.pts, 'point', 'ar')} لتتفوق على الأسبوع الماضي — أنت قادر!`);
+    return `<section class="pf-sec pf-cmp"><h3>📈 ${TKD.t('This week vs last week', 'هذا الأسبوع مقارنةً بالماضي')}</h3>
+      <div class="pf-cmp-row">${cell(TKD.t('Points', 'النقاط'), a.pts, b.pts)}${cell(TKD.t('Games', 'الألعاب'), a.games, b.games)}${cell(TKD.t('Average', 'المتوسط'), a.avg, b.avg, '%')}${cell(TKD.t('Warm-up days', 'أيام الإحماء'), a.warm, b.warm)}</div>
       <p class="pf-cmp-msg">${msg}</p></section>`;
   },
   achHTML(a) {
@@ -17476,10 +17476,10 @@ const Profile = {
     }
     const title = first.toLocaleDateString(TKD.ar ? 'ar-EG' : 'en-GB', { month: 'long', year: 'numeric' });
     return `<div class="pf-cal-head"><h3>🗓️ ${TKD.t('Training calendar', 'تقويم التمرين')}</h3>
-        <div class="pf-cal-nav"><button type="button" data-cal="-1" aria-label="${TKD.t('previous month', 'الشهر اللي فات')}">${TKD.ar ? '›' : '‹'}</button><b>${title}</b><button type="button" data-cal="1" ${this.month >= 0 ? 'disabled' : ''} aria-label="${TKD.t('next month', 'الشهر الجاي')}">${TKD.ar ? '‹' : '›'}</button></div></div>
+        <div class="pf-cal-nav"><button type="button" data-cal="-1" aria-label="${TKD.t('previous month', 'الشهر الماضي')}">${TKD.ar ? '›' : '‹'}</button><b>${title}</b><button type="button" data-cal="1" ${this.month >= 0 ? 'disabled' : ''} aria-label="${TKD.t('next month', 'الشهر القادم')}">${TKD.ar ? '‹' : '›'}</button></div></div>
       <div class="pf-cal">${names.map(n => `<span class="pf-dow">${n}</span>`).join('')}${cells}</div>
-      <div class="pf-cal-foot"><span>${TKD.t(`Trained ${trained} days this month`, `اتمرن ${TKD.count(trained, 'day', 'ar')} في الشهر ده`)}</span>
-        <span class="pf-cal-key">${TKD.t('less', 'أقل')} <i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i> ${TKD.t('more', 'أكتر')} · 🔥 ${TKD.t('warm-up', 'إحماء')}</span></div>`;
+      <div class="pf-cal-foot"><span>${TKD.t(`Trained ${trained} days this month`, `تمرّن ${TKD.count(trained, 'day', 'ar')} في هذا الشهر`)}</span>
+        <span class="pf-cal-key">${TKD.t('less', 'أقل')} <i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i> ${TKD.t('more', 'أكثر')} · 🔥 ${TKD.t('warm-up', 'إحماء')}</span></div>`;
   },
   timelineHTML(c) {
     const ev = this.timeline(c);
@@ -17487,7 +17487,7 @@ const Profile = {
     return `<h3>🧭 ${TKD.t('My journey', 'رحلتي')}</h3>
       ${ev.length ? `<ol class="pf-tl">${list.map(e => `<li><span class="pf-tl-i">${e.icon}</span><span>${TKD.esc(e.text)}</span><small>${new Date(e.ts).toLocaleDateString(TKD.ar ? 'ar-EG' : 'en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}</small></li>`).join('')}</ol>
         ${ev.length > 8 && !this.showAllTimeline ? `<button type="button" class="btn btn-small" id="pf-tl-more">${TKD.t(`Show all (${ev.length})`, `اعرض الكل (${TKD.num(ev.length)})`)}</button>` : ''}`
-        : `<p class="lg-empty">${TKD.t('The journey starts with the first warm-up!', 'الرحلة بتبدأ بأول إحماء!')}</p>`}`;
+        : `<p class="lg-empty">${TKD.t('The journey starts with the first warm-up!', 'تبدأ الرحلة بأول إحماء!')}</p>`}`;
   },
   bind(root, c, achs, trophies, lv, medals) {
     root.querySelectorAll('[data-cal]').forEach(b => b.addEventListener('click', () => { this.month = Math.min(0, this.month + (+b.dataset.cal)); this.render(); }));
@@ -17514,7 +17514,7 @@ const Profile = {
     g.fillStyle = '#fff'; g.font = '900 56px Cairo, "Noto Sans Arabic", Roboto, system-ui, Tahoma, sans-serif'; g.fillText(TKD.num(lv.level), W / 2 + 150, 194);
     g.font = '900 96px Cairo, "Noto Sans Arabic", Roboto, system-ui, Tahoma, sans-serif'; g.fillText(c.p.name, W / 2, 610);
     g.font = '700 44px Cairo, "Noto Sans Arabic", Roboto, system-ui, Tahoma, sans-serif'; g.fillStyle = frame; g.fillText(`🥋 ${TKD.ar ? c.belt.name.ar : c.belt.name.en}`, W / 2, 700);
-    const tiles = [[`🔥 ${TKD.num(c.weekStreak)}`, TKD.t('weeks in a row', 'أسبوع ورا بعض')], [TKD.num(League.pointsFor(c.p.id).total), TKD.t('pts this week', 'نقطة الأسبوع')], [`🥇 ${TKD.num(medals[2])}`, TKD.t('gold medals', 'ميدالية دهب')], [`🏆 ${TKD.num(trophies.filter(t => t.ok).length)}`, TKD.t('trophies', 'كاس')]];
+    const tiles = [[`🔥 ${TKD.num(c.weekStreak)}`, TKD.t('weeks in a row', 'أسبوع متتالٍ')], [TKD.num(League.pointsFor(c.p.id).total), TKD.t('pts this week', 'نقطة الأسبوع')], [`🥇 ${TKD.num(medals[2])}`, TKD.t('gold medals', 'ميدالية ذهبية')], [`🏆 ${TKD.num(trophies.filter(t => t.ok).length)}`, TKD.t('trophies', 'كأس')]];
     tiles.forEach(([v, l], i) => {
       const x = 90 + (i % 2) * 460, y = 820 + Math.floor(i / 2) * 170;
       g.fillStyle = 'rgba(255,255,255,0.07)'; g.beginPath(); g.roundRect(x, y, 440, 150, 26); g.fill();
@@ -17530,7 +17530,7 @@ const Profile = {
       l.href = url; l.download = `hero-${String(c.p.name).replace(/[^\w؀-ۿ-]+/g, '_')}.png`;
       document.body.appendChild(l); l.click(); l.remove(); setTimeout(() => URL.revokeObjectURL(url), 3000);
     });
-    TKD.toast(TKD.t('🖼️ Card saved', '🖼️ الكارت اتحفظ'), 'success');
+    TKD.toast(TKD.t('🖼️ Card saved', '🖼️ حُفظت البطاقة'), 'success');
   },
 
   // ------------------------------------------------------------ live "new record / achievement" pop-ups
@@ -17582,9 +17582,9 @@ const PlayersPage = {
       const last = c.att.length ? c.att[c.att.length - 1].ts : p.createdAt || 0;
       return { p, c, lv, recs, last, week: League.pointsFor(p.id).total, gold: achs.filter(a => a.tier === 3).length, medals: achs.reduce((s, a) => s + a.tier, 0), trophies: tro.filter(t => t.ok).length };
     });
-    if (!rows.length) { root.innerHTML = `<p class="lg-empty">${TKD.t('No players yet.', 'لسه مفيش لاعبين.')}</p>`; return; }
+    if (!rows.length) { root.innerHTML = `<p class="lg-empty">${TKD.t('No players yet.', 'لا يوجد لاعبون بعد.')}</p>`; return; }
     const sorts = {
-      week: [TKD.t('Week points', 'نقط الأسبوع'), (a, b) => b.week - a.week],
+      week: [TKD.t('Week points', 'نقاط الأسبوع'), (a, b) => b.week - a.week],
       level: [TKD.t('Level', 'المستوى'), (a, b) => b.lv.pts - a.lv.pts],
       streak: [TKD.t('Streak', 'السلسلة'), (a, b) => b.c.weekStreak - a.c.weekStreak || b.c.bestWeekStreak - a.c.bestWeekStreak],
       warm: [TKD.t('Warm-ups', 'الإحماء'), (a, b) => b.c.warmups - a.c.warmups],
@@ -17700,7 +17700,7 @@ const CurriculumScreen = {
           return `<button type="button" class="cu-item ${it.status === 'playable' ? 'playable' : ''} ${ok ? 'done' : ''}" data-id="${it.id}">
             <span class="cu-ko">${TKD.esc(it.ko)}</span>
             <span class="cu-name">${TKD.esc(this.L(it.name))}</span>
-            <span class="cu-chip">${it.status === 'playable' ? (m !== null ? `▶ ${TKD.num(m)}%` : '▶') : ok ? '✓' : TKD.t('📷 soon', '📷 قريب')}</span>
+            <span class="cu-chip">${it.status === 'playable' ? (m !== null ? `▶ ${TKD.num(m)}%` : '▶') : ok ? '✓' : TKD.t('📷 soon', '📷 قريبًا')}</span>
           </button>`;
         }).join('')}</div></div>`;
       }).join('');
@@ -17708,7 +17708,7 @@ const CurriculumScreen = {
       return `<section class="cu-belt ${open ? 'open' : ''}" data-belt="${b.id}" style="--belt:${b.color};--belt-2:${b.accent}">
         <button type="button" class="cu-belt-head" aria-expanded="${open}">
           <span class="cu-belt-strip"></span>
-          <span class="cu-belt-txt"><b>${TKD.num(bi + 1)}. ${TKD.esc(this.L(b.name))}</b><small>${TKD.esc(this.L(b.geup))} · ${TKD.num(b.items.length)} ${TKD.t('items', 'حاجة')}</small></span>
+          <span class="cu-belt-txt"><b>${TKD.num(bi + 1)}. ${TKD.esc(this.L(b.name))}</b><small>${TKD.esc(this.L(b.geup))} · ${TKD.num(b.items.length)} ${TKD.t('items', 'شيء')}</small></span>
           <span class="cu-belt-pct"><span style="width:${pct}%"></span></span>
           <span class="cu-belt-n">${TKD.num(doneN)}/${TKD.num(b.items.length)}</span>
         </button>
@@ -17721,9 +17721,9 @@ const CurriculumScreen = {
         <span><b>${TKD.num(c.belts)}</b> ${TKD.t('belts', 'أحزمة')}</span>
         <span><b>${TKD.num(c.items)}</b> ${TKD.t('techniques', 'حركة')}</span>
         <span><b>${TKD.num(c.poomsae)}</b> ${TKD.t('poomsae', 'بومسي')}</span>
-        <span><b>${TKD.num(withMedia)}</b> ${TKD.t('playable now', 'تتلعب دلوقتي')}</span>
+        <span><b>${TKD.num(withMedia)}</b> ${TKD.t('playable now', 'تُلعب الآن')}</span>
       </div>
-      <p class="cu-note">${TKD.t('📷 = pictures & videos are on the way. You can already read the tips and tick what you practised at the dojo.', '📷 = الصور والفيديوهات جايين في السكة. تقدر من دلوقتي تقرا النصايح وتعلّم على اللي اتمرنت عليه في النادي.')}</p>
+      <p class="cu-note">${TKD.t('📷 = pictures & videos are on the way. You can already read the tips and tick what you practised at the dojo.', '📷 = الصور والفيديوهات في الطريق. يمكنك من الآن قراءة النصائح وتعليم ما تمرّنت عليه في النادي.')}</p>
       ${belts}`;
 
     root.querySelectorAll('.cu-belt-head').forEach(h => h.addEventListener('click', () => {
@@ -17744,18 +17744,18 @@ const CurriculumScreen = {
     const ov = document.createElement('div');
     ov.className = 'tkd-modal cu-modal';
     ov.innerHTML = `<div class="tkd-modal-card cu-card" role="dialog" aria-label="${TKD.esc(it.ko)}" style="--belt:${belt.color};--belt-2:${belt.accent}">
-      <div class="cu-media ${this.strobeKey(it) ? 'is-strobe' : ''} ${photo ? '' : 'empty'}">${photo ? `<img src="${photo}" alt="${this.strobeKey(it) ? TKD.esc(TKD.t('All five phases of the kick in one picture', 'الخمس مراحل بتوع الركلة في صورة واحدة')) : ''}" onerror="this.parentElement.classList.add('empty');this.remove()">` : ''}<span class="cu-soon">📷 ${TKD.t('Picture coming soon', 'الصورة جاية قريب')}</span>${this.strobeKey(it) ? `<span class="cu-strobe-tag">🎞️ ${TKD.t('All 5 phases in one picture', 'الخمس مراحل في صورة واحدة')}</span>` : ''}</div>
+      <div class="cu-media ${this.strobeKey(it) ? 'is-strobe' : ''} ${photo ? '' : 'empty'}">${photo ? `<img src="${photo}" alt="${this.strobeKey(it) ? TKD.esc(TKD.t('All five phases of the kick in one picture', 'مراحل الركلة الخمس في صورة واحدة')) : ''}" onerror="this.parentElement.classList.add('empty');this.remove()">` : ''}<span class="cu-soon">📷 ${TKD.t('Picture coming soon', 'الصورة قريبًا')}</span>${this.strobeKey(it) ? `<span class="cu-strobe-tag">🎞️ ${TKD.t('All 5 phases in one picture', 'المراحل الخمس في صورة واحدة')}</span>` : ''}</div>
       ${video ? `<video class="cu-video" controls playsinline preload="metadata" hidden src="${video}"${/-tutorial\.mp4$/.test(video) ? ` poster="${video.replace(/\.mp4$/, '.webp')}"` : ''} onloadedmetadata="this.hidden=false" onerror="this.remove()">${LearningSystem.captionTracks(video, TKD.gs()?.currentLanguage === 'ar')}</video>` : ''}
       <p class="cu-kind">${Curriculum.KINDS[it.kind].icon} ${TKD.esc(this.L(Curriculum.KINDS[it.kind].name))} · ${TKD.esc(this.L(belt.name))}</p>
       <h2>${TKD.esc(it.ko)} <span class="cu-hangul" lang="ko">${TKD.esc(it.hangul)}</span></h2>
       <p class="cu-sub">${TKD.esc(this.L(it.name))}${it.trigram ? ` · ${TKD.esc(it.trigram)}` : ''}${it.aka ? ` · <i>${TKD.esc(this.L(it.aka))}</i>` : ''}</p>
-      ${it.points.length ? `<h3>✅ ${TKD.t('Key points', 'أهم النقط')}</h3>${list(it.points, 'cu-points')}` : ''}
-      ${it.mistakes.length ? `<h3>⚠️ ${TKD.t('Watch out', 'خلي بالك')}</h3>${list(it.mistakes, 'cu-mistakes')}` : ''}
+      ${it.points.length ? `<h3>✅ ${TKD.t('Key points', 'أهم النقاط')}</h3>${list(it.points, 'cu-points')}` : ''}
+      ${it.mistakes.length ? `<h3>⚠️ ${TKD.t('Watch out', 'انتبه')}</h3>${list(it.mistakes, 'cu-mistakes')}` : ''}
       <div class="tkd-row cu-actions">
-        <button type="button" class="btn" data-a="say">🔊 ${TKD.t('Say it', 'اسمعها')}</button>
-        ${it.skillId ? `<button type="button" class="btn btn-primary" data-a="play">▶ ${TKD.t('Train it', 'اتمرن عليها')}</button>`
-                     : `<button type="button" class="btn ${ok ? 'btn-primary' : ''}" data-a="tick">${ok ? '✓ ' + TKD.t('Practised', 'اتمرنت عليها') : TKD.t('I practised this', 'اتمرنت عليها في النادي')}</button>`}
-        <button type="button" class="btn" data-a="close">${TKD.t('Close', 'اقفل')}</button>
+        <button type="button" class="btn" data-a="say">🔊 ${TKD.t('Say it', 'استمع إليها')}</button>
+        ${it.skillId ? `<button type="button" class="btn btn-primary" data-a="play">▶ ${TKD.t('Train it', 'تمرّن عليها')}</button>`
+                     : `<button type="button" class="btn ${ok ? 'btn-primary' : ''}" data-a="tick">${ok ? '✓ ' + TKD.t('Practised', 'تمرّنت عليها') : TKD.t('I practised this', 'تمرّنت عليها في النادي')}</button>`}
+        <button type="button" class="btn" data-a="close">${TKD.t('Close', 'إغلاق')}</button>
       </div></div>`;
     document.body.appendChild(ov);
     LearningSystem.wireCaptions(ov.querySelector('.cu-video'), TKD.gs()?.currentLanguage === 'ar', null);
@@ -17797,16 +17797,16 @@ const Review = {
   // what each topic means for a child, and how to fix it
   TOPICS: {
     phase:   { icon: '🦵', en: (s, i) => `${Review.phaseName(s, i, 'en')} in ${TKD.skillName(s)}`, ar: (s, i) => `${Review.phaseName(s, i, 'ar')} في ${TKD.skillName(s)}` },
-    surface: { icon: '🦶', en: s => `which part of the foot hits in ${TKD.skillName(s)}`, ar: s => `جزء الرجل اللي بيضرب في ${TKD.skillName(s)}` },
-    target:  { icon: '🎯', en: s => `the right targets for ${TKD.skillName(s)}`, ar: s => `الأهداف الصح لـ ${TKD.skillName(s)}` },
+    surface: { icon: '🦶', en: s => `which part of the foot hits in ${TKD.skillName(s)}`, ar: s => `جزء القدم الذي يضرب في ${TKD.skillName(s)}` },
+    target:  { icon: '🎯', en: s => `the right targets for ${TKD.skillName(s)}`, ar: s => `الأهداف الصحيحة لـ ${TKD.skillName(s)}` },
     pivot:   { icon: '🔄', en: s => `turning the standing foot in ${TKD.skillName(s)}`, ar: s => `لفّة قدم الارتكاز في ${TKD.skillName(s)}` },
     name:    { icon: '🗣️', en: s => `the Korean name of ${TKD.skillName(s)}`, ar: s => `الاسم الكوري لـ ${TKD.skillName(s)}` },
     timing:  { icon: '⏱️', en: s => `the timing of ${TKD.skillName(s)}`, ar: s => `توقيت ${TKD.skillName(s)}` },
     head:    { icon: '👀', en: s => `eyes on the target in ${TKD.skillName(s)}`, ar: s => `عينك على الهدف في ${TKD.skillName(s)}` },
-    knee:    { icon: '🦿', en: s => `a fully straight kicking knee in ${TKD.skillName(s)}`, ar: s => `فرد ركبة الركلة على الآخر في ${TKD.skillName(s)}` },
-    lean:    { icon: '🧍', en: s => `keeping the back upright in ${TKD.skillName(s)}`, ar: s => `ضهرك مفرود في ${TKD.skillName(s)}` },
+    knee:    { icon: '🦿', en: s => `a fully straight kicking knee in ${TKD.skillName(s)}`, ar: s => `فرد ركبة الركلة تمامًا في ${TKD.skillName(s)}` },
+    lean:    { icon: '🧍', en: s => `keeping the back upright in ${TKD.skillName(s)}`, ar: s => `ظهرك مستقيم في ${TKD.skillName(s)}` },
     heel:    { icon: '🦶', en: s => `a planted standing heel in ${TKD.skillName(s)}`, ar: s => `كعب قدم الارتكاز ثابت في ${TKD.skillName(s)}` },
-    guard:   { icon: '🛡️', en: s => `keeping the guard up in ${TKD.skillName(s)}`, ar: s => `إيديك مرفوعة للحماية في ${TKD.skillName(s)}` }
+    guard:   { icon: '🛡️', en: s => `keeping the guard up in ${TKD.skillName(s)}`, ar: s => `يداك مرفوعتان للحماية في ${TKD.skillName(s)}` }
   },
   phaseName(s, i, lang) {
     const ph = GameConfig.SKILLS[s]?.phases?.[i]; if (!ph) return '';
@@ -17883,9 +17883,9 @@ const Review = {
     const done = this.doneToday();
     const fix = this.fixFor(x.topic, x.skill, x.phase);
     return `<button type="button" class="hub-review ${done ? 'done' : ''}" id="hub-review">
-      <span class="hub-rv-k">${done ? '✅' : '🧠'} ${done ? TKD.t('Reviewed today — well done!', 'راجعت النهارده — برافو!') : TKD.t("Today's review", 'مراجعة النهارده')}</span>
+      <span class="hub-rv-k">${done ? '✅' : '🧠'} ${done ? TKD.t('Reviewed today — well done!', 'راجعت اليوم — أحسنت!') : TKD.t("Today's review", 'مراجعة اليوم')}</span>
       <span class="hub-rv-big">${TKD.esc(this.label(x))}</span>
-      <span class="hub-rv-s">${fix.kind === 'lesson' ? TKD.t('Open the lesson step →', 'افتح خطوة الدرس ←') : TKD.t(`Practise in ${TKD.gameName(fix.game)} →`, `اتمرّن في ${TKD.gameName(fix.game)} ←`)}</span>
+      <span class="hub-rv-s">${fix.kind === 'lesson' ? TKD.t('Open the lesson step →', 'افتح خطوة الدرس ←') : TKD.t(`Practise in ${TKD.gameName(fix.game)} →`, `تمرّن في ${TKD.gameName(fix.game)} ←`)}</span>
     </button>`;
   },
   bindCard() {
@@ -17926,7 +17926,7 @@ const Units = {
     // v63 (the coach): ONE numbered road — every game counts and they are played in this order,
     // each one opens the next (1 → 2 → 3 …) until the test
     { n: 1, icon: '👀', en: 'Know the kick', ar: 'اعرف الركلة', lesson: true, games: ['puzzle', 'phase-rhythm', 'form-control'] },
-    { n: 2, icon: '💪', en: 'Practise it', ar: 'اتمرن عليها', games: ['paddle-reflex', 'action', 'board-break', 'heavy-bag', 'balance-hold'] },
+    { n: 2, icon: '💪', en: 'Practise it', ar: 'تمرّن عليها', games: ['paddle-reflex', 'action', 'board-break', 'heavy-bag', 'balance-hold'] },
     { n: 3, icon: '🏆', en: 'The big challenge', ar: 'التحدي الكبير', test: true, games: ['sparring-duel', 'error-hunt', 'quiz-blast'] }
   ],
   ONLY: { 'error-hunt': 'apchagi' },                    // Mistake Hunter exists for Ap Chagi only
@@ -17982,12 +17982,12 @@ const Units = {
     const sk = gs.currentSkill, s = gs.skillGameScores?.[sk] || {};
     const u = this.unitOf(id); if (!u) return null;
     if (id === 'learning') return null;
-    if (!((s.learning || 0) > 0)) return TKD.t('🔒 Watch the lesson first', '🔒 اتفرج على الدرس الأول');
-    if (!this.open(s, u, sk)) return TKD.t(`🔒 Finish unit ${u - 1} first`, `🔒 خلّص الوحدة ${TKD.num(u - 1)} الأول`);
-    if (id === 'quiz' && !GameState.allGamesDone(s, sk)) return TKD.t('🔒 Finish all the games first', '🔒 خلّص كل الألعاب الأول');
+    if (!((s.learning || 0) > 0)) return TKD.t('🔒 Watch the lesson first', '🔒 شاهد الدرس أولًا');
+    if (!this.open(s, u, sk)) return TKD.t(`🔒 Finish unit ${u - 1} first`, `🔒 أنهِ الوحدة ${TKD.num(u - 1)} أولًا`);
+    if (id === 'quiz' && !GameState.allGamesDone(s, sk)) return TKD.t('🔒 Finish all the games first', '🔒 أنهِ كل الألعاب أولًا');
     if (id !== 'quiz' && !this.gameOpen(s, id, sk)) {
       const nx = this.nextOnRoad(s, sk), k = this.number(nx, sk);
-      return TKD.t(`🔒 Play game ${k} (${TKD.gameName(nx)}) first`, `🔒 العب لعبة رقم ${TKD.num(k)} (${TKD.gameName(nx)}) الأول`);
+      return TKD.t(`🔒 Play game ${k} (${TKD.gameName(nx)}) first`, `🔒 العب اللعبة رقم ${TKD.num(k)} (${TKD.gameName(nx)}) أولًا`);
     }
     return null;
   }
@@ -18050,11 +18050,11 @@ const Journey = {
     const st = [];
     if (u === 1) {
       st.push({ id: 'warmup', stage: 'warmup', icon: '🔥', en: 'Warm-up', ar: 'الإحماء', optional: true, done: sc('warmup') > 0, stars: sc('warmup') > 0 ? 3 : 0, go: () => switchScreen('warmup') });
-      st.push({ id: 'learning', stage: 'learning', icon: '🎓', en: 'Learn it', ar: 'اتعلمها', done: learnt, stars: learnt ? 3 : 0, go: () => switchScreen('learning') });
+      st.push({ id: 'learning', stage: 'learning', icon: '🎓', en: 'Learn it', ar: 'تعلّمها', done: learnt, stars: learnt ? 3 : 0, go: () => switchScreen('learning') });
     }
     Units.games(u, skillId).forEach(g => st.push(game(g)));
     if (u === 3) {
-      st.push({ id: 'boss', stage: 'games', icon: '🥊', en: 'Champion', ar: 'ماتش البطل', optional: true, needs: allGames,
+      st.push({ id: 'boss', stage: 'games', icon: '🥊', en: 'Champion', ar: 'مباراة البطل', optional: true, needs: allGames,
         done: !!window.Boss?.beaten(skillId), stars: window.Boss?.beaten(skillId) ? 3 : 0, go: () => window.Boss?.intro(skillId) });
       st.push({ id: 'quiz', stage: 'quiz', icon: '📝', en: 'The test', ar: 'الاختبار', done: GameState.quizPassed(s), stars: GameState.quizPassed(s) ? this.starsFor(sc('quiz')) : 0, go: () => switchScreen(allGames ? 'quiz' : 'games') });
       st.push({ id: 'chest', stage: 'chest', icon: complete ? '🏅' : '🎁', en: 'Treasure', ar: 'الكنز', done: complete, stars: 0, go: () => switchScreen('trophy-room') });
@@ -18087,16 +18087,16 @@ const Journey = {
     const skillId = this.skill(), st = this.steps(skillId, Units.current(this.scores(skillId), skillId));
     let now = st.find(x => x.state === 'now');
     if (!now) {                                                       // this kick is all done
-      if (t.done) return { icon: '🏆', label: TKD.t('See your trophies', 'شوف إنجازاتك'), step: 'done', stage: 'done', go: () => switchScreen('trophy-room') };
+      if (t.done) return { icon: '🏆', label: TKD.t('See your trophies', 'شاهد إنجازاتك'), step: 'done', stage: 'done', go: () => switchScreen('trophy-room') };
       const nk = t.skillId;
-      return { icon: '🦶', label: TKD.t(`On to ${TKD.skillName(nk)}!`, `يلا على ${TKD.skillName(nk)}!`), step: 'kick', stage: 'learning', skillId: nk,
+      return { icon: '🦶', label: TKD.t(`On to ${TKD.skillName(nk)}!`, `هيا إلى ${TKD.skillName(nk)}!`), step: 'kick', stage: 'learning', skillId: nk,
         go: () => { this.view = nk; gs.currentSkill = nk; gs.syncFlatProgressToCurrentSkill?.(); gs.saveToStorage?.(); switchScreen('learning'); } };
     }
     const name = TKD.skillName(skillId);
     const label = now.game ? TKD.t(`Play: ${TKD.gameName(now.game)}`, `العب: ${TKD.gameName(now.game)}`) : {
       warmup: TKD.t('Start the warm-up', 'ابدأ الإحماء'),
-      learning: TKD.t(`Learn ${name}`, `اتعلم ${name}`),
-      quiz: TKD.t(`Take the ${name} test`, `امتحن في ${name}`),
+      learning: TKD.t(`Learn ${name}`, `تعلّم ${name}`),
+      quiz: TKD.t(`Take the ${name} test`, `اختبار ${name}`),
       chest: TKD.t('Open the treasure', 'افتح الكنز')
     }[now.id];
     return { icon: now.icon, label, step: now.id, stage: now.stage, skillId, go: () => { gs.currentSkill = skillId; gs.syncFlatProgressToCurrentSkill?.(); gs.saveToStorage?.(); now.go(); } };
@@ -18180,16 +18180,16 @@ const Journey = {
       <header class="jr-head">
         <div class="jr-title"><b>🗺️ ${TKD.t(`${TKD.skillName(skillId)} adventure`, `مغامرة ${TKD.skillName(skillId)}`)}</b>
           <small>${window.Stages ? Stages.label(skillId) : TKD.t(`Kick ${ki + 1} of ${order.length}`, `الركلة ${TKD.num(ki + 1)} من ${TKD.num(order.length)}`)}</small></div>
-        <div class="jr-stars" title="${TKD.t('Stars on this map', 'نجوم الخريطة دي')}"><span class="jr-star-ico">⭐</span><b id="jr-star-n">${TKD.num(stars)}</b><small>/${TKD.num(max)}</small></div>
+        <div class="jr-stars" title="${TKD.t('Stars on this map', 'نجوم هذه الخريطة')}"><span class="jr-star-ico">⭐</span><b id="jr-star-n">${TKD.num(stars)}</b><small>/${TKD.num(max)}</small></div>
       </header>
       <ol class="jr-kicks jr-kicks-top" aria-label="${TKD.t('The kicks', 'الركلات')}">${kicks}</ol>
       ${(() => { const K = GameConfig.SKILLS[skillId], t = K?.technical; if (!t) return '';   // v60.3: the coach's facts for this kick
         const L = o => TKD.esc(TKD.ar ? o.ar : o.en);
         return `<div class="jr-kick-info"><p class="jki-name"><b>${TKD.ar ? `${L(K.name)} ${K.name.en}` : `${K.name.en} ${K.name.ar}`}</b> — ${L(K.description)}</p>
-          <p><b>${TKD.t('🎯 Striking part:', '🎯 الجزء اللي بيضرب:')}</b> ${L(t.strikingSurface)}</p>
+          <p><b>${TKD.t('🎯 Striking part:', '🎯 الجزء الذي يضرب:')}</b> ${L(t.strikingSurface)}</p>
           <p><b>${TKD.t('🥅 Target:', '🥅 الهدف:')}</b> ${L(t.target)}</p></div>`; })()}
-      <ol class="jr-units" aria-label="${TKD.t('The three units', 'الوحدات التلاتة')}">${units}</ol>
-      ${n ? `<button type="button" class="jr-go" id="jr-go"><span class="jr-go-ico">${n.icon}</span><span class="jr-go-txt"><b>${TKD.esc(n.label)}</b><small>${TKD.t('tap to start', 'دوس عشان تبدأ')}</small></span><span class="jr-go-arrow">${TKD.ar ? '←' : '→'}</span></button>` : ''}
+      <ol class="jr-units" aria-label="${TKD.t('The three units', 'الوحدات الثلاث')}">${units}</ol>
+      ${n ? `<button type="button" class="jr-go" id="jr-go"><span class="jr-go-ico">${n.icon}</span><span class="jr-go-txt"><b>${TKD.esc(n.label)}</b><small>${TKD.t('tap to start', 'اضغط لتبدأ')}</small></span><span class="jr-go-arrow">${TKD.ar ? '←' : '→'}</span></button>` : ''}
       <div class="jr-board" id="jr-board" style="--reach:${reach.toFixed(4)};aspect-ratio:${B.w} / ${B.h}">
         <svg class="jr-road" viewBox="0 0 ${B.w} ${B.h}" aria-hidden="true" focusable="false">
           <defs><linearGradient id="jr-fill" x1="0" x2="1"><stop offset="0" stop-color="#ffd166"/><stop offset="1" stop-color="#ff6b35"/></linearGradient></defs>
@@ -18200,7 +18200,7 @@ const Journey = {
         </svg>
         ${st.map((x, i) => `
         <div class="jr-step is-${x.state} ${x.id === 'chest' ? 'is-chest' : ''}" data-step="${x.id}" style="${pct(pts[i])};--i:${i}">
-          <button type="button" class="jr-dot" data-go="${x.id}" aria-label="${x.num ? TKD.num(x.num) + ' · ' : ''}${TKD.esc(TKD.ar ? x.ar : x.en)}${x.state === 'locked' ? ' — ' + TKD.t('locked', 'مقفول') : x.state === 'done' ? ' — ' + TKD.t('done', 'خلصت') : ''}">
+          <button type="button" class="jr-dot" data-go="${x.id}" aria-label="${x.num ? TKD.num(x.num) + ' · ' : ''}${TKD.esc(TKD.ar ? x.ar : x.en)}${x.state === 'locked' ? ' — ' + TKD.t('locked', 'مغلق') : x.state === 'done' ? ' — ' + TKD.t('done', 'انتهيت') : ''}">
             <span class="jr-ico">${x.state === 'locked' && x.id !== 'chest' ? '🔒' : x.icon}</span>
             ${x.state === 'done' && x.id !== 'chest' ? '<span class="jr-check" aria-hidden="true">✓</span>' : ''}
             ${x.num ? `<span class="jr-num" aria-hidden="true">${TKD.num(x.num)}</span>` : ''}
@@ -18211,8 +18211,8 @@ const Journey = {
         <div class="jr-sign${nextU ? ' is-unit' : ''}" style="${pct(pts[st.length])}" ${nextU ? `data-unit="${u + 1}"` : 'aria-hidden="true"'}>${nextU
           ? `<span>${nextUOpen ? nextU.icon : '🔒'}</span><small>${TKD.t(`Unit ${u + 1}`, `الوحدة ${TKD.num(u + 1)}`)}: ${TKD.esc(TKD.t(nextU.en, nextU.ar))}</small>`
           : nextKick
-          ? `<span>🔒</span><small>${TKD.t('Next', 'الجاية')}: ${TKD.esc(TKD.skillName(nextKick))}</small>`
-          : `<span>🥋</span><small>${TKD.t('Next belt!', 'الحزام الجاي!')}</small>`}</div>
+          ? `<span>🔒</span><small>${TKD.t('Next', 'التالية')}: ${TKD.esc(TKD.skillName(nextKick))}</small>`
+          : `<span>🥋</span><small>${TKD.t('Next belt!', 'الحزام التالي!')}</small>`}</div>
         <div class="jr-stage" id="jr-stage" style="${pct(this.stagePos(pts[nowI < 0 ? st.length - 1 : nowI]))}"></div>
       </div>
     </section>`;
@@ -18236,7 +18236,7 @@ const Journey = {
       const id = b.dataset.kick, gs = TKD.gs();
       if (!gs?.unlockedSkills?.has(id)) {
         const prev = GameConfig.SKILL_ORDER[GameConfig.SKILL_ORDER.indexOf(id) - 1];
-        TKD.toast(TKD.t(`Pass the ${TKD.skillName(prev)} test to open it 🔓`, `عدّي اختبار ${TKD.skillName(prev)} عشان تفتحها 🔓`), 'warning');
+        TKD.toast(TKD.t(`Pass the ${TKD.skillName(prev)} test to open it 🔓`, `انجح في اختبار ${TKD.skillName(prev)} لتفتحها 🔓`), 'warning');
         gs?.playSound('error'); return;
       }
       gs.playSound('click');
@@ -18246,7 +18246,7 @@ const Journey = {
     const pickUnit = (n) => {
       const sk = this.skill(), sc = this.scores(sk), gs = TKD.gs();
       if (!Units.open(sc, n, sk)) {
-        TKD.toast(TKD.t(`Finish unit ${n - 1} first 🔓`, `خلّص الوحدة ${TKD.num(n - 1)} الأول 🔓`), 'warning'); gs?.playSound('error'); return;
+        TKD.toast(TKD.t(`Finish unit ${n - 1} first 🔓`, `أنهِ الوحدة ${TKD.num(n - 1)} أولًا 🔓`), 'warning'); gs?.playSound('error'); return;
       }
       gs?.playSound('click'); this.unitView = { skill: sk, u: n }; this._noIntro = false; window.HomeHub?.render?.();
     };
@@ -18260,11 +18260,11 @@ const Journey = {
         box?.classList.remove('shake'); void box?.offsetWidth; box?.classList.add('shake');
         const u = this.unit(), sk = this.skill();
         TKD.toast(st.id === 'chest'
-          ? TKD.t('The treasure opens after the test 🎁', 'الكنز بيتفتح بعد الاختبار 🎁')
-          : !Units.open(this.scores(sk), u, sk) ? TKD.t(`Finish unit ${u - 1} first 😊`, `خلّص الوحدة ${TKD.num(u - 1)} الأول 😊`)
-          : st.id === 'quiz' ? TKD.t('The test opens after all the games 😊', 'الاختبار بيتفتح بعد ما تخلّص كل الألعاب 😊')
-          : !((this.scores(sk).learning || 0) > 0) ? TKD.t('Watch the lesson first 😊', 'اتفرج على الدرس الأول 😊')
-          : (() => { const nx = Units.nextOnRoad(this.scores(sk), sk); return TKD.t(`Play game ${Units.number(nx, sk)} first 😊`, `العب لعبة رقم ${TKD.num(Units.number(nx, sk))} الأول 😊`); })(), 'warning');
+          ? TKD.t('The treasure opens after the test 🎁', 'يُفتح الكنز بعد الاختبار 🎁')
+          : !Units.open(this.scores(sk), u, sk) ? TKD.t(`Finish unit ${u - 1} first 😊`, `أنهِ الوحدة ${TKD.num(u - 1)} أولًا 😊`)
+          : st.id === 'quiz' ? TKD.t('The test opens after all the games 😊', 'يُفتح الاختبار بعد أن تُنهي كل الألعاب 😊')
+          : !((this.scores(sk).learning || 0) > 0) ? TKD.t('Watch the lesson first 😊', 'شاهد الدرس أولًا 😊')
+          : (() => { const nx = Units.nextOnRoad(this.scores(sk), sk); return TKD.t(`Play game ${Units.number(nx, sk)} first 😊`, `العب اللعبة رقم ${TKD.num(Units.number(nx, sk))} أولًا 😊`); })(), 'warning');
         TKD.gs()?.playSound('error');
         return;
       }
@@ -18281,7 +18281,7 @@ const Journey = {
   // ------------------------------------------------------------------ "what now?" button used after a game / lesson / warm-up
   nextButtonHTML(id = 'jr-next-btn') {
     const n = this.next(); if (!n) return '';
-    return `<button type="button" class="btn btn-success jr-next" id="${id}">${n.icon} ${TKD.t('Next:', 'الخطوة الجاية:')} ${TKD.esc(n.label)} ${TKD.ar ? '←' : '→'}</button>`;
+    return `<button type="button" class="btn btn-success jr-next" id="${id}">${n.icon} ${TKD.t('Next:', 'الخطوة التالية:')} ${TKD.esc(n.label)} ${TKD.ar ? '←' : '→'}</button>`;
   },
   bindNextButton(id = 'jr-next-btn') {
     const b = document.getElementById(id); if (!b) return;
@@ -18304,8 +18304,8 @@ Object.assign(Journey, {
       <img class="jr-coach-img" src="${PoseShots.url('coach', 'coach')}" alt="">
       <div class="jr-coach-bubble">
         <b>${TKD.t('Hi! I am Coach Seif 👋', 'أهلًا! أنا كوتش سيف 👋')}</b>
-        <p>${TKD.t(`${p?.name || ''}, this is your map! Walk the road one station at a time, collect the stars ⭐ — and at the end there's a treasure 🎁.`, `يا ${p?.name || 'بطل'}، دي خريطتك! امشي على الطريق محطة محطة، واجمع النجوم ⭐، وفي الآخر فيه كنز مستنيك 🎁.`)}</p>
-        <button type="button" class="btn btn-success" data-a="go">${TKD.t("Let's go! 🚀", 'يلا بينا! 🚀')}</button>
+        <p>${TKD.t(`${p?.name || ''}, this is your map! Walk the road one station at a time, collect the stars ⭐ — and at the end there's a treasure 🎁.`, `يا ${p?.name || 'بطل'}، هذه خريطتك! سِر على الطريق محطةً محطة، واجمع النجوم ⭐، وفي النهاية كنز ينتظرك 🎁.`)}</p>
+        <button type="button" class="btn btn-success" data-a="go">${TKD.t("Let's go! 🚀", 'هيا بنا! 🚀')}</button>
       </div></div>`;
     anchor.after(box);
     // v43: the 3D Coach Seif bows hello in place of his picture (the picture stays if 3D is off)
@@ -18319,7 +18319,7 @@ Object.assign(Journey, {
     box.addEventListener('click', (e) => { if (e.target === box) close(); });          // tap outside the bubble
     const bye = (e) => { if (e.detail?.screenId !== 'home') { document.removeEventListener('tkd:screen', bye); close(); } };
     document.addEventListener('tkd:screen', bye);                                      // never left hanging
-    TKD.speak(TKD.t('This is your map. Walk the road and collect the stars!', 'دي خريطتك. امشي على الطريق واجمع النجوم!'));
+    TKD.speak(TKD.t('This is your map. Walk the road and collect the stars!', 'هذه خريطتك. سِر على الطريق واجمع النجوم!'));
     setTimeout(close, 14000);
   }
 });
@@ -18399,10 +18399,10 @@ Object.assign(Journey, {
     const box = document.createElement('div'); box.className = 'tkd-modal jr-unitdone';
     box.innerHTML = `<div class="tkd-modal-card jr-ud-card" role="dialog">
       <div class="jr-ud-big" aria-hidden="true">${U.icon} ${TKD.ar ? '←' : '→'} ${N.icon}</div>
-      <h2>🎉 ${TKD.t(`Unit ${n} done!`, `خلّصت الوحدة ${TKD.num(n)}!`)}</h2>
-      <p>${TKD.t(`You finished “${U.en}” for ${TKD.skillName(skillId)}.`, `خلّصت «${U.ar}» في ${TKD.skillName(skillId)}.`)}</p>
-      <p class="jr-ud-next">🔓 ${TKD.t(`Unit ${n + 1} is open: ${N.en}`, `الوحدة ${TKD.num(n + 1)} اتفتحت: ${N.ar}`)}</p>
-      <button type="button" class="btn btn-success" data-a="ok">${TKD.t("Let's see it! 🚀", 'يلا نشوفها! 🚀')}</button></div>`;
+      <h2>🎉 ${TKD.t(`Unit ${n} done!`, `أنهيت الوحدة ${TKD.num(n)}!`)}</h2>
+      <p>${TKD.t(`You finished “${U.en}” for ${TKD.skillName(skillId)}.`, `أنهيت «${U.ar}» في ${TKD.skillName(skillId)}.`)}</p>
+      <p class="jr-ud-next">🔓 ${TKD.t(`Unit ${n + 1} is open: ${N.en}`, `فُتحت الوحدة ${TKD.num(n + 1)}: ${N.ar}`)}</p>
+      <button type="button" class="btn btn-success" data-a="ok">${TKD.t("Let's see it! 🚀", 'هيا نشاهدها! 🚀')}</button></div>`;
     document.body.appendChild(box);
     window.AudioKit?.sfx('win', { gain: 0.55 });
     const go = () => { box.remove(); this.unitView = { skill: skillId, u: n + 1 }; window.HomeHub?.render?.(); };
@@ -18423,11 +18423,11 @@ Object.assign(Journey, {
     box.innerHTML = `<div class="jr-tr-card">
       <div class="jr-tr-rays" aria-hidden="true"></div>
       <div class="jr-tr-chest" aria-hidden="true"><span class="jr-tr-closed">🎁</span><span class="jr-tr-open">🏅</span></div>
-      <h3>${TKD.t(`You mastered ${TKD.skillName(skillId)}!`, `إنت كده قفلت ${TKD.skillName(skillId)}!`)}</h3>
-      <p>${TKD.t('The treasure is open — your medal is in the trophy room.', 'الكنز اتفتح — الميدالية بتاعتك في أوضة الإنجازات.')}</p>
-      ${gift ? `<p class="jr-tr-gift">🎁 ${TKD.t(`And a present: the ${gift.en} — you already have it on!`, `وكمان هدية: ${gift.ar} — لابسها دلوقتي!`)}</p>` : ''}
-      ${nextId ? `<p class="jr-tr-next">🦶 ${TKD.t('Next adventure', 'المغامرة الجاية')}: <b>${TKD.esc(TKD.skillName(nextId))}</b></p>` : ''}
-      <button type="button" class="btn btn-success" data-a="ok">${nextId ? TKD.t("On to the next kick! 🚀", 'يلا على الركلة الجاية! 🚀') : TKD.t('See my trophies 🏆', 'شوف إنجازاتي 🏆')}</button>
+      <h3>${TKD.t(`You mastered ${TKD.skillName(skillId)}!`, `لقد أنهيت ${TKD.skillName(skillId)}!`)}</h3>
+      <p>${TKD.t('The treasure is open — your medal is in the trophy room.', 'فُتح الكنز — ميداليتك في غرفة الإنجازات.')}</p>
+      ${gift ? `<p class="jr-tr-gift">🎁 ${TKD.t(`And a present: the ${gift.en} — you already have it on!`, `وأيضًا هدية: ${gift.ar} — ترتديها الآن!`)}</p>` : ''}
+      ${nextId ? `<p class="jr-tr-next">🦶 ${TKD.t('Next adventure', 'المغامرة التالية')}: <b>${TKD.esc(TKD.skillName(nextId))}</b></p>` : ''}
+      <button type="button" class="btn btn-success" data-a="ok">${nextId ? TKD.t("On to the next kick! 🚀", 'هيا إلى الركلة التالية! 🚀') : TKD.t('See my trophies 🏆', 'شاهد إنجازاتي 🏆')}</button>
     </div>`;
     document.body.appendChild(box);
     for (let i = 0; i < 18 && !this.reduced(); i++) {
@@ -18490,7 +18490,7 @@ const TabBar = {
     { id: 'play', icon: '🎮', en: 'Play', ar: 'العب', screens: ['games', 'form-control', 'puzzle', 'action', 'error-hunt', 'quiz-blast', 'board-break', 'paddle-reflex', 'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag', 'league', 'versus'],
       items: [
         { icon: '🎮', en: 'All games', ar: 'كل الألعاب', go: () => attemptStageNav('games'), hot: true },
-        { icon: '⚔️', en: 'Challenge a friend', ar: 'تحدّى صاحبك', go: () => switchScreen('versus') }
+        { icon: '⚔️', en: 'Challenge a friend', ar: 'تحدَّ صديقك', go: () => switchScreen('versus') }
       ] },
     { id: 'mine', icon: '🦸', en: 'My page', ar: 'صفحتي', screens: ['profile', 'trophy-room', 'players', 'character-change', 'winner'],
       direct: () => Profile.open() },
@@ -18570,7 +18570,7 @@ if (document.readyState === 'loading') document.addEventListener('DOMContentLoad
 // v28: on phones, long instructions fold to 2 lines with a "more" button
 const DescFold = {
   // v55: the label is worked out every time it is shown, so it follows a language switch
-  label(p) { return p.classList.contains('desc-fold') ? (TKD.ar ? 'اقرا الشرح كله ▾' : 'Read all ▾') : (TKD.ar ? 'أقل ▴' : 'Less ▴'); },
+  label(p) { return p.classList.contains('desc-fold') ? (TKD.ar ? 'اقرأ الشرح كاملًا ▾' : 'Read all ▾') : (TKD.ar ? 'أقل ▴' : 'Less ▴'); },
   relabel() {
     document.querySelectorAll('.desc-more').forEach(b => { const p = b.previousElementSibling; if (p) b.textContent = this.label(p); });
   },
@@ -18757,7 +18757,7 @@ const Music = {
     const on = this.enabled();
     b.classList.toggle('muted', !on);
     b.setAttribute('aria-pressed', String(on));
-    b.setAttribute('aria-label', on ? (TKD.ar ? 'اقفل المزيكا' : 'Music off') : (TKD.ar ? 'شغّل المزيكا' : 'Music on'));
+    b.setAttribute('aria-label', on ? (TKD.ar ? 'أوقف الموسيقى' : 'Music off') : (TKD.ar ? 'شغّل الموسيقى' : 'Music on'));
     b.innerHTML = on ? '🎵' : '<span style="opacity:.55">🎵</span>';
   },
   mount() {
@@ -18860,10 +18860,10 @@ const Voice = {
   },
   // short praise / cue lines that exist ONLY as recordings (never robotic TTS)
   CUES: {
-    bravo: { ar: 'برافو عليك!', en: 'Well done!' }, great: { ar: 'جامد جدًا!', en: 'Awesome!' }, again: { ar: 'قربت! جرّب تاني', en: 'So close — try again!' },
-    record: { ar: 'رقم قياسي جديد!', en: 'New personal record!' }, levelup: { ar: 'طلعت مستوى جديد!', en: 'You levelled up!' },
-    ready: { ar: 'استعد…', en: 'Get ready…' }, go: { ar: 'يلا!', en: 'Go!' }, kihap: { ar: 'كيهاب!', en: 'Kihap!' },
-    welcome: { ar: 'أهلًا بيك يا بطل!', en: 'Welcome, champion!' }, warmupDone: { ar: 'برافو، خلّصت الإحماء!', en: 'Warm-up done — great job!' },
+    bravo: { ar: 'أحسنت!', en: 'Well done!' }, great: { ar: 'رائع جدًا!', en: 'Awesome!' }, again: { ar: 'اقتربت! حاول مرة أخرى', en: 'So close — try again!' },
+    record: { ar: 'رقم قياسي جديد!', en: 'New personal record!' }, levelup: { ar: 'وصلت إلى مستوى جديد!', en: 'You levelled up!' },
+    ready: { ar: 'استعد…', en: 'Get ready…' }, go: { ar: 'هيا!', en: 'Go!' }, kihap: { ar: 'كيهاب!', en: 'Kihap!' },
+    welcome: { ar: 'أهلًا بك يا بطل!', en: 'Welcome, champion!' }, warmupDone: { ar: 'أحسنت، أنهيت الإحماء!', en: 'Warm-up done — great job!' },
     // v43: the dojang commands (record them in Coach → Record voice)
     charyeot: { ar: 'تشاريوت!', en: 'Charyeot!' }, gyeongnye: { ar: 'كيونجنيه!', en: 'Gyeongnye!' },
     junbi: { ar: 'جونبي!', en: 'Junbi!' }, sijak: { ar: 'شيجاك!', en: 'Shijak!' },
@@ -19102,11 +19102,11 @@ window.VoiceRecorder = VoiceRecorder;
 const ReadAloud = {
   key() { return `taekwondoJourneyReadAloud:${TKD.pid() || 'guest'}`; },
   auto() { return !!TKD.read(this.key(), false); },
-  setAuto(on) { TKD.write(this.key(), !!on); this.paintBtn(); if (on) this.say(TKD.t('I will read everything to you!', 'هقرالك كل حاجة!')); },
+  setAuto(on) { TKD.write(this.key(), !!on); this.paintBtn(); if (on) this.say(TKD.t('I will read everything to you!', 'سأقرأ لك كل شيء!')); },
   clean(s) { return String(s || '').replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, '').replace(/[\u{FE0F}\u{200D}\u{200B}\u{20E3}]/gu, '').replace(/\(\s*\)/g, '').replace(/\s+/g, ' ').trim(); },
   say(text, btn = null) {
     const t = this.clean(text); if (!t) return;
-    if (TKD.gs()?.soundEnabled === false) { TKD.toast(TKD.t('Sound is off — turn it on with 🔊 at the top', 'الصوت مقفول — شغّله من 🔊 اللي فوق'), 'info'); return; }
+    if (TKD.gs()?.soundEnabled === false) { TKD.toast(TKD.t('Sound is off — turn it on with 🔊 at the top', 'الصوت مغلق — شغّله من 🔊 في الأعلى'), 'info'); return; }
     btn?.classList.add('speaking');
     SpeechHelper.speak(t, TKD.ar ? 'ar-EG' : 'en-US', btn);
     if (btn) setTimeout(() => btn.classList.remove('speaking'), Math.min(9000, 900 + t.length * 70));
@@ -19115,7 +19115,7 @@ const ReadAloud = {
   screenText(screen) {
     const h = screen.querySelector('h2');
     const d = screen.querySelector('.description, .desc-fold .desc-full, .desc-fold');
-    return [h?.textContent, d?.textContent].filter(Boolean).map(x => this.clean(x).replace(/اقرا الشرح كله|Read all/g, '')).join('. ');
+    return [h?.textContent, d?.textContent].filter(Boolean).map(x => this.clean(x).replace(/اقرأ الشرح كاملًا|اقرا الشرح كله|Read all/g, '')).join('. ');
   },
   mountScreen(screen) {
     if (!screen || screen.id === 'home-screen' || screen.id === 'warmup-screen') return;
@@ -19123,7 +19123,7 @@ const ReadAloud = {
     if (box.querySelector(':scope > .say-fab')) return;
     const b = document.createElement('button');
     b.type = 'button'; b.className = 'say-fab';
-    b.setAttribute('aria-label', TKD.t('Read it to me', 'اقرالي'));
+    b.setAttribute('aria-label', TKD.t('Read it to me', 'اقرأ لي'));
     b.innerHTML = '<span aria-hidden="true">🔊</span>';
     b.addEventListener('click', (e) => { e.stopPropagation(); this.say(this.screenText(screen), b); });
     box.prepend(b);
@@ -19133,7 +19133,7 @@ const ReadAloud = {
       if (card.querySelector('.say-mini')) return;
       const b = document.createElement('button');
       b.type = 'button'; b.className = 'say-mini';
-      b.setAttribute('aria-label', TKD.t('What is this game?', 'اللعبة دي إيه؟'));
+      b.setAttribute('aria-label', TKD.t('What is this game?', 'ما هذه اللعبة؟'));
       b.innerHTML = '<span aria-hidden="true">🔊</span>';
       b.addEventListener('click', (e) => { e.stopPropagation(); e.preventDefault(); this.say(`${card.querySelector('h3')?.textContent || ''}. ${card.querySelector('p')?.textContent || ''}`, b); });
       card.appendChild(b);
@@ -19141,7 +19141,7 @@ const ReadAloud = {
   },
   quizText() {
     const q = document.getElementById('question-text')?.textContent || '';
-    const nums = TKD.ar ? ['واحد', 'اتنين', 'تلاتة', 'أربعة'] : ['one', 'two', 'three', 'four'];
+    const nums = TKD.ar ? ['واحد', 'اثنان', 'ثلاثة', 'أربعة'] : ['one', 'two', 'three', 'four'];
     // v55: "question. one. answer. two. answer…" — each piece on its own, so recorded pieces can be played (Voice.parts)
     const opts = [...document.querySelectorAll('.quiz-option')].map((o, i) => `${nums[i] || ''}. ${(o.querySelector('.option-text')?.textContent || '').trim().replace(/[.!؟?]*$/, '')}`);
     return `${q.trim().replace(/[.:]*$/, '')}. ${opts.join('. ')}.`;
@@ -19161,7 +19161,7 @@ const ReadAloud = {
     const on = this.auto();
     b.classList.toggle('muted', !on);
     b.setAttribute('aria-pressed', String(on));
-    b.setAttribute('aria-label', on ? TKD.t('Stop reading to me', 'بطّل تقرالي') : TKD.t('Read everything to me', 'اقرالي كل حاجة'));
+    b.setAttribute('aria-label', on ? TKD.t('Stop reading to me', 'توقّف عن القراءة') : TKD.t('Read everything to me', 'اقرأ لي كل شيء'));
     b.innerHTML = on ? '🗣️' : '<span style="opacity:.5">🗣️</span>';
   },
   init() {
@@ -19177,7 +19177,7 @@ const ReadAloud = {
         // quiz is handled entirely by the #question-text MutationObserver below
         // (it fires on the first question too) — reading it here as well would
         // speak the same question twice.
-        if (id === 'home') { const n = window.Journey?.next?.(); if (n) this.say(TKD.t(`Next: ${n.label}`, `الخطوة الجاية: ${n.label}`)); }
+        if (id === 'home') { const n = window.Journey?.next?.(); if (n) this.say(TKD.t(`Next: ${n.label}`, `الخطوة التالية: ${n.label}`)); }
         else if (id !== 'quiz' && id !== 'warmup') this.say(this.screenText(scr));
       }, 700);
     });
@@ -19217,44 +19217,44 @@ const Shop = {
   // above stays only so stars spent on one in an older version can be given back.
   HEADBANDS: [
     { id: 'hb-none', slot: 'headband', color: null, cost: 0, en: 'None', ar: 'بدون' },
-    { id: 'hb-red', slot: 'headband', color: '#e63946', cost: 8, en: 'Red headband', ar: 'عصابة حمرا' },
-    { id: 'hb-blue', slot: 'headband', color: '#3d7dff', cost: 8, en: 'Blue headband', ar: 'عصابة زرقا' },
-    { id: 'hb-green', slot: 'headband', color: '#2a9d8f', cost: 10, en: 'Green headband', ar: 'عصابة خضرا' },
-    { id: 'hb-purple', slot: 'headband', color: '#8e5cd9', cost: 12, en: 'Purple headband', ar: 'عصابة بنفسجي' },
-    { id: 'hb-pink', slot: 'headband', color: '#ff7fa6', cost: 12, en: 'Pink headband', ar: 'عصابة بمبي' },
-    { id: 'hb-black', slot: 'headband', color: '#1d2b36', cost: 15, en: 'Black headband', ar: 'عصابة سودا' },
-    { id: 'hb-gold', slot: 'headband', color: '#ffd166', cost: 20, en: 'Gold headband', ar: 'عصابة دهبي' }
+    { id: 'hb-red', slot: 'headband', color: '#e63946', cost: 8, en: 'Red headband', ar: 'عصابة حمراء' },
+    { id: 'hb-blue', slot: 'headband', color: '#3d7dff', cost: 8, en: 'Blue headband', ar: 'عصابة زرقاء' },
+    { id: 'hb-green', slot: 'headband', color: '#2a9d8f', cost: 10, en: 'Green headband', ar: 'عصابة خضراء' },
+    { id: 'hb-purple', slot: 'headband', color: '#8e5cd9', cost: 12, en: 'Purple headband', ar: 'عصابة بنفسجية' },
+    { id: 'hb-pink', slot: 'headband', color: '#ff7fa6', cost: 12, en: 'Pink headband', ar: 'عصابة وردية' },
+    { id: 'hb-black', slot: 'headband', color: '#1d2b36', cost: 15, en: 'Black headband', ar: 'عصابة سوداء' },
+    { id: 'hb-gold', slot: 'headband', color: '#ffd166', cost: 20, en: 'Gold headband', ar: 'عصابة ذهبية' }
   ],
   // the little things that fly around your fighter when you win
   PARTIES: [
     { id: 'party-classic', slot: 'party', icons: ['🎉', '✨', '⭐'], cost: 0, en: 'Classic', ar: 'العادي' },
     { id: 'party-stars', slot: 'party', icons: ['🌟', '💫', '⭐'], cost: 10, en: 'Shooting stars', ar: 'نجوم لامعة' },
     { id: 'party-fire', slot: 'party', icons: ['🔥', '💥', '⚡'], cost: 15, en: 'Fire power', ar: 'نار وطاقة' },
-    { id: 'party-flowers', slot: 'party', icons: ['🌸', '🌼', '🌷'], cost: 15, en: 'Flowers', ar: 'ورد' },
+    { id: 'party-flowers', slot: 'party', icons: ['🌸', '🌼', '🌷'], cost: 15, en: 'Flowers', ar: 'ورود' },
     { id: 'party-champion', slot: 'party', icons: ['🐉', '🏆', '🥇'], cost: 25, en: 'Champion', ar: 'البطل' }
   ],
   // the ring around your picture on the map and the player cards
   FRAMES: [
     { id: 'frame-none', slot: 'frame', color: null, cost: 0, en: 'None', ar: 'بدون' },
-    { id: 'frame-gold', slot: 'frame', color: '#ffd166', cost: 10, en: 'Gold frame', ar: 'إطار دهبي' },
+    { id: 'frame-gold', slot: 'frame', color: '#ffd166', cost: 10, en: 'Gold frame', ar: 'إطار ذهبي' },
     { id: 'frame-teal', slot: 'frame', color: '#2a9d8f', cost: 10, en: 'Teal frame', ar: 'إطار فيروزي' },
     { id: 'frame-red', slot: 'frame', color: '#e63946', cost: 10, en: 'Red frame', ar: 'إطار أحمر' },
     { id: 'frame-rainbow', slot: 'frame', color: 'rainbow', cost: 25, en: 'Rainbow frame', ar: 'إطار قوس قزح' }
   ],
   // v57.1: the dobok's collar — seen on the 3D fighter everywhere
   COLLARS: [
-    { id: 'col-black', slot: 'collar', color: '#1d1d22', cost: 0, en: 'Black collar', ar: 'ياقة سودا' },
-    { id: 'col-white', slot: 'collar', color: '#f4f6fa', cost: 6, en: 'White collar', ar: 'ياقة بيضا' },
-    { id: 'col-red', slot: 'collar', color: '#e63946', cost: 10, en: 'Red collar', ar: 'ياقة حمرا' },
-    { id: 'col-blue', slot: 'collar', color: '#3d7dff', cost: 10, en: 'Blue collar', ar: 'ياقة زرقا' },
-    { id: 'col-gold', slot: 'collar', color: '#ffd166', cost: 18, en: 'Gold collar', ar: 'ياقة دهبي' }
+    { id: 'col-black', slot: 'collar', color: '#1d1d22', cost: 0, en: 'Black collar', ar: 'ياقة سوداء' },
+    { id: 'col-white', slot: 'collar', color: '#f4f6fa', cost: 6, en: 'White collar', ar: 'ياقة بيضاء' },
+    { id: 'col-red', slot: 'collar', color: '#e63946', cost: 10, en: 'Red collar', ar: 'ياقة حمراء' },
+    { id: 'col-blue', slot: 'collar', color: '#3d7dff', cost: 10, en: 'Blue collar', ar: 'ياقة زرقاء' },
+    { id: 'col-gold', slot: 'collar', color: '#ffd166', cost: 18, en: 'Gold collar', ar: 'ياقة ذهبية' }
   ],
   // v57.1: what your fighter does on the win screen
   MOVES: [
-    { id: 'move-jump', slot: 'move', icon: '🙌', seq: ['win', 'bow', 'win', 'bounce'], cost: 0, en: 'Jump for joy', ar: 'نطّة الفرحة' },
+    { id: 'move-jump', slot: 'move', icon: '🙌', seq: ['win', 'bow', 'win', 'bounce'], cost: 0, en: 'Jump for joy', ar: 'قفزة الفرح' },
     { id: 'move-kick', slot: 'move', icon: '🦶', seq: ['KICK', 'win', 'bow', 'bounce'], cost: 12, en: 'Show-off kick', ar: 'ركلة استعراض' },
-    { id: 'move-double', slot: 'move', icon: '⚡', seq: ['KICK', 'KICK', 'win', 'bounce'], cost: 20, en: 'Double kick', ar: 'ركلتين ورا بعض' },
-    { id: 'move-bow', slot: 'move', icon: '🙇', seq: ['bow', 'win', 'win', 'bounce'], cost: 8, en: 'Respect first', ar: 'التحية الأول' }
+    { id: 'move-double', slot: 'move', icon: '⚡', seq: ['KICK', 'KICK', 'win', 'bounce'], cost: 20, en: 'Double kick', ar: 'ركلتان متتاليتان' },
+    { id: 'move-bow', slot: 'move', icon: '🙇', seq: ['bow', 'win', 'win', 'bounce'], cost: 8, en: 'Respect first', ar: 'التحية أولًا' }
   ],
   items() { return [...this.BELTS, ...this.HEADBANDS, ...this.COLLARS, ...this.MOVES, ...this.PARTIES, ...this.FRAMES]; },
   move(pid) { const d = this.data(pid); return this.find(d.equipped.move) || this.MOVES[0]; },
@@ -19273,7 +19273,7 @@ const Shop = {
       d.spent = Math.max(0, (d.spent || 0) - back);
       d.equipped.belt = 'belt-white';
       TKD.write(key, d);
-      setTimeout(() => TKD.toast(TKD.t(`⭐ ${back} stars are back in your pocket — in Taekwondo a belt is earned by training, not bought!`, `⭐ رجّعنالك ${back} نجمة — في التايكوندو الحزام بيتكسب بالتمرين، مش بيتشترى!`), 'info'), 900);
+      setTimeout(() => TKD.toast(TKD.t(`⭐ ${back} stars are back in your pocket — in Taekwondo a belt is earned by training, not bought!`, `⭐ أعدنا إليك ${back} نجمة — في التايكوندو يُكتسب الحزام بالتمرين، ولا يُشترى!`), 'info'), 900);
     }
     d.equipped.party = d.equipped.party || 'party-classic';
     d.equipped.frame = d.equipped.frame || 'frame-none';
@@ -19339,7 +19339,7 @@ const Shop = {
     const k = `taekwondoJourneyBelt3D:${TKD.pid() || 'guest'}`, seen = TKD.read(k, null);
     if (earned && seen !== earned.id) {
       TKD.write(k, earned.id);
-      if (seen !== null) setTimeout(() => TKD.toast(TKD.t(`🥋 Your character now wears the ${earned.name.en}!`, `🥋 شخصيتك لابسة دلوقتي ${earned.name.ar}!`), 'success'), 600);
+      if (seen !== null) setTimeout(() => TKD.toast(TKD.t(`🥋 Your character now wears the ${earned.name.en}!`, `🥋 شخصيتك ترتدي الآن ${earned.name.ar}!`), 'success'), 600);
     } else if (!earned && seen === null) TKD.write(k, '');
     return this._cos;
   },
@@ -19436,8 +19436,8 @@ const Shop = {
     return `<button type="button" class="shop-card ${on ? 'is-on' : ''}" data-buy="${item.id}">
       ${swatch}
       <b>${TKD.esc(label)}</b>
-      ${on ? `<small class="shop-tag shop-tag-on">${TKD.t('Wearing', 'شغّال دلوقتي')}</small>`
-        : owned ? `<small class="shop-tag">${TKD.t('Owned — tap to wear', 'عندك — دوس تلبسه')}</small>`
+      ${on ? `<small class="shop-tag shop-tag-on">${TKD.t('Wearing', 'مُفعَّل الآن')}</small>`
+        : owned ? `<small class="shop-tag">${TKD.t('Owned — tap to wear', 'تملكه — اضغط لترتديه')}</small>`
         : `<small class="shop-tag shop-tag-cost">⭐ ${TKD.num(item.cost)}</small>`}
     </button>`;
   },
@@ -19445,11 +19445,11 @@ const Shop = {
     const bal = this.balance();
     return `<div class="shop-modal" id="shop-modal">
       <div class="shop-card-sheet">
-        <button type="button" class="shop-close" aria-label="${TKD.t('Close', 'قفل')}">✕</button>
+        <button type="button" class="shop-close" aria-label="${TKD.t('Close', 'مغلق')}">✕</button>
         <h2>🛍️ ${TKD.t('Star Shop', 'متجر النجوم')}</h2>
-        <p class="shop-balance">⭐ <b>${TKD.num(bal)}</b> ${TKD.t('stars to spend', 'نجمة معاك')}</p>
-        <p class="shop-belt-note">🥋 ${TKD.t('Belts are not sold: these three kicks are white-belt techniques — every kick test you pass puts a stripe on your white belt.', 'الحزام مش بيتشترى: الركلات التلاتة دي من حركات الحزام الأبيض — وكل اختبار ركلة بتعدّيه بيحطلك شريطة على حزامك الأبيض.')}</p>
-        <h3>${TKD.t('Headband', 'عصابة الراس')}</h3>
+        <p class="shop-balance">⭐ <b>${TKD.num(bal)}</b> ${TKD.t('stars to spend', 'نجمة معك')}</p>
+        <p class="shop-belt-note">🥋 ${TKD.t('Belts are not sold: these three kicks are white-belt techniques — every kick test you pass puts a stripe on your white belt.', 'الحزام لا يُشترى: هذه الركلات الثلاث من حركات الحزام الأبيض — وكل اختبار ركلة تنجح فيه يضيف شريطًا إلى حزامك الأبيض.')}</p>
+        <h3>${TKD.t('Headband', 'عصابة الرأس')}</h3>
         <div class="shop-grid">${this.HEADBANDS.map(i => this.cardHTML(i)).join('')}</div>
         <h3>${TKD.t('Dobok collar', 'ياقة الدوبوك')}</h3>
         <div class="shop-grid">${this.COLLARS.map(i => this.cardHTML(i)).join('')}</div>
@@ -19486,7 +19486,7 @@ const Shop = {
         AudioKit?.sfx?.('star', { gain: 0.5 });
         TKD.toast(TKD.t(`Bought the ${TKD.t(item.en, item.ar)}!`, `اشتريت ${item.ar}!`), 'success');
       } else {
-        TKD.toast(TKD.t('Not enough stars yet — play more kicks!', 'مش معاك نجوم كفاية — كمّل لعب!'), 'info');
+        TKD.toast(TKD.t('Not enough stars yet — play more kicks!', 'لا تملك نجومًا كافية — واصل اللعب!'), 'info');
         return;
       }
       this.refresh();
@@ -19542,16 +19542,16 @@ const Mission = {
   CHEST: [4, 6, 8, 10],   // what the chest can hold (stars)
   ALL_BONUS: 5,           // all three missions done → this many extra stars in the chest
   POOL: {
-    warmup:  { icon: '🔥', en: 'Do the warm-up',               ar: 'اعمل الإحماء',                        n: 1, count: (a) => a.filter(x => x.gameId === 'warmup').length },
+    warmup:  { icon: '🔥', en: 'Do the warm-up',               ar: 'أدِّ الإحماء',                        n: 1, count: (a) => a.filter(x => x.gameId === 'warmup').length },
     play3:   { icon: '🎮', en: 'Play 3 games',                 ar: 'العب ٣ ألعاب',                        n: 3, count: (a) => a.filter(x => !['warmup', 'learning'].includes(x.gameId)).length },
     variety: { icon: '🌈', en: 'Play 3 different games',       ar: 'العب ٣ ألعاب مختلفة',                 n: 3, count: (a) => new Set(a.filter(x => !['warmup', 'learning'].includes(x.gameId)).map(x => x.gameId)).size },
-    stars3:  { icon: '⭐', en: 'Get ★★★ in a game',            ar: 'خد ★★★ في لعبة',                      n: 1, count: (a) => a.filter(x => x.gameId !== 'warmup' && x.score >= 90).length },
-    pass2:   { icon: '✅', en: 'Pass 2 games',                 ar: 'اعدّي لعبتين',                         n: 2, count: (a) => a.filter(x => x.passed && !['warmup', 'learning'].includes(x.gameId)).length },
-    strikes: { icon: '🦶', en: 'Land 20 good strikes',         ar: 'اعمل ٢٠ ضربة صح',                     n: 20, count: () => Juice.today() },
+    stars3:  { icon: '⭐', en: 'Get ★★★ in a game',            ar: 'احصل على ★★★ في لعبة',                      n: 1, count: (a) => a.filter(x => x.gameId !== 'warmup' && x.score >= 90).length },
+    pass2:   { icon: '✅', en: 'Pass 2 games',                 ar: 'انجح في لعبتين',                         n: 2, count: (a) => a.filter(x => x.passed && !['warmup', 'learning'].includes(x.gameId)).length },
+    strikes: { icon: '🦶', en: 'Land 20 good strikes',         ar: 'أدِّ ٢٠ ضربة صحيحة',                     n: 20, count: () => Juice.today() },
     lesson:  { icon: '🎓', en: 'Review a lesson',              ar: 'راجع درس',                             n: 1, count: (a) => a.filter(x => x.gameId === 'learning').length, alt: () => !!TKD.read(`taekwondoJourneyLessonDay:${TKD.pid()}`, null) && TKD.read(`taekwondoJourneyLessonDay:${TKD.pid()}`, null) === TKD.dayKey() },
     arena:   { icon: '🏟️', en: 'Play an arena game',           ar: 'العب لعبة من ألعاب الساحة',            n: 1, count: (a) => a.filter(x => ['board-break', 'paddle-reflex', 'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag'].includes(x.gameId)).length },
-    challenge: { icon: '🏆', en: "Play today's challenge",     ar: 'العب تحدي النهارده',                  n: 1, count: (a) => a.filter(x => x.meta?.challenge || x.meta?.challengePractice).length },
-    combo5:  { icon: '🔥', en: 'Make a ×5 combo',               ar: 'اعمل كومبو ×٥',                       n: 1, count: () => Juice.bestToday() >= 5 ? 1 : 0 }
+    challenge: { icon: '🏆', en: "Play today's challenge",     ar: 'العب تحدي اليوم',                  n: 1, count: (a) => a.filter(x => x.meta?.challenge || x.meta?.challengePractice).length },
+    combo5:  { icon: '🔥', en: 'Make a ×5 combo',               ar: 'حقّق كومبو ×٥',                       n: 1, count: () => Juice.bestToday() >= 5 ? 1 : 0 }
   },
   key() { return `taekwondoJourneyMission:${TKD.pid() || 'guest'}`; },
   data() {
@@ -19580,7 +19580,7 @@ const Mission = {
   check() {
     if (!TKD.pid()) return;
     const d = this.data(); let gained = 0;
-    this.list().forEach(m => { if (m.done && !d.got.includes(m.id)) { d.got.push(m.id); gained += this.PER; TKD.toast(TKD.t(`${m.q.icon} Mission done: ${m.q.en} — +${this.PER} ⭐`, `${m.q.icon} خلصت مهمة: ${m.q.ar} — +${TKD.count(this.PER, 'star', 'ar')}`), 'success'); } });
+    this.list().forEach(m => { if (m.done && !d.got.includes(m.id)) { d.got.push(m.id); gained += this.PER; TKD.toast(TKD.t(`${m.q.icon} Mission done: ${m.q.en} — +${this.PER} ⭐`, `${m.q.icon} أنهيت مهمة: ${m.q.ar} — +${TKD.count(this.PER, 'star', 'ar')}`), 'success'); } });
     if (gained) { d.bonusStars = (d.bonusStars || 0) + gained; this.save(d); window.AudioKit?.sfx('star', { gain: 0.6 }); this.mount(); }
   },
   // the gift chest: once a day; bigger when all three missions are done
@@ -19595,15 +19595,15 @@ const Mission = {
   html() {
     const gs = TKD.gs(), streak = gs?.practiceStreak || 0, shields = gs?.streakShields || 0;
     const L = this.list(), done = L.filter(m => m.done).length, d = this.data(), all = done === L.length;
-    return `<section class="daily-box" id="mission-box" aria-label="${TKD.t('Today', 'النهارده')}">
+    return `<section class="daily-box" id="mission-box" aria-label="${TKD.t('Today', 'اليوم')}">
       <div class="daily-top">
-        <span class="daily-streak" title="${TKD.t('Days in a row', 'أيام ورا بعض')}">🔥 <b>${TKD.num(streak)}</b><small>${TKD.t('days in a row', streak === 1 ? 'يوم' : 'أيام ورا بعض')}</small></span>
-        <span class="daily-shields" title="${TKD.t('Day shields: they save your streak if you miss one day', 'دروع اليوم: بتحافظ على السلسلة لو غبت يوم')}">${shields ? '🛡️'.repeat(shields) : '<i>🛡️</i>'}<small>${TKD.t(`next shield at ${Math.ceil((streak + 1) / 7) * 7} days`, `الدرع الجاي عند ${TKD.num(Math.ceil((streak + 1) / 7) * 7)} يوم`)}</small></span>
-        <button type="button" class="daily-chest ${d.chest ? 'is-open' : all ? 'is-big' : ''}" id="daily-chest" ${d.chest ? 'disabled' : ''} aria-label="${TKD.t("Today's gift", 'هدية النهارده')}">${d.chest ? '🎉' : '🎁'}<small>${d.chest ? TKD.t('opened', 'اتفتحت') : all ? TKD.t('open!', 'افتحها!') : TKD.t('gift', 'هدية')}</small></button>
+        <span class="daily-streak" title="${TKD.t('Days in a row', 'أيام متتالية')}">🔥 <b>${TKD.num(streak)}</b><small>${TKD.t('days in a row', streak === 1 ? 'يوم' : 'أيام متتالية')}</small></span>
+        <span class="daily-shields" title="${TKD.t('Day shields: they save your streak if you miss one day', 'دروع اليوم: تحافظ على السلسلة إذا غبت يومًا')}">${shields ? '🛡️'.repeat(shields) : '<i>🛡️</i>'}<small>${TKD.t(`next shield at ${Math.ceil((streak + 1) / 7) * 7} days`, `الدرع التالي عند ${TKD.num(Math.ceil((streak + 1) / 7) * 7)} يوم`)}</small></span>
+        <button type="button" class="daily-chest ${d.chest ? 'is-open' : all ? 'is-big' : ''}" id="daily-chest" ${d.chest ? 'disabled' : ''} aria-label="${TKD.t("Today's gift", 'هدية اليوم')}">${d.chest ? '🎉' : '🎁'}<small>${d.chest ? TKD.t('opened', 'فُتحت') : all ? TKD.t('open!', 'افتحها!') : TKD.t('gift', 'هدية')}</small></button>
       </div>
       <ul class="daily-list">${L.map(m => `<li class="${m.done ? 'done' : ''}"><span class="dq-ico">${m.done ? '✅' : m.q.icon}</span><span class="dq-txt">${TKD.t(m.q.en, m.q.ar)}</span>
         <span class="dq-bar"><i style="width:${Math.round(m.n / m.q.n * 100)}%"></i></span><span class="dq-n">${m.q.n > 1 ? `${TKD.num(m.n)}/${TKD.num(m.q.n)}` : ''} ⭐${TKD.num(this.PER)}</span></li>`).join('')}</ul>
-      ${!d.chest && !all ? `<p class="daily-hint">${TKD.t('Finish all 3 for a bigger gift!', 'خلّص التلاتة عشان الهدية تكبر!')}</p>` : ''}
+      ${!d.chest && !all ? `<p class="daily-hint">${TKD.t('Finish all 3 for a bigger gift!', 'أنهِ المهام الثلاث لتكبر الهدية!')}</p>` : ''}
     </section>`;
   },
   mount() {
@@ -19617,7 +19617,7 @@ const Mission = {
       const b = e.currentTarget; b.classList.add('pop');
       window.AudioKit?.sfx('win', { gain: 0.5 });
       Juice.burstAt(b.getBoundingClientRect(), 26);
-      setTimeout(() => { TKD.toast(TKD.t(`🎁 +${n} stars! Spend them in the Star Shop.`, `🎁 +${TKD.count(n, 'star', 'ar')}! اصرفهم في متجر النجوم.`), 'success'); this.mount(); }, 450);
+      setTimeout(() => { TKD.toast(TKD.t(`🎁 +${n} stars! Spend them in the Star Shop.`, `🎁 +${TKD.count(n, 'star', 'ar')}! اصرفها في متجر النجوم.`), 'success'); this.mount(); }, 450);
     });
   },
   init() {
@@ -19687,7 +19687,7 @@ const Juice = {
   },
   comboBadge() {
     const c = this.combo; if (c < 3) return;
-    const names = c >= 8 ? ['Master! 🥋', 'مايسترو! 🥋'] : c >= 5 ? ['On fire! 🔥', 'نار! 🔥'] : ['Double! ⚡', 'مزدوج! ⚡'];
+    const names = c >= 8 ? ['Master! 🥋', 'مايسترو! 🥋'] : c >= 5 ? ['On fire! 🔥', 'نار! 🔥'] : ['Double! ⚡', 'مزدوجة! ⚡'];
     let b = document.getElementById('jz-combo');
     if (!b) { b = document.createElement('div'); b.id = 'jz-combo'; this.layer().appendChild(b); }
     b.innerHTML = `<span>×${TKD.num(c)}</span>${TKD.t(names[0], names[1])}`;
@@ -19711,7 +19711,7 @@ const Juice = {
       else if (this.combo >= 2) this.word(`+${TKD.num(this.combo)}`, p.x, p.y);
       this.comboBadge();
     } else if (type === 'error') {
-      if (this.combo >= 3) this.word(TKD.t('Combo lost', 'الكومبو راح'), p.x, p.y, 'lost');
+      if (this.combo >= 3) this.word(TKD.t('Combo lost', 'انقطع الكومبو'), p.x, p.y, 'lost');
       this.combo = 0; this.note(false);
       if (!this.calm()) { const el = document.querySelector('.screen.active .game-container'); el?.classList.remove('jz-wobble'); void el?.offsetWidth; el?.classList.add('jz-wobble'); setTimeout(() => el?.classList.remove('jz-wobble'), 420); }
     } else if (type === 'win') this.combo = 0;
@@ -19740,11 +19740,11 @@ const Variety = {
   after(gameId) {
     if (['warmup', 'learning', 'quiz'].includes(gameId)) return;
     const d = TKD.read(this.key(), { last: [], offer: null });
-    if (d.offer && d.offer !== gameId) { Mission.give(1); d.offer = null; setTimeout(() => TKD.toast(TKD.t('🌈 Something new — +1 ⭐', '🌈 جربت حاجة جديدة — +١ ⭐'), 'success'), 2200); }
+    if (d.offer && d.offer !== gameId) { Mission.give(1); d.offer = null; setTimeout(() => TKD.toast(TKD.t('🌈 Something new — +1 ⭐', '🌈 جرّبت شيئًا جديدًا — +١ ⭐'), 'success'), 2200); }
     d.last = [...d.last, gameId].slice(-3);
     if (d.last.length === 3 && d.last.every(x => x === gameId) && !d.offer) {
       d.offer = gameId;
-      setTimeout(() => TKD.toast(TKD.t('🌟 You are a pro at this one! Try another game — it gives you +1 ⭐', '🌟 إنت بقيت محترف في اللعبة دي! جرّب لعبة تانية — هتاخد +١ ⭐'), 'info'), 3000);
+      setTimeout(() => TKD.toast(TKD.t('🌟 You are a pro at this one! Try another game — it gives you +1 ⭐', '🌟 أصبحت محترفًا في هذه اللعبة! جرّب لعبة أخرى — ستحصل على +١ ⭐'), 'info'), 3000);
     }
     TKD.write(this.key(), d);
   }
@@ -19829,8 +19829,8 @@ function showUpdateBanner() {
   if (!banner || banner.dataset.shown) return;
   banner.dataset.shown = '1';
   const ar = (typeof TKD !== 'undefined' && TKD.ar) || (typeof GameStateInstance !== 'undefined' && GameStateInstance.currentLanguage === 'ar');
-  text.textContent = ar ? '🎉 فيه نسخة جديدة من اللعبة جاهزة!' : '🎉 A new version of the game is ready!';
-  document.getElementById('sw-update-refresh').textContent = ar ? 'حدّث دلوقتي' : 'Refresh now';
+  text.textContent = ar ? '🎉 توجد نسخة جديدة من اللعبة جاهزة!' : '🎉 A new version of the game is ready!';
+  document.getElementById('sw-update-refresh').textContent = ar ? 'حدّث الآن' : 'Refresh now';
   banner.classList.remove('hidden');
 }
 document.addEventListener('DOMContentLoaded', () => {
@@ -19861,7 +19861,7 @@ const Hearts = {
     const max = this.max(), n = Math.max(0, Math.min(max, left));
     const lost = box.dataset.n !== undefined && n < +box.dataset.n;
     box.dataset.n = n;
-    box.setAttribute('aria-label', TKD.t(`${n} of ${max} chances left`, `فاضل ${TKD.num(n)} من ${TKD.num(max)} فرص`));
+    box.setAttribute('aria-label', TKD.t(`${n} of ${max} chances left`, `تبقّى ${TKD.num(n)} من ${TKD.num(max)} فرص`));
     box.innerHTML = `<span class="th-lbl">${TKD.t('Chances', 'الفرص')}</span>` +
       Array.from({ length: max }, (_, i) => `<i class="${i < n ? 'on' : 'off'}${lost && i === n ? ' lose' : ''}">${i < n ? '❤️' : '🤍'}</i>`).join('');
   },
@@ -19874,12 +19874,12 @@ const Hearts = {
     const card = document.createElement('div'); card.className = 'tkd-outcard'; card.setAttribute('role', 'dialog');
     card.innerHTML = `<div class="toc-inner">
       <div class="toc-big">💔</div>
-      <h3>${TKD.t('Out of chances!', 'خلصت الفرص!')}</h3>
-      <p class="toc-score">${TKD.t('Your score', 'السكور بتاعك')}: <b>${TKD.num(score)}%</b></p>
-      <p>${TKD.t(`You need ${PASS}% to pass this game — you can do it!`, `محتاج ${TKD.num(PASS)}% عشان تعدّي اللعبة دي — إنت قدها!`)}</p>
+      <h3>${TKD.t('Out of chances!', 'انتهت الفرص!')}</h3>
+      <p class="toc-score">${TKD.t('Your score', 'نتيجتك')}: <b>${TKD.num(score)}%</b></p>
+      <p>${TKD.t(`You need ${PASS}% to pass this game — you can do it!`, `تحتاج إلى ${TKD.num(PASS)}% لتنجح في هذه اللعبة — أنت قادر على ذلك!`)}</p>
       <div class="toc-btns">
-        <button type="button" class="btn btn-success" data-a="again">🔁 ${TKD.t('Try again', 'جرّب تاني')}</button>
-        <button type="button" class="btn" data-a="lesson">🎓 ${TKD.t('Look at the lesson', 'بص على الدرس')}</button>
+        <button type="button" class="btn btn-success" data-a="again">🔁 ${TKD.t('Try again', 'حاول مرة أخرى')}</button>
+        <button type="button" class="btn" data-a="lesson">🎓 ${TKD.t('Look at the lesson', 'انظر إلى الدرس')}</button>
       </div></div>`;
     scr.appendChild(card);
     card.querySelector('[data-a="again"]').addEventListener('click', () => { card.remove(); gs?.playSound('click'); retry(); });
@@ -19913,7 +19913,7 @@ const BonusFold = {
       btn.addEventListener('click', () => { TKD.write(this.key(), true); gs?.playSound('click'); this.apply(); });
       grid.before(btn);
     }
-    btn.innerHTML = `🎯 ${TKD.t(`${n} extra games`, `${TKD.num(n)} ألعاب زيادة`)} <small>${TKD.t(`Try the ${core.length} main games first (${coreTried}/${core.length}) — or`, `جرّب الألعاب الأساسية الأول (${TKD.num(coreTried)}/${TKD.num(core.length)}) — أو`)}</small> <b>${TKD.t('show them', 'وريني')} ▾</b>`;
+    btn.innerHTML = `🎯 ${TKD.t(`${n} extra games`, `${TKD.num(n)} ألعاب إضافية`)} <small>${TKD.t(`Try the ${core.length} main games first (${coreTried}/${core.length}) — or`, `جرّب الألعاب الأساسية أولًا (${TKD.num(coreTried)}/${TKD.num(core.length)}) — أو`)}</small> <b>${TKD.t('show them', 'أرِني')} ▾</b>`;
   }
 };
 document.addEventListener('tkd:screen', (e) => { if (e.detail?.screenId === 'games') setTimeout(() => BonusFold.apply(), 30); });
@@ -19954,24 +19954,24 @@ const RealPractice = {
     const ov = document.getElementById('rp-modal'); if (!ov) return;
     const n = this.count[this.side], done = this.count.right >= this.GOAL && this.count.left >= this.GOAL;
     ov.innerHTML = `<div class="rp-card">
-      <button type="button" class="rp-x" data-a="close" aria-label="${this.t('Close', 'قفل')}">✕</button>
-      <h3>🥋 ${this.t('Train for real', 'اتمرّن بجد')} — ${TKD.esc(TKD.skillName(this.skill))}</h3>
-      <p class="rp-sub">${done ? this.t('Both legs done — you are a real fighter! 🏆', 'خلّصت الرجلين — إنت بطل بجد! 🏆')
-        : this.t(`Stand up, make some room, and do ${this.GOAL} real kicks with your ${this.side === 'right' ? 'RIGHT' : 'LEFT'} leg — like the fighter.`, `قوم اقف، وفضّي مكان حواليك، واعمل ${TKD.count(this.GOAL, 'kick', 'ar')} بجد برجلك ${this.side === 'right' ? 'اليمين' : 'الشمال'} زي اللاعب.`)}</p>
+      <button type="button" class="rp-x" data-a="close" aria-label="${this.t('Close', 'إغلاق')}">✕</button>
+      <h3>🥋 ${this.t('Train for real', 'تمرّن بجدية')} — ${TKD.esc(TKD.skillName(this.skill))}</h3>
+      <p class="rp-sub">${done ? this.t('Both legs done — you are a real fighter! 🏆', 'أنهيت الرجلين — أنت بطل حقًّا! 🏆')
+        : this.t(`Stand up, make some room, and do ${this.GOAL} real kicks with your ${this.side === 'right' ? 'RIGHT' : 'LEFT'} leg — like the fighter.`, `قف، وأفسح مكانًا حولك، وأدِّ ${TKD.count(this.GOAL, 'kick', 'ar')} حقيقية برجلك ${this.side === 'right' ? 'اليمنى' : 'اليسرى'} مثل اللاعب.`)}</p>
       <div class="rp-stage">
         <canvas class="rp-cv" id="rp-cv" aria-hidden="true"></canvas>
         <video class="rp-cam" id="rp-cam" playsinline muted ${this._cam ? '' : 'hidden'}></video>
       </div>
       <div class="rp-count" aria-live="polite"><b>${TKD.num(n)}</b><span>/ ${TKD.num(this.GOAL)}</span>
-        <small>${this.side === 'right' ? this.t('right leg', 'الرجل اليمين') : this.t('left leg', 'الرجل الشمال')}</small></div>
+        <small>${this.side === 'right' ? this.t('right leg', 'الرجل اليمنى') : this.t('left leg', 'الرجل اليسرى')}</small></div>
       <div class="rp-meter" id="rp-meter" ${this._mic ? '' : 'hidden'}><i id="rp-level"></i></div>
       <div class="rp-btns">
-        ${done ? `<button type="button" class="btn btn-success" data-a="close">✓ ${this.t('Done', 'تمام')}</button>`
-          : `<button type="button" class="btn btn-success rp-kick" data-a="kick">🦶 ${this.t('I did a kick!', 'عملت ركلة!')}</button>`}
-        <button type="button" class="btn ${this._mic ? 'on' : ''}" data-a="mic">🎤 ${this._mic ? this.t('Kihap counting is ON', 'العدّ بالكيهاب شغّال') : this.t('Count with my Kihap!', 'عدّ بصوت الكيهاب!')}</button>
-        <button type="button" class="btn ${this._cam ? 'on' : ''}" data-a="cam">🪞 ${this._cam ? this.t('Hide the mirror', 'اقفل المراية') : this.t('Mirror (camera)', 'المراية (الكاميرا)')}</button>
+        ${done ? `<button type="button" class="btn btn-success" data-a="close">✓ ${this.t('Done', 'حسنًا')}</button>`
+          : `<button type="button" class="btn btn-success rp-kick" data-a="kick">🦶 ${this.t('I did a kick!', 'أدّيت ركلة!')}</button>`}
+        <button type="button" class="btn ${this._mic ? 'on' : ''}" data-a="mic">🎤 ${this._mic ? this.t('Kihap counting is ON', 'العدّ بالكيهاب يعمل') : this.t('Count with my Kihap!', 'عُدّ بصوت الكيهاب!')}</button>
+        <button type="button" class="btn ${this._cam ? 'on' : ''}" data-a="cam">🪞 ${this._cam ? this.t('Hide the mirror', 'أغلق المرآة') : this.t('Mirror (camera)', 'المرآة (الكاميرا)')}</button>
       </div>
-      <p class="rp-note">🔒 ${this.t('The camera and microphone stay on this device — nothing is recorded or sent.', 'الكاميرا والمايك بيفضلوا على الجهاز ده — مفيش حاجة بتتسجل ولا بتتبعت.')}</p>
+      <p class="rp-note">🔒 ${this.t('The camera and microphone stay on this device — nothing is recorded or sent.', 'تبقى الكاميرا والميكروفون على هذا الجهاز — لا شيء يُسجَّل أو يُرسَل.')}</p>
     </div>`;
     ov.querySelectorAll('[data-a]').forEach(b => b.addEventListener('click', () => this.act(b.dataset.a)));
     if (this._cam && this._stream) { const v = document.getElementById('rp-cam'); if (v) { v.srcObject = this._stream; v.play().catch(() => {}); } }
@@ -19991,7 +19991,7 @@ const RealPractice = {
     try { navigator.vibrate?.(30); } catch (e) {}
     this._flash = performance.now();
     if (this.count[this.side] >= this.GOAL) {
-      if (this.side === 'right') { this.side = 'left'; TKD.toast(this.t('Great! Now the LEFT leg 🦵', 'جامد! دلوقتي بالرجل الشمال 🦵'), 'success'); window.Voice?.cue('great'); }
+      if (this.side === 'right') { this.side = 'left'; TKD.toast(this.t('Great! Now the LEFT leg 🦵', 'رائع! الآن بالرجل اليسرى 🦵'), 'success'); window.Voice?.cue('great'); }
       else { gs?.playSound('win'); window.Voice?.cue('bravo'); this.stopMic(); }
     }
     this.render();
@@ -20027,7 +20027,7 @@ const RealPractice = {
   },
   // ---- Kihap counting: a loud shout = one kick (with a short pause so one shout counts once)
   async startMic() {
-    if (!navigator.mediaDevices?.getUserMedia) { TKD.toast(this.t('This device has no microphone access.', 'الجهاز ده مش بيدّي إذن للمايك.'), 'warning'); return; }
+    if (!navigator.mediaDevices?.getUserMedia) { TKD.toast(this.t('This device has no microphone access.', 'هذا الجهاز لا يسمح باستخدام الميكروفون.'), 'warning'); return; }
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false } });
       const AC = window.AudioContext || window.webkitAudioContext; const ac = new AC();
@@ -20047,7 +20047,7 @@ const RealPractice = {
       requestAnimationFrame(tick);
       this.render();
       TKD.toast(this.t('Shout "Kihap!" with every kick 🔊', 'اصرخ «كيهاب!» مع كل ركلة 🔊'), 'info');
-    } catch (e) { TKD.toast(this.t('The microphone was not allowed — use the button instead.', 'المايك ماتسمحش — استخدم الزرار بدله.'), 'warning'); }
+    } catch (e) { TKD.toast(this.t('The microphone was not allowed — use the button instead.', 'لم يُسمح بالميكروفون — استخدم الزر بدلًا منه.'), 'warning'); }
   },
   stopMic() {
     if (!this._mic) return;
@@ -20057,11 +20057,11 @@ const RealPractice = {
   },
   // ---- the mirror: the child's own (front) camera, flipped like a real mirror
   async startCam() {
-    if (!navigator.mediaDevices?.getUserMedia) { TKD.toast(this.t('This device has no camera access.', 'الجهاز ده مش بيدّي إذن للكاميرا.'), 'warning'); return; }
+    if (!navigator.mediaDevices?.getUserMedia) { TKD.toast(this.t('This device has no camera access.', 'هذا الجهاز لا يسمح باستخدام الكاميرا.'), 'warning'); return; }
     try {
       this._stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' }, audio: false });
       this._cam = true; this.render();
-    } catch (e) { TKD.toast(this.t('The camera was not allowed.', 'الكاميرا ماتسمحتش.'), 'warning'); }
+    } catch (e) { TKD.toast(this.t('The camera was not allowed.', 'لم يُسمح بالكاميرا.'), 'warning'); }
   },
   stopCam() {
     try { this._stream?.getTracks().forEach(t => t.stop()); } catch (e) {}
@@ -20075,9 +20075,9 @@ document.addEventListener('tkd:screen', (e) => {
   if (e.detail?.screenId !== 'skill-menu' && e.detail?.screenId !== 'learning') return;
   setTimeout(() => {
     const host = e.detail.screenId === 'skill-menu' ? document.querySelector('#skill-menu-screen .game-container') : document.querySelector('#learning-screen .game-container');
-    if (!host || host.querySelector('.rp-open')) { host?.querySelectorAll('.rp-open').forEach(b => { b.textContent = `🥋 ${TKD.t('Train for real — kick in the room!', 'اتمرّن بجد — اركل في الأوضة!')}`; }); return; }
+    if (!host || host.querySelector('.rp-open')) { host?.querySelectorAll('.rp-open').forEach(b => { b.textContent = `🥋 ${TKD.t('Train for real — kick in the room!', 'تمرّن بجدية — اركل في الغرفة!')}`; }); return; }
     const b = document.createElement('button'); b.type = 'button'; b.className = 'btn rp-open';
-    b.textContent = `🥋 ${TKD.t('Train for real — kick in the room!', 'اتمرّن بجد — اركل في الأوضة!')}`;
+    b.textContent = `🥋 ${TKD.t('Train for real — kick in the room!', 'تمرّن بجدية — اركل في الغرفة!')}`;
     b.addEventListener('click', () => RealPractice.open(TKD.gs()?.currentSkill));
     const back = host.querySelector(':scope > .center-buttons, :scope > .btn.back-btn, :scope > .game-controls');
     if (back) back.before(b); else host.appendChild(b);
@@ -20104,9 +20104,9 @@ const BreakReminder = {
     if (document.getElementById('break-modal') || document.getElementById('rp-modal')) return;
     const ov = document.createElement('div'); ov.className = 'tkd-modal'; ov.id = 'break-modal';
     ov.innerHTML = `<div class="tkd-modal-card break-card"><div class="break-emoji">🧘💧🦵</div>
-      <h3>${TKD.t('Time for a little break!', 'وقت راحة صغيرة!')}</h3>
-      <p>${TKD.t('You have been playing for 20 minutes. Stand up, drink some water, and do 10 real kicks.', 'بقالك ٢٠ دقيقة بتلعب. قوم اقف، اشرب مية، واعمل ١٠ ركلات بجد.')}</p>
-      <div class="tkd-row"><button type="button" class="btn" data-a="ok">${TKD.t('OK!', 'تمام!')}</button><button type="button" class="btn btn-success" data-a="kick">🥋 ${TKD.t('Kick with me', 'اركل معايا')}</button></div></div>`;
+      <h3>${TKD.t('Time for a little break!', 'وقت استراحة قصيرة!')}</h3>
+      <p>${TKD.t('You have been playing for 20 minutes. Stand up, drink some water, and do 10 real kicks.', 'تلعب منذ ٢٠ دقيقة. قف، واشرب ماء، وأدِّ ١٠ ركلات حقيقية.')}</p>
+      <div class="tkd-row"><button type="button" class="btn" data-a="ok">${TKD.t('OK!', 'حسنًا!')}</button><button type="button" class="btn btn-success" data-a="kick">🥋 ${TKD.t('Kick with me', 'اركل معي')}</button></div></div>`;
     document.body.appendChild(ov);
     ov.querySelector('[data-a="ok"]').addEventListener('click', () => ov.remove());
     ov.querySelector('[data-a="kick"]').addEventListener('click', () => { ov.remove(); RealPractice.open(TKD.gs()?.currentSkill); });
@@ -20157,23 +20157,23 @@ const Club = {
   // human words for what went wrong
   why(code) {
     const m = {
-      'bad-code': ['That club code does not exist — check the letters.', 'كود النادي ده مش موجود — راجع الحروف.'],
-      timeout: ['No answer from the server — is there internet?', 'السيرفر مش بيرد — فيه نت؟'],
-      unavailable: ['No internet right now — it will sync when the signal is back.', 'مفيش نت دلوقتي — هيتزامن لما النت يرجع.'],
-      'permission-denied': ['Not allowed — this device may have been removed from the club.', 'مش مسموح — يمكن الجهاز ده اتشال من النادي.'],
-      'wrong-coach-code': ['That recovery code is not right.', 'كود الاسترجاع ده مش مظبوط.'],
-      removed: ['This device was removed from the club by the coach.', 'المدرب شال الجهاز ده من النادي.'],
+      'bad-code': ['That club code does not exist — check the letters.', 'رمز النادي هذا غير موجود — راجع الحروف.'],
+      timeout: ['No answer from the server — is there internet?', 'الخادم لا يستجيب — هل يوجد اتصال بالإنترنت؟'],
+      unavailable: ['No internet right now — it will sync when the signal is back.', 'لا يوجد اتصال بالإنترنت الآن — ستتم المزامنة عند عودة الاتصال.'],
+      'permission-denied': ['Not allowed — this device may have been removed from the club.', 'غير مسموح — ربما أُزيل هذا الجهاز من النادي.'],
+      'wrong-coach-code': ['That recovery code is not right.', 'رمز الاسترجاع هذا غير صحيح.'],
+      removed: ['This device was removed from the club by the coach.', 'أزال المدرب هذا الجهاز من النادي.'],
       // the usual Firebase set-up slips, in plain words (see CLUB_SETUP_AR.md)
-      'auth/network-request-failed': ['No internet right now — try again when there is signal.', 'مفيش نت دلوقتي — جرّب تاني لما يبقى فيه شبكة.'],
+      'auth/network-request-failed': ['No internet right now — try again when there is signal.', 'لا يوجد اتصال بالإنترنت الآن — حاول مرة أخرى عند توفر الشبكة.'],
       'auth/operation-not-allowed': ['Firebase: turn on Anonymous sign-in (Authentication → Sign-in method).', 'Firebase: فعّل الدخول Anonymous (Authentication ← Sign-in method).'],
       'auth/admin-restricted-operation': ['Firebase: turn on Anonymous sign-in (Authentication → Sign-in method).', 'Firebase: فعّل الدخول Anonymous (Authentication ← Sign-in method).'],
-      'auth/unauthorized-domain': ['Firebase: add this website to Authentication → Settings → Authorized domains.', 'Firebase: ضيف رابط الموقع ده في Authentication ← Settings ← Authorized domains.'],
-      'auth/invalid-api-key': ['The Firebase settings in club-config.js are not right — copy them again.', 'إعدادات Firebase في club-config.js مش مظبوطة — انسخها تاني.'],
-      'auth/api-key-not-valid.-please-pass-a-valid-api-key.': ['The Firebase settings in club-config.js are not right — copy them again.', 'إعدادات Firebase في club-config.js مش مظبوطة — انسخها تاني.'],
-      'failed-precondition': ['Firebase: create the Firestore database first (Build → Firestore Database).', 'Firebase: اعمل قاعدة بيانات Firestore الأول (Build ← Firestore Database).'],
-      'not-found': ['Firebase: create the Firestore database first (Build → Firestore Database).', 'Firebase: اعمل قاعدة بيانات Firestore الأول (Build ← Firestore Database).']
+      'auth/unauthorized-domain': ['Firebase: add this website to Authentication → Settings → Authorized domains.', 'Firebase: أضف رابط هذا الموقع في Authentication ← Settings ← Authorized domains.'],
+      'auth/invalid-api-key': ['The Firebase settings in club-config.js are not right — copy them again.', 'إعدادات Firebase في club-config.js غير صحيحة — انسخها مرة أخرى.'],
+      'auth/api-key-not-valid.-please-pass-a-valid-api-key.': ['The Firebase settings in club-config.js are not right — copy them again.', 'إعدادات Firebase في club-config.js غير صحيحة — انسخها مرة أخرى.'],
+      'failed-precondition': ['Firebase: create the Firestore database first (Build → Firestore Database).', 'Firebase: أنشئ قاعدة بيانات Firestore أولًا (Build ← Firestore Database).'],
+      'not-found': ['Firebase: create the Firestore database first (Build → Firestore Database).', 'Firebase: أنشئ قاعدة بيانات Firestore أولًا (Build ← Firestore Database).']
     }[code];
-    return m ? TKD.t(m[0], m[1]) : TKD.t(`Something went wrong (${code || '?'})`, `حصلت مشكلة (${code || '?'})`);
+    return m ? TKD.t(m[0], m[1]) : TKD.t(`Something went wrong (${code || '?'})`, `حدثت مشكلة (${code || '?'})`);
   },
 
   // ---------------------------------------------------------------- joining
@@ -20342,8 +20342,8 @@ const Club = {
   statusLine() {
     if (!this.joined()) return '';
     const last = this.info()?.lastSync;
-    const ago = last ? (Date.now() - last < 90e3 ? TKD.t('just now', 'دلوقتي') : new Date(last).toLocaleString(TKD.ar ? 'ar-EG' : 'en-GB', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })) : '—';
-    const s = { online: ['☁️', TKD.t('Connected to the club', 'متوصل بالنادي')], connecting: ['⏳', TKD.t('Connecting…', 'بيتوصل…')], offline: ['📴', TKD.t('No internet — showing the last update, will sync later', 'مفيش نت — بنعرض آخر تحديث، وهيتزامن بعدين')],
+    const ago = last ? (Date.now() - last < 90e3 ? TKD.t('just now', 'الآن') : new Date(last).toLocaleString(TKD.ar ? 'ar-EG' : 'en-GB', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })) : '—';
+    const s = { online: ['☁️', TKD.t('Connected to the club', 'متصل بالنادي')], connecting: ['⏳', TKD.t('Connecting…', 'جارٍ الاتصال…')], offline: ['📴', TKD.t('No internet — showing the last update, will sync later', 'لا يوجد اتصال — نعرض آخر تحديث، وستتم المزامنة لاحقًا')],
                 error: ['⚠️', this.why(this.error)], off: ['☁️', TKD.t('Club', 'النادي')] }[this.status] || ['☁️', ''];
     return `<div class="club-status club-${this.status}"><span>${s[0]} <b>${TKD.esc(this.info()?.name || '')}</b> · ${s[1]}</span><small>${TKD.t('Last update', 'آخر تحديث')}: ${ago}</small></div>`;
   },
@@ -20359,23 +20359,23 @@ const Club = {
     const ov = document.createElement('div');
     ov.className = 'tkd-modal club-hero-modal';
     ov.innerHTML = `<div class="tkd-modal-card club-hero" role="dialog" aria-label="${TKD.esc(d.name)}">
-      <button type="button" class="rp-x" data-x aria-label="${TKD.t('Close', 'اقفل')}">✕</button>
+      <button type="button" class="rp-x" data-x aria-label="${TKD.t('Close', 'إغلاق')}">✕</button>
       <div class="ch-top">${this.avatar(d)}<div><h2>${TKD.esc(d.name)}</h2>
         <p><span class="ch-belt" style="--belt:${belt.color};--belt-2:${belt.accent}"></span>${TKD.esc(TKD.ar ? belt.name.ar : belt.name.en)}</p>
         <p>⭐ ${TKD.t('Level', 'المستوى')} ${TKD.num(d.level || 1)}</p></div></div>
       <div class="ch-stats">
-        <div><b>${TKD.num(d.week?.k === TKD.weekKey() ? d.week.pts : 0)}</b><small>${TKD.t('points this week', 'نقط الأسبوع ده')}</small></div>
-        <div><b>${d.today?.d === TKD.dayKey() && d.today.ch >= 0 ? TKD.num(d.today.ch) + (TKD.ar ? '٪' : '%') : '—'}</b><small>${TKD.t("today's challenge", 'تحدي النهارده')}</small></div>
-        <div><b>${TKD.num(d.streak || 0)}</b><small>${TKD.t('weeks in a row', 'أسابيع ورا بعض')}</small></div>
+        <div><b>${TKD.num(d.week?.k === TKD.weekKey() ? d.week.pts : 0)}</b><small>${TKD.t('points this week', 'نقاط هذا الأسبوع')}</small></div>
+        <div><b>${d.today?.d === TKD.dayKey() && d.today.ch >= 0 ? TKD.num(d.today.ch) + (TKD.ar ? '٪' : '%') : '—'}</b><small>${TKD.t("today's challenge", 'تحدي اليوم')}</small></div>
+        <div><b>${TKD.num(d.streak || 0)}</b><small>${TKD.t('weeks in a row', 'أسابيع متتالية')}</small></div>
         <div><b>${TKD.num(d.days || 0)}</b><small>${TKD.t('training days', 'أيام تمرين')}</small></div>
-        <div><b>${TKD.num((d.trophies || []).length)}</b><small>${TKD.t('cups', 'كاسات')}</small></div>
+        <div><b>${TKD.num((d.trophies || []).length)}</b><small>${TKD.t('cups', 'كؤوس')}</small></div>
         <div><b>${r.power ? '💪 ' + TKD.num(r.power) : '—'}</b><small>${TKD.t('strongest kick', 'أقوى ركلة')}</small></div>
       </div>
       <h3>🥋 ${TKD.t('Kicks', 'الركلات')}</h3><div class="ch-kicks">${kicks}</div>
       <h3>🏅 ${TKD.t('Medals', 'الميداليات')}</h3>
-      ${medals ? `<div class="ch-medals">${medals}</div>` : `<p class="tkd-muted">${TKD.t('No medals yet.', 'لسه مفيش ميداليات.')}</p>`}
+      ${medals ? `<div class="ch-medals">${medals}</div>` : `<p class="tkd-muted">${TKD.t('No medals yet.', 'لا توجد ميداليات بعد.')}</p>`}
       <p class="ch-foot">${TKD.t('Updated', 'آخر تحديث')}: ${d.at ? new Date(d.at).toLocaleString(TKD.ar ? 'ar-EG' : 'en-GB', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '—'}</p>
-      <div class="tkd-row"><button type="button" class="btn btn-success" data-x>${TKD.t('Close', 'اقفل')}</button></div></div>`;
+      <div class="tkd-row"><button type="button" class="btn btn-success" data-x>${TKD.t('Close', 'إغلاق')}</button></div></div>`;
     document.body.appendChild(ov);
     ov.addEventListener('click', e => { if (e.target === ov || e.target.closest('[data-x]')) ov.remove(); });
     TKD.gs()?.playSound('click');
@@ -20388,7 +20388,7 @@ const Club = {
     const pts = (d) => d.local ? League.pointsFor(d.id, wk).total : (d.week?.k === wk ? d.week.pts : 0);
     const sorted = rows.slice().sort((a, b) => (b.level || 0) - (a.level || 0) || pts(b) - pts(a) || String(a.name).localeCompare(String(b.name)));
     return `${this.statusLine()}
-      <p class="tkd-muted club-wall-sub">${TKD.t(`${rows.length} heroes in the club — tap one to see their medals`, `${TKD.count(rows.length, 'hero')} في النادي — دوس على أي حد تشوف ميدالياته`)}</p>
+      <p class="tkd-muted club-wall-sub">${TKD.t(`${rows.length} heroes in the club — tap one to see their medals`, `${TKD.count(rows.length, 'hero')} في النادي — اضغط على أي شخص لتشاهد ميدالياته`)}</p>
       <div class="club-wall">${sorted.map(d => {
         const belt = GameState.BELTS.find(b => b.id === d.belt) || GameState.BELTS[0];
         const medals = Object.values(d.ach || {}).reduce((s, v) => s + v, 0);
@@ -20397,47 +20397,47 @@ const Club = {
           <b>${TKD.esc(d.name)}</b>
           <span class="chc-belt"></span>
           <small>⭐ ${TKD.num(d.level || 1)} · 🏅 ${TKD.num(medals)}</small>
-          <small>${TKD.t(TKD.count(pts(d), 'pt', 'en'), TKD.count(pts(d), 'point', 'ar'))} ${TKD.t('this week', 'الأسبوع ده')}</small>
-          ${d.local ? `<span class="chc-here">${TKD.t('this device', 'الجهاز ده')}</span>` : ''}
+          <small>${TKD.t(TKD.count(pts(d), 'pt', 'en'), TKD.count(pts(d), 'point', 'ar'))} ${TKD.t('this week', 'هذا الأسبوع')}</small>
+          ${d.local ? `<span class="chc-here">${TKD.t('this device', 'هذا الجهاز')}</span>` : ''}
         </button>`;
       }).join('')}</div>`;
   },
 
   // ---------------------------------------------------------------- coach: the club page
   coachHTML() {
-    if (!this.configured()) return `<div class="club-setup"><h3>☁️ ${TKD.t('The online club', 'النادي أونلاين')}</h3>
-      <p>${TKD.t('The club lets every device of the gym share the weekly awards, today\'s challenge and the heroes wall.', 'النادي بيخلي كل أجهزة الصالة يشوفوا نفس جوايز الأسبوع وتحدي النهارده وحيطة الأبطال.')}</p>
-      <p class="co-voice-warn">⚙️ ${TKD.t('It needs a server: put your Firebase settings in club-config.js (see the guide).', 'محتاج سيرفر: حط إعدادات Firebase بتاعتك في ملف club-config.js (شوف الشرح).')}</p></div>`;
-    if (!this.usable()) return `<div class="club-setup"><h3>☁️ ${TKD.t('The online club', 'النادي أونلاين')}</h3>
-      <p class="co-voice-warn">🌐 ${TKD.t('Open the game from its web link (https://…) — the club cannot work when the game is opened from a folder.', 'افتح اللعبة من الرابط بتاعها على النت (https://…) — النادي مش بيشتغل واللعبة مفتوحة من فولدر.')}</p></div>`;
+    if (!this.configured()) return `<div class="club-setup"><h3>☁️ ${TKD.t('The online club', 'النادي عبر الإنترنت')}</h3>
+      <p>${TKD.t('The club lets every device of the gym share the weekly awards, today\'s challenge and the heroes wall.', 'يجعل النادي كل أجهزة الصالة ترى جوائز الأسبوع نفسها وتحدي اليوم وحائط الأبطال.')}</p>
+      <p class="co-voice-warn">⚙️ ${TKD.t('It needs a server: put your Firebase settings in club-config.js (see the guide).', 'يحتاج إلى خادم: ضع إعدادات Firebase الخاصة بك في ملف club-config.js (انظر الشرح).')}</p></div>`;
+    if (!this.usable()) return `<div class="club-setup"><h3>☁️ ${TKD.t('The online club', 'النادي عبر الإنترنت')}</h3>
+      <p class="co-voice-warn">🌐 ${TKD.t('Open the game from its web link (https://…) — the club cannot work when the game is opened from a folder.', 'افتح اللعبة من رابطها على الإنترنت (https://…) — لا يعمل النادي واللعبة مفتوحة من مجلد.')}</p></div>`;
     if (!this.joined()) return `<div class="club-setup">
-      <p>${TKD.t('Join this device to your gym\'s club: the weekly awards, today\'s challenge and the heroes wall become the whole gym\'s.', 'وصّل الجهاز ده بنادي الصالة: جوايز الأسبوع وتحدي النهارده وحيطة الأبطال يبقوا للصالة كلها.')}</p>
-      <section class="club-box"><h3>🔑 ${TKD.t('Join with the club code', 'ادخل بكود النادي')}</h3>
+      <p>${TKD.t('Join this device to your gym\'s club: the weekly awards, today\'s challenge and the heroes wall become the whole gym\'s.', 'اربط هذا الجهاز بنادي الصالة: تصبح جوائز الأسبوع وتحدي اليوم وحائط الأبطال للصالة كلها.')}</p>
+      <section class="club-box"><h3>🔑 ${TKD.t('Join with the club code', 'ادخل برمز النادي')}</h3>
         <input id="club-code" class="player-name-input club-code-in" maxlength="8" autocomplete="off" autocapitalize="characters" dir="ltr" placeholder="ABC234">
         <button type="button" class="btn btn-success" id="club-join">${TKD.t('Join', 'ادخل')}</button></section>
-      <section class="club-box"><h3>🏟️ ${TKD.t('First time? Create the club (coach)', 'أول مرة؟ اعمل النادي (المدرب)')}</h3>
+      <section class="club-box"><h3>🏟️ ${TKD.t('First time? Create the club (coach)', 'أول مرة؟ أنشئ النادي (المدرب)')}</h3>
         <input id="club-name" class="player-name-input" maxlength="40" placeholder="${TKD.t('Club name, e.g. Champions Gym', 'اسم النادي، مثلًا: نادي الأبطال')}">
-        <button type="button" class="btn" id="club-create">${TKD.t('Create the club', 'اعمل النادي')}</button>
-        <p class="tkd-muted">${TKD.t('Make it once, on the coach\'s phone. Every other device joins with the code.', 'بيتعمل مرة واحدة بس، على موبايل المدرب. وباقي الأجهزة تدخل بالكود.')}</p></section>
+        <button type="button" class="btn" id="club-create">${TKD.t('Create the club', 'أنشئ النادي')}</button>
+        <p class="tkd-muted">${TKD.t('Make it once, on the coach\'s phone. Every other device joins with the code.', 'يُنشأ مرة واحدة فقط، على هاتف المدرب. وتدخل بقية الأجهزة بالرمز.')}</p></section>
       <p class="club-msg" id="club-msg" aria-live="polite"></p></div>`;
     const info = this.info(), rows = this.rows(), remote = rows.filter(r => !r.local).length, local = PlayerSystem.getPlayers();
     return `<div class="club-setup">${this.statusLine()}
       ${info.revoked ? `<p class="co-voice-warn">⚠️ ${this.why('removed')}</p>` : ''}
-      <div class="club-counts"><span>👥 ${TKD.count(rows.length, 'hero')}</span><span>📱 ${TKD.t(`${local.length} on this device`, `${TKD.num(local.length)} على الجهاز ده`)}</span><span>🌍 ${TKD.t(`${remote} on other devices`, `${TKD.num(remote)} على أجهزة تانية`)}</span></div>
-      ${this.isCoach() ? `<section class="club-box"><h3>🔑 ${TKD.t('Club code — type it on every device', 'كود النادي — اكتبه على كل جهاز')}</h3>
+      <div class="club-counts"><span>👥 ${TKD.count(rows.length, 'hero')}</span><span>📱 ${TKD.t(`${local.length} on this device`, `${TKD.num(local.length)} على هذا الجهاز`)}</span><span>🌍 ${TKD.t(`${remote} on other devices`, `${TKD.num(remote)} على أجهزة أخرى`)}</span></div>
+      ${this.isCoach() ? `<section class="club-box"><h3>🔑 ${TKD.t('Club code — type it on every device', 'رمز النادي — اكتبه على كل جهاز')}</h3>
           <div class="club-code-big" dir="ltr" data-keep-digits>${TKD.esc(info.code || '······')}</div>
-          <button type="button" class="btn btn-small" id="club-newcode">🔁 ${TKD.t('New code (the old one stops working)', 'كود جديد (القديم يبطل)')}</button></section>`
-        : `<button type="button" class="btn btn-small" id="club-claim">🧔🏽 ${TKD.t('I am the coach (I have the recovery code)', 'أنا المدرب (معايا كود الاسترجاع)')}</button>`}
-      <section class="club-box"><h3>📱 ${TKD.t('Players of this device in the club', 'لاعبين الجهاز ده في النادي')}</h3>
+          <button type="button" class="btn btn-small" id="club-newcode">🔁 ${TKD.t('New code (the old one stops working)', 'رمز جديد (يتوقف القديم)')}</button></section>`
+        : `<button type="button" class="btn btn-small" id="club-claim">🧔🏽 ${TKD.t('I am the coach (I have the recovery code)', 'أنا المدرب (معي رمز الاسترجاع)')}</button>`}
+      <section class="club-box"><h3>📱 ${TKD.t('Players of this device in the club', 'لاعبو هذا الجهاز في النادي')}</h3>
         <ul class="club-local">${local.map(p => `<li>${TKD.avatar(p, 'sm')}<span>${TKD.esc(p.name)}</span>
           <label class="tkd-check"><input type="checkbox" data-share="${p.id}" ${p.clubOff ? '' : 'checked'}> ${TKD.t('shown in the club', 'ظاهر في النادي')}</label></li>`).join('') || `<li class="tkd-muted">—</li>`}</ul>
-        <button type="button" class="btn btn-small btn-success" id="club-sync">🔄 ${TKD.t('Sync now', 'زامن دلوقتي')}</button></section>
-      ${this.isCoach() ? `<section class="club-box"><h3>🌍 ${TKD.t('Everyone in the club', 'كل اللي في النادي')}</h3>
-          <ul class="club-all">${rows.filter(r => !r.local).map(r => `<li>${this.avatar(r, 'sm')}<span>${TKD.esc(r.name)}</span><button type="button" class="btn btn-small btn-danger" data-rmp="${r.id}">${TKD.t('Remove', 'شيله')}</button></li>`).join('') || `<li class="tkd-muted">${TKD.t('Nobody from other devices yet.', 'لسه مفيش حد من أجهزة تانية.')}</li>`}</ul>
-          ${Object.values(this.cache().players).some(d => d.removed && !d.self) ? `<details><summary>${TKD.t('Removed players', 'اللي اتشالوا')}</summary><ul class="club-all">${Object.values(this.cache().players).filter(d => d.removed && !d.self).map(d => `<li><span>${TKD.esc(d.name || d.id)}</span><button type="button" class="btn btn-small" data-backp="${d.id}">${TKD.t('Bring back', 'رجّعه')}</button></li>`).join('')}</ul></details>` : ''}
+        <button type="button" class="btn btn-small btn-success" id="club-sync">🔄 ${TKD.t('Sync now', 'زامِن الآن')}</button></section>
+      ${this.isCoach() ? `<section class="club-box"><h3>🌍 ${TKD.t('Everyone in the club', 'كل من في النادي')}</h3>
+          <ul class="club-all">${rows.filter(r => !r.local).map(r => `<li>${this.avatar(r, 'sm')}<span>${TKD.esc(r.name)}</span><button type="button" class="btn btn-small btn-danger" data-rmp="${r.id}">${TKD.t('Remove', 'أزِله')}</button></li>`).join('') || `<li class="tkd-muted">${TKD.t('Nobody from other devices yet.', 'لا يوجد أحد من أجهزة أخرى بعد.')}</li>`}</ul>
+          ${Object.values(this.cache().players).some(d => d.removed && !d.self) ? `<details><summary>${TKD.t('Removed players', 'الذين أُزيلوا')}</summary><ul class="club-all">${Object.values(this.cache().players).filter(d => d.removed && !d.self).map(d => `<li><span>${TKD.esc(d.name || d.id)}</span><button type="button" class="btn btn-small" data-backp="${d.id}">${TKD.t('Bring back', 'أعِده')}</button></li>`).join('')}</ul></details>` : ''}
         </section>
         <section class="club-box"><h3>📱 ${TKD.t('Devices', 'الأجهزة')}</h3><ul class="club-all" id="club-devices"><li class="tkd-muted">…</li></ul></section>` : ''}
-      <button type="button" class="btn btn-small btn-danger" id="club-leave">🚪 ${TKD.t('Take this device out of the club', 'طلّع الجهاز ده من النادي')}</button>
+      <button type="button" class="btn btn-small btn-danger" id="club-leave">🚪 ${TKD.t('Take this device out of the club', 'أخرِج هذا الجهاز من النادي')}</button>
       <p class="club-msg" id="club-msg" aria-live="polite"></p></div>`;
   },
   bindCoach(root) {
@@ -20445,37 +20445,37 @@ const Club = {
     const busy = (b, on) => { if (b) { b.disabled = on; b.classList.toggle('is-busy', on); } };
     TKD.$('club-join')?.addEventListener('click', async (e) => {
       const btn = e.currentTarget;
-      const code = TKD.$('club-code').value.replace(/[^A-Za-z0-9]/g, ''); if (code.length < 6) { msg(TKD.t('Type the 6 letters of the club code.', 'اكتب الـ ٦ حروف بتوع كود النادي.'), true); return; }
-      busy(btn, true); msg(TKD.t('Joining…', 'بيدخل…'));
-      try { const r = await this.join(code); TKD.toast(TKD.t(`✅ This device is now in ${r.name}`, `✅ الجهاز ده دخل ${r.name}`), 'success'); Coach.render(); }
+      const code = TKD.$('club-code').value.replace(/[^A-Za-z0-9]/g, ''); if (code.length < 6) { msg(TKD.t('Type the 6 letters of the club code.', 'اكتب الحروف الستة لرمز النادي.'), true); return; }
+      busy(btn, true); msg(TKD.t('Joining…', 'جارٍ الدخول…'));
+      try { const r = await this.join(code); TKD.toast(TKD.t(`✅ This device is now in ${r.name}`, `✅ دخل هذا الجهاز ${r.name}`), 'success'); Coach.render(); }
       catch (err) { busy(btn, false); msg(this.why(err.code || err.message), true); }
     });
     TKD.$('club-create')?.addEventListener('click', async (e) => {
       const btn = e.currentTarget;
-      const name = TKD.$('club-name').value.trim(); if (!name) { msg(TKD.t('Write the club name first.', 'اكتب اسم النادي الأول.'), true); return; }
-      busy(btn, true); msg(TKD.t('Creating…', 'بيتعمل…'));
+      const name = TKD.$('club-name').value.trim(); if (!name) { msg(TKD.t('Write the club name first.', 'اكتب اسم النادي أولًا.'), true); return; }
+      busy(btn, true); msg(TKD.t('Creating…', 'جارٍ الإنشاء…'));
       try { const r = await this.create(name); Coach.render(); this.showCreated(r); }
       catch (err) { busy(btn, false); msg(this.why(err.code || err.message), true); }
     });
     TKD.$('club-newcode')?.addEventListener('click', async () => {
-      if (!(await tkdConfirm(TKD.t('Make a new club code? Devices already in the club stay in; new devices need the new code.', 'تعمل كود جديد؟ الأجهزة اللي دخلت هتفضل جوه، والأجهزة الجديدة هتحتاج الكود الجديد.'), TKD.t('New code', 'كود جديد')))) return;
+      if (!(await tkdConfirm(TKD.t('Make a new club code? Devices already in the club stay in; new devices need the new code.', 'هل تنشئ رمزًا جديدًا؟ تبقى الأجهزة التي دخلت، وتحتاج الأجهزة الجديدة إلى الرمز الجديد.'), TKD.t('New code', 'رمز جديد')))) return;
       try { await this.newCode(); Coach.render(); } catch (err) { msg(this.why(err.code || err.message), true); }
     });
     TKD.$('club-claim')?.addEventListener('click', async () => {
-      const code = await this.ask(TKD.t('Type the coach recovery code (you wrote it down when the club was made):', 'اكتب كود استرجاع المدرب (اللي كتبته لما النادي اتعمل):'), 'XXXXX-XXXXX');
+      const code = await this.ask(TKD.t('Type the coach recovery code (you wrote it down when the club was made):', 'اكتب رمز استرجاع المدرب (الذي كتبته عند إنشاء النادي):'), 'XXXXX-XXXXX');
       if (!code) return;
-      try { await this.claimCoach(code); TKD.toast(TKD.t('🧔🏽 This device is now a coach device', '🧔🏽 الجهاز ده بقى جهاز مدرب'), 'success'); Coach.render(); }
+      try { await this.claimCoach(code); TKD.toast(TKD.t('🧔🏽 This device is now a coach device', '🧔🏽 أصبح هذا الجهاز جهاز مدرب'), 'success'); Coach.render(); }
       catch (err) { msg(this.why(err.code || err.message), true); }
     });
     root.querySelectorAll('[data-share]').forEach(cb => cb.addEventListener('change', async () => {
       const pid = cb.dataset.share;
       PlayerSystem.updatePlayer(pid, { clubOff: !cb.checked });
-      delete this._sent[pid]; this.pushSoon(300); TKD.toast(TKD.t('✅ Saved', '✅ اتحفظ'), 'success');
+      delete this._sent[pid]; this.pushSoon(300); TKD.toast(TKD.t('✅ Saved', '✅ تم الحفظ'), 'success');
     }));
-    TKD.$('club-sync')?.addEventListener('click', () => { this._sent = {}; this.disconnect(); this.connect(); this.pushNow(); TKD.toast(TKD.t('🔄 Syncing…', '🔄 بيزامن…'), 'info'); });
+    TKD.$('club-sync')?.addEventListener('click', () => { this._sent = {}; this.disconnect(); this.connect(); this.pushNow(); TKD.toast(TKD.t('🔄 Syncing…', '🔄 جارٍ المزامنة…'), 'info'); });
     root.querySelectorAll('[data-rmp]').forEach(b => b.addEventListener('click', async () => {
       const d = this.cache().players[b.dataset.rmp];
-      if (!(await tkdConfirm(TKD.t(`Remove ${d?.name} from the club? (their progress on their own device stays)`, `تشيل ${d?.name} من النادي؟ (تقدّمه على جهازه بيفضل زي ما هو)`), TKD.t('Remove', 'شيله')))) return;
+      if (!(await tkdConfirm(TKD.t(`Remove ${d?.name} from the club? (their progress on their own device stays)`, `هل تزيل ${d?.name} من النادي؟ (يبقى تقدّمه على جهازه كما هو)`), TKD.t('Remove', 'أزِله')))) return;
       try { const be = await this.be(); await this.timeout(be.removePlayer(this.info().clubId, b.dataset.rmp, d?.name)); Coach.render(); } catch (err) { msg(this.why(err.code || err.message), true); }
     }));
     root.querySelectorAll('[data-backp]').forEach(b => b.addEventListener('click', async () => {
@@ -20486,7 +20486,7 @@ const Club = {
         Coach.render(); } catch (err) { msg(this.why(err.code || err.message), true); }
     }));
     TKD.$('club-leave')?.addEventListener('click', async () => {
-      if (!(await tkdConfirm(TKD.t('Take this device out of the club? Its players stay on this device; they just stop showing in the club.', 'تطلّع الجهاز ده من النادي؟ لاعبينه بيفضلوا على الجهاز، بس مش هيظهروا في النادي.'), TKD.t('Take it out', 'طلّعه')))) return;
+      if (!(await tkdConfirm(TKD.t('Take this device out of the club? Its players stay on this device; they just stop showing in the club.', 'هل تُخرج هذا الجهاز من النادي؟ يبقى لاعبوه على الجهاز، لكنهم لن يظهروا في النادي.'), TKD.t('Take it out', 'أخرِجه')))) return;
       await this.leave(); Coach.render();
     });
     if (this.isCoach() && TKD.$('club-devices')) {
@@ -20495,10 +20495,10 @@ const Club = {
         this._devUnsub = be.watchMembers(this.info().clubId, (list) => {
           const ul = TKD.$('club-devices'); if (!ul) { this._devUnsub?.(); this._devUnsub = null; return; }
           const me = be.uid();
-          ul.innerHTML = list.map(m => `<li><span>${m.role === 'coach' ? '🧔🏽' : '📱'} ${TKD.esc(m.device || '?')}${m.uid === me ? ` <small>(${TKD.t('this device', 'الجهاز ده')})</small>` : ''}</span>
-            ${m.uid === me ? '' : `<button type="button" class="btn btn-small btn-danger" data-rmd="${m.uid}">${TKD.t('Remove', 'شيله')}</button>`}</li>`).join('') || `<li class="tkd-muted">—</li>`;
+          ul.innerHTML = list.map(m => `<li><span>${m.role === 'coach' ? '🧔🏽' : '📱'} ${TKD.esc(m.device || '?')}${m.uid === me ? ` <small>(${TKD.t('this device', 'هذا الجهاز')})</small>` : ''}</span>
+            ${m.uid === me ? '' : `<button type="button" class="btn btn-small btn-danger" data-rmd="${m.uid}">${TKD.t('Remove', 'أزِله')}</button>`}</li>`).join('') || `<li class="tkd-muted">—</li>`;
           ul.querySelectorAll('[data-rmd]').forEach(b => b.addEventListener('click', async () => {
-            if (!(await tkdConfirm(TKD.t('Remove this device from the club?', 'تشيل الجهاز ده من النادي؟'), TKD.t('Remove', 'شيله')))) return;
+            if (!(await tkdConfirm(TKD.t('Remove this device from the club?', 'هل تزيل هذا الجهاز من النادي؟'), TKD.t('Remove', 'أزِله')))) return;
             try { await be.removeMember(this.info().clubId, b.dataset.rmd); } catch (err) { msg(this.why(err.code || err.message), true); }
           }));
         }, () => {});
@@ -20509,12 +20509,12 @@ const Club = {
   showCreated(r) {
     const ov = document.createElement('div'); ov.className = 'tkd-modal';
     ov.innerHTML = `<div class="tkd-modal-card club-created"><h2>🏟️ ${TKD.esc(r.name)}</h2>
-      <p>${TKD.t('Club code — type it on every device of the gym:', 'كود النادي — اكتبه على كل أجهزة الصالة:')}</p>
+      <p>${TKD.t('Club code — type it on every device of the gym:', 'رمز النادي — اكتبه على كل أجهزة الصالة:')}</p>
       <div class="club-code-big" dir="ltr" data-keep-digits>${TKD.esc(r.code)}</div>
-      <p>🔐 ${TKD.t('Coach recovery code — write it on paper and keep it. It is shown only now; with it you can be the coach again on a new phone:', 'كود استرجاع المدرب — اكتبه في ورقة واحتفظ بيه. بيظهر دلوقتي بس، وبيه تقدر ترجع مدرب على أي موبايل جديد:')}</p>
+      <p>🔐 ${TKD.t('Coach recovery code — write it on paper and keep it. It is shown only now; with it you can be the coach again on a new phone:', 'رمز استرجاع المدرب — اكتبه في ورقة واحتفظ به. يظهر الآن فقط، وبه تستطيع أن تعود مدربًا على أي هاتف جديد:')}</p>
       <div class="club-code-big club-code-secret" dir="ltr" data-keep-digits>${TKD.esc(r.coachCode)}</div>
       <label class="tkd-check"><input type="checkbox" id="club-wrote"> ${TKD.t('I wrote the recovery code down', 'كتبت كود الاسترجاع')}</label>
-      <div class="tkd-row"><button type="button" class="btn btn-success" id="club-ok" disabled>${TKD.t('Done', 'تمام')}</button></div></div>`;
+      <div class="tkd-row"><button type="button" class="btn btn-success" id="club-ok" disabled>${TKD.t('Done', 'حسنًا')}</button></div></div>`;
     document.body.appendChild(ov);
     ov.querySelector('#club-wrote').addEventListener('change', e => { ov.querySelector('#club-ok').disabled = !e.target.checked; });
     ov.querySelector('#club-ok').addEventListener('click', () => ov.remove());
@@ -20525,7 +20525,7 @@ const Club = {
       const ov = document.createElement('div'); ov.className = 'tkd-modal';
       ov.innerHTML = `<div class="tkd-modal-card"><p class="tkd-confirm-txt">${TKD.esc(text)}</p>
         <input class="player-name-input" id="club-ask" dir="ltr" autocomplete="off" autocapitalize="characters" placeholder="${TKD.esc(placeholder)}">
-        <div class="tkd-row"><button type="button" class="btn" data-a="0">${TKD.t('Cancel', 'إلغاء')}</button><button type="button" class="btn btn-success" data-a="1">${TKD.t('OK', 'تمام')}</button></div></div>`;
+        <div class="tkd-row"><button type="button" class="btn" data-a="0">${TKD.t('Cancel', 'إلغاء')}</button><button type="button" class="btn btn-success" data-a="1">${TKD.t('OK', 'حسنًا')}</button></div></div>`;
       document.body.appendChild(ov);
       const inp = ov.querySelector('#club-ask'); inp.focus();
       const done = (ok) => { const v = inp.value.trim(); ov.remove(); res(ok && v ? v : null); };
@@ -20566,7 +20566,7 @@ window.Club = Club;
 const Boss = {
   LIST: {
     apchagi:   { ch: 'boy',  name: { en: 'Karim', ar: 'كريم' },  title: { en: 'champion of the neighbourhood dojang', ar: 'بطل دوجانج الحي' }, icon: '🥉' },
-    narochagi: { ch: 'girl', name: { en: 'Malak', ar: 'ملك' },   title: { en: 'Alexandria champion', ar: 'بطلة إسكندرية' }, icon: '🥈' },
+    narochagi: { ch: 'girl', name: { en: 'Malak', ar: 'ملك' },   title: { en: 'Alexandria champion', ar: 'بطلة الإسكندرية' }, icon: '🥈' },
     bakchagi3: { ch: 'boy',  name: { en: 'Omar', ar: 'عمر' },    title: { en: 'champion of Egypt', ar: 'بطل الجمهورية' }, icon: '🥇' }
   },
   REWARD: 10,
@@ -20580,13 +20580,13 @@ const Boss = {
     const ov = document.createElement('div'); ov.className = 'tkd-modal boss-modal';
     ov.innerHTML = `<div class="tkd-modal-card boss-card" role="dialog" aria-label="${TKD.esc(TKD.t(B.name.en, B.name.ar))}">
       <div class="boss-vs"><div class="boss-fig" id="boss-me"></div><b class="boss-x">VS</b><div class="boss-fig" id="boss-them"></div></div>
-      <h2>🥊 ${TKD.t('Champion match!', 'ماتش البطل!')}</h2>
+      <h2>🥊 ${TKD.t('Champion match!', 'مباراة البطل!')}</h2>
       <p class="boss-who"><b>${TKD.esc(TKD.t(B.name.en, B.name.ar))}</b> — ${TKD.esc(TKD.t(B.title.en, B.title.ar))} ${B.icon}</p>
       <p>${TKD.t(`${B.name.en} challenges you to ${this.ROUNDS.length} rounds with ${TKD.skillName(sk)} — win all of them, one after the other, and take the champion's cup 🏆 and +${this.REWARD} ⭐!`,
-        `${B.name.ar} بيتحداك في ${TKD.num(this.ROUNDS.length)} جولات بالـ${TKD.skillName(sk)} — اكسبهم كلهم ورا بعض وخد كأس البطل 🏆 و+${TKD.num(this.REWARD)} ⭐!`)}</p>
+        `${B.name.ar} يتحداك في ${TKD.num(this.ROUNDS.length)} جولات بـ${TKD.skillName(sk)} — اربحها كلها متتالية واحصل على كأس البطل 🏆 و+${TKD.num(this.REWARD)} ⭐!`)}</p>
       <ol class="boss-rounds">${this.ROUNDS.map((g, i) => `<li><span>${TKD.gameIcon(g)}</span>${TKD.t(`Round ${i + 1}`, `الجولة ${TKD.num(i + 1)}`)}: <b>${TKD.esc(this.roundName(g))}</b></li>`).join('')}</ol>
-      ${this.beaten(sk) ? `<p class="boss-done">✅ ${TKD.t('You beat this champion already — a rematch?', 'إنت غلبت البطل ده قبل كده — ماتش تاني؟')}</p>` : ''}
-      <div class="tkd-row"><button type="button" class="btn" data-a="no">${TKD.t('Later', 'بعدين')}</button>
+      ${this.beaten(sk) ? `<p class="boss-done">✅ ${TKD.t('You beat this champion already — a rematch?', 'لقد تغلّبت على هذا البطل من قبل — مباراة أخرى؟')}</p>` : ''}
+      <div class="tkd-row"><button type="button" class="btn" data-a="no">${TKD.t('Later', 'لاحقًا')}</button>
         <button type="button" class="btn btn-success" data-a="go">🙇 ${TKD.t('Gyeongnye! Shijak!', 'كيونجنيه! شيجاك!')}</button></div></div>`;
     document.body.appendChild(ov);
     const me = new RigSprite(ov.querySelector('#boss-me'), { ch: gs?.playerCharacter === 'girl' ? 'girl' : 'boy', anim: 'bounce', tap: 'win', height: 140 });
@@ -20610,7 +20610,7 @@ const Boss = {
     const A = this.active; if (!A || gameId !== this.ROUNDS[A.round]) return;
     if (!passed) {
       this.active = null;
-      setTimeout(() => TKD.toast(TKD.t(`${A.name.en} won round ${A.round + 1} — train a little and try again! 💪`, `${A.name.ar} كسب الجولة ${TKD.num(A.round + 1)} — اتمرن شوية وجرّب تاني! 💪`), 'info'), 1800);
+      setTimeout(() => TKD.toast(TKD.t(`${A.name.en} won round ${A.round + 1} — train a little and try again! 💪`, `ربح ${A.name.ar} الجولة ${TKD.num(A.round + 1)} — تمرّن قليلًا وحاول مرة أخرى! 💪`), 'info'), 1800);
       return;
     }
     A.scores.push(Math.round(score)); A.round++;
@@ -20632,10 +20632,10 @@ const Boss = {
     const ov = document.createElement('div'); ov.className = 'tkd-modal boss-modal boss-between';
     ov.innerHTML = `<div class="tkd-modal-card boss-card" role="dialog">
       <div class="boss-vs"><div class="boss-fig" id="boss-them"></div></div>
-      <h2>✅ ${TKD.t(`Round ${A.round} is yours!`, `الجولة ${TKD.num(A.round)} ليك!`)}</h2>
+      <h2>✅ ${TKD.t(`Round ${A.round} is yours!`, `الجولة ${TKD.num(A.round)} لك!`)}</h2>
       <div class="boss-score">${this.ROUNDS.map((g, i) => `<span class="${i < A.round ? 'won' : i === A.round ? 'next' : ''}">${TKD.gameIcon(g)} ${i < A.round ? `${TKD.num(A.scores[i])}%` : i === A.round ? '👉' : '…'}</span>`).join('')}</div>
-      <p>${TKD.t(`${A.name.en} is not giving up! Next round: ${this.roundName(next)}`, `${A.name.ar} لسه مستسلمش! الجولة الجاية: ${this.roundName(next)}`)} ${TKD.gameIcon(next)}</p>
-      <div class="tkd-row"><button type="button" class="btn" data-a="quit">${TKD.t('Stop the match', 'وقّف الماتش')}</button>
+      <p>${TKD.t(`${A.name.en} is not giving up! Next round: ${this.roundName(next)}`, `لم يستسلم ${A.name.ar} بعد! الجولة التالية: ${this.roundName(next)}`)} ${TKD.gameIcon(next)}</p>
+      <div class="tkd-row"><button type="button" class="btn" data-a="quit">${TKD.t('Stop the match', 'أوقف المباراة')}</button>
         <button type="button" class="btn btn-success" data-a="go">🔔 ${TKD.t(`Round ${A.round + 1}!`, `الجولة ${TKD.num(A.round + 1)}!`)}</button></div></div>`;
     document.body.appendChild(ov);
     const them = new RigSprite(ov.querySelector('#boss-them'), { ch: A.ch, anim: 'bounce', tap: 'win', height: 130 });
@@ -20652,7 +20652,7 @@ const Boss = {
     c.querySelector('.boss-won')?.remove();
     const el = document.createElement('div'); el.className = 'boss-won';
     el.innerHTML = `🏆 ${TKD.t(`You beat ${A.name.en} in all ${this.ROUNDS.length} rounds (${A.avg}%)! The champion's cup is yours${A.first ? ` — +${this.REWARD} ⭐` : ''}`,
-      `غلبت ${A.name.ar} في الـ${TKD.num(this.ROUNDS.length)} جولات (${TKD.num(A.avg)}%)! كأس البطل بقى بتاعك${A.first ? ` — +${TKD.num(this.REWARD)} ⭐` : ''}`)}`;
+      `تغلّبت على ${A.name.ar} في الجولات الـ${TKD.num(this.ROUNDS.length)} (${TKD.num(A.avg)}%)! أصبح كأس البطل لك${A.first ? ` — +${TKD.num(this.REWARD)} ⭐` : ''}`)}`;
     c.querySelector('.winner-title')?.after(el);
   }
 };
@@ -20675,7 +20675,7 @@ window.Boss = Boss;
       const scr = document.getElementById(`${id}-screen`); scr?.querySelector('.boss-banner')?.remove();
       if (!Boss.active || !scr || Boss.screen() !== id) return;
       const A = Boss.active, b = document.createElement('div'); b.className = 'boss-banner';
-      b.textContent = `🥊 ${TKD.t(`Champion match vs ${A.name.en} — round ${A.round + 1} of ${Boss.ROUNDS.length}`, `ماتش البطل ضد ${A.name.ar} — الجولة ${TKD.num(A.round + 1)} من ${TKD.num(Boss.ROUNDS.length)}`)}`;
+      b.textContent = `🥊 ${TKD.t(`Champion match vs ${A.name.en} — round ${A.round + 1} of ${Boss.ROUNDS.length}`, `مباراة البطل ضد ${A.name.ar} — الجولة ${TKD.num(A.round + 1)} من ${TKD.num(Boss.ROUNDS.length)}`)}`;
       scr.querySelector('.game-container')?.prepend(b);
     }, 60);
   });
@@ -20701,13 +20701,13 @@ const Exam = {
     ov.innerHTML = `<div class="tkd-modal-card exam-card" role="dialog">
       <div class="exam-coach" id="exam-coach"></div>
       <h2>📝 ${TKD.t(`${S.name.en} test`, `اختبار ${S.name.ar}`)}</h2>
-      <p class="exam-say">“${TKD.t(`I'm Coach Seif. Show me what you learnt about ${S.name.en}!`, `أنا كوتش سيف. وريني اتعلمت إيه في ${S.name.ar}!`)}”</p>
+      <p class="exam-say">“${TKD.t(`I'm Coach Seif. Show me what you learnt about ${S.name.en}!`, `أنا كوتش سيف. أرِني ماذا تعلّمت في ${S.name.ar}!`)}”</p>
       <ul class="exam-rules">
         <li>❓ ${TKD.t(`${n} questions in the order of the kick — some with pictures`, `${TKD.count(n, 'question', 'ar')} بترتيب مراحل الركلة، بعضها بالصور`)}</li>
         <li>🎯 ${TKD.t(`${need} right answers to pass`, `${TKD.num(need)} إجابات صحيحة للنجاح`)}</li>
-        <li>🎗️ ${TKD.t('Pass → a new stripe on your white belt', 'لو عدّيت ← شريطة جديدة على حزامك الأبيض')}${next ? ` · 🔓 ${TKD.t(next.name.en, next.name.ar)}` : ` · 🏆 ${TKD.t('all kicks done!', 'خلّصت كل الركلات!')}`}</li>
+        <li>🎗️ ${TKD.t('Pass → a new stripe on your white belt', 'إذا نجحت ← شريط جديد على حزامك الأبيض')}${next ? ` · 🔓 ${TKD.t(next.name.en, next.name.ar)}` : ` · 🏆 ${TKD.t('all kicks done!', 'أنهيت كل الركلات!')}`}</li>
       </ul>
-      <button type="button" class="btn btn-success" data-a="go">🙇 ${TKD.t('Gyeongnye! Start', 'كيونجنيه! يلا نبدأ')}</button></div>`;
+      <button type="button" class="btn btn-success" data-a="go">🙇 ${TKD.t('Gyeongnye! Start', 'كيونجنيه! هيا نبدأ')}</button></div>`;
     document.body.appendChild(ov);
     const sp = new RigSprite(ov.querySelector('#exam-coach'), { ch: 'coach', anim: 'coach_idle', intro: 'bow', tap: 'bow', height: 150 });
     sp.start();
@@ -20722,8 +20722,8 @@ const Exam = {
     c.querySelector('.exam-cert')?.remove();
     const el = document.createElement('div'); el.className = 'exam-cert';
     el.innerHTML = `<div class="exam-belt"><span class="eb-belt">${Array.from({ length: belt.stripes }, (_, i) => `<i style="--i:${i}"></i>`).join('')}</span></div>
-      <b>🎗️ ${TKD.t(`${S.name.en} passed — a new stripe on your white belt!`, `عدّيت اختبار ${S.name.ar} — شريطة جديدة على حزامك الأبيض!`)}</b>
-      ${next ? `<small>🔓 ${TKD.t(`Next kick open: ${next.name.en}`, `الركلة الجاية اتفتحت: ${next.name.ar}`)}</small>` : `<small>🏆 ${TKD.t('You learnt all three kicks of the white belt!', 'اتعلمت الركلات التلاتة بتوع الحزام الأبيض!')}</small>`}`;
+      <b>🎗️ ${TKD.t(`${S.name.en} passed — a new stripe on your white belt!`, `نجحت في اختبار ${S.name.ar} — شريط جديد على حزامك الأبيض!`)}</b>
+      ${next ? `<small>🔓 ${TKD.t(`Next kick open: ${next.name.en}`, `فُتحت الركلة التالية: ${next.name.ar}`)}</small>` : `<small>🏆 ${TKD.t('You learnt all three kicks of the white belt!', 'تعلّمت الركلات الثلاث للحزام الأبيض!')}</small>`}`;
     c.querySelector('.winner-title')?.after(el);
   }
 };
@@ -20762,19 +20762,19 @@ const Stickers = {
     ['gyeongnye', '🙇', '경례', 'Gyeongnye', 'Bow!', 'التحية!'],
     ['junbi', '✋', '준비', 'Junbi', 'Get ready!', 'استعداد!'],
     ['sijak', '🔔', '시작', 'Sijak', 'Start!', 'ابدأ!'],
-    ['keuman', '✋', '그만', 'Keuman', 'Stop!', 'بس! (توقف)'],
-    ['baro', '↩️', '바로', 'Baro', 'Back to your place', 'ارجع مكانك'],
+    ['keuman', '✋', '그만', 'Keuman', 'Stop!', 'توقّف!'],
+    ['baro', '↩️', '바로', 'Baro', 'Back to your place', 'عُد إلى مكانك'],
     ['kihap', '📣', '기합', 'Kihap', 'The power shout', 'صرخة القوة'],
     ['apchagi', '🦶', '앞차기', 'Ap Chagi', 'Front kick', 'الركلة الأمامية'],
-    ['naeryeo', '🪓', '내려차기', 'Naeryeo Chagi', 'Axe kick (from above)', 'الركلة النازلة من فوق'],
+    ['naeryeo', '🪓', '내려차기', 'Naeryeo Chagi', 'Axe kick (from above)', 'الركلة النازلة من أعلى'],
     ['yeop', '🌀', '돌려차기', 'Dollyeo Chagi', 'Roundhouse kick', 'الركلة الدائرية'],
     ['apchuk', '👣', '앞축', 'Ap-chuk', 'Ball of the foot', 'قاعدة الأصابع (كلوة القدم)'],
     ['baldeung', '🦵', '발등', 'Bal-deung', 'Instep (top of the foot)', 'وش القدم'],
     ['dwikkumchi', '🦶', '뒤꿈치', 'Dwi-kkumchi', 'Heel', 'الكعب'],
-    ['eolgul', '🙂', '얼굴', 'Eolgul', 'Face level (high)', 'مستوى الوش (فوق)'],
-    ['momtong', '👕', '몸통', 'Momtong', 'Body level (middle)', 'مستوى الجسم (النص)'],
+    ['eolgul', '🙂', '얼굴', 'Eolgul', 'Face level (high)', 'مستوى الوجه (أعلى)'],
+    ['momtong', '👕', '몸통', 'Momtong', 'Body level (middle)', 'مستوى الجسم (الوسط)'],
     ['kyorugi', '🥊', '겨루기', 'Kyorugi', 'Sparring', 'النزال'],
-    ['hanadulset', '🔢', '하나 둘 셋', 'Hana, dul, set', 'One, two, three', 'واحد، اتنين، تلاتة']
+    ['hanadulset', '🔢', '하나 둘 셋', 'Hana, dul, set', 'One, two, three', 'واحد، اثنان، ثلاثة']
   ].map(([id, icon, ko, ro, en, ar]) => ({ id, icon, ko, ro, en, ar })),
   key() { return `taekwondoJourneyStickers:${TKD.pid() || 'guest'}`; },
   owned() { return TKD.read(this.key(), []); },
@@ -20797,12 +20797,12 @@ const Stickers = {
     document.querySelectorAll('.album-modal').forEach(m => m.remove());
     const own = this.owned();
     const ov = document.createElement('div'); ov.className = 'tkd-modal album-modal';
-    ov.innerHTML = `<div class="tkd-modal-card album-card"><button type="button" class="rp-x" data-x aria-label="${TKD.t('Close', 'اقفل')}">✕</button>
+    ov.innerHTML = `<div class="tkd-modal-card album-card"><button type="button" class="rp-x" data-x aria-label="${TKD.t('Close', 'إغلاق')}">✕</button>
       <h2>📒 ${TKD.t('Dojang sticker album', 'ألبوم ملصقات الدوجانج')}</h2>
-      <p class="tkd-muted">${TKD.t(`${own.length} of ${this.LIST.length} — collect them from missions, gifts, tests and champion matches. Tap one to hear it.`, `${TKD.num(own.length)} من ${TKD.num(this.LIST.length)} — بتجمعهم من المهام والهدايا والاختبارات وماتشات الأبطال. دوس على أي ملصق تسمعه.`)}</p>
+      <p class="tkd-muted">${TKD.t(`${own.length} of ${this.LIST.length} — collect them from missions, gifts, tests and champion matches. Tap one to hear it.`, `${TKD.num(own.length)} من ${TKD.num(this.LIST.length)} — تجمعها من المهام والهدايا والاختبارات ومباريات الأبطال. اضغط على أي ملصق لتسمعه.`)}</p>
       <div class="album-grid">${this.LIST.map(s => own.includes(s.id)
         ? `<button type="button" class="album-st" data-say="${TKD.esc(s.ko)}"><span class="as-ico">${s.icon}</span><b lang="ko">${s.ko}</b><span class="as-ro">${TKD.esc(s.ro)}</span><small>${TKD.esc(TKD.t(s.en, s.ar))}</small></button>`
-        : `<div class="album-st locked"><span class="as-ico">❔</span><small>${TKD.t('not yet', 'لسه')}</small></div>`).join('')}</div></div>`;
+        : `<div class="album-st locked"><span class="as-ico">❔</span><small>${TKD.t('not yet', 'لم يُجمع بعد')}</small></div>`).join('')}</div></div>`;
     document.body.appendChild(ov);
     ov.addEventListener('click', (e) => {
       if (e.target === ov || e.target.closest('[data-x]')) { ov.remove(); return; }
@@ -20842,7 +20842,7 @@ window.Stickers = Stickers;
 const Stages = {
   LIST: [
     { skill: 'apchagi',   icon: '🏠', en: 'The neighbourhood dojang', ar: 'دوجانج الحي',        bg: 'assets/images/backgrounds/main_menu_bg.webp' },
-    { skill: 'narochagi', icon: '🏟️', en: 'Alexandria championship',  ar: 'بطولة إسكندرية',     bg: 'assets/images/backgrounds/arena_bg.webp' },
+    { skill: 'narochagi', icon: '🏟️', en: 'Alexandria championship',  ar: 'بطولة الإسكندرية',     bg: 'assets/images/backgrounds/arena_bg.webp' },
     { skill: 'bakchagi3', icon: '🇪🇬', en: 'Egypt championship',       ar: 'بطولة الجمهورية',    bg: 'assets/images/backgrounds/sparring_training_bg.webp' },
     { skill: null,        icon: '🇰🇷', en: 'Korea — the Kukkiwon',     ar: 'كوريا — الكوكيون',   bg: 'assets/images/backgrounds/memory_dojo_bg.webp' }
   ],
@@ -20869,7 +20869,7 @@ try { Object.defineProperty(GameConfig.BACKGROUNDS, 'HOME', { get: () => Stages.
     if (!sk) return;
     const i = Stages.index(sk), next = Stages.LIST[i + 1]; if (!next) return;
     const el = document.querySelector('#winner-screen .exam-cert'); if (!el) return;
-    el.insertAdjacentHTML('beforeend', `<small class="exam-stage">${next.icon} ${TKD.t(`Next stage: ${next.en}!`, `المرحلة الجاية: ${next.ar}!`)}</small>`);
+    el.insertAdjacentHTML('beforeend', `<small class="exam-stage">${next.icon} ${TKD.t(`Next stage: ${next.en}!`, `المرحلة التالية: ${next.ar}!`)}</small>`);
   };
 })();
 
@@ -20891,8 +20891,8 @@ const Rival = {
   after(game, skill, score) {
     if (!this.GAMES.includes(game) || window.Boss?.active || Challenge.active) return;
     const r = this.score(game, skill), d = TKD.read(this.key(), {}), k = `${skill}|${game}`, W = this.who();
-    if (score > r) { d[k] = Math.min(99, score + 2 + (TKD.hash(k + score) % 4)); this._msg = { win: true, text: TKD.t(`🏅 You beat ${W.en}'s ${r}%! ${W.en} is going to train harder…`, `🏅 غلبت ${W.ar} (${TKD.num(r)}٪)! ${W.ar} هيتمرن أكتر عشان يرجعلك…`) }; }
-    else { d[k] = r; this._msg = { win: false, text: TKD.t(`${W.en} has ${r}% in this game — ${r - score + 1} more and you're ahead!`, `${W.ar} جايب ${TKD.num(r)}٪ في اللعبة دي — كمان ${TKD.num(r - score + 1)} وتبقى قدّامه!`) }; }
+    if (score > r) { d[k] = Math.min(99, score + 2 + (TKD.hash(k + score) % 4)); this._msg = { win: true, text: TKD.t(`🏅 You beat ${W.en}'s ${r}%! ${W.en} is going to train harder…`, `🏅 تغلّبت على ${W.ar} (${TKD.num(r)}٪)! سيتمرن ${W.ar} أكثر ليلحق بك…`) }; }
+    else { d[k] = r; this._msg = { win: false, text: TKD.t(`${W.en} has ${r}% in this game — ${r - score + 1} more and you're ahead!`, `حصل ${W.ar} على ${TKD.num(r)}٪ في هذه اللعبة — ${TKD.num(r - score + 1)} أخرى وتتقدّم عليه!`) }; }
     TKD.write(this.key(), d);
   },
   decorate() {
@@ -20910,7 +20910,7 @@ const Rival = {
     const scr = document.getElementById(`${game}-screen`); if (!scr) return;
     scr.querySelector('.rival-chip')?.remove();
     const el = document.createElement('div'); el.className = 'rival-chip';
-    el.innerHTML = `🆚 ${TKD.t(`${W.en}'s score here: <b>${r}%</b> — can you beat it?`, `${W.ar} جايب هنا <b>${TKD.num(r)}٪</b> — تقدر تغلبه؟`)}`;
+    el.innerHTML = `🆚 ${TKD.t(`${W.en}'s score here: <b>${r}%</b> — can you beat it?`, `حصل ${W.ar} هنا على <b>${TKD.num(r)}٪</b> — هل تستطيع أن تتغلّب عليه؟`)}`;
     scr.querySelector('.game-container > h2')?.after(el);
   }
 };
@@ -21012,7 +21012,7 @@ const FinalStretch = {
     this.stage = st;
     if (!st) return;
     Music.setRate(Music.baseRate(p.id) * (st === 'last' ? 1.12 : 1.06));
-    this.banner(st === 'last' ? TKD.t('🔥 Last round!', '🔥 الجولة الأخيرة!') : TKD.t('⚡ Almost done — keep going!', '⚡ قربنا نخلص — كمّل!'), st);
+    this.banner(st === 'last' ? TKD.t('🔥 Last round!', '🔥 الجولة الأخيرة!') : TKD.t('⚡ Almost done — keep going!', '⚡ اقتربنا من النهاية — استمر!'), st);
     try { ArenaSound.drum('kick'); setTimeout(() => ArenaSound.drum('kick'), 180); } catch (e) {}
   },
   banner(text, st) {
@@ -21033,13 +21033,13 @@ setInterval(() => { try { FinalStretch.tick(); } catch (e) {} }, 400);
 const FirstTour = {
   key() { return `taekwondoJourneyTour:${TKD.pid() || 'guest'}`; },
   STEPS: [
-    { sel: null, en: "Hi champion! I'm Coach Seif, your coach. Come, I'll show you around!", ar: 'أهلاً يا بطل! أنا كوتش سيف، مدربك في التمرين. تعالى أفرّجك على اللعبة!' },
-    { sel: '.jr-units', en: 'Every kick has 3 units. Finish one and the next one opens.', ar: 'كل ركلة فيها ٣ وحدات. خلّص وحدة والوحدة اللي بعدها تتفتح.' },
-    { sel: '.jr-board', en: 'This is your road. Every circle is a step, and your fighter stands on the next one.', ar: 'ده طريقك. كل دايرة خطوة، وبطلك واقف على الخطوة الجاية.' },
-    { sel: '.jr-go', en: 'This big button always takes you to the next step.', ar: 'الزرار الكبير ده بيوديك على طول للخطوة الجاية.' },
-    { sel: '.daily-fold', en: 'Every day you get 3 small missions. Finish them and open the gift!', ar: 'كل يوم ليك ٣ مهام صغيرة. خلّصهم وافتح الهدية!' },
+    { sel: null, en: "Hi champion! I'm Coach Seif, your coach. Come, I'll show you around!", ar: 'أهلًا يا بطل! أنا كوتش سيف، مدربك في التمرين. تعال أُرِك اللعبة!' },
+    { sel: '.jr-units', en: 'Every kick has 3 units. Finish one and the next one opens.', ar: 'في كل ركلة ٣ وحدات. أنهِ وحدة لتُفتح الوحدة التالية.' },
+    { sel: '.jr-board', en: 'This is your road. Every circle is a step, and your fighter stands on the next one.', ar: 'هذا طريقك. كل دائرة خطوة، وبطلك واقف عند الخطوة التالية.' },
+    { sel: '.jr-go', en: 'This big button always takes you to the next step.', ar: 'هذا الزر الكبير يأخذك مباشرة إلى الخطوة التالية.' },
+    { sel: '.daily-fold', en: 'Every day you get 3 small missions. Finish them and open the gift!', ar: 'لك كل يوم ٣ مهام صغيرة. أنهِها وافتح الهدية!' },
     { sel: '#tabbar [data-tab="play"]', en: 'And here are all the games.', ar: 'وهنا كل الألعاب.' },
-    { sel: '.jr-go', en: "Ready? Tap the big button and let's start!", ar: 'جاهز؟ دوس على الزرار الكبير ويلا نبدأ!' }
+    { sel: '.jr-go', en: "Ready? Tap the big button and let's start!", ar: 'جاهز؟ اضغط على الزر الكبير وهيا نبدأ!' }
   ],
   done() { return !!TKD.read(this.key(), false); },
   start(force = false) {
@@ -21053,8 +21053,8 @@ const FirstTour = {
     const ov = document.createElement('div'); ov.className = 'ft-ov'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-modal', 'true');
     ov.innerHTML = `<div class="ft-hole"></div><div class="ft-hand" aria-hidden="true">👆</div>
       <div class="ft-bubble"><div class="ft-hero"></div><div class="ft-body"><p class="ft-text"></p>
-        <div class="ft-row"><button type="button" class="ft-skip">${TKD.t('Skip', 'تخطّي')}</button><span class="ft-dots"></span>
-        <button type="button" class="ft-say" aria-label="${TKD.t('Hear it again', 'اسمعها تاني')}">🔊</button><button type="button" class="btn btn-success ft-next"></button></div></div></div>`;
+        <div class="ft-row"><button type="button" class="ft-skip">${TKD.t('Skip', 'تخطَّ')}</button><span class="ft-dots"></span>
+        <button type="button" class="ft-say" aria-label="${TKD.t('Hear it again', 'استمع إليها مرة أخرى')}">🔊</button><button type="button" class="btn btn-success ft-next"></button></div></div></div>`;
     document.body.appendChild(ov);
     this.ov = ov; this.i = -1;
     // v63: Coach Seif shows the child around (his picture when 3D is off)
@@ -21081,7 +21081,7 @@ const FirstTour = {
     if (this.i >= S.length) { this.close(); const b = document.querySelector('.jr-go'); b?.classList.add('ft-pulse'); setTimeout(() => b?.classList.remove('ft-pulse'), 4000); return; }
     const s = this.step = S[this.i], ov = this.ov;
     ov.querySelector('.ft-text').textContent = TKD.t(s.en, s.ar);
-    ov.querySelector('.ft-next').textContent = this.i === S.length - 1 ? TKD.t("Let's go! 🚀", 'يلا! 🚀') : TKD.t('Next →', 'اللي بعده ←');
+    ov.querySelector('.ft-next').textContent = this.i === S.length - 1 ? TKD.t("Let's go! 🚀", 'هيا! 🚀') : TKD.t('Next →', 'التالي ←');
     ov.querySelector('.ft-dots').innerHTML = S.map((_, k) => `<i class="${k === this.i ? 'on' : ''}"></i>`).join('');
     const t = s.sel && document.querySelector(s.sel);
     if (t) t.scrollIntoView({ block: 'center', behavior: 'smooth' });
@@ -21163,10 +21163,10 @@ const ShareImg = {
     const f = new File([blob], file, { type: 'image/png' });
     let canFiles = false; try { canFiles = !!(navigator.canShare && navigator.canShare({ files: [f] })); } catch (e) {}
     const ov = document.createElement('div'); ov.className = 'tkd-modal si-modal';
-    ov.innerHTML = `<div class="tkd-modal-card si-card" role="dialog" aria-label="${TKD.esc(title)}"><button type="button" class="rp-x" data-x aria-label="${TKD.t('Close', 'اقفل')}">✕</button>
+    ov.innerHTML = `<div class="tkd-modal-card si-card" role="dialog" aria-label="${TKD.esc(title)}"><button type="button" class="rp-x" data-x aria-label="${TKD.t('Close', 'إغلاق')}">✕</button>
       <h2>${TKD.esc(title)}</h2><img class="si-img" alt="${TKD.esc(title)}" src="${url}">
       <div class="si-btns">
-        ${canFiles ? `<button type="button" class="btn btn-success" data-a="share">📤 ${TKD.t('Send the picture', 'ابعت الصورة')}</button>` : ''}
+        ${canFiles ? `<button type="button" class="btn btn-success" data-a="share">📤 ${TKD.t('Send the picture', 'أرسل الصورة')}</button>` : ''}
         <button type="button" class="btn ${canFiles ? '' : 'btn-success'}" data-a="save">⬇️ ${TKD.t('Save the picture', 'احفظ الصورة')}</button>
         <button type="button" class="btn si-wa" data-a="wa">💬 ${TKD.t('WhatsApp', 'واتساب')}</button>
       </div><p class="si-note" hidden></p></div>`;
@@ -21178,11 +21178,11 @@ const ShareImg = {
       const a = e.target.closest('[data-a]')?.dataset.a; if (!a) return;
       TKD.gs()?.playSound('click');
       if (a === 'share') { try { await navigator.share({ files: [f], title, text }); } catch (er) {} }
-      else if (a === 'save') { this.download(blob, file); note(TKD.t('Saved ✅ — look in your downloads / photos.', 'اتحفظت ✅ — هتلاقيها في التنزيلات أو الصور.')); }
+      else if (a === 'save') { this.download(blob, file); note(TKD.t('Saved ✅ — look in your downloads / photos.', 'حُفظت ✅ — ستجدها في التنزيلات أو الصور.')); }
       else if (a === 'wa') {
         if (!canFiles) this.download(blob, file);
         window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
-        if (!canFiles) note(TKD.t('The picture is saved — attach it in the chat 📎', 'الصورة اتحفظت — ابعتها في الشات من 📎'));
+        if (!canFiles) note(TKD.t('The picture is saved — attach it in the chat 📎', 'حُفظت الصورة — أرسلها في المحادثة من 📎'));
       }
     });
     return ov;
@@ -21229,15 +21229,15 @@ const ParentReport = {
       x.fillStyle = on ? '#fff' : '#a89a8b'; F.fit(x, on ? '✓' : '·', cx, y + 2, 70, 40, 800);
       x.fillStyle = '#6b5a4a'; F.fit(x, d.toLocaleDateString(ar ? 'ar-EG' : 'en-GB', { weekday: 'short' }), cx, y + 66, dayW - 6, 24, 600);
     }
-    x.fillStyle = '#3d2e22'; F.fit(x, TKD.t(`Trained ${D.days.size} of 7 days`, `اتمرن ${TKD.num(D.days.size)} من ٧ أيام`), W / 2, y + 122, W - 140, 34, 800);
+    x.fillStyle = '#3d2e22'; F.fit(x, TKD.t(`Trained ${D.days.size} of 7 days`, `تمرّن ${TKD.num(D.days.size)} من ٧ أيام`), W / 2, y + 122, W - 140, 34, 800);
     // tiles
     y = 510;
     const tiles = [
-      ['🔥', TKD.t('Days in a row', 'أيام ورا بعض'), TKD.num(D.streak)],
+      ['🔥', TKD.t('Days in a row', 'أيام متتالية'), TKD.num(D.streak)],
       ['🎮', TKD.t('Games played', 'ألعاب لعبها'), TKD.num(D.games)],
-      ['✅', TKD.t('Games passed', 'ألعاب عدّاها'), TKD.num(D.passed)],
+      ['✅', TKD.t('Games passed', 'ألعاب نجح فيها'), TKD.num(D.passed)],
       ['⭐', TKD.t('Stars', 'النجوم'), TKD.num(D.stars)],
-      ['🏆', TKD.t('Best score', 'أحسن نتيجة'), D.best ? `${TKD.num(D.best.score)}%` : '—'],
+      ['🏆', TKD.t('Best score', 'أفضل نتيجة'), D.best ? `${TKD.num(D.best.score)}%` : '—'],
       ['📒', TKD.t('Stickers', 'الملصقات'), `${TKD.num(D.stickers)}/${TKD.num(window.Stickers ? Stickers.LIST.length : 22)}`]
     ];
     const tw = (W - 140 - 40) / 3, th = 170;
@@ -21265,9 +21265,9 @@ const ParentReport = {
     y = 1150;
     x.fillStyle = '#fff1d6'; F.rr(x, 70, y, W - 140, 120, 26); x.fill();
     x.fillStyle = '#3d2e22';
-    const line1 = D.next ? TKD.t(`Next step: ${D.next}`, `الخطوة الجاية: ${D.next}`) : TKD.t('All the white-belt kicks are done! 🏆', 'خلّص كل ركلات الحزام الأبيض! 🏆');
+    const line1 = D.next ? TKD.t(`Next step: ${D.next}`, `الخطوة التالية: ${D.next}`) : TKD.t('All the white-belt kicks are done! 🏆', 'أنهى كل ركلات الحزام الأبيض! 🏆');
     F.fit(x, `👉 ${line1}`, W / 2, y + (D.tip ? 38 : 60), W - 180, 30, 700);
-    if (D.tip) F.fit(x, `🧠 ${TKD.t(`Worth practising: ${D.tip}`, `يستاهل يتمرن على: ${D.tip}`)}`, W / 2, y + 84, W - 180, 26, 600);
+    if (D.tip) F.fit(x, `🧠 ${TKD.t(`Worth practising: ${D.tip}`, `يُستحسن أن يتمرّن على: ${D.tip}`)}`, W / 2, y + 84, W - 180, 26, 600);
     x.fillStyle = '#a89a8b'; F.fit(x, 'Taekwondo Journey · رحلة التايكوندو', W / 2, H - 36, W - 140, 24, 600);
     return { c, D };
   },
@@ -21275,7 +21275,7 @@ const ParentReport = {
     const r = this.draw(); if (!r) return null;
     const { D } = r;
     const text = TKD.t(`🥋 ${D.p.name}'s Taekwondo week: trained ${D.days.size}/7 days, ${D.passed} games passed, ${D.streak} days in a row 🔥`,
-      `🥋 أسبوع ${D.p.name} في التايكوندو: اتمرن ${TKD.num(D.days.size)} من ٧ أيام، وعدّى ${TKD.num(D.passed)} ألعاب، و${TKD.num(D.streak)} أيام ورا بعض 🔥`);
+      `🥋 أسبوع ${D.p.name} في التايكوندو: تمرّن ${TKD.num(D.days.size)} من ٧ أيام، ونجح في ${TKD.num(D.passed)} ألعاب، و${TKD.num(D.streak)} أيام متتالية 🔥`);
     return ShareImg.show(r.c, { title: TKD.t("This week's report", 'تقرير الأسبوع'), file: `taekwondo-week-${TKD.dayKey()}.png`, text });
   }
 };
@@ -21298,11 +21298,11 @@ const Certificate = {
     x.fillStyle = '#3d2e22'; F.fit(x, '🥋', 170, 170, 120, 80, 400); F.fit(x, '🥋', W - 170, 170, 120, 80, 400);
     x.fillStyle = '#b5311f'; F.fit(x, TKD.t('Certificate of Achievement', 'شهادة إتمام'), W / 2, 170, W - 440, 92, 800);
     x.fillStyle = '#6b5a4a'; F.fit(x, 'Taekwondo Journey · 태권도', W / 2, 250, W - 400, 34, 600);
-    F.fit(x, TKD.t('This certifies that', gs.playerCharacter === 'girl' ? 'بنشهد إن البطلة' : 'بنشهد إن البطل'), W / 2, 345, W - 300, 40, 600);
+    F.fit(x, TKD.t('This certifies that', gs.playerCharacter === 'girl' ? 'نشهد بأن البطلة' : 'نشهد بأن البطل'), W / 2, 345, W - 300, 40, 600);
     x.fillStyle = '#1d3557'; F.fit(x, p.name, W / 2, 440, W - 300, 110, 800);
     x.strokeStyle = '#c9972b'; x.lineWidth = 3; x.beginPath(); x.moveTo(W / 2 - 360, 512); x.lineTo(W / 2 + 360, 512); x.stroke();
     x.fillStyle = '#3d2e22';
-    F.fit(x, TKD.t(`passed the ${S.name.en} test with ${score}%`, `عدّى اختبار ${S.name.ar} بنتيجة ${TKD.num(score)}%`), W / 2, 588, W - 300, 50, 700);
+    F.fit(x, TKD.t(`passed the ${S.name.en} test with ${score}%`, `نجح في اختبار ${S.name.ar} بنتيجة ${TKD.num(score)}%`), W / 2, 588, W - 300, 50, 700);
     F.fit(x, TKD.t(`Kick ${idx} of 3 of the white belt`, `الركلة ${TKD.num(idx)} من ٣ في الحزام الأبيض`), W / 2, 656, W - 300, 36, 600);
     // the white belt with a stripe for every kick passed so far
     const by = 770, bw = 560, bx = W / 2 - bw / 2, stripes = Math.min(3, Math.max(idx, gs.getBeltInfo().stripes || 0));
@@ -21325,7 +21325,7 @@ const Certificate = {
     const c = this.draw(sk); if (!c) return null;
     const p = PlayerSystem.getCurrentPlayer(), S = GameConfig.SKILLS[sk];
     return ShareImg.show(c, { title: TKD.t(`${S.name.en} certificate`, `شهادة ${S.name.ar}`), file: `certificate-${sk}.png`,
-      text: TKD.t(`🎓 ${p.name} passed the ${S.name.en} test in Taekwondo Journey!`, `🎓 ${p.name} عدّى اختبار ${S.name.ar} في التايكوندو!`) });
+      text: TKD.t(`🎓 ${p.name} passed the ${S.name.en} test in Taekwondo Journey!`, `🎓 نجح ${p.name} في اختبار ${S.name.ar} في التايكوندو!`) });
   }
 };
 window.Certificate = Certificate;
@@ -21349,7 +21349,7 @@ window.Certificate = Certificate;
       if (!root || !gs || Profile.pid !== PlayerSystem.getCurrentPlayerId() || (Profile.tab && Profile.tab !== 'me')) return r;
       const done = GameConfig.SKILL_ORDER.filter(sk => gs.completedSkills?.has(sk));
       const sec = document.createElement('section'); sec.className = 'pf-sec pf-share';
-      sec.innerHTML = `<h3>📤 ${TKD.t('For the family', 'للأهل')}</h3><div class="pf-share-row">
+      sec.innerHTML = `<h3>📤 ${TKD.t('For the family', 'لأولياء الأمور')}</h3><div class="pf-share-row">
         <button type="button" class="btn btn-success" data-share="week">📊 ${TKD.t("This week's report", 'تقرير الأسبوع')}</button>
         ${done.map(sk => `<button type="button" class="btn" data-cert="${sk}">🎓 ${TKD.t(`${TKD.skillName(sk)} certificate`, `شهادة ${TKD.skillName(sk)}`)}</button>`).join('')}</div>`;
       (root.querySelector('.pf-tabbody') || root).prepend(sec);
@@ -21404,8 +21404,8 @@ const UnitGames = {
       sec.innerHTML = `<h3 class="unit-sec-title"><span class="us-n"></span><span class="us-t"></span><small class="us-c"></small></h3><div class="game-cards unit-cards"></div>`;
       const grid = sec.querySelector('.unit-cards');
       U.games.forEach(g => { if (cards[g]) { cards[g].classList.remove('game-card-new'); cards[g].querySelector('.game-new-badge')?.remove(); grid.appendChild(cards[g]); } });
-      if (U.lesson) grid.insertAdjacentHTML('afterbegin', `<div class="game-card unit-lesson" data-lesson="1"><div class="game-icon">🎓</div><h3>${TKD.t('The lesson', 'الدرس')}</h3><p>${TKD.t('Watch the video and the steps first', 'اتفرج على الفيديو والخطوات الأول')}</p><span class="game-status"></span></div>`);
-      if (U.test) grid.insertAdjacentHTML('beforeend', `<div class="game-card unit-test" data-test="1"><div class="game-icon">📝</div><h3>${TKD.t('The test', 'الاختبار')}</h3><p>${TKD.t('After all the games', 'بعد ما تخلّص كل الألعاب')}</p><span class="game-status"></span></div>`);
+      if (U.lesson) grid.insertAdjacentHTML('afterbegin', `<div class="game-card unit-lesson" data-lesson="1"><div class="game-icon">🎓</div><h3>${TKD.t('The lesson', 'الدرس')}</h3><p>${TKD.t('Watch the video and the steps first', 'شاهد الفيديو والخطوات أولًا')}</p><span class="game-status"></span></div>`);
+      if (U.test) grid.insertAdjacentHTML('beforeend', `<div class="game-card unit-test" data-test="1"><div class="game-icon">📝</div><h3>${TKD.t('The test', 'الاختبار')}</h3><p>${TKD.t('After all the games', 'بعد أن تُنهي كل الألعاب')}</p><span class="game-status"></span></div>`);
       (anchor ? anchor.before(sec) : gc.appendChild(sec));
     });
     // the old "main / bonus" titles and grids are empty now
@@ -21418,7 +21418,7 @@ const UnitGames = {
       e.stopImmediatePropagation(); e.preventDefault();
       const n = +card.closest('.unit-sec').dataset.unit;
       TKD.gs()?.playSound('error');
-      TKD.toast(n > 1 ? TKD.t(`🔒 Finish unit ${n - 1} first`, `🔒 خلّص الوحدة ${TKD.num(n - 1)} الأول`) : TKD.t('🔒 Watch the lesson first', '🔒 اتفرج على الدرس الأول'), 'warning');
+      TKD.toast(n > 1 ? TKD.t(`🔒 Finish unit ${n - 1} first`, `🔒 أنهِ الوحدة ${TKD.num(n - 1)} أولًا`) : TKD.t('🔒 Watch the lesson first', '🔒 شاهد الدرس أولًا'), 'warning');
     }, true);
   },
   paint() {
@@ -21435,8 +21435,8 @@ const UnitGames = {
       // v63: the games are played in order — each one opens the next
       let need = sec.querySelector('.us-need');
       if (!need) { need = document.createElement('p'); need.className = 'us-need'; sec.querySelector('.unit-sec-title')?.after(need); }
-      need.textContent = done ? TKD.t('Unit done! ⭐', 'خلصت الوحدة دي! ⭐')
-        : TKD.t('Play the games in order — each one opens the next', 'العب الألعاب بالترتيب — كل لعبة بتفتح اللي بعدها');
+      need.textContent = done ? TKD.t('Unit done! ⭐', 'أنهيت هذه الوحدة! ⭐')
+        : TKD.t('Play the games in order — each one opens the next', 'العب الألعاب بالترتيب — كل لعبة تفتح التي تليها');
       // inside unit 1 the games wait for the lesson; every game waits for the one before it
       sec.querySelectorAll('.game-card[data-game]').forEach(c => {
         const g = c.dataset.game, k = Units.number(g, sk);
@@ -21445,8 +21445,8 @@ const UnitGames = {
         let b = c.querySelector('.game-num');
         if (k > 0) { if (!b) { b = document.createElement('span'); b.className = 'game-num'; c.prepend(b); } b.textContent = TKD.num(k); } else b?.remove();
       });
-      const l = sec.querySelector('.unit-lesson .game-status'); if (l) l.textContent = learnt ? TKD.t('Done ✓', 'خلصت ✓') : TKD.t('Start here 👉', 'ابدأ من هنا 👉');
-      const q = sec.querySelector('.unit-test .game-status'); if (q) q.textContent = GameState.quizPassed(s) ? TKD.t('Passed ✓', 'عدّيته ✓') : GameState.allGamesDone(s, sk) ? TKD.t('Ready!', 'جاهز!') : '🔒';
+      const l = sec.querySelector('.unit-lesson .game-status'); if (l) l.textContent = learnt ? TKD.t('Done ✓', 'انتهيت ✓') : TKD.t('Start here 👉', 'ابدأ من هنا 👉');
+      const q = sec.querySelector('.unit-test .game-status'); if (q) q.textContent = GameState.quizPassed(s) ? TKD.t('Passed ✓', 'نجحت فيه ✓') : GameState.allGamesDone(s, sk) ? TKD.t('Ready!', 'جاهز!') : '🔒';
     });
     // the error-hunt card is Ap Chagi only (as before)
     scr.querySelectorAll('.game-card[data-game="error-hunt"]').forEach(c => c.classList.toggle('hidden', sk !== 'apchagi'));
@@ -21469,7 +21469,7 @@ window.UnitGames = UnitGames;
     const full = html();
     const L = Mission.list(), done = L.filter(m => m.done).length, d = Mission.data(), gs = TKD.gs();
     const open = Mission._open ? ' open' : '';
-    const sum = `<summary class="daily-sum"><span>🔥 <b>${TKD.num(gs?.practiceStreak || 0)}</b></span><span>🎯 ${TKD.t('Missions', 'المهام')} <b>${TKD.num(done)}/${TKD.num(L.length)}</b></span>${d.chest ? '<span>🎉</span>' : `<button type="button" class="ds-gift${done === L.length ? ' is-ready' : ''}" aria-label="${TKD.t("Open today's gift", 'افتح هدية النهارده')}">🎁</button>`}<span class="ds-more">${TKD.t('today', 'النهارده')} ▾</span></summary>`;
+    const sum = `<summary class="daily-sum"><span>🔥 <b>${TKD.num(gs?.practiceStreak || 0)}</b></span><span>🎯 ${TKD.t('Missions', 'المهام')} <b>${TKD.num(done)}/${TKD.num(L.length)}</b></span>${d.chest ? '<span>🎉</span>' : `<button type="button" class="ds-gift${done === L.length ? ' is-ready' : ''}" aria-label="${TKD.t("Open today's gift", 'افتح هدية اليوم')}">🎁</button>`}<span class="ds-more">${TKD.t('today', 'اليوم')} ▾</span></summary>`;
     return full.replace('<section class="daily-box"', `<details class="daily-fold"${open}>${sum}<section class="daily-box"`).replace(/<\/section>\s*$/, '</section></details>');
   };
   const mount = Mission.mount.bind(Mission);
@@ -21490,7 +21490,7 @@ window.UnitGames = UnitGames;
 const PhoneFold = {
   // [screen, panel to fold, button label]
   LIST: [
-    ['form-control', '.game-instructions', { en: '💡 How to play & tips', ar: '💡 الشرح والنصايح' }],
+    ['form-control', '.game-instructions', { en: '💡 How to play & tips', ar: '💡 الشرح والنصائح' }],
   ],
   phone() { return matchMedia('(max-width: 600px)').matches; },
   apply(id) {

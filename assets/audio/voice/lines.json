@@ -3,45 +3,45 @@
   {
    "group": "cue",
    "priority": 1,
-   "ar": "برافو عليك!",
+   "ar": "أحسنت!",
    "en": "Well done!",
    "note": "حماس وفرحة، قصيرة",
-   "key": "xx40ok",
+   "key": "bbtvei",
    "keyEn": "1t8pwjb",
-   "file": "cue-001-xx40ok.mp3",
+   "file": "cue-001-bbtvei.mp3",
    "fileEn": "cue-001-1t8pwjb.mp3"
   },
   {
    "group": "cue",
    "priority": 1,
-   "ar": "جامد جدًا!",
+   "ar": "رائع جدًا!",
    "en": "Awesome!",
    "note": "حماس وفرحة، قصيرة",
-   "key": "hciila",
+   "key": "5sfu3i",
    "keyEn": "1nf2wfw",
-   "file": "cue-002-hciila.mp3",
+   "file": "cue-002-5sfu3i.mp3",
    "fileEn": "cue-002-1nf2wfw.mp3"
   },
   {
    "group": "cue",
    "priority": 1,
-   "ar": "قربت!",
+   "ar": "اقتربت!",
    "en": "So close — try again!",
    "note": "حماس وفرحة، قصيرة",
-   "key": "1tnagea",
+   "key": "4wbui3",
    "keyEn": "1y4ceqm",
-   "file": "cue-003-1tnagea.mp3",
+   "file": "cue-003-4wbui3.mp3",
    "fileEn": "cue-003-1y4ceqm.mp3"
   },
   {
    "group": "cue",
    "priority": 1,
-   "ar": "جرّب تاني",
+   "ar": "حاول مرة أخرى",
    "en": "",
    "note": "حماس وفرحة، قصيرة",
-   "key": "daft11",
+   "key": "1egg54v",
    "keyEn": "",
-   "file": "cue-004-daft11.mp3",
+   "file": "cue-004-1egg54v.mp3",
    "fileEn": ""
   },
   {
@@ -58,12 +58,12 @@
   {
    "group": "cue",
    "priority": 1,
-   "ar": "طلعت مستوى جديد!",
+   "ar": "وصلت إلى مستوى جديد!",
    "en": "You levelled up!",
    "note": "حماس وفرحة، قصيرة",
-   "key": "1n7utbq",
+   "key": "14sj0r5",
    "keyEn": "1ge5pj0",
-   "file": "cue-006-1n7utbq.mp3",
+   "file": "cue-006-14sj0r5.mp3",
    "fileEn": "cue-006-1ge5pj0.mp3"
   },
   {
@@ -80,12 +80,12 @@
   {
    "group": "cue",
    "priority": 1,
-   "ar": "يلا!",
+   "ar": "هيا!",
    "en": "Go!",
    "note": "حماس وفرحة، قصيرة",
-   "key": "jr7tkk",
+   "key": "112pjtl",
    "keyEn": "iciszv",
-   "file": "cue-008-jr7tkk.mp3",
+   "file": "cue-008-112pjtl.mp3",
    "fileEn": "cue-008-iciszv.mp3"
   },
   {
@@ -102,23 +102,23 @@
   {
    "group": "cue",
    "priority": 1,
-   "ar": "أهلًا بيك يا بطل!",
+   "ar": "أهلًا بك يا بطل!",
    "en": "Welcome, champion!",
    "note": "حماس وفرحة، قصيرة",
-   "key": "1dipvw7",
+   "key": "ytm7d",
    "keyEn": "ldfiaa",
-   "file": "cue-010-1dipvw7.mp3",
+   "file": "cue-010-ytm7d.mp3",
    "fileEn": "cue-010-ldfiaa.mp3"
   },
   {
    "group": "cue",
    "priority": 1,
-   "ar": "برافو، خلّصت الإحماء!",
+   "ar": "أحسنت، أنهيت الإحماء!",
    "en": "Warm-up done — great job!",
    "note": "حماس وفرحة، قصيرة",
-   "key": "utlnhj",
+   "key": "1solt1o",
    "keyEn": "cgywnl",
-   "file": "cue-011-utlnhj.mp3",
+   "file": "cue-011-1solt1o.mp3",
    "fileEn": "cue-011-cgywnl.mp3"
   },
   {
@@ -223,7 +223,7 @@
   {
    "group": "tour",
    "priority": 1,
-   "ar": "أهلاً يا بطل!",
+   "ar": "أهلًا يا بطل!",
    "en": "Hi champion!",
    "note": "جولة أول مرة — كوتش سيف بيكلم الطفل، بحماس وهدوء",
    "key": "16w7kqi",
@@ -245,89 +245,89 @@
   {
    "group": "tour",
    "priority": 1,
-   "ar": "تعالى أفرّجك على اللعبة!",
+   "ar": "تعال أُرِك اللعبة!",
    "en": "Come, I'll show you around!",
    "note": "جولة أول مرة — كوتش سيف بيكلم الطفل، بحماس وهدوء",
-   "key": "1yy7fnb",
+   "key": "19wac11",
    "keyEn": "h4pb4h",
-   "file": "tour-003-1yy7fnb.mp3",
+   "file": "tour-003-19wac11.mp3",
    "fileEn": "tour-003-h4pb4h.mp3"
   },
   {
    "group": "tour",
    "priority": 1,
-   "ar": "كل ركلة فيها ٣ وحدات.",
+   "ar": "في كل ركلة ٣ وحدات.",
    "en": "Every kick has 3 units.",
    "note": "جولة أول مرة — كوتش سيف بيكلم الطفل، بحماس وهدوء",
-   "key": "10zjzoy",
+   "key": "1a3byco",
    "keyEn": "1gv2dzc",
-   "file": "tour-004-10zjzoy.mp3",
+   "file": "tour-004-1a3byco.mp3",
    "fileEn": "tour-004-1gv2dzc.mp3"
   },
   {
    "group": "tour",
    "priority": 1,
-   "ar": "خلّص وحدة والوحدة اللي بعدها تتفتح.",
+   "ar": "أنهِ وحدة لتُفتح الوحدة التالية.",
    "en": "Finish one and the next one opens.",
    "note": "جولة أول مرة — كوتش سيف بيكلم الطفل، بحماس وهدوء",
-   "key": "1ef146e",
+   "key": "1md8s2h",
    "keyEn": "1g08x44",
-   "file": "tour-005-1ef146e.mp3",
+   "file": "tour-005-1md8s2h.mp3",
    "fileEn": "tour-005-1g08x44.mp3"
   },
   {
    "group": "tour",
    "priority": 1,
-   "ar": "ده طريقك.",
+   "ar": "هذا طريقك.",
    "en": "This is your road.",
    "note": "جولة أول مرة — كوتش سيف بيكلم الطفل، بحماس وهدوء",
-   "key": "sg4nmu",
+   "key": "acnqpe",
    "keyEn": "1u8bn6k",
-   "file": "tour-006-sg4nmu.mp3",
+   "file": "tour-006-acnqpe.mp3",
    "fileEn": "tour-006-1u8bn6k.mp3"
   },
   {
    "group": "tour",
    "priority": 1,
-   "ar": "كل دايرة خطوة، وبطلك واقف على الخطوة الجاية.",
+   "ar": "كل دائرة خطوة، وبطلك واقف عند الخطوة التالية.",
    "en": "Every circle is a step, and your fighter stands on the next one.",
    "note": "جولة أول مرة — كوتش سيف بيكلم الطفل، بحماس وهدوء",
-   "key": "1bz0mmu",
+   "key": "174pa3m",
    "keyEn": "lrjlym",
-   "file": "tour-007-1bz0mmu.mp3",
+   "file": "tour-007-174pa3m.mp3",
    "fileEn": "tour-007-lrjlym.mp3"
   },
   {
    "group": "tour",
    "priority": 1,
-   "ar": "الزرار الكبير ده بيوديك على طول للخطوة الجاية.",
+   "ar": "هذا الزر الكبير يأخذك مباشرة إلى الخطوة التالية.",
    "en": "This big button always takes you to the next step.",
    "note": "جولة أول مرة — كوتش سيف بيكلم الطفل، بحماس وهدوء",
-   "key": "mvgbl0",
+   "key": "djvu8s",
    "keyEn": "1e3xur4",
-   "file": "tour-008-mvgbl0.mp3",
+   "file": "tour-008-djvu8s.mp3",
    "fileEn": "tour-008-1e3xur4.mp3"
   },
   {
    "group": "tour",
    "priority": 1,
-   "ar": "كل يوم ليك ٣ مهام صغيرة.",
+   "ar": "لك كل يوم ٣ مهام صغيرة.",
    "en": "Every day you get 3 small missions.",
    "note": "جولة أول مرة — كوتش سيف بيكلم الطفل، بحماس وهدوء",
-   "key": "1u6x2ge",
+   "key": "1x0098w",
    "keyEn": "1to2vfi",
-   "file": "tour-009-1u6x2ge.mp3",
+   "file": "tour-009-1x0098w.mp3",
    "fileEn": "tour-009-1to2vfi.mp3"
   },
   {
    "group": "tour",
    "priority": 1,
-   "ar": "خلّصهم وافتح الهدية!",
+   "ar": "أنهِها وافتح الهدية!",
    "en": "Finish them and open the gift!",
    "note": "جولة أول مرة — كوتش سيف بيكلم الطفل، بحماس وهدوء",
-   "key": "1acod61",
+   "key": "1rqs7mu",
    "keyEn": "5zkp36",
-   "file": "tour-010-1acod61.mp3",
+   "file": "tour-010-1rqs7mu.mp3",
    "fileEn": "tour-010-5zkp36.mp3"
   },
   {
@@ -355,12 +355,12 @@
   {
    "group": "tour",
    "priority": 1,
-   "ar": "دوس على الزرار الكبير ويلا نبدأ!",
+   "ar": "اضغط على الزر الكبير وهيا نبدأ!",
    "en": "Tap the big button and let's start!",
    "note": "جولة أول مرة — كوتش سيف بيكلم الطفل، بحماس وهدوء",
-   "key": "1slrhl5",
+   "key": "1gdzcgi",
    "keyEn": "14ze6wk",
-   "file": "tour-013-1slrhl5.mp3",
+   "file": "tour-013-1gdzcgi.mp3",
    "fileEn": "tour-013-14ze6wk.mp3"
   },
   {
@@ -1202,100 +1202,100 @@
   {
    "group": "cooldown",
    "priority": 1,
-   "ar": "إطالة عضلة الفخذ اللي قدام",
+   "ar": "إطالة العضلة الأمامية للفخذ",
    "en": "Standing Quad Stretch",
    "note": "اسم الإطالة، بهدوء",
-   "key": "1o7et4f",
+   "key": "azl633",
    "keyEn": "c86wb1",
-   "file": "cooldown-001-1o7et4f.mp3",
+   "file": "cooldown-001-azl633.mp3",
    "fileEn": "cooldown-001-c86wb1.mp3"
   },
   {
    "group": "cooldown",
    "priority": 2,
-   "ar": "اسند على الحيطة، واسحب كعبك بالراحة ناحية وسطك من ورا واثبت.",
+   "ar": "استند إلى الحائط، واسحب كعبك بهدوء نحو مقعدتك واثبت.",
    "en": "Hold a wall, pull one heel gently toward your bottom and hold.",
    "note": "شرح الإطالة، بهدوء",
-   "key": "pjhtg4",
+   "key": "1w7jv8a",
    "keyEn": "1mzrgra",
-   "file": "cooldown-002-pjhtg4.mp3",
+   "file": "cooldown-002-1w7jv8a.mp3",
    "fileEn": "cooldown-002-1mzrgra.mp3"
   },
   {
    "group": "cooldown",
    "priority": 2,
-   "ar": "وبعدين الرجل التانية.",
+   "ar": "ثم الرجل الأخرى.",
    "en": "Then the other leg.",
    "note": "شرح الإطالة، بهدوء",
-   "key": "18abxik",
+   "key": "1oh4mlh",
    "keyEn": "1su6cnj",
-   "file": "cooldown-003-18abxik.mp3",
+   "file": "cooldown-003-1oh4mlh.mp3",
    "fileEn": "cooldown-003-1su6cnj.mp3"
   },
   {
    "group": "cooldown",
    "priority": 1,
-   "ar": "إطالة عضلة الفخذ اللي ورا",
+   "ar": "إطالة العضلة الخلفية للفخذ",
    "en": "Seated Hamstring Stretch",
    "note": "اسم الإطالة، بهدوء",
-   "key": "1d655jc",
+   "key": "lrxuu8",
    "keyEn": "l7b2ob",
-   "file": "cooldown-004-1d655jc.mp3",
+   "file": "cooldown-004-lrxuu8.mp3",
    "fileEn": "cooldown-004-l7b2ob.mp3"
   },
   {
    "group": "cooldown",
    "priority": 2,
-   "ar": "اقعد ورجليك مفرودين ومد إيديك بالراحة ناحية صوابع رجليك.",
+   "ar": "اجلس ورجلاك مفرودتان، ومُدّ يديك بهدوء نحو أصابع قدميك.",
    "en": "Sit with straight legs and reach slowly toward your toes.",
    "note": "شرح الإطالة، بهدوء",
-   "key": "1tejmwo",
+   "key": "1eyfe7w",
    "keyEn": "1vjmuzd",
-   "file": "cooldown-005-1tejmwo.mp3",
+   "file": "cooldown-005-1eyfe7w.mp3",
    "fileEn": "cooldown-005-1vjmuzd.mp3"
   },
   {
    "group": "cooldown",
    "priority": 2,
-   "ar": "من غير هز، وخد نفسك بالراحة.",
+   "ar": "دون اهتزاز، وتنفّس بهدوء.",
    "en": "No bouncing — breathe slowly.",
    "note": "شرح الإطالة، بهدوء",
-   "key": "1d96yyx",
+   "key": "1ngdfue",
    "keyEn": "1muw3nq",
-   "file": "cooldown-006-1d96yyx.mp3",
+   "file": "cooldown-006-1ngdfue.mp3",
    "fileEn": "cooldown-006-1muw3nq.mp3"
   },
   {
    "group": "cooldown",
    "priority": 1,
-   "ar": "إطالة السمانة ولف الكاحل",
+   "ar": "إطالة عضلة السمانة ولف الكاحل",
    "en": "Calf Stretch & Ankle Circles",
    "note": "اسم الإطالة، بهدوء",
-   "key": "67dwi9",
+   "key": "2gs5x3",
    "keyEn": "j4pbks",
-   "file": "cooldown-007-67dwi9.mp3",
+   "file": "cooldown-007-2gs5x3.mp3",
    "fileEn": "cooldown-007-j4pbks.mp3"
   },
   {
    "group": "cooldown",
    "priority": 2,
-   "ar": "اسند على الحيطة ومد رجل لورا والكعب على الأرض.",
+   "ar": "استند إلى الحائط ومُدّ رجلًا إلى الخلف والكعب على الأرض.",
    "en": "Lean on a wall with one leg back, heel down.",
    "note": "شرح الإطالة، بهدوء",
-   "key": "vz4mfp",
+   "key": "r143a2",
    "keyEn": "1t2x3pi",
-   "file": "cooldown-008-vz4mfp.mp3",
+   "file": "cooldown-008-r143a2.mp3",
    "fileEn": "cooldown-008-1t2x3pi.mp3"
   },
   {
    "group": "cooldown",
    "priority": 2,
-   "ar": "وبعدين لف كل كاحل لفّات بطيئة.",
+   "ar": "ثم لُفّ كل كاحل لفّات بطيئة.",
    "en": "Then draw slow circles with each ankle.",
    "note": "شرح الإطالة، بهدوء",
-   "key": "1c4nsnc",
+   "key": "1fb1svs",
    "keyEn": "mtqkp2",
-   "file": "cooldown-009-1c4nsnc.mp3",
+   "file": "cooldown-009-1fb1svs.mp3",
    "fileEn": "cooldown-009-mtqkp2.mp3"
   },
   {
@@ -1312,188 +1312,188 @@
   {
    "group": "cooldown",
    "priority": 2,
-   "ar": "امشي مع الدايرة: خد نفس وهي بتكبر، وطلّعه وهي بتصغر.",
+   "ar": "اتبع الدائرة: خذ شهيقًا وهي تكبر، وأخرجه زفيرًا وهي تصغر.",
    "en": "Follow the circle: breathe in while it grows, breathe out while it shrinks.",
    "note": "شرح الإطالة، بهدوء",
-   "key": "1opco4a",
+   "key": "1lu6fcg",
    "keyEn": "n06lqe",
-   "file": "cooldown-011-1opco4a.mp3",
+   "file": "cooldown-011-1lu6fcg.mp3",
    "fileEn": "cooldown-011-n06lqe.mp3"
   },
   {
    "group": "error-hunt",
    "priority": 2,
-   "ar": "بص على الإيدين: فين الحراسة؟",
+   "ar": "انظر إلى اليدين: أين الحراسة؟",
    "en": "Look at the hands — where is the guard?",
    "note": "تلميح بعد الغلطة",
-   "key": "13epzbe",
+   "key": "1x0lcvy",
    "keyEn": "e6jnol",
-   "file": "error-hunt-001-13epzbe.mp3",
+   "file": "error-hunt-001-1x0lcvy.mp3",
    "fileEn": "error-hunt-001-e6jnol.mp3"
   },
   {
    "group": "error-hunt",
    "priority": 2,
-   "ar": "بص اللاعب باصص على فين.",
+   "ar": "انظر: إلى أين ينظر اللاعب؟",
    "en": "Look at where the fighter is looking.",
    "note": "تلميح بعد الغلطة",
-   "key": "gxsgcb",
+   "key": "1znvf0",
    "keyEn": "d7fumv",
-   "file": "error-hunt-002-gxsgcb.mp3",
+   "file": "error-hunt-002-1znvf0.mp3",
    "fileEn": "error-hunt-002-d7fumv.mp3"
   },
   {
    "group": "error-hunt",
    "priority": 2,
-   "ar": "بص على رجل الركلة: هي مفرودة على الآخر؟",
+   "ar": "انظر إلى رجل الركلة: هل هي مفرودة تمامًا؟",
    "en": "Look at the kicking leg — is it fully straight?",
    "note": "تلميح بعد الغلطة",
-   "key": "8z4nhl",
+   "key": "1sz46et",
    "keyEn": "4e0bsn",
-   "file": "error-hunt-003-8z4nhl.mp3",
+   "file": "error-hunt-003-1sz46et.mp3",
    "fileEn": "error-hunt-003-4e0bsn.mp3"
   },
   {
    "group": "error-hunt",
    "priority": 2,
-   "ar": "بص على الجسم: مفرود ولا مايل لورا؟",
+   "ar": "انظر إلى الجسم: هل هو مستقيم أم مائل إلى الخلف؟",
    "en": "Look at the body — upright, or falling back?",
    "note": "تلميح بعد الغلطة",
-   "key": "1eppntg",
+   "key": "7xnu47",
    "keyEn": "z4g6jo",
-   "file": "error-hunt-004-1eppntg.mp3",
+   "file": "error-hunt-004-7xnu47.mp3",
    "fileEn": "error-hunt-004-z4g6jo.mp3"
   },
   {
    "group": "error-hunt",
    "priority": 2,
-   "ar": "بص على قدم الارتكاز: لازقة في الأرض كويس؟",
+   "ar": "انظر إلى قدم الارتكاز: هل هي ثابتة على الأرض جيدًا؟",
    "en": "Look at the standing foot — is it planted on the floor?",
    "note": "تلميح بعد الغلطة",
-   "key": "1ohy9l9",
+   "key": "1rx3fwy",
    "keyEn": "1a607lv",
-   "file": "error-hunt-005-1ohy9l9.mp3",
+   "file": "error-hunt-005-1rx3fwy.mp3",
    "fileEn": "error-hunt-005-1a607lv.mp3"
   },
   {
    "group": "error-hunt",
    "priority": 2,
-   "ar": "بص على قدم الارتكاز: لفّت لبرّه ولا لأ؟",
+   "ar": "انظر إلى قدم الارتكاز: هل لفّت إلى الخارج أم لا؟",
    "en": "Look at the standing foot — did it turn out?",
    "note": "تلميح بعد الغلطة",
-   "key": "rucsok",
+   "key": "kht3uq",
    "keyEn": "1thpdnh",
-   "file": "error-hunt-006-rucsok.mp3",
+   "file": "error-hunt-006-kht3uq.mp3",
    "fileEn": "error-hunt-006-1thpdnh.mp3"
   },
   {
    "group": "error-hunt",
    "priority": 2,
-   "ar": "بص على رجل الركلة: رايحة على أنهي هدف؟",
+   "ar": "انظر إلى رجل الركلة: إلى أيّ هدف تتجه؟",
    "en": "Look at the kicking leg — which target is it going to?",
    "note": "تلميح بعد الغلطة",
-   "key": "1vaxhm8",
+   "key": "efr7l9",
    "keyEn": "hesgrc",
-   "file": "error-hunt-007-1vaxhm8.mp3",
+   "file": "error-hunt-007-efr7l9.mp3",
    "fileEn": "error-hunt-007-hesgrc.mp3"
   },
   {
    "group": "error-hunt",
    "priority": 2,
-   "ar": "بص على رجل الركلة وهي طالعة: مفرودة؟",
+   "ar": "انظر إلى رجل الركلة وهي ترتفع: هل هي مفرودة؟",
    "en": "Look at the kicking leg on its way up — is it straight?",
    "note": "تلميح بعد الغلطة",
-   "key": "1o96gt1",
+   "key": "8dboq1",
    "keyEn": "1oftokg",
-   "file": "error-hunt-008-1o96gt1.mp3",
+   "file": "error-hunt-008-8dboq1.mp3",
    "fileEn": "error-hunt-008-1oftokg.mp3"
   },
   {
    "group": "error-hunt",
    "priority": 2,
-   "ar": "بص على الجسم: مايل لورا قد إيه؟",
+   "ar": "انظر إلى الجسم: كم يميل إلى الخلف؟",
    "en": "Look at the body — how far back does it lean?",
    "note": "تلميح بعد الغلطة",
-   "key": "1gc4zlo",
+   "key": "pueyt5",
    "keyEn": "1r8xul0",
-   "file": "error-hunt-009-1gc4zlo.mp3",
+   "file": "error-hunt-009-pueyt5.mp3",
    "fileEn": "error-hunt-009-1r8xul0.mp3"
   },
   {
    "group": "error-hunt",
    "priority": 2,
-   "ar": "بص على قدم الارتكاز: لفّت قد إيه؟",
+   "ar": "انظر إلى قدم الارتكاز: كم لفّت؟",
    "en": "Look at the standing foot — how far did it turn?",
    "note": "تلميح بعد الغلطة",
-   "key": "1l0ea6p",
+   "key": "tpzil9",
    "keyEn": "sorej6",
-   "file": "error-hunt-010-1l0ea6p.mp3",
+   "file": "error-hunt-010-tpzil9.mp3",
    "fileEn": "error-hunt-010-sorej6.mp3"
   },
   {
    "group": "error-hunt",
    "priority": 2,
-   "ar": "بص على القدم اللي بتضرب: بتنزل بأنهي جزء؟",
+   "ar": "انظر إلى القدم الضاربة: بأيّ جزء تنزل؟",
    "en": "Look at the striking foot — which part lands?",
    "note": "تلميح بعد الغلطة",
-   "key": "h7rcu8",
+   "key": "1zkql6",
    "keyEn": "p9hgf5",
-   "file": "error-hunt-011-h7rcu8.mp3",
+   "file": "error-hunt-011-1zkql6.mp3",
    "fileEn": "error-hunt-011-p9hgf5.mp3"
   },
   {
    "group": "error-hunt",
    "priority": 2,
-   "ar": "بص على قدم الارتكاز: لفّت لحد فين؟",
+   "ar": "انظر إلى قدم الارتكاز: إلى أيّ حد لفّت؟",
    "en": "Look at the standing foot — how far did it turn?",
    "note": "تلميح بعد الغلطة",
-   "key": "1k62eyt",
+   "key": "170b1e2",
    "keyEn": "sorej6",
-   "file": "error-hunt-012-1k62eyt.mp3",
+   "file": "error-hunt-012-170b1e2.mp3",
    "fileEn": "error-hunt-012-sorej6.mp3"
   },
   {
    "group": "error-hunt",
    "priority": 2,
-   "ar": "بص على رجل الركلة: اتفردت على الآخر؟",
+   "ar": "انظر إلى رجل الركلة: هل فُردت تمامًا؟",
    "en": "Look at the kicking leg — fully straight?",
    "note": "تلميح بعد الغلطة",
-   "key": "b6b7nh",
+   "key": "1xpbjac",
    "keyEn": "1mf408c",
-   "file": "error-hunt-013-b6b7nh.mp3",
+   "file": "error-hunt-013-1xpbjac.mp3",
    "fileEn": "error-hunt-013-1mf408c.mp3"
   },
   {
    "group": "error-hunt",
    "priority": 2,
-   "ar": "بص على القدم اللي بتضرب: بأنهي جزء؟",
+   "ar": "انظر إلى القدم الضاربة: بأيّ جزء تضرب؟",
    "en": "Look at the striking foot — which part leads?",
    "note": "تلميح بعد الغلطة",
-   "key": "1lgadfy",
+   "key": "1fqt45p",
    "keyEn": "1qbulzs",
-   "file": "error-hunt-014-1lgadfy.mp3",
+   "file": "error-hunt-014-1fqt45p.mp3",
    "fileEn": "error-hunt-014-1qbulzs.mp3"
   },
   {
    "group": "error-hunt",
    "priority": 2,
-   "ar": "بص على الراس: باصة ناحية الهدف؟",
+   "ar": "انظر إلى الرأس: هل يتجه نحو الهدف؟",
    "en": "Look at the head — is it facing the target?",
    "note": "تلميح بعد الغلطة",
-   "key": "15vnqau",
+   "key": "wtu7q8",
    "keyEn": "hj9prx",
-   "file": "error-hunt-015-15vnqau.mp3",
+   "file": "error-hunt-015-wtu7q8.mp3",
    "fileEn": "error-hunt-015-hj9prx.mp3"
   },
   {
    "group": "error-hunt",
    "priority": 2,
-   "ar": "بص على الجسم: مايل لأنهي ناحية؟",
+   "ar": "انظر إلى الجسم: إلى أيّ جهة يميل؟",
    "en": "Look at the body — which way does it lean?",
    "note": "تلميح بعد الغلطة",
-   "key": "eh7ego",
+   "key": "2wba5y",
    "keyEn": "46o12k",
-   "file": "error-hunt-016-eh7ego.mp3",
+   "file": "error-hunt-016-2wba5y.mp3",
    "fileEn": "error-hunt-016-46o12k.mp3"
   },
   {
@@ -1620,12 +1620,12 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "الخطوة الجاية: العب: ظبّط الوضعية",
+   "ar": "الخطوة الجاية: العب: اضبط الوضعية",
    "en": "Next: Play: Fix the Pose",
    "note": "الخطوة الجاية على الخريطة",
-   "key": "ce2vq5",
+   "key": "1wsy66i",
    "keyEn": "1ehey4n",
-   "file": "screen-015-ce2vq5.mp3",
+   "file": "screen-015-1wsy66i.mp3",
    "fileEn": "screen-015-1ehey4n.mp3"
   },
   {
@@ -1675,12 +1675,12 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "الخطوة الجاية: العب: اثبت واتوازن",
+   "ar": "الخطوة الجاية: العب: اثبت وتوازن",
    "en": "Next: Play: Balance Hold",
    "note": "الخطوة الجاية على الخريطة",
-   "key": "700euj",
+   "key": "1o1qn0e",
    "keyEn": "13ujcyf",
-   "file": "screen-020-700euj.mp3",
+   "file": "screen-020-1o1qn0e.mp3",
    "fileEn": "screen-020-13ujcyf.mp3"
   },
   {
@@ -1752,23 +1752,23 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "ابدأ رحلتك عشان تحترف حركات التايكوندو.",
+   "ar": "ابدأ رحلتك لتحترف حركات التايكوندو.",
    "en": "Start your journey to master Taekwondo techniques.",
    "note": "تعليمات الشاشة",
-   "key": "ga8l44",
+   "key": "1i09vxg",
    "keyEn": "f8rc32",
-   "file": "screen-027-ga8l44.mp3",
+   "file": "screen-027-1i09vxg.mp3",
    "fileEn": "screen-027-f8rc32.mp3"
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "خلّص كل مهارة عشان تفتح اللي بعدها!",
+   "ar": "أنهِ كل مهارة لتفتح المهارة التالية!",
    "en": "Complete each skill to unlock the next!",
    "note": "تعليمات الشاشة",
-   "key": "uju08p",
+   "key": "vupfb0",
    "keyEn": "1uf0wtj",
-   "file": "screen-028-uju08p.mp3",
+   "file": "screen-028-vupfb0.mp3",
    "fileEn": "screen-028-1uf0wtj.mp3"
   },
   {
@@ -1785,23 +1785,23 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "اتعلم آب تشاجي.",
+   "ar": "تعلّم آب تشاجي.",
    "en": "Learn Ap Chagi.",
    "note": "تعليمات الشاشة",
-   "key": "1p1lowv",
+   "key": "12vb9i",
    "keyEn": "hejp8c",
-   "file": "screen-030-1p1lowv.mp3",
+   "file": "screen-030-12vb9i.mp3",
    "fileEn": "screen-030-hejp8c.mp3"
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "اتقن المراحل الخمسة للركلة الأمامية",
+   "ar": "أتقن المراحل الخمس للركلة الأمامية",
    "en": "Master the 5 stages of the front kick",
    "note": "تعليمات الشاشة",
-   "key": "ca3x7o",
+   "key": "15konzv",
    "keyEn": "1necs3v",
-   "file": "screen-031-ca3x7o.mp3",
+   "file": "screen-031-15konzv.mp3",
    "fileEn": "screen-031-1necs3v.mp3"
   },
   {
@@ -1818,12 +1818,12 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "اختار لعبة وابدأ التمرين",
+   "ar": "اختر لعبة وابدأ التمرين",
    "en": "Choose a game to start training",
    "note": "تعليمات الشاشة",
-   "key": "1lrbhxe",
+   "key": "1iusgz",
    "keyEn": "olm89m",
-   "file": "screen-033-1lrbhxe.mp3",
+   "file": "screen-033-1iusgz.mp3",
    "fileEn": "screen-033-olm89m.mp3"
   },
   {
@@ -1840,13 +1840,13 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "اتفرج على الفيديو والخطوات الأول",
-   "en": "اتفرج على الفيديو والخطوات الأول",
+   "ar": "شاهد الفيديو والخطوات أولًا",
+   "en": "شاهد الفيديو والخطوات أولًا",
    "note": "تعليمات الشاشة",
-   "key": "1b372ee",
-   "keyEn": "1b372ee",
-   "file": "screen-035-1b372ee.mp3",
-   "fileEn": "screen-035-1b372ee.mp3"
+   "key": "1kf9ip4",
+   "keyEn": "1kf9ip4",
+   "file": "screen-035-1kf9ip4.mp3",
+   "fileEn": "screen-035-1kf9ip4.mp3"
   },
   {
    "group": "screen",
@@ -1895,12 +1895,12 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "ظبّط الوضعية.",
+   "ar": "اضبط الوضعية.",
    "en": "Fix the Pose.",
    "note": "تعليمات الشاشة",
-   "key": "19xp7ib",
+   "key": "1qmwvss",
    "keyEn": "gdm7o8",
-   "file": "screen-040-19xp7ib.mp3",
+   "file": "screen-040-1qmwvss.mp3",
    "fileEn": "screen-040-gdm7o8.mp3"
   },
   {
@@ -2005,12 +2005,12 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "اثبت واتوازن.",
+   "ar": "اثبت وتوازن.",
    "en": "Balance Hold.",
    "note": "تعليمات الشاشة",
-   "key": "1hd6at",
+   "key": "1rx5gm0",
    "keyEn": "1gzqhfg",
-   "file": "screen-050-1hd6at.mp3",
+   "file": "screen-050-1rx5gm0.mp3",
    "fileEn": "screen-050-1gzqhfg.mp3"
   },
   {
@@ -2104,34 +2104,34 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "بعد ما تخلّص كل الألعاب",
-   "en": "بعد ما تخلّص كل الألعاب",
+   "ar": "بعد أن تُنهي كل الألعاب",
+   "en": "بعد أن تُنهي كل الألعاب",
    "note": "تعليمات الشاشة",
-   "key": "kh9dtj",
-   "keyEn": "kh9dtj",
-   "file": "screen-059-kh9dtj.mp3",
-   "fileEn": "screen-059-kh9dtj.mp3"
+   "key": "6vj4cc",
+   "keyEn": "6vj4cc",
+   "file": "screen-059-6vj4cc.mp3",
+   "fileEn": "screen-059-6vj4cc.mp3"
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "ظبّط الوضعية — آب تشاجي.",
+   "ar": "اضبط الوضعية — آب تشاجي.",
    "en": "Fix the Pose — Ap Chagi.",
    "note": "تعليمات الشاشة",
-   "key": "2wnb9e",
+   "key": "kmcfuf",
    "keyEn": "13p96hj",
-   "file": "screen-060-2wnb9e.mp3",
+   "file": "screen-060-kmcfuf.mp3",
    "fileEn": "screen-060-13p96hj.mp3"
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "اسحب النقط الملونة للدواير الخضرا",
+   "ar": "اسحب النقاط الملونة إلى الدوائر الخضراء",
    "en": "Drag the coloured dots onto the green circles",
    "note": "تعليمات الشاشة",
-   "key": "w1lkqv",
+   "key": "uy4r8i",
    "keyEn": "meai20",
-   "file": "screen-061-w1lkqv.mp3",
+   "file": "screen-061-uy4r8i.mp3",
    "fileEn": "screen-061-meai20.mp3"
   },
   {
@@ -2324,45 +2324,45 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "تمرين جامد!",
+   "ar": "تمرين رائع!",
    "en": "Great training!",
    "note": "تعليمات الشاشة",
-   "key": "ukyn18",
+   "key": "1hjmfg",
    "keyEn": "1tz9xz4",
-   "file": "screen-079-ukyn18.mp3",
+   "file": "screen-079-1hjmfg.mp3",
    "fileEn": "screen-079-1tz9xz4.mp3"
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "اعمل إطالة للعضلات دي ٢٠ ثانية لكل واحدة عشان تخلّص بأمان.",
+   "ar": "أطِل هذه العضلات ٢٠ ثانية لكل منها لتُنهي التمرين بأمان.",
    "en": "Stretch these muscles for 20 seconds each to finish safely.",
    "note": "تعليمات الشاشة",
-   "key": "kj6r5j",
+   "key": "188d62g",
    "keyEn": "qsoht4",
-   "file": "screen-080-kj6r5j.mp3",
+   "file": "screen-080-188d62g.mp3",
    "fileEn": "screen-080-qsoht4.mp3"
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "فاترينة إنجازات الدوجانج.",
+   "ar": "خزانة إنجازات الدوجانج.",
    "en": "Dojang Trophy Room.",
    "note": "تعليمات الشاشة",
-   "key": "1q6ky1h",
+   "key": "1vycqi9",
    "keyEn": "yy040n",
-   "file": "screen-081-1q6ky1h.mp3",
+   "file": "screen-081-1vycqi9.mp3",
    "fileEn": "screen-081-yy040n.mp3"
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "كل ميدالية وكاس وشهادة خدتها في رحلتك",
+   "ar": "كل ميدالية وكأس وشهادة حصلت عليها في رحلتك",
    "en": "Every medal, cup, and certificate you've earned on your journey",
    "note": "تعليمات الشاشة",
-   "key": "13l4o90",
+   "key": "1ptpmgk",
    "keyEn": "1nm4dq6",
-   "file": "screen-082-13l4o90.mp3",
+   "file": "screen-082-1ptpmgk.mp3",
    "fileEn": "screen-082-1nm4dq6.mp3"
   },
   {
@@ -2379,23 +2379,23 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "ملخص سريع للقراية بس، لأولياء الأمور والمدربين.",
+   "ar": "ملخص سريع للقراءة فقط، لأولياء الأمور والمدربين.",
    "en": "A quick read-only summary for parents and coaches.",
    "note": "تعليمات الشاشة",
-   "key": "uf0i3b",
+   "key": "aw0arj",
    "keyEn": "u5u9t0",
-   "file": "screen-084-uf0i3b.mp3",
+   "file": "screen-084-aw0arj.mp3",
    "fileEn": "screen-084-u5u9t0.mp3"
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "شوف ترتيبك مقارنة بكل اللاعبين على الجهاز ده.",
+   "ar": "شاهد ترتيبك مقارنةً بكل اللاعبين على هذا الجهاز.",
    "en": "See how every player on this device ranks.",
    "note": "تعليمات الشاشة",
-   "key": "13hlbab",
+   "key": "1elxro1",
    "keyEn": "drmsby",
-   "file": "screen-085-13hlbab.mp3",
+   "file": "screen-085-1elxro1.mp3",
    "fileEn": "screen-085-drmsby.mp3"
   },
   {
@@ -2412,12 +2412,12 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "النتائج والملاحظات لكل لاعب على الجهاز ده.",
+   "ar": "النتائج والملاحظات لكل لاعب على هذا الجهاز.",
    "en": "Scores and insights for every player on this device.",
    "note": "تعليمات الشاشة",
-   "key": "12u6pn6",
+   "key": "12327o",
    "keyEn": "q2ouko",
-   "file": "screen-087-12u6pn6.mp3",
+   "file": "screen-087-12327o.mp3",
    "fileEn": "screen-087-q2ouko.mp3"
   },
   {
@@ -2434,23 +2434,23 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "العب تحدي النهارده، واجه صحابك واكسب جوايز الأسبوع.",
+   "ar": "العب تحدي اليوم، وواجه أصدقاءك، واربح جوائز الأسبوع.",
    "en": "Play today's challenge, duel your friends and win weekly awards.",
    "note": "تعليمات الشاشة",
-   "key": "1xcknd",
+   "key": "11lb8op",
    "keyEn": "10x8atu",
-   "file": "screen-089-1xcknd.mp3",
+   "file": "screen-089-11lb8op.mp3",
    "fileEn": "screen-089-10x8atu.mp3"
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "Test (إنت)",
+   "ar": "Test (أنت)",
    "en": "Test (you)",
    "note": "تعليمات الشاشة",
-   "key": "1rnang6",
+   "key": "1gj9jmc",
    "keyEn": "o2792u",
-   "file": "screen-090-1rnang6.mp3",
+   "file": "screen-090-1gj9jmc.mp3",
    "fileEn": "screen-090-o2792u.mp3"
   },
   {
@@ -2467,12 +2467,12 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "كل اللي بيتمرنوا على الجهاز ده — دوس على أي لاعب تشوف صفحته.",
+   "ar": "كل من يتمرن على هذا الجهاز — اضغط على أي لاعب لتشاهد صفحته.",
    "en": "Everyone training on this device — tap a player to see their hero page.",
    "note": "تعليمات الشاشة",
-   "key": "fmm9dv",
+   "key": "akobz8",
    "keyEn": "1ms2d69",
-   "file": "screen-092-fmm9dv.mp3",
+   "file": "screen-092-akobz8.mp3",
    "fileEn": "screen-092-1ms2d69.mp3"
   },
   {
@@ -2489,34 +2489,34 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "كل حزام وكل حركة وكل بومسي — دوس على أي حاجة وتعلّمها.",
+   "ar": "كل حزام وكل حركة وكل بومسي — اضغط على أي منها لتتعلّمه.",
    "en": "Every belt, every technique and every poomsae — tap one to learn it.",
    "note": "تعليمات الشاشة",
-   "key": "1pbekyt",
+   "key": "11avri",
    "keyEn": "iig4z",
-   "file": "screen-094-1pbekyt.mp3",
+   "file": "screen-094-11avri.mp3",
    "fileEn": "screen-094-iig4z.mp3"
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "تحدّى صاحبك.",
+   "ar": "تحدَّ صديقك.",
    "en": "Challenge a Friend.",
    "note": "تعليمات الشاشة",
-   "key": "1qqs4me",
+   "key": "krxshs",
    "keyEn": "45ae3b",
-   "file": "screen-095-1qqs4me.mp3",
+   "file": "screen-095-krxshs.mp3",
    "fileEn": "screen-095-45ae3b.mp3"
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "لاعبين على شاشة واحدة: اللي يركل الأول في هدف صح ياخد النقط.",
+   "ar": "لاعبان على شاشة واحدة: من يركل هدفًا صحيحًا أولًا يحصل على النقاط.",
    "en": "Two players, one screen: the first to kick a legal target scores.",
    "note": "تعليمات الشاشة",
-   "key": "tun030",
+   "key": "17d1rjc",
    "keyEn": "1fwxim3",
-   "file": "screen-096-tun030.mp3",
+   "file": "screen-096-17d1rjc.mp3",
    "fileEn": "screen-096-1fwxim3.mp3"
   },
   {
@@ -2544,34 +2544,34 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "اتعلم نارو تشاجي.",
+   "ar": "تعلّم نارو تشاجي.",
    "en": "Learn Naeryeo Chagi.",
    "note": "تعليمات الشاشة",
-   "key": "v9lnar",
+   "key": "lh5tea",
    "keyEn": "14eddp2",
-   "file": "screen-099-v9lnar.mp3",
+   "file": "screen-099-lh5tea.mp3",
    "fileEn": "screen-099-14eddp2.mp3"
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "اتقن المراحل الخمسة للركلة المطرقية",
+   "ar": "أتقن المراحل الخمس للركلة المطرقية",
    "en": "Master the 5 stages of the axe kick",
    "note": "تعليمات الشاشة",
-   "key": "6lwaw7",
+   "key": "1a93po0",
    "keyEn": "mh7cqe",
-   "file": "screen-100-6lwaw7.mp3",
+   "file": "screen-100-1a93po0.mp3",
    "fileEn": "screen-100-mh7cqe.mp3"
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "ظبّط الوضعية — نارو تشاجي.",
+   "ar": "اضبط الوضعية — نارو تشاجي.",
    "en": "Fix the Pose — Naeryeo Chagi.",
    "note": "تعليمات الشاشة",
-   "key": "1m3h66m",
+   "key": "168meiz",
    "keyEn": "1nf5pan",
-   "file": "screen-101-1m3h66m.mp3",
+   "file": "screen-101-168meiz.mp3",
    "fileEn": "screen-101-1nf5pan.mp3"
   },
   {
@@ -2665,34 +2665,34 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "اتعلم بيك تشاجي.",
+   "ar": "تعلّم بيك تشاجي.",
    "en": "Learn Bik Chagi.",
    "note": "تعليمات الشاشة",
-   "key": "opfryy",
+   "key": "vc2sf5",
    "keyEn": "1nj73i1",
-   "file": "screen-110-opfryy.mp3",
+   "file": "screen-110-vc2sf5.mp3",
    "fileEn": "screen-110-1nj73i1.mp3"
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "اتقن المراحل الخمسة للركلة الدائرية (اسمها كمان دوليو تشاجي)",
+   "ar": "أتقن المراحل الخمس للركلة الدائرية (واسمها أيضًا دوليو تشاجي)",
    "en": "Master the 5 stages of the roundhouse kick (also called Dollyeo Chagi)",
    "note": "تعليمات الشاشة",
-   "key": "9ytv1f",
+   "key": "1q11nqt",
    "keyEn": "7ag54w",
-   "file": "screen-111-9ytv1f.mp3",
+   "file": "screen-111-1q11nqt.mp3",
    "fileEn": "screen-111-7ag54w.mp3"
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "ظبّط الوضعية — بيك تشاجي.",
+   "ar": "اضبط الوضعية — بيك تشاجي.",
    "en": "Fix the Pose — Bik Chagi.",
    "note": "تعليمات الشاشة",
-   "key": "1w9plh1",
+   "key": "1fowple",
    "keyEn": "e733kg",
-   "file": "screen-112-1w9plh1.mp3",
+   "file": "screen-112-1fowple.mp3",
    "fileEn": "screen-112-e733kg.mp3"
   },
   {
@@ -2786,23 +2786,23 @@
   {
    "group": "quiz",
    "priority": 2,
-   "ar": "اتنين",
+   "ar": "اثنان",
    "en": "two",
    "note": "رقم الإجابة",
-   "key": "2ji1pi",
+   "key": "1iw4jby",
    "keyEn": "1gra621",
-   "file": "quiz-002-2ji1pi.mp3",
+   "file": "quiz-002-1iw4jby.mp3",
    "fileEn": "quiz-002-1gra621.mp3"
   },
   {
    "group": "quiz",
    "priority": 2,
-   "ar": "تلاتة",
+   "ar": "ثلاثة",
    "en": "three",
    "note": "رقم الإجابة",
-   "key": "19q9myx",
+   "key": "1k4p5mv",
    "keyEn": "11vp0w3",
-   "file": "quiz-003-19q9myx.mp3",
+   "file": "quiz-003-1k4p5mv.mp3",
    "fileEn": "quiz-003-11vp0w3.mp3"
   },
   {
@@ -5173,12 +5173,12 @@
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "الركلة الأمامية المستقيمة في التايكوندو اسمها:",
+   "ar": "اسم الركلة الأمامية المستقيمة في التايكوندو:",
    "en": "In Taekwondo, the straight front kick is called:",
    "note": "سؤال",
-   "key": "9kebks",
+   "key": "w9adny",
    "keyEn": "137trxx",
-   "file": "quiz-blast-001-9kebks.mp3",
+   "file": "quiz-blast-001-w9adny.mp3",
    "fileEn": "quiz-blast-001-137trxx.mp3"
   },
   {
@@ -5195,12 +5195,12 @@
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "الركلة الأمامية المستقيمة بتضرب بيها المنافس بـ:",
+   "ar": "تُوجَّه الركلة الأمامية المستقيمة إلى المنافس بـ:",
    "en": "The straight front kick is delivered to the opponent with the:",
    "note": "سؤال",
-   "key": "1inkoau",
+   "key": "10mov60",
    "keyEn": "1htwi67",
-   "file": "quiz-blast-003-1inkoau.mp3",
+   "file": "quiz-blast-003-10mov60.mp3",
    "fileEn": "quiz-blast-003-1htwi67.mp3"
   },
   {
@@ -5217,12 +5217,12 @@
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "أنهي حركة من دول بتتكرر في أول وآخر ركلة آب تشاجي؟",
+   "ar": "أيّ هذه الحركات تتكرر في بداية ركلة آب تشاجي ونهايتها؟",
    "en": "Which movement is repeated in both the preparatory and the final phase of Ap Chagi?",
    "note": "سؤال",
-   "key": "1ouzra7",
+   "key": "1mnevgc",
    "keyEn": "1py6rt2",
-   "file": "quiz-blast-005-1ouzra7.mp3",
+   "file": "quiz-blast-005-1mnevgc.mp3",
    "fileEn": "quiz-blast-005-1py6rt2.mp3"
   },
   {
@@ -5272,23 +5272,23 @@
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "الركلة الأمامية المستقيمة اللي بتروح للراس بتجيب للاعب:",
+   "ar": "الركلة الأمامية المستقيمة التي تصيب الرأس تمنح اللاعب:",
    "en": "A straight front kick to the head scores:",
    "note": "سؤال",
-   "key": "dbmqfy",
+   "key": "l5ko4d",
    "keyEn": "huq2qc",
-   "file": "quiz-blast-010-dbmqfy.mp3",
+   "file": "quiz-blast-010-l5ko4d.mp3",
    "fileEn": "quiz-blast-010-huq2qc.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "تلات نقط",
+   "ar": "ثلاث نقاط",
    "en": "Three points",
    "note": "إجابة",
-   "key": "1je5el7",
+   "key": "1hglwmi",
    "keyEn": "s5bqb6",
-   "file": "quiz-blast-011-1je5el7.mp3",
+   "file": "quiz-blast-011-1hglwmi.mp3",
    "fileEn": "quiz-blast-011-s5bqb6.mp3"
   },
   {
@@ -5305,34 +5305,34 @@
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "خمس نقط",
+   "ar": "خمس نقاط",
    "en": "Five points",
    "note": "إجابة",
-   "key": "slzj98",
+   "key": "q596n5",
    "keyEn": "k61b0c",
-   "file": "quiz-blast-013-slzj98.mp3",
+   "file": "quiz-blast-013-q596n5.mp3",
    "fileEn": "quiz-blast-013-k61b0c.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "أربع نقط",
+   "ar": "أربع نقاط",
    "en": "Four points",
    "note": "إجابة",
-   "key": "4mq96n",
+   "key": "13o2x1k",
    "keyEn": "1xdnxzg",
-   "file": "quiz-blast-014-4mq96n.mp3",
+   "file": "quiz-blast-014-13o2x1k.mp3",
    "fileEn": "quiz-blast-014-1xdnxzg.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "إيه الهدف الأساسي لركلة آب تشاجي؟",
+   "ar": "ما الهدف الأساسي لركلة آب تشاجي؟",
    "en": "What is the main target of Ap Chagi?",
    "note": "سؤال",
-   "key": "v8wvte",
+   "key": "1vd5qpk",
    "keyEn": "7ahjzc",
-   "file": "quiz-blast-015-v8wvte.mp3",
+   "file": "quiz-blast-015-1vd5qpk.mp3",
    "fileEn": "quiz-blast-015-7ahjzc.mp3"
   },
   {
@@ -5349,68 +5349,46 @@
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "الركبة بس",
+   "ar": "الركبة فقط",
    "en": "Knee only",
    "note": "إجابة",
-   "key": "4u2ete",
+   "key": "1xlc5gd",
    "keyEn": "h7d0g8",
-   "file": "quiz-blast-017-4u2ete.mp3",
+   "file": "quiz-blast-017-1xlc5gd.mp3",
    "fileEn": "quiz-blast-017-h7d0g8.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "قدم الارتكاز بتلف بزاوية قد إيه تقريبًا في آب تشاجي؟",
+   "ar": "بأيّ زاوية تقريبًا تلف قدم الارتكاز في آب تشاجي؟",
    "en": "About how far does the standing foot pivot in Ap Chagi?",
    "note": "سؤال",
-   "key": "1oomit8",
+   "key": "11tqltq",
    "keyEn": "1jfgiuf",
-   "file": "quiz-blast-018-1oomit8.mp3",
+   "file": "quiz-blast-018-11tqltq.mp3",
    "fileEn": "quiz-blast-018-1jfgiuf.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "من 45° لـ 90° للخارج",
+   "ar": "من ٤٥° إلى ٩٠° للخارج",
    "en": "45°–90° outward",
    "note": "إجابة",
-   "key": "1ttjwqm",
+   "key": "w9w2w8",
    "keyEn": "svwrtp",
-   "file": "quiz-blast-019-1ttjwqm.mp3",
+   "file": "quiz-blast-019-w9w2w8.mp3",
    "fileEn": "quiz-blast-019-svwrtp.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "180° كاملين",
+   "ar": "١٨٠° كاملة",
    "en": "A full 180°",
    "note": "إجابة",
-   "key": "1yf4mgb",
+   "key": "3tee4i",
    "keyEn": "17a8cmu",
-   "file": "quiz-blast-020-1yf4mgb.mp3",
+   "file": "quiz-blast-020-3tee4i.mp3",
    "fileEn": "quiz-blast-020-17a8cmu.mp3"
-  },
-  {
-   "group": "quiz-blast",
-   "priority": 3,
-   "ar": "مابتلفّش خالص",
-   "en": "It does not pivot",
-   "note": "إجابة",
-   "key": "1kt4je8",
-   "keyEn": "pxr0no",
-   "file": "quiz-blast-021-1kt4je8.mp3",
-   "fileEn": "quiz-blast-021-pxr0no.mp3"
-  },
-  {
-   "group": "quiz-blast",
-   "priority": 3,
-   "ar": "إيه أول مرحلة في آب تشاجي؟",
-   "en": "What is the first phase of Ap Chagi?",
-   "note": "سؤال",
-   "key": "17h3w6y",
-   "keyEn": "1vao5dn",
-   "file": "quiz-blast-022-17h3w6y.mp3",
-   "fileEn": "quiz-blast-022-1vao5dn.mp3"
   },
   {
    "group": "quiz-blast",
@@ -5420,305 +5398,261 @@
    "note": "إجابة",
    "key": "movrzl",
    "keyEn": "1f7fetc",
-   "file": "quiz-blast-023-movrzl.mp3",
-   "fileEn": "quiz-blast-023-1f7fetc.mp3"
+   "file": "quiz-blast-021-movrzl.mp3",
+   "fileEn": "quiz-blast-021-1f7fetc.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "فرد الرجل",
+   "ar": "مد الرجل",
    "en": "Kick extension",
    "note": "إجابة",
-   "key": "2hrtsm",
+   "key": "1pza5in",
    "keyEn": "1w3uffm",
-   "file": "quiz-blast-024-2hrtsm.mp3",
-   "fileEn": "quiz-blast-024-1w3uffm.mp3"
+   "file": "quiz-blast-022-1pza5in.mp3",
+   "fileEn": "quiz-blast-022-1w3uffm.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "آب تشاجي الكاملة فيها كام مرحلة أساسية؟",
+   "ar": "كم مرحلة أساسية في ركلة آب تشاجي الكاملة؟",
    "en": "How many main phases does a complete Ap Chagi have?",
    "note": "سؤال",
-   "key": "zyxmge",
+   "key": "hcwjpu",
    "keyEn": "zatext",
-   "file": "quiz-blast-025-zyxmge.mp3",
-   "fileEn": "quiz-blast-025-zatext.mp3"
+   "file": "quiz-blast-023-hcwjpu.mp3",
+   "fileEn": "quiz-blast-023-zatext.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "5 مراحل",
+   "ar": "٥ مراحل",
    "en": "5 phases",
    "note": "إجابة",
    "key": "175ulym",
    "keyEn": "jt47vg",
-   "file": "quiz-blast-026-175ulym.mp3",
-   "fileEn": "quiz-blast-026-jt47vg.mp3"
+   "file": "quiz-blast-024-175ulym.mp3",
+   "fileEn": "quiz-blast-024-jt47vg.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "3 مراحل",
+   "ar": "٣ مراحل",
    "en": "3 phases",
    "note": "إجابة",
    "key": "1asfy18",
    "keyEn": "1eyubru",
-   "file": "quiz-blast-027-1asfy18.mp3",
-   "fileEn": "quiz-blast-027-1eyubru.mp3"
+   "file": "quiz-blast-025-1asfy18.mp3",
+   "fileEn": "quiz-blast-025-1eyubru.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "4 مراحل",
+   "ar": "٤ مراحل",
    "en": "4 phases",
    "note": "إجابة",
    "key": "mlpv9d",
    "keyEn": "1stq5nx",
-   "file": "quiz-blast-028-mlpv9d.mp3",
-   "fileEn": "quiz-blast-028-1stq5nx.mp3"
+   "file": "quiz-blast-026-mlpv9d.mp3",
+   "fileEn": "quiz-blast-026-1stq5nx.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "6 مراحل",
+   "ar": "٦ مراحل",
    "en": "6 phases",
    "note": "إجابة",
    "key": "qbma97",
    "keyEn": "1yf994v",
-   "file": "quiz-blast-029-qbma97.mp3",
-   "fileEn": "quiz-blast-029-1yf994v.mp3"
+   "file": "quiz-blast-027-qbma97.mp3",
+   "fileEn": "quiz-blast-027-1yf994v.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "بنرفع الركبة لحد فين قبل ما نفرد الرجل؟",
+   "ar": "إلى أين نرفع الركبة قبل أن نفرد الرجل؟",
    "en": "How high is the knee lifted before the leg extends?",
    "note": "سؤال",
-   "key": "1xtrv5q",
+   "key": "x8fi75",
    "keyEn": "clkecc",
-   "file": "quiz-blast-030-1xtrv5q.mp3",
-   "fileEn": "quiz-blast-030-clkecc.mp3"
+   "file": "quiz-blast-028-x8fi75.mp3",
+   "fileEn": "quiz-blast-028-clkecc.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "لحد مستوى الصدر",
+   "ar": "إلى مستوى الصدر",
    "en": "To chest level",
    "note": "إجابة",
-   "key": "1mxdn2g",
+   "key": "f6pk3c",
    "keyEn": "5xxeu3",
-   "file": "quiz-blast-031-1mxdn2g.mp3",
-   "fileEn": "quiz-blast-031-5xxeu3.mp3"
+   "file": "quiz-blast-029-f6pk3c.mp3",
+   "fileEn": "quiz-blast-029-5xxeu3.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "لحد مستوى الكاحل",
+   "ar": "إلى مستوى الكاحل",
    "en": "To ankle level",
    "note": "إجابة",
-   "key": "1aqznyy",
+   "key": "11n07xm",
    "keyEn": "d8wntd",
-   "file": "quiz-blast-032-1aqznyy.mp3",
-   "fileEn": "quiz-blast-032-d8wntd.mp3"
+   "file": "quiz-blast-030-11n07xm.mp3",
+   "fileEn": "quiz-blast-030-d8wntd.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "لحد مستوى الركبة التانية",
-   "en": "To the level of the other knee",
-   "note": "إجابة",
-   "key": "7r8oeh",
-   "keyEn": "26l49y",
-   "file": "quiz-blast-033-7r8oeh.mp3",
-   "fileEn": "quiz-blast-033-26l49y.mp3"
-  },
-  {
-   "group": "quiz-blast",
-   "priority": 3,
-   "ar": "فوق الراس",
-   "en": "Above the head",
-   "note": "إجابة",
-   "key": "18yi826",
-   "keyEn": "1dcizwl",
-   "file": "quiz-blast-034-18yi826.mp3",
-   "fileEn": "quiz-blast-034-1dcizwl.mp3"
-  },
-  {
-   "group": "quiz-blast",
-   "priority": 3,
-   "ar": "بنعمل إيه بصوابع الرجل واحنا بنضرب آب تشاجي؟",
+   "ar": "ماذا نفعل بأصابع القدم ونحن نضرب آب تشاجي؟",
    "en": "What do you do with your toes when striking in Ap Chagi?",
    "note": "سؤال",
-   "key": "18739kj",
+   "key": "17eerey",
    "keyEn": "15e2onn",
-   "file": "quiz-blast-035-18739kj.mp3",
-   "fileEn": "quiz-blast-035-15e2onn.mp3"
+   "file": "quiz-blast-031-17eerey.mp3",
+   "fileEn": "quiz-blast-031-15e2onn.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "نشدّها لورا",
+   "ar": "نسحبها إلى الخلف",
    "en": "Pull them back",
    "note": "إجابة",
-   "key": "1iy6tdi",
+   "key": "dsgl89",
    "keyEn": "7hi673",
-   "file": "quiz-blast-036-1iy6tdi.mp3",
-   "fileEn": "quiz-blast-036-7hi673.mp3"
+   "file": "quiz-blast-032-dsgl89.mp3",
+   "fileEn": "quiz-blast-032-7hi673.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "نفردها لقدام",
+   "ar": "نفردها إلى الأمام",
    "en": "Point them forward",
    "note": "إجابة",
-   "key": "dxqjlp",
+   "key": "1mcnug1",
    "keyEn": "jlh3uw",
-   "file": "quiz-blast-037-dxqjlp.mp3",
-   "fileEn": "quiz-blast-037-jlh3uw.mp3"
+   "file": "quiz-blast-033-1mcnug1.mp3",
+   "fileEn": "quiz-blast-033-jlh3uw.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "نتنيها لتحت",
+   "ar": "نثنيها إلى أسفل",
    "en": "Curl them down",
    "note": "إجابة",
-   "key": "1vsff58",
+   "key": "5ogdef",
    "keyEn": "11utwzp",
-   "file": "quiz-blast-038-1vsff58.mp3",
-   "fileEn": "quiz-blast-038-11utwzp.mp3"
+   "file": "quiz-blast-034-5ogdef.mp3",
+   "fileEn": "quiz-blast-034-11utwzp.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "نفتحها للجناب",
+   "ar": "نفتحها إلى الجانبين",
    "en": "Spread them apart",
    "note": "إجابة",
-   "key": "154v4o0",
+   "key": "yek1e1",
    "keyEn": "6tcd8y",
-   "file": "quiz-blast-039-154v4o0.mp3",
-   "fileEn": "quiz-blast-039-6tcd8y.mp3"
+   "file": "quiz-blast-035-yek1e1.mp3",
+   "fileEn": "quiz-blast-035-6tcd8y.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "ليه بنرجّع الرجل بسرعة بعد الضربة؟",
+   "ar": "لماذا نسحب الرجل بسرعة بعد الضربة؟",
    "en": "Why do we pull the leg back quickly after the strike?",
    "note": "سؤال",
-   "key": "19y3bhr",
+   "key": "1l6gfrl",
    "keyEn": "1at7sra",
-   "file": "quiz-blast-040-19y3bhr.mp3",
-   "fileEn": "quiz-blast-040-1at7sra.mp3"
+   "file": "quiz-blast-036-1l6gfrl.mp3",
+   "fileEn": "quiz-blast-036-1at7sra.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "عشان نحافظ على التوازن والحراسة",
+   "ar": "لنحافظ على التوازن والحراسة",
    "en": "To keep balance and guard",
    "note": "إجابة",
-   "key": "ic7ex6",
+   "key": "1rkimxe",
    "keyEn": "1tcokrx",
-   "file": "quiz-blast-041-ic7ex6.mp3",
-   "fileEn": "quiz-blast-041-1tcokrx.mp3"
+   "file": "quiz-blast-037-1rkimxe.mp3",
+   "fileEn": "quiz-blast-037-1tcokrx.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "عشان نجيب نقط أكتر",
+   "ar": "لنحصل على نقاط أكثر",
    "en": "To score more points",
    "note": "إجابة",
-   "key": "45dg7x",
+   "key": "1eomddb",
    "keyEn": "182ylve",
-   "file": "quiz-blast-042-45dg7x.mp3",
-   "fileEn": "quiz-blast-042-182ylve.mp3"
+   "file": "quiz-blast-038-1eomddb.mp3",
+   "fileEn": "quiz-blast-038-182ylve.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "عشان الحركة تبان أحلى",
+   "ar": "ليبدو شكل الحركة أجمل",
    "en": "To make it look nicer",
    "note": "إجابة",
-   "key": "19ipa80",
+   "key": "n0o26o",
    "keyEn": "evit0j",
-   "file": "quiz-blast-043-19ipa80.mp3",
-   "fileEn": "quiz-blast-043-evit0j.mp3"
+   "file": "quiz-blast-039-n0o26o.mp3",
+   "fileEn": "quiz-blast-039-evit0j.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "عشان الحكم عايز كده",
+   "ar": "لأن الحكم يريد ذلك",
    "en": "Because the referee asks for it",
    "note": "إجابة",
-   "key": "s89uua",
+   "key": "1tnt2p7",
    "keyEn": "1kyf1z6",
-   "file": "quiz-blast-044-s89uua.mp3",
-   "fileEn": "quiz-blast-044-1kyf1z6.mp3"
+   "file": "quiz-blast-040-1tnt2p7.mp3",
+   "fileEn": "quiz-blast-040-1kyf1z6.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "في ركلة نارو تشاجي، القدم الضاربة بتروح للهدف في مسار:",
+   "ar": "في ركلة نارو تشاجي، تتجه القدم الضاربة إلى الهدف في مسار:",
    "en": "In Naeryeo Chagi the kicking foot travels toward the target along a path going:",
    "note": "سؤال",
-   "key": "1amazhp",
+   "key": "p57a23",
    "keyEn": "djk0vv",
-   "file": "quiz-blast-045-1amazhp.mp3",
-   "fileEn": "quiz-blast-045-djk0vv.mp3"
+   "file": "quiz-blast-041-p57a23.mp3",
+   "fileEn": "quiz-blast-041-djk0vv.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "من فوق لتحت",
-   "en": "From top to bottom",
-   "note": "إجابة",
-   "key": "m65isw",
-   "keyEn": "1hnc8i",
-   "file": "quiz-blast-046-m65isw.mp3",
-   "fileEn": "quiz-blast-046-1hnc8i.mp3"
-  },
-  {
-   "group": "quiz-blast",
-   "priority": 3,
-   "ar": "من برا لجوا",
+   "ar": "من الخارج إلى الداخل",
    "en": "From outside to inside",
    "note": "إجابة",
-   "key": "emw3dr",
+   "key": "1mwxkdq",
    "keyEn": "cul3ll",
-   "file": "quiz-blast-047-emw3dr.mp3",
-   "fileEn": "quiz-blast-047-cul3ll.mp3"
+   "file": "quiz-blast-042-1mwxkdq.mp3",
+   "fileEn": "quiz-blast-042-cul3ll.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "من تحت لفوق",
-   "en": "From bottom to top",
-   "note": "إجابة",
-   "key": "1422vtw",
-   "keyEn": "1egeh02",
-   "file": "quiz-blast-048-1422vtw.mp3",
-   "fileEn": "quiz-blast-048-1egeh02.mp3"
-  },
-  {
-   "group": "quiz-blast",
-   "priority": 3,
-   "ar": "من قدام لورا",
+   "ar": "من الأمام إلى الخلف",
    "en": "From front to back",
    "note": "إجابة",
-   "key": "1iovj7",
+   "key": "tpmum9",
    "keyEn": "dyhole",
-   "file": "quiz-blast-049-1iovj7.mp3",
-   "fileEn": "quiz-blast-049-dyhole.mp3"
+   "file": "quiz-blast-043-tpmum9.mp3",
+   "fileEn": "quiz-blast-043-dyhole.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "ركلة نارو تشاجي في التايكوندو معروفة باسم:",
+   "ar": "تُعرف ركلة نارو تشاجي في التايكوندو باسم:",
    "en": "Naeryeo Chagi is also known as the:",
    "note": "سؤال",
-   "key": "8fjquw",
+   "key": "xx5x4g",
    "keyEn": "13hkomj",
-   "file": "quiz-blast-050-8fjquw.mp3",
-   "fileEn": "quiz-blast-050-13hkomj.mp3"
+   "file": "quiz-blast-044-xx5x4g.mp3",
+   "fileEn": "quiz-blast-044-13hkomj.mp3"
   },
   {
    "group": "quiz-blast",
@@ -5728,74 +5662,63 @@
    "note": "إجابة",
    "key": "ekxwxi",
    "keyEn": "fl291n",
-   "file": "quiz-blast-051-ekxwxi.mp3",
-   "fileEn": "quiz-blast-051-fl291n.mp3"
+   "file": "quiz-blast-045-ekxwxi.mp3",
+   "fileEn": "quiz-blast-045-fl291n.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "الركلة الأمامية الدائرية في الوش",
+   "ar": "الركلة الأمامية الدائرية في الوجه",
    "en": "Front circular kick to the face",
    "note": "إجابة",
-   "key": "167avlg",
+   "key": "14zs3qp",
    "keyEn": "1ejgucm",
-   "file": "quiz-blast-052-167avlg.mp3",
-   "fileEn": "quiz-blast-052-1ejgucm.mp3"
+   "file": "quiz-blast-046-14zs3qp.mp3",
+   "fileEn": "quiz-blast-046-1ejgucm.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "الركلة الهجومية اللي بتنزل من فوق لتحت على راس المنافس اسمها:",
+   "ar": "اسم الركلة الهجومية التي تنزل من أعلى لأسفل على رأس المنافس:",
    "en": "The kick that travels from top to bottom toward the opponent's head is:",
    "note": "سؤال",
-   "key": "1sk2elw",
+   "key": "l1myke",
    "keyEn": "1eyh03v",
-   "file": "quiz-blast-053-1sk2elw.mp3",
-   "fileEn": "quiz-blast-053-1eyh03v.mp3"
+   "file": "quiz-blast-047-l1myke.mp3",
+   "fileEn": "quiz-blast-047-1eyh03v.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "ضربة نارو تشاجي بتتعمل بأنهي جزء من القدم؟",
+   "ar": "بأيّ جزء من القدم تُؤدّى ضربة نارو تشاجي؟",
    "en": "Which part of the foot lands the strike in Naeryeo Chagi?",
    "note": "سؤال",
-   "key": "12tuh0j",
+   "key": "d0rz5o",
    "keyEn": "282os2",
-   "file": "quiz-blast-054-12tuh0j.mp3",
-   "fileEn": "quiz-blast-054-282os2.mp3"
+   "file": "quiz-blast-048-d0rz5o.mp3",
+   "fileEn": "quiz-blast-048-282os2.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "صوابع القدم",
-   "en": "Toes",
-   "note": "إجابة",
-   "key": "mffbsh",
-   "keyEn": "f2ybfk",
-   "file": "quiz-blast-055-mffbsh.mp3",
-   "fileEn": "quiz-blast-055-f2ybfk.mp3"
-  },
-  {
-   "group": "quiz-blast",
-   "priority": 3,
-   "ar": "إيه الهدف الأساسي لركلة نارو تشاجي؟",
+   "ar": "ما الهدف الأساسي لركلة نارو تشاجي؟",
    "en": "What is the main target of Naeryeo Chagi?",
    "note": "سؤال",
-   "key": "11f4ari",
+   "key": "uz43og",
    "keyEn": "136ud8a",
-   "file": "quiz-blast-056-11f4ari.mp3",
-   "fileEn": "quiz-blast-056-136ud8a.mp3"
+   "file": "quiz-blast-049-uz43og.mp3",
+   "fileEn": "quiz-blast-049-136ud8a.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "قدم الارتكاز بتلف قد إيه في نارو تشاجي؟",
+   "ar": "كم تلف قدم الارتكاز في نارو تشاجي؟",
    "en": "How far does the standing foot pivot in Naeryeo Chagi?",
    "note": "سؤال",
-   "key": "1vrn2zo",
+   "key": "15rk2k1",
    "keyEn": "1spiadu",
-   "file": "quiz-blast-057-1vrn2zo.mp3",
-   "fileEn": "quiz-blast-057-1spiadu.mp3"
+   "file": "quiz-blast-050-15rk2k1.mp3",
+   "fileEn": "quiz-blast-050-1spiadu.mp3"
   },
   {
    "group": "quiz-blast",
@@ -5805,8 +5728,8 @@
    "note": "إجابة",
    "key": "298z67",
    "keyEn": "svwrtp",
-   "file": "quiz-blast-058-298z67.mp3",
-   "fileEn": "quiz-blast-058-svwrtp.mp3"
+   "file": "quiz-blast-051-298z67.mp3",
+   "fileEn": "quiz-blast-051-svwrtp.mp3"
   },
   {
    "group": "quiz-blast",
@@ -5816,305 +5739,228 @@
    "note": "إجابة",
    "key": "3bt5n0",
    "keyEn": "3bt5n0",
-   "file": "quiz-blast-059-3bt5n0.mp3",
-   "fileEn": "quiz-blast-059-3bt5n0.mp3"
+   "file": "quiz-blast-052-3bt5n0.mp3",
+   "fileEn": "quiz-blast-052-3bt5n0.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "إيه المرحلة التانية في نارو تشاجي؟",
-   "en": "What is the second phase of Naeryeo Chagi?",
-   "note": "سؤال",
-   "key": "xlgol9",
-   "keyEn": "kclubh",
-   "file": "quiz-blast-060-xlgol9.mp3",
-   "fileEn": "quiz-blast-060-kclubh.mp3"
-  },
-  {
-   "group": "quiz-blast",
-   "priority": 3,
-   "ar": "الرفع لفوق مستقيم",
-   "en": "Vertical rise",
-   "note": "إجابة",
-   "key": "x6lgax",
-   "keyEn": "1h1no2s",
-   "file": "quiz-blast-061-x6lgax.mp3",
-   "fileEn": "quiz-blast-061-1h1no2s.mp3"
-  },
-  {
-   "group": "quiz-blast",
-   "priority": 3,
-   "ar": "نزول الكعب",
-   "en": "Heel drop",
-   "note": "إجابة",
-   "key": "8eofwc",
-   "keyEn": "c30cec",
-   "file": "quiz-blast-062-8eofwc.mp3",
-   "fileEn": "quiz-blast-062-c30cec.mp3"
-  },
-  {
-   "group": "quiz-blast",
-   "priority": 3,
-   "ar": "الرجوع للوضعية",
-   "en": "Return to stance",
-   "note": "إجابة",
-   "key": "f4wbt4",
-   "keyEn": "p7qzjg",
-   "file": "quiz-blast-063-f4wbt4.mp3",
-   "fileEn": "quiz-blast-063-p7qzjg.mp3"
-  },
-  {
-   "group": "quiz-blast",
-   "priority": 3,
-   "ar": "مرحلة الضربة في نارو تشاجي اسمها إيه؟",
+   "ar": "ما اسم مرحلة الضربة في نارو تشاجي؟",
    "en": "What is the striking phase of Naeryeo Chagi called?",
    "note": "سؤال",
-   "key": "ubstj7",
+   "key": "mn356l",
    "keyEn": "1k9vfcj",
-   "file": "quiz-blast-064-ubstj7.mp3",
-   "fileEn": "quiz-blast-064-1k9vfcj.mp3"
+   "file": "quiz-blast-053-mn356l.mp3",
+   "fileEn": "quiz-blast-053-1k9vfcj.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "وقفة القتال",
+   "ar": "وضع الاستعداد",
    "en": "Ready stance",
    "note": "إجابة",
-   "key": "iqbjmf",
+   "key": "16m6y55",
    "keyEn": "pxrb44",
-   "file": "quiz-blast-065-iqbjmf.mp3",
-   "fileEn": "quiz-blast-065-pxrb44.mp3"
+   "file": "quiz-blast-054-16m6y55.mp3",
+   "fileEn": "quiz-blast-054-pxrb44.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "الرجل بتطلع إزاي قبل ما تنزل؟",
+   "ar": "كيف ترتفع الرجل قبل أن تنزل؟",
    "en": "How does the leg rise before it drops?",
    "note": "سؤال",
-   "key": "1tfq59x",
+   "key": "1n1br45",
    "keyEn": "e9jouo",
-   "file": "quiz-blast-066-1tfq59x.mp3",
-   "fileEn": "quiz-blast-066-e9jouo.mp3"
+   "file": "quiz-blast-055-1n1br45.mp3",
+   "fileEn": "quiz-blast-055-e9jouo.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "لفوق ومستقيمة",
+   "ar": "إلى أعلى وهي مستقيمة",
    "en": "Straight up, vertically",
    "note": "إجابة",
-   "key": "ghpg0g",
+   "key": "fr1wrb",
    "keyEn": "jbopo1",
-   "file": "quiz-blast-067-ghpg0g.mp3",
-   "fileEn": "quiz-blast-067-jbopo1.mp3"
+   "file": "quiz-blast-056-fr1wrb.mp3",
+   "fileEn": "quiz-blast-056-jbopo1.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "في لفّة دايرية لبرا",
+   "ar": "في لفّة دائرية إلى الخارج",
    "en": "In a circle to the outside",
    "note": "إجابة",
-   "key": "117fa9a",
+   "key": "i1k7on",
    "keyEn": "1paquo0",
-   "file": "quiz-blast-068-117fa9a.mp3",
-   "fileEn": "quiz-blast-068-1paquo0.mp3"
+   "file": "quiz-blast-057-i1k7on.mp3",
+   "fileEn": "quiz-blast-057-1paquo0.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "بالعرض لقدام",
+   "ar": "بالعرض إلى الأمام",
    "en": "Horizontally forward",
    "note": "إجابة",
-   "key": "aqsbd7",
+   "key": "h5915f",
    "keyEn": "1y54pej",
-   "file": "quiz-blast-069-aqsbd7.mp3",
-   "fileEn": "quiz-blast-069-1y54pej.mp3"
+   "file": "quiz-blast-058-h5915f.mp3",
+   "fileEn": "quiz-blast-058-1y54pej.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "لورا مع ثني الركبة",
+   "ar": "إلى الخلف مع ثني الركبة",
    "en": "Backward with a bent knee",
    "note": "إجابة",
-   "key": "woxw0o",
+   "key": "14mgk7i",
    "keyEn": "bfskw5",
-   "file": "quiz-blast-070-woxw0o.mp3",
-   "fileEn": "quiz-blast-070-bfskw5.mp3"
+   "file": "quiz-blast-059-14mgk7i.mp3",
+   "fileEn": "quiz-blast-059-bfskw5.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "ليه الرجل لازم تفضل مفرودة خالص وهي طالعة؟",
+   "ar": "لماذا يجب أن تبقى الرجل مفرودة تمامًا وهي ترتفع؟",
    "en": "Why must the leg stay straight during the rise?",
    "note": "سؤال",
-   "key": "rxo77l",
+   "key": "1qzxi5",
    "keyEn": "4mbqn7",
-   "file": "quiz-blast-071-rxo77l.mp3",
-   "fileEn": "quiz-blast-071-4mbqn7.mp3"
+   "file": "quiz-blast-060-1qzxi5.mp3",
+   "fileEn": "quiz-blast-060-4mbqn7.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "عشان تطلع ضربة نازلة قوية",
+   "ar": "لتكون الضربة النازلة قوية",
    "en": "To generate a powerful downward strike",
    "note": "إجابة",
-   "key": "1yeyjp6",
+   "key": "18tfh2x",
    "keyEn": "6k6ox0",
-   "file": "quiz-blast-072-1yeyjp6.mp3",
-   "fileEn": "quiz-blast-072-6k6ox0.mp3"
+   "file": "quiz-blast-061-18tfh2x.mp3",
+   "fileEn": "quiz-blast-061-6k6ox0.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "عشان شكلها أحلى",
-   "en": "Because it looks better",
-   "note": "إجابة",
-   "key": "1llkg1f",
-   "keyEn": "1ym6mna",
-   "file": "quiz-blast-073-1llkg1f.mp3",
-   "fileEn": "quiz-blast-073-1ym6mna.mp3"
-  },
-  {
-   "group": "quiz-blast",
-   "priority": 3,
-   "ar": "عشان أسهل في الأداء",
+   "ar": "لأنها أسهل في الأداء",
    "en": "Because it is easier",
    "note": "إجابة",
-   "key": "1oon2zq",
+   "key": "1wovqil",
    "keyEn": "1t0y2r1",
-   "file": "quiz-blast-074-1oon2zq.mp3",
-   "fileEn": "quiz-blast-074-1t0y2r1.mp3"
+   "file": "quiz-blast-062-1wovqil.mp3",
+   "fileEn": "quiz-blast-062-1t0y2r1.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "مش مطلوب أصلًا",
+   "ar": "ليس ذلك مطلوبًا أصلًا",
    "en": "It is not required",
    "note": "إجابة",
-   "key": "xcoct",
+   "key": "1up7dhb",
    "keyEn": "2x9bee",
-   "file": "quiz-blast-075-xcoct.mp3",
-   "fileEn": "quiz-blast-075-2x9bee.mp3"
+   "file": "quiz-blast-063-1up7dhb.mp3",
+   "fileEn": "quiz-blast-063-2x9bee.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "الجذع بيعمل إيه والرجل طالعة لفوق؟",
+   "ar": "ماذا يفعل الجذع والرجل ترتفع إلى أعلى؟",
    "en": "What does the torso do while the leg rises?",
    "note": "سؤال",
-   "key": "he3xme",
+   "key": "dya5z6",
    "keyEn": "1ort6ip",
-   "file": "quiz-blast-076-he3xme.mp3",
-   "fileEn": "quiz-blast-076-1ort6ip.mp3"
+   "file": "quiz-blast-064-dya5z6.mp3",
+   "fileEn": "quiz-blast-064-1ort6ip.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "بيميل لورا شوية عشان التوازن",
+   "ar": "يميل إلى الخلف قليلًا للتوازن",
    "en": "Leans back slightly for balance",
    "note": "إجابة",
-   "key": "17j816t",
+   "key": "12g29b4",
    "keyEn": "9inz2c",
-   "file": "quiz-blast-077-17j816t.mp3",
-   "fileEn": "quiz-blast-077-9inz2c.mp3"
+   "file": "quiz-blast-065-12g29b4.mp3",
+   "fileEn": "quiz-blast-065-9inz2c.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "بينحني لقدام أوي",
+   "ar": "ينحني إلى الأمام كثيرًا",
    "en": "Bends far forward",
    "note": "إجابة",
-   "key": "q9ev3e",
+   "key": "1iymaw7",
    "keyEn": "18nukqb",
-   "file": "quiz-blast-078-q9ev3e.mp3",
-   "fileEn": "quiz-blast-078-18nukqb.mp3"
+   "file": "quiz-blast-066-1iymaw7.mp3",
+   "fileEn": "quiz-blast-066-18nukqb.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "بيلف 180°",
+   "ar": "يلف ١٨٠°",
    "en": "Turns 180°",
    "note": "إجابة",
-   "key": "1ue5u8r",
+   "key": "15bhvox",
    "keyEn": "1nvfujs",
-   "file": "quiz-blast-079-1ue5u8r.mp3",
-   "fileEn": "quiz-blast-079-1nvfujs.mp3"
+   "file": "quiz-blast-067-15bhvox.mp3",
+   "fileEn": "quiz-blast-067-1nvfujs.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "بيتني على الجنب",
+   "ar": "ينثني إلى الجانب",
    "en": "Folds to the side",
    "note": "إجابة",
-   "key": "r0cmio",
+   "key": "5lv8ae",
    "keyEn": "12glwi2",
-   "file": "quiz-blast-080-r0cmio.mp3",
-   "fileEn": "quiz-blast-080-12glwi2.mp3"
+   "file": "quiz-blast-068-5lv8ae.mp3",
+   "fileEn": "quiz-blast-068-12glwi2.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "الركلة الدائرية دي اسمها إيه في اللعبة؟",
+   "ar": "ما اسم هذه الركلة الدائرية في اللعبة؟",
    "en": "What is this roundhouse kick called in the game?",
    "note": "سؤال",
-   "key": "1v5ke2",
+   "key": "252jnb",
    "keyEn": "1gdzzy4",
-   "file": "quiz-blast-081-1v5ke2.mp3",
-   "fileEn": "quiz-blast-081-1gdzzy4.mp3"
+   "file": "quiz-blast-069-252jnb.mp3",
+   "fileEn": "quiz-blast-069-1gdzzy4.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "ضربة بيك تشاجي بتتعمل بأنهي جزء من القدم؟",
+   "ar": "بأيّ جزء من القدم تُؤدّى ضربة بيك تشاجي؟",
    "en": "Which part of the foot strikes in Bik Chagi?",
    "note": "سؤال",
-   "key": "o8b2vg",
+   "key": "fbohan",
    "keyEn": "j8jxph",
-   "file": "quiz-blast-082-o8b2vg.mp3",
-   "fileEn": "quiz-blast-082-j8jxph.mp3"
+   "file": "quiz-blast-070-fbohan.mp3",
+   "fileEn": "quiz-blast-070-j8jxph.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "وش القدم (ظهرها من فوق)",
-   "en": "Instep (top of the foot)",
-   "note": "إجابة",
-   "key": "1d0ten2",
-   "keyEn": "2xith9",
-   "file": "quiz-blast-083-1d0ten2.mp3",
-   "fileEn": "quiz-blast-083-2xith9.mp3"
-  },
-  {
-   "group": "quiz-blast",
-   "priority": 3,
-   "ar": "إيه الأهداف الأساسية لركلة بيك تشاجي؟",
+   "ar": "ما الهدف الأساسي لركلة بيك تشاجي؟",
    "en": "What are the main targets of Bik Chagi?",
    "note": "سؤال",
-   "key": "1br761g",
+   "key": "sv0ku3",
    "keyEn": "7gyrwe",
-   "file": "quiz-blast-084-1br761g.mp3",
-   "fileEn": "quiz-blast-084-7gyrwe.mp3"
+   "file": "quiz-blast-071-sv0ku3.mp3",
+   "fileEn": "quiz-blast-071-7gyrwe.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "الضهر",
-   "en": "The back",
-   "note": "إجابة",
-   "key": "4lpt64",
-   "keyEn": "497467",
-   "file": "quiz-blast-085-4lpt64.mp3",
-   "fileEn": "quiz-blast-085-497467.mp3"
-  },
-  {
-   "group": "quiz-blast",
-   "priority": 3,
-   "ar": "قدم الارتكاز بتلف قد إيه في بيك تشاجي؟",
+   "ar": "كم تلف قدم الارتكاز في بيك تشاجي؟",
    "en": "How far does the standing foot pivot in Bik Chagi?",
    "note": "سؤال",
-   "key": "u4lopj",
+   "key": "qb0gvg",
    "keyEn": "1nixrcl",
-   "file": "quiz-blast-086-u4lopj.mp3",
-   "fileEn": "quiz-blast-086-1nixrcl.mp3"
+   "file": "quiz-blast-072-qb0gvg.mp3",
+   "fileEn": "quiz-blast-072-1nixrcl.mp3"
   },
   {
    "group": "quiz-blast",
@@ -6124,140 +5970,140 @@
    "note": "إجابة",
    "key": "c0wjbo",
    "keyEn": "km1atl",
-   "file": "quiz-blast-087-c0wjbo.mp3",
-   "fileEn": "quiz-blast-087-km1atl.mp3"
+   "file": "quiz-blast-073-c0wjbo.mp3",
+   "fileEn": "quiz-blast-073-km1atl.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "من 0° لـ 45°",
+   "ar": "من ٠° إلى ٤٥°",
    "en": "0°–45°",
    "note": "إجابة",
-   "key": "dv74u1",
+   "key": "r666f5",
    "keyEn": "vobw9m",
-   "file": "quiz-blast-088-dv74u1.mp3",
-   "fileEn": "quiz-blast-088-vobw9m.mp3"
+   "file": "quiz-blast-074-r666f5.mp3",
+   "fileEn": "quiz-blast-074-vobw9m.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "مابتلفّش",
+   "ar": "لا تلف",
    "en": "No pivot",
    "note": "إجابة",
-   "key": "1vcbnzo",
+   "key": "wa3pj5",
    "keyEn": "18lbd6e",
-   "file": "quiz-blast-089-1vcbnzo.mp3",
-   "fileEn": "quiz-blast-089-18lbd6e.mp3"
+   "file": "quiz-blast-075-wa3pj5.mp3",
+   "fileEn": "quiz-blast-075-18lbd6e.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "رجل الركلة بتروح للهدف إزاي في بيك تشاجي؟",
+   "ar": "كيف تتجه رجل الركلة إلى الهدف في بيك تشاجي؟",
    "en": "How does the kicking leg travel in Bik Chagi?",
    "note": "سؤال",
-   "key": "1iybagg",
+   "key": "b0k84y",
    "keyEn": "12vebt8",
-   "file": "quiz-blast-090-1iybagg.mp3",
-   "fileEn": "quiz-blast-090-12vebt8.mp3"
+   "file": "quiz-blast-076-b0k84y.mp3",
+   "fileEn": "quiz-blast-076-12vebt8.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "في لفّة دايرية مستوية",
+   "ar": "في لفّة دائرية أفقية",
    "en": "Round in a level circle",
    "note": "إجابة",
-   "key": "1uk6e1h",
+   "key": "1xbcwgt",
    "keyEn": "iwbsep",
-   "file": "quiz-blast-091-1uk6e1h.mp3",
-   "fileEn": "quiz-blast-091-iwbsep.mp3"
+   "file": "quiz-blast-077-1xbcwgt.mp3",
+   "fileEn": "quiz-blast-077-iwbsep.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "لفوق على طول",
+   "ar": "إلى أعلى مباشرة",
    "en": "Straight up",
    "note": "إجابة",
-   "key": "1j7h5t9",
+   "key": "1blt4u6",
    "keyEn": "8xjmo0",
-   "file": "quiz-blast-092-1j7h5t9.mp3",
-   "fileEn": "quiz-blast-092-8xjmo0.mp3"
+   "file": "quiz-blast-078-1blt4u6.mp3",
+   "fileEn": "quiz-blast-078-8xjmo0.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "مابتتحركش",
+   "ar": "لا تتحرك",
    "en": "It does not move",
    "note": "إجابة",
-   "key": "1coumxm",
+   "key": "1lqqzw3",
    "keyEn": "4zloml",
-   "file": "quiz-blast-093-1coumxm.mp3",
-   "fileEn": "quiz-blast-093-4zloml.mp3"
+   "file": "quiz-blast-079-1lqqzw3.mp3",
+   "fileEn": "quiz-blast-079-4zloml.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "جسمك بيبقى عامل إزاي وقت الضربة؟",
+   "ar": "كيف يكون جسمك وقت الضربة؟",
    "en": "How is your body at the strike?",
    "note": "سؤال",
-   "key": "nzp7er",
+   "key": "12gc6sy",
    "keyEn": "165dhku",
-   "file": "quiz-blast-094-nzp7er.mp3",
-   "fileEn": "quiz-blast-094-165dhku.mp3"
+   "file": "quiz-blast-080-12gc6sy.mp3",
+   "fileEn": "quiz-blast-080-165dhku.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "مايل لورا بعيد عن الركلة حوالي ٤٠°",
+   "ar": "مائل إلى الخلف بعيدًا عن الركلة نحو ٤٠°",
    "en": "Leaning back, away from the kick, about 40°",
    "note": "إجابة",
-   "key": "e3suma",
+   "key": "tpmgbg",
    "keyEn": "f2n4r6",
-   "file": "quiz-blast-095-e3suma.mp3",
-   "fileEn": "quiz-blast-095-f2n4r6.mp3"
+   "file": "quiz-blast-081-tpmgbg.mp3",
+   "fileEn": "quiz-blast-081-f2n4r6.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "واقف مفرود خالص",
+   "ar": "واقف مستقيم تمامًا",
    "en": "Standing fully upright",
    "note": "إجابة",
-   "key": "1624k1n",
+   "key": "1m5xt8g",
    "keyEn": "16c2nsk",
-   "file": "quiz-blast-096-1624k1n.mp3",
-   "fileEn": "quiz-blast-096-16c2nsk.mp3"
+   "file": "quiz-blast-082-1m5xt8g.mp3",
+   "fileEn": "quiz-blast-082-16c2nsk.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "منحني لقدام",
+   "ar": "منحنٍ إلى الأمام",
    "en": "Bent forward",
    "note": "إجابة",
-   "key": "a8oucq",
+   "key": "pwmjb0",
    "keyEn": "nj7dsj",
-   "file": "quiz-blast-097-a8oucq.mp3",
-   "fileEn": "quiz-blast-097-nj7dsj.mp3"
+   "file": "quiz-blast-083-pwmjb0.mp3",
+   "fileEn": "quiz-blast-083-nj7dsj.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "قاعد على الأرض",
+   "ar": "جالس على الأرض",
    "en": "Sitting on the floor",
    "note": "إجابة",
-   "key": "xcicpp",
+   "key": "1qcis06",
    "keyEn": "14bh0vt",
-   "file": "quiz-blast-098-xcicpp.mp3",
-   "fileEn": "quiz-blast-098-14bh0vt.mp3"
+   "file": "quiz-blast-084-1qcis06.mp3",
+   "fileEn": "quiz-blast-084-14bh0vt.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "بنعمل إيه في المرحلة التانية من بيك تشاجي؟",
+   "ar": "ماذا نفعل في المرحلة الثانية من بيك تشاجي؟",
    "en": "What happens in the second phase of Bik Chagi?",
    "note": "سؤال",
-   "key": "g72opj",
+   "key": "1rujpm5",
    "keyEn": "16ra5oi",
-   "file": "quiz-blast-099-g72opj.mp3",
-   "fileEn": "quiz-blast-099-16ra5oi.mp3"
+   "file": "quiz-blast-085-1rujpm5.mp3",
+   "fileEn": "quiz-blast-085-16ra5oi.mp3"
   },
   {
    "group": "quiz-blast",
@@ -6267,217 +6113,206 @@
    "note": "إجابة",
    "key": "hss98l",
    "keyEn": "1eoaoej",
-   "file": "quiz-blast-100-hss98l.mp3",
-   "fileEn": "quiz-blast-100-1eoaoej.mp3"
+   "file": "quiz-blast-086-hss98l.mp3",
+   "fileEn": "quiz-blast-086-1eoaoej.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "نفرد الرجل على طول",
+   "ar": "نفرد الرجل مباشرة",
    "en": "Extend the leg straight away",
    "note": "إجابة",
-   "key": "1jmm5gr",
+   "key": "90w48u",
    "keyEn": "161s9w6",
-   "file": "quiz-blast-101-1jmm5gr.mp3",
-   "fileEn": "quiz-blast-101-161s9w6.mp3"
+   "file": "quiz-blast-087-90w48u.mp3",
+   "fileEn": "quiz-blast-087-161s9w6.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "نقعد على الأرض",
+   "ar": "نجلس على الأرض",
    "en": "Sit on the floor",
    "note": "إجابة",
-   "key": "sgb1ua",
+   "key": "nw83r1",
    "keyEn": "17fjtmx",
-   "file": "quiz-blast-102-sgb1ua.mp3",
-   "fileEn": "quiz-blast-102-17fjtmx.mp3"
+   "file": "quiz-blast-088-nw83r1.mp3",
+   "fileEn": "quiz-blast-088-17fjtmx.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "ننط لورا",
+   "ar": "نقفز إلى الخلف",
    "en": "Jump backward",
    "note": "إجابة",
-   "key": "14z9l1y",
+   "key": "9wk7na",
    "keyEn": "1p114kq",
-   "file": "quiz-blast-103-14z9l1y.mp3",
-   "fileEn": "quiz-blast-103-1p114kq.mp3"
+   "file": "quiz-blast-089-9wk7na.mp3",
+   "fileEn": "quiz-blast-089-1p114kq.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "ليه بنفضل رافعين إيدينا واحنا بنلف؟",
+   "ar": "لماذا نبقي أيدينا مرفوعة ونحن نلف؟",
    "en": "Why do we keep the hands up while turning?",
    "note": "سؤال",
-   "key": "43e1xw",
+   "key": "l239a8",
    "keyEn": "11mm72r",
-   "file": "quiz-blast-104-43e1xw.mp3",
-   "fileEn": "quiz-blast-104-11mm72r.mp3"
+   "file": "quiz-blast-090-l239a8.mp3",
+   "fileEn": "quiz-blast-090-11mm72r.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "عشان الجسم بيبقى مكشوف أكتر وهو بيلف",
+   "ar": "لأن الجسم يكون مكشوفًا أكثر وهو يلف",
    "en": "The body is more exposed while turning",
    "note": "إجابة",
-   "key": "1t2xxct",
+   "key": "1a8gh7g",
    "keyEn": "19kuaep",
-   "file": "quiz-blast-105-1t2xxct.mp3",
-   "fileEn": "quiz-blast-105-19kuaep.mp3"
+   "file": "quiz-blast-091-1a8gh7g.mp3",
+   "fileEn": "quiz-blast-091-19kuaep.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "عشان ده اختياري",
+   "ar": "لأن ذلك اختياري",
    "en": "Because it is optional",
    "note": "إجابة",
-   "key": "1oo4dtk",
+   "key": "1w01hru",
    "keyEn": "14fbab4",
-   "file": "quiz-blast-106-1oo4dtk.mp3",
-   "fileEn": "quiz-blast-106-14fbab4.mp3"
+   "file": "quiz-blast-092-1w01hru.mp3",
+   "fileEn": "quiz-blast-092-14fbab4.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "عشان بتبطّأ الركلة",
-   "en": "Because it slows the kick",
-   "note": "إجابة",
-   "key": "cuhymr",
-   "keyEn": "1ejheop",
-   "file": "quiz-blast-107-cuhymr.mp3",
-   "fileEn": "quiz-blast-107-1ejheop.mp3"
-  },
-  {
-   "group": "quiz-blast",
-   "priority": 3,
-   "ar": "مفيش سبب",
-   "en": "There is no reason",
-   "note": "إجابة",
-   "key": "16njzzw",
-   "keyEn": "1dcqg6u",
-   "file": "quiz-blast-108-16njzzw.mp3",
-   "fileEn": "quiz-blast-108-1dcqg6u.mp3"
-  },
-  {
-   "group": "quiz-blast",
-   "priority": 3,
-   "ar": "بنرجّع الرجل إزاي بعد ضربة بيك تشاجي؟",
+   "ar": "كيف نُرجع الرجل بعد ضربة بيك تشاجي؟",
    "en": "How do you pull the leg back after a Bik Chagi strike?",
    "note": "سؤال",
-   "key": "1yg5lbd",
+   "key": "ee2a5b",
    "keyEn": "euj4hn",
-   "file": "quiz-blast-109-1yg5lbd.mp3",
-   "fileEn": "quiz-blast-109-euj4hn.mp3"
+   "file": "quiz-blast-093-ee2a5b.mp3",
+   "fileEn": "quiz-blast-093-euj4hn.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "نطويها على طول والركبة مرفوعة",
+   "ar": "نطويها مباشرة والركبة مرفوعة",
    "en": "Fold it straight back, knee up",
    "note": "إجابة",
-   "key": "1xzyht8",
+   "key": "aqjtrv",
    "keyEn": "talk52",
-   "file": "quiz-blast-110-1xzyht8.mp3",
-   "fileEn": "quiz-blast-110-talk52.mp3"
+   "file": "quiz-blast-094-aqjtrv.mp3",
+   "fileEn": "quiz-blast-094-talk52.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "نسيبها برّه",
+   "ar": "نتركها في الخارج",
    "en": "Leave it out",
    "note": "إجابة",
-   "key": "vipm5e",
+   "key": "n3ozpj",
    "keyEn": "jaaxm1",
-   "file": "quiz-blast-111-vipm5e.mp3",
-   "fileEn": "quiz-blast-111-jaaxm1.mp3"
+   "file": "quiz-blast-095-n3ozpj.mp3",
+   "fileEn": "quiz-blast-095-jaaxm1.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "نسيبها متدلدلة",
+   "ar": "نتركها متدلية",
    "en": "Let it dangle",
    "note": "إجابة",
-   "key": "1if79jk",
+   "key": "1e9exgk",
    "keyEn": "gfwtbi",
-   "file": "quiz-blast-112-1if79jk.mp3",
-   "fileEn": "quiz-blast-112-gfwtbi.mp3"
+   "file": "quiz-blast-096-1e9exgk.mp3",
+   "fileEn": "quiz-blast-096-gfwtbi.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "نخبطها جامد في الأرض",
+   "ar": "نضربها بقوة في الأرض",
    "en": "Stamp it down hard",
    "note": "إجابة",
-   "key": "4iz2m9",
+   "key": "1bm80gp",
    "keyEn": "61lsb8",
-   "file": "quiz-blast-113-4iz2m9.mp3",
-   "fileEn": "quiz-blast-113-61lsb8.mp3"
+   "file": "quiz-blast-097-1bm80gp.mp3",
+   "fileEn": "quiz-blast-097-61lsb8.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "ركلة دائرية ضعيفة ومش متوازنة — إيه أكتر سبب محتمل؟",
+   "ar": "ركلة دائرية ضعيفة وغير متوازنة — ما السبب الأكثر احتمالًا؟",
    "en": "A roundhouse kick lands weak and off-balance. What is the most likely cause?",
    "note": "سؤال",
-   "key": "1yp2kvq",
+   "key": "jzsus1",
    "keyEn": "14cr5j",
-   "file": "quiz-blast-114-1yp2kvq.mp3",
-   "fileEn": "quiz-blast-114-14cr5j.mp3"
+   "file": "quiz-blast-098-jzsus1.mp3",
+   "fileEn": "quiz-blast-098-14cr5j.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "الوسط ماتلفّش مع الركلة",
+   "ar": "لم يلف الوسط مع الركلة",
    "en": "The hip did not turn over with the kick",
    "note": "إجابة",
-   "key": "19qzut9",
+   "key": "7jxw5q",
    "keyEn": "gyzw1t",
-   "file": "quiz-blast-115-19qzut9.mp3",
-   "fileEn": "quiz-blast-115-gyzw1t.mp3"
+   "file": "quiz-blast-099-7jxw5q.mp3",
+   "fileEn": "quiz-blast-099-gyzw1t.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "لفّ قدم الارتكاز حوالي 135°",
+   "ar": "لفّ قدم الارتكاز نحو ١٣٥°",
    "en": "He pivoted about 135°",
    "note": "إجابة",
-   "key": "1gihu82",
+   "key": "kt85m5",
    "keyEn": "y7u82l",
-   "file": "quiz-blast-116-1gihu82.mp3",
-   "fileEn": "quiz-blast-116-y7u82l.mp3"
+   "file": "quiz-blast-100-kt85m5.mp3",
+   "fileEn": "quiz-blast-100-y7u82l.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "خلّى إيديه للحراسة",
+   "ar": "ضرب بوجه القدم",
+   "en": "He struck with the instep",
+   "note": "إجابة",
+   "key": "1wznw3u",
+   "keyEn": "1jywfsa",
+   "file": "quiz-blast-101-1wznw3u.mp3",
+   "fileEn": "quiz-blast-101-1jywfsa.mp3"
+  },
+  {
+   "group": "quiz-blast",
+   "priority": 3,
+   "ar": "أبقى يديه للحراسة",
    "en": "He kept his guard up",
    "note": "إجابة",
-   "key": "1gmd6yi",
+   "key": "s30d6u",
    "keyEn": "t3eb9c",
-   "file": "quiz-blast-117-1gmd6yi.mp3",
-   "fileEn": "quiz-blast-117-t3eb9c.mp3"
+   "file": "quiz-blast-102-s30d6u.mp3",
+   "fileEn": "quiz-blast-102-t3eb9c.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "بيك تشاجي الكاملة فيها كام مرحلة أساسية؟",
+   "ar": "كم مرحلة أساسية في ركلة بيك تشاجي الكاملة؟",
    "en": "How many main phases does a complete Bik Chagi have?",
    "note": "سؤال",
-   "key": "1udbbkh",
+   "key": "1t3bk7z",
    "keyEn": "e645p4",
-   "file": "quiz-blast-118-1udbbkh.mp3",
-   "fileEn": "quiz-blast-118-e645p4.mp3"
+   "file": "quiz-blast-103-1t3bk7z.mp3",
+   "fileEn": "quiz-blast-103-e645p4.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "وضع الاستعداد اللي اللاعب بياخده في الأول قبل الركلات الهجومية اسمه:",
+   "ar": "اسم وضع الاستعداد الذي يتخذه اللاعب في البداية قبل الركلات الهجومية:",
    "en": "The starting ready position a player takes before attacking kicks is called:",
    "note": "سؤال",
-   "key": "8db05j",
+   "key": "119py52",
    "keyEn": "fx2ngn",
-   "file": "quiz-blast-119-8db05j.mp3",
-   "fileEn": "quiz-blast-119-fx2ngn.mp3"
+   "file": "quiz-blast-104-119py52.mp3",
+   "fileEn": "quiz-blast-104-fx2ngn.mp3"
   },
   {
    "group": "quiz-blast",
@@ -6487,41 +6322,30 @@
    "note": "إجابة",
    "key": "1vumkj1",
    "keyEn": "1lm8hg7",
-   "file": "quiz-blast-120-1vumkj1.mp3",
-   "fileEn": "quiz-blast-120-1lm8hg7.mp3"
+   "file": "quiz-blast-105-1vumkj1.mp3",
+   "fileEn": "quiz-blast-105-1lm8hg7.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "في الركلات الهجومية، رجوع القدم الضاربة وثني الركبة تاني بيحصل في:",
+   "ar": "في الركلات الهجومية، يحدث رجوع القدم الضاربة وثني الركبة مرة أخرى في مرحلة:",
    "en": "Pulling the kicking foot back and re-bending the knee happens in the:",
    "note": "سؤال",
-   "key": "ln9jlc",
+   "key": "1659s6q",
    "keyEn": "1mp5up2",
-   "file": "quiz-blast-121-ln9jlc.mp3",
-   "fileEn": "quiz-blast-121-1mp5up2.mp3"
+   "file": "quiz-blast-106-1659s6q.mp3",
+   "fileEn": "quiz-blast-106-1mp5up2.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "وضع الاستعداد",
-   "en": "The ready stance",
-   "note": "إجابة",
-   "key": "16m6y55",
-   "keyEn": "i7vucx",
-   "file": "quiz-blast-122-16m6y55.mp3",
-   "fileEn": "quiz-blast-122-i7vucx.mp3"
-  },
-  {
-   "group": "quiz-blast",
-   "priority": 3,
-   "ar": "اللبس الرسمي بتاع لاعبين التايكوندو اسمه:",
+   "ar": "اسم الزي الرسمي للاعبي التايكوندو:",
    "en": "The official uniform of Taekwondo players is called:",
    "note": "سؤال",
-   "key": "1vwk8zf",
+   "key": "1s9axuz",
    "keyEn": "1alkqt9",
-   "file": "quiz-blast-123-1vwk8zf.mp3",
-   "fileEn": "quiz-blast-123-1alkqt9.mp3"
+   "file": "quiz-blast-107-1s9axuz.mp3",
+   "fileEn": "quiz-blast-107-1alkqt9.mp3"
   },
   {
    "group": "quiz-blast",
@@ -6531,8 +6355,8 @@
    "note": "إجابة",
    "key": "1z0us1i",
    "keyEn": "1gw0e44",
-   "file": "quiz-blast-124-1z0us1i.mp3",
-   "fileEn": "quiz-blast-124-1gw0e44.mp3"
+   "file": "quiz-blast-108-1z0us1i.mp3",
+   "fileEn": "quiz-blast-108-1gw0e44.mp3"
   },
   {
    "group": "quiz-blast",
@@ -6542,8 +6366,8 @@
    "note": "إجابة",
    "key": "1ej0d0s",
    "keyEn": "1osr2fy",
-   "file": "quiz-blast-125-1ej0d0s.mp3",
-   "fileEn": "quiz-blast-125-1osr2fy.mp3"
+   "file": "quiz-blast-109-1ej0d0s.mp3",
+   "fileEn": "quiz-blast-109-1osr2fy.mp3"
   },
   {
    "group": "quiz-blast",
@@ -6553,8 +6377,8 @@
    "note": "إجابة",
    "key": "1vu82nm",
    "keyEn": "1q2suyg",
-   "file": "quiz-blast-126-1vu82nm.mp3",
-   "fileEn": "quiz-blast-126-1q2suyg.mp3"
+   "file": "quiz-blast-110-1vu82nm.mp3",
+   "fileEn": "quiz-blast-110-1q2suyg.mp3"
   },
   {
    "group": "quiz-blast",
@@ -6564,19 +6388,19 @@
    "note": "إجابة",
    "key": "10t107n",
    "keyEn": "16ejoli",
-   "file": "quiz-blast-127-10t107n.mp3",
-   "fileEn": "quiz-blast-127-16ejoli.mp3"
+   "file": "quiz-blast-111-10t107n.mp3",
+   "fileEn": "quiz-blast-111-16ejoli.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "في ماتش الكروجي بنفرّق بين اللاعبين باللونين:",
+   "ar": "في مباراة الكيورجي نميّز بين اللاعبين باللونين:",
    "en": "Players in a Kyorugi (sparring) match are told apart by the colors:",
    "note": "سؤال",
-   "key": "1vwhpir",
+   "key": "1qu09q1",
    "keyEn": "1u4ytdt",
-   "file": "quiz-blast-128-1vwhpir.mp3",
-   "fileEn": "quiz-blast-128-1u4ytdt.mp3"
+   "file": "quiz-blast-112-1qu09q1.mp3",
+   "fileEn": "quiz-blast-112-1u4ytdt.mp3"
   },
   {
    "group": "quiz-blast",
@@ -6586,8 +6410,8 @@
    "note": "إجابة",
    "key": "1767fut",
    "keyEn": "179wy3f",
-   "file": "quiz-blast-129-1767fut.mp3",
-   "fileEn": "quiz-blast-129-179wy3f.mp3"
+   "file": "quiz-blast-113-1767fut.mp3",
+   "fileEn": "quiz-blast-113-179wy3f.mp3"
   },
   {
    "group": "quiz-blast",
@@ -6597,8 +6421,8 @@
    "note": "إجابة",
    "key": "4mmh08",
    "keyEn": "yf4dxp",
-   "file": "quiz-blast-130-4mmh08.mp3",
-   "fileEn": "quiz-blast-130-yf4dxp.mp3"
+   "file": "quiz-blast-114-4mmh08.mp3",
+   "fileEn": "quiz-blast-114-yf4dxp.mp3"
   },
   {
    "group": "quiz-blast",
@@ -6608,8 +6432,8 @@
    "note": "إجابة",
    "key": "1unowsh",
    "keyEn": "ssly2z",
-   "file": "quiz-blast-131-1unowsh.mp3",
-   "fileEn": "quiz-blast-131-ssly2z.mp3"
+   "file": "quiz-blast-115-1unowsh.mp3",
+   "fileEn": "quiz-blast-115-ssly2z.mp3"
   },
   {
    "group": "quiz-blast",
@@ -6619,19 +6443,19 @@
    "note": "إجابة",
    "key": "6gajt3",
    "keyEn": "1kk9ycz",
-   "file": "quiz-blast-132-6gajt3.mp3",
-   "fileEn": "quiz-blast-132-1kk9ycz.mp3"
+   "file": "quiz-blast-116-6gajt3.mp3",
+   "fileEn": "quiz-blast-116-1kk9ycz.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "واقي الصدر اللي بيلبسه لاعب التايكوندو اسمه:",
+   "ar": "اسم واقي الصدر الذي يلبسه لاعب التايكوندو:",
    "en": "The chest protector a Taekwondo player wears is called:",
    "note": "سؤال",
-   "key": "1fhpkqb",
+   "key": "1s6rvjo",
    "keyEn": "181qj8s",
-   "file": "quiz-blast-133-1fhpkqb.mp3",
-   "fileEn": "quiz-blast-133-181qj8s.mp3"
+   "file": "quiz-blast-117-1s6rvjo.mp3",
+   "fileEn": "quiz-blast-117-181qj8s.mp3"
   },
   {
    "group": "quiz-blast",
@@ -6641,41 +6465,41 @@
    "note": "إجابة",
    "key": "maf3cd",
    "keyEn": "1gymf3s",
-   "file": "quiz-blast-134-maf3cd.mp3",
-   "fileEn": "quiz-blast-134-1gymf3s.mp3"
+   "file": "quiz-blast-118-maf3cd.mp3",
+   "fileEn": "quiz-blast-118-1gymf3s.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "الهيد جارد",
+   "ar": "واقي الرأس",
    "en": "Head guard",
    "note": "إجابة",
-   "key": "ya0pgx",
+   "key": "fmym6g",
    "keyEn": "8r3pj6",
-   "file": "quiz-blast-135-ya0pgx.mp3",
-   "fileEn": "quiz-blast-135-8r3pj6.mp3"
+   "file": "quiz-blast-119-fmym6g.mp3",
+   "fileEn": "quiz-blast-119-8r3pj6.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "الشين جارد",
+   "ar": "واقي الساق",
    "en": "Shin guard",
    "note": "إجابة",
-   "key": "gacpnr",
+   "key": "16ro3sx",
    "keyEn": "rhabds",
-   "file": "quiz-blast-136-gacpnr.mp3",
-   "fileEn": "quiz-blast-136-rhabds.mp3"
+   "file": "quiz-blast-120-16ro3sx.mp3",
+   "fileEn": "quiz-blast-120-rhabds.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "في منافسات الكروجي، مسموح باللكمة المستقيمة على منطقة:",
+   "ar": "في منافسات الكيورجي، يُسمح باللكمة المستقيمة على منطقة:",
    "en": "In Kyorugi, a straight punch may be aimed at the:",
    "note": "سؤال",
-   "key": "f5x4sw",
+   "key": "1kj632n",
    "keyEn": "1px8gm9",
-   "file": "quiz-blast-137-f5x4sw.mp3",
-   "fileEn": "quiz-blast-137-1px8gm9.mp3"
+   "file": "quiz-blast-121-1kj632n.mp3",
+   "fileEn": "quiz-blast-121-1px8gm9.mp3"
   },
   {
    "group": "quiz-blast",
@@ -6685,41 +6509,41 @@
    "note": "إجابة",
    "key": "1rubkc9",
    "keyEn": "1693uqe",
-   "file": "quiz-blast-138-1rubkc9.mp3",
-   "fileEn": "quiz-blast-138-1693uqe.mp3"
+   "file": "quiz-blast-122-1rubkc9.mp3",
+   "fileEn": "quiz-blast-122-1693uqe.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "الراس",
+   "ar": "الرأس",
    "en": "Head",
    "note": "إجابة",
-   "key": "bjvq0v",
+   "key": "18v5hoj",
    "keyEn": "dzjlqb",
-   "file": "quiz-blast-139-bjvq0v.mp3",
-   "fileEn": "quiz-blast-139-dzjlqb.mp3"
+   "file": "quiz-blast-123-18v5hoj.mp3",
+   "fileEn": "quiz-blast-123-dzjlqb.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "الرجل",
+   "ar": "الساق",
    "en": "Leg",
    "note": "إجابة",
-   "key": "1sk51l9",
+   "key": "bkigr2",
    "keyEn": "hlgldj",
-   "file": "quiz-blast-140-1sk51l9.mp3",
-   "fileEn": "quiz-blast-140-hlgldj.mp3"
+   "file": "quiz-blast-124-bkigr2.mp3",
+   "fileEn": "quiz-blast-124-hlgldj.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "في ماتشات الكروجي، اسم «شونج» بيتقال على اللاعب اللي لابس اللون:",
+   "ar": "في مباريات الكيورجي، يُطلق اسم «شونج» على اللاعب الذي يلبس اللون:",
    "en": "In Kyorugi, the player in which color is called \"Chung\"?",
    "note": "سؤال",
-   "key": "1hcxvo3",
+   "key": "bcy6tp",
    "keyEn": "7ifk2r",
-   "file": "quiz-blast-141-1hcxvo3.mp3",
-   "fileEn": "quiz-blast-141-7ifk2r.mp3"
+   "file": "quiz-blast-125-bcy6tp.mp3",
+   "fileEn": "quiz-blast-125-7ifk2r.mp3"
   },
   {
    "group": "quiz-blast",
@@ -6729,8 +6553,8 @@
    "note": "إجابة",
    "key": "1ug2wc0",
    "keyEn": "10cd4ul",
-   "file": "quiz-blast-142-1ug2wc0.mp3",
-   "fileEn": "quiz-blast-142-10cd4ul.mp3"
+   "file": "quiz-blast-126-1ug2wc0.mp3",
+   "fileEn": "quiz-blast-126-10cd4ul.mp3"
   },
   {
    "group": "quiz-blast",
@@ -6740,8 +6564,8 @@
    "note": "إجابة",
    "key": "1esjlg",
    "keyEn": "1let6x",
-   "file": "quiz-blast-143-1esjlg.mp3",
-   "fileEn": "quiz-blast-143-1let6x.mp3"
+   "file": "quiz-blast-127-1esjlg.mp3",
+   "fileEn": "quiz-blast-127-1let6x.mp3"
   },
   {
    "group": "quiz-blast",
@@ -6751,8 +6575,8 @@
    "note": "إجابة",
    "key": "6kwnyy",
    "keyEn": "b5mm4",
-   "file": "quiz-blast-144-6kwnyy.mp3",
-   "fileEn": "quiz-blast-144-b5mm4.mp3"
+   "file": "quiz-blast-128-6kwnyy.mp3",
+   "fileEn": "quiz-blast-128-b5mm4.mp3"
   },
   {
    "group": "quiz-blast",
@@ -6762,52 +6586,52 @@
    "note": "إجابة",
    "key": "uk710o",
    "keyEn": "i0tgik",
-   "file": "quiz-blast-145-uk710o.mp3",
-   "fileEn": "quiz-blast-145-i0tgik.mp3"
+   "file": "quiz-blast-129-uk710o.mp3",
+   "fileEn": "quiz-blast-129-i0tgik.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "في ماتشات الكروجي، اسم «هونج» بيتقال على اللاعب اللي لابس اللون:",
+   "ar": "في مباريات الكيورجي، يُطلق اسم «هونج» على اللاعب الذي يلبس اللون:",
    "en": "In Kyorugi, the player in which color is called \"Hong\"?",
    "note": "سؤال",
-   "key": "12cy614",
+   "key": "1ctom2w",
    "keyEn": "17bf0pc",
-   "file": "quiz-blast-146-12cy614.mp3",
-   "fileEn": "quiz-blast-146-17bf0pc.mp3"
+   "file": "quiz-blast-130-1ctom2w.mp3",
+   "fileEn": "quiz-blast-130-17bf0pc.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "اللاعب ياخد إنذار (كام جام) لما:",
+   "ar": "يحصل اللاعب على إنذار (كام جام) عندما:",
    "en": "A gam-jeom (penalty) is given to a player when:",
    "note": "سؤال",
-   "key": "11yv94e",
+   "key": "k68jcg",
    "keyEn": "oc7o8z",
-   "file": "quiz-blast-147-11yv94e.mp3",
-   "fileEn": "quiz-blast-147-oc7o8z.mp3"
+   "file": "quiz-blast-131-k68jcg.mp3",
+   "fileEn": "quiz-blast-131-oc7o8z.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "جزء من القدم يطلع برا خط الحدود",
+   "ar": "يخرج جزء من القدم خارج خط الحدود",
    "en": "Part of the foot leaves the boundary line",
    "note": "إجابة",
-   "key": "18fraeh",
+   "key": "8w95t0",
    "keyEn": "b0a085",
-   "file": "quiz-blast-148-18fraeh.mp3",
-   "fileEn": "quiz-blast-148-b0a085.mp3"
+   "file": "quiz-blast-132-8w95t0.mp3",
+   "fileEn": "quiz-blast-132-b0a085.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "الرجلين يفضلوا جوا خط الحدود",
+   "ar": "تبقى القدمان داخل خط الحدود",
    "en": "Both feet stay inside the line",
    "note": "إجابة",
-   "key": "ulsyyb",
+   "key": "mqmnqb",
    "keyEn": "xfv8lo",
-   "file": "quiz-blast-149-ulsyyb.mp3",
-   "fileEn": "quiz-blast-149-xfv8lo.mp3"
+   "file": "quiz-blast-133-mqmnqb.mp3",
+   "fileEn": "quiz-blast-133-xfv8lo.mp3"
   },
   {
    "group": "quiz-blast",
@@ -6817,41 +6641,41 @@
    "note": "إجابة",
    "key": "1vbmrhv",
    "keyEn": "x4jb99",
-   "file": "quiz-blast-150-1vbmrhv.mp3",
-   "fileEn": "quiz-blast-150-x4jb99.mp3"
+   "file": "quiz-blast-134-1vbmrhv.mp3",
+   "fileEn": "quiz-blast-134-x4jb99.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "إنك تقرّب من خط الحدود",
+   "ar": "يقترب من خط الحدود",
    "en": "Getting close to the line",
    "note": "إجابة",
-   "key": "jqxey4",
+   "key": "nwp2gw",
    "keyEn": "gm7jzn",
-   "file": "quiz-blast-151-jqxey4.mp3",
-   "fileEn": "quiz-blast-151-gm7jzn.mp3"
+   "file": "quiz-blast-135-nwp2gw.mp3",
+   "fileEn": "quiz-blast-135-gm7jzn.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "ماتش الكيورجي بيبقى فيه:",
+   "ar": "تتكون مباراة الكيورجي من:",
    "en": "A Kyorugi match consists of:",
    "note": "سؤال",
-   "key": "1ypqkfp",
+   "key": "1rb5i43",
    "keyEn": "f9c76s",
-   "file": "quiz-blast-152-1ypqkfp.mp3",
-   "fileEn": "quiz-blast-152-f9c76s.mp3"
+   "file": "quiz-blast-136-1rb5i43.mp3",
+   "fileEn": "quiz-blast-136-f9c76s.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "تلات جولات",
+   "ar": "ثلاث جولات",
    "en": "Three rounds",
    "note": "إجابة",
-   "key": "upuh8n",
+   "key": "1foruy1",
    "keyEn": "iw8cx8",
-   "file": "quiz-blast-153-upuh8n.mp3",
-   "fileEn": "quiz-blast-153-iw8cx8.mp3"
+   "file": "quiz-blast-137-1foruy1.mp3",
+   "fileEn": "quiz-blast-137-iw8cx8.mp3"
   },
   {
    "group": "quiz-blast",
@@ -6861,8 +6685,8 @@
    "note": "إجابة",
    "key": "1g7i5mb",
    "keyEn": "nrcpx2",
-   "file": "quiz-blast-154-1g7i5mb.mp3",
-   "fileEn": "quiz-blast-154-nrcpx2.mp3"
+   "file": "quiz-blast-138-1g7i5mb.mp3",
+   "fileEn": "quiz-blast-138-nrcpx2.mp3"
   },
   {
    "group": "quiz-blast",
@@ -6872,8 +6696,8 @@
    "note": "إجابة",
    "key": "18mmbyb",
    "keyEn": "1trnrvu",
-   "file": "quiz-blast-155-18mmbyb.mp3",
-   "fileEn": "quiz-blast-155-1trnrvu.mp3"
+   "file": "quiz-blast-139-18mmbyb.mp3",
+   "fileEn": "quiz-blast-139-1trnrvu.mp3"
   },
   {
    "group": "quiz-blast",
@@ -6883,30 +6707,30 @@
    "note": "إجابة",
    "key": "1jdnbto",
    "keyEn": "135913u",
-   "file": "quiz-blast-156-1jdnbto.mp3",
-   "fileEn": "quiz-blast-156-135913u.mp3"
+   "file": "quiz-blast-140-1jdnbto.mp3",
+   "fileEn": "quiz-blast-140-135913u.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "الجولة الواحدة في ماتش الكيورجي مدتها قد إيه؟",
+   "ar": "كم مدة الجولة الواحدة في مباراة الكيورجي؟",
    "en": "One round of a Kyorugi match lasts:",
    "note": "سؤال",
-   "key": "9dffl",
+   "key": "18kn94y",
    "keyEn": "6483vn",
-   "file": "quiz-blast-157-9dffl.mp3",
-   "fileEn": "quiz-blast-157-6483vn.mp3"
+   "file": "quiz-blast-141-18kn94y.mp3",
+   "fileEn": "quiz-blast-141-6483vn.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "دقيقتين",
+   "ar": "دقيقتان",
    "en": "Two minutes",
    "note": "إجابة",
-   "key": "1wcl2sm",
+   "key": "6gqsb3",
    "keyEn": "1dxukhs",
-   "file": "quiz-blast-158-1wcl2sm.mp3",
-   "fileEn": "quiz-blast-158-1dxukhs.mp3"
+   "file": "quiz-blast-142-6gqsb3.mp3",
+   "fileEn": "quiz-blast-142-1dxukhs.mp3"
   },
   {
    "group": "quiz-blast",
@@ -6916,85 +6740,85 @@
    "note": "إجابة",
    "key": "ro5mrb",
    "keyEn": "13b9cvl",
-   "file": "quiz-blast-159-ro5mrb.mp3",
-   "fileEn": "quiz-blast-159-13b9cvl.mp3"
+   "file": "quiz-blast-143-ro5mrb.mp3",
+   "fileEn": "quiz-blast-143-13b9cvl.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "دقيقة ونص",
+   "ar": "دقيقة ونصف",
    "en": "One and a half minutes",
    "note": "إجابة",
-   "key": "1lv5de6",
+   "key": "17gy5i5",
    "keyEn": "b2ee8f",
-   "file": "quiz-blast-160-1lv5de6.mp3",
-   "fileEn": "quiz-blast-160-b2ee8f.mp3"
+   "file": "quiz-blast-144-17gy5i5.mp3",
+   "fileEn": "quiz-blast-144-b2ee8f.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "دقيقتين ونص",
+   "ar": "دقيقتان ونصف",
    "en": "Two and a half minutes",
    "note": "إجابة",
-   "key": "6w1ajb",
+   "key": "16v8dc1",
    "keyEn": "1b2p5n9",
-   "file": "quiz-blast-161-6w1ajb.mp3",
-   "fileEn": "quiz-blast-161-1b2p5n9.mp3"
+   "file": "quiz-blast-145-16v8dc1.mp3",
+   "fileEn": "quiz-blast-145-1b2p5n9.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "لما اللاعب ياخد إنذار (كام جام)، إيه اللي بيحصل؟",
+   "ar": "عندما يحصل اللاعب على إنذار (كام جام)، ماذا يحدث؟",
    "en": "When a gam-jeom is given to a player, the result is:",
    "note": "سؤال",
-   "key": "1u9i65b",
+   "key": "156e3vc",
    "keyEn": "18f9i0k",
-   "file": "quiz-blast-162-1u9i65b.mp3",
-   "fileEn": "quiz-blast-162-18f9i0k.mp3"
+   "file": "quiz-blast-146-156e3vc.mp3",
+   "fileEn": "quiz-blast-146-18f9i0k.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "المنافس بياخد نقطة",
+   "ar": "يحصل المنافس على نقطة",
    "en": "A point for the opponent",
    "note": "إجابة",
-   "key": "1an48em",
+   "key": "1edw5qs",
    "keyEn": "12w0gz7",
-   "file": "quiz-blast-163-1an48em.mp3",
-   "fileEn": "quiz-blast-163-12w0gz7.mp3"
+   "file": "quiz-blast-147-1edw5qs.mp3",
+   "fileEn": "quiz-blast-147-12w0gz7.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "بيتخصم نقطة من اللاعب",
+   "ar": "تُخصم نقطة من اللاعب",
    "en": "A point off the player",
    "note": "إجابة",
-   "key": "1afvrrx",
+   "key": "135pt0n",
    "keyEn": "15b97r9",
-   "file": "quiz-blast-164-1afvrrx.mp3",
-   "fileEn": "quiz-blast-164-15b97r9.mp3"
+   "file": "quiz-blast-148-135pt0n.mp3",
+   "fileEn": "quiz-blast-148-15b97r9.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "بيتخصم نقطتين من المنافس",
+   "ar": "تُخصم نقطتان من المنافس",
    "en": "Two points off the opponent",
    "note": "إجابة",
-   "key": "7jtk5k",
+   "key": "1fxpttd",
    "keyEn": "1h5o8mr",
-   "file": "quiz-blast-165-7jtk5k.mp3",
-   "fileEn": "quiz-blast-165-1h5o8mr.mp3"
+   "file": "quiz-blast-149-1fxpttd.mp3",
+   "fileEn": "quiz-blast-149-1h5o8mr.mp3"
   },
   {
    "group": "quiz-blast",
    "priority": 3,
-   "ar": "اللاعب بيتوقف",
+   "ar": "يُوقَف اللاعب",
    "en": "The player is suspended",
    "note": "إجابة",
-   "key": "1rqv703",
+   "key": "1u2lrol",
    "keyEn": "m83gbe",
-   "file": "quiz-blast-166-1rqv703.mp3",
-   "fileEn": "quiz-blast-166-m83gbe.mp3"
+   "file": "quiz-blast-150-1u2lrol.mp3",
+   "fileEn": "quiz-blast-150-m83gbe.mp3"
   }
  ],
  "korean": [
