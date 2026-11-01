@@ -903,7 +903,7 @@ function watchVideoLoading(video) {
 // Arabic or English voice, degrees and ranges in words)
 // v63.4 — the version a tester can read on the start screen and in Coach → Settings (bump it
 // together with CACHE_VERSION in sw.js)
-const APP_VERSION = '63.5';
+const APP_VERSION = '63.6';
 
 const SpeechVoice = {
   KEY: 'taekwondoJourneyVoice',
@@ -13300,10 +13300,13 @@ const PoseShots = (() => {
 
   // ---------------------------------------------------------------- engines
   let eng3d;                                         // the tk3d module, false = none
+  // v63.6: what happened to the pictures on this device (shown in Coach → Settings for testers)
+  const stats = { engine: '?', cache: 0, drawn: 0, fallback: 0, timeouts: 0, err: '' };
   async function three() {
     if (eng3d !== undefined) return eng3d;
     try { const m = await loadTK3D(); eng3d = m.supported() ? m : false; }
-    catch (e) { eng3d = false; }
+    catch (e) { eng3d = false; stats.err = `3D: ${e?.message || e}`; }
+    stats.engine = eng3d ? '3D' : (window.TKDAnim ? '2D' : '—');
     return eng3d;
   }
   async function rigFor(ch) {
@@ -13525,11 +13528,13 @@ const PoseShots = (() => {
       sets.set(sk, e);
       e.promise = (async () => {
         let blobs = await within(fromStore(sk, frameCount(S)), 2500, null);
-        if (!blobs) {
-          blobs = await (queue = queue.then(() => within(renderFrames(ch, S, dress), 15000, null)).catch(err => { console.warn('PoseShots', err); return null; }));
-          if (blobs) toStore(sk, blobs);
+        if (blobs) stats.cache += blobs.length;
+        else {
+          blobs = await (queue = queue.then(() => within(renderFrames(ch, S, dress), 15000, 'timeout')).catch(err => { console.warn('PoseShots', err); stats.err = String(err?.message || err).slice(0, 80); return null; }));
+          if (blobs === 'timeout') { stats.timeouts++; blobs = null; }
+          if (blobs) { stats.drawn += blobs.length; toStore(sk, blobs); }
         }
-        if (!blobs) blobs = Array.from({ length: frameCount(S) }, () => fallbackBlob(ch));
+        if (!blobs) { blobs = Array.from({ length: frameCount(S) }, () => fallbackBlob(ch)); stats.fallback += blobs.length; }
         e.blobs = blobs;
         e.urls = blobs.map(b => URL.createObjectURL(b));
         e.ids.forEach((id, i) => swap(id, e.urls[i]));
@@ -13610,7 +13615,7 @@ const PoseShots = (() => {
     const u = im.getAttribute('src') || ''; if (!u.startsWith('blob:')) return;
     im.dataset.imgRescued = '1'; rescue(u);
   }, true);
-  return { url, phase, has, live, ready, mine, whenReady, keyOf, prepare, warm, rescue, SETS, VER };
+  return { url, phase, has, live, ready, mine, whenReady, keyOf, prepare, warm, rescue, stats: () => ({ ...stats }), SETS, VER };
 })();
 if (typeof window !== 'undefined') window.PoseShots = PoseShots;
 
@@ -16634,6 +16639,7 @@ const Coach = {
         <p class="tkd-muted">${TKD.t('⚡ = average reaction time in the quick games (Sparring, Target Paddles, Quiz Blast, Mistake Hunter). 🦵 = the leg the child kicks with — the 3D character mirrors for left-footers.', '⚡ = متوسط سرعة رد الفعل في الألعاب السريعة (النزال، مضارب الأهداف، كويز الفضاء، صيّاد الأخطاء). 🦵 = الرجل التي يركل بها الطفل — تنعكس الشخصية ثلاثية الأبعاد لمن يركل باليسرى.')}</p>
       </details>
       <p class="co-autosave">✅ ${TKD.t('Every change is saved straight away.', 'يُحفظ أي تغيير مباشرة.')} · ${TKD.t('Version', 'الإصدار')} ${APP_VERSION}</p>
+      <p class="co-autosave co-pics" id="co-pics">${this.picsLine()}</p>
       <section class="co-data" id="co-data"><h3>💾 ${TKD.t('Data on this device', 'البيانات الموجودة على هذا الجهاز')}</h3>
         <div class="tkd-row wrap">
           <button type="button" class="btn btn-small btn-success" id="co-backup">⬇️ ${TKD.t('Save a backup', 'احفظ نسخة احتياطية')}</button>
@@ -16644,6 +16650,13 @@ const Coach = {
       <div class="tkd-row wrap">
         <button type="button" class="btn btn-small" id="co-newpin">🔑 ${TKD.t('Change PIN', 'غيّر الرقم السري')}</button>
         <button type="button" class="btn btn-small btn-danger" id="co-erase">🗑️ ${TKD.t('Erase everything', 'احذف كل شيء')}</button></div></div>`;
+  },
+  // v63.6 — how the pictures are doing on this device (a tester sends a screenshot of this line)
+  picsLine() {
+    const st = window.PoseShots?.stats?.() || {}, ua = navigator.userAgent;
+    const br = /CriOS|Chrome/.test(ua) ? 'Chrome' : /Safari/.test(ua) ? 'Safari' : /Firefox/.test(ua) ? 'Firefox' : '?';
+    const ios = (ua.match(/OS (\d+)_(\d+)/) || [])[0]?.replace('OS ', 'iOS ').replace('_', '.') || '';
+    return `🖼️ ${TKD.t('Pictures', 'الصور')}: ${st.engine || '?'} · ${TKD.t('drawn', 'رُسمت')} ${st.drawn || 0} · ${TKD.t('saved', 'محفوظة')} ${st.cache || 0} · ${TKD.t('failed', 'فشلت')} ${st.fallback || 0}${st.timeouts ? ` · ⏱️ ${st.timeouts}` : ''} · ${br}${ios ? ' ' + ios : ''}${st.err ? ` · ${TKD.esc(st.err)}` : ''}`;
   },
   // v63.3 — the reading voice of this device: "automatic" (the best one) or any voice it has
   bindVoice() {
