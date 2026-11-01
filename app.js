@@ -448,7 +448,7 @@ const GameConfig = {
       },
       phases: [
         { num: 1, key: 'ready',
-          title: { en: '1️⃣ Ready Stance (Kyorugi Junbi)', ar: '1️⃣ وضع الاستعداد (كيوروجي جونبي)' },
+          title: { en: '1️⃣ Ready Stance (Kyorugi Junbi)', ar: '1️⃣ وضع الاستعداد (كيورجي جونبي)' },
           image: poseImg('apchagi', 0),
           focus: { en: '👀 The kicking leg behind and the free (standing) leg in front.', ar: '👀 الرجل الضاربة خلفًا والرجل الحرة (الارتكاز) أمامًا.' },
           tips: {
@@ -503,7 +503,7 @@ const GameConfig = {
       },
       phases: [
         { num: 1, key: 'ready',
-          title: { en: '1️⃣ Ready Stance (Kyorugi Junbi)', ar: '1️⃣ وضع الاستعداد (كيوروجي جونبي)' },
+          title: { en: '1️⃣ Ready Stance (Kyorugi Junbi)', ar: '1️⃣ وضع الاستعداد (كيورجي جونبي)' },
           image: poseImg('narochagi', 0),
           focus: { en: '👀 The kicking leg behind and the free (standing) leg in front.', ar: '👀 الرجل الضاربة خلفًا والرجل الحرة (الارتكاز) أمامًا.' },
           tips: {
@@ -560,7 +560,7 @@ const GameConfig = {
       },
       phases: [
         { num: 1, key: 'ready',
-          title: { en: '1️⃣ Ready Stance (Kyorugi Junbi)', ar: '1️⃣ وضع الاستعداد (كيوروجي جونبي)' },
+          title: { en: '1️⃣ Ready Stance (Kyorugi Junbi)', ar: '1️⃣ وضع الاستعداد (كيورجي جونبي)' },
           image: poseImg('bakchagi3', 0),
           focus: { en: '👀 The kicking leg behind and the free (standing) leg in front.', ar: '👀 الرجل الضاربة خلفًا والرجل الحرة (الارتكاز) أمامًا.' },
           tips: {
@@ -1463,7 +1463,7 @@ class GameState {
         formControlGame: '🧍 ظبّط الوضعية — آب تشاجي', formControlInstructions: 'اسحب النقاط الملونة حتى يصبح شكل الركلة صحيحًا',
         instructions: '🎯 التعليمات:', instruction1: 'ارفع ركبتك لحد صدرك', instruction2: 'افرد رجلك لقدام على طول', instruction3: 'خلي ضهرك مفرود', instruction4: 'اتوازن على رجل الارتكاز',
         accuracy: 'الدقة:', checkForm: 'اتأكد من الشكل', autoPosition: 'وضع أوتوماتيك', formProgress: 'تقدّمك في الشكل:', backToGames: 'ارجع للألعاب',
-        puzzleGame: '🧩 رتّب المراحل', puzzleInstructions: 'رتّب مراحل الركلة من ١ إلى ٥. هناك قطعة زائدة، اتركها خارج الترتيب.',
+        puzzleGame: '🧩 رتّب المراحل', puzzleInstructions: 'رتّب مراحل الركلة من ١ إلى ٥.\nهناك قطعة زائدة، اتركها خارج الترتيب.',
         puzzlePieces: 'اسحب القطعة إلى الخانة المناسبة، أو اضغط على القطعة ثم على رقم الخانة.',
         checkPuzzle: 'اتأكد من الترتيب', hint: 'تلميح', puzzleProgress: 'تقدّمك في التركيب:', taekwondoQuiz: '❓ اختبر معلوماتك في التايكوندو', quizDescription: 'اختبر فهمك لحركات ومصطلحات التايكوندو', question: 'سؤال', score: 'النقط:',
         winner: '🏆 مبروك!', achievementsUnlocked: 'الإنجازات اللي اتفتحت:',
@@ -4389,7 +4389,7 @@ class PuzzleSystem {
     const ar = this.gameState.currentLanguage === 'ar', name = TKD.skillName(GameConfig.SKILLS[this.skillId] ? this.skillId : 'apchagi');
     const t = document.getElementById('puzzle-title'), d = document.getElementById('puzzle-desc');
     if (t) { t.removeAttribute('data-i18n'); t.textContent = ar ? `🧩 رتّب المراحل — ${name}` : `🧩 Order the Phases — ${name}`; }
-    if (d) { d.removeAttribute('data-i18n'); d.textContent = ar ? 'رتّب مراحل الركلة من ١ إلى ٥. هناك قطعة زائدة، اتركها خارج الترتيب.' : `Put the phases of ${name} in order, 1 to 5. There is one extra piece — leave it out.`; }
+    if (d) { d.removeAttribute('data-i18n'); d.textContent = ar ? 'رتّب مراحل الركلة من ١ إلى ٥.\nهناك قطعة زائدة، اتركها خارج الترتيب.' : `Put the phases of ${name} in order, 1 to 5. There is one extra piece — leave it out.`; }
     document.querySelectorAll('#puzzle-screen .puzzle-slot .slot-label').forEach(el => { const n = +el.closest('.puzzle-slot').dataset.step; el.textContent = ar ? TKD.num(n) : String(n); });
     const h = document.querySelector('#puzzle-screen .puzzle-pieces-container h3');
     if (h) { h.removeAttribute('data-i18n'); h.textContent = ar ? 'اسحب القطعة إلى الخانة المناسبة، أو اضغط على القطعة ثم على رقم الخانة.' : 'Drag a piece to its place, or tap a piece and then the number of its place.'; }
@@ -4855,6 +4855,7 @@ class ActionSystem {
     round:  { en: (r, n) => `Round ${r} / ${n}`, ar: (r, n) => `الجولة ${r} / ${n}` },
     score:  { en: (s) => `Score: ${s}`,            ar: (s) => `النتيجة: ${s}` },
     kick:   { en: 'KICK!',        ar: 'اركل!' },
+    tapHint:{ en: 'Tap here',     ar: 'اضغط هنا' },             // v63.2: the coach's words by the button
     low:    { en: 'Too low',      ar: 'منخفضة' },
     high:   { en: 'Too high',     ar: 'مرتفعة' },
     zone:   { en: 'Abdomen or face', ar: 'البطن أو الوجه' },
@@ -5152,6 +5153,7 @@ class ActionSystem {
     const avg = this.average();
     set('act-score', this.t(this.TXT.score)(avg === null ? '—' : `${avg}%`));
     set('act-kick-label', this.t(this.TXT.kick));
+    set('act-tap-hint', this.t(this.TXT.tapHint));
     const dragzone = this.$('act-dragzone');
     if (dragzone) {
       dragzone.setAttribute('aria-label', this.t(copy.title));
@@ -5278,6 +5280,7 @@ class ActionSystem {
     if (this.skillId === 'apchagi') {
       panel.innerHTML = `
         <div class="act-timing">
+          <p class="act-tap-hint" id="act-tap-hint" dir="auto"></p>
           <button type="button" class="btn act-kick-btn" id="act-kick-btn" dir="auto"><i class="fas fa-shoe-prints"></i> <span id="act-kick-label"></span></button>
         </div>`;
       this.$('act-kick-btn').addEventListener('click', () => this.tapTiming(), sig);
@@ -6195,7 +6198,7 @@ class QuizBlastSystem {
   // A few of these are mixed into every run -- see GENERAL_PER_ROUND.
   static GENERAL = [
     { q: ['وضع الاستعداد اللي اللاعب بياخده في الأول قبل الركلات الهجومية اسمه:', 'The starting ready position a player takes before attacking kicks is called:'],
-      a: ['كيوروجي جونبي', 'Kyorugi Junbi'],
+      a: ['كيورجي جونبي', 'Kyorugi Junbi'],
       w: [['تشاريوت', 'Charyeot'], ['شيجاك', 'Shijak'], ['كومان', 'Keuman']] },
     { q: ['في الركلات الهجومية، رجوع القدم الضاربة وثني الركبة تاني بيحصل في:', 'Pulling the kicking foot back and re-bending the knee happens in the:'],
       a: ['سحب الرجل', 'Pulling the leg back'],
@@ -6221,10 +6224,10 @@ class QuizBlastSystem {
     { q: ['اللاعب ياخد إنذار (كام جام) لما:', 'A gam-jeom (penalty) is given to a player when:'],
       a: ['جزء من القدم يطلع برا خط الحدود', 'Part of the foot leaves the boundary line'],
       w: [['الرجلين يفضلوا جوا خط الحدود', 'Both feet stay inside the line'], ['يقف على خط الحدود', 'Standing on the line'], ['إنك تقرّب من خط الحدود', 'Getting close to the line']] },
-    { q: ['ماتش الكيوروجي بيبقى فيه:', 'A Kyorugi match consists of:'],
+    { q: ['ماتش الكيورجي بيبقى فيه:', 'A Kyorugi match consists of:'],
       a: ['تلات جولات', 'Three rounds'],
       w: [['جولتين', 'Two rounds'], ['أربع جولات', 'Four rounds'], ['خمس جولات', 'Five rounds']] },
-    { q: ['الجولة الواحدة في ماتش الكيوروجي مدتها قد إيه؟', 'One round of a Kyorugi match lasts:'],
+    { q: ['الجولة الواحدة في ماتش الكيورجي مدتها قد إيه؟', 'One round of a Kyorugi match lasts:'],
       a: ['دقيقتين', 'Two minutes'],
       w: [['دقيقة واحدة', 'One minute'], ['دقيقة ونص', 'One and a half minutes'], ['دقيقتين ونص', 'Two and a half minutes']] },
     { q: ['لما اللاعب ياخد إنذار (كام جام)، إيه اللي بيحصل؟', 'When a gam-jeom is given to a player, the result is:'],
@@ -6834,7 +6837,7 @@ class QuizSystem {
         explanation: "Ready stance → knee lift → extend the leg to the target → pull the leg back → back to the ready stance.", explanationAr: "وضع الاستعداد ← رفع الركبة ← مد الرجل للهدف ← سحب الرجل ← الرجوع لوضع الاستعداد." },
       { sec: "p1",
         question: "What is the first phase of Ap Chagi?", questionAr: "ما المرحلة الأولى في آب تشاجي؟",
-        options: ["The ready stance (Kyorugi Junbi)", "The knee lift", "Extending the leg to the target", "Pulling the leg back"], optionsAr: ["وضع الاستعداد (كيوروجي جونبي)", "رفع الركبة", "مد الرجل للهدف", "سحب الرجل"],
+        options: ["The ready stance (Kyorugi Junbi)", "The knee lift", "Extending the leg to the target", "Pulling the leg back"], optionsAr: ["وضع الاستعداد (كيورجي جونبي)", "رفع الركبة", "مد الرجل للهدف", "سحب الرجل"],
         correctText: "The ready stance (Kyorugi Junbi)",
         get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 0); },
         explanation: "The ready stance always comes first.", explanationAr: "وضع الاستعداد هو دائمًا الخطوة الأولى." },
@@ -8553,17 +8556,17 @@ class WarmupSystem {
         nameEn: 'Jumping Jacks', nameAr: 'القفز فتح وضم',
         video: 'assets/videos/warmup/jumping_jacks.mp4',
         descEn: '(Standing) Jump your feet apart and together, swinging your arms up over your head and down.',
-        descAr: '(وقوف) القفز فتح وضم مع تحريك الذراعين عاليًا ولأسفل.',
+        descAr: '(وقوف) القفز فتح وضم مع تحريك الذراعين عالياً و لأسفل.',
         tipEn: 'This wakes up your heart and warms every muscle before you stretch.',
         tipAr: 'ده بيصحّي قلبك ويدفّي كل عضلات جسمك قبل الإطالة.',
         key: []
       },
       {
         id: 'forward_lunge', icon: '🏃', duration: 15, color: '#2a9d8f', type: 'strength',
-        nameEn: 'Forward Lunges', nameAr: 'الطعن أمامًا',
+        nameEn: 'Forward Lunges', nameAr: 'الطعن اماماً للجانبين',
         video: 'assets/videos/warmup/forward_lunge.mp4',
         descEn: '(Standing, feet apart — hands on the hips) Lunge forward, one leg then the other.',
-        descAr: '(وقوف فتحًا - الذراعان ثبات وسط) الطعن أمامًا للجانبين بالتبادل.',
+        descAr: '(وقوف فتحاً - ذراعين ثبات وسط) الطعن اماماً للجانبين بالتبادل.',
         tipEn: 'Builds the strong standing leg and balance that holds you up while you kick.',
         tipAr: 'بيقوّي رجل الارتكاز والتوازن اللي بيشيلوك وإنت بتركل.',
         key: ['apchagi']
@@ -8573,47 +8576,47 @@ class WarmupSystem {
         nameEn: 'Deep Side Lunges', nameAr: 'الطعن العميق للجانبين',
         video: 'assets/videos/warmup/lateral_lunge.mp4',
         descEn: '(Standing, feet apart) A deep lunge to one side, then the other, with your hands on the floor for support.',
-        descAr: '(وقوف فتحًا) الطعن العميق للجانبين بالتبادل مع السند باليدين على الأرض.',
+        descAr: '(وقوف فتحاً) الطعن العميق للجانبين بالتبادل مع السند باليدين على الارض.',
         tipEn: 'Opens the inner thighs and hips — you need that to turn the hip over in a roundhouse kick.',
         tipAr: 'بيفتح الفخذ من جوه والوركين — ودي حاجة مهمة عشان تلف وسطك في الركلة الدائرية.',
         key: ['bakchagi3']
       },
       {
         id: 'straddle_fold', icon: '🙇', duration: 20, color: '#ff6b35', type: 'stretch',
-        nameEn: 'Wide-Leg Forward Bend', nameAr: 'تباعد القدمين مع ميل الجذع أمامًا (البرجل)',
+        nameEn: 'Wide-Leg Forward Bend', nameAr: 'تباعد القدمين جانباً مع ميل الجذع اماماً',
         video: 'assets/videos/warmup/straddle_fold.mp4',
         descEn: '(Standing, feet apart) Spread your feet wide to the sides, bend your trunk forward and put your hands on the floor.',
-        descAr: '(وقوف فتحًا) تباعد القدمين جانبًا مع ميل الجذع أمامًا والسند باليدين على الأرض.',
+        descAr: '(وقوف فتحاً) تباعد القدمين جانباً مع ميل الجذع اماماً و السند باليدين على الأرض. (برجل)',
         tipEn: 'Stretches the back of your legs and inner thighs for higher, cleaner kicks.',
         tipAr: 'بيطوّل عضلات ورا الرجل والفخذ من جوه عشان ركلتك تبقى أعلى وأنضف.',
         key: ['narochagi']
       },
       {
         id: 'straddle_side_reach', icon: '🧘', duration: 20, color: '#9b5de5', type: 'stretch',
-        nameEn: 'Seated Side Bends', nameAr: 'ميل الجذع للجانبين من الجلوس',
+        nameEn: 'Seated Side Bends', nameAr: 'ميل الجذع للجانبين',
         video: 'assets/videos/warmup/straddle_side_reach.mp4',
         descEn: '(Long sitting, legs apart) Bend your trunk to one side and then the other, touching the front of your feet.',
-        descAr: '(جلوس طويل فتحًا) ميل الجذع للجانبين بالتبادل مع لمس الأمشاط.',
+        descAr: '(جلوس طويل فتحاً) ميل الجذع للجانبين بالتبادل مع لمس الأمشاط.',
         tipEn: 'Keep both legs straight and your chest open — this loosens the side of the hip.',
         tipAr: 'خلي رجليك مفرودة وصدرك مفتوح — ده بيفكّ جنب الورك.',
         key: ['bakchagi3', 'narochagi']
       },
       {
         id: 'single_leg_hamstring', icon: '🦶', duration: 20, color: '#43aa8b', type: 'stretch', side: true,
-        nameEn: 'One-Leg Forward Reach', nameAr: 'مد الركبة مع ميل الجذع أمامًا',
+        nameEn: 'One-Leg Forward Reach', nameAr: 'مد ركبة إحدى الرجلين اماماً',
         video: 'assets/videos/warmup/single_leg_hamstring.mp4',
         descEn: '(Half cross-legged sitting) Straighten one knee forward and bend your trunk forward and down to touch the front of that foot.',
-        descAr: '(جلوس تربيع نصفًا) مد ركبة إحدى الرجلين أمامًا وميل الجذع أمامًا أسفل للمس مشط الرجل.',
+        descAr: '(جلوس تربيع نصفاً) مد ركبة إحدى الرجلين اماماً وميل الجذع اماماً أسفل للمس مشط الرجل.',
         tipEn: 'Reach with a long, straight back — tight hamstrings stop your leg from rising high.',
         tipAr: 'اتمد لقدام وظهرك مفرود — العضلة اللي ورا الفخذ لو مشدودة بتمنع رجلك تطلع لفوق.',
         key: ['narochagi', 'apchagi']
       },
       {
         id: 'double_leg_hamstring', icon: '🧎', duration: 20, color: '#3a86ff', type: 'stretch',
-        nameEn: 'Seated Forward Fold', nameAr: 'ميل الجذع أمامًا ومسك القدمين',
+        nameEn: 'Seated Forward Fold', nameAr: 'ميل الجذع اماماً ولأسفل',
         video: 'assets/videos/warmup/double_leg_hamstring.mp4',
         descEn: '(Long sitting — arms forward) Bend your trunk forward and down and hold the front of both feet.',
-        descAr: '(جلوس طويل - الذراعان أمامًا) ميل الجذع أمامًا ولأسفل ومسك مشطي القدمين.',
+        descAr: '(جلوس طويل - ذراعان اماماً) ميل الجذع اماماً ولأسفل ومسك مشطي القدمين.',
         tipEn: 'A calm finisher — your legs are now warm and ready to kick.',
         tipAr: 'ختام هادي — رجليك دلوقتي دافية وجاهزة تركل.',
         key: ['narochagi']

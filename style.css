@@ -5863,6 +5863,7 @@ html.lite .winner-visual::before, html.lite .celebration-icon { animation-iterat
 /* ===================================================================== */
 .act-cv { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; display: block; touch-action: manipulation; }
 .act-timing { align-items: center; }
+.act-tap-hint { margin: 0; text-align: center; font-weight: 700; color: var(--text-gray); line-height: 1.5; }
 .act-hint { left: auto; right: 3%; bottom: 44%; transform: none; animation-name: actHintBounce2; }   /* the fighter always stands on the left of the stage */
 @keyframes actHintBounce2 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 .act-hint span { font-size: 0.74rem; max-width: 9.5em; white-space: normal; text-align: center; }
