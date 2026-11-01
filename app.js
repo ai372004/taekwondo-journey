@@ -838,9 +838,16 @@ function _verifyOneImage(el) {
   if (!url || el.dataset.imgCheckedUrl === url) return;
   el.dataset.imgCheckedUrl = url;
   el.classList.remove('img-pending');
+  if (/^data:image\/svg\+xml.*tkdp_/.test(url)) return;   // v63.4: a picture still being drawn (PoseShots swaps it in)
   const img = new Image();
   img.onerror = () => {
     if (el.dataset.imgUrl !== url) return; // url changed since this check started
+    // v63.4: a drawn picture whose blob: link the phone refuses → the same picture as a data: link
+    if (url.startsWith('blob:') && window.PoseShots?.rescue && !el.dataset.imgRescued) {
+      el.dataset.imgRescued = '1';
+      PoseShots.rescue(url).then(d => { if (d && el.dataset.imgUrl === url) { el.dataset.imgUrl = d; el.style.backgroundImage = `url("${d}")`; delete el.dataset.imgCheckedUrl; scanAndVerifyImages(el); } else if (el.dataset.imgUrl === url) { el.style.backgroundImage = 'none'; el.classList.add('img-pending'); } });
+      return;
+    }
     el.style.backgroundImage = 'none';
     el.classList.add('img-pending');
     const color = el.dataset.imgColor;
@@ -894,6 +901,10 @@ function watchVideoLoading(video) {
 // enhanced voice first, and for Arabic an Egyptian one first), or the one a grown-up picked in
 // Coach → Settings; and the text as a voice should hear it (no emoji, no Korean letters for an
 // Arabic or English voice, degrees and ranges in words)
+// v63.4 — the version a tester can read on the start screen and in Coach → Settings (bump it
+// together with CACHE_VERSION in sw.js)
+const APP_VERSION = '63.4';
+
 const SpeechVoice = {
   KEY: 'taekwondoJourneyVoice',
   list: [],
@@ -13475,14 +13486,16 @@ const PoseShots = (() => {
 
   // ---------------------------------------------------------------- cache on the device
   let storeP = null;
-  const store = () => (storeP || (storeP = (async () => {
+  // v63.4: a phone whose storage or drawing never answers must not leave every picture waiting forever
+  const within = (pr, ms, v) => Promise.race([pr, new Promise(r => setTimeout(() => r(v), ms))]);
+  const store = () => (storeP || (storeP = within((async () => {
     if (!('caches' in window)) return null;
     try {
       const keys = await caches.keys();             // throw away pictures of an older rig
       await Promise.all(keys.filter(k => k.startsWith('tkdpose-') && k !== STORE).map(k => caches.delete(k)));
       return await caches.open(STORE);
     } catch (e) { return null; }
-  })()));
+  })(), 2500, null)));
   const reqOf = (sk, i) => `./__tkdpose/${encodeURIComponent(sk)}/${i}`;
   async function fromStore(sk, n) {
     const c = await store(); if (!c) return null;
@@ -13511,12 +13524,13 @@ const PoseShots = (() => {
       for (let i = 0; i < frameCount(S); i++) { const id = idOf(sk, i); e.ids.push(id); byId.set(id, { sk, i }); }
       sets.set(sk, e);
       e.promise = (async () => {
-        let blobs = await fromStore(sk, frameCount(S));
+        let blobs = await within(fromStore(sk, frameCount(S)), 2500, null);
         if (!blobs) {
-          blobs = await (queue = queue.then(() => renderFrames(ch, S, dress)).catch(err => { console.warn('PoseShots', err); return null; }));
+          blobs = await (queue = queue.then(() => within(renderFrames(ch, S, dress), 15000, null)).catch(err => { console.warn('PoseShots', err); return null; }));
           if (blobs) toStore(sk, blobs);
         }
         if (!blobs) blobs = Array.from({ length: frameCount(S) }, () => fallbackBlob(ch));
+        e.blobs = blobs;
         e.urls = blobs.map(b => URL.createObjectURL(b));
         e.ids.forEach((id, i) => swap(id, e.urls[i]));
         return e.urls;
@@ -13533,8 +13547,25 @@ const PoseShots = (() => {
     nodes.forEach(el => {
       if (el.tagName === 'IMG' && el.getAttribute('src')?.includes(tag)) el.src = real;
       if (el.style?.backgroundImage?.includes(tag)) el.style.backgroundImage = el.style.backgroundImage.replace(re, `url("${real}")`);
-      if (el.dataset?.imgUrl?.includes(tag)) { el.dataset.imgUrl = real; delete el.dataset.imgCheckedUrl; }
+      if (el.dataset?.imgUrl?.includes(tag)) {
+        el.dataset.imgUrl = real; delete el.dataset.imgCheckedUrl;
+        // v63.4: a tile already showing the "pending" look gets its picture back
+        if (!el.style?.backgroundImage || el.style.backgroundImage === 'none' || el.classList.contains('img-pending')) { el.classList.remove('img-pending'); el.style.backgroundImage = `url("${real}")`; }
+        try { scanAndVerifyImages(el); } catch (er) {}
+      }
     });
+  }
+  // v63.4 — some phones refuse a blob: link to a drawn picture: the same picture as a data: link
+  async function rescue(u) {
+    for (const [, e] of sets) {
+      const i = e.urls.indexOf(u); if (i < 0 || !e.blobs?.[i]) continue;
+      const d = await new Promise(res => { try { const r = new FileReader(); r.onload = () => res(r.result); r.onerror = () => res(null); r.readAsDataURL(e.blobs[i]); } catch (er) { res(null); } });
+      if (!d) return null;
+      e.urls[i] = d;
+      document.querySelectorAll('img').forEach(im => { if (im.getAttribute('src') === u) im.src = d; });
+      return d;
+    }
+    return null;
   }
 
   // ---------------------------------------------------------------- public
@@ -13573,7 +13604,13 @@ const PoseShots = (() => {
     const idle = window.requestIdleCallback || (f => setTimeout(f, 200));
     names.reduce((p, n) => p.then(() => new Promise(r => idle(() => entry(ch, n).promise.then(r, r)))), Promise.resolve());
   }
-  return { url, phase, has, live, ready, mine, whenReady, keyOf, prepare, warm, SETS, VER };
+  // an <img> whose drawn picture the phone refuses → try it as a data: link
+  if (typeof document !== 'undefined') document.addEventListener('error', (ev) => {
+    const im = ev.target; if (!im || im.tagName !== 'IMG' || im.dataset.imgRescued) return;
+    const u = im.getAttribute('src') || ''; if (!u.startsWith('blob:')) return;
+    im.dataset.imgRescued = '1'; rescue(u);
+  }, true);
+  return { url, phase, has, live, ready, mine, whenReady, keyOf, prepare, warm, rescue, SETS, VER };
 })();
 if (typeof window !== 'undefined') window.PoseShots = PoseShots;
 
@@ -15858,7 +15895,7 @@ const StartScreen = {
           <button type="button" class="ss-card ss-add" id="ss-add"><span class="ss-plus">＋</span><b>${TKD.t('New player', 'لاعب جديد')}</b></button>
         </div>`;
     }
-    el.innerHTML = `<div class="ss-inner">${head}${body}</div>`;
+    el.innerHTML = `<div class="ss-inner">${head}${body}<p class="app-version">${TKD.t('Version', 'الإصدار')} ${APP_VERSION}</p></div>`;
     el.querySelectorAll('.ss-lang button').forEach(b => b.addEventListener('click', () => { TKD.gs().setLanguage(b.dataset.lang); try { localStorage.setItem('taekwondoJourneyLangChosen', 'user'); } catch (e) {} this.render(); }));
     TKD.$('ss-coach')?.addEventListener('click', () => { this.hide(); Coach.open(); });
     el.querySelectorAll('.ss-card[data-pid]').forEach(b => b.addEventListener('click', () => this.enter(b.dataset.pid)));
@@ -16596,7 +16633,7 @@ const Coach = {
         <div class="co-pace-list">${PlayerSystem.getPlayers().map(p => this.paceRow(p)).join('') || `<p class="tkd-muted">${TKD.t('No players yet.', 'مفيش لاعبين لسه.')}</p>`}</div>
         <p class="tkd-muted">${TKD.t('⚡ = average reaction time in the quick games (Sparring, Target Paddles, Quiz Blast, Mistake Hunter). 🦵 = the leg the child kicks with — the 3D character mirrors for left-footers.', '⚡ = متوسط سرعة رد الفعل في الألعاب السريعة (النزال، مضارب الأهداف، كويز الفضاء، صيّاد الأخطاء). 🦵 = الرجل اللي الطفل بيركل بيها — الشخصية الـ3D بتتعكس للي بيركل بالشمال.')}</p>
       </details>
-      <p class="co-autosave">✅ ${TKD.t('Every change is saved straight away.', 'أي تغيير بيتحفظ على طول.')}</p>
+      <p class="co-autosave">✅ ${TKD.t('Every change is saved straight away.', 'أي تغيير بيتحفظ على طول.')} · ${TKD.t('Version', 'الإصدار')} ${APP_VERSION}</p>
       <section class="co-data" id="co-data"><h3>💾 ${TKD.t('Data on this device', 'البيانات اللي على الجهاز')}</h3>
         <div class="tkd-row wrap">
           <button type="button" class="btn btn-small btn-success" id="co-backup">⬇️ ${TKD.t('Save a backup', 'احفظ نسخة احتياطية')}</button>
