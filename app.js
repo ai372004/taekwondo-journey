@@ -903,7 +903,7 @@ function watchVideoLoading(video) {
 // Arabic or English voice, degrees and ranges in words)
 // v63.4 — the version a tester can read on the start screen and in Coach → Settings (bump it
 // together with CACHE_VERSION in sw.js)
-const APP_VERSION = '63.7';
+const APP_VERSION = '63.8';
 
 const SpeechVoice = {
   KEY: 'taekwondoJourneyVoice',
@@ -1459,7 +1459,7 @@ class GameState {
         notStarted: 'Not Started', completed: 'Completed',
         formControlGame: '🧍 Fix the Pose — Ap Chagi', formControlInstructions: 'Drag the coloured dots until the pose is right',
         instructions: '🎯 Instructions:', instruction1: 'Lift knee to chest height', instruction2: 'Extend foot straight forward', instruction3: 'Keep back straight and upright', instruction4: 'Balance on standing leg',
-        accuracy: 'Accuracy:', checkForm: 'Check Form', autoPosition: 'Auto Position', formProgress: 'Form Progress:', backToGames: 'Back to Games',
+        accuracy: 'Accuracy:', checkForm: 'Check Form', autoPosition: 'Auto Position', formProgress: 'Form Progress:', backToGames: 'Back to Games', backToRoad: 'Back to my road',
         puzzleGame: '🧩 Order the Phases', puzzleInstructions: 'Put the phases of the kick in order, 1 to 5. There is one extra piece — leave it out.',
         puzzlePieces: 'Drag pieces to slots:',
         checkPuzzle: 'Check Sequence', hint: 'Hint', puzzleProgress: 'Puzzle Progress:',
@@ -1528,7 +1528,7 @@ class GameState {
         puzzleAssembly: 'رتّب المراحل', puzzleDesc: 'رتّب مراحل الركلة الخمس', notStarted: 'لم تبدأ بعد', completed: 'انتهيت',
         formControlGame: '🧍 اضبط الوضعية — آب تشاجي', formControlInstructions: 'اسحب النقاط الملونة حتى يصبح شكل الركلة صحيحًا',
         instructions: '🎯 التعليمات:', instruction1: 'ارفع ركبتك إلى صدرك', instruction2: 'افرد رجلك إلى الأمام مباشرة', instruction3: 'أبقِ ظهرك مستقيمًا', instruction4: 'حافظ على توازنك على رجل الارتكاز',
-        accuracy: 'الدقة:', checkForm: 'تحقّق من الشكل', autoPosition: 'وضع تلقائي', formProgress: 'تقدّمك في الشكل:', backToGames: 'ارجع إلى الألعاب',
+        accuracy: 'الدقة:', checkForm: 'تحقّق من الشكل', autoPosition: 'وضع تلقائي', formProgress: 'تقدّمك في الشكل:', backToGames: 'ارجع إلى الألعاب', backToRoad: 'ارجع إلى الطريق',
         puzzleGame: '🧩 رتّب المراحل', puzzleInstructions: 'رتّب مراحل الركلة من ١ إلى ٥.\nهناك قطعة زائدة، اتركها خارج الترتيب.',
         puzzlePieces: 'اسحب القطعة إلى الخانة المناسبة، أو اضغط على القطعة ثم على رقم الخانة.',
         checkPuzzle: 'تحقّق من الترتيب', hint: 'تلميح', puzzleProgress: 'تقدّمك في التركيب:', taekwondoQuiz: '❓ اختبر معلوماتك في التايكوندو', quizDescription: 'اختبر فهمك لحركات ومصطلحات التايكوندو', question: 'سؤال', score: 'النقاط:',
@@ -7667,20 +7667,17 @@ class WinnerSystem {
       el.replaceWith(clone);
       clone.addEventListener('click', fn);
     };
-    // v59: no chain of screens one after another — one button back.
-    // v63.7 (the testers): after a GAME it goes back to the games, like every game's own back
-    // button, where the next game in the order is lit; after the TEST it is still the map,
-    // where the kick's treasure opens.
-    const toMap = this.lastGame === 'quiz';
+    // v59: no chain of screens one after another — one button back to the MAP, where the new
+    // stars fly in and the road shows what is next. (v63.7 tried the games list; v63.8, the
+    // testers: after a game you go back to the road you were walking on, not to all the games.)
     const nextBtn = document.getElementById('next-level-btn');
     if (nextBtn) {
-      nextBtn.innerHTML = toMap ? `<span aria-hidden="true">🗺️</span> ${TKD.t('Back to my map', 'ارجع إلى الخريطة')}`
-                                : `<span aria-hidden="true">🎮</span> ${TKD.t('Back to the games', 'ارجع إلى الألعاب')}`;
+      nextBtn.innerHTML = `<span aria-hidden="true">🗺️</span> ${TKD.t('Back to my road', 'ارجع إلى الطريق')}`;
       nextBtn.classList.add('jr-next');
     }
     // the old one-size certificate and the duplicate home button are gone (the kick test has its own certificate)
     ['download-cert-btn', 'back-to-home-btn'].forEach(id => { const b = document.getElementById(id); if (b) b.hidden = true; });
-    cloneAndBind('next-level-btn',   () => { if (toMap) this.goHome(); else { ScreenManagerInstance.switchScreen('games'); this.gameState.playSound('click'); } });
+    cloneAndBind('next-level-btn',   () => this.goHome());
     cloneAndBind('back-to-home-btn', () => this.goHome());
     cloneAndBind('try-again-btn',    () => this.tryAgain());
     cloneAndBind('cooldown-btn',     () => ScreenManagerInstance.switchScreen('cooldown'));
@@ -12327,14 +12324,16 @@ class BalanceHoldGame extends ArenaGameBase {
   static SCREEN = 'balance-hold';
   static GAME_ID = 'balance-hold';
   static PREFIX = 'bh';
-  static HOLD_POSES = [1, 2, 3];            // chamber / strike / recoil
+  static HOLD_POSES = [1, 2, 3];            // chamber / strike / recoil — the phases you stand on one leg
+  // v63.8 (the testers: 9 rounds were far too many — the same phases over and over): one round
+  // per one-leg phase of the kick, each a little windier than the one before
   static ROUNDS = [
     { dur: 4, drift: 0.55, gust: 0.0 },
     { dur: 4.5, drift: 0.8, gust: 0.9 },
     { dur: 5, drift: 1.05, gust: 1.4 }
   ];
   static LIMIT = 0.42; static GREEN = 0.1; static YELLOW = 0.22;
-  static totalRounds() { return this.ROUNDS.length * this.HOLD_POSES.length; }
+  static totalRounds() { return this.HOLD_POSES.length; }
 
   static COPY = {
     title: { en: '⚖️ Balance Hold', ar: '⚖️ اثبت وتوازن' },
@@ -12395,10 +12394,9 @@ class BalanceHoldGame extends ArenaGameBase {
     if (this.over || !this.stage) return;
     this.round++;
     if (this.round > this.totalRounds()) { this.finishGame(); return; }
-    const ri = Math.floor((this.round - 1) / this.HOLD_POSES.length);
-    const pi = (this.round - 1) % this.HOLD_POSES.length;
-    this.cfg = this.ROUNDS[ri];
-    const pose = this.HOLD_POSES[pi];
+    const i = this.round - 1;
+    this.cfg = this.ROUNDS[Math.min(i, this.ROUNDS.length - 1)];
+    const pose = this.HOLD_POSES[i];
     this.renderHud();
     this.theta = AG.rand(-0.03, 0.03); this.omega = 0;
     this.fighter.setPose(pose, 0.18, true);
@@ -13250,7 +13248,7 @@ if (typeof window !== 'undefined') window.RigBackend = RigBackend;
 // No WebGL → the 2D rig draws the same poses; nothing at all → a 🥋 card.
 // ============================================================================
 const PoseShots = (() => {
-  const VER = 'p19';                                 // v61.1: Bik Chagi like the coach's reel (lean ~40°) · v61: Bik Chagi leans from the chamber, eyes on the target · v60.8: Naeryeo pivot 45–90 · v60.7: Bik Chagi leans away at the strike · v60: Bik Chagi is a roundhouse kick · v59.9: Bik Chagi body upright · v59.8: Bik Chagi on the 45° line · v59.7: the coaches' angles · v56.2: Naeryeo lands with a straight leg, Bik Chagi hits with the instep · v54: the reference look (faces, hair, dobok, soft light, head ×0.78) · v51: legs ×1.2, new stance · bump when the rig, the kicks or the framing change (p2: kicks re-posed)
+  const VER = 'p20';                                 // v63.8: Bik Chagi's 'return' picture stands in the stance · v61.1: Bik Chagi like the coach's reel (lean ~40°) · v61: Bik Chagi leans from the chamber, eyes on the target · v60.8: Naeryeo pivot 45–90 · v60.7: Bik Chagi leans away at the strike · v60: Bik Chagi is a roundhouse kick · v59.9: Bik Chagi body upright · v59.8: Bik Chagi on the 45° line · v59.7: the coaches' angles · v56.2: Naeryeo lands with a straight leg, Bik Chagi hits with the instep · v54: the reference look (faces, hair, dobok, soft light, head ×0.78) · v51: legs ×1.2, new stance · bump when the rig, the kicks or the framing change (p2: kicks re-posed)
   const STORE = `tkdpose-${VER}`;
   const SIDE = -0.27, HERO = -0.95;                  // ¾ side view (like the games) · ¾ front view (portraits)
   const PX = 0.56;                                   // pixels per rig unit → a standing child ≈ 560 px tall
@@ -13260,7 +13258,9 @@ const PoseShots = (() => {
     // hides behind a kid's big head), with an arrow up; the heel drop shows a ghost of the
     // top and an arrow down — so the two pictures read as "up" then "down"
     'kick:narochagi': { kick: 'naeryeo', yaw: SIDE, dress: true, ghost: { 2: 1 }, shift: { 1: -0.02 }, up: { 1: true } },
-    'kick:bakchagi3': { kick: 'yeop',    yaw: SIDE, dress: true },
+    // v63.8 (the testers): Bik Chagi's 'return' picture is the stance itself — caught on the way
+    // down, the turned hips crossed the legs mid-step
+    'kick:bakchagi3': { kick: 'yeop',    yaw: SIDE, dress: true, endStance: true },
     'kick:ap-ollyeo-chagi': { kick: 'ap-ollyeo', yaw: SIDE, dress: true },   // syllabus kicks the rig can already do
     'kick:mireo-chagi':     { kick: 'mireo',     yaw: SIDE, dress: true },
     // v51 — stroboscope: the five phases of a kick in ONE picture (the strike solid, the
@@ -13425,7 +13425,7 @@ const PoseShots = (() => {
       // v53: a rig that can't do this kick (the 2D backup has no side kick) still shows the
       // character, ready in its stance, instead of a 🥋 card
       frames = (!rig.data.animations[S.kick] || times.length < 5) ? Array.from({ length: 5 }, () => ['idle', 0])
-        : times.slice(0, 5).map((t, i) => [S.kick, (i === 4 ? t - (t - times[3]) * 0.4 : t) + (S.shift?.[i] || 0)]);
+        : times.slice(0, 5).map((t, i) => [S.kick, (i === 4 && !S.endStance ? t - (t - times[3]) * 0.4 : t) + (S.shift?.[i] || 0)]);
     }
     const unit = 1000 / (rig.data.extra?.height || 1000);
     const s = PX * unit, W = 1100, H = 900, ox = 430, oy = 875;
@@ -21398,6 +21398,18 @@ window.Certificate = Certificate;
     setTimeout(() => document.querySelector('.jr-units')?.scrollIntoView({ block: 'start', behavior: 'smooth' }), 120);
   };
 })();
+// v63.8: "back to my road" from a game, the lesson, the test or the win screen lands ON the road
+// (on a phone it sits below the hub), where the new stars fly in
+document.addEventListener('tkd:screen', (e) => {
+  if (e.detail?.screenId !== 'home') return;
+  const from = e.detail.previousScreen;
+  if (!from || !(from === 'winner' || from === 'learning' || from === 'quiz' || (window.Units && Units.unitOf(from) > 0))) return;
+  setTimeout(() => {
+    const u = document.querySelector('#home-screen.active .jr-units'); if (!u) return;
+    const r = u.getBoundingClientRect();
+    if (r.top > innerHeight * 0.35 || r.top < 0) u.scrollIntoView({ block: 'start', behavior: window.prefersReducedMotion?.() ? 'auto' : 'smooth' });
+  }, 160);
+});
 
 const UnitGames = {
   // build the three unit sections once (the cards keep their own click handlers)

@@ -6455,9 +6455,8 @@ html.lite .winner-visual::before, html.lite .celebration-icon { animation-iterat
 #home-screen.has-hub .game-container > .streak-badge-wrap,
 #home-screen.has-hub .game-container > .resume-training-wrap { display: none !important; }
 @media (max-width: 600px) {
-  /* the tab bar is the way back — the long "back" buttons under each game only add scrolling */
-  .screen:not(#home-screen):not(#learning-screen):not(#winner-screen) .game-container > .back-btn,
-  .screen:not(#home-screen):not(#learning-screen):not(#winner-screen) .game-container > .center-buttons:has(> .back-btn:only-child) { display: none; }
+  /* v63.8 (the testers): every game shows its "back to my road" button on a phone too —
+     two of them (Fix the Pose, Order the Phases) used to hide it, the others did not */
   /* the Games screen: small tiles, two in a row (icon · name · stars) */
   .unit-cards { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
   .unit-cards .game-card { min-height: 0 !important; padding: 10px 8px 8px !important; }
