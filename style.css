@@ -4284,6 +4284,21 @@ h1, h2, h3, .btn, .description, .coach-message { overflow-wrap: anywhere; }
 .qb-overlay-icon { font-size: 3rem; }
 .qb-overlay-card h3 { margin: var(--space-xs) 0; color: #ff8f99; }
 .qb-overlay-card p { margin: 0 0 var(--space-md); color: var(--text-light); line-height: 1.6; }
+/* v63.9: Quiz Blast is the kick's test — the question's picture, and what to review after a miss */
+.qb-qimg { flex: none; width: 74px; height: 92px; object-fit: contain; border-radius: 12px; background: rgba(255, 255, 255, 0.06); }
+.qb-qimg[hidden] { display: none; }
+.qb-overlay:has(.qb-test-card) { align-items: flex-start; overflow-y: auto; }
+.qb-test-card { max-width: 460px; margin: auto; }
+.qb-test-card .qb-rev-h { margin: 0 0 8px; font-weight: 700; color: #ffd166; }
+.qb-test-card .quiz-review { text-align: start; color: var(--text-light); }
+.qb-ov-btns { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.gc-test-tag { display: inline-block; margin: 2px auto 0; padding: 2px 10px; border-radius: 999px; background: #ffd166; color: #1d2b36; font-weight: 900; font-size: .78rem; }
+@media (max-width: 600px) {
+  .qb-qimg { width: 58px; height: 72px; }
+  .qb-question-box { padding: 8px 10px; margin-bottom: 8px; scroll-margin-top: 8px; }
+  .qb-question-box h3 { font-size: 1rem; line-height: 1.5; }
+  .qb-arena { height: clamp(400px, 56vh, 520px); }        /* the question, the arena and the pads on one phone screen */
+}
 
 .qb-controls { display: flex; justify-content: center; align-items: center; gap: var(--space-md); margin: var(--space-md) auto 0; }
 .qb-pad {

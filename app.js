@@ -903,7 +903,7 @@ function watchVideoLoading(video) {
 // Arabic or English voice, degrees and ranges in words)
 // v63.4 — the version a tester can read on the start screen and in Coach → Settings (bump it
 // together with CACHE_VERSION in sw.js)
-const APP_VERSION = '63.8';
+const APP_VERSION = '64.0';
 
 const SpeechVoice = {
   KEY: 'taekwondoJourneyVoice',
@@ -1480,8 +1480,8 @@ class GameState {
         actionTitle: 'Strike Challenge', actionDesc: 'A different hands-on challenge for every kick',
         errorHuntTitle: 'Mistake Hunter', errorHuntDesc: 'Find the hidden mistake in the kick',
         errorHuntGame: '🔍 Mistake Hunter', errorHuntInstructions: 'Tap where the mistake is',
-        quizBlastTitle: 'Quiz Blast', quizBlastDesc: 'Laser the right answer',
-        quizBlastGame: '🚀 Quiz Blast', quizBlastInstructions: 'Move the helmet with the arrow keys (or drag), fire with Space (or 🔥) and hit the correct answer. Three lives!',
+        quizBlastTitle: 'Quiz Blast', quizBlastDesc: 'The kick test: laser the right answer',
+        quizBlastGame: '🚀 Quiz Blast — the test', quizBlastInstructions: 'The kick test: 10 questions in the order of the kick.\nMove the helmet with the arrow keys (or drag), fire with Space (or 🔥) and hit the correct answer. You need 70% to pass, and you have 4 hearts.',
         downloadCertificate: 'Download Certificate 📜',
         boardBreakTitle: 'Board Break', boardBreakDesc: 'Pick the right part of the foot and break the board',
         paddleTitle: 'Target Paddles', paddleDesc: 'Hit the right paddle — fast!',
@@ -1548,8 +1548,8 @@ class GameState {
         actionTitle: 'تحدي الضربة', actionDesc: 'تحدٍّ عملي مختلف لكل ركلة',
         errorHuntTitle: 'صيّاد الأخطاء', errorHuntDesc: 'اكتشف الخطأ المخفي في الركلة',
         errorHuntGame: '🔍 صيّاد الأخطاء', errorHuntInstructions: 'اضغط على مكان الخطأ في الركلة',
-        quizBlastTitle: 'كويز الفضاء', quizBlastDesc: 'أصِب الإجابة الصحيحة بالليزر',
-        quizBlastGame: '🚀 كويز الفضاء', quizBlastInstructions: 'حرّك الخوذة بالأسهم (أو بالسحب)، واضغط المسافة (أو زر 🔥) لإصابة الإجابة الصحيحة. لديك ٣ محاولات!',
+        quizBlastTitle: 'كويز الفضاء', quizBlastDesc: 'اختبار الركلة: أصِب الإجابة الصحيحة بالليزر',
+        quizBlastGame: '🚀 كويز الفضاء — الاختبار', quizBlastInstructions: 'اختبار الركلة: ١٠ أسئلة بترتيب مراحل الركلة.\nحرّك الخوذة بالأسهم (أو بالسحب)، واضغط المسافة (أو زر 🔥) لإصابة الإجابة الصحيحة. تحتاج إلى ٧٠٪ لتنجح، ومعك ٤ قلوب.',
         downloadCertificate: 'حمّل شهادة الإتقان 📜',
         boardBreakTitle: 'كسر الألواح', boardBreakDesc: 'اختر جزء القدم الصحيح واكسر اللوح',
         paddleTitle: 'مضارب الأهداف', paddleDesc: 'اضرب المضرب الصحيح بسرعة!',
@@ -1795,7 +1795,7 @@ class GameState {
       const statusElement = document.getElementById(game.statusId);
       if (progressBar) progressBar.style.width = `${game.progress}%`;
       if (statusElement) {
-        if (game.progress >= GameConfig.SETTINGS.PASSING_SCORE) {
+        if (game.id === 'quiz-blast' ? GameState.quizPassed(this.skillGameScores[this.currentSkill]) : game.progress >= GameConfig.SETTINGS.PASSING_SCORE) {
           statusElement.textContent = this.currentLanguage === 'ar' ? 'انتهيت' : 'Completed';
         } else if (game.progress > 0) {
           statusElement.textContent = this.currentLanguage === 'ar' ? 'قيد اللعب' : 'In Progress';
@@ -7647,7 +7647,7 @@ class WinnerSystem {
     // Cool Down: only offer it once the skill's full quiz/assessment is
     // passed — that's the natural end of a kicking session.
     const cooldownBtn = document.getElementById('cooldown-btn');
-    if (cooldownBtn) cooldownBtn.style.display = (gameType === 'quiz') ? '' : 'none';
+    if (cooldownBtn) cooldownBtn.style.display = (gameType === 'quiz' || gameType === 'quiz-blast') ? '' : 'none';
 
     gameState.createCharacterVisual('winner-character', gameState.playerCharacter, 'WIN');
     ScreenManagerInstance.switchScreen('winner');
@@ -9763,9 +9763,7 @@ function attemptStageNav(stage) {
   // v57: the warm-up is recommended, not required
   if (stage === 'games' && !((s.learning || 0) > 0)) {
     reason = ar ? '🔒 أكمل مرحلة التعلّم أولًا' : '🔒 Complete the learning stage first';
-  } else if (stage === 'quiz' && !GameState.allGamesDone(s, skillId)) {
-    reason = ar ? '🔒 أنهِ الألعاب المطلوبة في الوحدات الثلاث أولًا' : '🔒 Pass the games each unit needs first';
-  }
+  }   // (v63.9: the test is Quiz Blast — the road's own lock says which game comes first)
 
   if (reason) {
     GameStateInstance.playSound('error');
@@ -17933,14 +17931,15 @@ const Units = {
     // each one opens the next (1 → 2 → 3 …) until the test
     { n: 1, icon: '👀', en: 'Know the kick', ar: 'اعرف الركلة', lesson: true, games: ['puzzle', 'phase-rhythm', 'form-control'] },
     { n: 2, icon: '💪', en: 'Practise it', ar: 'تمرّن عليها', games: ['paddle-reflex', 'action', 'board-break', 'heavy-bag', 'balance-hold'] },
-    { n: 3, icon: '🏆', en: 'The big challenge', ar: 'التحدي الكبير', test: true, games: ['sparring-duel', 'error-hunt', 'quiz-blast'] }
+    // v63.9 (the coach): the kick's test IS Quiz Blast, the last game of the road — no separate test screen
+    { n: 3, icon: '🏆', en: 'The big challenge', ar: 'التحدي الكبير', games: ['sparring-duel', 'error-hunt', 'quiz-blast'] }
   ],
-  ONLY: { 'error-hunt': 'apchagi' },                    // Mistake Hunter exists for Ap Chagi only
+  ONLY: {},                                            // v63.9 (the testers): Mistake Hunter is on every kick's road now (it was Ap Chagi only)
   get(u) { return this.LIST[Math.max(1, Math.min(3, u)) - 1]; },
   games(u, sk) { return this.get(u).games.filter(g => !this.ONLY[g] || this.ONLY[g] === sk); },
   all(sk) { return this.LIST.flatMap(U => this.games(U.n, sk)); },
   keyOf(g) { return GameState.GAME_KEY_MAP[g]; },
-  passed(scores, g) { return GameState.gamePassed(scores, this.keyOf(g)); },
+  passed(scores, g) { return g === 'quiz-blast' ? GameState.quizPassed(scores) : GameState.gamePassed(scores, this.keyOf(g)); },   // v63.9: Quiz Blast = the test
   unitOf(id) { if (id === 'learning') return 1; if (id === 'quiz') return 3; const U = this.LIST.find(x => x.games.includes(id)); return U ? U.n : 0; },
   need(u, sk) { return this.games(u, sk).length; },                     // v63: all of them
   // v63: the game's number on the road (1, 2, 3 … across the units)
@@ -17970,12 +17969,11 @@ const Units = {
   },
   open(scores, u, sk) { return u <= 1 || this.done(scores, u - 1, sk); },
   current(scores, sk) { for (const u of [1, 2, 3]) if (!this.done(scores, u, sk)) return u; return 3; },
-  // [done, total] steps of a unit (the lesson and the test count as steps)
+  // [done, total] steps of a unit (the lesson counts as a step; v63.9: the test is the game Quiz Blast)
   count(scores, u, sk) {
     const s = scores || {}, t0 = this.need(u, sk);
     let d = Math.min(t0, this.passedIn(s, u, sk)), t = t0;
     if (u === 1) { t++; if ((s.learning || 0) > 0) d++; }
-    if (u === 3) { t++; if (GameState.quizPassed(s)) d++; }
     return [d, t];
   },
   name(u) { const U = this.get(u); return TKD.t(U.en, U.ar); },
@@ -18016,7 +18014,7 @@ const Journey = {
     'balance-hold': { en: 'Balance', ar: 'التوازن' },
     'sparring-duel': { en: 'Sparring', ar: 'النزال' },
     'error-hunt': { en: 'Mistakes', ar: 'الأخطاء' },
-    'quiz-blast': { en: 'Quiz', ar: 'الكويز' }
+    'quiz-blast': { en: 'Test', ar: 'الاختبار' }
   },
   unitView: null,                                                   // the unit tab the child picked (null → where they are)
   unit(skillId = this.skill()) {
@@ -18033,7 +18031,7 @@ const Journey = {
     return t.done ? gs.currentSkill : t.skillId;
   },
   scores(skillId) { return TKD.gs()?.skillGameScores?.[skillId] || {}; },
-  passed(skillId, g) { return GameState.gamePassed(this.scores(skillId), this.KEY[g]); },
+  passed(skillId, g) { return Units.passed(this.scores(skillId), g); },
   gamesDone(skillId) { return Units.all(skillId).filter(g => this.passed(skillId, g)).length; },
   nextGame(skillId) {
     const s = this.scores(skillId), u = Units.current(s, skillId);
@@ -18062,7 +18060,6 @@ const Journey = {
     if (u === 3) {
       st.push({ id: 'boss', stage: 'games', icon: '🥊', en: 'Champion', ar: 'مباراة البطل', optional: true, needs: allGames,
         done: !!window.Boss?.beaten(skillId), stars: window.Boss?.beaten(skillId) ? 3 : 0, go: () => window.Boss?.intro(skillId) });
-      st.push({ id: 'quiz', stage: 'quiz', icon: '📝', en: 'The test', ar: 'الاختبار', done: GameState.quizPassed(s), stars: GameState.quizPassed(s) ? this.starsFor(sc('quiz')) : 0, go: () => switchScreen(allGames ? 'quiz' : 'games') });
       st.push({ id: 'chest', stage: 'chest', icon: complete ? '🏅' : '🎁', en: 'Treasure', ar: 'الكنز', done: complete, stars: 0, go: () => switchScreen('trophy-room') });
     }
     // inside an open unit: the lesson comes first, then its games one after another (v63: the
@@ -18076,10 +18073,6 @@ const Journey = {
       else if (x.game && learnt && Units.gameOpen(s, x.game, skillId)) x.state = 'open';
       else x.state = 'locked';
     });
-    if (u === 3 && open) {                                            // the test is "now" only when the units have their games
-      const q = st.find(x => x.id === 'quiz');
-      if (q && !q.done && !allGames) q.state = 'locked';
-    }
     return st;
   },
   starTotal(st) { return st.reduce((a, x) => a + x.stars, 0); },
@@ -18099,7 +18092,8 @@ const Journey = {
         go: () => { this.view = nk; gs.currentSkill = nk; gs.syncFlatProgressToCurrentSkill?.(); gs.saveToStorage?.(); switchScreen('learning'); } };
     }
     const name = TKD.skillName(skillId);
-    const label = now.game ? TKD.t(`Play: ${TKD.gameName(now.game)}`, `العب: ${TKD.gameName(now.game)}`) : {
+    const label = now.game === 'quiz-blast' ? TKD.t(`Take the ${name} test`, `اختبار ${name}`)
+      : now.game ? TKD.t(`Play: ${TKD.gameName(now.game)}`, `العب: ${TKD.gameName(now.game)}`) : {
       warmup: TKD.t('Start the warm-up', 'ابدأ الإحماء'),
       learning: TKD.t(`Learn ${name}`, `تعلّم ${name}`),
       quiz: TKD.t(`Take the ${name} test`, `اختبار ${name}`),
@@ -20697,7 +20691,7 @@ window.Boss = Boss;
 // kick revealed.
 // =====================================================================
 const Exam = {
-  intro() {
+  intro(onGo) {
     const gs = TKD.gs(); if (!gs) return;
     const sk = gs.currentSkill, S = GameConfig.SKILLS[sk]; if (!S) return;
     const n = QuizSystem.SESSION || 10, need = Math.ceil(n * GameConfig.SETTINGS.QUIZ_PASS / 100);
@@ -20710,14 +20704,19 @@ const Exam = {
       <p class="exam-say">“${TKD.t(`I'm Coach Seif. Show me what you learnt about ${S.name.en}!`, `أنا كوتش سيف. أرِني ماذا تعلّمت في ${S.name.ar}!`)}”</p>
       <ul class="exam-rules">
         <li>❓ ${TKD.t(`${n} questions in the order of the kick — some with pictures`, `${TKD.count(n, 'question', 'ar')} بترتيب مراحل الركلة، بعضها بالصور`)}</li>
-        <li>🎯 ${TKD.t(`${need} right answers to pass`, `${TKD.num(need)} إجابات صحيحة للنجاح`)}</li>
+        ${onGo ? `<li>🚀 ${TKD.t(`Laser the right answer — you have ${QuizBlastSystem.LIVES} hearts`, `أصِب الإجابة الصحيحة بالليزر — معك ${TKD.num(QuizBlastSystem.LIVES)} قلوب`)}</li>
+        <li>🎯 ${TKD.t(`${GameConfig.SETTINGS.QUIZ_PASS}% to pass`, `تحتاج إلى ${TKD.num(GameConfig.SETTINGS.QUIZ_PASS)}٪ لتنجح`)}</li>`
+        : `<li>🎯 ${TKD.t(`${need} right answers to pass`, `${TKD.num(need)} إجابات صحيحة للنجاح`)}</li>`}
         <li>🎗️ ${TKD.t('Pass → a new stripe on your white belt', 'إذا نجحت ← شريط جديد على حزامك الأبيض')}${next ? ` · 🔓 ${TKD.t(next.name.en, next.name.ar)}` : ` · 🏆 ${TKD.t('all kicks done!', 'أنهيت كل الركلات!')}`}</li>
       </ul>
       <button type="button" class="btn btn-success" data-a="go">🙇 ${TKD.t('Gyeongnye! Start', 'كيونجنيه! هيا نبدأ')}</button></div>`;
     document.body.appendChild(ov);
     const sp = new RigSprite(ov.querySelector('#exam-coach'), { ch: 'coach', anim: 'coach_idle', intro: 'bow', tap: 'bow', height: 150 });
     sp.start();
-    ov.querySelector('[data-a="go"]').addEventListener('click', () => { sp.dispose?.(); ov.remove(); window.Voice?.cue('sijak'); gs.playSound('click'); });
+    ov.querySelector('[data-a="go"]').addEventListener('click', () => { sp.dispose?.(); ov.remove(); window.Voice?.cue('sijak'); gs.playSound('click'); onGo?.(); });
+    // (leaving the screen some other way closes it — and the game waits for the next visit)
+    const bye = (e) => { if (e.detail?.screenId !== (onGo ? 'quiz-blast' : 'quiz')) { document.removeEventListener('tkd:screen', bye); sp.dispose?.(); ov.remove(); } };
+    document.addEventListener('tkd:screen', bye);
   },
   // after a passed test, on the winner screen
   ceremony() {
@@ -20750,6 +20749,109 @@ window.Exam = Exam;
     return done();
   };
   document.addEventListener('tkd:screen', (e) => { if (e.detail?.screenId === 'winner') setTimeout(() => Exam.ceremony(), 60); });
+})();
+
+// =====================================================================
+// v63.9 (the coach): THE KICK TEST IS QUIZ BLAST — the separate test screen is gone. Quiz Blast
+// asks the coach's approved test questions (QuizSystem.QUESTION_BANK, in the order of the kick,
+// each with its picture); a run passed at QUIZ_PASS is the kick's test passed: a stripe on the
+// white belt (the ceremony on the winner screen), the next kick, the treasure on the map.
+// =====================================================================
+(function quizBlastIsTheTest() {
+  const QB = QuizBlastSystem, PASS = () => GameConfig.SETTINGS.QUIZ_PASS;
+  QB.LIVES = 4;                                    // like the old test: three wrong answers can still pass
+  QB.buildRound = function (skillId) {
+    const sk = QuizSystem.QUESTION_BANK[skillId] ? skillId : 'apchagi';
+    return QuizSystem.ordered(sk).map(q => {
+      const ci = Math.max(0, q.options.indexOf(q.correctText));
+      return { q: [q.questionAr, q.question], a: [q.optionsAr[ci], q.options[ci]],
+        w: q.options.map((o, i) => [q.optionsAr[i], o]).filter((_, i) => i !== ci),
+        get img() { return q.image; } };       // the live picture (a placeholder until it is drawn)
+    });
+  };
+  // the question's picture next to it
+  const chrome = QB.renderChrome.bind(QB);
+  QB.renderChrome = function () {
+    chrome();
+    const box = document.querySelector('#quiz-blast-screen .qb-question-box'); if (!box) return;
+    let img = box.querySelector('.qb-qimg');
+    if (!img) { img = document.createElement('img'); img.className = 'qb-qimg'; img.alt = ''; img.setAttribute('aria-hidden', 'true'); box.prepend(img); }
+    const u = this.round?.[Math.min(this.qIndex, this.round.length - 1)]?.img;
+    img.hidden = !u;
+    if (u && img.dataset.u !== u) {
+      img.dataset.u = u; img.src = PoseShots.live(u);
+      PoseShots.whenReady(u).then(r => { if (img.dataset.u === u && r) img.src = r; }).catch(() => {});
+    }
+  };
+  // the questions missed on the way (shown, with the right answer, if the test is not passed)
+  const noteWrong = () => { const it = QB.round?.[QB.qIndex]; if (it && !QB.wrongs.includes(it)) QB.wrongs.push(it); };
+  const hit = QB.hit.bind(QB);
+  QB.hit = function (t) {
+    const live = this.running && !this.locked && !this.over && !t.dead;
+    const r = hit(t);
+    if (live && !t.ok) noteWrong();
+    return r;
+  };
+  const timeUp = QB.timeUp.bind(QB);
+  QB.timeUp = function (t) { noteWrong(); return timeUp(t); };
+  QB.finish = function () {
+    const gs = this.gameState;
+    const accuracy = Math.round(this.qScores.reduce((a, b) => a + b, 0) / this.round.length);
+    if (accuracy < PASS()) { this.gameOver(); return; }
+    this.running = false;
+    if (this._raf) { cancelAnimationFrame(this._raf); this._raf = 0; }
+    const sk = gs.currentSkill;
+    const isFirstClear = gs.completeGame('quiz-blast', accuracy);
+    gs.completeGame('quiz', accuracy);             // the kick's test: mastered → the next kick, the treasure
+    Exam._passed = sk;                              // → the stripe ceremony on the winner screen
+    gs.playSound('win');
+    WinnerSystem.show('quiz-blast', accuracy, gs, isFirstClear);
+  };
+  QB.showOverlay = function () {
+    const box = this.$('qb-overlay'); if (!box) return;
+    const total = this.round.length || 1, acc = Math.round((this.qScores || []).reduce((a, b) => a + b, 0) / total);
+    const out = this.lives <= 0;
+    const list = (this.wrongs || []).map(it => `<li><span>${TKD.esc(this.pick(it.q))}</span><b>✓ ${TKD.esc(this.pick(it.a))}</b></li>`).join('');
+    box.innerHTML = `<div class="qb-overlay-card qb-test-card" dir="${this.ar ? 'rtl' : 'ltr'}">
+        <div class="qb-overlay-icon">${out ? '💥' : '📝'}</div>
+        <h3>${out ? this.t('overTitle') : TKD.t('Not yet!', 'ليس بعد!')}</h3>
+        <p>${TKD.t(`Your score: ${acc}% — you need ${PASS()}% to pass the test.`, `نتيجتك: ${TKD.num(acc)}٪ — تحتاج إلى ${TKD.num(PASS())}٪ لتنجح في الاختبار.`)}</p>
+        ${list ? `<p class="qb-rev-h">${TKD.t('Look at these answers, then try again — the questions will change:', 'راجع هذه الإجابات ثم حاول مرة أخرى — ستتغير الأسئلة:')}</p><ol class="quiz-review">${list}</ol>` : ''}
+        <div class="qb-ov-btns">
+          <button type="button" class="btn btn-success" id="qb-retry-btn"><i class="fas fa-redo"></i> <span>${this.t('retry')}</span></button>
+          <button type="button" class="btn" id="qb-lesson-btn">🎓 ${TKD.t('Review the lesson', 'راجع الدرس')}</button>
+        </div></div>`;
+    box.classList.remove('hidden');
+    this.$('qb-retry-btn')?.addEventListener('click', () => this.initialize(this.gameState));
+    this.$('qb-lesson-btn')?.addEventListener('click', () => { this.gameState?.playSound('click'); switchScreen('learning'); });
+  };
+  document.addEventListener('tkd:screen', (e) => {
+    if (e.detail?.screenId !== 'quiz-blast' || innerWidth > 760) return;
+    setTimeout(() => document.querySelector('#quiz-blast-screen .qb-question-box')?.scrollIntoView({ block: 'start', behavior: window.prefersReducedMotion?.() ? 'auto' : 'smooth' }), 120);
+  });
+  // Coach Seif's bow before the test (the first visit in a while; not on "try again"):
+  // the run waits, frozen, until the child bows back
+  const init = QB.initialize.bind(QB);
+  QB.initialize = function (gs) {
+    this.wrongs = [];
+    const r = init(gs);
+    const k = `taekwondoJourneyExamIntro:${TKD.pid() || 'g'}:${gs.currentSkill}`;
+    if (Date.now() - (TKD.read(k, 0) || 0) > 10 * 60e3) {
+      TKD.write(k, Date.now());
+      const gen = this._gen;
+      this.running = false;
+      if (this._raf) { cancelAnimationFrame(this._raf); this._raf = 0; }
+      setTimeout(() => {
+        if (!document.querySelector('#quiz-blast-screen.active')) return;
+        Exam.intro(() => {
+          if (gen !== this._gen || this.over || !document.querySelector('#quiz-blast-screen.active')) return;
+          this.running = true; this._last = performance.now(); this.qStart = performance.now();
+          this._raf = requestAnimationFrame(this._tick);
+        });
+      }, 300);
+    }
+    return r;
+  };
 })();
 
 // =====================================================================
@@ -21379,6 +21481,7 @@ window.Certificate = Certificate;
 (function unitGate() {
   const orig = ScreenManager.prototype.switchScreen;
   ScreenManager.prototype.switchScreen = function (screenId, ...rest) {
+    if (screenId === 'quiz') screenId = 'quiz-blast';                 // v63.9: the test is Quiz Blast now
     const why = window.Units ? Units.blocked(screenId) : null;
     if (why) {
       TKD.gs()?.playSound('error'); TKD.toast(why, 'warning');
@@ -21462,12 +21565,13 @@ const UnitGames = {
         c.classList.toggle('seq-locked', !locked && learnt && !Units.gameOpen(s, g, sk));
         let b = c.querySelector('.game-num');
         if (k > 0) { if (!b) { b = document.createElement('span'); b.className = 'game-num'; c.prepend(b); } b.textContent = TKD.num(k); } else b?.remove();
+        // v63.9: Quiz Blast is the kick's test
+        if (g === 'quiz-blast') { let tg = c.querySelector('.gc-test-tag'); if (!tg) { tg = document.createElement('span'); tg.className = 'gc-test-tag'; c.querySelector('h3')?.after(tg); } tg.textContent = TKD.t('📝 The test', '📝 الاختبار'); }
       });
       const l = sec.querySelector('.unit-lesson .game-status'); if (l) l.textContent = learnt ? TKD.t('Done ✓', 'انتهيت ✓') : TKD.t('Start here 👉', 'ابدأ من هنا 👉');
       const q = sec.querySelector('.unit-test .game-status'); if (q) q.textContent = GameState.quizPassed(s) ? TKD.t('Passed ✓', 'نجحت فيه ✓') : GameState.allGamesDone(s, sk) ? TKD.t('Ready!', 'جاهز!') : '🔒';
     });
-    // the error-hunt card is Ap Chagi only (as before)
-    scr.querySelectorAll('.game-card[data-game="error-hunt"]').forEach(c => c.classList.toggle('hidden', sk !== 'apchagi'));
+    // (v63.9: the error-hunt card is on every kick now)
   }
 };
 window.UnitGames = UnitGames;
