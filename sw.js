@@ -11,7 +11,7 @@
    whenever anything changes so players get the update.
    ===================================================================== */
 
-const CACHE_VERSION = 'tkd-v64.0';
+const CACHE_VERSION = 'tkd-v64.1';
 const APP_SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const ASSET_CACHE = `${CACHE_VERSION}-assets`;     // precached images + videos, never trimmed
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;  // anything else same-origin, trimmed
@@ -89,13 +89,19 @@ const IMAGE_FILES = [
   './assets/images/backgrounds/technique_quiz_bg.webp',
   './assets/videos/apchagi-tutorial.webp',
   './assets/videos/naeryeochagi-tutorial.webp',
-  './assets/videos/bikchagi-tutorial.webp'
+  './assets/videos/bikchagi-tutorial.webp',
+  './assets/videos/real/apchagi-real.webp',
+  './assets/videos/real/naeryeochagi-real.webp',
+  './assets/videos/real/bikchagi-real.webp'
 ];
 
 const VIDEO_FILES = [
   './assets/videos/apchagi-tutorial.mp4',
   './assets/videos/bikchagi-tutorial.mp4',
   './assets/videos/naeryeochagi-tutorial.mp4',
+  './assets/videos/real/apchagi-real.mp4',
+  './assets/videos/real/bikchagi-real.mp4',
+  './assets/videos/real/naeryeochagi-real.mp4',
   './assets/videos/warmup/double_leg_hamstring.mp4',
   './assets/videos/warmup/forward_lunge.mp4',
   './assets/videos/warmup/jumping_jacks.mp4',

@@ -441,6 +441,7 @@ const GameConfig = {
       description: { en: 'Straight Front Kick', ar: 'الركلة الأمامية المستقيمة' },
       assetFolder: null, // flat legacy paths, no subfolder
       video: 'assets/videos/apchagi-tutorial.mp4',
+      realVideo: 'assets/videos/real/apchagi-real.mp4',          // v64.1: a real player doing the kick (the club's choice)
       technical: {
         strikingSurface: { en: 'Ball of the foot (Ap-chuk)', ar: 'قاعدة الأصابع (كلوة القدم) آب تشوك' },
         target: { en: '(Eolgul) head and face, and (Momtong) chest or belly', ar: '(أولجول) منطقة الرأس، الوجه، و(مومتونج) منطقة الصدر أو البطن' },
@@ -496,6 +497,7 @@ const GameConfig = {
       description: { en: 'Axe Kick (from top to bottom)', ar: 'الركلة المطرقية من أعلى لأسفل' },
       assetFolder: 'narochagi',
       video: 'assets/videos/naeryeochagi-tutorial.mp4',
+      realVideo: 'assets/videos/real/naeryeochagi-real.mp4',          // v64.1: a real player doing the kick (the club's choice)
       technical: {
         strikingSurface: { en: 'The heel or the sole of the foot', ar: 'الكعب أو باطن القدم' },
         target: { en: 'The head and the face', ar: 'الرأس والوجه' },
@@ -553,6 +555,7 @@ const GameConfig = {
       description: { en: 'Front roundhouse kick to the belly', ar: 'الركلة الأمامية الدائرية في البطن' },
       assetFolder: 'bikchagi',
       video: 'assets/videos/bikchagi-tutorial.mp4',
+      realVideo: 'assets/videos/real/bikchagi-real.mp4',          // v64.1: a real player doing the kick (the club's choice)
       technical: {
         strikingSurface: { en: 'The top of the foot (instep)', ar: 'وجه القدم (مشط القدم)' },
         target: { en: 'Momtong (the belly)', ar: 'مومتونج (البطن)' },
@@ -903,7 +906,7 @@ function watchVideoLoading(video) {
 // Arabic or English voice, degrees and ranges in words)
 // v63.4 — the version a tester can read on the start screen and in Coach → Settings (bump it
 // together with CACHE_VERSION in sw.js)
-const APP_VERSION = '64.0';
+const APP_VERSION = '64.1';
 
 const SpeechVoice = {
   KEY: 'taekwondoJourneyVoice',
@@ -2164,12 +2167,16 @@ class ScreenManager {
         requestAnimationFrame(() => {
           // v29: on a phone, put the PLAY AREA (canvas / stage) in the middle of the
           // screen, so the game and its buttons are visible without scrolling
-          const play = window.innerWidth <= 760 && targetScreen.querySelector('.arena-wrap, .act-layout, #form-stage, .puzzle-board, .qb-arena, #eh-board, .quiz-card');
-          if (play) {
+          const play = targetScreen.querySelector('.arena-wrap, .act-layout, #form-stage, .puzzle-board, .qb-arena, #eh-board, .quiz-card');
+          // v64.1: tablets and computers too — but only when the play area is not already in view
+          const tab = document.getElementById('tabbar');
+          const fold = tab && tab.offsetParent ? tab.getBoundingClientRect().top : window.innerHeight;
+          const pr = play?.getBoundingClientRect();
+          if (play && (window.innerWidth <= 760 || pr.top < 0 || pr.bottom > fold)) {
             // taller than the phone? show its BOTTOM — that is where KICK! and the
             // game's own buttons live; a child should never scroll to find them.
-            const r = play.getBoundingClientRect();
-            const fits = r.height <= window.innerHeight - 24;
+            const r = pr;
+            const fits = r.height <= fold - 24;
             play.scrollIntoView({ block: fits ? 'center' : 'end', behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
             return;
           }
@@ -2493,6 +2500,12 @@ class LearningSystem {
           </div>
           <p class="video-hint">${ar ? '⏱️ شاهد ٨٠٪ على الأقل ليعمل زر الإكمال' : '⏱️ Watch at least 80% to unlock the completion button'}</p>
         </div>
+        ${skill.realVideo ? `<section class="real-video" aria-label="${ar ? 'لاعب حقيقي' : 'A real player'}">
+          <h3>🥋 ${ar ? `شاهد لاعبًا حقيقيًا يؤدي ${skillName}` : `Watch a real player do ${skillName}`}</h3>
+          <video class="rv-video" id="real-video" controls preload="none" playsinline poster="${skill.realVideo.replace(/\.mp4$/, '.webp')}">
+            <source src="${skill.realVideo}" type="video/mp4">
+          </video>
+        </section>` : ''}
         <button class="btn" id="back-to-phases-btn" style="margin-top:10px">
           <i class="fas fa-arrow-left"></i> ${ar ? 'راجع المراحل' : 'Review Phases'}
         </button>
@@ -2501,6 +2514,14 @@ class LearningSystem {
 
     this.videoElement = document.getElementById('learning-video');
     watchVideoLoading(this.videoElement);
+    // one video at a time: starting one pauses the other
+    const real = document.getElementById('real-video');
+    if (real) {
+      // (it loads only when played — the "loading" spinner starts with the first play, not before)
+      real.addEventListener('play', () => watchVideoLoading(real), { once: true });
+      real.addEventListener('play', () => { try { this.videoElement?.pause(); } catch (e) {} });
+      this.videoElement?.addEventListener('play', () => { try { real.pause(); } catch (e) {} });
+    }
     LearningSystem.wireCaptions(this.videoElement, ar, document.getElementById('captions-btn'));
     this.videoElement.addEventListener('timeupdate', () => this.checkVideoProgress());
     this.videoElement.addEventListener('ended',      () => this.onVideoEnded());
@@ -5896,6 +5917,12 @@ class ErrorHuntSystem {
     const board = document.getElementById('eh-board');
     if (board && this.rig3d) this.mount3D(board, level);
     this.render();
+    // v64.1: the 3D board appears after the screen opened (it grows) — bring it into view once
+    if (this.levelIndex === 0 && board) requestAnimationFrame(() => {
+      const r = board.getBoundingClientRect(), tab = document.getElementById('tabbar');
+      const fold = tab && tab.offsetParent ? tab.getBoundingClientRect().top : innerHeight;
+      if (r.top < 0 || r.bottom > fold) board.scrollIntoView({ block: r.height <= fold - 24 ? 'center' : 'end', behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+    });
   }
 
   // ---------------------------------------------------------------- v42: 3D board
@@ -20826,7 +20853,7 @@ window.Exam = Exam;
     this.$('qb-lesson-btn')?.addEventListener('click', () => { this.gameState?.playSound('click'); switchScreen('learning'); });
   };
   document.addEventListener('tkd:screen', (e) => {
-    if (e.detail?.screenId !== 'quiz-blast' || innerWidth > 760) return;
+    if (e.detail?.screenId !== 'quiz-blast') return;          // (every screen size: the question on top, then the arena)
     setTimeout(() => document.querySelector('#quiz-blast-screen .qb-question-box')?.scrollIntoView({ block: 'start', behavior: window.prefersReducedMotion?.() ? 'auto' : 'smooth' }), 120);
   });
   // Coach Seif's bow before the test (the first visit in a while; not on "try again"):
