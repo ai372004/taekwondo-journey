@@ -906,7 +906,7 @@ function watchVideoLoading(video) {
 // Arabic or English voice, degrees and ranges in words)
 // v63.4 — the version a tester can read on the start screen and in Coach → Settings (bump it
 // together with CACHE_VERSION in sw.js)
-const APP_VERSION = '64.3';
+const APP_VERSION = '64.3.1';
 
 const SpeechVoice = {
   KEY: 'taekwondoJourneyVoice',
@@ -21288,7 +21288,7 @@ const UnitGames = {
     this.build();
     const gs = TKD.gs(), scr = document.getElementById('games-screen'); if (!gs || !scr) return;
     const sk = gs.currentSkill, s = gs.skillGameScores?.[sk] || {}, learnt = (s.learning || 0) > 0;
-    scr.querySelectorAll('.unit-sec').forEach(sec => {
+    scr.querySelectorAll('.unit-sec[data-unit]').forEach(sec => {
       const n = +sec.dataset.unit, U = Units.get(n), open = Units.open(s, n, sk), done = Units.done(s, n, sk), [d, t] = Units.count(s, n, sk);
       const locked = !open || (n === 1 ? false : !learnt);
       sec.classList.toggle('is-locked', locked); sec.classList.toggle('is-done', done);
@@ -21498,7 +21498,7 @@ document.addEventListener('tkd:screen', (e) => {
     let sec = gc.querySelector('.rf-extra');
     if (!sec) {
       sec = document.createElement('section'); sec.className = 'unit-sec rf-extra';
-      const last = [...gc.querySelectorAll('.unit-sec')].pop();
+      const last = [...gc.querySelectorAll('.unit-sec[data-unit]')].pop();
       (last ? last.after(sec) : gc.appendChild(sec));
     }
     sec.innerHTML = `<h3 class="unit-sec-title"><span class="us-n">⭐</span><span class="us-t">${TKD.t('Extra game', 'لعبة إضافية')}</span></h3>
