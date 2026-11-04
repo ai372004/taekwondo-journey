@@ -11,7 +11,7 @@
    whenever anything changes so players get the update.
    ===================================================================== */
 
-const CACHE_VERSION = 'tkd-v64.2';
+const CACHE_VERSION = 'tkd-v64.3';
 const APP_SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const ASSET_CACHE = `${CACHE_VERSION}-assets`;     // precached images + videos, never trimmed
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;  // anything else same-origin, trimmed
@@ -71,7 +71,13 @@ const APP_SHELL_FILES = [
   './assets/videos/naeryeochagi-tutorial.ar.vtt',
   './assets/videos/naeryeochagi-tutorial.en.vtt',
   './assets/videos/bikchagi-tutorial.ar.vtt',
-  './assets/videos/bikchagi-tutorial.en.vtt'
+  './assets/videos/bikchagi-tutorial.en.vtt',
+  './assets/videos/real/apchagi-real.ar.vtt',
+  './assets/videos/real/apchagi-real.en.vtt',
+  './assets/videos/real/naeryeochagi-real.ar.vtt',
+  './assets/videos/real/naeryeochagi-real.en.vtt',
+  './assets/videos/real/bikchagi-real.ar.vtt',
+  './assets/videos/real/bikchagi-real.en.vtt'
 ];
 
 const IMAGE_FILES = [

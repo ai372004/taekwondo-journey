@@ -498,24 +498,13 @@
   {
    "group": "hint",
    "priority": 1,
-   "ar": "اختر الإجابة الصحيحة",
-   "en": "Choose the right answer",
-   "note": "شرح هادي لطفل",
-   "key": "1vtg1la",
-   "keyEn": "1pmlx2l",
-   "file": "hint-010-1vtg1la.mp3",
-   "fileEn": "hint-010-1pmlx2l.mp3"
-  },
-  {
-   "group": "hint",
-   "priority": 1,
    "ar": "اختر جزء القدم، ثم اضغط عندما يصبح التصويب في المنتصف",
    "en": "Pick the foot part, then tap when the target is in the middle",
    "note": "شرح هادي لطفل",
    "key": "16ksqos",
    "keyEn": "uxaxl",
-   "file": "hint-011-16ksqos.mp3",
-   "fileEn": "hint-011-uxaxl.mp3"
+   "file": "hint-010-16ksqos.mp3",
+   "fileEn": "hint-010-uxaxl.mp3"
   },
   {
    "group": "hint",
@@ -525,8 +514,8 @@
    "note": "شرح هادي لطفل",
    "key": "1pvzkuj",
    "keyEn": "5rl0ly",
-   "file": "hint-012-1pvzkuj.mp3",
-   "fileEn": "hint-012-5rl0ly.mp3"
+   "file": "hint-011-1pvzkuj.mp3",
+   "fileEn": "hint-011-5rl0ly.mp3"
   },
   {
    "group": "hint",
@@ -536,8 +525,8 @@
    "note": "شرح هادي لطفل",
    "key": "1njybow",
    "keyEn": "ceykfh",
-   "file": "hint-013-1njybow.mp3",
-   "fileEn": "hint-013-ceykfh.mp3"
+   "file": "hint-012-1njybow.mp3",
+   "fileEn": "hint-012-ceykfh.mp3"
   },
   {
    "group": "hint",
@@ -547,8 +536,8 @@
    "note": "شرح هادي لطفل",
    "key": "6kl24t",
    "keyEn": "1y0vt6",
-   "file": "hint-014-6kl24t.mp3",
-   "fileEn": "hint-014-1y0vt6.mp3"
+   "file": "hint-013-6kl24t.mp3",
+   "fileEn": "hint-013-1y0vt6.mp3"
   },
   {
    "group": "hint",
@@ -558,8 +547,8 @@
    "note": "شرح هادي لطفل",
    "key": "1k2nq1r",
    "keyEn": "1ekoys2",
-   "file": "hint-015-1k2nq1r.mp3",
-   "fileEn": "hint-015-1ekoys2.mp3"
+   "file": "hint-014-1k2nq1r.mp3",
+   "fileEn": "hint-014-1ekoys2.mp3"
   },
   {
    "group": "hint",
@@ -569,8 +558,8 @@
    "note": "شرح هادي لطفل",
    "key": "1tgtuln",
    "keyEn": "cr5wdn",
-   "file": "hint-016-1tgtuln.mp3",
-   "fileEn": "hint-016-cr5wdn.mp3"
+   "file": "hint-015-1tgtuln.mp3",
+   "fileEn": "hint-015-cr5wdn.mp3"
   },
   {
    "group": "hint",
@@ -580,8 +569,8 @@
    "note": "شرح هادي لطفل",
    "key": "ofms5x",
    "keyEn": "6nw5gj",
-   "file": "hint-017-ofms5x.mp3",
-   "fileEn": "hint-017-6nw5gj.mp3"
+   "file": "hint-016-ofms5x.mp3",
+   "fileEn": "hint-016-6nw5gj.mp3"
   },
   {
    "group": "phase",
@@ -674,12 +663,12 @@
   {
    "group": "phase",
    "priority": 3,
-   "ar": "لف قدم الارتكاز للخارج بزاوية ٤٥°:٩٠°.",
+   "ar": "لف قدم الارتكاز للخارج بزاوية من ٤٥° إلى ٩٠°.",
    "en": "Turn the standing foot outward 45°–90°.",
    "note": "نصيحة",
-   "key": "9dqk1f",
+   "key": "n6fbeu",
    "keyEn": "8mwr3v",
-   "file": "phase-009-9dqk1f.mp3",
+   "file": "phase-009-n6fbeu.mp3",
    "fileEn": "phase-009-8mwr3v.mp3"
   },
   {
@@ -850,12 +839,12 @@
   {
    "group": "phase",
    "priority": 3,
-   "ar": "لف قدم الارتكاز للخارج قليلًا بزاوية ٤٥°:٩٠°.",
+   "ar": "لف قدم الارتكاز للخارج قليلًا بزاوية من ٤٥° إلى ٩٠°.",
    "en": "Turn the standing foot outward a little, 45°–90°.",
    "note": "نصيحة",
-   "key": "1w469e8",
+   "key": "pp6rob",
    "keyEn": "18eip6s",
-   "file": "phase-025-1w469e8.mp3",
+   "file": "phase-025-pp6rob.mp3",
    "fileEn": "phase-025-18eip6s.mp3"
   },
   {
@@ -2082,13 +2071,35 @@
   {
    "group": "screen",
    "priority": 2,
+   "ar": "الحكم الصغير.",
+   "en": "The Little Referee.",
+   "note": "تعليمات الشاشة",
+   "key": "89wlje",
+   "keyEn": "4c8zic",
+   "file": "screen-057-89wlje.mp3",
+   "fileEn": "screen-057-4c8zic.mp3"
+  },
+  {
+   "group": "screen",
+   "priority": 2,
+   "ar": "قانون النزال: نقطة أم مخالفة؟",
+   "en": "The rules of sparring: point or foul?",
+   "note": "تعليمات الشاشة",
+   "key": "11rxick",
+   "keyEn": "11tech9",
+   "file": "screen-058-11rxick.mp3",
+   "fileEn": "screen-058-11tech9.mp3"
+  },
+  {
+   "group": "screen",
+   "priority": 2,
    "ar": "اضبط الوضعية — آب تشاجي.",
    "en": "Fix the Pose — Ap Chagi.",
    "note": "تعليمات الشاشة",
    "key": "kmcfuf",
    "keyEn": "13p96hj",
-   "file": "screen-057-kmcfuf.mp3",
-   "fileEn": "screen-057-13p96hj.mp3"
+   "file": "screen-059-kmcfuf.mp3",
+   "fileEn": "screen-059-13p96hj.mp3"
   },
   {
    "group": "screen",
@@ -2098,8 +2109,8 @@
    "note": "تعليمات الشاشة",
    "key": "uy4r8i",
    "keyEn": "meai20",
-   "file": "screen-058-uy4r8i.mp3",
-   "fileEn": "screen-058-meai20.mp3"
+   "file": "screen-060-uy4r8i.mp3",
+   "fileEn": "screen-060-meai20.mp3"
   },
   {
    "group": "screen",
@@ -2109,8 +2120,8 @@
    "note": "تعليمات الشاشة",
    "key": "mpsd3o",
    "keyEn": "77f7xz",
-   "file": "screen-059-mpsd3o.mp3",
-   "fileEn": "screen-059-77f7xz.mp3"
+   "file": "screen-061-mpsd3o.mp3",
+   "fileEn": "screen-061-77f7xz.mp3"
   },
   {
    "group": "screen",
@@ -2120,8 +2131,8 @@
    "note": "تعليمات الشاشة",
    "key": "6f0u2v",
    "keyEn": "1y73549",
-   "file": "screen-060-6f0u2v.mp3",
-   "fileEn": "screen-060-1y73549.mp3"
+   "file": "screen-062-6f0u2v.mp3",
+   "fileEn": "screen-062-1y73549.mp3"
   },
   {
    "group": "screen",
@@ -2131,8 +2142,8 @@
    "note": "تعليمات الشاشة",
    "key": "109rgyh",
    "keyEn": "2omd5t",
-   "file": "screen-061-109rgyh.mp3",
-   "fileEn": "screen-061-2omd5t.mp3"
+   "file": "screen-063-109rgyh.mp3",
+   "fileEn": "screen-063-2omd5t.mp3"
   },
   {
    "group": "screen",
@@ -2142,8 +2153,8 @@
    "note": "تعليمات الشاشة",
    "key": "1phvmnz",
    "keyEn": "1fh8d31",
-   "file": "screen-062-1phvmnz.mp3",
-   "fileEn": "screen-062-1fh8d31.mp3"
+   "file": "screen-064-1phvmnz.mp3",
+   "fileEn": "screen-064-1fh8d31.mp3"
   },
   {
    "group": "screen",
@@ -2153,7 +2164,7 @@
    "note": "تعليمات الشاشة",
    "key": "1ty33m6",
    "keyEn": "",
-   "file": "screen-063-1ty33m6.mp3",
+   "file": "screen-065-1ty33m6.mp3",
    "fileEn": ""
   },
   {
@@ -2164,7 +2175,7 @@
    "note": "تعليمات الشاشة",
    "key": "1yyjiwx",
    "keyEn": "",
-   "file": "screen-064-1yyjiwx.mp3",
+   "file": "screen-066-1yyjiwx.mp3",
    "fileEn": ""
   },
   {
@@ -2175,8 +2186,8 @@
    "note": "تعليمات الشاشة",
    "key": "1y6alm8",
    "keyEn": "1quz0ei",
-   "file": "screen-065-1y6alm8.mp3",
-   "fileEn": "screen-065-1quz0ei.mp3"
+   "file": "screen-067-1y6alm8.mp3",
+   "fileEn": "screen-067-1quz0ei.mp3"
   },
   {
    "group": "screen",
@@ -2186,8 +2197,8 @@
    "note": "تعليمات الشاشة",
    "key": "1wwu5va",
    "keyEn": "j19shb",
-   "file": "screen-066-1wwu5va.mp3",
-   "fileEn": "screen-066-j19shb.mp3"
+   "file": "screen-068-1wwu5va.mp3",
+   "fileEn": "screen-068-j19shb.mp3"
   },
   {
    "group": "screen",
@@ -2197,8 +2208,8 @@
    "note": "تعليمات الشاشة",
    "key": "ntwpz3",
    "keyEn": "ml5bi6",
-   "file": "screen-067-ntwpz3.mp3",
-   "fileEn": "screen-067-ml5bi6.mp3"
+   "file": "screen-069-ntwpz3.mp3",
+   "fileEn": "screen-069-ml5bi6.mp3"
   },
   {
    "group": "screen",
@@ -2208,8 +2219,8 @@
    "note": "تعليمات الشاشة",
    "key": "u5x066",
    "keyEn": "1yz7kr",
-   "file": "screen-068-u5x066.mp3",
-   "fileEn": "screen-068-1yz7kr.mp3"
+   "file": "screen-070-u5x066.mp3",
+   "fileEn": "screen-070-1yz7kr.mp3"
   },
   {
    "group": "screen",
@@ -2219,8 +2230,8 @@
    "note": "تعليمات الشاشة",
    "key": "6m0ya4",
    "keyEn": "saek3g",
-   "file": "screen-069-6m0ya4.mp3",
-   "fileEn": "screen-069-saek3g.mp3"
+   "file": "screen-071-6m0ya4.mp3",
+   "fileEn": "screen-071-saek3g.mp3"
   },
   {
    "group": "screen",
@@ -2230,8 +2241,8 @@
    "note": "تعليمات الشاشة",
    "key": "dtrdhl",
    "keyEn": "y4bkhy",
-   "file": "screen-070-dtrdhl.mp3",
-   "fileEn": "screen-070-y4bkhy.mp3"
+   "file": "screen-072-dtrdhl.mp3",
+   "fileEn": "screen-072-y4bkhy.mp3"
   },
   {
    "group": "screen",
@@ -2241,8 +2252,8 @@
    "note": "تعليمات الشاشة",
    "key": "dqga64",
    "keyEn": "1w76zi8",
-   "file": "screen-071-dqga64.mp3",
-   "fileEn": "screen-071-1w76zi8.mp3"
+   "file": "screen-073-dqga64.mp3",
+   "fileEn": "screen-073-1w76zi8.mp3"
   },
   {
    "group": "screen",
@@ -2252,8 +2263,8 @@
    "note": "تعليمات الشاشة",
    "key": "wssy7h",
    "keyEn": "1px4fp6",
-   "file": "screen-072-wssy7h.mp3",
-   "fileEn": "screen-072-1px4fp6.mp3"
+   "file": "screen-074-wssy7h.mp3",
+   "fileEn": "screen-074-1px4fp6.mp3"
   },
   {
    "group": "screen",
@@ -2263,8 +2274,8 @@
    "note": "تعليمات الشاشة",
    "key": "bgdhsf",
    "keyEn": "lo73xj",
-   "file": "screen-073-bgdhsf.mp3",
-   "fileEn": "screen-073-lo73xj.mp3"
+   "file": "screen-075-bgdhsf.mp3",
+   "fileEn": "screen-075-lo73xj.mp3"
   },
   {
    "group": "screen",
@@ -2274,7 +2285,7 @@
    "note": "تعليمات الشاشة",
    "key": "1vowynk",
    "keyEn": "",
-   "file": "screen-074-1vowynk.mp3",
+   "file": "screen-076-1vowynk.mp3",
    "fileEn": ""
   },
   {
@@ -2285,8 +2296,8 @@
    "note": "تعليمات الشاشة",
    "key": "zpnlc7",
    "keyEn": "vlj715",
-   "file": "screen-075-zpnlc7.mp3",
-   "fileEn": "screen-075-vlj715.mp3"
+   "file": "screen-077-zpnlc7.mp3",
+   "fileEn": "screen-077-vlj715.mp3"
   },
   {
    "group": "screen",
@@ -2296,8 +2307,8 @@
    "note": "تعليمات الشاشة",
    "key": "1hjmfg",
    "keyEn": "1tz9xz4",
-   "file": "screen-076-1hjmfg.mp3",
-   "fileEn": "screen-076-1tz9xz4.mp3"
+   "file": "screen-078-1hjmfg.mp3",
+   "fileEn": "screen-078-1tz9xz4.mp3"
   },
   {
    "group": "screen",
@@ -2307,8 +2318,8 @@
    "note": "تعليمات الشاشة",
    "key": "188d62g",
    "keyEn": "qsoht4",
-   "file": "screen-077-188d62g.mp3",
-   "fileEn": "screen-077-qsoht4.mp3"
+   "file": "screen-079-188d62g.mp3",
+   "fileEn": "screen-079-qsoht4.mp3"
   },
   {
    "group": "screen",
@@ -2318,8 +2329,8 @@
    "note": "تعليمات الشاشة",
    "key": "1vycqi9",
    "keyEn": "yy040n",
-   "file": "screen-078-1vycqi9.mp3",
-   "fileEn": "screen-078-yy040n.mp3"
+   "file": "screen-080-1vycqi9.mp3",
+   "fileEn": "screen-080-yy040n.mp3"
   },
   {
    "group": "screen",
@@ -2329,8 +2340,8 @@
    "note": "تعليمات الشاشة",
    "key": "1ptpmgk",
    "keyEn": "1nm4dq6",
-   "file": "screen-079-1ptpmgk.mp3",
-   "fileEn": "screen-079-1nm4dq6.mp3"
+   "file": "screen-081-1ptpmgk.mp3",
+   "fileEn": "screen-081-1nm4dq6.mp3"
   },
   {
    "group": "screen",
@@ -2340,8 +2351,8 @@
    "note": "تعليمات الشاشة",
    "key": "18ig2hw",
    "keyEn": "ptk7rc",
-   "file": "screen-080-18ig2hw.mp3",
-   "fileEn": "screen-080-ptk7rc.mp3"
+   "file": "screen-082-18ig2hw.mp3",
+   "fileEn": "screen-082-ptk7rc.mp3"
   },
   {
    "group": "screen",
@@ -2351,8 +2362,8 @@
    "note": "تعليمات الشاشة",
    "key": "aw0arj",
    "keyEn": "u5u9t0",
-   "file": "screen-081-aw0arj.mp3",
-   "fileEn": "screen-081-u5u9t0.mp3"
+   "file": "screen-083-aw0arj.mp3",
+   "fileEn": "screen-083-u5u9t0.mp3"
   },
   {
    "group": "screen",
@@ -2362,8 +2373,8 @@
    "note": "تعليمات الشاشة",
    "key": "1elxro1",
    "keyEn": "drmsby",
-   "file": "screen-082-1elxro1.mp3",
-   "fileEn": "screen-082-drmsby.mp3"
+   "file": "screen-084-1elxro1.mp3",
+   "fileEn": "screen-084-drmsby.mp3"
   },
   {
    "group": "screen",
@@ -2373,8 +2384,8 @@
    "note": "تعليمات الشاشة",
    "key": "1a8e5hm",
    "keyEn": "1smn0gk",
-   "file": "screen-083-1a8e5hm.mp3",
-   "fileEn": "screen-083-1smn0gk.mp3"
+   "file": "screen-085-1a8e5hm.mp3",
+   "fileEn": "screen-085-1smn0gk.mp3"
   },
   {
    "group": "screen",
@@ -2384,8 +2395,8 @@
    "note": "تعليمات الشاشة",
    "key": "12327o",
    "keyEn": "q2ouko",
-   "file": "screen-084-12327o.mp3",
-   "fileEn": "screen-084-q2ouko.mp3"
+   "file": "screen-086-12327o.mp3",
+   "fileEn": "screen-086-q2ouko.mp3"
   },
   {
    "group": "screen",
@@ -2395,8 +2406,8 @@
    "note": "تعليمات الشاشة",
    "key": "1b7onnj",
    "keyEn": "1fh856f",
-   "file": "screen-085-1b7onnj.mp3",
-   "fileEn": "screen-085-1fh856f.mp3"
+   "file": "screen-087-1b7onnj.mp3",
+   "fileEn": "screen-087-1fh856f.mp3"
   },
   {
    "group": "screen",
@@ -2406,8 +2417,8 @@
    "note": "تعليمات الشاشة",
    "key": "11lb8op",
    "keyEn": "10x8atu",
-   "file": "screen-086-11lb8op.mp3",
-   "fileEn": "screen-086-10x8atu.mp3"
+   "file": "screen-088-11lb8op.mp3",
+   "fileEn": "screen-088-10x8atu.mp3"
   },
   {
    "group": "screen",
@@ -2417,8 +2428,8 @@
    "note": "تعليمات الشاشة",
    "key": "1gj9jmc",
    "keyEn": "o2792u",
-   "file": "screen-087-1gj9jmc.mp3",
-   "fileEn": "screen-087-o2792u.mp3"
+   "file": "screen-089-1gj9jmc.mp3",
+   "fileEn": "screen-089-o2792u.mp3"
   },
   {
    "group": "screen",
@@ -2428,8 +2439,8 @@
    "note": "تعليمات الشاشة",
    "key": "jji34x",
    "keyEn": "4y8oeu",
-   "file": "screen-088-jji34x.mp3",
-   "fileEn": "screen-088-4y8oeu.mp3"
+   "file": "screen-090-jji34x.mp3",
+   "fileEn": "screen-090-4y8oeu.mp3"
   },
   {
    "group": "screen",
@@ -2439,8 +2450,8 @@
    "note": "تعليمات الشاشة",
    "key": "akobz8",
    "keyEn": "1ms2d69",
-   "file": "screen-089-akobz8.mp3",
-   "fileEn": "screen-089-1ms2d69.mp3"
+   "file": "screen-091-akobz8.mp3",
+   "fileEn": "screen-091-1ms2d69.mp3"
   },
   {
    "group": "screen",
@@ -2450,8 +2461,8 @@
    "note": "تعليمات الشاشة",
    "key": "2911xo",
    "keyEn": "oavs7v",
-   "file": "screen-090-2911xo.mp3",
-   "fileEn": "screen-090-oavs7v.mp3"
+   "file": "screen-092-2911xo.mp3",
+   "fileEn": "screen-092-oavs7v.mp3"
   },
   {
    "group": "screen",
@@ -2461,8 +2472,8 @@
    "note": "تعليمات الشاشة",
    "key": "11avri",
    "keyEn": "iig4z",
-   "file": "screen-091-11avri.mp3",
-   "fileEn": "screen-091-iig4z.mp3"
+   "file": "screen-093-11avri.mp3",
+   "fileEn": "screen-093-iig4z.mp3"
   },
   {
    "group": "screen",
@@ -2472,8 +2483,8 @@
    "note": "تعليمات الشاشة",
    "key": "krxshs",
    "keyEn": "45ae3b",
-   "file": "screen-092-krxshs.mp3",
-   "fileEn": "screen-092-45ae3b.mp3"
+   "file": "screen-094-krxshs.mp3",
+   "fileEn": "screen-094-45ae3b.mp3"
   },
   {
    "group": "screen",
@@ -2483,8 +2494,8 @@
    "note": "تعليمات الشاشة",
    "key": "17d1rjc",
    "keyEn": "1fwxim3",
-   "file": "screen-093-17d1rjc.mp3",
-   "fileEn": "screen-093-1fwxim3.mp3"
+   "file": "screen-095-17d1rjc.mp3",
+   "fileEn": "screen-095-1fwxim3.mp3"
   },
   {
    "group": "screen",
@@ -2494,8 +2505,8 @@
    "note": "تعليمات الشاشة",
    "key": "1pe1l4e",
    "keyEn": "5ncmc4",
-   "file": "screen-094-1pe1l4e.mp3",
-   "fileEn": "screen-094-5ncmc4.mp3"
+   "file": "screen-096-1pe1l4e.mp3",
+   "fileEn": "screen-096-5ncmc4.mp3"
   },
   {
    "group": "screen",
@@ -2505,8 +2516,8 @@
    "note": "تعليمات الشاشة",
    "key": "chkm0z",
    "keyEn": "65zf72",
-   "file": "screen-095-chkm0z.mp3",
-   "fileEn": "screen-095-65zf72.mp3"
+   "file": "screen-097-chkm0z.mp3",
+   "fileEn": "screen-097-65zf72.mp3"
   },
   {
    "group": "screen",
@@ -2516,8 +2527,8 @@
    "note": "تعليمات الشاشة",
    "key": "lh5tea",
    "keyEn": "14eddp2",
-   "file": "screen-096-lh5tea.mp3",
-   "fileEn": "screen-096-14eddp2.mp3"
+   "file": "screen-098-lh5tea.mp3",
+   "fileEn": "screen-098-14eddp2.mp3"
   },
   {
    "group": "screen",
@@ -2527,8 +2538,8 @@
    "note": "تعليمات الشاشة",
    "key": "1a93po0",
    "keyEn": "mh7cqe",
-   "file": "screen-097-1a93po0.mp3",
-   "fileEn": "screen-097-mh7cqe.mp3"
+   "file": "screen-099-1a93po0.mp3",
+   "fileEn": "screen-099-mh7cqe.mp3"
   },
   {
    "group": "screen",
@@ -2538,8 +2549,8 @@
    "note": "تعليمات الشاشة",
    "key": "168meiz",
    "keyEn": "1nf5pan",
-   "file": "screen-098-168meiz.mp3",
-   "fileEn": "screen-098-1nf5pan.mp3"
+   "file": "screen-100-168meiz.mp3",
+   "fileEn": "screen-100-1nf5pan.mp3"
   },
   {
    "group": "screen",
@@ -2549,8 +2560,8 @@
    "note": "تعليمات الشاشة",
    "key": "2rkqq4",
    "keyEn": "yxc9pr",
-   "file": "screen-099-2rkqq4.mp3",
-   "fileEn": "screen-099-yxc9pr.mp3"
+   "file": "screen-101-2rkqq4.mp3",
+   "fileEn": "screen-101-yxc9pr.mp3"
   },
   {
    "group": "screen",
@@ -2560,8 +2571,8 @@
    "note": "تعليمات الشاشة",
    "key": "1ujre15",
    "keyEn": "1fejgg5",
-   "file": "screen-100-1ujre15.mp3",
-   "fileEn": "screen-100-1fejgg5.mp3"
+   "file": "screen-102-1ujre15.mp3",
+   "fileEn": "screen-102-1fejgg5.mp3"
   },
   {
    "group": "screen",
@@ -2571,8 +2582,8 @@
    "note": "تعليمات الشاشة",
    "key": "1n7ofvj",
    "keyEn": "1qosxfk",
-   "file": "screen-101-1n7ofvj.mp3",
-   "fileEn": "screen-101-1qosxfk.mp3"
+   "file": "screen-103-1n7ofvj.mp3",
+   "fileEn": "screen-103-1qosxfk.mp3"
   },
   {
    "group": "screen",
@@ -2582,8 +2593,8 @@
    "note": "تعليمات الشاشة",
    "key": "utxkf7",
    "keyEn": "1wv71x2",
-   "file": "screen-102-utxkf7.mp3",
-   "fileEn": "screen-102-1wv71x2.mp3"
+   "file": "screen-104-utxkf7.mp3",
+   "fileEn": "screen-104-1wv71x2.mp3"
   },
   {
    "group": "screen",
@@ -2593,8 +2604,8 @@
    "note": "تعليمات الشاشة",
    "key": "l3032w",
    "keyEn": "gtsayu",
-   "file": "screen-103-l3032w.mp3",
-   "fileEn": "screen-103-gtsayu.mp3"
+   "file": "screen-105-l3032w.mp3",
+   "fileEn": "screen-105-gtsayu.mp3"
   },
   {
    "group": "screen",
@@ -2604,8 +2615,8 @@
    "note": "تعليمات الشاشة",
    "key": "y6yg2z",
    "keyEn": "8grefj",
-   "file": "screen-104-y6yg2z.mp3",
-   "fileEn": "screen-104-8grefj.mp3"
+   "file": "screen-106-y6yg2z.mp3",
+   "fileEn": "screen-106-8grefj.mp3"
   },
   {
    "group": "screen",
@@ -2615,8 +2626,8 @@
    "note": "تعليمات الشاشة",
    "key": "1hondch",
    "keyEn": "1f5cd20",
-   "file": "screen-105-1hondch.mp3",
-   "fileEn": "screen-105-1f5cd20.mp3"
+   "file": "screen-107-1hondch.mp3",
+   "fileEn": "screen-107-1f5cd20.mp3"
   },
   {
    "group": "screen",
@@ -2626,8 +2637,8 @@
    "note": "تعليمات الشاشة",
    "key": "vc2sf5",
    "keyEn": "1nj73i1",
-   "file": "screen-106-vc2sf5.mp3",
-   "fileEn": "screen-106-1nj73i1.mp3"
+   "file": "screen-108-vc2sf5.mp3",
+   "fileEn": "screen-108-1nj73i1.mp3"
   },
   {
    "group": "screen",
@@ -2637,8 +2648,8 @@
    "note": "تعليمات الشاشة",
    "key": "1q11nqt",
    "keyEn": "7ag54w",
-   "file": "screen-107-1q11nqt.mp3",
-   "fileEn": "screen-107-7ag54w.mp3"
+   "file": "screen-109-1q11nqt.mp3",
+   "fileEn": "screen-109-7ag54w.mp3"
   },
   {
    "group": "screen",
@@ -2648,8 +2659,8 @@
    "note": "تعليمات الشاشة",
    "key": "1fowple",
    "keyEn": "e733kg",
-   "file": "screen-108-1fowple.mp3",
-   "fileEn": "screen-108-e733kg.mp3"
+   "file": "screen-110-1fowple.mp3",
+   "fileEn": "screen-110-e733kg.mp3"
   },
   {
    "group": "screen",
@@ -2659,8 +2670,8 @@
    "note": "تعليمات الشاشة",
    "key": "t0wbbz",
    "keyEn": "2nefn4",
-   "file": "screen-109-t0wbbz.mp3",
-   "fileEn": "screen-109-2nefn4.mp3"
+   "file": "screen-111-t0wbbz.mp3",
+   "fileEn": "screen-111-2nefn4.mp3"
   },
   {
    "group": "screen",
@@ -2670,8 +2681,8 @@
    "note": "تعليمات الشاشة",
    "key": "10rnzwt",
    "keyEn": "1ohbs0p",
-   "file": "screen-110-10rnzwt.mp3",
-   "fileEn": "screen-110-1ohbs0p.mp3"
+   "file": "screen-112-10rnzwt.mp3",
+   "fileEn": "screen-112-1ohbs0p.mp3"
   },
   {
    "group": "screen",
@@ -2681,8 +2692,8 @@
    "note": "تعليمات الشاشة",
    "key": "zu5gne",
    "keyEn": "4509a5",
-   "file": "screen-111-zu5gne.mp3",
-   "fileEn": "screen-111-4509a5.mp3"
+   "file": "screen-113-zu5gne.mp3",
+   "fileEn": "screen-113-4509a5.mp3"
   },
   {
    "group": "screen",
@@ -2692,8 +2703,8 @@
    "note": "تعليمات الشاشة",
    "key": "f91ka5",
    "keyEn": "jelc6d",
-   "file": "screen-112-f91ka5.mp3",
-   "fileEn": "screen-112-jelc6d.mp3"
+   "file": "screen-114-f91ka5.mp3",
+   "fileEn": "screen-114-jelc6d.mp3"
   },
   {
    "group": "screen",
@@ -2703,8 +2714,8 @@
    "note": "تعليمات الشاشة",
    "key": "gdtnmw",
    "keyEn": "1uk2uki",
-   "file": "screen-113-gdtnmw.mp3",
-   "fileEn": "screen-113-1uk2uki.mp3"
+   "file": "screen-115-gdtnmw.mp3",
+   "fileEn": "screen-115-1uk2uki.mp3"
   },
   {
    "group": "quiz",
@@ -4216,12 +4227,12 @@
   {
    "group": "quiz",
    "priority": 3,
-   "ar": "للخارج قليلًا بزاوية ٤٥°:٩٠°",
+   "ar": "للخارج قليلًا بزاوية من ٤٥° إلى ٩٠°",
    "en": "A little outward, 45°–90°",
    "note": "إجابة",
-   "key": "1sc6eh2",
+   "key": "1htphj5",
    "keyEn": "1emd7zq",
-   "file": "quiz-138-1sc6eh2.mp3",
+   "file": "quiz-138-1htphj5.mp3",
    "fileEn": "quiz-138-1emd7zq.mp3"
   },
   {

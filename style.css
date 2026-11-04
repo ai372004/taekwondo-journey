@@ -6039,7 +6039,7 @@ html.lite .winner-visual::before, html.lite .celebration-icon { animation-iterat
 .report-share { display: block; margin: 12px auto 18px; }
 
 /* v55 — lesson video captions (WebVTT): big, rounded, readable on a phone */
-#learning-video::cue, .cu-video::cue {
+#learning-video::cue, .cu-video::cue, .rv-video::cue {
   font-family: Cairo, "Noto Sans Arabic", Roboto, system-ui, sans-serif;
   font-size: 1.05em; line-height: 1.45; font-weight: 700;
   color: #fff; background: rgba(12, 18, 28, .78);
@@ -6684,3 +6684,27 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }   /* iOS Safari
   .phase-tips-list, .phase-more-btn { margin-inline: 14px; }
   .phase-tips-list { margin-block: 10px 12px; }
 }
+/* v64.3: on a phone the lesson's Back / Next stay pinned above the tab bar too */
+@media (max-width: 760px) {
+  body.has-tabbar .phase-card-footer { position: sticky; bottom: calc(84px + env(safe-area-inset-bottom)); z-index: 6;
+    background: rgba(12,26,34,0.94); backdrop-filter: blur(6px); box-shadow: 0 -8px 22px rgba(0,0,0,0.38); }
+  body:not(.has-tabbar) .phase-card-footer { position: sticky; bottom: env(safe-area-inset-bottom, 0px); z-index: 6; background: rgba(12,26,34,0.94); }
+}
+
+/* v64.3: the Little Referee */
+#referee-root { display: grid; gap: 12px; max-width: 640px; margin: 0 auto; }
+.rf-beta { margin: 0; text-align: center; font-size: .85rem; color: #ffd166; }
+.rf-scene { background: rgba(10,22,30,.82); border: 1px solid var(--surface-tint); border-radius: 18px; padding: 16px; text-align: center; display: grid; gap: 8px; }
+.rf-fighters { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-weight: 800; }
+.rf-hong { color: #ff8a8a; } .rf-chung { color: #8ab8ff; }
+.rf-ic { font-size: clamp(2.4rem, 12vw, 3.6rem); line-height: 1; }
+.rf-what { margin: 0; font-size: clamp(1.05rem, 4.6vw, 1.35rem); font-weight: 800; color: #fff; }
+.rf-ask { margin: 0; color: var(--text-gray); }
+.rf-word b { font-size: clamp(2rem, 10vw, 3rem); display: block; }
+.rf-word span { font-size: 1.2rem; color: #ffd166; font-weight: 800; }
+.rf-btns { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr)); gap: 8px; }
+.rf-btns .btn { margin: 0; justify-content: center; min-height: 52px; font-size: clamp(.95rem, 4vw, 1.1rem); }
+.rf-ok { background: linear-gradient(135deg, var(--success-color), var(--success-dark)); }
+.rf-bad { background: linear-gradient(135deg, var(--danger-color), var(--danger-dark)); }
+.rf-msg { margin: 0; min-height: 1.6em; text-align: center; font-weight: 800; }
+.rf-end h3 { margin: 0; }

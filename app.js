@@ -445,7 +445,7 @@ const GameConfig = {
       technical: {
         strikingSurface: { en: 'Ball of the foot (Ap-chuk)', ar: 'قاعدة الأصابع (كلوة القدم) آب تشوك' },
         target: { en: '(Eolgul) head and face, and (Momtong) chest or belly', ar: '(أولجول) منطقة الرأس، الوجه، و(مومتونج) منطقة الصدر أو البطن' },
-        pivotAngle: { en: '45°–90° outward', ar: 'للخارج بزاوية ٤٥°:٩٠°' }
+        pivotAngle: { en: '45°–90° outward', ar: 'للخارج بزاوية من ٤٥° إلى ٩٠°' }
       },
       phases: [
         { num: 1, key: 'ready',
@@ -462,7 +462,7 @@ const GameConfig = {
           focus: { en: '👀 Lift and bend the kicking knee high toward the chest.', ar: '👀 ارفع واثني ركبة الرجل الضاربة عاليًا ناحية الصدر.' },
           tips: {
             en: ['💡 Note: the higher the knee, the higher the kick lands.', '✅ Turn the standing foot outward 45°–90°.'],
-            ar: ['💡 ملحوظة: كلما زاد ارتفاع ركبة الرجل، ارتفع مستوى الضرب.', '✅ لف قدم الارتكاز للخارج بزاوية ٤٥°:٩٠°.']
+            ar: ['💡 ملحوظة: كلما زاد ارتفاع ركبة الرجل، ارتفع مستوى الضرب.', '✅ لف قدم الارتكاز للخارج بزاوية من ٤٥° إلى ٩٠°.']
           }, color: '#e76f51' },
         { num: 3, key: 'extension',
           title: { en: '3️⃣ Extend the Leg to the Target', ar: '3️⃣ مد الرجل للهدف' },
@@ -501,7 +501,7 @@ const GameConfig = {
       technical: {
         strikingSurface: { en: 'The heel or the sole of the foot', ar: 'الكعب أو باطن القدم' },
         target: { en: 'The head and the face', ar: 'الرأس والوجه' },
-        pivotAngle: { en: '45°–90°', ar: '٤٥°:٩٠°' }
+        pivotAngle: { en: '45°–90°', ar: 'من ٤٥° إلى ٩٠°' }
       },
       phases: [
         { num: 1, key: 'ready',
@@ -518,7 +518,7 @@ const GameConfig = {
           focus: { en: '👀 Lift the kicking leg high.', ar: '👀 ارفع الرجل الضاربة عاليًا.' },
           tips: {
             en: ['💡 Note: the leg must go higher than the target (the opponent\'s head).', '✅ Turn the standing foot outward a little, 45°–90°.'],
-            ar: ['💡 ملحوظة: لازم الرجل تبقى أعلى من مستوى الهدف (رأس المنافس).', '✅ لف قدم الارتكاز للخارج قليلًا بزاوية ٤٥°:٩٠°.']
+            ar: ['💡 ملحوظة: لازم الرجل تبقى أعلى من مستوى الهدف (رأس المنافس).', '✅ لف قدم الارتكاز للخارج قليلًا بزاوية من ٤٥° إلى ٩٠°.']
           }, color: '#e76f51' },
         { num: 3, key: 'strike',
           title: { en: '3️⃣ Drop the Heel on the Target', ar: '3️⃣ إنزال الكعب على الهدف' },
@@ -906,7 +906,7 @@ function watchVideoLoading(video) {
 // Arabic or English voice, degrees and ranges in words)
 // v63.4 — the version a tester can read on the start screen and in Coach → Settings (bump it
 // together with CACHE_VERSION in sw.js)
-const APP_VERSION = '64.2';
+const APP_VERSION = '64.3';
 
 const SpeechVoice = {
   KEY: 'taekwondoJourneyVoice',
@@ -1768,7 +1768,7 @@ class GameState {
     this.createCharacterVisual('change-boy', 'boy', 'IDLE');
     this.createCharacterVisual('change-girl', 'girl', 'IDLE');
     
-    ['coach-learning', 'coach-form', 'coach-quiz', 'coach-winner']
+    ['coach-learning', 'coach-form', 'coach-winner']
       .forEach(id => this.createCharacterVisual(id, 'coach', 'IDLE'));
   }
 
@@ -2253,7 +2253,6 @@ class ScreenManager {
       case 'error-hunt': ErrorHuntSystem.initialize(this.gameState); break;
       case 'quiz-blast': QuizBlastSystem.initialize(this.gameState); break;
       case 'character-change': this.gameState.updateCharacterDisplays(); break;
-      case 'quiz': QuizSystem.initialize(this.gameState); break;
       case 'winner': WinnerSystem.initialize(this.gameState); break;
       case 'trophy-room': TrophyRoomSystem.initialize(this.gameState); break;
       case 'cooldown': CooldownSystem.initialize(this.gameState); break;
@@ -2504,6 +2503,8 @@ class LearningSystem {
           <h3>🥋 ${ar ? `شاهد لاعبًا حقيقيًا يؤدي ${skillName}` : `Watch a real player do ${skillName}`}</h3>
           <video class="rv-video" id="real-video" controls preload="none" playsinline poster="${skill.realVideo.replace(/\.mp4$/, '.webp')}">
             <source src="${skill.realVideo}" type="video/mp4">
+            ${FILE_MODE ? '' : `<track kind="subtitles" srclang="ar" label="العربية" src="${skill.realVideo.replace(/\.mp4$/, '.ar.vtt')}"${ar ? ' default' : ''}>
+            <track kind="subtitles" srclang="en" label="English" src="${skill.realVideo.replace(/\.mp4$/, '.en.vtt')}"${ar ? '' : ' default'}>`}
           </video>
         </section>` : ''}
         <button class="btn" id="back-to-phases-btn" style="margin-top:10px">
@@ -3109,7 +3110,7 @@ class FormControlSystem {
     narochagi: {
       knee:  ['ترتفع الرجل مفرودة تمامًا — ولا تنثني الركبة أبدًا أثناء الصعود.', 'The leg rises completely straight — the knee does not bend on the way up.'],
       foot:  ['يرتفع الكعب إلى أعلى مكان تستطيعه (مستوى الوجه أو أعلى) لينزل بقوة مثل الفأس.', 'The heel goes as high as you can (face height or higher) so it can drop like an axe.'],
-      pivot: ['تلف قدم الارتكاز للخارج قليلًا بزاوية ٤٥°:٩٠°.', 'The standing foot turns outward a little, 45°–90° — the body stays facing the target.']
+      pivot: ['تلف قدم الارتكاز للخارج قليلًا بزاوية من ٤٥° إلى ٩٠°.', 'The standing foot turns outward a little, 45°–90° — the body stays facing the target.']
     },
     bakchagi3: {
       knee:  ['تتجه الركبة نحو الهدف والرجل مطوية بشكل أفقي — ومنها يلف الجزء السفلي من الرجل ويضرب بسرعة.', 'The knee points at the target with the leg folded level — then the lower leg whips round fast.'],
@@ -3408,7 +3409,7 @@ class FormControlSystem {
       },
       narochagi: {
         en: ['Swing the leg up completely straight, as high as you can', 'Both knees straight — the heel goes up to face height or higher', 'Turn the standing foot outward a little, 45°–90°', 'Guard up — then the heel drops down like an axe'],
-        ar: ['ارفع رجلك إلى أعلى وهي مفرودة تمامًا، إلى أعلى ما تستطيع', 'الركبتان مفرودتان — والكعب يرتفع إلى مستوى الوجه أو أعلى', 'لُفّ قدم الارتكاز للخارج قليلًا بزاوية ٤٥°:٩٠°', 'الحراسة مرفوعة — ثم ينزل الكعب مثل الفأس']
+        ar: ['ارفع رجلك إلى أعلى وهي مفرودة تمامًا، إلى أعلى ما تستطيع', 'الركبتان مفرودتان — والكعب يرتفع إلى مستوى الوجه أو أعلى', 'لُفّ قدم الارتكاز للخارج قليلًا بزاوية من ٤٥° إلى ٩٠°', 'الحراسة مرفوعة — ثم ينزل الكعب مثل الفأس']
       },
       bakchagi3: {
         en: ['Lift the knee and turn it over, the leg folded level', 'Turn the standing foot about 135° — heel toward the target', 'Whip the leg round and hit the stomach with the instep, toes pointed', 'Lean your body away from the kick and keep the guard up'],
@@ -5782,7 +5783,7 @@ class ErrorHuntSystem {
       { id: 'guard', zone: 'torso', topic: 'guard' },
       { id: 'pivot', zone: 'stand', topic: 'pivot',
         hint:    { en: 'Look at the standing foot — how far did it turn?', ar: 'انظر إلى قدم الارتكاز: كم لفّت؟' },
-        success: { en: 'Right! In Naeryeo Chagi the standing foot turns outward 45°–90°.', ar: 'صحيح! في نارو تشاجي تلف قدم الارتكاز للخارج بزاوية ٤٥°:٩٠°.' } },
+        success: { en: 'Right! In Naeryeo Chagi the standing foot turns outward 45°–90°.', ar: 'صحيح! في نارو تشاجي تلف قدم الارتكاز للخارج بزاوية من ٤٥° إلى ٩٠°.' } },
       { id: 'head', zone: 'head', topic: 'head',
         hint:    { en: 'Look at where the fighter is looking.', ar: 'انظر: إلى أين ينظر اللاعب؟' },
         success: { en: 'Eyes on the target, always — looking at the floor, you cannot drop the heel in the right place.', ar: 'عينك على الهدف دائمًا؛ إذا نظرت إلى الأرض فلن تستطيع إنزال الكعب في المكان الصحيح.' } },
@@ -6219,7 +6220,7 @@ class QuizBlastSystem {
         a: ['الرأس والوجه', 'The head and the face'],
         w: [['الركبة', 'Knee'], ['البطن', 'Abdomen'], ['القدم', 'Foot']] },
       { q: ['كم تلف قدم الارتكاز في نارو تشاجي؟', 'How far does the standing foot pivot in Naeryeo Chagi?'],
-        a: ['٤٥°:٩٠° للخارج', '45°–90° outward'],
+        a: ['من ٤٥° إلى ٩٠° للخارج', '45°–90° outward'],
         w: [['90°', '90°'], ['180°', '180°'], ['360°', '360°']] },
       { q: ['ما المرحلة الثانية في نارو تشاجي؟', 'What is the second phase of Naeryeo Chagi?'],
         a: ['رفع الرجل لأعلى', 'Vertical rise'],
@@ -6958,7 +6959,7 @@ class QuizSystem {
         options: ["45° to 90°", "360°", "180°", "It does not turn"], optionsAr: ["من ٤٥° إلى ٩٠°", "٣٦٠°", "١٨٠°", "لا تلف إطلاقًا"],
         correctText: "45° to 90°",
         get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 1); },
-        explanation: "The standing foot turns outward 45°–90° as the knee comes up.", explanationAr: "تلف قدم الارتكاز للخارج بزاوية ٤٥°:٩٠° مع رفع الركبة." },
+        explanation: "The standing foot turns outward 45°–90° as the knee comes up.", explanationAr: "تلف قدم الارتكاز للخارج بزاوية من ٤٥° إلى ٩٠° مع رفع الركبة." },
       { sec: "p2",
         question: "The coach sees that a kick reaches the target but is weak. What is the most likely reason?", questionAr: "لاحظ المدرب أن ركلة اللاعب تصل إلى الهدف لكنها ضعيفة. ما السبب الأرجح؟",
         options: ["The knee did not reach chest height before the leg extended", "The standing foot turned a little", "The arms stayed in the guard", "The leg was pulled back quickly after the kick"], optionsAr: ["لم ترتفع الركبة إلى مستوى الصدر قبل مد الرجل", "لفّ قدم الارتكاز قليلًا", "بقيت الذراعان في وضع الحراسة", "سحب الرجل بسرعة بعد الضربة"],
@@ -7071,10 +7072,10 @@ class QuizSystem {
         explanation: "With the leg fully straight, the heel comes down with the most power.", explanationAr: "عندما تكون الرجل مفرودة تمامًا ينزل الكعب بأقصى قوة." },
       { sec: "p2",
         question: "How far does the standing foot turn in Naeryeo Chagi?", questionAr: "بأيّ زاوية تلف قدم الارتكاز في نارو تشاجي؟",
-        options: ["A little outward, 45°–90°", "It does not turn", "360°", "180°"], optionsAr: ["للخارج قليلًا بزاوية ٤٥°:٩٠°", "لا تلف إطلاقًا", "٣٦٠°", "١٨٠°"],
+        options: ["A little outward, 45°–90°", "It does not turn", "360°", "180°"], optionsAr: ["للخارج قليلًا بزاوية من ٤٥° إلى ٩٠°", "لا تلف إطلاقًا", "٣٦٠°", "١٨٠°"],
         correctText: "A little outward, 45°–90°",
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 1); },
-        explanation: "Turn the standing foot a little outward, 45°–90°.", explanationAr: "لف قدم الارتكاز للخارج قليلًا بزاوية ٤٥°:٩٠°." },
+        explanation: "Turn the standing foot a little outward, 45°–90°.", explanationAr: "لف قدم الارتكاز للخارج قليلًا بزاوية من ٤٥° إلى ٩٠°." },
       { sec: "p2",
         question: "Why should you not lean back a lot as you raise the leg?", questionAr: "لماذا لا يجب أن تميل للخلف كثيرًا وأنت ترفع رجلك؟",
         options: ["You may fall back and the kick gets weak", "To make the kick faster", "To hide the kick", "There is no reason"], optionsAr: ["قد تسقط للخلف وتضعف الركلة", "لتكون الركلة أسرع", "لتختبئ الركلة", "لا يوجد سبب"],
@@ -7213,74 +7214,8 @@ class QuizSystem {
   };
   static PLAN = [["info", 2], ["p1", 1], ["p2", 2], ["p3", 2], ["p4", 2], ["p5", 1]];
 
-  static initialize(gameState) {
-    this.gameState           = gameState;
-    this.skillId              = gameState.currentSkill;
-    this.score               = 0;
-    this.currentQuestionIndex = 0;
-    this.selectedAnswer      = null;
-
-    this.wrongs = [];
-    this.hideResult();
-    const unlocked = Array.from(gameState.unlockedSkills || ['apchagi']);
-    let pool;
-    // v57: the Test is about THIS kick only (mixing in the other kicks made it harder and confusing)
-    this.interleaved = false;
-    // v55: a test is 10 questions picked from a much bigger bank (so a retry is a new test),
-    // and some of them are picture questions: "which phase of the kick is this?"
-    const pick = (sk, n, nPics) => {
-      const bank = this.shuffleArray([...(QuizSystem.QUESTION_BANK[sk] || [])]);
-      const pics = this.shuffleArray(this.phaseQuestions(sk)).slice(0, nPics);
-      // (Object.create keeps each question's live `image` getter — a spread would freeze a not-yet-rendered placeholder)
-      return [...pics, ...bank.slice(0, n - pics.length)].map(q => Object.assign(Object.create(q), { _fromSkill: sk }));
-    };
-    if (this.interleaved) {
-      // Interleaved practice: pull a few questions from EVERY unlocked skill,
-      // not just the current one — mixing topics strengthens retention more
-      // than drilling one skill in isolation.
-      pool = [];
-      unlocked.filter(sk => QuizSystem.QUESTION_BANK[sk]).forEach(sk => pool.push(...pick(sk, sk === this.skillId ? 5 : 3, 1)));
-    } else {
-      pool = this.ordered(QuizSystem.QUESTION_BANK[this.skillId] ? this.skillId : 'apchagi');
-    }
-    this.sessionQuestions = this.interleaved ? this.shuffleArray(pool) : pool;   // v63.1: in the order of the kick
-
-    const totalEl = document.getElementById('total-questions');
-    if (totalEl) totalEl.textContent = this.sessionQuestions.length;
-
-    this.answers = [];
-    this.renderHeader();
-    this.updateScoreDisplay();
-    this.loadQuestion(0);
-    this.setupEventListeners();
-  }
-
-  // v57 — a clearer Test: its name, the goal up front, one dot per question
-  static renderHeader() {
-    const ar = this.gameState.currentLanguage === 'ar', n = this.sessionQuestions.length;
-    const need = Math.ceil(n * GameConfig.SETTINGS.QUIZ_PASS / 100), name = TKD.skillName(this.skillId);
-    const last = !GameConfig.SKILLS[this.skillId]?.nextSkill;
-    const scr = document.getElementById('quiz-screen'); if (!scr) return;
-    const h = scr.querySelector('.game-container > h2'), d = scr.querySelector('.game-container > .description');
-    if (h) { h.removeAttribute('data-i18n'); h.textContent = ar ? `📝 اختبار ${name}` : `📝 ${name} test`; }
-    if (d) {
-      d.removeAttribute('data-i18n');
-      d.textContent = ar
-        ? `${TKD.num(n)} أسئلة بترتيب الركلة — أجب إجابة صحيحة عن ${TKD.num(need)} منها لتنجح ${last ? 'وتُنهي كل الركلات 🏆' : 'وتفتح الركلة التالية 🔓'}`
-        : `${n} questions in the order of the kick — get ${need} right to pass ${last ? 'and finish all the kicks 🏆' : 'and open the next kick 🔓'}`;
-    }
-    let dots = scr.querySelector('.quiz-dots');
-    if (!dots) { dots = document.createElement('ol'); dots.className = 'quiz-dots'; dots.setAttribute('aria-hidden', 'true'); scr.querySelector('.quiz-header')?.after(dots); }
-    this.renderDots();
-  }
-  static renderDots() {
-    const dots = document.querySelector('#quiz-screen .quiz-dots'); if (!dots || !this.sessionQuestions) return;
-    dots.innerHTML = this.sessionQuestions.map((_, i) => {
-      const a = this.answers?.[i];
-      return `<li class="${a === true ? 'ok' : a === false ? 'bad' : i === this.currentQuestionIndex ? 'now' : ''}">${a === true ? '✓' : a === false ? '✗' : TKD.num(i + 1)}</li>`;
-    }).join('');
-  }
-
+  // v64.3: the test screen is gone (the kick's test is Quiz Blast, v64.0) — what stays here is the
+  // coach's question bank and the order of a test, used by Quiz Blast and the review cards
   static SESSION = 10;
   // v63.1 — one test in the order of the kick: the kick's facts, then phases 1 → 5 (random
   // questions inside each part, so a retry is a new test); in phases 2, 3 and 4 one of the two
@@ -7324,204 +7259,6 @@ class QuizSystem {
       [arr[i], arr[j]] = [arr[j], arr[i]];
     }
     return arr;
-  }
-
-  static loadQuestion(index) {
-    if (index >= this.sessionQuestions.length) { this.completeQuiz(); return; }
-
-    const ar  = this.gameState.currentLanguage === 'ar';
-    const q   = this.sessionQuestions[index];
-
-    const questionText = document.getElementById('question-text');
-    if (questionText) questionText.textContent = ar ? q.questionAr : q.question;
-
-    // When interleaving multiple skills, show a small badge so the learner
-    // knows which kick this question is reviewing.
-    let badge = document.getElementById('quiz-skill-badge');
-    const qTextParent = questionText?.parentElement;
-    if (this.interleaved && qTextParent) {
-      if (!badge) {
-        badge = document.createElement('div');
-        badge.id = 'quiz-skill-badge';
-        badge.className = 'quiz-skill-badge';
-        qTextParent.insertBefore(badge, questionText);
-      }
-      const skill = GameConfig.SKILLS[q._fromSkill] || GameConfig.SKILLS.apchagi;
-      badge.textContent = `🥋 ${ar ? skill.name.ar : skill.name.en}`;
-      badge.style.display = '';
-    } else if (badge) {
-      badge.style.display = 'none';
-    }
-
-    const questionImage = document.getElementById('question-image');
-    if (questionImage && q.image) setBgWithFallback(questionImage, window.PoseShots ? PoseShots.live(q.image) : q.image);
-
-    const optionPairs = q.options.map((opt, i) => ({ en: opt, ar: q.optionsAr[i] }));
-    this.shuffledOptions = this.shuffleArray([...optionPairs]);
-
-    this.shuffledOptions.forEach((opt, i) => {
-      const textEl = document.getElementById(`option${i + 1}-text`);
-      if (textEl) textEl.textContent = ar ? opt.ar : opt.en;
-    });
-    // v55: أ ب ج د in Arabic, A B C D in English
-    document.querySelectorAll('.quiz-option .option-letter').forEach((el, i) => { el.textContent = (ar ? ['أ', 'ب', 'ج', 'د'] : ['A', 'B', 'C', 'D'])[i] || ''; });
-
-    this.selectedAnswer = null;
-    document.querySelectorAll('.quiz-option').forEach(btn => {
-      btn.classList.remove('selected', 'correct', 'incorrect');
-      btn.disabled = false;
-    });
-
-    const feedback = document.getElementById('quiz-feedback');
-    if (feedback) feedback.classList.add('hidden');
-
-    this.updateProgress(index);
-  }
-
-  static setupEventListeners() {
-    if (this._quizAbort) this._quizAbort.abort();
-    this._quizAbort = new AbortController();
-    const { signal } = this._quizAbort;
-    document.querySelectorAll('.quiz-option').forEach(option => {
-      option.addEventListener('click', (event) => {
-        if (this.selectedAnswer !== null) return;
-        this.selectAnswer(parseInt(event.currentTarget.dataset.answer));
-      }, { signal });
-    });
-
-    const nextBtn = document.getElementById('next-question-btn');
-    if (nextBtn) {
-      const clone = nextBtn.cloneNode(true);
-      nextBtn.parentNode.replaceChild(clone, nextBtn);
-      clone.addEventListener('click', () => this.nextQuestion());
-    }
-  }
-
-  static selectAnswer(answerIndex) {
-    this.selectedAnswer  = answerIndex;
-    const ar             = this.gameState.currentLanguage === 'ar';
-    const q              = this.sessionQuestions[this.currentQuestionIndex];
-
-    const chosenOption   = this.shuffledOptions[answerIndex - 1];
-    const isCorrect      = chosenOption && chosenOption.en === q.correctText;
-    window.Review?.noteText(q.question, !!isCorrect, this.gameState?.currentSkill);
-
-    const selectedBtn = document.querySelector(`.quiz-option[data-answer="${answerIndex}"]`);
-    if (selectedBtn) selectedBtn.classList.add('selected');
-
-    this.shuffledOptions.forEach((opt, i) => {
-      if (opt.en === q.correctText) {
-        const btn = document.querySelector(`.quiz-option[data-answer="${i + 1}"]`);
-        if (btn) btn.classList.add('correct');
-      }
-    });
-    if (!isCorrect && selectedBtn) selectedBtn.classList.add('incorrect');
-    if (!isCorrect) this.wrongs.push(q);
-
-    document.querySelectorAll('.quiz-option').forEach(b => b.disabled = true);
-
-    this.showFeedback(isCorrect, ar ? q.explanationAr : q.explanation,
-                                 ar ? q.optionsAr[q.options.indexOf(q.correctText)] : q.correctText);
-    this.gameState.playSound(isCorrect ? 'success' : 'error');
-
-    if (isCorrect) this.score += 20;
-    this.updateScoreDisplay();
-    if (this.answers) { this.answers[this.currentQuestionIndex] = !!isCorrect; this.renderDots(); }
-
-    const nextBtn = document.getElementById('next-question-btn');
-    if (nextBtn) {
-      nextBtn.disabled = false;
-      const lastQ = this.currentQuestionIndex >= this.sessionQuestions.length - 1;
-      const lbl = nextBtn.querySelector('span');
-      if (lbl) { lbl.removeAttribute('data-i18n'); lbl.textContent = lastQ ? (ar ? 'اعرض النتيجة 🏁' : 'See my result 🏁') : (ar ? 'السؤال التالي' : 'Next question'); }
-      // v57: on a phone the explanation and the button sit below the answers — bring them up
-      setTimeout(() => document.getElementById('quiz-feedback')?.scrollIntoView({ block: 'nearest', behavior: window.prefersReducedMotion?.() ? 'auto' : 'smooth' }), 120);
-    }
-  }
-
-  static showFeedback(isCorrect, explanation, correctAnswerText) {
-    const ar       = this.gameState.currentLanguage === 'ar';
-    const feedback = document.getElementById('quiz-feedback');
-    const title    = document.getElementById('quiz-result-title');
-    const expEl    = document.getElementById('quiz-explanation');
-    if (!feedback || !title || !expEl) return;
-
-    feedback.classList.remove('hidden');
-    if (isCorrect) {
-      title.textContent = ar ? '🎉 إجابة صحيحة!' : '🎉 Correct!';
-      title.style.color = 'var(--success-color)';
-    } else {
-      title.textContent = ar
-        ? `❌ إجابة خاطئة — الإجابة الصحيحة: «${correctAnswerText}»`
-        : `❌ Wrong — Correct answer: "${correctAnswerText}"`;
-      title.style.color = 'var(--danger-color)';
-    }
-    expEl.textContent = explanation;
-  }
-
-  static updateProgress(index) {
-    const currentEl = document.getElementById('current-question');
-    const totalEl   = document.getElementById('total-questions');
-    if (currentEl) currentEl.textContent = (index ?? this.currentQuestionIndex) + 1;
-    if (totalEl)   totalEl.textContent   = this.sessionQuestions.length;
-    const nextBtn = document.getElementById('next-question-btn');
-    if (nextBtn) nextBtn.disabled = true;
-  }
-
-  static updateScoreDisplay() {
-    const scoreEl = document.getElementById('quiz-score');
-    if (scoreEl) scoreEl.textContent = TKD.num(Math.round(this.score / 20));   // v57: right answers, not points
-    const lbl = scoreEl?.previousElementSibling;
-    if (lbl) { lbl.removeAttribute('data-i18n'); lbl.textContent = this.gameState.currentLanguage === 'ar' ? '✅ الإجابات الصحيحة:' : '✅ Right:'; }
-  }
-
-  static nextQuestion() {
-    this.currentQuestionIndex++;
-    this.renderDots();
-    this.loadQuestion(this.currentQuestionIndex);
-    if (this.currentQuestionIndex < this.sessionQuestions.length) document.querySelector('#quiz-screen .quiz-header')?.scrollIntoView({ block: 'start', behavior: window.prefersReducedMotion?.() ? 'auto' : 'smooth' });
-    this.gameState.playSound('click');
-  }
-
-  static completeQuiz() {
-    const ar       = this.gameState.currentLanguage === 'ar';
-    const maxScore = this.sessionQuestions.length * 20;
-    const accuracy = Math.round((this.score / maxScore) * 100);
-
-    if (accuracy >= GameConfig.SETTINGS.QUIZ_PASS) {
-      const isFirstClear = this.gameState.completeGame('quiz', accuracy);
-      this.gameState.playSound('win');
-      screenTimeout(() => WinnerSystem.show('quiz', accuracy, this.gameState, isFirstClear), 1000);
-    } else {
-      this.gameState.playSound('error');
-      if (this.gameState.trackFailure(accuracy, 'quiz')) return;
-      // v55: no silent restart — the child sees which answers to review, then tries again
-      this.showResult(accuracy);
-    }
-  }
-
-  static hideResult() { document.getElementById('quiz-result-card')?.remove(); document.querySelector('#quiz-screen .quiz-container')?.classList.remove('quiz-done'); }
-  static showResult(accuracy) {
-    const ar = this.gameState.currentLanguage === 'ar', PASS = GameConfig.SETTINGS.QUIZ_PASS;
-    const box = document.querySelector('#quiz-screen .quiz-container'); if (!box) return;
-    this.hideResult();
-    box.classList.add('quiz-done');
-    const card = document.createElement('div');
-    card.id = 'quiz-result-card'; card.className = 'quiz-result-card';
-    const right = (q) => ar ? q.optionsAr[q.options.indexOf(q.correctText)] : q.correctText;
-    card.innerHTML = `
-      <div class="qr-ring" style="--p:${accuracy}"><b>${ar ? TKD.num(accuracy) : accuracy}%</b></div>
-      <h3>${ar ? `${accuracy >= 50 ? 'اقتربت جدًا!' : 'نحتاج إلى بعض المراجعة.'} المطلوب ${TKD.num(PASS)}%` : `${accuracy >= 50 ? 'So close!' : 'Let’s review a little.'} You need ${PASS}%`}</h3>
-      <p>${ar ? 'راجع هذه الإجابات ثم حاول مرة أخرى — ستتغير الأسئلة:' : 'Review these answers, then try again — the questions will change:'}</p>
-      <ol class="quiz-review">${this.wrongs.map(q => `<li><span>${TKD.esc(ar ? q.questionAr : q.question)}</span><b>✓ ${TKD.esc(right(q))}</b></li>`).join('')}</ol>
-      <div class="quiz-result-btns">
-        <button type="button" class="btn btn-success" id="quiz-retry">🔁 ${ar ? 'حاول مرة أخرى' : 'Try again'}</button>
-        <button type="button" class="btn" id="quiz-to-lesson">🎓 ${ar ? 'راجع الدرس' : 'Review the lesson'}</button>
-      </div>`;
-    box.appendChild(card);
-    card.querySelector('#quiz-retry').addEventListener('click', () => { this.gameState.playSound('click'); this.initialize(this.gameState); window.scrollTo({ top: 0, behavior: 'smooth' }); });
-    card.querySelector('#quiz-to-lesson').addEventListener('click', () => { this.gameState.playSound('click'); switchScreen('learning'); });
-    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
 
@@ -9939,13 +9676,6 @@ function toggleLanguage() {
         break;
       case 'report':
         ReportSystem.initialize(GameStateInstance);
-        break;
-      case 'quiz':
-        // Unanswered: redraw the same question. Answered: the next one appears
-        // in the new language (redrawing now would let it be answered twice).
-        if (QuizSystem.selectedAnswer === null && QuizSystem.sessionQuestions) {
-          QuizSystem.loadQuestion(QuizSystem.currentQuestionIndex);
-        }
         break;
       case 'learning': {
         // If the child is on the video page, re-rendering used to recreate
@@ -15587,7 +15317,6 @@ const TKDHints = {
                        } },
     'error-hunt':    { target: '#eh-board', en: 'Tap where the mistake is', ar: 'اضغط على مكان الخطأ' },
     'quiz-blast':    { target: '#qb-arena', en: 'Move and shoot the right answer', ar: 'تحرّك واضرب الإجابة الصحيحة' },
-    'quiz':          { target: '#quiz-screen .game-container', en: 'Choose the right answer', ar: 'اختر الإجابة الصحيحة' },
     'board-break':   { target: '#bb-wrap', en: 'Pick the foot part, then tap when the target is in the middle', ar: 'اختر جزء القدم، ثم اضغط عندما يصبح التصويب في المنتصف' },
     'paddle-reflex': { target: '#pr-wrap', en: 'Tap only the paddle at the right target — fast!', ar: 'اضغط فقط على المضرب الموجود عند الهدف الصحيح — بسرعة!' },
     'phase-rhythm':  { target: '#rh-pads', en: 'Tap the phase matching the number when it reaches its slot', ar: 'اضغط على المرحلة المطابقة للرقم عندما يصل إلى خانته' },
@@ -16678,7 +16407,7 @@ const Coach = {
   },
   // v63.3 — the reading voice of this device: "automatic" (the best one) or any voice it has
   bindVoice() {
-    const SAMPLE = { ar: 'أهلًا يا بطل! أنا كوتش سيف. لف قدم الارتكاز للخارج بزاوية ٤٥°:٩٠°، واضرب بقاعدة الأصابع.', en: "Hi champ! I'm Coach Seif. Turn the standing foot out 45°–90°, and strike with the ball of the foot." };
+    const SAMPLE = { ar: 'أهلًا يا بطل! أنا كوتش سيف. لف قدم الارتكاز للخارج بزاوية من ٤٥° إلى ٩٠°، واضرب بقاعدة الأصابع.', en: "Hi champ! I'm Coach Seif. Turn the standing foot out 45°–90°, and strike with the ball of the foot." };
     const LANG = { ar: 'ar-EG', en: 'en-US' };
     const fill = () => {
       ['ar', 'en'].forEach(L => {
@@ -18514,7 +18243,7 @@ const TabBar = {
   TABS: [
     { id: 'train', icon: '🏠', en: 'Home', ar: 'الرئيسية', screens: ['home', 'warmup', 'skill-menu', 'learning', 'curriculum', 'quiz', 'cooldown'],
       direct: () => switchScreen('home') },
-    { id: 'play', icon: '🎮', en: 'Play', ar: 'العب', screens: ['games', 'form-control', 'puzzle', 'action', 'error-hunt', 'quiz-blast', 'board-break', 'paddle-reflex', 'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag', 'league', 'versus'],
+    { id: 'play', icon: '🎮', en: 'Play', ar: 'العب', screens: ['games', 'referee', 'form-control', 'puzzle', 'action', 'error-hunt', 'quiz-blast', 'board-break', 'paddle-reflex', 'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag', 'league', 'versus'],
       items: [
         { icon: '🎮', en: 'All games', ar: 'كل الألعاب', go: () => attemptStageNav('games'), hot: true },
         { icon: '⚔️', en: 'Challenge a friend', ar: 'تحدَّ صديقك', go: () => switchScreen('versus') }
@@ -20761,20 +20490,6 @@ const Exam = {
 };
 window.Exam = Exam;
 (function wireExam() {
-  const init = QuizSystem.initialize.bind(QuizSystem);
-  QuizSystem.initialize = (gs) => {
-    const r = init(gs);
-    // the intro the first time this kick's test opens in a while (not on "try again")
-    const k = `taekwondoJourneyExamIntro:${TKD.pid() || 'g'}:${gs.currentSkill}`;
-    if (Date.now() - (TKD.read(k, 0) || 0) > 10 * 60e3) { TKD.write(k, Date.now()); setTimeout(() => { if (document.querySelector('#quiz-screen.active')) Exam.intro(); }, 300); }
-    return r;
-  };
-  const done = QuizSystem.completeQuiz.bind(QuizSystem);
-  QuizSystem.completeQuiz = () => {
-    const max = QuizSystem.sessionQuestions.length * 20, acc = Math.round((QuizSystem.score / max) * 100);
-    if (acc >= GameConfig.SETTINGS.QUIZ_PASS) Exam._passed = QuizSystem.skillId;
-    return done();
-  };
   document.addEventListener('tkd:screen', (e) => { if (e.detail?.screenId === 'winner') setTimeout(() => Exam.ceremony(), 60); });
 })();
 
@@ -21671,3 +21386,126 @@ document.addEventListener('tkd:screen', (e) => { try { PhoneFold.apply(e.detail?
   const r = HomeHub.render.bind(HomeHub);
   HomeHub.render = (...a) => { const out = r(...a); try { Mission.mount(); } catch (e) {} return out; };
 })();
+
+
+// =====================================================================
+// v64.3 — THE LITTLE REFEREE 🧑‍⚖️ (the rules of sparring). The child is the referee: a short
+// scene between Hong (red) and Chung (blue) → a point, a foul, or nothing? → how many points?
+// Then the referee's Korean commands. An EXTRA game (not on the road, nothing is unlocked by it)
+// until the coach confirms the rules — the scenes are the table on the coach's review page.
+// =====================================================================
+const Referee = {
+  SCENES: [
+    { ic: '🦶🛡️', ar: 'ركلة صحيحة على واقي الصدر', en: 'A clean kick on the chest protector', a: 'point', pts: 2,
+      why: ['ركلة صحيحة على الواقي = نقطتان.', 'A clean kick on the protector = 2 points.'] },
+    { ic: '🦶😮', ar: 'ركلة صحيحة على الرأس', en: 'A clean kick to the head', a: 'point', pts: 3,
+      why: ['ركلة صحيحة على الرأس = ٣ نقاط.', 'A clean kick to the head = 3 points.'] },
+    { ic: '🦶💪', ar: 'ركلة تلمس الذراع فقط (صدّها المنافس)', en: 'The kick only touches the arm (it was blocked)', a: 'none',
+      why: ['صدّها المنافس بذراعه، فلا نقطة ولا مخالفة.', 'The arm blocked it — no point, no foul.'] },
+    { ic: '🦶🦵', ar: 'ركلة تحت الحزام (على الرجل)', en: 'A kick below the belt (on the leg)', a: 'foul',
+      why: ['الركل تحت الحزام ممنوع.', 'Kicking below the belt is not allowed.'] },
+    { ic: '👊😵', ar: 'لكمة على الوجه', en: 'A punch to the face', a: 'foul',
+      why: ['اللكم على الوجه ممنوع.', 'Punching the face is not allowed.'] },
+    { ic: '🤲↔️', ar: 'دفع المنافس باليدين أو مسكه', en: 'Pushing or holding the opponent', a: 'foul',
+      why: ['الدفع والمسك ممنوعان.', 'Pushing and holding are not allowed.'] },
+    { ic: '🚶⛔', ar: 'الخروج من حدود الملعب', en: 'Stepping out of the ring', a: 'foul',
+      why: ['الخروج من حدود الملعب مخالفة.', 'Stepping out of the ring is a foul.'] },
+    { ic: '🔙🏃', ar: 'إعطاء الظهر للمنافس والهروب', en: 'Turning your back and running away', a: 'foul',
+      why: ['الهروب وإعطاء الظهر مخالفة.', 'Turning your back to escape is a foul.'] }
+  ],
+  WORDS: [
+    { ko: '그만', ro: 'Keuman', ar: 'كيومان', mean: ['توقّف', 'Stop'] },
+    { ko: '갈려', ro: 'Kalyeo', ar: 'كاليو', mean: ['افصلا', 'Break'] },
+    { ko: '계속', ro: 'Kyesok', ar: 'كيسوك', mean: ['استمرا', 'Continue'] },
+    { ko: '시작', ro: 'Sijak', ar: 'شيجاك', mean: ['ابدأ', 'Start'] }
+  ],
+  shuffle(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; },
+  start() {
+    this.q = [...this.shuffle(this.SCENES).map(x => ({ kind: 'scene', ...x })), ...this.shuffle(this.WORDS).slice(0, 3).map(x => ({ kind: 'word', ...x }))];
+    this.i = 0; this.right = 0; this.step = 1; this.render();
+  },
+  root() { return document.getElementById('referee-root'); },
+  head() {
+    const n = this.q.length, i = Math.min(this.i + 1, n);
+    return `<h2>🧑‍⚖️ ${TKD.t('The Little Referee', 'الحكم الصغير')}</h2>
+      <p class="description">${TKD.t('You are the referee! Watch each moment and decide: a point, a foul, or nothing?', 'أنت الحكم! انظر إلى كل لحظة وقرّر: نقطة، أم مخالفة، أم لا شيء؟')}</p>
+      <p class="rf-beta">🧪 ${TKD.t('First version — Coach Seif is checking the rules', 'نسخة أولى — كوتش سيف يراجع القواعد')}</p>
+      <div class="eh-hud"><span class="eh-chip">${TKD.t(`Moment ${i} / ${n}`, `اللحظة ${TKD.num(i)} / ${TKD.num(n)}`)}</span><span class="eh-chip">✅ ${TKD.num(this.right)}</span></div>`;
+  },
+  render(msg) {
+    const r = this.root(); if (!r) return;
+    const it = this.q[this.i];
+    if (!it) return this.finish();
+    let body;
+    if (it.kind === 'scene') {
+      const btns = this.step === 1
+        ? `<button type="button" class="btn rf-a rf-ok" data-a="point">✅ ${TKD.t('Point', 'نقطة')}</button>
+           <button type="button" class="btn rf-a rf-bad" data-a="foul">🚫 ${TKD.t('Foul', 'مخالفة')}</button>
+           <button type="button" class="btn rf-a" data-a="none">➖ ${TKD.t('Nothing', 'لا شيء')}</button>`
+        : [1, 2, 3].map(n => `<button type="button" class="btn rf-a rf-ok" data-p="${n}">${TKD.num(n)} ${TKD.t(n === 1 ? 'point' : 'points', n === 1 ? 'نقطة' : n === 2 ? 'نقطتان' : 'نقاط')}</button>`).join('');
+      body = `<div class="rf-scene"><div class="rf-fighters"><span class="rf-hong">🔴 ${TKD.t('Hong', 'هونغ')}</span><span class="rf-ic" aria-hidden="true">${it.ic}</span><span class="rf-chung">🔵 ${TKD.t('Chung', 'تشونغ')}</span></div>
+          <p class="rf-what">${TKD.esc(TKD.t(it.en, it.ar))}</p>
+          <p class="rf-ask">${this.step === 1 ? TKD.t('Your decision, referee?', 'ما قرارك يا حكم؟') : TKD.t('How many points?', 'كم نقطة؟')}</p></div>
+        <div class="rf-btns">${btns}</div>`;
+    } else {
+      const opts = this.shuffle(this.WORDS.map(w => w.mean));
+      body = `<div class="rf-scene"><p class="rf-ask">${TKD.t('The referee says:', 'الحكم يقول:')}</p>
+          <p class="rf-word"><b>${it.ko}</b> <span>${TKD.t(it.ro, it.ar)}</span></p>
+          <p class="rf-ask">${TKD.t('What does it mean?', 'ماذا تعني؟')}</p></div>
+        <div class="rf-btns">${opts.map(m => `<button type="button" class="btn rf-a" data-m="${TKD.esc(m[1])}">${TKD.esc(TKD.t(m[1], m[0]))}</button>`).join('')}</div>`;
+    }
+    r.innerHTML = `${this.head()}${body}<p class="rf-msg" aria-live="polite">${msg || ''}</p>
+      <div class="center-buttons"><button class="btn back-btn" type="button" data-back>← ${TKD.t('Back to my road', 'ارجع إلى الطريق')}</button></div>`;
+    r.querySelector('[data-back]').addEventListener('click', () => switchScreen('home'));
+    r.querySelectorAll('.rf-a').forEach(b => b.addEventListener('click', () => this.answer(b)));
+  },
+  answer(b) {
+    const it = this.q[this.i], gs = TKD.gs(), say = (ok, t) => { gs?.playSound(ok ? 'success' : 'error'); return `${ok ? '✅' : '❌'} ${t}`; };
+    if (it.kind === 'word') {
+      const ok = b.dataset.m === it.mean[1]; if (ok) this.right++;
+      this.i++; this.step = 1;
+      return this.render(say(ok, TKD.t(`${it.ro} = ${it.mean[1]}`, `${it.ar} = ${it.mean[0]}`)));
+    }
+    if (this.step === 1) {
+      const ok = b.dataset.a === it.a;
+      if (ok && it.a === 'point') { this.step = 2; return this.render(say(true, TKD.t('Yes, a point!', 'نعم، نقطة!'))); }
+      if (ok) this.right++;
+      this.i++; return this.render(say(ok, TKD.t(it.why[1], it.why[0])));
+    }
+    const ok = +b.dataset.p === it.pts; if (ok) this.right++;
+    this.i++; this.step = 1; return this.render(say(ok, TKD.t(it.why[1], it.why[0])));
+  },
+  finish() {
+    const r = this.root(), n = this.q.length, pct = Math.round(100 * this.right / n);
+    TKD.gs()?.playSound(pct >= 60 ? 'win' : 'click');
+    r.innerHTML = `${this.head()}<div class="rf-scene rf-end"><div class="rf-ic">${pct >= 60 ? '🏆' : '💪'}</div>
+        <h3>${pct >= 60 ? TKD.t('Great refereeing!', 'تحكيم رائع!') : TKD.t('Good try — again?', 'محاولة جيدة — مرة أخرى؟')}</h3>
+        <p>${TKD.t(`${this.right} of ${n} right (${pct}%)`, `${TKD.num(this.right)} من ${TKD.num(n)} صحيحة (${TKD.num(pct)}٪)`)}</p></div>
+      <div class="rf-btns"><button type="button" class="btn btn-success" data-again>🔁 ${TKD.t('Play again', 'العب مرة أخرى')}</button>
+        <button type="button" class="btn" data-back>← ${TKD.t('Back to my road', 'ارجع إلى الطريق')}</button></div>`;
+    r.querySelector('[data-again]').addEventListener('click', () => this.start());
+    r.querySelector('[data-back]').addEventListener('click', () => switchScreen('home'));
+  }
+};
+window.Referee = Referee;
+document.addEventListener('tkd:screen', (e) => { if (e.detail?.screenId === 'referee') Referee.start(); });
+document.addEventListener('tkd:lang', () => { if (document.querySelector('#referee-screen.active') && Referee.q) Referee.render(); });
+// its card on the games screen, under the units, as an extra game
+document.addEventListener('tkd:screen', (e) => {
+  if (e.detail?.screenId !== 'games') return;
+  setTimeout(() => {
+    const gc = document.querySelector('#games-screen .game-container'); if (!gc) return;
+    let sec = gc.querySelector('.rf-extra');
+    if (!sec) {
+      sec = document.createElement('section'); sec.className = 'unit-sec rf-extra';
+      const last = [...gc.querySelectorAll('.unit-sec')].pop();
+      (last ? last.after(sec) : gc.appendChild(sec));
+    }
+    sec.innerHTML = `<h3 class="unit-sec-title"><span class="us-n">⭐</span><span class="us-t">${TKD.t('Extra game', 'لعبة إضافية')}</span></h3>
+      <div class="game-cards unit-cards"><div class="game-card rf-card" role="button" tabindex="0"><div class="game-icon">🧑‍⚖️</div>
+        <h3>${TKD.t('The Little Referee', 'الحكم الصغير')}</h3><p>${TKD.t('The rules of sparring: point or foul?', 'قانون النزال: نقطة أم مخالفة؟')}</p>
+        <span class="gc-test-tag">🧪 ${TKD.t('First version', 'نسخة أولى')}</span></div></div>`;
+    const c = sec.querySelector('.rf-card'), go = () => { TKD.gs()?.playSound('click'); switchScreen('referee'); };
+    c.addEventListener('click', go); c.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); go(); } });
+  }, 60);
+});

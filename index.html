@@ -1029,70 +1029,11 @@
       </div>
     </div>
 
-    <div id="quiz-screen" class="screen">
-      <div class="game-container">
-        <h2 data-i18n="taekwondoQuiz">❓ Taekwondo Knowledge Quiz</h2>
-        <p class="description" data-i18n="quizDescription">Test your understanding of Taekwondo techniques and
-          terminology</p>
+    <!-- v64.3: the test screen is gone — the kick's test is Quiz Blast -->
 
-        <div class="quiz-container">
-          <div class="quiz-header">
-            <div class="quiz-progress">
-              <span data-i18n="question">Question</span> <span id="current-question">1</span>/<span
-                id="total-questions">3</span>
-            </div>
-            <div class="quiz-score">
-              <span data-i18n="score">Score:</span> <span id="quiz-score">0</span>
-            </div>
-          </div>
-
-          <div class="quiz-question">
-            <h3 id="question-text">What is the Korean name for front kick?</h3>
-            <button type="button" class="speak-btn" title="Listen" aria-label="Listen" onclick="speakElementText('question-text')">
-              <i class="fas fa-volume-up"></i>
-            </button>
-            <div class="question-image" id="question-image"></div>
-          </div>
-
-          <div class="quiz-options">
-            <button class="btn quiz-option" data-answer="1">
-              <span class="option-letter">A</span>
-              <span class="option-text" id="option1-text">Ap Chagi</span>
-            </button>
-            <button class="btn quiz-option" data-answer="2">
-              <span class="option-letter">B</span>
-              <span class="option-text" id="option2-text">Dolyo Chagi</span>
-            </button>
-            <button class="btn quiz-option" data-answer="3">
-              <span class="option-letter">C</span>
-              <span class="option-text" id="option3-text">Yeop Chagi</span>
-            </button>
-            <button class="btn quiz-option" data-answer="4">
-              <span class="option-letter">D</span>
-              <span class="option-text" id="option4-text">Dwi Chagi</span>
-            </button>
-          </div>
-
-          <div class="quiz-feedback hidden" id="quiz-feedback">
-            <div class="coach-message">
-              <div class="coach-visual-small" id="coach-quiz"></div>
-              <div class="message-content">
-                <h3 id="quiz-result-title"></h3>
-                <p id="quiz-explanation"></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="quiz-controls">
-            <button class="btn" id="next-question-btn" disabled>
-              <i class="fas fa-forward"></i> <span data-i18n="nextQuestion">Next Question</span>
-            </button>
-            <button class="btn" onclick="switchScreen('home')">
-              <i class="fas fa-arrow-left"></i> <span data-i18n="backToRoad">Back to my road</span>
-            </button>
-          </div>
-        </div>
-      </div>
+    <!-- v64.3: the Little Referee (rules of sparring) — an extra game, a first version for the coach to check -->
+    <div id="referee-screen" class="screen">
+      <div class="game-container" id="referee-root"></div>
     </div>
 
     <div id="character-change-screen" class="screen">
