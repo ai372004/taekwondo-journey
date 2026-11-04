@@ -6670,3 +6670,17 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }   /* iOS Safari
   .qb-arena { height: clamp(220px, calc(100vh - 110px), 520px); height: clamp(220px, calc(100dvh - 110px), 520px); }
   .qb-controls { display: none; }
 }
+
+/* v64.2 (the testers): on a phone the lesson card is taller than the screen — the phase's name
+   and number stay pinned at the top while the child scrolls, and the phase's main sentence comes
+   right under them, above the fighter (the notes stay below) */
+@media (max-width: 760px) {
+  .phase-card { overflow: visible; overflow: clip; }
+  .phase-card-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 6; isolation: isolate; border-radius: var(--radius-large) var(--radius-large) 0 0; box-shadow: 0 6px 14px rgba(0,0,0,.35); }
+  .phase-card-header::before { content: ''; position: absolute; inset: 0; z-index: -1; background: #1d3a46; border-radius: inherit; }
+  .phase-card-body { flex-direction: column; }
+  .phase-info-col { display: contents; }
+  .phase-focus-box { order: -1; margin: 10px 14px 0; }
+  .phase-tips-list, .phase-more-btn { margin-inline: 14px; }
+  .phase-tips-list { margin-block: 10px 12px; }
+}

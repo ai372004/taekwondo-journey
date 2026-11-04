@@ -906,7 +906,7 @@ function watchVideoLoading(video) {
 // Arabic or English voice, degrees and ranges in words)
 // v63.4 — the version a tester can read on the start screen and in Coach → Settings (bump it
 // together with CACHE_VERSION in sw.js)
-const APP_VERSION = '64.1';
+const APP_VERSION = '64.2';
 
 const SpeechVoice = {
   KEY: 'taekwondoJourneyVoice',
