@@ -906,7 +906,7 @@ function watchVideoLoading(video) {
 // Arabic or English voice, degrees and ranges in words)
 // v63.4 — the version a tester can read on the start screen and in Coach → Settings (bump it
 // together with CACHE_VERSION in sw.js)
-const APP_VERSION = '64.3.1';
+const APP_VERSION = '64.4';
 
 const SpeechVoice = {
   KEY: 'taekwondoJourneyVoice',
@@ -18243,10 +18243,11 @@ const TabBar = {
   TABS: [
     { id: 'train', icon: '🏠', en: 'Home', ar: 'الرئيسية', screens: ['home', 'warmup', 'skill-menu', 'learning', 'curriculum', 'quiz', 'cooldown'],
       direct: () => switchScreen('home') },
-    { id: 'play', icon: '🎮', en: 'Play', ar: 'العب', screens: ['games', 'referee', 'form-control', 'puzzle', 'action', 'error-hunt', 'quiz-blast', 'board-break', 'paddle-reflex', 'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag', 'league', 'versus'],
+    { id: 'play', icon: '🎮', en: 'Play', ar: 'العب', screens: ['games', 'law', 'form-control', 'puzzle', 'action', 'error-hunt', 'quiz-blast', 'board-break', 'paddle-reflex', 'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag', 'league', 'versus'],
       items: [
         { icon: '🎮', en: 'All games', ar: 'كل الألعاب', go: () => attemptStageNav('games'), hot: true },
-        { icon: '⚔️', en: 'Challenge a friend', ar: 'تحدَّ صديقك', go: () => switchScreen('versus') }
+        { icon: '⚔️', en: 'Challenge a friend', ar: 'تحدَّ صديقك', go: () => switchScreen('versus') },
+        { icon: '⚖️', en: 'Rules of sparring', ar: 'قانون النزال', go: () => switchScreen('law') }
       ] },
     { id: 'mine', icon: '🦸', en: 'My page', ar: 'صفحتي', screens: ['profile', 'trophy-room', 'players', 'character-change', 'winner'],
       direct: () => Profile.open() },
@@ -20883,13 +20884,13 @@ setInterval(() => { try { FinalStretch.tick(); } catch (e) {} }, 400);
 const FirstTour = {
   key() { return `taekwondoJourneyTour:${TKD.pid() || 'guest'}`; },
   STEPS: [
-    { sel: null, en: "Hi champion! I'm Coach Seif, your coach. Come, I'll show you around!", ar: 'أهلًا يا بطل! أنا كوتش سيف، مدربك في التمرين. تعال أُرِك اللعبة!' },
-    { sel: '.jr-units', en: 'Every kick has 3 units. Finish one and the next one opens.', ar: 'في كل ركلة ٣ وحدات. أنهِ وحدة لتُفتح الوحدة التالية.' },
-    { sel: '.jr-board', en: 'This is your road. Every circle is a step, and your fighter stands on the next one.', ar: 'هذا طريقك. كل دائرة خطوة، وبطلك واقف عند الخطوة التالية.' },
-    { sel: '.jr-go', en: 'This big button always takes you to the next step.', ar: 'هذا الزر الكبير يأخذك مباشرة إلى الخطوة التالية.' },
-    { sel: '.daily-fold', en: 'Every day you get 3 small missions. Finish them and open the gift!', ar: 'لك كل يوم ٣ مهام صغيرة. أنهِها وافتح الهدية!' },
-    { sel: '#tabbar [data-tab="play"]', en: 'And here are all the games.', ar: 'وهنا كل الألعاب.' },
-    { sel: '.jr-go', en: "Ready? Tap the big button and let's start!", ar: 'جاهز؟ اضغط على الزر الكبير وهيا نبدأ!' }
+    { sel: null, en: "Welcome, champion! I'm your smart coach, and I'll help you learn some Taekwondo kicks. Let's start a tour of the game!", ar: 'أهلًا بك يا بطل! أنا مدرّبك الذكي، وسأساعدك على تعلّم بعض ركلات التايكوندو. هيا نبدأ جولة تعريفية في اللعبة!' },   // v64.4: the club's own words
+    { sel: '.jr-units', en: 'Every kick has 3 units. Finish one and the next one opens.', ar: 'سنتعلّم معًا ثلاث ركلات في هذه اللعبة. لكل ركلة ثلاث وحدات. أكمل وحدة، وستُفتح لك الوحدة التالية.' },
+    { sel: '.jr-board', en: 'This is your road. Every circle is a step, and your fighter stands on the next one.', ar: 'هذا طريقك. كل دائرة خطوة جديدة في طريقك نحو التعلّم.' },
+    { sel: '.jr-go', en: 'This big button always takes you to the next step.', ar: 'اضغط على هذا الزر الكبير لتنتقل إلى الخطوة التالية.' },
+    { sel: '.daily-fold', en: 'Every day you get 3 small missions. Finish them and open the gift!', ar: 'في كل يوم، ثلاث مهام صغيرة بانتظارك. أنجزها لتفتح هديتك!' },
+    { sel: '#tabbar [data-tab="play"]', en: 'And here are all the games.', ar: 'وهنا تجد جميع الألعاب.' },
+    { sel: '.jr-go', en: "Ready? Tap the big button and let's start!", ar: 'هل أنت مستعد؟ اضغط على الزر الكبير، وهيا نبدأ!' }
   ],
   done() { return !!TKD.read(this.key(), false); },
   start(force = false) {
@@ -21387,125 +21388,130 @@ document.addEventListener('tkd:screen', (e) => { try { PhoneFold.apply(e.detail?
   HomeHub.render = (...a) => { const out = r(...a); try { Mission.mount(); } catch (e) {} return out; };
 })();
 
-
 // =====================================================================
-// v64.3 — THE LITTLE REFEREE 🧑‍⚖️ (the rules of sparring). The child is the referee: a short
-// scene between Hong (red) and Chung (blue) → a point, a foul, or nothing? → how many points?
-// Then the referee's Korean commands. An EXTRA game (not on the road, nothing is unlocked by it)
-// until the coach confirms the rules — the scenes are the table on the coach's review page.
+// v64.4 — ⚖️ THE RULES OF SPARRING: the club's two games, word for word — the cards to learn
+// first (6 sections) and the Little Referee (6 levels × 5 stations, each level opens the next).
+// Its own section, not tied to a kick: on the map, in the games list and in "Play".
 // =====================================================================
-const Referee = {
-  SCENES: [
-    { ic: '🦶🛡️', ar: 'ركلة صحيحة على واقي الصدر', en: 'A clean kick on the chest protector', a: 'point', pts: 2,
-      why: ['ركلة صحيحة على الواقي = نقطتان.', 'A clean kick on the protector = 2 points.'] },
-    { ic: '🦶😮', ar: 'ركلة صحيحة على الرأس', en: 'A clean kick to the head', a: 'point', pts: 3,
-      why: ['ركلة صحيحة على الرأس = ٣ نقاط.', 'A clean kick to the head = 3 points.'] },
-    { ic: '🦶💪', ar: 'ركلة تلمس الذراع فقط (صدّها المنافس)', en: 'The kick only touches the arm (it was blocked)', a: 'none',
-      why: ['صدّها المنافس بذراعه، فلا نقطة ولا مخالفة.', 'The arm blocked it — no point, no foul.'] },
-    { ic: '🦶🦵', ar: 'ركلة تحت الحزام (على الرجل)', en: 'A kick below the belt (on the leg)', a: 'foul',
-      why: ['الركل تحت الحزام ممنوع.', 'Kicking below the belt is not allowed.'] },
-    { ic: '👊😵', ar: 'لكمة على الوجه', en: 'A punch to the face', a: 'foul',
-      why: ['اللكم على الوجه ممنوع.', 'Punching the face is not allowed.'] },
-    { ic: '🤲↔️', ar: 'دفع المنافس باليدين أو مسكه', en: 'Pushing or holding the opponent', a: 'foul',
-      why: ['الدفع والمسك ممنوعان.', 'Pushing and holding are not allowed.'] },
-    { ic: '🚶⛔', ar: 'الخروج من حدود الملعب', en: 'Stepping out of the ring', a: 'foul',
-      why: ['الخروج من حدود الملعب مخالفة.', 'Stepping out of the ring is a foul.'] },
-    { ic: '🔙🏃', ar: 'إعطاء الظهر للمنافس والهروب', en: 'Turning your back and running away', a: 'foul',
-      why: ['الهروب وإعطاء الظهر مخالفة.', 'Turning your back to escape is a foul.'] }
-  ],
-  WORDS: [
-    { ko: '그만', ro: 'Keuman', ar: 'كيومان', mean: ['توقّف', 'Stop'] },
-    { ko: '갈려', ro: 'Kalyeo', ar: 'كاليو', mean: ['افصلا', 'Break'] },
-    { ko: '계속', ro: 'Kyesok', ar: 'كيسوك', mean: ['استمرا', 'Continue'] },
-    { ko: '시작', ro: 'Sijak', ar: 'شيجاك', mean: ['ابدأ', 'Start'] }
-  ],
-  shuffle(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; },
-  start() {
-    this.q = [...this.shuffle(this.SCENES).map(x => ({ kind: 'scene', ...x })), ...this.shuffle(this.WORDS).slice(0, 3).map(x => ({ kind: 'word', ...x }))];
-    this.i = 0; this.right = 0; this.step = 1; this.render();
-  },
-  root() { return document.getElementById('referee-root'); },
-  head() {
-    const n = this.q.length, i = Math.min(this.i + 1, n);
-    return `<h2>🧑‍⚖️ ${TKD.t('The Little Referee', 'الحكم الصغير')}</h2>
-      <p class="description">${TKD.t('You are the referee! Watch each moment and decide: a point, a foul, or nothing?', 'أنت الحكم! انظر إلى كل لحظة وقرّر: نقطة، أم مخالفة، أم لا شيء؟')}</p>
-      <p class="rf-beta">🧪 ${TKD.t('First version — Coach Seif is checking the rules', 'نسخة أولى — كوتش سيف يراجع القواعد')}</p>
-      <div class="eh-hud"><span class="eh-chip">${TKD.t(`Moment ${i} / ${n}`, `اللحظة ${TKD.num(i)} / ${TKD.num(n)}`)}</span><span class="eh-chip">✅ ${TKD.num(this.right)}</span></div>`;
-  },
-  render(msg) {
+const Law = {
+  DATA: {"levels": [{"id": 1, "title": "المستوى 1: الزي والتحية", "nodes": [{"id": 1, "icon": "🥋", "q": "ماذا يسمى زي التايكوندو الأبيض الرسمي؟", "options": ["الدوبوك (Dobok)", "الهوجو (Hogo)", "الدوجانغ (Dojang)"], "ans": 0, "exp": "الدوبوك (Dobok) هو زي التايكوندو الأبيض الرسمي."}, {"id": 2, "icon": "⭐", "q": "ماذا تسمى صالة تدريب التايكوندو؟", "options": ["الدوجانغ (Dojang)", "الهوجو (Hogo)", "الدوبوك (Dobok)"], "ans": 0, "exp": "الدوجانغ (Dojang) هي صالة التدريب."}, {"id": 3, "icon": "🎯", "q": "ماذا تعني كلمة (كيونغ-ري) في تحية التايكوندو؟", "options": ["الانحناء والتحية", "الوقوف بانتباه", "إعلان الاستعداد"], "ans": 0, "exp": "كيونغ-ري تعني الانحناء باحترام."}, {"id": 4, "icon": "⚡", "q": "ماذا تعني كلمة (شاريوت)؟", "options": ["انتباه", "استعد", "ابدأ القتال"], "ans": 0, "exp": "شاريوت تعني الانتباه والوقوف باستقامة."}, {"id": 5, "icon": "🔥", "q": "ماذا تعني كلمة (جُونْبي) أثناء التدريب؟", "options": ["استعد", "انحني للخصم", "استمر باللعب"], "ans": 0, "exp": "جُونْبي تعني اتخاذ وضعية الاستعداد."}]}, {"id": 2, "title": "المستوى 2: مصطلحات النزال", "nodes": [{"id": 1, "icon": "🔵", "q": "ماذا يعني مصطلح (تشونغ Chung) في النزال؟", "options": ["اللاعب الأزرق", "اللاعب الأحمر", "حكم الحلبة"], "ans": 0, "exp": "تشونغ (Chung) تعني اللاعب الأزرق."}, {"id": 2, "icon": "🔴", "q": "ماذا يعني مصطلح (هونغ Hong) في النزال؟", "options": ["اللاعب الأحمر", "اللاعب الأزرق", "طبيب البطولة"], "ans": 0, "exp": "هونغ (Hong) تعني اللاعب الأحمر."}, {"id": 3, "icon": "🗣️", "q": "ماذا يقول الحكم لإعلان بداية القتال؟", "options": ["شي-جاك (Shi-jack)", "كال-يو (Kal-yeo)", "كيسوك (Kyesok)"], "ans": 0, "exp": "شي-جاك (Shi-jack) يعني ابدأ النزال."}, {"id": 4, "icon": "🛑", "q": "ماذا يقول الحكم لإيقاف اللاعبين مؤقتاً؟", "options": ["كال-يو (Kal-yeo)", "شاريوت (Charyeot)", "جونبي (Joonbi)"], "ans": 0, "exp": "كال-يو (Kal-yeo) يعني توقف."}, {"id": 5, "icon": "▶️", "q": "ماذا يقول الحكم لاستئناف اللعب بعد التوقف؟", "options": ["كيسوك (Kyesok)", "شيقان (Shigan)", "هانا (Hana)"], "ans": 0, "exp": "كيسوك (Kyesok) تعني استمر في القتال."}]}, {"id": 3, "title": "المستوى 3: النقاط والتسجيل", "nodes": [{"id": 1, "icon": "🥊", "q": "كم نقطة تمنحها لكمة قبضة اليد (بنش) الصحيحة للجذع؟", "options": ["نقطة واحدة (1)", "نقطتان (2)", "3 نقاط"], "ans": 0, "exp": "اللكمة المستقيمة للجذع تمنح نقطة واحدة (1)."}, {"id": 2, "icon": "🥋", "q": "كم نقطة تمنحها ركلة القدم المباشرة لواقي الجذع (الهوجو)؟", "options": ["نقطتان (2)", "نقطة واحدة (1)", "3 نقاط"], "ans": 0, "exp": "الركلة المباشرة للجذع تعطي نقطتين (2)."}, {"id": 3, "icon": "⭐", "q": "كم نقطة تمنحها ركلة القدم الناجحة لمنطقة الرأس؟", "options": ["3 نقاط", "نقطتان (2)", "4 نقاط"], "ans": 0, "exp": "الركلة الناجحة لمنطقة الرأس تمنح 3 نقاط."}, {"id": 4, "icon": "🎯", "q": "هل مسموح ضرب وجه الخصم بقبضة اليد في التايكوندو؟", "options": ["ممنوع تماماً", "مسموح بالقدم فقط", "مسموح بشروط خفيفة"], "ans": 0, "exp": "يمنع كلياً ضرب الوجه بقبضة اليد."}, {"id": 5, "icon": "⚡", "q": "ما هي مناطق الجسم المسموح بتسجيل النقاط عليها بالقدم؟", "options": ["واقي الجذع والمنطقة المحمية في الرأس", "الساقين واليدين", "الظهر والصدر فقط"], "ans": 0, "exp": "المناطق المسموح بالتسجيل عليها هي الجذع والرأس."}]}, {"id": 4, "title": "المستوى 4: أوامر الحكم والإنذارات", "nodes": [{"id": 1, "icon": "🎯", "q": "ماذا يسمى إعلان الإنذار وخصم نقطة للخصم عند ارتكاب مخالفة؟", "options": ["جام-جوم (Gam-jeom)", "كيسوك (Kyesok)", "شاريوت (Charyeot)"], "ans": 0, "exp": "جام-جوم (Gam-jeom) هو عقوبة الإنذار."}, {"id": 2, "icon": "⚡", "q": "هل مسموح مهاجمة الخصم وهو ساقط على أرضية البساط؟", "options": ["ممنوع تماماً وخطير", "مسموح إذا كان بغير قصد", "مسموح بنصف نقطة"], "ans": 0, "exp": "مهاجمة الخصم الساقط ممنوعة لحمايته من الإصابة."}, {"id": 3, "icon": "🛡️", "q": "ماذا يقصد الحكم بكلمة (شيقان Shigan) أثناء المباراة؟", "options": ["إيقاف الوقت لموقف طارئ", "نهاية النزال", "زيادة سرعة اللعب"], "ans": 0, "exp": "شيقان تعني إيقاف وقت المباراة مؤقتاً."}, {"id": 4, "icon": "🔥", "q": "ماذا تعني إشارة الحكم (كي-سوك Kye-sok)؟", "options": ["استمر في القتال", "توقف عن اللعب", "انحني لاحترام الخصم"], "ans": 0, "exp": "كي-سوك تعني استمرار اللعب."}, {"id": 5, "icon": "🥊", "q": "هل مسموح مسك أو دفع الخصم باليد في التايكوندو؟", "options": ["ممنوع ويعتبر مخالفة جام-جوم", "مسموح لفترة قصيرة", "مسموح بشدة"], "ans": 0, "exp": "المسك والدفع من الأفعال المحظورة وتستوجب جام-جوم."}]}, {"id": 5, "title": "المستوى 5: الركلات المتقدمة", "nodes": [{"id": 1, "icon": "🥋", "q": "كم نقطة إضافية تمنحها ركلة الدوران الصحيحة على واقي الجذع (الهوجو)؟", "options": ["4 نقاط", "6 نقاط", "نقطتان"], "ans": 0, "exp": "ركلة الدوران للجذع تمنح 4 نقاط."}, {"id": 2, "icon": "⭐", "q": "كم نقطة تمنحها ركلة الدوران الصحيحة على منطقة الرأس؟", "options": ["6 نقاط", "4 نقاط", "3 نقاط"], "ans": 0, "exp": "ركلة الدوران للرأس تمنح 6 نقاط."}, {"id": 3, "icon": "🎯", "q": "ما حكم رفع الساق لأكثر من 3 ثوانٍ لمنع الخصم من الهجوم؟", "options": ["مخالفة ولعب سلبي", "حركة تكتيكية صحيحة", "تمنحك نقطتين إضافيتين"], "ans": 0, "exp": "رفع القدم طويلاً لتفادي اللعب يعتبر سلوكاً سلبياً."}, {"id": 4, "icon": "⚡", "q": "ما حكم توجيه ضربة متعمدة تحت الخصر (أسفل الوسط)؟", "options": ["مخالفة جام-جوم ممنوعة", "تمنح نقطة واحدة", "مسموح بها بتركيز خفيف"], "ans": 0, "exp": "الضرب تحت الخصر ممنوع تماماً."}, {"id": 5, "icon": "🛡️", "q": "ماذا يُقصد بتظاهر اللاعب بالإصابة أو الهروب لتضييع وقت المباراة؟", "options": ["تجنب ولعب سلبي يستوجب جام-جوم", "حركة دفاعية ذكية", "إيقاف قانوني للمباراة"], "ans": 0, "exp": "الهروب وتضييع الوقت مخالفة صريحة."}]}, {"id": 6, "title": "المستوى 6: النزال والأخلاق", "nodes": [{"id": 1, "icon": "🔥", "q": "من كم جولة تتكون مباراة التايكوندو الرسمية عادةً؟", "options": ["3 جولات", "جولتان", "جولة واحدة طويلة"], "ans": 0, "exp": "المباراة تتكون من ثلاث جولات."}, {"id": 2, "icon": "🥊", "q": "كم نقطة تمنح للخصم عند حصول مخالفة سلبية في آخر 10 ثوانٍ من الجولة؟", "options": ["نقطتان (2)", "نقطة واحدة (1)", "3 نقاط"], "ans": 0, "exp": "المخالفة في آخر 10 ثوانٍ تمنح نقطتين (2) للخصم."}, {"id": 3, "icon": "🥋", "q": "ما التصرف الإلزامي للحكم عند تلقي لاعب ضربة قوية في الرأس وبدو عليه التأثر؟", "options": ["إيقاف النزال والعد أو الفحص الطبي", "متابعة اللعب بسرعة دون توقف", "إعطاء اللاعب الخاسر إنذاراً"], "ans": 0, "exp": "سلامة اللاعب تتطلب الفحص والعد الإلزامي."}, {"id": 4, "icon": "⭐", "q": "كيف يجب أن يتعامل اللاعب مع خصمه بعد انتهاء النزال؟", "options": ["بروح رياضية ومصافحته باحترام", "بخصومة وغضب شديد", "بتجاهله ومغادرة البساط فوراً"], "ans": 0, "exp": "التايكوندو يعلمنا الأخلاق والروح رياضية العالية."}, {"id": 5, "icon": "🎯", "q": "ما هو السلوك الصحيح إذا خسرت نزالاً في البطولة؟", "options": ["تقبل النتيجة والتدرب باجتهاد أكبر", "الاعتراض بعنف على الحكام", "ترك اللعبة والاعتزال فوراً"], "ans": 0, "exp": "البطل الحقيقي يتقبل النتائج ويتعلم منها."}]}], "cats": {"gear": {"title": "🥋 زي ومعدات البطل", "cards": [{"icon": "🥋", "title": "البدلة (الدوبوك)", "text": "«الدوبوك» (Dobok) هو البدلة البيضاء الرسمية التي يرتديها لاعب التايكوندو في جميع التدريبات والبطولات الرسمية."}, {"icon": "🏛️", "title": "صالة التدريب (الدوجانغ)", "text": "«الدوجانغ» (Dojang) هو الاسم الذي يُطلق على صالة التدريب الرياضية المخصصة لفنون التايكوندو."}, {"icon": "🛡️", "title": "واقي الجذع (الهوجو)", "text": "«الهوجو» (Hogo) هو واقي الصدر والبطن الإلكتروني المعتمد لحماية اللاعبين أثناء النزال وتسجيل النقاط بدقة."}, {"icon": "🪖", "title": "واقي الرأس والخوذة", "text": "يحمل البطل خوذة الرأس بيده اليسرى عند الدخول إلى الحلبة، ويرتديها فور إشارة الحكم لحماية منطقة الرأس."}]}, "terms": {"title": "🗣️ المصطلحات الكورية للنزال", "cards": [{"icon": "🧍", "title": "شاريوت (Charyeot)", "text": "تعني (انتباه)! يقف البطل باستقامة تامة وبكامل تركيزه واحترامه."}, {"icon": "🙇", "title": "كيونغ-ري (Kyeong-rye)", "text": "تعني (التحية)! يقوم اللاعبان بأداء التحية الرسمية المتبادلة باحترام قبل بدء النزال."}, {"icon": "🥊", "title": "جُونْبي (Joonbi)", "text": "تعني (استعد)! يتخذ اللاعبون وضعية القتال استعداداً لإشارة البدء."}, {"icon": "🚀", "title": "شي-جاك (Shi-jack)", "text": "تعني (ابدأ)! يعلن حكم الحلبة انطلاق النزال فوراً."}, {"icon": "🛑", "title": "كال-يو (Kal-yeo)", "text": "تعني (توقف)! أمر يوجهه الحكم لإيقاف القتال مؤقتاً."}, {"icon": "▶️", "title": "كيسوك (Kyesok)", "text": "تعني (استمر)! أمر من الحكم بمواصلة النزال بعد التوقف المؤقت."}]}, "points": {"icon": "🎯", "title": "🎯 أسرار النقاط المذهلة", "cards": [{"icon": "🥊", "title": "لكمة القبضة (1 نقطة)", "text": "تمنح نقطة واحدة (1) عند توجيه لكمة صحيحة ومستقيمة بقبضة اليد إلى واقي الجذع."}, {"icon": "🥋", "title": "ركلة الجذع المباشرة (2 نقطة)", "text": "تمنح نقطتين (2) عند توجيه ركلة ناجحة ومباشرة بقبضة القدم إلى واقي الصدر."}, {"icon": "⭐", "title": "ركلة الرأس (3 نقاط)", "text": "تمنح 3 نقاط كاملة عند نجاح ركلة القدم في الوصول لمنطقة الرأس المحمية."}, {"icon": "🌀", "title": "ركلة الدوران للجذع (4 نقاط)", "text": "تضاعف النقاط لتصبح 4 نقاط كاملة عند نجاح ركلة الدوران في الوصول إلى واقي الجذع."}, {"icon": "🔥", "title": "ركلة الدوران للرأس (6 نقاط)", "text": "تمنح 6 نقاط كبرى مذهلة عند تنفيذ ركلة دوران ناجحة على منطقة الرأس!"}]}, "fouls": {"icon": "⚠️", "title": "⚠️ المخالفات وإنذارات جام-جوم", "cards": [{"icon": "🚨", "title": "عقوبة (جام-جوم Gam-jeom)", "text": "هو إنذار يمنحه الحكم للخصم عند ارتكاب خطأ أو مخالفة، ويضيف نقطة رصيد للطرف الآخر."}, {"icon": "🏃‍♂️", "title": "الهروب أو تجنب الاشتباك", "text": "الهروب المستمر من الخصم، أو إدارة الظهر لتفادي الهجوم، أو الانحناء أسفل مستوى الخصر لتضييع الوقت يعتبر سلبيات تستوجب إنذار جام-جوم."}, {"icon": "📏", "title": "تجاوز خط الحدود", "text": "خروج أي جزء من قدم اللاعب خارج حدود الحلبة يعتبر مخالفة تستوجب إنذار جام-جوم."}, {"icon": "⬇️", "title": "السقوط المتعمد", "text": "السقوط على أرضية البساط متعمداً دون سبب قتالي صحيح يعتبر مخالفة."}, {"icon": "✋", "title": "الدفع أو المسك باليد", "text": "ممنوع منعاً باتاً دفع الخصم أو مسك ملابسه أو ذراعيه للحد من حركته."}, {"icon": "🛌", "title": "مهاجمة خصم ساقط", "text": "محاولة ضرب لاعب سقط على الأرض تعتبر خطراً كبيراً ومخالفة جسيمة تعرض للسلامة."}]}, "timing": {"icon": "⏱️", "title": "⏱️ نظام الجولات والزمن", "cards": [{"icon": "🥊", "title": "عدد الجولات الرسمية", "text": "تتكون مباراة التايكوندو التقليدية من (3 جولات) رئيسية تتطلب تركيزاً وجهداً متواصلاً."}, {"icon": "⌛", "title": "مدة الجولة الواحدة", "text": "تستغرق الجولة الواحدة (دقيقتين - 2 Minutes) من النزال الحماسي والنشيط."}, {"icon": "🛋️", "title": "فترة الراحة بين الجولات", "text": "يحصل اللاعبون على فترة راحة مدتها (دقيقة واحدة - 1 Minute) بين كل جولة وأخرى لالتقاط الأنفاس."}, {"icon": "🥇", "title": "الجولة الذهبية الحاسمة", "text": "في حال التعادل بعد انتهاء الجولات الثلاث، يتم خوض (جولة رابعة إضافية لمدة دقيقة واحدة) تحسم بالفارق أو النقطة الذهبية."}, {"icon": "⏱️", "title": "عقوبة آخر 10 ثوانٍ", "text": "أي مخالفة أو سلوك سلبي في آخر (10 ثوانٍ) من الجولة يترتب عليها منح نقطتين (2) للخصم بدلاً من نقطة واحدة."}]}, "safety": {"icon": "🛡️", "title": "🛡️ قواعد السلامة والأمان", "cards": [{"icon": "🦷", "title": "واقي الأسنان الأبيض/الشفاف", "text": "قطعة حماية الأسنان إجبارية ويجب أن تكون باللون الأبيض أو الشفاف حصراً."}, {"icon": "🛡️", "title": "الواقيات تحت الدوبوك", "text": "يجب ارتداء واقي الساعد، الساق، والمحاشم تحت بدلة التايكوندو لحماية الجسم تماماً."}, {"icon": "🩺", "title": "التدخل الطبي الفوري", "text": "في حال تعرض اللاعب لإصابة قوية، يتدخل طبيب البطولة لفحصه فوراً حفاظاً على سلامته."}]}}},
+  key() { return `taekwondoJourneyLaw:${TKD.pid() || 'guest'}`; },
+  prog() { const d = TKD.read(this.key(), null); return Array.isArray(d) && d.length === 6 ? d : [0, 0, 0, 0, 0, 0]; },
+  save(p) { TKD.write(this.key(), p); },
+  open(l) { return l === 1 || this.prog()[l - 2] >= 5; },
+  root() { return document.getElementById('law-root'); },
+  sfx(t) { TKD.gs()?.playSound(t); },
+  shell(inner, back) {
     const r = this.root(); if (!r) return;
-    const it = this.q[this.i];
-    if (!it) return this.finish();
-    let body;
-    if (it.kind === 'scene') {
-      const btns = this.step === 1
-        ? `<button type="button" class="btn rf-a rf-ok" data-a="point">✅ ${TKD.t('Point', 'نقطة')}</button>
-           <button type="button" class="btn rf-a rf-bad" data-a="foul">🚫 ${TKD.t('Foul', 'مخالفة')}</button>
-           <button type="button" class="btn rf-a" data-a="none">➖ ${TKD.t('Nothing', 'لا شيء')}</button>`
-        : [1, 2, 3].map(n => `<button type="button" class="btn rf-a rf-ok" data-p="${n}">${TKD.num(n)} ${TKD.t(n === 1 ? 'point' : 'points', n === 1 ? 'نقطة' : n === 2 ? 'نقطتان' : 'نقاط')}</button>`).join('');
-      body = `<div class="rf-scene"><div class="rf-fighters"><span class="rf-hong">🔴 ${TKD.t('Hong', 'هونغ')}</span><span class="rf-ic" aria-hidden="true">${it.ic}</span><span class="rf-chung">🔵 ${TKD.t('Chung', 'تشونغ')}</span></div>
-          <p class="rf-what">${TKD.esc(TKD.t(it.en, it.ar))}</p>
-          <p class="rf-ask">${this.step === 1 ? TKD.t('Your decision, referee?', 'ما قرارك يا حكم؟') : TKD.t('How many points?', 'كم نقطة؟')}</p></div>
-        <div class="rf-btns">${btns}</div>`;
-    } else {
-      const opts = this.shuffle(this.WORDS.map(w => w.mean));
-      body = `<div class="rf-scene"><p class="rf-ask">${TKD.t('The referee says:', 'الحكم يقول:')}</p>
-          <p class="rf-word"><b>${it.ko}</b> <span>${TKD.t(it.ro, it.ar)}</span></p>
-          <p class="rf-ask">${TKD.t('What does it mean?', 'ماذا تعني؟')}</p></div>
-        <div class="rf-btns">${opts.map(m => `<button type="button" class="btn rf-a" data-m="${TKD.esc(m[1])}">${TKD.esc(TKD.t(m[1], m[0]))}</button>`).join('')}</div>`;
-    }
-    r.innerHTML = `${this.head()}${body}<p class="rf-msg" aria-live="polite">${msg || ''}</p>
-      <div class="center-buttons"><button class="btn back-btn" type="button" data-back>← ${TKD.t('Back to my road', 'ارجع إلى الطريق')}</button></div>`;
-    r.querySelector('[data-back]').addEventListener('click', () => switchScreen('home'));
-    r.querySelectorAll('.rf-a').forEach(b => b.addEventListener('click', () => this.answer(b)));
+    r.innerHTML = `<h2>⚖️ ${TKD.t('The rules of sparring', 'قانون النزال')}</h2>${inner}
+      <div class="center-buttons">${back ? `<button type="button" class="btn" data-law-back>⬅️ العودة للقائمة</button>` : ''}
+        <button type="button" class="btn back-btn" data-law-road>← ${TKD.t('Back to my road', 'ارجع إلى الطريق')}</button></div>`;
+    r.querySelector('[data-law-back]')?.addEventListener('click', () => { this.sfx('click'); back(); });
+    r.querySelector('[data-law-road]').addEventListener('click', () => switchScreen('home'));
   },
-  answer(b) {
-    const it = this.q[this.i], gs = TKD.gs(), say = (ok, t) => { gs?.playSound(ok ? 'success' : 'error'); return `${ok ? '✅' : '❌'} ${t}`; };
-    if (it.kind === 'word') {
-      const ok = b.dataset.m === it.mean[1]; if (ok) this.right++;
-      this.i++; this.step = 1;
-      return this.render(say(ok, TKD.t(`${it.ro} = ${it.mean[1]}`, `${it.ar} = ${it.mean[0]}`)));
-    }
-    if (this.step === 1) {
-      const ok = b.dataset.a === it.a;
-      if (ok && it.a === 'point') { this.step = 2; return this.render(say(true, TKD.t('Yes, a point!', 'نعم، نقطة!'))); }
-      if (ok) this.right++;
-      this.i++; return this.render(say(ok, TKD.t(it.why[1], it.why[0])));
-    }
-    const ok = +b.dataset.p === it.pts; if (ok) this.right++;
-    this.i++; this.step = 1; return this.render(say(ok, TKD.t(it.why[1], it.why[0])));
+  hub() {
+    const stars = this.prog().reduce((a, b) => a + b, 0);
+    this.shell(`<p class="description">تعلّم قوانين النزال والمصطلحات الكورية — الحزام الأبيض ⚪</p>
+      <div class="law-doors">
+        <button type="button" class="law-door law-d1" data-go="cards"><span class="ld-ic">📖</span><b>أكاديمية الحكم الصغير: استكشف وتعلّم</b><small>ابدأ من هنا: البطاقات والمعلومات خطوة بخطوة</small></button>
+        <button type="button" class="law-door law-d2" data-go="ref"><span class="ld-ic">🧑‍⚖️</span><b>الحكم الصغير: مسار التايكوندو</b><small>⭐ مجموع النجوم: ${TKD.num(stars)} / ${TKD.num(30)}</small></button>
+      </div>`);
+    this.root().querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', () => { this.sfx('click'); b.dataset.go === 'cards' ? this.cats() : this.levels(); }));
   },
-  finish() {
-    const r = this.root(), n = this.q.length, pct = Math.round(100 * this.right / n);
-    TKD.gs()?.playSound(pct >= 60 ? 'win' : 'click');
-    r.innerHTML = `${this.head()}<div class="rf-scene rf-end"><div class="rf-ic">${pct >= 60 ? '🏆' : '💪'}</div>
-        <h3>${pct >= 60 ? TKD.t('Great refereeing!', 'تحكيم رائع!') : TKD.t('Good try — again?', 'محاولة جيدة — مرة أخرى؟')}</h3>
-        <p>${TKD.t(`${this.right} of ${n} right (${pct}%)`, `${TKD.num(this.right)} من ${TKD.num(n)} صحيحة (${TKD.num(pct)}٪)`)}</p></div>
-      <div class="rf-btns"><button type="button" class="btn btn-success" data-again>🔁 ${TKD.t('Play again', 'العب مرة أخرى')}</button>
-        <button type="button" class="btn" data-back>← ${TKD.t('Back to my road', 'ارجع إلى الطريق')}</button></div>`;
-    r.querySelector('[data-again]').addEventListener('click', () => this.start());
-    r.querySelector('[data-back]').addEventListener('click', () => switchScreen('home'));
+  // ---- the cards
+  cats() {
+    const C = this.DATA.cats;
+    this.shell(`<p class="description">اضغط على أي قسم رئيسي لاستكشاف البطاقات والمعلومات المصغرة خطوة بخطوة!</p>
+      <div class="law-grid">${Object.entries(C).map(([k, c]) => `<button type="button" class="law-tile" data-cat="${k}"><span class="ld-ic">${c.cards[0] ? c.title.split(' ')[0] : ''}</span><b>${TKD.esc(c.title.replace(/^\S+\s/, ''))}</b><small>${TKD.num(c.cards.length)} بطاقات</small></button>`).join('')}</div>`, () => this.hub());
+    this.root().querySelectorAll('[data-cat]').forEach(b => b.addEventListener('click', () => { this.sfx('click'); this.cards(b.dataset.cat); }));
+  },
+  cards(k) {
+    const c = this.DATA.cats[k];
+    this.shell(`<h3 class="law-sub">${TKD.esc(c.title)}</h3>
+      <div class="law-grid">${c.cards.map((x, i) => `<button type="button" class="law-tile" data-i="${i}"><span class="ld-ic">${x.icon}</span><b>${TKD.esc(x.title)}</b><small>اضغط للقراءة 📖</small></button>`).join('')}</div>`, () => this.cats());
+    this.root().querySelectorAll('[data-i]').forEach(b => b.addEventListener('click', () => { this.sfx('click'); this.card(c.cards[+b.dataset.i]); }));
+  },
+  card(x) {
+    const ov = document.createElement('div'); ov.className = 'tkd-modal law-modal';
+    ov.innerHTML = `<div class="tkd-modal-card law-card" role="dialog"><div class="ld-ic big">${x.icon}</div><h3>${TKD.esc(x.title)}</h3><p class="law-text">${TKD.esc(x.text)}</p>
+      <button type="button" class="btn btn-success" data-ok>أضفتها لمعلوماتي ⭐</button></div>`;
+    document.body.appendChild(ov);
+    const close = () => ov.remove();
+    ov.querySelector('[data-ok]').addEventListener('click', () => { this.sfx('click'); close(); });
+    ov.addEventListener('click', (e) => { if (e.target === ov) close(); });
+    document.addEventListener('tkd:screen', close, { once: true });
+  },
+  // ---- the Little Referee
+  levels() {
+    const P = this.prog(), stars = P.reduce((a, b) => a + b, 0);
+    this.shell(`<p class="description">تخطَّ محطات النزال خطوة بخطوة وافتح جميع المستويات الستة!</p>
+      <p class="law-stars">⭐ مجموع النجوم: ${TKD.num(stars)} / ${TKD.num(30)}</p>
+      <div class="law-grid">${this.DATA.levels.map(L => { const o = this.open(L.id), done = P[L.id - 1] >= 5;
+        return `<button type="button" class="law-tile${o ? '' : ' is-locked'}${done ? ' is-done' : ''}" data-l="${L.id}"><span class="ld-ic">${L.nodes[0].icon}</span><b>${TKD.esc(L.title)}</b>
+          <small>${done ? 'مكتمل 🏆' : o ? 'مفتوح ✨' : '🔒 مغلق'}، ${TKD.num(P[L.id - 1])} / ${TKD.num(5)} ⭐</small></button>`; }).join('')}</div>`, () => this.hub());
+    this.root().querySelectorAll('[data-l]').forEach(b => b.addEventListener('click', () => {
+      const l = +b.dataset.l; if (!this.open(l)) { this.sfx('error'); TKD.toast(`🔒 أكمل المستوى ${TKD.num(l - 1)} أولًا`, 'warning'); return; }
+      this.sfx('click'); this.road(l);
+    }));
+  },
+  road(l) {
+    const L = this.DATA.levels[l - 1], done = this.prog()[l - 1];
+    this.shell(`<h3 class="law-sub">${TKD.esc(L.title)}</h3><p class="law-stars">محطات المستوى: ${TKD.num(Math.min(done, 5))} / ${TKD.num(5)} ⭐</p>
+      <ol class="law-road">${L.nodes.map((n, i) => `<li class="${i < done ? 'is-done' : i === done ? 'is-now' : 'is-locked'}"><span>${i < done ? n.icon : i === done ? '⚖️' : '🔒'}</span><small>${i === done ? 'محطة ' : ''}${TKD.num(i + 1)}</small></li>`).join('')}</ol>
+      ${done >= 5 ? `<p class="law-msg">🏆 المستوى مكتمل بنجاح!</p>` : `<button type="button" class="btn btn-success law-play" data-play>⚖️ ابدأ تحدي المحطة الحالية (${TKD.num(done + 1)})</button>`}
+      <p class="law-note">⚖️ طريق الحكم الصغير: أجب عن السؤال في المحطة الحالية بنجاح ليعبر البطل المحطة التالية في الطريق حتى تختم المستوى!</p>`, () => this.levels());
+    this.root().querySelector('[data-play]')?.addEventListener('click', () => this.ask(l));
+  },
+  ask(l) {
+    const L = this.DATA.levels[l - 1], i = this.prog()[l - 1], n = L.nodes[i]; if (!n) return;
+    this.sfx('click');
+    const opts = n.options.map((t, k) => ({ t, k })).sort(() => Math.random() - 0.5);
+    const ov = document.createElement('div'); ov.className = 'tkd-modal law-modal';
+    ov.innerHTML = `<div class="tkd-modal-card law-card" role="dialog"><div class="law-tag">المستوى ${TKD.num(l)} - محطة ${TKD.num(i + 1)} ⚖️ <span>${n.icon}</span></div>
+      <h3>${TKD.esc(n.q)}</h3><div class="law-opts">${opts.map(o => `<button type="button" class="btn law-opt" data-k="${o.k}">${TKD.esc(o.t)}</button>`).join('')}</div>
+      <div class="law-fb" hidden></div><button type="button" class="btn btn-success" data-next hidden>متابعة السير في الطريق ➡️</button></div>`;
+    document.body.appendChild(ov);
+    const fb = ov.querySelector('.law-fb'), next = ov.querySelector('[data-next]'), btns = [...ov.querySelectorAll('.law-opt')];
+    document.addEventListener('tkd:screen', () => ov.remove(), { once: true });
+    btns.forEach(b => b.addEventListener('click', () => {
+      btns.forEach(x => x.disabled = true); fb.hidden = false;
+      if (+b.dataset.k === n.ans) {
+        this.sfx('success'); b.classList.add('is-right'); fb.className = 'law-fb ok';
+        fb.innerHTML = `✅ <b>إجابة ممتازة يا حكمنا الصغير!</b><br>${TKD.esc(n.exp)}`;
+        const P = this.prog(); P[l - 1] = Math.min(5, P[l - 1] + 1); this.save(P); next.hidden = false; next.focus?.();
+      } else {
+        this.sfx('error'); b.classList.add('is-wrong'); fb.className = 'law-fb bad';
+        fb.innerHTML = `❌ <b>محاولة جيدة، حاول مرة أخرى!</b><br>${TKD.esc(n.exp)}`;
+        setTimeout(() => { if (!ov.isConnected) return; btns.forEach(x => x.disabled = false); b.classList.remove('is-wrong'); fb.hidden = true; }, 2500);
+      }
+    }));
+    next.addEventListener('click', () => {
+      ov.remove(); this.sfx('click');
+      if (this.prog()[l - 1] >= 5) return this.win(l);
+      this.road(l);
+    });
+  },
+  win(l) {
+    this.sfx('win');
+    const ov = document.createElement('div'); ov.className = 'tkd-modal law-modal';
+    ov.innerHTML = `<div class="tkd-modal-card law-card" role="dialog"><div class="ld-ic big">⚖️🏆🌟</div><h2>ممتاز يا حكمنا الصغير!</h2>
+      <p class="law-text">لقد قطعت محطات هذا المستوى بنجاح${l < 6 ? ' وفتحت المستوى التالي في رحلتك!' : '!'}</p>
+      <button type="button" class="btn btn-success" data-ok>${l < 6 ? 'الانتقال للمستوى التالي 🚀' : 'العودة للقائمة 🏆'}</button></div>`;
+    document.body.appendChild(ov);
+    ov.querySelector('[data-ok]').addEventListener('click', () => { ov.remove(); this.levels(); });
+    document.addEventListener('tkd:screen', () => ov.remove(), { once: true });
   }
 };
-window.Referee = Referee;
-document.addEventListener('tkd:screen', (e) => { if (e.detail?.screenId === 'referee') Referee.start(); });
-document.addEventListener('tkd:lang', () => { if (document.querySelector('#referee-screen.active') && Referee.q) Referee.render(); });
-// its card on the games screen, under the units, as an extra game
-document.addEventListener('tkd:screen', (e) => {
-  if (e.detail?.screenId !== 'games') return;
-  setTimeout(() => {
-    const gc = document.querySelector('#games-screen .game-container'); if (!gc) return;
-    let sec = gc.querySelector('.rf-extra');
-    if (!sec) {
-      sec = document.createElement('section'); sec.className = 'unit-sec rf-extra';
-      const last = [...gc.querySelectorAll('.unit-sec[data-unit]')].pop();
-      (last ? last.after(sec) : gc.appendChild(sec));
-    }
-    sec.innerHTML = `<h3 class="unit-sec-title"><span class="us-n">⭐</span><span class="us-t">${TKD.t('Extra game', 'لعبة إضافية')}</span></h3>
-      <div class="game-cards unit-cards"><div class="game-card rf-card" role="button" tabindex="0"><div class="game-icon">🧑‍⚖️</div>
-        <h3>${TKD.t('The Little Referee', 'الحكم الصغير')}</h3><p>${TKD.t('The rules of sparring: point or foul?', 'قانون النزال: نقطة أم مخالفة؟')}</p>
-        <span class="gc-test-tag">🧪 ${TKD.t('First version', 'نسخة أولى')}</span></div></div>`;
-    const c = sec.querySelector('.rf-card'), go = () => { TKD.gs()?.playSound('click'); switchScreen('referee'); };
-    c.addEventListener('click', go); c.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); go(); } });
-  }, 60);
-});
+window.Law = Law;
+document.addEventListener('tkd:screen', (e) => { if (e.detail?.screenId === 'law') Law.hub(); });
+// the way in: under the map, and under the games
+(function lawDoors() {
+  const btn = () => `<button type="button" class="law-entry" data-law-open><span class="ld-ic">⚖️</span><span><b>${TKD.t('The rules of sparring', 'قانون النزال')}</b><small>${TKD.t('Cards + the Little Referee', 'البطاقات + الحكم الصغير')}</small></span><span aria-hidden="true">${TKD.ar ? '←' : '→'}</span></button>`;
+  const put = (host, after) => { if (!host || host.querySelector('[data-law-open]')) return; const w = document.createElement('div'); w.className = 'law-entry-wrap'; w.innerHTML = btn(); (after ? after.after(w) : host.appendChild(w)); w.querySelector('button').addEventListener('click', () => { TKD.gs()?.playSound('click'); switchScreen('law'); }); };
+  const r = HomeHub.render.bind(HomeHub);
+  HomeHub.render = (...a) => { const out = r(...a); try { const map = document.querySelector('#home-screen .jr-map'); put(map?.parentElement, map); } catch (e) {} return out; };
+  document.addEventListener('tkd:screen', (e) => {
+    if (e.detail?.screenId !== 'games') return;
+    setTimeout(() => { const gc = document.querySelector('#games-screen .game-container'); const last = gc && [...gc.querySelectorAll('.unit-sec[data-unit]')].pop(); put(gc, last); }, 60);
+  });
+})();
