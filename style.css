@@ -6726,3 +6726,6 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }   /* iOS Safari
 .law-entry { width: 100%; flex-direction: row; justify-content: space-between; text-align: start; background: linear-gradient(150deg, rgba(31,95,168,.9), rgba(18,52,90,.95)); }
 .law-entry > span:nth-child(2) { flex: 1; display: grid; }
 .law-entry small { color: rgba(255,255,255,.82); }
+.law-adv { font-size: .75rem; font-weight: 800; color: #1d2b36; background: var(--star-gold); border-radius: 999px; padding: 1px 10px; }
+.law-say { vertical-align: middle; margin-inline-start: 6px; }
+.law-mcard .db-ring b { font-size: 1.3rem; }
