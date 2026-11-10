@@ -11,11 +11,14 @@
    whenever anything changes so players get the update.
    ===================================================================== */
 
-const CACHE_VERSION = 'tkd-v64.5';
+const CACHE_VERSION = 'tkd-v65.0';
 const APP_SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const ASSET_CACHE = `${CACHE_VERSION}-assets`;     // precached images + videos, never trimmed
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;  // anything else same-origin, trimmed
 const RUNTIME_MAX_ENTRIES = 250;
+// v65: the camera page's MediaPipe engine + models (25 MB+): fetched on first use, kept across app
+// updates (its own version — bump only when the files in assets/lib/mediapipe change)
+const ML_CACHE = 'tkdml-v1';
 const NAV_TIMEOUT_MS = 4000;
 
 const APP_SHELL_FILES = [
@@ -38,6 +41,8 @@ const APP_SHELL_FILES = [
   './assets/anim/girl/girl.webp',
   './assets/lib/three.module.min.js',
   './assets/lib/tk3d/tk3d.js',
+  './assets/lib/tryit/analyzer.js',
+  './assets/lib/tryit/page.js',
   './assets/lib/tk3d/character.js',
   './assets/lib/tk3d/kicks.js',
   './club-config.js',
@@ -105,6 +110,8 @@ const VIDEO_FILES = [
   './assets/videos/apchagi-tutorial.mp4',
   './assets/videos/bikchagi-tutorial.mp4',
   './assets/videos/naeryeochagi-tutorial.mp4',
+  './assets/videos/tryit/apchagi-coach.mp4',
+  './assets/videos/tryit/naeryeochagi-coach.mp4',
   './assets/videos/real/apchagi-real.mp4',
   './assets/videos/real/bikchagi-real.mp4',
   './assets/videos/real/naeryeochagi-real.mp4',
@@ -316,6 +323,19 @@ async function cacheFirst(event, req) {
   }
 }
 
+async function mlFirst(event, req) {
+  const cache = await caches.open(ML_CACHE);
+  const cached = await cache.match(req);
+  if (cached) return cached;
+  try {
+    const response = await fetch(req);
+    if (response && response.status === 200 && response.type === 'basic') event.waitUntil(cache.put(req, response.clone()).catch(() => {}));
+    return response;
+  } catch (err) {
+    return Response.error();
+  }
+}
+
 self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.method !== 'GET') return;
@@ -337,6 +357,11 @@ self.addEventListener('fetch', (event) => {
   }
 
   if (url.origin !== self.location.origin) return; // other cross-origin: don't touch
+
+  if (url.pathname.includes('/assets/lib/mediapipe/')) {
+    event.respondWith(mlFirst(event, req));
+    return;
+  }
 
   if (/\.(js|css|json)$/i.test(url.pathname)) {
     event.respondWith(staleWhileRevalidate(event, req, APP_SHELL_CACHE));

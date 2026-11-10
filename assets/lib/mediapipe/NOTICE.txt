@@ -1,0 +1,4 @@
+MediaPipe Tasks Vision 0.10.14 (vision_bundle.mjs, wasm/) and the models
+pose_landmarker_full.task, pose_landmarker_lite.task, hand_landmarker.task
+(c) Google LLC — Apache License 2.0 — https://github.com/google-ai-edge/mediapipe
+Used unchanged by the "Try it yourself" page (assets/lib/tryit/).

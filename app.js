@@ -906,7 +906,7 @@ function watchVideoLoading(video) {
 // Arabic or English voice, degrees and ranges in words)
 // v63.4 — the version a tester can read on the start screen and in Coach → Settings (bump it
 // together with CACHE_VERSION in sw.js)
-const APP_VERSION = '64.5';
+const APP_VERSION = '65.0';
 
 const SpeechVoice = {
   KEY: 'taekwondoJourneyVoice',
@@ -18243,10 +18243,11 @@ const TabBar = {
   TABS: [
     { id: 'train', icon: '🏠', en: 'Home', ar: 'الرئيسية', screens: ['home', 'warmup', 'skill-menu', 'learning', 'curriculum', 'quiz', 'cooldown'],
       direct: () => switchScreen('home') },
-    { id: 'play', icon: '🎮', en: 'Play', ar: 'العب', screens: ['games', 'law', 'form-control', 'puzzle', 'action', 'error-hunt', 'quiz-blast', 'board-break', 'paddle-reflex', 'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag', 'league', 'versus'],
+    { id: 'play', icon: '🎮', en: 'Play', ar: 'العب', screens: ['games', 'law', 'try', 'form-control', 'puzzle', 'action', 'error-hunt', 'quiz-blast', 'board-break', 'paddle-reflex', 'phase-rhythm', 'sparring-duel', 'balance-hold', 'heavy-bag', 'league', 'versus'],
       items: [
         { icon: '🎮', en: 'All games', ar: 'كل الألعاب', go: () => attemptStageNav('games'), hot: true },
         { icon: '⚔️', en: 'Challenge a friend', ar: 'تحدَّ صديقك', go: () => switchScreen('versus') },
+        { icon: '🎥', en: 'Try it yourself', ar: 'جرّب بنفسك', go: () => switchScreen('try') },
         { icon: '⚖️', en: 'Rules of sparring', ar: 'قانون النزال', go: () => switchScreen('law') }
       ] },
     { id: 'mine', icon: '🦸', en: 'My page', ar: 'صفحتي', screens: ['profile', 'trophy-room', 'players', 'character-change', 'winner'],
@@ -21562,5 +21563,17 @@ document.addEventListener('tkd:lang', () => { if (document.querySelector('#law-s
   document.addEventListener('tkd:screen', (e) => {
     if (e.detail?.screenId !== 'games') return;
     setTimeout(() => { const gc = document.querySelector('#games-screen .game-container'); const last = gc && [...gc.querySelectorAll('.unit-sec[data-unit]')].pop(); put(gc, last); }, 60);
+  });
+})();
+
+// v65 — «جرّب بنفسك» 🎥 (assets/lib/tryit/): the way in, under the map and under the games
+(function tryDoors() {
+  const btn = () => `<button type="button" class="law-entry try-entry" data-try-open><span class="ld-ic">🎥</span><span><b>${TKD.t('Try it yourself', 'جرّب بنفسك')}</b><small>${TKD.t('Kick in front of the camera and get a score', 'اركل أمام الكاميرا واحصل على درجة')}</small></span><span aria-hidden="true">${TKD.ar ? '←' : '→'}</span></button>`;
+  const put = (host, after) => { if (!host || host.querySelector('[data-try-open]')) return; const w = document.createElement('div'); w.className = 'law-entry-wrap'; w.innerHTML = btn(); (after ? after.after(w) : host.appendChild(w)); w.querySelector('button').addEventListener('click', () => { TKD.gs()?.playSound('click'); switchScreen('try'); }); };
+  const r = HomeHub.render.bind(HomeHub);
+  HomeHub.render = (...a) => { const out = r(...a); try { const map = document.querySelector('#home-screen .jr-map'); put(map?.parentElement, map); } catch (e) {} return out; };
+  document.addEventListener('tkd:screen', (e) => {
+    if (e.detail?.screenId !== 'games') return;
+    setTimeout(() => { const gc = document.querySelector('#games-screen .game-container'); const last = gc && [...gc.querySelectorAll('.unit-sec[data-unit]')].pop(); put(gc, last); }, 50);
   });
 })();
