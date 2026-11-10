@@ -3,8 +3,10 @@
 // Python (Streamlit + MediaPipe) apps: AP CHAGI (analyzer v14) and NAERYO CHAGI.
 // Pure JavaScript, no DOM in here: the same numbers in → the same score out as the Python
 // (checked by scratch tests that run the Python analyzer on the same measurements).
+// BIK CHAGI has no Python: it is built here on the Ap Chagi machine (the same five steps, the
+// same limits) plus what makes it Bik Chagi — the standing foot turns (the heel to the target).
 // What a frame is: m = { t, R: leg, L: leg, lean, fist, guard_fist, hands_n }
-//                  leg = { knee, thigh, shin, hip, height, lift, grounded, guard }
+//                  leg = { knee, thigh, shin, hip, height, lift, grounded, guard, footx, reach }
 // =====================================================================
 (function (root) {
   'use strict';
@@ -25,7 +27,7 @@
   // ---- per kick
   const KICKS = {
     apchagi: {
-      version: 14,
+      version: 14, SNAP: true,
       EXT_RISE: 20.0,           // knee opening this much above its minimum = snap started
       RETR_DROP: 15.0,          // knee closing this much below its maximum = retraction started
       CHAMBER_FOLD: 160.0,      // chamber = the lifted knee went below this angle (any bend counts)
@@ -47,11 +49,32 @@
       REFERENCE: { p_knee: [100, 180], support: [164, 180] },
       WEIGHTS: [['p_knee', 'Peak', 54, 30], ['support', 'Support leg', 36, 40]],
       GROUP_ORDER: ['Peak', 'Support leg', 'Guard & fist']
+    },
+    // Bik Chagi (the roundhouse): the Ap Chagi steps and limits, the points shared with one more
+    // check — the standing foot must turn. Not from the club's Python (they wrote none for it).
+    bakchagi3: {
+      version: 1, SNAP: true,
+      EXT_RISE: 20.0, RETR_DROP: 15.0, CHAMBER_FOLD: 160.0, RETRACT_FOLD: 150.0,
+      CHAMBER_PTS: 22,
+      CHAMBER_VALID_MAX: 120.0,
+      // the whip is fast: in a blurred picture the tracker loses the leg and shows both feet down
+      // for a moment. The foot has landed only when it stays down this long (seconds).
+      LAND_HOLD: 0.45,
+      FOOT_RATIO: 0.2,          // a foot seen from the side (heel → toes) is about this share of the leg length
+      OPEN_UP: ['p_knee', 'r_knee', 'support', 'pivot'],
+      // pivot = how far the standing foot has turned away from the target at the extension, in degrees:
+      // 0 = the toes still point at the target, 90 = across, 180 = the heel points at the target.
+      // Taught: about 135. Asked for: 110 or more (a front kick's small turn, about 85 on the club's own
+      // Ap Chagi video, is not enough); the points fade out down to 70.
+      REFERENCE: { p_knee: [100, 180], r_knee: [30, 180], support: [164, 180], pivot: [110, 180] },
+      WEIGHTS: [['pivot', 'Pivot', 14, 40], ['p_knee', 'Peak', 22, 30], ['r_knee', 'Retract', 20, 30], ['support', 'Support leg', 12, 40]],
+      GROUP_ORDER: ['Chamber', 'Pivot', 'Peak', 'Retract', 'Support leg', 'Guard & fist']
     }
   };
   // the steps as the club names them on screen
   const GROUP_TITLES = {
     'Chamber': { ar: 'رفع الركبة', en: 'Knee lift' },
+    'Pivot': { ar: 'لفّ قدم الارتكاز', en: 'Turning the standing foot' },
     'Peak': { ar: 'مد الرجل للهدف', en: 'Extending to the target' },
     'Retract': { ar: 'سحب الرجل', en: 'Pulling the leg back' },
     'Support leg': { ar: 'العودة لوضع الاستعداد', en: 'Back to the ready stance' },
@@ -133,6 +156,7 @@
   // The phase machine for one kick.
   //   Ap Chagi : P0 stance → P1/P2 chamber → P3/P4 snap + impact → P5–P7 retract, landing
   //   Naeryo   : P0 stance → P1 lift and extend the leg (peak) → landing
+  //   Bik Chagi: the Ap Chagi machine (K.SNAP), a landing that must last (K.LAND_HOLD), and the pivot
   // Nothing is scored in update(): the score is calculated by finalizeNow().
   // =====================================================================
   class KickAnalyzer {
@@ -154,13 +178,14 @@
       this.t_start = this.t_chamber = this.t_peak = null;
       this.chamber_ok = false; this.chamber = {}; this.peak = {};
       this.bent_run = 0; this.live_warn = false;
+      this.down_t = null;
       this.trace = []; this.final = null; this.note = '';
     }
     // what to tell the child right now
     hint() {
       if (this.landed) return 'done';
       if (this.phase === 'P0') return this.armed ? 'ready' : 'stand';
-      if (this.kick === 'narochagi') return 'lift_extend';
+      if (!this.K.SNAP) return 'lift_extend';
       if (this.phase === 'P1') return 'chamber';
       if (this.phase === 'P3') return 'snap';
       return 'retract';
@@ -217,13 +242,23 @@
       this._trackHand(m, t);                                  // every frame from the stance until landing
       const leg = m[this.side], other = m[this.side === 'R' ? 'L' : 'R'];
       const rec = { t, knee: leg.knee, thigh: leg.thigh, shin: leg.shin, hip: leg.hip, height: leg.height, lean: m.lean, grounded: leg.grounded, support: other.knee };
+      if (K.LAND_HOLD) {
+        // how far the standing foot points along the kick (+ = the toes at the target, − = the heel at the target)
+        const fx = other.footx, rc = leg.reach;
+        rec.pivot = fx === null || fx === undefined || !rc ? null : fx * Math.sign(rc);
+        if (leg.grounded && leg.thigh < 40) {
+          // the foot looks down: a landing only if it stays down; otherwise the tracker lost a fast leg
+          if (this.down_t === null) this.down_t = t;
+          if (t - this.down_t < K.LAND_HOLD) return;
+        } else this.down_t = null;
+      }
       this.kick_n += 1;
       this.support_sum += other.knee;
       this.trace.push({ t: t - this.t_start, knee: leg.knee, thigh: leg.thigh, support: other.knee, phase: this.phase });
 
       if (t - this.t_start > MAX_KICK_SECONDS) { this._softReset('too_long'); return; }
 
-      if (this.kick === 'narochagi') {
+      if (!K.SNAP) {
         // ---------------- P1: lift and extend the leg, until the foot lands ----------------
         if (this.phase === 'P1') {
           this.rise.push(rec);
@@ -283,7 +318,8 @@
       this.chamber_ok = false; this.t_chamber = this.rise[0].t; this.chamber = {};
       this.snap = this.rise.slice(); this.phase = 'P3';
     }
-    _markLanded(t) { this.landed = true; this.t_land = t; }
+    // with LAND_HOLD the foot came down when it first touched, not when the wait was over
+    _markLanded(t) { this.landed = true; this.t_land = this.K.LAND_HOLD && this.down_t !== null ? this.down_t : t; }
     _closePeak() {
       const ks = this.snap.map(f => f.knee), tmax = Math.max(...this.snap.map(f => f.thigh));
       // the extension happens while the leg is up: straightening again on the way down (landing) is not a kick
@@ -293,7 +329,17 @@
       this.peak = {}; for (const k of KEYS) this.peak[k] = windowMedian(this.snap, i, k, 1);
       this.peak.knee = ks[i];
       this.t_peak = this.snap[i].t;
-      if (this.kick === 'apchagi') this.post = this.snap.slice(i);
+      if (this.K.SNAP) this.post = this.snap.slice(i);
+      if (this.K.LAND_HOLD) this.peak.pivot = windowMedian(this.snap, i, 'pivot', 2);
+    }
+    // the standing foot's turn, in degrees (null = the foot was not seen): from the extension on, for as
+    // long as the leg is still up (the foot finishes its turn in the whip and keeps it through the pull-back)
+    _pivotAngle() {
+      const top = this.post.length ? Math.max(...this.post.map(f => f.thigh)) : 0;
+      const up = this.post.filter(f => f.thigh >= top - 40 && !(f.grounded && f.thigh < 40)).map(f => f.pivot).filter(x => x !== null && x !== undefined);
+      const v = up.length >= 3 ? median(up) : this.peak.pivot;
+      if (v === null || v === undefined) return null;
+      return Math.acos(Math.max(-1.0, Math.min(1.0, v / this.K.FOOT_RATIO))) * 180 / Math.PI;
     }
     // how many separate lifts the leg made (Naeryo)
     _liftCount() {
@@ -331,14 +377,14 @@
       if (this.phase === 'P0') return { ok: false, reason: this.armed ? 'not_started' : 'no_stance' };
       if (this.phase === 'P1') {
         if (!this.rise.length) return { ok: false, reason: 'no_data' };
-        if (this.kick === 'narochagi') { if (!Object.keys(this.peak).length) { this.snap = this.rise.slice(); this._closePeak(); } }
+        if (!this.K.SNAP) { if (!Object.keys(this.peak).length) { this.snap = this.rise.slice(); this._closePeak(); } }
         else {
           const lifted = this.rise.filter(f => !f.grounded).map(f => f.knee);
           if (lifted.length && Math.min(...lifted) <= this.K.CHAMBER_FOLD) this._closeChamber(argmin(this.rise.map(f => f.knee)));
           else this._closeNoChamber();
         }
       }
-      if (this.kick === 'apchagi' && this.phase === 'P3') { if (this.snap.length) this._closePeak(); this.phase = 'P5'; }
+      if (this.K.SNAP && this.phase === 'P3') { if (this.snap.length) this._closePeak(); this.phase = 'P5'; }
       this._finalize(this.t_land !== null ? this.t_land : this.last_t);
       return { ok: true };
     }
@@ -346,7 +392,7 @@
       const K = this.K, p = this.p, n = Math.max(this.kick_n, 1), pk = this.peak, flex = this.flex, hasPeak = Object.keys(pk).length > 0;
       const items = [];
       let rKnee = null;
-      if (this.kick === 'apchagi') {
+      if (K.SNAP) {
         const series = this.post.slice(1).map(f => f.knee);
         if (series.length >= 3) { rKnee = Infinity; for (let i = 0; i + 2 < series.length; i++) rKnee = Math.min(rKnee, median(series.slice(i, i + 3))); }
         else if (series.length) rKnee = Math.min(...series);
@@ -354,11 +400,11 @@
         items.push({ key: 'c_knee', group: 'Chamber', max: K.CHAMBER_PTS, got: ch ? K.CHAMBER_PTS : 0.0, lost: ch ? 0.0 : K.CHAMBER_PTS,
           value: ch ? this.chamber.knee : null, status: ch ? 'ok' : 'not_folded' });
       }
-      const vals = { p_knee: hasPeak ? pk.knee : null, r_knee: rKnee, support: this.support_sum / n };
+      const vals = { p_knee: hasPeak ? pk.knee : null, r_knee: rKnee, support: this.support_sum / n, pivot: hasPeak && K.LAND_HOLD ? this._pivotAngle() : null };
       for (const [key, group, pts, tol0] of K.WEIGHTS) {
         let [lo, hi] = p[key]; lo = lo - flex; if (!K.OPEN_UP.includes(key)) hi = hi + flex;
         const tol = tol0 === null ? null : tol0 * (1 + flex / 30.0);       // the points also fade out more slowly
-        const missing = (key.startsWith('p_') && !hasPeak) || (key === 'r_knee' && rKnee === null);
+        const missing = ((key.startsWith('p_') || key === 'pivot') && !hasPeak) || (key === 'r_knee' && rKnee === null);
         if (key === 'r_knee' && rKnee !== null && rKnee > K.RETRACT_FOLD) {
           // the leg came down still straight: there was no retraction at all
           items.push({ key, group, max: pts, got: 0.0, lost: pts, value: rKnee, lo, hi, status: 'no_retract' });
@@ -370,7 +416,7 @@
       items.push(guardItem({ total: this.h_total, cnt: Object.assign({}, this.h_cnt), fail_t: this.h_fail_t }));
 
       const base = items.reduce((a, i) => a + i.got, 0);
-      const pens = this.kick === 'narochagi' ? this._movementCheck() : [];
+      const pens = K.SNAP ? [] : this._movementCheck();
       const total = Math.max(0.0, base - pens.reduce((a, x) => a + x.points, 0));
       const groups = K.GROUP_ORDER.map(g => { const gi = items.filter(i => i.group === g);
         return { id: g, name: GROUP_TITLES[g], got: gi.reduce((a, i) => a + i.got, 0), max: gi.reduce((a, i) => a + i.max, 0), ok: gi.length > 0 && gi.every(i => i.lost < 0.5), items: gi }; });
@@ -400,7 +446,7 @@
     return out;
   }
   // MediaPipe pose landmark numbers
-  const PL = { L_SHOULDER: 11, R_SHOULDER: 12, L_WRIST: 15, R_WRIST: 16, L_HIP: 23, R_HIP: 24, L_KNEE: 25, R_KNEE: 26, L_ANKLE: 27, R_ANKLE: 28, L_FOOT: 31, R_FOOT: 32 };
+  const PL = { L_SHOULDER: 11, R_SHOULDER: 12, L_WRIST: 15, R_WRIST: 16, L_HIP: 23, R_HIP: 24, L_KNEE: 25, R_KNEE: 26, L_ANKLE: 27, R_ANKLE: 28, L_HEEL: 29, R_HEEL: 30, L_FOOT: 31, R_FOOT: 32 };
   const NEEDED = [PL.R_HIP, PL.R_KNEE, PL.R_ANKLE, PL.R_SHOULDER, PL.L_HIP, PL.L_KNEE, PL.L_ANKLE, PL.L_SHOULDER];
   const poseOk = (lm) => NEEDED.every(i => (lm[i].visibility === undefined ? 1 : lm[i].visibility) > VIS_MIN);
   const FINGERS = [[5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16], [17, 18, 19, 20]];   // MCP, PIP, DIP, TIP of index..pinky
@@ -428,6 +474,12 @@
     const legLen = Math.max(dist(r.HIP, r.KNEE) + dist(r.KNEE, r.ANKLE), dist(l.HIP, l.KNEE) + dist(l.KNEE, l.ANKLE), 1.0);
     const mR = buildLeg(r.HIP, r.KNEE, r.ANKLE, r.SHOULDER, r.WRIST, l.ANKLE, midSh, legLen, sm, 'R');
     const mL = buildLeg(l.HIP, l.KNEE, l.ANKLE, l.SHOULDER, l.WRIST, r.ANKLE, midSh, legLen, sm, 'L');
+    // Bik Chagi's pivot: each foot's direction (heel → toes) and each ankle's side of the other one,
+    // in leg lengths, along the picture's width. Not in the club's Python; nothing above depends on it.
+    const vis0 = (i) => (lm[i].visibility === undefined ? 1 : lm[i].visibility);
+    const footx = (heel, toe, tag) => (vis0(heel) > VIS_MIN && vis0(toe) > VIS_MIN ? sm.push(tag + ':footx', (lm[toe].x - lm[heel].x) * w / legLen) : null);
+    mR.footx = footx(PL.R_HEEL, PL.R_FOOT, 'R'); mL.footx = footx(PL.L_HEEL, PL.L_FOOT, 'L');
+    mR.reach = sm.push('R:reach', (r.ANKLE[0] - l.ANKLE[0]) / legLen); mL.reach = -mR.reach;
     // torso lean: negative = leaning back (facing direction from the toes)
     const facing = ((r.FOOT[0] - r.ANKLE[0]) + (l.FOOT[0] - l.ANKLE[0])) >= 0 ? 1.0 : -1.0;
     const lean = sm.push('b:lean', Math.atan2((midSh[0] - midHip[0]) * facing, -(midSh[1] - midHip[1])) * 180 / Math.PI);
@@ -452,15 +504,32 @@
     const K = KICKS[kick] || KICKS.apchagi, side = m.R.thigh >= m.L.thigh ? 'R' : 'L';
     const leg = m[side], knee = leg.knee, thigh = leg.thigh, kicking = !leg.grounded && thigh > THIGH_START, stol = flex;
     const kLo = K.REFERENCE.p_knee[0];
-    if (kick === 'narochagi' || step === 2) {
+    if (K.LAND_HOLD && step === 2) {
+      // Bik Chagi: extended AND the standing foot turned
+      const o = m[side === 'R' ? 'L' : 'R'], pv = o.footx === null || o.footx === undefined || !leg.reach ? null
+        : Math.acos(Math.max(-1.0, Math.min(1.0, o.footx * Math.sign(leg.reach) / K.FOOT_RATIO))) * 180 / Math.PI;
+      // the leg must really be up (not the first moment the foot leaves the floor), in two pictures in a row
+      const up = kicking && thigh >= KICK_MIN_THIGH;
+      const pLo = K.REFERENCE.pivot[0], kOk = up && knee >= kLo - stol, pOk = pv !== null && pv >= pLo - stol;
+      const kAcc = up ? clamp01((knee - 60) / (kLo - 60)) : 0.0, pAcc = up && pv !== null ? clamp01(pv / pLo) : 0.0;
+      state.run = kOk && pOk ? (state.run || 0) + 1 : 0;
+      return { acc: (kAcc + pAcc) / 2, ok: state.run >= 2, msg: kOk && !pOk ? 'pivot' : 'extend', lim: kLo, pivot: pv };
+    }
+    if (!K.SNAP || step === 2) {
       return { acc: kicking ? clamp01((knee - 60) / (kLo - 60)) : 0.0, ok: kicking && knee >= kLo - stol, msg: 'extend', lim: kLo };
     }
     if (step === 1) return { acc: kicking ? clamp01((180 - knee) / (180 - K.CHAMBER_FOLD)) : 0.0, ok: kicking && knee <= K.CHAMBER_FOLD, msg: 'fold' };
     const rLo = K.REFERENCE.r_knee[0];
     if (thigh > THIGH_START && rLo - stol <= knee && knee <= K.CHAMBER_VALID_MAX) state.seen = true;
     const seen = !!state.seen;
+    let down = seen && leg.grounded && thigh < 40;
+    if (K.LAND_HOLD) {
+      // Bik Chagi: the foot must STAY down (a blurred whip shows both feet down for a moment)
+      if (!down) state.down_t = null; else if (state.down_t === null || state.down_t === undefined) state.down_t = m.t;
+      down = down && m.t - state.down_t >= K.LAND_HOLD;
+    }
     return { acc: (rangeCloseness(knee, rLo, 180, 30) + (seen ? 1.0 : 0.0) + (seen && leg.grounded ? 1.0 : 0.0)) / 3,
-      ok: seen && leg.grounded && thigh < 40, msg: seen ? 'land' : 'pull_back', lim: rLo };
+      ok: down, msg: seen ? 'land' : 'pull_back', lim: rLo };
   }
 
   const api = { KICKS, GROUP_TITLES, KickAnalyzer, Smoother, measure, buildLeg, checkFist, stepCheck, poseOk, PL,

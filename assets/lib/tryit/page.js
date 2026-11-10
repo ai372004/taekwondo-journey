@@ -2,7 +2,8 @@
 // «جرّب بنفسك» 🎥 — the child kicks in front of the camera (or picks a video) and the club's
 // computer-vision analyzer (assets/lib/tryit/analyzer.js, ported from their Python) scores the
 // kick out of 100 and says which step went wrong. MediaPipe pose + hands run IN THE BROWSER:
-// the picture never leaves the device. Ap Chagi and Naeryo Chagi (the two kicks the club wrote).
+// the picture never leaves the device. Ap Chagi and Naeryo Chagi (the two kicks the club wrote)
+// and Bik Chagi (built here on the Ap Chagi analyzer, plus the standing foot's turn).
 // =====================================================================
 (function () {
   'use strict';
@@ -11,8 +12,10 @@
   const HAND_LINES = [[0, 1], [1, 2], [2, 3], [3, 4], [0, 5], [5, 6], [6, 7], [7, 8], [5, 9], [9, 10], [10, 11], [11, 12], [9, 13], [13, 14], [14, 15], [15, 16], [13, 17], [17, 18], [18, 19], [19, 20], [0, 17]];
   const KICKS = [
     { id: 'apchagi', video: 'assets/videos/tryit/apchagi-coach.mp4' },
-    { id: 'narochagi', video: 'assets/videos/tryit/naeryeochagi-coach.mp4' }
+    { id: 'narochagi', video: 'assets/videos/tryit/naeryeochagi-coach.mp4' },
+    { id: 'bakchagi3', video: 'assets/videos/tryit/bikchagi-coach.mp4' }
   ];
+  const snapKick = (id) => !!CV.KICKS[id].SNAP;            // lift and fold → extend → pull back (Ap Chagi, Bik Chagi)
   const GRADE = { 'Excellent': ['Excellent', 'ممتاز'], 'Good': ['Good', 'جيد'], 'Fair': ['Fair', 'مقبول'], 'Needs work': ['Needs work', 'يحتاج إلى تمرين'] };
 
   const TryIt = {
@@ -30,15 +33,15 @@
     render() {
       const r = this.root(); if (!r) return;
       const best = this.best()[this.kick];
-      const steps = this.kick === 'apchagi'
-        ? [[1, T('1 · Lift and fold the knee', '١ · ارفع الرجل واثنِ الركبة')], [2, T('2 · Extend the leg', '٢ · مدّ الرجل')], [3, T('3 · Pull back, then land', '٣ · اسحب الرجل ثم انزل')]]
+      const bik = this.kick === 'bakchagi3';
+      const steps = snapKick(this.kick)
+        ? [[1, T('1 — Lift and fold the knee', '١ — ارفع الرجل واثنِ الركبة')], [2, bik ? T('2 — Turn the standing foot and extend', '٢ — لفّ قدم الارتكاز ومدّ الرجل') : T('2 — Extend the leg', '٢ — مدّ الرجل')], [3, T('3 — Pull back, then land', '٣ — اسحب الرجل ثم انزل')]]
         : [[2, T('Lift the leg and extend it', 'ارفع الرجل ومدّها')]];
       r.innerHTML = `
         <h2>🎥 ${T('Try it yourself', 'جرّب بنفسك')}</h2>
         <p class="description">${T('Kick in front of the camera and get a score out of 100. Put the phone far enough to see your whole body, from head to feet, and stand sideways.', 'اركل أمام الكاميرا واحصل على درجة من ١٠٠. ضع الهاتف بعيدًا ليظهر جسمك كله من الرأس إلى القدمين، وقف بالجانب.')}</p>
         <div class="ty-row" role="group" aria-label="${T('Kick', 'الركلة')}">
           ${KICKS.map(k => `<button type="button" class="ty-chip${k.id === this.kick ? ' on' : ''}" data-tykick="${k.id}">${TKD.esc(this.kickName(k.id))}</button>`).join('')}
-          <span class="ty-chip is-soon" aria-disabled="true">${TKD.esc(this.kickName('bakchagi3'))} — ${T('soon', 'قريبًا')}</span>
         </div>
         <div class="ty-row" role="group" aria-label="${T('Mode', 'الوضع')}">
           <button type="button" class="ty-chip${this.mode === 'full' ? ' on' : ''}" data-mode="full">🔥 ${T('Full kick (score)', 'الركلة كاملة (درجة)')}</button>
@@ -67,8 +70,8 @@
         <p class="ty-best" id="ty-best">${best ? `🏅 ${T('Your best', 'أفضل نتيجة لك')}: <b>${N(Math.round(best))}</b> / ${N(100)}` : ''}</p>
         <p class="ty-privacy">🔒 ${T('The camera stays on this device — nothing is recorded or sent.', 'الكاميرا تبقى على هذا الجهاز — لا شيء يُسجَّل أو يُرسَل.')}</p>
         <div class="center-buttons"><button type="button" class="btn back-btn" id="ty-back">← ${T('Back to my road', 'ارجع إلى الطريق')}</button></div>`;
-      r.querySelectorAll('[data-tykick]').forEach(b => b.addEventListener('click', () => { this.stop(); this.kick = b.dataset.tykick; this.step = this.kick === 'apchagi' ? 1 : 2; this.render(); }));
-      r.querySelectorAll('[data-mode]').forEach(b => b.addEventListener('click', () => { this.stop(); this.mode = b.dataset.mode; this.step = this.kick === 'apchagi' ? 1 : 2; this.render(); }));
+      r.querySelectorAll('[data-tykick]').forEach(b => b.addEventListener('click', () => { this.stop(); this.kick = b.dataset.tykick; this.step = snapKick(this.kick) ? 1 : 2; this.render(); }));
+      r.querySelectorAll('[data-mode]').forEach(b => b.addEventListener('click', () => { this.stop(); this.mode = b.dataset.mode; this.step = snapKick(this.kick) ? 1 : 2; this.render(); }));
       r.querySelectorAll('[data-step]').forEach(b => b.addEventListener('click', () => { this.step = +b.dataset.step; const run = this.running; if (!run) return this.render(); this.resetRun(); r.querySelectorAll('[data-step]').forEach(x => x.classList.toggle('on', x === b)); }));
       this.$('#ty-start').addEventListener('click', () => this.startCamera());
       this.$('#ty-file').addEventListener('change', (e) => { const f = e.target.files?.[0]; if (f) this.startFile(f); e.target.value = ''; });
@@ -209,7 +212,7 @@
           if (an.note) { this.noteUntil = now + 2200; an.note = ''; }
           const h = an.hint();
           hud.push([an.landed ? 'ok' : 'info', { stand: T('Stand ready, both feet down', 'قف مستعدًّا والقدمان على الأرض'), ready: T('Ready — start the kick!', 'جاهز — ابدأ الركلة!'),
-            chamber: T('Lift the leg and fold the knee', 'ارفع الرجل واثنِ الركبة'), snap: T('Extend the leg fully!', 'مدّ الرجل تمامًا!'), retract: T('Pull the knee back, then land', 'اسحب الركبة ثم انزل'),
+            chamber: T('Lift the leg and fold the knee', 'ارفع الرجل واثنِ الركبة'), snap: this.kick === 'bakchagi3' ? T('Turn the standing foot and extend the leg!', 'لفّ قدم الارتكاز ومدّ الرجل!') : T('Extend the leg fully!', 'مدّ الرجل تمامًا!'), retract: T('Pull the knee back, then land', 'اسحب الركبة ثم انزل'),
             lift_extend: T('Lift the leg straight, then bring it down', 'ارفع الرجل مفرودة ثم أنزلها'), done: T('Kick complete!', 'اكتملت الركلة!') }[h]]);
           if (an.live_warn) hud.push(['bad', T('Keep the leg STRAIGHT!', 'أبقِ الرجل مفرودة!')]);
           if (now < this.noteUntil) hud.push(['bad', T('The kick was not completed — try again', 'لم تكتمل الركلة — حاول مرة أخرى')]);
@@ -219,7 +222,7 @@
         const s = CV.stepCheck(this.kick, this.step, m, 0, this.stepState);
         const fill = this.$('#ty-acc-fill'), n = this.$('#ty-acc-n'); if (fill) fill.style.width = `${Math.round(s.acc * 100)}%`; if (n) n.textContent = `${N(Math.round(s.acc * 100))}%`;
         if (s.ok) { this.stepDone = true; TKD.gs()?.playSound('success'); }
-        else hud.push(['info', { fold: T('Lift the leg and fold the knee', 'ارفع الرجل واثنِ الركبة'), extend: T('Lift the leg and extend the knee', 'ارفع الرجل ومدّ الركبة'),
+        else hud.push(['info', { fold: T('Lift the leg and fold the knee', 'ارفع الرجل واثنِ الركبة'), extend: T('Lift the leg and extend the knee', 'ارفع الرجل ومدّ الركبة'), pivot: T('Turn the standing foot: the heel toward the target', 'لفّ قدم الارتكاز: الكعب في اتجاه الهدف'),
           pull_back: T('Pull the knee back (folded), then land', 'اسحب الركبة (مثنيّة) ثم انزل'), land: T('Now land the foot', 'الآن أنزل القدم') }[s.msg]]);
       }
       if (!full && this.stepDone) hud.push(['ok big', T('Well done! ✓', 'أحسنت! ✓')]);
@@ -269,11 +272,13 @@
     itemWhy(it, f) {
       const v = it.value === null || it.value === undefined ? null : Math.round(it.value), deg = (x) => `${N(Math.round(x))}°`;
       const name = { c_knee: T('Folding the leg before the extension', 'ثني الرجل قبل المدّ'), p_knee: T('Knee angle at full extension', 'زاوية الركبة عند تمام المدّ'), r_knee: T('The knee after the kick', 'الركبة بعد الركلة'),
-        support: T('The standing knee (average)', 'ركبة رجل الارتكاز (المتوسط)'), stance: T('Ready stance', 'وقفة الاستعداد'), guard: T('Guard and fist (the whole movement)', 'الحراسة والقبضة (طوال الحركة)') }[it.key];
+        support: T('The standing knee (average)', 'ركبة رجل الارتكاز (المتوسط)'), pivot: T('The standing foot\'s turn at the extension', 'لفّة قدم الارتكاز عند المدّ'), stance: T('Ready stance', 'وقفة الاستعداد'), guard: T('Guard and fist (the whole movement)', 'الحراسة والقبضة (طوال الحركة)') }[it.key];
       let why = '';
       if (it.status === 'ok') why = T('Correct.', 'سليم.');
       else if (it.status === 'not_folded') why = T('The leg was not folded before extending. Lift the thigh and bend the knee first.', 'لم تُثنَ الرجل قبل المدّ. ارفع الفخذ واثنِ الركبة أولًا.');
       else if (it.status === 'no_retract') why = T(`The leg did not come back folded after the kick (${deg(it.value)}). Bend the knee again before putting the foot down.`, `لم ترجع الرجل مثنيّة بعد الركلة (${deg(it.value)}). اثنِ الركبة مرة أخرى قبل إنزال القدم.`);
+      else if (it.key === 'pivot' && it.status === 'low') why = T(`${deg(it.value)}: the standing foot did not turn enough. Turn it until the heel points at the target (${deg(it.lo)} or more; the lesson says about 135°).`, `${deg(it.value)}: قدم الارتكاز لم تلفّ كفاية. لفّها حتى يتّجه الكعب إلى الهدف (${deg(it.lo)} أو أكثر، وفي الدرس حوالي ١٣٥°).`);
+      else if (it.key === 'pivot' && it.status === 'not_measured') why = T('The standing foot was not seen well enough to measure its turn.', 'لم تظهر قدم الارتكاز جيدًا لقياس لفّتها.');
       else if (it.status === 'not_reached') why = T('The movement did not get this far.', 'لم تصل الحركة إلى هذه النقطة.');
       else if (it.status === 'not_measured') why = T('Could not be measured (the body was not seen well enough).', 'تعذّر القياس (لم يظهر الجسم جيدًا).');
       else if (it.status === 'low') why = it.key === 'support' ? T(`${deg(it.value)}: the standing leg was bent. Keep it straight and steady (${deg(it.lo)} or more).`, `${deg(it.value)}: رجل الارتكاز مثنيّة. أبقِها مفرودة وثابتة (${deg(it.lo)} أو أكثر).`)

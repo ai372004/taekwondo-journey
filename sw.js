@@ -112,6 +112,7 @@ const VIDEO_FILES = [
   './assets/videos/naeryeochagi-tutorial.mp4',
   './assets/videos/tryit/apchagi-coach.mp4',
   './assets/videos/tryit/naeryeochagi-coach.mp4',
+  './assets/videos/tryit/bikchagi-coach.mp4',
   './assets/videos/real/apchagi-real.mp4',
   './assets/videos/real/bikchagi-real.mp4',
   './assets/videos/real/naeryeochagi-real.mp4',
