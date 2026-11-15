@@ -10,11 +10,16 @@
   const CV = window.TryItCV, T = (en, ar) => TKD.t(en, ar), N = (n) => (TKD.ar ? TKD.num(n) : String(n));
   const BASE = 'assets/lib/mediapipe';
   const HAND_LINES = [[0, 1], [1, 2], [2, 3], [3, 4], [0, 5], [5, 6], [6, 7], [7, 8], [5, 9], [9, 10], [10, 11], [11, 12], [9, 13], [13, 14], [14, 15], [15, 16], [13, 17], [17, 18], [18, 19], [19, 20], [0, 17]];
-  const KICKS = [
+  const ALL_KICKS = [
     { id: 'apchagi', video: 'assets/videos/tryit/apchagi-coach.mp4' },
     { id: 'narochagi', video: 'assets/videos/tryit/naeryeochagi-coach.mp4' },
     { id: 'bakchagi3', video: 'assets/videos/tryit/bikchagi-coach.mp4' }
   ];
+  // The club opens the page one kick at a time: Ap Chagi first. Naeryo and Bik Chagi are built and
+  // tested (analyzer.js, their coach clips) — add their ids here to show them (and their clips to
+  // VIDEO_FILES in sw.js).
+  const OPEN_KICKS = ['apchagi'];
+  const KICKS = ALL_KICKS.filter(k => OPEN_KICKS.includes(k.id));
   const snapKick = (id) => !!CV.KICKS[id].SNAP;            // lift and fold → extend → pull back (Ap Chagi, Bik Chagi)
   const GRADE = { 'Excellent': ['Excellent', 'ممتاز'], 'Good': ['Good', 'جيد'], 'Fair': ['Fair', 'مقبول'], 'Needs work': ['Needs work', 'يحتاج إلى تمرين'] };
 
@@ -32,6 +37,7 @@
     // ------------------------------------------------------------------ the screen
     render() {
       const r = this.root(); if (!r) return;
+      if (!KICKS.some(k => k.id === this.kick)) { this.kick = KICKS[0].id; this.step = snapKick(this.kick) ? 1 : 2; }
       const best = this.best()[this.kick];
       const bik = this.kick === 'bakchagi3';
       const steps = snapKick(this.kick)
