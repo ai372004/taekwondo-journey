@@ -21371,8 +21371,7 @@ document.addEventListener('tkd:lang', () => { if (document.querySelector('#law-s
 (function lawDoors() {
   const btn = () => `<button type="button" class="law-entry" data-law-open><span class="ld-ic">⚖️</span><span><b>${TKD.t('The rules of sparring', 'قانون النزال')}</b><small>${TKD.t('Cards + the Little Referee', 'البطاقات + الحكم الصغير')}</small></span><span aria-hidden="true">${TKD.ar ? '←' : '→'}</span></button>`;
   const put = (host, after) => { if (!host || host.querySelector('[data-law-open]')) return; const w = document.createElement('div'); w.className = 'law-entry-wrap'; w.innerHTML = btn(); (after ? after.after(w) : host.appendChild(w)); w.querySelector('button').addEventListener('click', () => { TKD.gs()?.playSound('click'); switchScreen('law'); }); };
-  const r = HomeHub.render.bind(HomeHub);
-  HomeHub.render = (...a) => { const out = r(...a); try { const map = document.querySelector('#home-screen .jr-map'); put(map?.parentElement, map); } catch (e) {} return out; };
+  // v65.6 (the testers): not under the map any more (too crowded) — in the Play tab and under the games only
   document.addEventListener('tkd:screen', (e) => {
     if (e.detail?.screenId !== 'games') return;
     setTimeout(() => { const gc = document.querySelector('#games-screen .game-container'); const last = gc && [...gc.querySelectorAll('.unit-sec[data-unit]')].pop(); put(gc, last); }, 60);
@@ -21383,8 +21382,7 @@ document.addEventListener('tkd:lang', () => { if (document.querySelector('#law-s
 (function tryDoors() {
   const btn = () => `<button type="button" class="law-entry try-entry" data-try-open><span class="ld-ic">🎥</span><span><b>${TKD.t('Try it yourself', 'جرّب بنفسك')}</b><small>${TKD.t('Kick in front of the camera and get a score', 'اركل أمام الكاميرا واحصل على درجة')}</small></span><span aria-hidden="true">${TKD.ar ? '←' : '→'}</span></button>`;
   const put = (host, after) => { if (!host || host.querySelector('[data-try-open]')) return; const w = document.createElement('div'); w.className = 'law-entry-wrap'; w.innerHTML = btn(); (after ? after.after(w) : host.appendChild(w)); w.querySelector('button').addEventListener('click', () => { TKD.gs()?.playSound('click'); switchScreen('try'); }); };
-  const r = HomeHub.render.bind(HomeHub);
-  HomeHub.render = (...a) => { const out = r(...a); try { const map = document.querySelector('#home-screen .jr-map'); put(map?.parentElement, map); } catch (e) {} return out; };
+  // v65.6 (the testers): not under the map any more (too crowded) — in the Play tab and under the games only
   document.addEventListener('tkd:screen', (e) => {
     if (e.detail?.screenId !== 'games') return;
     setTimeout(() => { const gc = document.querySelector('#games-screen .game-container'); const last = gc && [...gc.querySelectorAll('.unit-sec[data-unit]')].pop(); put(gc, last); }, 50);
