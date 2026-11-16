@@ -21,6 +21,14 @@
   const OPEN_KICKS = ['apchagi', 'narochagi'];
   const KICKS = ALL_KICKS.filter(k => OPEN_KICKS.includes(k.id));
   const snapKick = (id) => !!CV.KICKS[id].SNAP;            // lift and fold → extend → pull back (Ap Chagi, Bik Chagi)
+  // v65.4: phones (iPhone above all) crash the page ("a problem repeatedly occurred") when a big phone
+  // video is decoded at full size and run through the full models every picture: on a phone the
+  // light body model, the CPU on iPhone (its GPU path in Safari is fragile), pictures shrunk to 640px
+  // before tracking, hands every 3rd picture, and at most MAX_FILE_SECONDS of a chosen video.
+  const UA = navigator.userAgent || '';
+  const IS_IOS = /iP(hone|ad|od)/.test(UA) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const IS_PHONE = IS_IOS || /Android|Mobile/.test(UA);
+  const MAX_FILE_SECONDS = 30;
   const GRADE = { 'Excellent': ['Excellent', 'ممتاز'], 'Good': ['Good', 'جيد'], 'Fair': ['Fair', 'مقبول'], 'Needs work': ['Needs work', 'يحتاج إلى تمرين'] };
 
   const TryIt = {
@@ -116,6 +124,8 @@
           runningMode: 'VIDEO', numHands: 2, minHandDetectionConfidence: 0.3, minHandPresenceConfidence: 0.3, minTrackingConfidence: 0.3 });
         return [pose, hands];
       };
+      if (IS_PHONE) this.lite = true;
+      if (IS_IOS && !this.delegate) this.delegate = 'CPU';
       try { [this.pose, this.hands] = await make(this.delegate || 'GPU'); this.delegate = this.delegate || 'GPU'; }
       catch (e) { this.delegate = 'CPU'; [this.pose, this.hands] = await make('CPU'); }
       this.ts = 0;
@@ -165,7 +175,7 @@
       const v = this.$('#ty-video'); if (!v) return;
       this.$('#ty-canvas')?.classList.remove('is-mirror');
       this.fileUrl = URL.createObjectURL(file);
-      v.srcObject = null; v.muted = true; v.playsInline = true; v.setAttribute('playsinline', ''); v.preload = 'auto';
+      v.srcObject = null; v.muted = true; v.playsInline = true; v.setAttribute('playsinline', ''); v.setAttribute('webkit-playsinline', ''); v.disableRemotePlayback = true; v.preload = 'auto';
       v.src = this.fileUrl; v.load();
       // iPhone (Safari) loads a chosen video only as far as its size (no picture) until it is played
       // once, and a phone video can be large (HEVC .mov): wait for the size, then play it a moment
@@ -178,10 +188,11 @@
       ok = ok !== false && v.readyState >= 2;
       if (!ok || !v.videoWidth) { this.status(T('This video could not be opened on this phone. Try a shorter video (a few seconds, just the kick), or record it with the camera here.', 'تعذّر فتح هذا الفيديو على هذا الهاتف. جرّب فيديو أقصر (ثوانٍ قليلة للركلة فقط)، أو صوّره بالكاميرا من هنا.'), 'bad'); return; }
       if (!(await this.begin())) return;
-      const gen = this.gen, dt = 1 / 30, live = () => this.running && gen === this.gen;
+      const gen = this.gen, dt = IS_PHONE ? 1 / 15 : 1 / 30, live = () => this.running && gen === this.gen;
       // v65.3: iPhone may not know the length yet (0 / NaN / Infinity) — wait for it a little
       for (let k = 0; k < 30 && !(isFinite(v.duration) && v.duration > 0.3); k++) await new Promise(r => setTimeout(r, 100));
-      const dur = isFinite(v.duration) && v.duration > 0 ? v.duration : 0;
+      const dur = isFinite(v.duration) && v.duration > 0 ? Math.min(v.duration, MAX_FILE_SECONDS) : 0;
+      if (v.duration > MAX_FILE_SECONDS + 1) TKD.toast(T(`Only the first ${MAX_FILE_SECONDS} seconds are read — a short video of just the kick works best.`, `نقرأ أول ${N(MAX_FILE_SECONDS)} ثانية فقط — الأفضل فيديو قصير للركلة وحدها.`), 'warning');
       const pct = (t) => { if (dur) this.status(T(`Reading the video… ${Math.round(100 * Math.min(t, dur) / dur)}%`, `نقرأ الفيديو… ${N(Math.round(100 * Math.min(t, dur) / dur))}٪`), 'wait'); };
       // 1) every frame, in order (like the Python on an uploaded video): the same video → the same score
       const seek = (t) => new Promise(res => { let moved = false; const done = () => { v.removeEventListener('seeked', done); res(moved); }; v.addEventListener('seeked', () => { moved = true; }, { once: true }); v.addEventListener('seeked', done); v.currentTime = t; setTimeout(done, 1500); });
@@ -206,6 +217,7 @@
           const tick = (now, meta) => {
             if (!live() || v.ended) return end();
             const t = meta && typeof meta.mediaTime === 'number' ? meta.mediaTime : v.currentTime;
+            if (t > MAX_FILE_SECONDS) { v.pause(); return end(); }
             if (t !== lastT && v.readyState >= 2) { lastT = t; this.process(t, v); pct(t); }
             if (this.mode === 'step' && this.stepDone) { v.pause(); return end(); }
             rvfc ? v.requestVideoFrameCallback(tick) : requestAnimationFrame(tick);
@@ -234,11 +246,18 @@
       const W = 640, H = Math.round(640 * v.videoHeight / v.videoWidth);
       const now = performance.now(); this.ts = Math.max(this.ts + 1, Math.round(now));
       let lm = null;
+      // the picture is shrunk to 640px wide before tracking (a phone video can be 4K: too much to track)
+      let src = v;
+      if (v.videoWidth > 720) {
+        const wk = this.work || (this.work = document.createElement('canvas'));
+        if (wk.width !== W || wk.height !== H) { wk.width = W; wk.height = H; }
+        wk.getContext('2d', { willReadFrequently: false }).drawImage(v, 0, 0, W, H); src = wk;
+      }
       try {
-        lm = this.pose.detectForVideo(v, this.ts).landmarks?.[0] || null;
+        lm = this.pose.detectForVideo(src, this.ts).landmarks?.[0] || null;
         this.fc++;
-        // live: hands are heavy, so every 3rd frame; a chosen video: every frame
-        if (!this.live || this.fc % 3 === 1) this.handsRes = this.hands.detectForVideo(v, this.ts);
+        // hands are heavy: every 3rd picture live and on phones; a chosen video on a computer: every picture
+        if ((!this.live && !IS_PHONE) || this.fc % 3 === 1) this.handsRes = this.hands.detectForVideo(src, this.ts);
       } catch (e) { console.warn('TryIt frame', e); return; }
       this.diag.total++;
       const m = lm ? CV.measure(lm, (this.handsRes && this.handsRes.landmarks) || [], W, H, t, this.sm) : null;
