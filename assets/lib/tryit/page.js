@@ -178,14 +178,42 @@
       ok = ok !== false && v.readyState >= 2;
       if (!ok || !v.videoWidth) { this.status(T('This video could not be opened on this phone. Try a shorter video (a few seconds, just the kick), or record it with the camera here.', 'تعذّر فتح هذا الفيديو على هذا الهاتف. جرّب فيديو أقصر (ثوانٍ قليلة للركلة فقط)، أو صوّره بالكاميرا من هنا.'), 'bad'); return; }
       if (!(await this.begin())) return;
-      const gen = this.gen, dur = v.duration || 0, dt = 1 / 30;
-      // every frame, in order (like the Python on an uploaded video): the same video → the same score
-      const seek = (t) => new Promise(res => { const done = () => { v.removeEventListener('seeked', done); res(); }; v.addEventListener('seeked', done); v.currentTime = t; setTimeout(done, 1500); });
-      for (let t = 0, i = 0; t < dur && this.running && gen === this.gen; t += dt, i++) {
-        await seek(t);
-        this.process(t, v);
+      const gen = this.gen, dt = 1 / 30, live = () => this.running && gen === this.gen;
+      // v65.3: iPhone may not know the length yet (0 / NaN / Infinity) — wait for it a little
+      for (let k = 0; k < 30 && !(isFinite(v.duration) && v.duration > 0.3); k++) await new Promise(r => setTimeout(r, 100));
+      const dur = isFinite(v.duration) && v.duration > 0 ? v.duration : 0;
+      const pct = (t) => { if (dur) this.status(T(`Reading the video… ${Math.round(100 * Math.min(t, dur) / dur)}%`, `نقرأ الفيديو… ${N(Math.round(100 * Math.min(t, dur) / dur))}٪`), 'wait'); };
+      // 1) every frame, in order (like the Python on an uploaded video): the same video → the same score
+      const seek = (t) => new Promise(res => { let moved = false; const done = () => { v.removeEventListener('seeked', done); res(moved); }; v.addEventListener('seeked', () => { moved = true; }, { once: true }); v.addEventListener('seeked', done); v.currentTime = t; setTimeout(done, 1500); });
+      let missed = 0, frames = 0;
+      for (let t = 0, i = 0; t < dur && live(); t += dt, i++) {
+        if (!(await seek(t))) missed++;
+        this.process(t, v); frames++;
         if (this.mode === 'step' && this.stepDone) break;
-        if (i % 3 === 0) { this.status(T(`Reading the video… ${Math.round(100 * t / dur)}%`, `نقرأ الفيديو… ${N(Math.round(100 * t / dur))}٪`), 'wait'); await new Promise(r => setTimeout(r, 0)); }
+        if (missed >= 4 && missed > frames / 2) break;          // this browser does not step through the video: play it instead
+        if (i % 3 === 0) { pct(t); await new Promise(r => setTimeout(r, 0)); }
+      }
+      // 2) iPhone: stepping did not work (or the length was unknown) — play the video, slowly, and
+      //    read every picture it shows (like the live camera)
+      const stepped = dur && frames >= Math.min(20, dur * 30 * 0.5) && missed <= frames / 2;
+      if (live() && !stepped && !(this.mode === 'step' && this.stepDone)) {
+        this.resetRun(); this.running = true;
+        v.currentTime = 0; v.playbackRate = 0.5; v.loop = false;
+        await new Promise(res => {
+          let lastT = -1; const rvfc = typeof v.requestVideoFrameCallback === 'function';
+          const end = () => { v.removeEventListener('ended', end); res(); };
+          v.addEventListener('ended', end);
+          const tick = (now, meta) => {
+            if (!live() || v.ended) return end();
+            const t = meta && typeof meta.mediaTime === 'number' ? meta.mediaTime : v.currentTime;
+            if (t !== lastT && v.readyState >= 2) { lastT = t; this.process(t, v); pct(t); }
+            if (this.mode === 'step' && this.stepDone) { v.pause(); return end(); }
+            rvfc ? v.requestVideoFrameCallback(tick) : requestAnimationFrame(tick);
+          };
+          v.play().then(() => (rvfc ? v.requestVideoFrameCallback(tick) : requestAnimationFrame(tick))).catch(end);
+          setTimeout(end, Math.max(20000, (dur || 30) * 2500));
+        });
+        try { v.pause(); } catch (e) {}
       }
       if (gen !== this.gen || !this.running) return;
       this.status('');
