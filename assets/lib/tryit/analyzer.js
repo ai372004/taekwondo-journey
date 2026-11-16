@@ -195,7 +195,10 @@
       const R = m.R, L = m.L;
       if (m.guard_fist || (m.fist && (R.guard || L.guard))) return 'ok';
       const hn = m.hands_n !== undefined && m.hands_n !== null ? m.hands_n : (m.fist ? 1 : 0);
-      if (!hn) return 'nohand';
+      // v65.5: the hand model often misses a small far-away hand, and then the guard was never
+      // counted. When the body tracker sees a wrist, the guard is judged from it (above the chest or
+      // not); whether the fist is closed can only be seen when the hand model sees the hand.
+      if (!hn) return m.wrist_seen ? ((R.guard || L.guard) ? 'ok' : 'low') : 'nohand';
       if (!m.fist) return 'open';
       return 'low';
     }
@@ -495,7 +498,7 @@
       if (checkFist(hl, w, h)) { fist = true; closedYs.push(hy); }
     }
     const chestY = midSh[1] + (midHip[1] - midSh[1]) * GUARD_LINE;
-    return { t, R: mR, L: mL, lean, fist, guard_fist: closedYs.some(y => y < chestY), hands_n: handsN,
+    return { t, R: mR, L: mL, lean, fist, guard_fist: closedYs.some(y => y < chestY), hands_n: handsN, wrist_seen: vis(PL.R_WRIST) > 0.5 || vis(PL.L_WRIST) > 0.5,
       _px: { r, l, midSh, midHip, legLen }, _hands: mine };
   }
 
