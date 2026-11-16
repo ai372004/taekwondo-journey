@@ -906,7 +906,7 @@ function watchVideoLoading(video) {
 // Arabic or English voice, degrees and ranges in words)
 // v63.4 — the version a tester can read on the start screen and in Coach → Settings (bump it
 // together with CACHE_VERSION in sw.js)
-const APP_VERSION = '65.5';
+const APP_VERSION = '65.6';
 
 const SpeechVoice = {
   KEY: 'taekwondoJourneyVoice',
@@ -6038,7 +6038,7 @@ class ErrorHuntSystem {
                              : `Level ${this.levelIndex + 1} / ${this.LEVELS.length}`);
     set('eh-mistakes', ar ? `الأخطاء: ${this.totalMistakes}` : `Mistakes: ${this.totalMistakes}`);
     set('eh-kick-name', `🥋 ${TKD.skillName(this.kick)}`);          // v65.1: the club — say which kick this is
-    set('eh-level-title', this.pick(this.TITLE));
+    set('eh-level-title', TKD.ar ? `🔎 يوجد خطأ واحد في ركلة ${TKD.skillName(this.kick)} — اكتشفه!` : `🔎 One thing is wrong in this ${TKD.skillName(this.kick)} kick — find it!`);   // v65.6: the kick's name in the title
     set('eh-level-desc', this.pick(this.DESC));
 
     document.querySelectorAll('#eh-board [data-eh-zone]').forEach((z) => {
