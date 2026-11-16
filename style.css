@@ -3990,6 +3990,7 @@ h1, h2, h3, .btn, .description, .coach-message { overflow-wrap: anywhere; }
   background: rgba(38, 70, 83, 0.85); border: 1px solid var(--border-color); color: var(--text-white);
 }
 .eh-chip-danger { border-color: rgba(230, 57, 70, 0.5); color: #ffb3b9; }
+.eh-chip-kick { border-color: rgba(255, 209, 102, 0.6); color: #ffd166; font-weight: 800; }
 
 .eh-layout {
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
@@ -6780,4 +6781,25 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }   /* iOS Safari
   .ty-pane video, .ty-pane canvas { max-height: 58vh; max-height: 58dvh; }
   .ty-chip { padding: 6px 12px; font-size: .9rem; }
 }
+}
+
+/* v65.1: the camera / chosen video feeds the drawing but is not shown itself. Not display:none —
+   iPhone Safari does not decode the pictures of a hidden video (a chosen video "could not be opened") */
+#ty-video { position: absolute; width: 2px; height: 2px; opacity: 0; pointer-events: none; inset-inline-start: 0; top: 0; }
+
+/* v65.1 (the testers): on a phone the fighter and the words sit SIDE BY SIDE — the fighter on the
+   right, the phase's words on the left — so the child reads and sees the pose at the same time,
+   without scrolling up and down. The fighter stays in view (sticky) while the words scroll. */
+@media (max-width: 760px) {
+  .phase-card-body { flex-direction: row; align-items: flex-start; }
+  .phase-image-col, .phase-image-col.has-rig { flex: 0 0 50%; max-width: 50%; height: auto !important; position: sticky; top: 64px; align-self: flex-start; padding: 6px 4px 8px; }
+  .phase-image-col.has-rig .phase-rig, .phase-rig { height: auto; aspect-ratio: 5 / 6; max-height: 46dvh; }
+  .phase-image-col.has-rig > .rig-controls { gap: 4px; }
+  .phase-image-col.has-rig > .rig-controls .rig-btn { font-size: .7rem; padding: 4px 6px; min-height: 36px; }
+  .phase-info-col { display: flex; flex-direction: column; flex: 1 1 auto; min-width: 0; padding: 10px 10px 12px; gap: 8px; }
+  .phase-focus-box { order: 0; margin: 0; padding: 8px 10px; }
+  .phase-focus-box p { font-size: clamp(.92rem, 3.9vw, 1.08rem); }
+  .phase-tips-list, .phase-more-btn { margin-inline: 0; }
+  .phase-tips-list { margin-block: 0; }
+  .phase-tips-list li { padding: 6px 8px; font-size: clamp(.86rem, 3.6vw, .98rem); }
 }

@@ -66,7 +66,7 @@
         <div class="ty-stage">
           <figure class="ty-pane ty-coach"><video id="ty-coach" src="${KICKS.find(k => k.id === this.kick).video}" poster="${KICKS.find(k => k.id === this.kick).video.replace('.mp4', '.webp')}" muted loop playsinline preload="metadata"></video>
             <figcaption>📺 ${T('Watch', 'شاهد')}</figcaption></figure>
-          <figure class="ty-pane ty-me"><video id="ty-video" muted playsinline hidden></video><canvas id="ty-canvas" width="360" height="640"></canvas>
+          <figure class="ty-pane ty-me"><video id="ty-video" muted playsinline aria-hidden="true"></video><canvas id="ty-canvas" width="360" height="640"></canvas>
             <div class="ty-hud" id="ty-hud" aria-live="polite"></div>
             <div class="ty-idle" id="ty-idle"><span>📷</span><p>${T('You will appear here', 'ستظهر هنا')}</p></div>
             <figcaption>🧍 ${T('You', 'أنت')}</figcaption></figure>
@@ -165,9 +165,18 @@
       const v = this.$('#ty-video'); if (!v) return;
       this.$('#ty-canvas')?.classList.remove('is-mirror');
       this.fileUrl = URL.createObjectURL(file);
-      v.srcObject = null; v.src = this.fileUrl; v.muted = true;
-      const ok = await new Promise(res => { v.onloadeddata = () => res(true); v.onerror = () => res(false); setTimeout(() => res(v.readyState >= 2), 8000); });
-      if (!ok || !v.videoWidth) { this.status(T('This video could not be opened. Try an MP4 video.', 'تعذّر فتح هذا الفيديو. جرّب فيديو بصيغة MP4.'), 'bad'); return; }
+      v.srcObject = null; v.muted = true; v.playsInline = true; v.setAttribute('playsinline', ''); v.preload = 'auto';
+      v.src = this.fileUrl; v.load();
+      // iPhone (Safari) loads a chosen video only as far as its size (no picture) until it is played
+      // once, and a phone video can be large (HEVC .mov): wait for the size, then play it a moment
+      // (muted) so a first picture is decoded, then pause and read it frame by frame.
+      const wait = (ev, ms) => new Promise(res => { let done = false; const fin = (x) => { if (!done) { done = true; v.removeEventListener(ev, on); v.removeEventListener('error', no); res(x); } };
+        const on = () => fin(true), no = () => fin(false); v.addEventListener(ev, on); v.addEventListener('error', no); setTimeout(() => fin(null), ms); });
+      this.status(T('Opening the video…', 'نفتح الفيديو…'), 'wait');
+      let ok = v.readyState >= 1 || await wait('loadedmetadata', 20000);
+      if (ok !== false && v.readyState < 2) { try { await v.play(); } catch (e) {} ok = v.readyState >= 2 || await wait('loadeddata', 15000); try { v.pause(); } catch (e) {} }
+      ok = ok !== false && v.readyState >= 2;
+      if (!ok || !v.videoWidth) { this.status(T('This video could not be opened on this phone. Try a shorter video (a few seconds, just the kick), or record it with the camera here.', 'تعذّر فتح هذا الفيديو على هذا الهاتف. جرّب فيديو أقصر (ثوانٍ قليلة للركلة فقط)، أو صوّره بالكاميرا من هنا.'), 'bad'); return; }
       if (!(await this.begin())) return;
       const gen = this.gen, dur = v.duration || 0, dt = 1 / 30;
       // every frame, in order (like the Python on an uploaded video): the same video → the same score
