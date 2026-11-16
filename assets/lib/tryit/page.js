@@ -18,7 +18,7 @@
   // The club opens the page one kick at a time: Ap Chagi first. Naeryo and Bik Chagi are built and
   // tested (analyzer.js, their coach clips) — add their ids here to show them (and their clips to
   // VIDEO_FILES in sw.js).
-  const OPEN_KICKS = ['apchagi'];
+  const OPEN_KICKS = ['apchagi', 'narochagi'];
   const KICKS = ALL_KICKS.filter(k => OPEN_KICKS.includes(k.id));
   const snapKick = (id) => !!CV.KICKS[id].SNAP;            // lift and fold → extend → pull back (Ap Chagi, Bik Chagi)
   const GRADE = { 'Excellent': ['Excellent', 'ممتاز'], 'Good': ['Good', 'جيد'], 'Fair': ['Fair', 'مقبول'], 'Needs work': ['Needs work', 'يحتاج إلى تمرين'] };
