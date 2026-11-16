@@ -124,7 +124,7 @@
       this.an = new CV.KickAnalyzer(this.kick, 0);
       this.sm = new CV.Smoother(3);
       this.diag = { total: 0, poseOk: 0 }; this.stepState = {}; this.stepDone = false; this.fc = 0; this.handsRes = null; this.noteUntil = 0; this.autoAt = 0;
-      this.fps = 0; this.tPrev = 0; this.slow = 0;
+      this.fps = 0; this.tPrev = 0; this.slow = 0; this.steadyAt = 0; this.goAt = 0; this.go = !this.live; this.lastBeep = -1;
       this.buttons();
     },
     async begin() {
@@ -247,6 +247,22 @@
       const hud = [], an = this.an, full = this.mode === 'full';
       if (!m) hud.push(['warn', T('Show your whole body, from head to feet!', 'أظهر جسمك كله من الرأس إلى القدمين!')]);
       else if (full) {
+        // v65.3 (the testers): with the camera the child needs time to put the phone down, step back
+        // and stand. Nothing is counted until the whole body has been seen standing still (both feet
+        // down) for a moment, then a 3-2-1 countdown; only then does the kick start to count.
+        if (!this.go) {
+          const still = m.R.grounded && m.L.grounded;
+          if (!still) { this.steadyAt = 0; this.goAt = 0; hud.push(['warn', T('Stand ready with both feet down, whole body in the picture', 'قف مستعدًّا والقدمان على الأرض، وجسمك كله في الصورة')]); }
+          else if (!this.steadyAt) this.steadyAt = now;
+          if (still && !this.goAt && now - this.steadyAt > 1200) this.goAt = now + 3000;
+          if (this.goAt) {
+            const left = Math.ceil((this.goAt - now) / 1000);
+            if (left !== this.lastBeep) { this.lastBeep = left; TKD.gs()?.playSound(left > 0 ? 'click' : 'success'); }
+            if (left > 0) hud.push(['ok big', T(`Get ready… ${left}`, `استعد… ${N(left)}`)]);
+            else { this.go = true; this.sm = new CV.Smoother(3); }
+          } else if (still) hud.push(['info', T('Stay still…', 'اثبت مكانك…')]);
+          if (!this.go) { this.draw(v, m, W, H); const hudEl = this.$('#ty-hud'); const html = hud.map(([c, x]) => `<span class="${c}">${TKD.esc(x)}</span>`).join(''); if (hudEl && hudEl.dataset.h !== html) { hudEl.dataset.h = html; hudEl.innerHTML = html; } return; }
+        }
         if (an.final === null && !an.landed) {
           const hs = CV.KickAnalyzer.handState(m);
           hud.push([hs === 'ok' ? 'ok' : hs === 'nohand' ? 'warn' : 'bad', { ok: T('Hand up, fist closed ✓', 'اليد مرفوعة والقبضة مغلقة ✓'), nohand: T('Hand not seen (not counted against you)', 'اليد غير ظاهرة (لا تُحسب عليك)'),
