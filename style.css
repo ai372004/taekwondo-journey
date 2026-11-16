@@ -6809,3 +6809,11 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }   /* iOS Safari
 .video-controls-compact .btn-icon { width: 44px; min-width: 44px; height: 44px; padding: 0; border-radius: 50%; justify-content: center; }
 .video-controls-compact .btn-icon i { margin: 0; }
 .video-controls-compact #mark-complete-btn { width: auto; flex: 1 1 auto; max-width: 260px; }
+
+/* v65.6: the kick's facts on the map are folded behind an arrow */
+details.jr-kick-info > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+details.jr-kick-info > summary::-webkit-details-marker { display: none; }
+details.jr-kick-info > summary > b { flex: 1 1 auto; }
+.jki-arrow { flex: 0 0 auto; font-size: 1.1em; transition: transform .2s; }
+details.jr-kick-info[open] .jki-arrow { transform: rotate(180deg); }
+details.jr-kick-info > p { margin-top: 8px; }
