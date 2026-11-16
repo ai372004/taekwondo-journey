@@ -2486,10 +2486,9 @@ class LearningSystem {
             <source src="${skill.video}" type="video/mp4">
             ${LearningSystem.captionTracks(skill.video, ar)}
           </video>
-          <div class="video-controls">
-            <button class="btn btn-small" id="play-pause-btn"><i class="fas fa-play"></i> ${ar ? 'تشغيل' : 'Play'}</button>
-            <button class="btn btn-small" id="replay-btn"><i class="fas fa-redo"></i> ${ar ? 'إعادة' : 'Replay'}</button>
-            ${/-tutorial\.mp4$/.test(skill.video || '') && !FILE_MODE ? `<button class="btn btn-small" id="captions-btn" aria-pressed="true">💬 ${ar ? 'النص مكتوب' : 'Captions'}</button>` : ''}
+          <div class="video-controls video-controls-compact">
+            <button class="btn btn-small btn-icon" id="play-pause-btn" aria-label="${ar ? 'تشغيل' : 'Play'}" title="${ar ? 'تشغيل' : 'Play'}"><i class="fas fa-play"></i></button>
+            <button class="btn btn-small btn-icon" id="replay-btn" aria-label="${ar ? 'إعادة' : 'Replay'}" title="${ar ? 'إعادة' : 'Replay'}"><i class="fas fa-redo"></i></button>
             <button class="btn btn-small btn-success" id="mark-complete-btn" disabled>
               <i class="fas fa-check"></i> ${ar ? 'شاهدته ✓' : 'Mark as Watched ✓'}
             </button>
@@ -2547,7 +2546,7 @@ class LearningSystem {
     return [['ar', 'العربية'], ['en', 'English']].map(([l, label]) =>
       `<track kind="captions" src="${base}.${l}.vtt" srclang="${l}" label="${label}"${(l === 'ar') === ar ? ' default' : ''}>`).join('');
   }
-  static captionsOn() { try { return localStorage.getItem('taekwondoJourneyCaptions') !== 'off'; } catch (e) { return true; } }
+  static captionsOn() { return false; }   // v65.6 (the testers): the words covered the fighter's feet — captions off (the text is in the lesson cards)
   static wireCaptions(video, ar, btn) {
     if (!video) return;
     const want = ar ? 'ar' : 'en';

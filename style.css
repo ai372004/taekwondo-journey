@@ -6803,3 +6803,9 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }   /* iOS Safari
   .phase-tips-list { margin-block: 0; }
   .phase-tips-list li { padding: 6px 8px; font-size: clamp(.86rem, 3.6vw, .98rem); }
 }
+
+/* v65.6 (the testers): under the lesson video only small play / replay icons and the "watched" button */
+.video-controls-compact { flex-direction: row !important; align-items: center; justify-content: center; gap: 10px; }
+.video-controls-compact .btn-icon { width: 44px; min-width: 44px; height: 44px; padding: 0; border-radius: 50%; justify-content: center; }
+.video-controls-compact .btn-icon i { margin: 0; }
+.video-controls-compact #mark-complete-btn { width: auto; flex: 1 1 auto; max-width: 260px; }
