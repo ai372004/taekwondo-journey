@@ -11,7 +11,7 @@
    whenever anything changes so players get the update.
    ===================================================================== */
 
-const CACHE_VERSION = 'tkd-v65.6';
+const CACHE_VERSION = 'tkd-v66.0';
 const APP_SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const ASSET_CACHE = `${CACHE_VERSION}-assets`;     // precached images + videos, never trimmed
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;  // anything else same-origin, trimmed
@@ -19,6 +19,9 @@ const RUNTIME_MAX_ENTRIES = 250;
 // v65: the camera page's MediaPipe engine + models (25 MB+): fetched on first use, kept across app
 // updates (its own version — bump only when the files in assets/lib/mediapipe change)
 const ML_CACHE = 'tkdml-v1';
+// v66: the recorded voice lines (18 MB) in their own cache too, kept across app updates: a clip's file
+// name carries its sentence's key, so a changed sentence is a new file (bump only to drop old clips)
+const VOICE_CACHE = 'tkdvoice-v1';
 const NAV_TIMEOUT_MS = 4000;
 
 const APP_SHELL_FILES = [
@@ -159,7 +162,7 @@ function precacheVoice() {
       const res = await fetch('./assets/audio/voice/manifest.json', { cache: 'no-cache' }).catch(() => null);
       if (!res || !res.ok) return;
       const man = await res.json().catch(() => ({}));
-      const cache = await caches.open(ASSET_CACHE);
+      const cache = await caches.open(VOICE_CACHE);
       for (const [lang, files] of Object.entries(man || {})) {
         for (const f of Object.values(files || {})) {
           const file = `./assets/audio/voice/${lang}/${f}`;
