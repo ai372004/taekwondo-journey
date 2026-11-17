@@ -190,12 +190,12 @@
   {
    "group": "kick",
    "priority": 1,
-   "ar": "آب تشاجي",
+   "ar": "أب تشاجي",
    "en": "Ap Chagi",
    "note": "اسم الركلة",
-   "key": "fwzoli",
+   "key": "1sr34lj",
    "keyEn": "c7nhpm",
-   "file": "kick-001-fwzoli.mp3",
+   "file": "kick-001-1sr34lj.mp3",
    "fileEn": "kick-001-c7nhpm.mp3"
   },
   {
@@ -1488,34 +1488,34 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "الخطوة التالية: تعلّم آب تشاجي",
+   "ar": "الخطوة التالية: تعلّم أب تشاجي",
    "en": "Next: Learn Ap Chagi",
    "note": "الخطوة التالية على الخريطة",
-   "key": "19ksclq",
+   "key": "sv5f3",
    "keyEn": "1kdlip5",
-   "file": "screen-004-19ksclq.mp3",
+   "file": "screen-004-sv5f3.mp3",
    "fileEn": "screen-004-1kdlip5.mp3"
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "الخطوة التالية: اختبار آب تشاجي",
+   "ar": "الخطوة التالية: اختبار أب تشاجي",
    "en": "Next: Take the Ap Chagi test",
    "note": "الخطوة التالية على الخريطة",
-   "key": "1iseho9",
+   "key": "2jjlzs",
    "keyEn": "ui3dj1",
-   "file": "screen-005-1iseho9.mp3",
+   "file": "screen-005-2jjlzs.mp3",
    "fileEn": "screen-005-ui3dj1.mp3"
   },
   {
    "group": "screen",
    "priority": 2,
-   "ar": "الخطوة التالية: هيا إلى آب تشاجي!",
+   "ar": "الخطوة التالية: هيا إلى أب تشاجي!",
    "en": "Next: On to Ap Chagi!",
    "note": "الخطوة التالية على الخريطة",
-   "key": "1e6hi90",
+   "key": "k36qqd",
    "keyEn": "1wkf87t",
-   "file": "screen-006-1e6hi90.mp3",
+   "file": "screen-006-k36qqd.mp3",
    "fileEn": "screen-006-1wkf87t.mp3"
   },
   {
@@ -1763,12 +1763,12 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "تعلّم آب تشاجي.",
+   "ar": "تعلّم أب تشاجي.",
    "en": "Learn Ap Chagi.",
    "note": "تعليمات الشاشة",
-   "key": "12vb9i",
+   "key": "8lpvuv",
    "keyEn": "hejp8c",
-   "file": "screen-029-12vb9i.mp3",
+   "file": "screen-029-8lpvuv.mp3",
    "fileEn": "screen-029-hejp8c.mp3"
   },
   {
@@ -2071,12 +2071,12 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "اضبط الوضعية — آب تشاجي.",
+   "ar": "اضبط الوضعية — أب تشاجي.",
    "en": "Fix the Pose — Ap Chagi.",
    "note": "تعليمات الشاشة",
-   "key": "kmcfuf",
+   "key": "19mu7w6",
    "keyEn": "13p96hj",
-   "file": "screen-057-kmcfuf.mp3",
+   "file": "screen-057-19mu7w6.mp3",
    "fileEn": "screen-057-13p96hj.mp3"
   },
   {
@@ -2093,12 +2093,12 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "رتّب المراحل — آب تشاجي.",
+   "ar": "رتّب المراحل — أب تشاجي.",
    "en": "Order the Phases — Ap Chagi.",
    "note": "تعليمات الشاشة",
-   "key": "mpsd3o",
+   "key": "11m9lxh",
    "keyEn": "77f7xz",
-   "file": "screen-059-mpsd3o.mp3",
+   "file": "screen-059-11m9lxh.mp3",
    "fileEn": "screen-059-77f7xz.mp3"
   },
   {
@@ -2775,12 +2775,12 @@
   {
    "group": "quiz",
    "priority": 3,
-   "ar": "ماذا تعني كلمة «آب» باللغة الكورية؟",
+   "ar": "ماذا تعني كلمة «أب» باللغة الكورية؟",
    "en": "What does the Korean word \"Ap\" mean?",
    "note": "سؤال",
-   "key": "l1z6tm",
+   "key": "1jis659",
    "keyEn": "rbz781",
-   "file": "quiz-008-l1z6tm.mp3",
+   "file": "quiz-008-1jis659.mp3",
    "fileEn": "quiz-008-rbz781.mp3"
   },
   {
@@ -2885,12 +2885,12 @@
   {
    "group": "quiz",
    "priority": 3,
-   "ar": "بأي جزء من القدم تُوجَّه ركلة آب تشاجي؟",
+   "ar": "بأي جزء من القدم تُوجَّه ركلة أب تشاجي؟",
    "en": "Which part of the foot does Ap Chagi strike with?",
    "note": "سؤال",
-   "key": "99u2xa",
+   "key": "149i9in",
    "keyEn": "1ernffb",
-   "file": "quiz-018-99u2xa.mp3",
+   "file": "quiz-018-149i9in.mp3",
    "fileEn": "quiz-018-1ernffb.mp3"
   },
   {
@@ -2940,12 +2940,12 @@
   {
    "group": "quiz",
    "priority": 3,
-   "ar": "ما هدف ركلة آب تشاجي؟",
+   "ar": "ما هدف ركلة أب تشاجي؟",
    "en": "What is the target of Ap Chagi?",
    "note": "سؤال",
-   "key": "1jk5m9m",
+   "key": "uz9497",
    "keyEn": "schmf",
-   "file": "quiz-023-1jk5m9m.mp3",
+   "file": "quiz-023-uz9497.mp3",
    "fileEn": "quiz-023-schmf.mp3"
   },
   {
@@ -3138,12 +3138,12 @@
   {
    "group": "quiz",
    "priority": 3,
-   "ar": "كيف تكون الذراعان أثناء أداء ركلة آب تشاجي؟",
+   "ar": "كيف تكون الذراعان أثناء أداء ركلة أب تشاجي؟",
    "en": "How are the arms during Ap Chagi?",
    "note": "سؤال",
-   "key": "aae04j",
+   "key": "hk451u",
    "keyEn": "11l94jz",
-   "file": "quiz-041-aae04j.mp3",
+   "file": "quiz-041-hk451u.mp3",
    "fileEn": "quiz-041-11l94jz.mp3"
   },
   {
@@ -3193,12 +3193,12 @@
   {
    "group": "quiz",
    "priority": 3,
-   "ar": "إلى أين ترتفع الركبة في ركلة آب تشاجي؟",
+   "ar": "إلى أين ترتفع الركبة في ركلة أب تشاجي؟",
    "en": "How high does the knee go in Ap Chagi?",
    "note": "سؤال",
-   "key": "1eqzi94",
+   "key": "1jclnwp",
    "keyEn": "1rt6b8m",
-   "file": "quiz-046-1eqzi94.mp3",
+   "file": "quiz-046-1jclnwp.mp3",
    "fileEn": "quiz-046-1rt6b8m.mp3"
   },
   {
@@ -3248,12 +3248,12 @@
   {
    "group": "quiz",
    "priority": 3,
-   "ar": "بأي زاوية تلف قدم الارتكاز للخارج في ركلة آب تشاجي؟",
+   "ar": "بأي زاوية تلف قدم الارتكاز للخارج في ركلة أب تشاجي؟",
    "en": "How far does the standing foot turn outward in Ap Chagi?",
    "note": "سؤال",
-   "key": "1j68bld",
+   "key": "18w82kw",
    "keyEn": "b8vq7h",
-   "file": "quiz-051-1j68bld.mp3",
+   "file": "quiz-051-18w82kw.mp3",
    "fileEn": "quiz-051-b8vq7h.mp3"
   },
   {
@@ -3303,12 +3303,12 @@
   {
    "group": "quiz",
    "priority": 3,
-   "ar": "ماذا نفعل بعد توجيه ركلة آب تشاجي نحو المنافس؟",
+   "ar": "ماذا نفعل بعد توجيه ركلة أب تشاجي نحو المنافس؟",
    "en": "What do we do after the Ap Chagi strike?",
    "note": "سؤال",
-   "key": "mnjnwd",
+   "key": "1h24i2k",
    "keyEn": "6h3dd7",
-   "file": "quiz-056-mnjnwd.mp3",
+   "file": "quiz-056-1h24i2k.mp3",
    "fileEn": "quiz-056-6h3dd7.mp3"
   },
   {
@@ -3358,12 +3358,12 @@
   {
    "group": "quiz",
    "priority": 3,
-   "ar": "ما هذه المرحلة من آب تشاجي؟",
+   "ar": "ما هذه المرحلة من أب تشاجي؟",
    "en": "Which phase of Ap Chagi is this?",
    "note": "سؤال",
-   "key": "101yxh4",
+   "key": "1x7hdg9",
    "keyEn": "10uohfx",
-   "file": "quiz-061-101yxh4.mp3",
+   "file": "quiz-061-1x7hdg9.mp3",
    "fileEn": "quiz-061-10uohfx.mp3"
   },
   {

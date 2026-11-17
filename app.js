@@ -437,13 +437,13 @@ const GameConfig = {
   SKILLS: {
     apchagi: {
       id: 'apchagi', nextSkill: 'narochagi',
-      name: { en: 'Ap Chagi', ar: 'آب تشاجي' },
+      name: { en: 'Ap Chagi', ar: 'أب تشاجي' },
       description: { en: 'Straight Front Kick', ar: 'الركلة الأمامية المستقيمة' },
       assetFolder: null, // flat legacy paths, no subfolder
       video: 'assets/videos/apchagi-tutorial.mp4',
       realVideo: 'assets/videos/real/apchagi-real.mp4',          // v64.1: a real player doing the kick (the club's choice)
       technical: {
-        strikingSurface: { en: 'Ball of the foot (Ap-chuk)', ar: 'قاعدة الأصابع (كلوة القدم) آب تشوك' },
+        strikingSurface: { en: 'Ball of the foot (Ap-chuk)', ar: 'قاعدة الأصابع (كلوة القدم) أب تشوك' },
         target: { en: '(Eolgul) head and face, and (Momtong) chest or belly', ar: '(أولجول) منطقة الرأس، الوجه، و(مومتونج) منطقة الصدر أو البطن' },
         pivotAngle: { en: '45°–90° outward', ar: 'للخارج بزاوية من ٤٥° إلى ٩٠°' }
       },
@@ -906,7 +906,7 @@ function watchVideoLoading(video) {
 // Arabic or English voice, degrees and ranges in words)
 // v63.4 — the version a tester can read on the start screen and in Coach → Settings (bump it
 // together with CACHE_VERSION in sw.js)
-const APP_VERSION = '66.4';
+const APP_VERSION = '66.5';
 
 const SpeechVoice = {
   KEY: 'taekwondoJourneyVoice',
@@ -951,7 +951,9 @@ const SpeechVoice = {
       .replace(/\s*\/\s*/g, ar ? ' أو ' : ' or ')
       .replace(/\s*[←→]\s*/g, ar ? '، ثم ' : ', then ')
       .replace(/\s*[—·|]\s*/g, ar ? '، ' : ', ')
-      .replace(/\(\s*\)|«\s*»/g, '').replace(/\s+/g, ' ').trim();
+      .replace(/\(\s*\)|«\s*»/g, '').replace(/\s+/g, ' ')
+      // v66.5 (the coach): «أب» (앞) is said short — «أَبْ» — not «آب» or «أبٌ» (father)
+      .replace(/(^|[\s«(])أب(?=\s+(تشاجي|تشوك|أوليو))/g, '$1أَبْ').trim();
   },
   // no Arabic voice on this device → say once how a grown-up can add one
   warned: false,
@@ -1406,7 +1408,7 @@ class GameState {
 
   static LESSON_TEXT = {
     apchagi: {
-      ar: { learningTitle: '🎓 تعلّم آب تشاجي', learningSubtitle: 'أتقن المراحل الخمس للركلة الأمامية', coachInstruction1: 'انظر كيف أؤدي الركلة الأمامية خطوة بخطوة!' },
+      ar: { learningTitle: '🎓 تعلّم أب تشاجي', learningSubtitle: 'أتقن المراحل الخمس للركلة الأمامية', coachInstruction1: 'انظر كيف أؤدي الركلة الأمامية خطوة بخطوة!' },
       en: { learningTitle: '🎓 Learn Ap Chagi', learningSubtitle: 'Master the 5 stages of the front kick', coachInstruction1: 'Watch how I perform the front kick step by step!' } },
     narochagi: {
       ar: { learningTitle: '🎓 تعلّم نارو تشاجي', learningSubtitle: 'أتقن المراحل الخمس للركلة المطرقية', coachInstruction1: 'انظر كيف أؤدي الركلة المطرقية خطوة بخطوة!' },
@@ -1426,7 +1428,7 @@ class GameState {
     const W = GameState.KICK_WORDS[this.currentSkill]; if (!W) return text;
     const [name, kind] = W[this.currentLanguage === 'ar' ? 'ar' : 'en'];
     return String(text)
-      .replace(/لركلة آب تشاجي/g, 'ل' + name).replace(/(ال)?[آأ]ب تشاجي/g, name).replace(/الركلة الأمامية( المستقيمة)?/g, kind)
+      .replace(/لركلة أب تشاجي/g, 'ل' + name).replace(/(ال)?[آأ]ب تشاجي/g, name).replace(/الركلة الأمامية( المستقيمة)?/g, kind)
       .replace(/Ap Chagi/g, name).replace(/front kick/g, kind).replace(/Front Kick/g, kind.replace(/\b\w/g, c => c.toUpperCase()));
   }
   applyLanguage() {
@@ -1505,31 +1507,31 @@ class GameState {
         curriculumNav: 'Belt Syllabus', privacyNav: 'Privacy', curriculumTitle: '📚 Belt Syllabus', curriculumDesc: 'Every belt, every technique and every poomsae — tap one to learn it.'
       },
       ar: {
-        apChagiMenuDesc: 'اختر وجهتك في رحلة آب تشاجي',
+        apChagiMenuDesc: 'اختر وجهتك في رحلة أب تشاجي',
         learningStage: 'مرحلة التعلم',
-        learningStageDesc: 'شاهد الدروس وتعلّم المراحل الخمس لركلة آب تشاجي',
+        learningStageDesc: 'شاهد الدروس وتعلّم المراحل الخمس لركلة أب تشاجي',
         gamesMenuDesc: 'تمرّن مع الألعاب التفاعلية',
         warmupMenuDesc: 'جهّز جسمك بتمارين الإحماء قبل التمرين',
         tests: 'الاختبارات',
         testsDesc: 'اختبر معلوماتك واحصل على إنجازك',
-        watchTutorial: '🎥 شاهد فيديو تعليم آب تشاجي',
+        watchTutorial: '🎥 شاهد فيديو تعليم أب تشاجي',
         play: 'تشغيل', replay: 'إعادة',
-        videoInstruction1: 'شاهد الفيديو التعليمي كاملًا لركلة آب تشاجي',
+        videoInstruction1: 'شاهد الفيديو التعليمي كاملًا لركلة أب تشاجي',
 
         gameTitle: 'رحلة التايكوندو', gameSubtitle: 'مغامرة تايكوندو تعليمية',
         home: 'الرئيسية', learning: 'التعلم', games: 'الألعاب', changeCharacter: 'غيّر الشخصية', quiz: 'الاختبار', warmup: 'الإحماء',
         welcome: '👋 أهلًا بك في رحلة التايكوندو', homeDescription: 'ابدأ رحلتك لتحترف حركات التايكوندو. أنهِ كل مهارة لتفتح المهارة التالية!',
-        apChagi: 'آب تشاجي', frontKick: 'الركلة الأمامية المستقيمة', naroChagi: 'نارو تشاجي', bakChagi3: 'بيك تشاجي',
+        apChagi: 'أب تشاجي', frontKick: 'الركلة الأمامية المستقيمة', naroChagi: 'نارو تشاجي', bakChagi3: 'بيك تشاجي',
         completePrevious: 'أنهِ المهارة السابقة لتفتح هذه', startLearning: 'ابدأ التعلّم',
         boy: 'الولد', girl: 'البنت',
 
         leaderboardTitle: '🏆 لوحة المتصدرين', leaderboardDesc: 'شاهد ترتيبك مقارنةً بكل اللاعبين على هذا الجهاز.', leaderboardMyStats: 'إحصائياتي', leaderboardAllPlayers: 'كل اللاعبين', leaderboardExport: '⬇️ حمّل النتائج (CSV)', leaderboardSwitchPlayer: '🔁 غيّر اللاعب',
         changeCharacterTitle: '👤 غيّر الشخصية', currentCharacter: 'الشخصية الحالية:', selectNewCharacter: 'اختر شخصية جديدة:', select: 'اختر',
-        coachName: '🧔🏽 المدرّب:',        coachInstruction1: 'انظر كيف أؤدي الركلة الأمامية خطوة بخطوة!', learningTitle: '🎓 تعلّم آب تشاجي', learningSubtitle: 'أتقن المراحل الخمس للركلة الأمامية',
+        coachName: '🧔🏽 المدرّب:',        coachInstruction1: 'انظر كيف أؤدي الركلة الأمامية خطوة بخطوة!', learningTitle: '🎓 تعلّم أب تشاجي', learningSubtitle: 'أتقن المراحل الخمس للركلة الأمامية',
         preparation: 'الاستعداد (جونبي)', chamber: 'رفع الركبة', extension: 'مد القدم', recoil: 'سحب القدم', return: 'الرجوع إلى وضع الاستعداد',
         gamesCenter: '🎮 مركز الألعاب', chooseGame: 'اختر لعبة وابدأ التمرين', formControl: 'اضبط الوضعية', formControlDesc: 'اسحب النقاط لتصحيح شكل الركلة',
         puzzleAssembly: 'رتّب المراحل', puzzleDesc: 'رتّب مراحل الركلة الخمس', notStarted: 'لم تبدأ بعد', completed: 'انتهيت',
-        formControlGame: '🧍 اضبط الوضعية — آب تشاجي', formControlInstructions: 'اسحب النقاط الملونة حتى يصبح شكل الركلة صحيحًا',
+        formControlGame: '🧍 اضبط الوضعية — أب تشاجي', formControlInstructions: 'اسحب النقاط الملونة حتى يصبح شكل الركلة صحيحًا',
         instructions: '🎯 التعليمات:', instruction1: 'ارفع ركبتك إلى صدرك', instruction2: 'افرد قدمك إلى الأمام مباشرة', instruction3: 'أبقِ ظهرك مستقيمًا', instruction4: 'حافظ على توازنك على قدم الارتكاز',
         accuracy: 'الدقة:', checkForm: 'تحقّق من الشكل', autoPosition: 'وضع تلقائي', formProgress: 'تقدّمك في الشكل:', backToGames: 'ارجع إلى الألعاب', backToRoad: 'ارجع إلى الطريق',
         puzzleGame: '🧩 رتّب المراحل', puzzleInstructions: 'رتّب مراحل الركلة من ١ إلى ٥.\nهناك قطعة زائدة، اتركها خارج الترتيب.',
@@ -1537,7 +1539,7 @@ class GameState {
         checkPuzzle: 'تحقّق من الترتيب', hint: 'تلميح', puzzleProgress: 'تقدّمك في التركيب:', taekwondoQuiz: '❓ اختبر معلوماتك في التايكوندو', quizDescription: 'اختبر فهمك لحركات ومصطلحات التايكوندو', question: 'سؤال', score: 'النقاط:',
         winner: '🏆 مبروك!', achievementsUnlocked: 'الإنجازات التي فُتحت:',
         nextLevel: 'المستوى التالي', tryAgain: 'حاول مرة أخرى', backToMenu: 'ارجع إلى الرئيسية',
-        coachCongrats: 'أحسنت يا بطل! مجهودك في إتقان آب تشاجي رائع. واصل التمرين!',
+        coachCongrats: 'أحسنت يا بطل! مجهودك في إتقان أب تشاجي رائع. واصل التمرين!',
         reset: 'ابدأ من جديد',
         backToHome: 'ارجع إلى الرئيسية',
         nextQuestion: 'السؤال التالي',
@@ -5773,7 +5775,7 @@ class ErrorHuntSystem {
         success: { en: 'Right! The standing foot turns out 45°–90° — it opens the hips so the kick goes further and harder.', ar: 'صحيح! يجب أن تلف قدم الارتكاز للخارج من ٤٥° إلى ٩٠°، فهذا يفتح وسطك ويجعل الركلة أبعد وأقوى.' } },
       { id: 'low', zone: 'kick', topic: 'target',
         hint:    { en: 'Look at the kicking leg — which target is it going to?', ar: 'انظر إلى قدم الركلة: إلى أيّ هدف تتجه؟' },
-        success: { en: 'Exactly! Ap Chagi goes to the abdomen or the face, not the knee. Lift the knee to the chest first.', ar: 'تمامًا! تتجه آب تشاجي إلى البطن أو الوجه، لا إلى الركبة. ارفع ركبتك إلى صدرك أولًا.' } }
+        success: { en: 'Exactly! Ap Chagi goes to the abdomen or the face, not the knee. Lift the knee to the chest first.', ar: 'تمامًا! تتجه أب تشاجي إلى البطن أو الوجه، لا إلى الركبة. ارفع ركبتك إلى صدرك أولًا.' } }
     ],
     narochagi: [
       { id: 'knee', zone: 'kick', topic: 'knee',
@@ -6171,33 +6173,33 @@ class QuizBlastSystem {
     // Ap Chagi -- straight front kick
     apchagi: [
       { q: ['اسم الركلة الأمامية المستقيمة في التايكوندو:', 'In Taekwondo, the straight front kick is called:'],
-        a: ['آب تشاجي', 'Ap Chagi'],
-        w: [['نارو تشاجي', 'Naeryeo Chagi'], ['آب أوليو تشاجي', 'Ap Ollyeo Chagi'], ['دوليو تشاجي', 'Dollyeo Chagi']] },
+        a: ['أب تشاجي', 'Ap Chagi'],
+        w: [['نارو تشاجي', 'Naeryeo Chagi'], ['أب أوليو تشاجي', 'Ap Ollyeo Chagi'], ['دوليو تشاجي', 'Dollyeo Chagi']] },
       { q: ['تُوجَّه الركلة الأمامية المستقيمة إلى المنافس بـ:', 'The straight front kick is delivered to the opponent with the:'],
         a: ['قاعدة الأصابع (كلوة القدم)', 'Ball of the foot'],
         w: [['الكعب', 'Heel'], ['باطن القدم', 'Sole of the foot'], ['وش القدم', 'Instep']] },
-      { q: ['أيّ هذه الحركات تتكرر في بداية ركلة آب تشاجي ونهايتها؟', 'Which movement is repeated in both the preparatory and the final phase of Ap Chagi?'],
+      { q: ['أيّ هذه الحركات تتكرر في بداية ركلة أب تشاجي ونهايتها؟', 'Which movement is repeated in both the preparatory and the final phase of Ap Chagi?'],
         a: ['ثني ركبة القدم الضاربة', 'Bending the kicking-leg knee'],
         w: [['ثني ركبة قدم الارتكاز', 'Bending the standing-foot knee'], ['فرد ركبة قدم الارتكاز', 'Straightening the standing-foot knee'], ['فرد ركبة القدم الضاربة', 'Straightening the kicking-leg knee']] },
       { q: ['الركلة الأمامية المستقيمة التي تصيب الرأس تمنح اللاعب:', 'A straight front kick to the head scores:'],
         a: ['ثلاث نقاط', 'Three points'],
         w: [['نقطتين', 'Two points'], ['خمس نقاط', 'Five points'], ['أربع نقاط', 'Four points']] },
-      { q: ['ما الهدف الأساسي لركلة آب تشاجي؟', 'What is the main target of Ap Chagi?'],
+      { q: ['ما الهدف الأساسي لركلة أب تشاجي؟', 'What is the main target of Ap Chagi?'],
         a: ['الرأس والوجه / الصدر أو البطن', 'Head & face / chest or belly'],
         w: [['الركبة فقط', 'Knee only'], ['الكتف', 'Shoulder'], ['القدم', 'Foot']] },
-      { q: ['بأيّ زاوية تقريبًا تلف قدم الارتكاز في آب تشاجي؟', 'About how far does the standing foot pivot in Ap Chagi?'],
+      { q: ['بأيّ زاوية تقريبًا تلف قدم الارتكاز في أب تشاجي؟', 'About how far does the standing foot pivot in Ap Chagi?'],
         a: ['من ٤٥° إلى ٩٠° للخارج', '45°–90° outward'],
         w: [['١٨٠° كاملة', 'A full 180°'], ['360°', '360°'], ['لا تلف إطلاقًا', 'It does not pivot']] },
-      { q: ['ما المرحلة الأولى في آب تشاجي؟', 'What is the first phase of Ap Chagi?'],
+      { q: ['ما المرحلة الأولى في أب تشاجي؟', 'What is the first phase of Ap Chagi?'],
         a: ['وضع الاستعداد (جونبي)', 'Ready stance (Junbi)'],
         w: [['رفع الركبة', 'Knee lift'], ['مد القدم', 'Kick extension'], ['سحب القدم', 'Recoil']] },
-      { q: ['كم مرحلة أساسية في ركلة آب تشاجي الكاملة؟', 'How many main phases does a complete Ap Chagi have?'],
+      { q: ['كم مرحلة أساسية في ركلة أب تشاجي الكاملة؟', 'How many main phases does a complete Ap Chagi have?'],
         a: ['٥ مراحل', '5 phases'],
         w: [['٣ مراحل', '3 phases'], ['٤ مراحل', '4 phases'], ['٦ مراحل', '6 phases']] },
       { q: ['إلى أين نرفع الركبة قبل أن نفرد القدم؟', 'How high is the knee lifted before the leg extends?'],
         a: ['إلى مستوى الصدر', 'To chest level'],
         w: [['إلى مستوى الكاحل', 'To ankle level'], ['إلى مستوى الركبة الأخرى', 'To the level of the other knee'], ['فوق الرأس', 'Above the head']] },
-      { q: ['ماذا نفعل بأصابع القدم ونحن نضرب آب تشاجي؟', 'What do you do with your toes when striking in Ap Chagi?'],
+      { q: ['ماذا نفعل بأصابع القدم ونحن نضرب أب تشاجي؟', 'What do you do with your toes when striking in Ap Chagi?'],
         a: ['نسحبها إلى الخلف', 'Pull them back'],
         w: [['نفردها إلى الأمام', 'Point them forward'], ['نثنيها إلى أسفل', 'Curl them down'], ['نفتحها إلى الجانبين', 'Spread them apart']] },
       { q: ['لماذا نسحب القدم بسرعة بعد الضربة؟', 'Why do we pull the leg back quickly after the strike?'],
@@ -6215,7 +6217,7 @@ class QuizBlastSystem {
         w: [['الركلة الأمامية الدائرية في البطن', 'Front circular kick to the abdomen'], ['الركلة الأمامية المستقيمة', 'Straight front kick'], ['الركلة الأمامية الدائرية في الوجه', 'Front circular kick to the face']] },
       { q: ['اسم الركلة الهجومية التي تنزل من أعلى لأسفل على رأس المنافس:', 'The kick that travels from top to bottom toward the opponent\'s head is:'],
         a: ['نارو تشاجي', 'Naeryeo Chagi'],
-        w: [['آب تشاجي', 'Ap Chagi'], ['آب أوليو تشاجي', 'Ap Ollyeo Chagi'], ['دوليو تشاجي', 'Dollyeo Chagi']] },
+        w: [['أب تشاجي', 'Ap Chagi'], ['أب أوليو تشاجي', 'Ap Ollyeo Chagi'], ['دوليو تشاجي', 'Dollyeo Chagi']] },
       { q: ['بأيّ جزء من القدم تُؤدّى ضربة نارو تشاجي؟', 'Which part of the foot lands the strike in Naeryeo Chagi?'],
         a: ['الكعب', 'The heel'],
         w: [['قاعدة الأصابع (كلوة القدم)', 'Ball of the foot'], ['أصابع القدم', 'Toes'], ['وش القدم', 'Instep']] },
@@ -6246,7 +6248,7 @@ class QuizBlastSystem {
     bakchagi3: [
       { q: ['ما اسم هذه الركلة الدائرية في اللعبة؟', 'What is this roundhouse kick called in the game?'],
         a: ['بيك تشاجي', 'Bik Chagi'],
-        w: [['آب تشاجي', 'Ap Chagi'], ['نارو تشاجي', 'Naeryeo Chagi'], ['دوي تشاجي', 'Dwi Chagi']] },
+        w: [['أب تشاجي', 'Ap Chagi'], ['نارو تشاجي', 'Naeryeo Chagi'], ['دوي تشاجي', 'Dwi Chagi']] },
       { q: ['بأيّ جزء من القدم تُؤدّى ضربة بيك تشاجي؟', 'Which part of the foot strikes in Bik Chagi?'],
         a: ['وش القدم (ظهر القدم)', 'Instep (top of the foot)'],
         w: [['قاعدة الأصابع (كلوة القدم)', 'Ball of the foot'], ['الكعب', 'Heel'], ['أصابع القدم', 'Toes']] },
@@ -6886,25 +6888,25 @@ class QuizSystem {
   static QUESTION_BANK = {
     apchagi: [
       { question: "What is the Korean name of the straight front kick?", questionAr: "ما الاسم الكوري للركلة الأمامية المستقيمة؟",
-        options: ["Ap Chagi", "Naeryeo Chagi", "Bik Chagi", "Dwi Chagi"], optionsAr: ["آب تشاجي", "نارو تشاجي", "بيك تشاجي", "دوي تشاجي"],
+        options: ["Ap Chagi", "Naeryeo Chagi", "Bik Chagi", "Dwi Chagi"], optionsAr: ["أب تشاجي", "نارو تشاجي", "بيك تشاجي", "دوي تشاجي"],
         correctText: "Ap Chagi",
         get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
-        explanation: "Ap Chagi is the straight front kick.", explanationAr: "آب تشاجي هي الركلة الأمامية المستقيمة." },
+        explanation: "Ap Chagi is the straight front kick.", explanationAr: "أب تشاجي هي الركلة الأمامية المستقيمة." },
       { question: "What does the Korean word \"Chagi\" mean?", questionAr: "ماذا تعني كلمة «تشاجي» باللغة الكورية؟",
         options: ["Kick", "Block", "Punch", "Stance"], optionsAr: ["ركلة", "صدّ", "لكمة", "وضعية"],
         correctText: "Kick",
         get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
         explanation: "\"Chagi\" means kick.", explanationAr: "«تشاجي» تعني ركلة." },
-      { question: "Which part of the foot does Ap Chagi strike with?", questionAr: "بأي جزء من القدم تُوجَّه ركلة آب تشاجي؟",
+      { question: "Which part of the foot does Ap Chagi strike with?", questionAr: "بأي جزء من القدم تُوجَّه ركلة أب تشاجي؟",
         options: ["The ball of the foot", "The heel", "The toes", "The edge of the foot"], optionsAr: ["قاعدة الأصابع", "الكعب", "أصابع القدم", "حرف القدم"],
         correctText: "The ball of the foot",
         get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
-        explanation: "Ap Chagi strikes with the ball of the foot.", explanationAr: "تضرب آب تشاجي بقاعدة الأصابع." },
-      { question: "What is the target of Ap Chagi?", questionAr: "ما هدف ركلة آب تشاجي؟",
+        explanation: "Ap Chagi strikes with the ball of the foot.", explanationAr: "تضرب أب تشاجي بقاعدة الأصابع." },
+      { question: "What is the target of Ap Chagi?", questionAr: "ما هدف ركلة أب تشاجي؟",
         options: ["The face or the abdomen", "The back", "The knee", "The shoulder"], optionsAr: ["الوجه أو البطن", "الظهر", "الركبة", "الكتف"],
         correctText: "The face or the abdomen",
         get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
-        explanation: "Ap Chagi goes to the face or the abdomen.", explanationAr: "هدف آب تشاجي هو الوجه أو البطن." },
+        explanation: "Ap Chagi goes to the face or the abdomen.", explanationAr: "هدف أب تشاجي هو الوجه أو البطن." },
       { question: "From which ready stance do we start the straight front kick?", questionAr: "من أي وقفة استعداد نبدأ الركلة الأمامية المستقيمة؟",
         options: ["Kyorugi Junbi", "Charyeot", "Kongri", "Beonhi Seogi"], optionsAr: ["كيورجي جونبي", "شاريوت", "كونجري", "بنهى سوجي"],
         correctText: "Kyorugi Junbi",
@@ -6920,22 +6922,22 @@ class QuizSystem {
         correctText: "Behind",
         get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 0); },
         explanation: "The kicking leg is behind.", explanationAr: "القدم الضاربة تكون في الخلف." },
-      { question: "How are the arms during Ap Chagi?", questionAr: "كيف تكون الذراعان أثناء أداء ركلة آب تشاجي؟",
+      { question: "How are the arms during Ap Chagi?", questionAr: "كيف تكون الذراعان أثناء أداء ركلة أب تشاجي؟",
         options: ["Fists in front of the chest", "By the sides", "Behind the back", "On the hips"], optionsAr: ["مقبوضتان أمام الصدر", "بجانب الجسم", "خلف الظهر", "على الوسط"],
         correctText: "Fists in front of the chest",
         get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
         explanation: "The fists stay in front of the chest to protect you.", explanationAr: "الذراعان مقبوضتان أمام الصدر للحماية." },
-      { question: "How high does the knee go in Ap Chagi?", questionAr: "إلى أين ترتفع الركبة في ركلة آب تشاجي؟",
+      { question: "How high does the knee go in Ap Chagi?", questionAr: "إلى أين ترتفع الركبة في ركلة أب تشاجي؟",
         options: ["High, toward the chest", "To the belt", "To the other knee", "Above the head"], optionsAr: ["عاليًا ناحية الصدر", "إلى مستوى الحزام", "إلى مستوى الركبة الأخرى", "فوق الرأس"],
         correctText: "High, toward the chest",
         get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 1); },
         explanation: "The knee goes up high, toward the chest.", explanationAr: "ترتفع الركبة عاليًا ناحية الصدر." },
-      { question: "How far does the standing foot turn outward in Ap Chagi?", questionAr: "بأي زاوية تلف قدم الارتكاز للخارج في ركلة آب تشاجي؟",
+      { question: "How far does the standing foot turn outward in Ap Chagi?", questionAr: "بأي زاوية تلف قدم الارتكاز للخارج في ركلة أب تشاجي؟",
         options: ["45°", "360°", "180°", "120°"], optionsAr: ["٤٥°", "٣٦٠°", "١٨٠°", "١٢٠°"],
         correctText: "45°",
         get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
         explanation: "The standing foot turns outward 45°.", explanationAr: "تلف قدم الارتكاز للخارج بزاوية ٤٥°." },
-      { question: "What do we do after the Ap Chagi strike?", questionAr: "ماذا نفعل بعد توجيه ركلة آب تشاجي نحو المنافس؟",
+      { question: "What do we do after the Ap Chagi strike?", questionAr: "ماذا نفعل بعد توجيه ركلة أب تشاجي نحو المنافس؟",
         options: ["Bend the knee back toward the chest", "Drop the foot to the floor", "Stretch the arms forward", "Step the leg back"], optionsAr: ["ثني الركبة نحو الصدر", "هبوط القدم للأرض", "فرد الذراعين أمامًا", "رجوع القدم خلفًا"],
         correctText: "Bend the knee back toward the chest",
         get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 3); },
@@ -6943,7 +6945,7 @@ class QuizSystem {
     ],
     narochagi: [
       { question: "What is the Korean name of the axe kick?", questionAr: "ما الاسم الكوري للركلة المطرقية؟",
-        options: ["Naeryeo Chagi", "Ap Chagi", "Bik Chagi", "Dollyeo Chagi"], optionsAr: ["نارو تشاجي", "آب تشاجي", "بيك تشاجي", "دوليو تشاجي"],
+        options: ["Naeryeo Chagi", "Ap Chagi", "Bik Chagi", "Dollyeo Chagi"], optionsAr: ["نارو تشاجي", "أب تشاجي", "بيك تشاجي", "دوليو تشاجي"],
         correctText: "Naeryeo Chagi",
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 2); },
         explanation: "The axe kick is Naeryeo Chagi.", explanationAr: "الركلة المطرقية هي نارو تشاجي." },
@@ -6990,7 +6992,7 @@ class QuizSystem {
     ],
     bakchagi3: [
       { question: "What is the name of the front roundhouse kick to the abdomen?", questionAr: "ما اسم الركلة الأمامية الدائرية في البطن؟",
-        options: ["Bik Chagi", "Ap Chagi", "Naeryeo Chagi", "Dwi Chagi"], optionsAr: ["بيك تشاجي", "آب تشاجي", "نارو تشاجي", "دوي تشاجي"],
+        options: ["Bik Chagi", "Ap Chagi", "Naeryeo Chagi", "Dwi Chagi"], optionsAr: ["بيك تشاجي", "أب تشاجي", "نارو تشاجي", "دوي تشاجي"],
         correctText: "Bik Chagi",
         get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 2); },
         explanation: "The front roundhouse kick to the abdomen is Bik Chagi.", explanationAr: "الركلة الأمامية الدائرية في البطن هي بيك تشاجي." },
@@ -7305,8 +7307,8 @@ class TrophyRoomSystem {
     {
       id: 'white-belt-1st-stripe', icon: '🥋',
       name: { en: 'White Belt — 1st Stripe', ar: 'الحزام الأبيض — الشريط الأول' },
-      desc: { en: 'Mastered Ap Chagi', ar: 'أتقنت مهارة آب تشاجي' },
-      how: { en: 'Master Ap Chagi (finish its three units and the test)', ar: 'أتقِن آب تشاجي (أنهِ وحداتها الثلاث والاختبار)' },
+      desc: { en: 'Mastered Ap Chagi', ar: 'أتقنت مهارة أب تشاجي' },
+      how: { en: 'Master Ap Chagi (finish its three units and the test)', ar: 'أتقِن أب تشاجي (أنهِ وحداتها الثلاث والاختبار)' },
       prog: (gs) => TrophyRoomSystem.skillProg(gs, 'apchagi'),
       condition: (gs) => gs.completedSkills.has('apchagi')
     },
@@ -10619,7 +10621,7 @@ class BoardBreakGame extends ArenaGameBase {
     bakchagi3: { instep: 1 }
   };
   static SURFACE_WHY = {
-    apchagi:   { en: 'Ap Chagi strikes with the ball of the foot — toes pulled back.', ar: 'تُوجَّه آب تشاجي بقاعدة الأصابع (كلوة القدم)، مع سحب الأصابع للخلف.' },
+    apchagi:   { en: 'Ap Chagi strikes with the ball of the foot — toes pulled back.', ar: 'تُوجَّه أب تشاجي بقاعدة الأصابع (كلوة القدم)، مع سحب الأصابع للخلف.' },
     narochagi: { en: 'Naeryeo Chagi brings the heel or the sole straight down onto the target.', ar: 'تُنزِل نارو تشاجي الكعب أو باطن القدم مباشرةً على الهدف.' },
     bakchagi3: { en: 'Bik Chagi lands with the instep (the top of the foot).', ar: 'تُوجَّه بيك تشاجي بوش القدم (ظهر القدم من أعلى).' }
   };
@@ -17352,7 +17354,7 @@ Object.assign(window.TKDScreens || (window.TKDScreens = {}), { curriculum: () =>
 // ============================================================================
 // SMART REVIEW (v28) — remembers what each child gets wrong, per kick, and
 // turns it into ONE clear suggestion for today:
-//   "النهارده راجع: رفع الركبة في آب تشاجي"  → opens exactly that lesson step.
+//   "النهارده راجع: رفع الركبة في أب تشاجي"  → opens exactly that lesson step.
 // Games report small facts ("missed the chamber note", "picked the wrong part
 // of the foot", "kicked a leg target"...) with Review.note(). Old mistakes fade
 // (half-life 10 days) and good answers cancel them out, so the suggestion moves
