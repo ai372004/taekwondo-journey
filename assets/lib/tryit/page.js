@@ -23,7 +23,7 @@
   const snapKick = (id) => !!CV.KICKS[id].SNAP;            // lift and fold → extend → pull back (Ap Chagi, Bik Chagi)
   // v65.4: phones (iPhone above all) crash the page ("a problem repeatedly occurred") when a big phone
   // video is decoded at full size and run through the full models every picture: on a phone the
-  // light body model, the CPU on iPhone (its GPU path in Safari is fragile), pictures shrunk to 640px
+  // the CPU on iPhone (its GPU path in Safari is fragile), pictures shrunk to 640px
   // before tracking, hands every 3rd picture, and at most MAX_FILE_SECONDS of a chosen video.
   const UA = navigator.userAgent || '';
   const IS_IOS = /iP(hone|ad|od)/.test(UA) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
@@ -124,7 +124,6 @@
           runningMode: 'VIDEO', numHands: 2, minHandDetectionConfidence: 0.3, minHandPresenceConfidence: 0.3, minTrackingConfidence: 0.3 });
         return [pose, hands];
       };
-      if (IS_PHONE) this.lite = true;
       if (IS_IOS && !this.delegate) this.delegate = 'CPU';
       try { [this.pose, this.hands] = await make(this.delegate || 'GPU'); this.delegate = this.delegate || 'GPU'; }
       catch (e) { this.delegate = 'CPU'; [this.pose, this.hands] = await make('CPU'); }
@@ -309,8 +308,8 @@
       const hudEl = this.$('#ty-hud'); const html = hud.map(([c, x]) => `<span class="${c}">${TKD.esc(x)}</span>`).join('');
       if (hudEl && hudEl.dataset.h !== html) { hudEl.dataset.h = html; hudEl.innerHTML = html; }
       if (this.autoAt && now >= this.autoAt && an.final === null) { this.autoAt = 0; this.calc(false); }
-      // a slow phone: the lighter body model, once
-      if (this.live && !this.lite && this.fc === 90 && this.fps < 10) { this.lite = true; this.engine(true).catch(() => {}); }
+      // (v65.6: no switch to the light body model any more — it measures the knee ~15° lower, and a
+      //  correct Naeryo Chagi was penalised as "bent". The full model is used everywhere.)
     },
     draw(v, m, W, H) {
       const cv = this.$('#ty-canvas'); if (!cv) return;
