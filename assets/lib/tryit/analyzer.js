@@ -75,8 +75,8 @@
   const GROUP_TITLES = {
     'Chamber': { ar: 'رفع الركبة', en: 'Knee lift' },
     'Pivot': { ar: 'لفّ قدم الارتكاز', en: 'Turning the standing foot' },
-    'Peak': { ar: 'مد الرجل للهدف', en: 'Extending to the target' },
-    'Retract': { ar: 'سحب الرجل', en: 'Pulling the leg back' },
+    'Peak': { ar: 'مد القدم للهدف', en: 'Extending to the target' },
+    'Retract': { ar: 'سحب القدم', en: 'Pulling the leg back' },
     'Support leg': { ar: 'العودة لوضع الاستعداد', en: 'Back to the ready stance' },
     'Guard & fist': { ar: 'وضع الاستعداد', en: 'Ready stance' }
   };

@@ -451,7 +451,7 @@ const GameConfig = {
         { num: 1, key: 'ready',
           title: { en: '1️⃣ Ready Stance (Kyorugi Junbi)', ar: '1️⃣ وضع الاستعداد (كيورجي جونبي)' },
           image: poseImg('apchagi', 0),
-          focus: { en: '👀 The kicking leg behind and the free (standing) leg in front.', ar: '👀 الرجل الضاربة خلفًا والرجل الحرة (الارتكاز) أمامًا.' },
+          focus: { en: '👀 The kicking leg behind and the free (standing) leg in front.', ar: '👀 القدم الضاربة خلفًا والقدم الحرة (الارتكاز) أمامًا.' },
           tips: {
             en: ['✅ Both arms with closed fists in front of the chest.'],
             ar: ['✅ الذراعان في حالة قبض أمام الصدر.']
@@ -459,23 +459,23 @@ const GameConfig = {
         { num: 2, key: 'chamber',
           title: { en: '2️⃣ Knee Lift', ar: '2️⃣ رفع الركبة' },
           image: poseImg('apchagi', 1),
-          focus: { en: '👀 Lift and bend the kicking knee high toward the chest.', ar: '👀 ارفع واثني ركبة الرجل الضاربة عاليًا ناحية الصدر.' },
+          focus: { en: '👀 Lift and bend the kicking knee high toward the chest.', ar: '👀 ارفع واثني ركبة القدم الضاربة عاليًا ناحية الصدر.' },
           tips: {
             en: ['💡 Note: the higher the knee, the higher the kick lands.', '✅ Turn the standing foot outward 45°–90°.'],
-            ar: ['💡 ملحوظة: كلما زاد ارتفاع ركبة الرجل، ارتفع مستوى الضرب.', '✅ لف قدم الارتكاز للخارج بزاوية من ٤٥° إلى ٩٠°.']
+            ar: ['💡 ملحوظة: كلما زاد ارتفاع ركبة القدم، ارتفع مستوى الضرب.', '✅ لف قدم الارتكاز للخارج بزاوية من ٤٥° إلى ٩٠°.']
           }, color: '#e76f51' },
         { num: 3, key: 'extension',
-          title: { en: '3️⃣ Extend the Leg to the Target', ar: '3️⃣ مد الرجل للهدف' },
+          title: { en: '3️⃣ Extend the Leg to the Target', ar: '3️⃣ مد القدم للهدف' },
           image: poseImg('apchagi', 2),
-          focus: { en: '👀 Straighten the kicking knee with power and speed forward toward the opponent (chest or face).', ar: '👀 افرد ركبة الرجل الضاربة بقوة وسرعة إلى الأمام في اتجاه المنافس (الصدر أو الوجه).' },
+          focus: { en: '👀 Straighten the kicking knee with power and speed forward toward the opponent (chest or face).', ar: '👀 افرد ركبة القدم الضاربة بقوة وسرعة إلى الأمام في اتجاه المنافس (الصدر أو الوجه).' },
           tips: {
             en: ['✅ Deliver the kick with the ball of the foot (Ap-chuk).'],
             ar: ['✅ وجّه الركلة بقاعدة الأصابع (كلوة القدم).']
           }, color: '#ff6b35' },
         { num: 4, key: 'recoil',
-          title: { en: '4️⃣ Pull the Leg Back', ar: '4️⃣ سحب الرجل' },
+          title: { en: '4️⃣ Pull the Leg Back', ar: '4️⃣ سحب القدم' },
           image: poseImg('apchagi', 3),
-          focus: { en: '👀 Bend the kicking knee back to the body again, quickly, right after the kick.', ar: '👀 اثني ركبة الرجل الضاربة مرة ثانية إلى الجسم بسرعة عقب الانتهاء من الركل.' },
+          focus: { en: '👀 Bend the kicking knee back to the body again, quickly, right after the kick.', ar: '👀 اثني ركبة القدم الضاربة مرة ثانية إلى الجسم بسرعة عقب الانتهاء من الركل.' },
           tips: {
             en: [],
             ar: []
@@ -483,7 +483,7 @@ const GameConfig = {
         { num: 5, key: 'return',
           title: { en: '5️⃣ Back to the Ready Stance', ar: '5️⃣ الرجوع لوضع الاستعداد' },
           image: poseImg('apchagi', 4),
-          focus: { en: '👀 Bring the leg down to the floor quickly.', ar: '👀 نزّل الرجل سريعًا إلى الأرض.' },
+          focus: { en: '👀 Bring the leg down to the floor quickly.', ar: '👀 نزّل القدم سريعًا إلى الأرض.' },
           tips: {
             en: ['✅ Keep your body balanced.'],
             ar: ['✅ حافظ على توازن جسمك.']
@@ -507,31 +507,31 @@ const GameConfig = {
         { num: 1, key: 'ready',
           title: { en: '1️⃣ Ready Stance (Kyorugi Junbi)', ar: '1️⃣ وضع الاستعداد (كيورجي جونبي)' },
           image: poseImg('narochagi', 0),
-          focus: { en: '👀 The kicking leg behind and the free (standing) leg in front.', ar: '👀 الرجل الضاربة خلفًا والرجل الحرة (الارتكاز) أمامًا.' },
+          focus: { en: '👀 The kicking leg behind and the free (standing) leg in front.', ar: '👀 القدم الضاربة خلفًا والقدم الحرة (الارتكاز) أمامًا.' },
           tips: {
             en: ['✅ Both arms with closed fists in front of the chest.'],
             ar: ['✅ الذراعان في حالة قبض أمام الصدر.']
           }, color: '#2a9d8f' },
         { num: 2, key: 'rise',
-          title: { en: '2️⃣ Raise the Leg High', ar: '2️⃣ رفع الرجل لأعلى' },
+          title: { en: '2️⃣ Raise the Leg High', ar: '2️⃣ رفع القدم لأعلى' },
           image: poseImg('narochagi', 1),
-          focus: { en: '👀 Lift the kicking leg high.', ar: '👀 ارفع الرجل الضاربة عاليًا.' },
+          focus: { en: '👀 Lift the kicking leg high.', ar: '👀 ارفع القدم الضاربة عاليًا.' },
           tips: {
             en: ['💡 Note: the leg must go higher than the target (the opponent\'s head).', '✅ Turn the standing foot outward a little, 45°–90°.'],
-            ar: ['💡 ملحوظة: لازم الرجل تبقى أعلى من مستوى الهدف (رأس المنافس).', '✅ لف قدم الارتكاز للخارج قليلًا بزاوية من ٤٥° إلى ٩٠°.']
+            ar: ['💡 ملحوظة: لازم القدم تبقى أعلى من مستوى الهدف (رأس المنافس).', '✅ لف قدم الارتكاز للخارج قليلًا بزاوية من ٤٥° إلى ٩٠°.']
           }, color: '#e76f51' },
         { num: 3, key: 'strike',
           title: { en: '3️⃣ Drop the Heel on the Target', ar: '3️⃣ إنزال الكعب على الهدف' },
           image: poseImg('narochagi', 2),
-          focus: { en: '👀 Swing the kicking leg from top to bottom.', ar: '👀 مرجح الرجل الضاربة من أعلى لأسفل.' },
+          focus: { en: '👀 Swing the kicking leg from top to bottom.', ar: '👀 مرجح القدم الضاربة من أعلى لأسفل.' },
           tips: {
             en: ['✅ Bring the heel and the sole of the kicking foot down on the opponent\'s head and face.'],
             ar: ['✅ نزّل كعب وباطن القدم الضاربة على رأس ووجه المنافس.']
           }, color: '#ff6b35' },
         { num: 4, key: 'recoil',
-          title: { en: '4️⃣ Pull the Leg Back', ar: '4️⃣ سحب الرجل' },
+          title: { en: '4️⃣ Pull the Leg Back', ar: '4️⃣ سحب القدم' },
           image: poseImg('narochagi', 3),
-          focus: { en: '👀 Pull the kicking leg back and bring it down to the floor.', ar: '👀 اسحب الرجل الضاربة ونزّلها على الأرض.' },
+          focus: { en: '👀 Pull the kicking leg back and bring it down to the floor.', ar: '👀 اسحب القدم الضاربة ونزّلها على الأرض.' },
           tips: {
             en: [],
             ar: []
@@ -565,7 +565,7 @@ const GameConfig = {
         { num: 1, key: 'ready',
           title: { en: '1️⃣ Ready Stance (Kyorugi Junbi)', ar: '1️⃣ وضع الاستعداد (كيورجي جونبي)' },
           image: poseImg('bakchagi3', 0),
-          focus: { en: '👀 The kicking leg behind and the free (standing) leg in front.', ar: '👀 الرجل الضاربة خلفًا والرجل الحرة (الارتكاز) أمامًا.' },
+          focus: { en: '👀 The kicking leg behind and the free (standing) leg in front.', ar: '👀 القدم الضاربة خلفًا والقدم الحرة (الارتكاز) أمامًا.' },
           tips: {
             en: ['✅ Both arms with closed fists in front of the chest.'],
             ar: ['✅ الذراعان في حالة قبض أمام الصدر.']
@@ -573,23 +573,23 @@ const GameConfig = {
         { num: 2, key: 'chamber',
           title: { en: '2️⃣ Knee Lift', ar: '2️⃣ رفع الركبة' },
           image: poseImg('bakchagi3', 1),
-          focus: { en: '👀 Lift the kicking knee high and forward toward the chest.', ar: '👀 ارفع ركبة الرجل الضاربة عاليًا وللأمام ناحية الصدر.' },
+          focus: { en: '👀 Lift the kicking knee high and forward toward the chest.', ar: '👀 ارفع ركبة القدم الضاربة عاليًا وللأمام ناحية الصدر.' },
           tips: {
             en: ['✅ Point your foot down.', '✅ Turn the standing foot outward about 135° (the ball of the foot back, the heel toward the opponent).', '✅ Lean your back backward.'],
-            ar: ['✅ شد مشط رجلك لأسفل.', '✅ لف قدم الارتكاز للخارج حوالي ١٣٥° (يعني المشط للخلف والكعب في اتجاه المنافس).', '✅ ميّل بضهرك لورا.']
+            ar: ['✅ شد مشط قدمك لأسفل.', '✅ لف قدم الارتكاز للخارج حوالي ١٣٥° (يعني المشط للخلف والكعب في اتجاه المنافس).', '✅ ميّل بضهرك لورا.']
           }, color: '#e76f51' },
         { num: 3, key: 'extension',
-          title: { en: '3️⃣ Extend the Leg to the Target', ar: '3️⃣ مد الرجل للهدف' },
+          title: { en: '3️⃣ Extend the Leg to the Target', ar: '3️⃣ مد القدم للهدف' },
           image: poseImg('bakchagi3', 2),
-          focus: { en: '👀 Straighten the kicking knee forward with power and speed.', ar: '👀 افرد ركبة الرجل الضاربة لقدام بقوة وسرعة.' },
+          focus: { en: '👀 Straighten the kicking knee forward with power and speed.', ar: '👀 افرد ركبة القدم الضاربة لقدام بقوة وسرعة.' },
           tips: {
             en: ['✅ Hit the opponent\'s belly with the top of the foot (instep).'],
             ar: ['✅ اضرب بوجه القدم (مشط القدم) في بطن المنافس.']
           }, color: '#ff6b35' },
         { num: 4, key: 'recoil',
-          title: { en: '4️⃣ Pull the Leg Back', ar: '4️⃣ سحب الرجل' },
+          title: { en: '4️⃣ Pull the Leg Back', ar: '4️⃣ سحب القدم' },
           image: poseImg('bakchagi3', 3),
-          focus: { en: '👀 Bend the kicking knee back toward your body quickly after the kick.', ar: '👀 اثني ركبة الرجل الضاربة تاني ناحية جسمك بسرعة بعد الركل.' },
+          focus: { en: '👀 Bend the kicking knee back toward your body quickly after the kick.', ar: '👀 اثني ركبة القدم الضاربة تاني ناحية جسمك بسرعة بعد الركل.' },
           tips: {
             en: [],
             ar: []
@@ -597,7 +597,7 @@ const GameConfig = {
         { num: 5, key: 'return',
           title: { en: '5️⃣ Back to the Ready Stance', ar: '5️⃣ الرجوع لوضع الاستعداد' },
           image: poseImg('bakchagi3', 4),
-          focus: { en: '👀 Bring your leg down to the floor quickly.', ar: '👀 نزّل رجلك بسرعة على الأرض.' },
+          focus: { en: '👀 Bring your leg down to the floor quickly.', ar: '👀 نزّل قدمك بسرعة على الأرض.' },
           tips: {
             en: ['✅ Keep your balance.', '✅ Turn the standing foot back inward.'],
             ar: ['✅ حافظ على توازنك.', '✅ لف قدم الارتكاز للداخل بشكل عكسي.']
@@ -702,11 +702,11 @@ const Curriculum = (() => {
         I('naranhi-seogi', 'stance', 'Naranhi Seogi', '나란히서기', 'Parallel stance', 'الوقفة المتوازية', {
           points: [['Feet parallel, one foot-width apart', 'قدماك متوازيتان وبينهما عرض قدم'], ['Weight in the middle', 'وزنك في المنتصف']] }),
         I('ap-seogi', 'stance', 'Ap Seogi', '앞서기', 'Walking stance', 'وقفة المشي', {
-          points: [['One natural step long', 'طولها خطوة عادية'], ['Both legs straight, weight in the middle', 'الرجلان مفرودتان ووزنك في المنتصف']],
-          mistakes: [['Feet on one line (you lose balance)', 'الرجلان على خط واحد (ستفقد توازنك)']] }),
+          points: [['One natural step long', 'طولها خطوة عادية'], ['Both legs straight, weight in the middle', 'القدمان مفرودتان ووزنك في المنتصف']],
+          mistakes: [['Feet on one line (you lose balance)', 'القدمان على خط واحد (ستفقد توازنك)']] }),
         I('ap-kubi', 'stance', 'Ap Kubi', '앞굽이', 'Front stance', 'الوقفة الأمامية', {
-          points: [['Long stance, front knee over the toes', 'وقفة طويلة والركبة الأمامية فوق أصابع القدم'], ['Back leg straight, about 2/3 weight on the front', 'الرجل الخلفية مفرودة ونحو ثلثي وزنك في الأمام']],
-          mistakes: [['Back heel lifted', 'كعب الرجل الخلفية مرفوع']] }),
+          points: [['Long stance, front knee over the toes', 'وقفة طويلة والركبة الأمامية فوق أصابع القدم'], ['Back leg straight, about 2/3 weight on the front', 'القدم الخلفية مفرودة ونحو ثلثي وزنك في الأمام']],
+          mistakes: [['Back heel lifted', 'كعب القدم الخلفية مرفوع']] }),
         I('arae-makki', 'block', 'Arae Makki', '아래막기', 'Low block', 'الصدّة السفلية', {
           points: [['Start the fist at the opposite shoulder', 'تبدأ القبضة عند الكتف الآخر'], ['Stop one fist above the thigh', 'تتوقف فوق الفخذ بمسافة قبضة']] }),
         I('momtong-an-makki', 'block', 'Momtong An Makki', '몸통안막기', 'Middle inside block', 'صدّة الوسط من الداخل', {
@@ -715,9 +715,9 @@ const Curriculum = (() => {
           points: [['Fist turns over at the very end', 'تلف القبضة في اللحظة الأخيرة'], ['Other fist pulls back to the hip', 'تعود القبضة الأخرى إلى وسطك']],
           mistakes: [['Bent wrist', 'رسغ منثنٍ']] }),
         I('apchagi', 'kick', 'Ap Chagi', '앞차기', 'Front kick', 'الركلة الأمامية', { skillId: 'apchagi', folder: 'apchagi',
-          points: [['Knee up first, then snap the foot', 'ارفع الركبة أولًا، ثم افرد رجلك بسرعة'], ['Hit with the ball of the foot', 'اضرب بقاعدة الأصابع (كلوة القدم)']] }),
+          points: [['Knee up first, then snap the foot', 'ارفع الركبة أولًا، ثم افرد قدمك بسرعة'], ['Hit with the ball of the foot', 'اضرب بقاعدة الأصابع (كلوة القدم)']] }),
         I('ap-ollyeo-chagi', 'kick', 'Ap Ollyeo Chagi', '앞올려차기', 'Front rising kick', 'الركلة الأمامية الصاعدة', {
-          points: [['Straight leg swings up like a pendulum', 'الرجل مفرودة وترتفع مثل البندول'], ['Stretching kick — control it on the way down', 'ركلة إطالة — تحكّم فيها وهي تنزل']] }),
+          points: [['Straight leg swings up like a pendulum', 'القدم مفرودة وترتفع مثل البندول'], ['Stretching kick — control it on the way down', 'ركلة إطالة — تحكّم فيها وهي تنزل']] }),
         T(1, 'Il', 'Keon ☰', 'Heaven and light — the beginning', 'السماء والنور — البداية', 18, 'walking & front stance, low block, middle punch, front kick', 'وقفة المشي والوقفة الأمامية، صدّة سفلية، لكمة وسط، ركلة أمامية')
       ] },
 
@@ -738,7 +738,7 @@ const Curriculum = (() => {
         I('bandal-chagi', 'kick', 'Bandal Chagi', '반달차기', 'Half-moon (crescent) kick', 'ركلة نصف القمر', {
           points: [['Halfway between front and roundhouse kick', 'بين الأمامية والدائرية'], ['Fast and short — great for sparring', 'سريعة وقصيرة — ممتازة في القتال']] }),
         I('naeryeo-chagi', 'kick', 'Naeryeo Chagi', '내려차기', 'Axe kick', 'الركلة المطرقية', { skillId: 'narochagi', folder: 'narochagi', video: 'assets/videos/naeryeochagi-tutorial.mp4', aka: P('In the game: Naeryeo Chagi', 'في اللعبة: نارو تشاجي'),
-          points: [['Leg rises high and straight', 'ترتفع الرجل إلى أعلى وهي مفرودة'], ['Heel drops down hard', 'ينزل الكعب بقوة إلى أسفل']] }),
+          points: [['Leg rises high and straight', 'ترتفع القدم إلى أعلى وهي مفرودة'], ['Heel drops down hard', 'ينزل الكعب بقوة إلى أسفل']] }),
         T(2, 'I', 'Tae ☱', 'Joy — calm inside, strong outside', 'الفرح — هادئ من الداخل وقوي من الخارج', 18, 'high block and front kick + punch combos', 'صدّة عالية وتركيبات ركلة أمامية مع لكمة'),
         T(3, 'Sam', 'Ri ☲', 'Fire — energy and passion', 'النار — طاقة وحماس', 20, 'knife-hand strikes, back stance, double punches', 'ضربات حد اليد، والوقفة الخلفية، ولكمتان متتاليتان')
       ] },
@@ -747,9 +747,9 @@ const Curriculum = (() => {
       goal: P('Back stance, the side kick and push kick, Taegeuk 4 and 5.', 'الوقفة الخلفية، والركلة الجانبية وركلة الدفع، وتيجوك ٤ و٥.'),
       items: [
         I('dwit-kubi', 'stance', 'Dwit Kubi', '뒷굽이', 'Back stance', 'الوقفة الخلفية', {
-          points: [['Feet in an L, about 70% weight on the back leg', 'القدمان على شكل حرف L ونحو ٧٠٪ من وزنك على الرجل الخلفية'], ['Both knees bent', 'الركبتان مثنيتان']] }),
+          points: [['Feet in an L, about 70% weight on the back leg', 'القدمان على شكل حرف L ونحو ٧٠٪ من وزنك على القدم الخلفية'], ['Both knees bent', 'الركبتان مثنيتان']] }),
         I('beom-seogi', 'stance', 'Beom Seogi', '범서기', 'Tiger stance', 'وقفة النمر', {
-          points: [['Front foot touches with the ball only', 'تلمس الرجل الأمامية الأرض بقاعدة الأصابع فقط'], ['Almost all weight on the back leg', 'معظم وزنك تقريبًا على الرجل الخلفية']] }),
+          points: [['Front foot touches with the ball only', 'تلمس القدم الأمامية الأرض بقاعدة الأصابع فقط'], ['Almost all weight on the back leg', 'معظم وزنك تقريبًا على القدم الخلفية']] }),
         I('juchum-seogi', 'stance', 'Juchum Seogi', '주춤서기', 'Horse-riding stance', 'وقفة الفارس', {
           points: [['Feet two foot-lengths apart, toes forward', 'المسافة بين قدميك بطول قدمين وأصابعك إلى الأمام'], ['Knees pushed out, back straight', 'الركبتان إلى الخارج وظهرك مستقيم']] }),
         I('sonnal-makki', 'block', 'Sonnal Makki', '손날막기', 'Knife-hand block', 'صدّة حد اليد', {
@@ -779,7 +779,7 @@ const Curriculum = (() => {
         I('huryeo-chagi', 'kick', 'Huryeo Chagi', '후려차기', 'Hook kick', 'الركلة الخطافية', {
           points: [['Kick past the target, then hook back', 'اركل بجانب الهدف ثم اسحب إلى الخلف'], ['Hit with the heel or sole', 'اضرب بالكعب أو باطن القدم']] }),
         I('twio-ap-chagi', 'kick', 'Twio Ap Chagi', '뛰어앞차기', 'Jumping front kick', 'الركلة الأمامية بالقفز', {
-          points: [['Drive the other knee up to jump', 'ارفع الركبة الأخرى لتقفز'], ['Land on both feet, guard up', 'انزل على رجليك الاثنتين ويداك مرفوعتان']] }),
+          points: [['Drive the other knee up to jump', 'ارفع الركبة الأخرى لتقفز'], ['Land on both feet, guard up', 'انزل على قدميك الاثنتين ويداك مرفوعتان']] }),
         I('hanbeon-kyorugi', 'sparring', 'Hanbeon Kyorugi', '한번겨루기', 'One-step sparring', 'القتال بخطوة واحدة', {
           points: [['Partner attacks once, you defend and counter', 'يهاجم زميلك مرة وأنت تصدّ وتردّ'], ['Control every strike — never hit for real', 'تحكّم في كل ضربة — لا تضرب بقوة حقيقية']] }),
         T(6, 'Yuk', 'Gam ☵', 'Water — keep going around obstacles', 'الماء — استمر حتى لو وُجدت عقبات', 19, 'roundhouse kicks, high knife-hand, wedging block', 'ركلات دائرية، وحد اليد العالي، والصدّة المفتوحة'),
@@ -790,7 +790,7 @@ const Curriculum = (() => {
       goal: P('Spinning and jumping kicks, Taegeuk 8, sparring rules and breaking.', 'الركلات الدائرية بالدوران وبالقفز، وتيجوك ٨، وقوانين القتال والتكسير.'),
       items: [
         I('dwi-huryeo-chagi', 'kick', 'Dwi Huryeo Chagi', '뒤후려차기', 'Spinning hook kick', 'الركلة الخطافية بالدوران', {
-          points: [['Spin on the ball of the front foot', 'لف على قاعدة أصابع الرجل الأمامية'], ['Head turns first, then the leg follows', 'يلف رأسك أولًا ثم تتبعه الرجل']] }),
+          points: [['Spin on the ball of the front foot', 'لف على قاعدة أصابع القدم الأمامية'], ['Head turns first, then the leg follows', 'يلف رأسك أولًا ثم تتبعه القدم']] }),
         I('twio-dollyo-chagi', 'kick', 'Twio Dollyeo Chagi', '뛰어돌려차기', 'Jumping roundhouse kick', 'الركلة الدائرية بالقفز', {
           points: [['Jump up, not forward', 'اقفز إلى أعلى لا إلى الأمام'], ['Turn the hip in the air', 'لف وسطك وأنت في الهواء']] }),
         I('narae-chagi', 'kick', 'Narae Chagi', '나래차기', 'Double roundhouse kick', 'الركلة الدائرية المزدوجة', {
@@ -806,7 +806,7 @@ const Curriculum = (() => {
       goal: P('Koryo, all eight Taegeuk, free sparring and breaking.', 'كوريو، وكل التيجوك الثمانية، والقتال الحر والتكسير.'),
       items: [
         I('hakdari-seogi', 'stance', 'Hakdari Seogi', '학다리서기', 'Crane stance', 'وقفة الكركي', {
-          points: [['Stand on one leg, the other foot at the knee', 'قف على رجل واحدة والأخرى عند ركبتك'], ['Standing knee slightly bent', 'الركبة التي تقف عليها مثنية قليلًا']] }),
+          points: [['Stand on one leg, the other foot at the knee', 'قف على قدم واحدة والأخرى عند ركبتك'], ['Standing knee slightly bent', 'الركبة التي تقف عليها مثنية قليلًا']] }),
         I('koryo', 'poomsae', 'Koryo', '고려', 'Koryo', 'كوريو', { moves: 30,
           points: [['Meaning: the strong spirit of the Koryo people', 'المعنى: روح شعب كوريو القوية'], ['30 movements — first black-belt form', '٣٠ حركة — أول شكل للحزام الأسود'], ['Double side kicks, knife-hand and crane stance', 'ركلات جانبية مزدوجة، وحد اليد، ووقفة الكركي']] }),
         I('taegeuk-review', 'poomsae', 'Taegeuk 1–8', '태극 1–8장', 'All Taegeuk review', 'مراجعة كل التيجوك', {
@@ -906,7 +906,7 @@ function watchVideoLoading(video) {
 // Arabic or English voice, degrees and ranges in words)
 // v63.4 — the version a tester can read on the start screen and in Coach → Settings (bump it
 // together with CACHE_VERSION in sw.js)
-const APP_VERSION = '66.1';
+const APP_VERSION = '66.2';
 
 const SpeechVoice = {
   KEY: 'taekwondoJourneyVoice',
@@ -1526,11 +1526,11 @@ class GameState {
         leaderboardTitle: '🏆 لوحة المتصدرين', leaderboardDesc: 'شاهد ترتيبك مقارنةً بكل اللاعبين على هذا الجهاز.', leaderboardMyStats: 'إحصائياتي', leaderboardAllPlayers: 'كل اللاعبين', leaderboardExport: '⬇️ حمّل النتائج (CSV)', leaderboardSwitchPlayer: '🔁 غيّر اللاعب',
         changeCharacterTitle: '👤 غيّر الشخصية', currentCharacter: 'الشخصية الحالية:', selectNewCharacter: 'اختر شخصية جديدة:', select: 'اختر',
         coachName: '🧔🏽 المدرّب:',        coachInstruction1: 'انظر كيف أؤدي الركلة الأمامية خطوة بخطوة!', learningTitle: '🎓 تعلّم آب تشاجي', learningSubtitle: 'أتقن المراحل الخمس للركلة الأمامية',
-        preparation: 'الاستعداد (جونبي)', chamber: 'رفع الركبة', extension: 'مد الرجل', recoil: 'سحب الرجل', return: 'الرجوع إلى وضع الاستعداد',
+        preparation: 'الاستعداد (جونبي)', chamber: 'رفع الركبة', extension: 'مد القدم', recoil: 'سحب القدم', return: 'الرجوع إلى وضع الاستعداد',
         gamesCenter: '🎮 مركز الألعاب', chooseGame: 'اختر لعبة وابدأ التمرين', formControl: 'اضبط الوضعية', formControlDesc: 'اسحب النقاط لتصحيح شكل الركلة',
         puzzleAssembly: 'رتّب المراحل', puzzleDesc: 'رتّب مراحل الركلة الخمس', notStarted: 'لم تبدأ بعد', completed: 'انتهيت',
         formControlGame: '🧍 اضبط الوضعية — آب تشاجي', formControlInstructions: 'اسحب النقاط الملونة حتى يصبح شكل الركلة صحيحًا',
-        instructions: '🎯 التعليمات:', instruction1: 'ارفع ركبتك إلى صدرك', instruction2: 'افرد رجلك إلى الأمام مباشرة', instruction3: 'أبقِ ظهرك مستقيمًا', instruction4: 'حافظ على توازنك على رجل الارتكاز',
+        instructions: '🎯 التعليمات:', instruction1: 'ارفع ركبتك إلى صدرك', instruction2: 'افرد قدمك إلى الأمام مباشرة', instruction3: 'أبقِ ظهرك مستقيمًا', instruction4: 'حافظ على توازنك على قدم الارتكاز',
         accuracy: 'الدقة:', checkForm: 'تحقّق من الشكل', autoPosition: 'وضع تلقائي', formProgress: 'تقدّمك في الشكل:', backToGames: 'ارجع إلى الألعاب', backToRoad: 'ارجع إلى الطريق',
         puzzleGame: '🧩 رتّب المراحل', puzzleInstructions: 'رتّب مراحل الركلة من ١ إلى ٥.\nهناك قطعة زائدة، اتركها خارج الترتيب.',
         puzzlePieces: 'اسحب القطعة إلى الخانة المناسبة، أو اضغط على القطعة ثم على رقم الخانة.',
@@ -1562,7 +1562,7 @@ class GameState {
         dashboardTitle: '📊 لوحة اللاعبين', dashboardDesc: 'النتائج والملاحظات لكل لاعب على هذا الجهاز.',
         dashboardOpen: 'افتح لوحة اللاعبين', dashboardExportPlayer: 'هذا اللاعب (CSV)', dashboardExportAll: 'كل اللاعبين (CSV)',
         sparringTitle: 'النزال', sparringDesc: 'اركل عندما يضيء الهدف الصحيح',
-        balanceTitle: 'اثبت وتوازن', balanceDesc: 'اثبت على رجل واحدة دون أن تسقط',
+        balanceTitle: 'اثبت وتوازن', balanceDesc: 'اثبت على قدم واحدة دون أن تسقط',
         heavyBagTitle: 'كيس الركلات', heavyBagDesc: 'اركل الكيس في اللحظة المناسبة',
         leagueNav: 'التحديات', versusNav: 'تحدَّ صديقك', switchPlayerNav: 'غيّر اللاعب', coachNav: 'وضع المدرب',
         leagueTitle: '🏆 التحديات', leagueDesc: 'العب تحدي اليوم، وواجه أصدقاءك، واربح جوائز الأسبوع.',
@@ -2292,24 +2292,24 @@ class LearningSystem {
   // shows the full focus line and the three tips (the choice is remembered per player)
   static SHORT = {
     apchagi: [
-      { ar: 'الرجل الضاربة خلفًا والرجل الحرة (الارتكاز) أمامًا.', en: 'The kicking leg behind and the free (standing) leg in front.' },
-      { ar: 'رفع وثني ركبة الرجل الضاربة عاليًا ناحية الصدر.', en: 'Lift and bend the kicking knee high toward the chest.' },
-      { ar: 'فرد ركبة الرجل الضاربة بقوة وسرعة إلى الأمام في اتجاه المنافس (الصدر أو الوجه).', en: 'Straighten the kicking knee with power and speed toward the opponent (chest or face).' },
-      { ar: 'يتم قبض (ثني) ركبة الرجل الضاربة مرة ثانية إلى الجسم بسرعة عقب الانتهاء من الركل.', en: 'Fold the kicking knee back to the body quickly right after the kick.' },
+      { ar: 'القدم الضاربة خلفًا والقدم الحرة (الارتكاز) أمامًا.', en: 'The kicking leg behind and the free (standing) leg in front.' },
+      { ar: 'رفع وثني ركبة القدم الضاربة عاليًا ناحية الصدر.', en: 'Lift and bend the kicking knee high toward the chest.' },
+      { ar: 'فرد ركبة القدم الضاربة بقوة وسرعة إلى الأمام في اتجاه المنافس (الصدر أو الوجه).', en: 'Straighten the kicking knee with power and speed toward the opponent (chest or face).' },
+      { ar: 'يتم قبض (ثني) ركبة القدم الضاربة مرة ثانية إلى الجسم بسرعة عقب الانتهاء من الركل.', en: 'Fold the kicking knee back to the body quickly right after the kick.' },
       { ar: 'هبوط القدم سريعًا إلى الأرض مع المحافظة على توازن الجسم.', en: 'Bring the foot down quickly while keeping the body balanced.' }
     ],
     narochagi: [
-      { ar: 'الرجل الضاربة خلفًا والرجل الحرة (الارتكاز) أمامًا.', en: 'The kicking leg behind and the free (standing) leg in front.' },
-      { ar: 'ارفع رجلك وهي مفرودة لفوق خالص.', en: 'Swing your straight leg up high.' },
+      { ar: 'القدم الضاربة خلفًا والقدم الحرة (الارتكاز) أمامًا.', en: 'The kicking leg behind and the free (standing) leg in front.' },
+      { ar: 'ارفع قدمك وهي مفرودة لفوق خالص.', en: 'Swing your straight leg up high.' },
       { ar: 'نزّل الدوي كومتشي (الكعب) لتحت بقوة.', en: 'Drop the heel down hard.' },
-      { ar: 'كمّل نزول رجلك وهي مفرودة لحد الأرض.', en: 'Keep the leg straight all the way down to the floor.' },
+      { ar: 'كمّل نزول قدمك وهي مفرودة لحد الأرض.', en: 'Keep the leg straight all the way down to the floor.' },
       { ar: 'انزل بالراحة، وإيديك فوق.', en: 'Land softly, hands up.' }
     ],
     bakchagi3: [
-      { ar: 'الرجل الضاربة خلفًا والرجل الحرة (الارتكاز) أمامًا.', en: 'The kicking leg behind and the free (standing) leg in front.' },
-      { ar: 'ارفع ركبتك ولفّها، والرجل مطوية مستوية.', en: 'Knee up and turned over, leg folded level.' },
+      { ar: 'القدم الضاربة خلفًا والقدم الحرة (الارتكاز) أمامًا.', en: 'The kicking leg behind and the free (standing) leg in front.' },
+      { ar: 'ارفع ركبتك ولفّها، والقدم مطوية مستوية.', en: 'Knee up and turned over, leg folded level.' },
       { ar: 'اضرب البطن بالبال دونج (وش القدم) وصوابعك ممدودة.', en: 'Hit the stomach with the instep, toes pointed.' },
-      { ar: 'اطوي رجلك على طول بعد الضربة.', en: 'Fold the leg straight back.' },
+      { ar: 'اطوي قدمك على طول بعد الضربة.', en: 'Fold the leg straight back.' },
       { ar: 'انزل بالراحة، وإيديك فوق.', en: 'Land softly, hands up.' }
     ]
   };
@@ -3051,7 +3051,7 @@ class FormControlSystem {
     const F = { ball: ['كلوة', 'ball'], instep: ['وجه', 'instep'] }[surf] || ['كعب', 'heel'];
     const hL = side(true), hR = side(false);
     const N = {
-      knee: [`ركبة الرجل ${K[0]}`, `${K[1]} knee`],
+      knee: [`ركبة القدم ${K[0]}`, `${K[1]} knee`],
       foot: [`${F[0]} القدم ${K[0]}`, `${K[1]} ${F[1]}`],
       guard: ['اليدان (الحراسة)', 'Both fists (guard)'],
       'hand-left': [`اليد ${hL[0]}`, `${hL[1]} hand`],
@@ -3101,18 +3101,18 @@ class FormControlSystem {
   // why each point matters, per kick (the 3D version — the targets are the real key moment)
   static FC_WHY = {
     apchagi: {
-      knee:  ['ترتفع الركبة أولًا ثم تُفرد الرجل — فهي التي توجّه الركلة إلى صدر الخصم.', 'The knee comes up first, then the leg snaps out — the knee aims the kick at the partner\'s chest.'],
-      foot:  ['اضرب بقاعدة الأصابع (كلوة القدم) مع سحب أصابعك للخلف حتى لا تُصاب، والرجل مفرودة تمامًا.', 'Hit with the ball of the foot, toes pulled back so they don\'t get hurt, leg fully straight.'],
-      guard: ['اليدان أمام صدرك ووجهك تحميانك وأنت واقف على رجل واحدة.', 'Fists up in front of your chest and face protect you while you stand on one leg.'],
+      knee:  ['ترتفع الركبة أولًا ثم تُفرد القدم — فهي التي توجّه الركلة إلى صدر الخصم.', 'The knee comes up first, then the leg snaps out — the knee aims the kick at the partner\'s chest.'],
+      foot:  ['اضرب بقاعدة الأصابع (كلوة القدم) مع سحب أصابعك للخلف حتى لا تُصاب، والقدم مفرودة تمامًا.', 'Hit with the ball of the foot, toes pulled back so they don\'t get hurt, leg fully straight.'],
+      guard: ['اليدان أمام صدرك ووجهك تحميانك وأنت واقف على قدم واحدة.', 'Fists up in front of your chest and face protect you while you stand on one leg.'],
       pivot: ['تلف قدم الارتكاز للخارج من ٤٥° إلى ٩٠° — فيفتح ذلك الوسط ويجعل الركلة أبعد وأقوى.', 'The standing foot turns out 45°–90° — it opens the hips so the kick reaches further.']
     },
     narochagi: {
-      knee:  ['ترتفع الرجل مفرودة تمامًا — ولا تنثني الركبة أبدًا أثناء الصعود.', 'The leg rises completely straight — the knee does not bend on the way up.'],
+      knee:  ['ترتفع القدم مفرودة تمامًا — ولا تنثني الركبة أبدًا أثناء الصعود.', 'The leg rises completely straight — the knee does not bend on the way up.'],
       foot:  ['يرتفع الكعب إلى أعلى مكان تستطيعه (مستوى الوجه أو أعلى) لينزل بقوة مثل الفأس.', 'The heel goes as high as you can (face height or higher) so it can drop like an axe.'],
       pivot: ['تلف قدم الارتكاز للخارج قليلًا بزاوية من ٤٥° إلى ٩٠°.', 'The standing foot turns outward a little, 45°–90° — the body stays facing the target.']
     },
     bakchagi3: {
-      knee:  ['تتجه الركبة نحو الهدف والرجل مطوية بشكل أفقي — ومنها يلف الجزء السفلي من الرجل ويضرب بسرعة.', 'The knee points at the target with the leg folded level — then the lower leg whips round fast.'],
+      knee:  ['تتجه الركبة نحو الهدف والقدم مطوية بشكل أفقي — ومنها يلف الجزء السفلي من القدم ويضرب بسرعة.', 'The knee points at the target with the leg folded level — then the lower leg whips round fast.'],
       foot:  ['اضرب بوجه القدم (ظهر القدم)، والكاحل مفرود وأصابعك ممدودة.', 'Strike with the instep (the top of the foot), ankle stretched and toes pointed.'],
       front: ['اليد الأمامية مرفوعة تحمي وجهك وأنت تلف.', 'The front hand stays up and guards your face while you turn.'],
       back:  ['اليد الخلفية قريبة من جسمك تحميك وتحافظ على توازنك.', 'The back hand stays close to your body — it guards you and keeps your balance.'],
@@ -3201,7 +3201,7 @@ class FormControlSystem {
       },
       why: {
         knee:         { en: 'A higher knee stores more energy, which converts into explosive power at extension.',
-                        ar: 'الركبة العالية تخزّن طاقة أكبر تتحول إلى قوة انفجارية عندما تفرد رجلك.' },
+                        ar: 'الركبة العالية تخزّن طاقة أكبر تتحول إلى قوة انفجارية عندما تفرد قدمك.' },
         foot:         { en: 'Full forward extension delivers the strike at maximum reach and power.',
                         ar: 'فرد القدم إلى الأمام تمامًا يوصل الضربة إلى أبعد مسافة وبأقصى قوة.' },
         'hand-left':  { en: 'A high guard protects your face and chest from counter-attacks while you kick.',
@@ -3230,9 +3230,9 @@ class FormControlSystem {
         foot:         { en: 'The foot must clear head height for the downward heel strike to be effective.',
                         ar: 'يجب أن تصل القدم فوق مستوى الرأس لتكون ضربة الكعب النازلة فعّالة.' },
         'hand-left':  { en: 'Keeping the guard up matters here too — you are momentarily off-balance during the rise.',
-                        ar: 'الحراسة مهمة هنا لتحميك وأنت ترفع رجلك.' },
+                        ar: 'الحراسة مهمة هنا لتحميك وأنت ترفع قدمك.' },
         'hand-right': { en: 'Keeping the guard up matters here too — you are momentarily off-balance during the rise.',
-                        ar: 'الحراسة مهمة هنا لتحميك وأنت ترفع رجلك.' }
+                        ar: 'الحراسة مهمة هنا لتحميك وأنت ترفع قدمك.' }
       }
     },
     bakchagi3: {
@@ -3404,15 +3404,15 @@ class FormControlSystem {
     const INSTRUCTION_SETS = {
       apchagi: {
         en: ['Knee up in front first, then snap the leg out straight', 'Hit with the ball of the foot, toes pulled back — at the partner\'s chest', 'Turn the standing foot out 45°–90°', 'Guard up in front of you, back straight'],
-        ar: ['ارفع الركبة إلى الأمام أولًا، ثم افرد رجلك مباشرة', 'اضرب بقاعدة الأصابع (كلوة القدم) مع سحب الأصابع للخلف — في صدر الخصم', 'لُفّ قدم الارتكاز للخارج من ٤٥° إلى ٩٠°', 'الحراسة مرفوعة أمامك وظهرك مستقيم']
+        ar: ['ارفع الركبة إلى الأمام أولًا، ثم افرد قدمك مباشرة', 'اضرب بقاعدة الأصابع (كلوة القدم) مع سحب الأصابع للخلف — في صدر الخصم', 'لُفّ قدم الارتكاز للخارج من ٤٥° إلى ٩٠°', 'الحراسة مرفوعة أمامك وظهرك مستقيم']
       },
       narochagi: {
         en: ['Swing the leg up completely straight, as high as you can', 'Both knees straight — the heel goes up to face height or higher', 'Turn the standing foot outward a little, 45°–90°', 'Guard up — then the heel drops down like an axe'],
-        ar: ['ارفع رجلك إلى أعلى وهي مفرودة تمامًا، إلى أعلى ما تستطيع', 'الركبتان مفرودتان — والكعب يرتفع إلى مستوى الوجه أو أعلى', 'لُفّ قدم الارتكاز للخارج قليلًا بزاوية من ٤٥° إلى ٩٠°', 'الحراسة مرفوعة — ثم ينزل الكعب مثل الفأس']
+        ar: ['ارفع قدمك إلى أعلى وهي مفرودة تمامًا، إلى أعلى ما تستطيع', 'الركبتان مفرودتان — والكعب يرتفع إلى مستوى الوجه أو أعلى', 'لُفّ قدم الارتكاز للخارج قليلًا بزاوية من ٤٥° إلى ٩٠°', 'الحراسة مرفوعة — ثم ينزل الكعب مثل الفأس']
       },
       bakchagi3: {
         en: ['Lift the knee and turn it over, the leg folded level', 'Turn the standing foot about 135° — heel toward the target', 'Whip the leg round and hit the stomach with the instep, toes pointed', 'Lean your body away from the kick and keep the guard up'],
-        ar: ['ارفع ركبتك ولفّها والرجل مطوية بشكل أفقي', 'لُفّ قدم الارتكاز نحو ١٣٥° — والكعب نحو الهدف', 'لُفّ رجلك واضرب البطن بوجه القدم وأصابعك ممدودة', 'أمِل جسمك بعيدًا عن الركلة وأبقِ الحراسة مرفوعة']
+        ar: ['ارفع ركبتك ولفّها والقدم مطوية بشكل أفقي', 'لُفّ قدم الارتكاز نحو ١٣٥° — والكعب نحو الهدف', 'لُفّ قدمك واضرب البطن بوجه القدم وأصابعك ممدودة', 'أمِل جسمك بعيدًا عن الركلة وأبقِ الحراسة مرفوعة']
       }
     };
     const iSet = INSTRUCTION_SETS[this.skillId] || INSTRUCTION_SETS.apchagi;
@@ -4436,11 +4436,11 @@ class PuzzleSystem {
   static SEQUENCE_RATIONALE = {
     apchagi: {
       en: 'Why this order matters: the knee lift STORES power before the leg snaps into extension — skip it, and the kick loses most of its force.',
-      ar: 'لماذا هذا الترتيب مهم: رفع الركبة يخزّن الطاقة قبل أن تُفرد الرجل — إذا تخطّيت هذه المرحلة تفقد الركلة معظم قوتها.'
+      ar: 'لماذا هذا الترتيب مهم: رفع الركبة يخزّن الطاقة قبل أن تُفرد القدم — إذا تخطّيت هذه المرحلة تفقد الركلة معظم قوتها.'
     },
     narochagi: {
       en: 'Why this order matters: the leg must rise fully BEFORE the heel drops — dropping early turns a powerful axe strike into a weak push.',
-      ar: 'لماذا هذا الترتيب مهم: يجب أن ترتفع الرجل إلى أعلى تمامًا قبل أن ينزل الكعب — إذا نزلت مبكرًا تتحول ضربة الفأس القوية إلى دفعة ضعيفة.'
+      ar: 'لماذا هذا الترتيب مهم: يجب أن ترتفع القدم إلى أعلى تمامًا قبل أن ينزل الكعب — إذا نزلت مبكرًا تتحول ضربة الفأس القوية إلى دفعة ضعيفة.'
     },
     bakchagi3: {
       en: 'Why this order matters: the hip rotation builds momentum THROUGH the pivot — cutting the spin short kills the power the whole kick depends on.',
@@ -4918,7 +4918,7 @@ class ActionSystem {
     narochagi: {
       title: { en: '⚡ Strike Challenge: Gravity Drop', ar: '⚡ تحدي الضربة: الجاذبية' },
       how:   { en: '1) Drag UP on your fighter in a straight line — the straight leg rises with your finger (a wobble means a bent knee). 2) Then drag DOWN as fast as you can to drop the heel.',
-               ar: '١) اسحب لأعلى على اللاعب في خط مستقيم، فترتفع رجله مفرودة مع إصبعك (إذا اهتز الخط فركبتك انثنت). ٢) ثم اسحب لأسفل بأقصى سرعة لينزل الكعب.' }
+               ar: '١) اسحب لأعلى على اللاعب في خط مستقيم، فترتفع قدمه مفرودة مع إصبعك (إذا اهتز الخط فركبتك انثنت). ٢) ثم اسحب لأسفل بأقصى سرعة لينزل الكعب.' }
     },
     bakchagi3: {
       title: { en: '⚡ Strike Challenge: The Pivot', ar: '⚡ تحدي الضربة: لفّة الارتكاز' },
@@ -5611,7 +5611,7 @@ class ActionSystem {
     } else if (st.wobble > 0.4) {
       msg = { en: 'Keep the drag straight — a wobble means a bent knee.', ar: 'اجعل السحبة مستقيمة — الاهتزاز يعني أن ركبتك منثنية.' };
     } else if (st.riseScore < dropScore) {
-      msg = { en: 'Raise the leg higher before you drop it.', ar: 'ارفع رجلك أعلى قبل أن تُنزلها.' };
+      msg = { en: 'Raise the leg higher before you drop it.', ar: 'ارفع قدمك أعلى قبل أن تُنزلها.' };
     } else {
       msg = { en: 'Snap down faster — let gravity do the work.', ar: 'أنزِلها أسرع — دع الجاذبية تعمل.' };
     }
@@ -5754,10 +5754,10 @@ class ErrorHuntSystem {
     apchagi: [
       { id: 'head', zone: 'head', topic: 'head',
         hint:    { en: 'Look at where the fighter is looking.', ar: 'انظر: إلى أين ينظر اللاعب؟' },
-        success: { en: 'Spot on! Head up and eyes on the target — never look down at your own foot.', ar: 'عينك قوية! أبقِ رأسك مرفوعًا وعينيك على الهدف، ولا تنظر إلى رجلك وأنت تركل.' } },
+        success: { en: 'Spot on! Head up and eyes on the target — never look down at your own foot.', ar: 'عينك قوية! أبقِ رأسك مرفوعًا وعينيك على الهدف، ولا تنظر إلى قدمك وأنت تركل.' } },
       { id: 'knee', zone: 'kick', topic: 'knee',
-        hint:    { en: 'Look at the kicking leg — is it fully straight?', ar: 'انظر إلى رجل الركلة: هل هي مفرودة تمامًا؟' },
-        success: { en: 'Great! The leg must be fully straight while you kick (at the strike) — a bent knee steals the power.', ar: 'رائع! يجب أن تكون الرجل مفرودة تمامًا أثناء الركل، فالركبة المنثنية تُضعف الضربة.' } },
+        hint:    { en: 'Look at the kicking leg — is it fully straight?', ar: 'انظر إلى قدم الركلة: هل هي مفرودة تمامًا؟' },
+        success: { en: 'Great! The leg must be fully straight while you kick (at the strike) — a bent knee steals the power.', ar: 'رائع! يجب أن تكون القدم مفرودة تمامًا أثناء الركل، فالركبة المنثنية تُضعف الضربة.' } },
       { id: 'lean', zone: 'torso', topic: 'lean',
         hint:    { en: 'Look at the body — upright, or falling back?', ar: 'انظر إلى الجسم: هل هو مستقيم أم مائل إلى الخلف؟' },
         success: { en: 'Exactly! Leaning far back drains the kick and throws you off balance. Keep the body upright.', ar: 'صحيح! الميل الكثير إلى الخلف يُضيّع قوة الركلة ويُسقطك. أبقِ جسمك مستقيمًا.' } },
@@ -5769,13 +5769,13 @@ class ErrorHuntSystem {
         hint:    { en: 'Look at the standing foot — did it turn out?', ar: 'انظر إلى قدم الارتكاز: هل لفّت إلى الخارج أم لا؟' },
         success: { en: 'Right! The standing foot turns out 45°–90° — it opens the hips so the kick goes further and harder.', ar: 'صحيح! يجب أن تلف قدم الارتكاز للخارج من ٤٥° إلى ٩٠°، فهذا يفتح وسطك ويجعل الركلة أبعد وأقوى.' } },
       { id: 'low', zone: 'kick', topic: 'target',
-        hint:    { en: 'Look at the kicking leg — which target is it going to?', ar: 'انظر إلى رجل الركلة: إلى أيّ هدف تتجه؟' },
+        hint:    { en: 'Look at the kicking leg — which target is it going to?', ar: 'انظر إلى قدم الركلة: إلى أيّ هدف تتجه؟' },
         success: { en: 'Exactly! Ap Chagi goes to the abdomen or the face, not the knee. Lift the knee to the chest first.', ar: 'تمامًا! تتجه آب تشاجي إلى البطن أو الوجه، لا إلى الركبة. ارفع ركبتك إلى صدرك أولًا.' } }
     ],
     narochagi: [
       { id: 'knee', zone: 'kick', topic: 'knee',
-        hint:    { en: 'Look at the kicking leg on its way up — is it straight?', ar: 'انظر إلى رجل الركلة وهي ترتفع: هل هي مفرودة؟' },
-        success: { en: 'Right! In Naeryeo Chagi the leg rises completely straight — a bent knee wastes the drop.', ar: 'صحيح! في نارو تشاجي ترتفع الرجل مفرودة تمامًا، والركبة المنثنية تُضيّع قوة النزول.' } },
+        hint:    { en: 'Look at the kicking leg on its way up — is it straight?', ar: 'انظر إلى قدم الركلة وهي ترتفع: هل هي مفرودة؟' },
+        success: { en: 'Right! In Naeryeo Chagi the leg rises completely straight — a bent knee wastes the drop.', ar: 'صحيح! في نارو تشاجي ترتفع القدم مفرودة تمامًا، والركبة المنثنية تُضيّع قوة النزول.' } },
       { id: 'lean', zone: 'torso', topic: 'lean',
         hint:    { en: 'Look at the body — how far back does it lean?', ar: 'انظر إلى الجسم: كم يميل إلى الخلف؟' },
         success: { en: 'Well done! Lean far back and you fall. Lean back only a tiny bit and keep the body almost upright.', ar: 'أحسنت! إذا ملت إلى الخلف كثيرًا ستسقط. مِل قليلًا جدًا وأبقِ جسمك شبه مستقيم.' } },
@@ -5795,8 +5795,8 @@ class ErrorHuntSystem {
         hint:    { en: 'Look at the standing foot — how far did it turn?', ar: 'انظر إلى قدم الارتكاز: إلى أيّ حد لفّت؟' },
         success: { en: 'Right! In Bik Chagi the standing foot turns about 135°, heel toward the target — that opens the hips.', ar: 'صحيح! في بيك تشاجي تلف قدم الارتكاز نحو ١٣٥° والكعب نحو الهدف — وهذا ما يفتح الوسط.' } },
       { id: 'knee', zone: 'kick', topic: 'knee',
-        hint:    { en: 'Look at the kicking leg — fully straight?', ar: 'انظر إلى رجل الركلة: هل فُردت تمامًا؟' },
-        success: { en: 'Well done! At the strike the leg straightens all the way into the stomach.', ar: 'أحسنت! وقت الضربة يجب أن تُفرد الرجل تمامًا حتى البطن.' } },
+        hint:    { en: 'Look at the kicking leg — fully straight?', ar: 'انظر إلى قدم الركلة: هل فُردت تمامًا؟' },
+        success: { en: 'Well done! At the strike the leg straightens all the way into the stomach.', ar: 'أحسنت! وقت الضربة يجب أن تُفرد القدم تمامًا حتى البطن.' } },
       { id: 'foot', zone: 'kick', topic: 'surface',
         hint:    { en: 'Look at the striking foot — which part leads?', ar: 'انظر إلى القدم الضاربة: بأيّ جزء تضرب؟' },
         success: { en: 'Right! Bik Chagi hits with the instep (the top of the foot) — never with the heel or the toes.', ar: 'صحيح! تضرب بيك تشاجي بوجه القدم (ظهر القدم)، لا بالكعب ولا بالأصابع.' } },
@@ -5806,12 +5806,12 @@ class ErrorHuntSystem {
         success: { en: 'Eagle eye! Even while you turn, your eyes stay on the target.', ar: 'عين صقر! حتى وأنت تلف تبقى عيناك على الهدف.' } },
       { id: 'lean', zone: 'torso', topic: 'lean',
         hint:    { en: 'Look at the body — which way does it lean?', ar: 'انظر إلى الجسم: إلى أيّ جهة يميل؟' },
-        success: { en: 'Right! The body leans away from the kick, in one line with the leg — bend forward and the kick goes weak and off-balance.', ar: 'صحيح! يميل الجسم بعيدًا عن الركلة وعلى خط واحد مع الرجل؛ إذا انحنيت إلى الأمام ضعفت الركلة وفقدت توازنك.' } }
+        success: { en: 'Right! The body leans away from the kick, in one line with the leg — bend forward and the kick goes weak and off-balance.', ar: 'صحيح! يميل الجسم بعيدًا عن الركلة وعلى خط واحد مع القدم؛ إذا انحنيت إلى الأمام ضعفت الركلة وفقدت توازنك.' } }
     ]
   };
   static TITLE = { en: '🔎 One thing is wrong in this kick — find it!', ar: '🔎 يوجد خطأ واحد في هذه الركلة — اكتشفه!' };
   static DESC  = { en: 'Turn around the fighter and check the head, the body and hands, the kicking leg and the standing foot.',
-                   ar: 'لُفّ حول اللاعب وانظر إلى الرأس، والجسم واليدين، ورجل الركلة، وقدم الارتكاز.' };
+                   ar: 'لُفّ حول اللاعب وانظر إلى الرأس، والجسم واليدين، وقدم الركلة، وقدم الارتكاز.' };
   static FAIL_TITLE = { en: 'Not this part', ar: 'ليس هذا الجزء' };
   // the run being played (filled in initialize)
   static LEVELS = [];
@@ -5825,13 +5825,13 @@ class ErrorHuntSystem {
   static ZONE_LABELS = {
     head:  { en: 'Head and eyes',   ar: 'الرأس والعينان' },
     torso: { en: 'Body and hands',  ar: 'الجسم واليدان' },
-    kick:  { en: 'Kicking leg',     ar: 'رجل الركلة' },
+    kick:  { en: 'Kicking leg',     ar: 'قدم الركلة' },
     stand: { en: 'Standing foot',   ar: 'قدم الارتكاز' }
   };
 
   static MISS_HINT = {
     en: 'Tap right on the fighter: the head, the body and hands, the kicking leg or the standing foot.',
-    ar: 'اضغط على اللاعب نفسه: الرأس، أو الجسم واليدين، أو رجل الركلة، أو قدم الارتكاز.'
+    ar: 'اضغط على اللاعب نفسه: الرأس، أو الجسم واليدين، أو قدم الركلة، أو قدم الارتكاز.'
   };
 
 
@@ -6174,8 +6174,8 @@ class QuizBlastSystem {
         a: ['قاعدة الأصابع (كلوة القدم)', 'Ball of the foot'],
         w: [['الكعب', 'Heel'], ['باطن القدم', 'Sole of the foot'], ['وش القدم', 'Instep']] },
       { q: ['أيّ هذه الحركات تتكرر في بداية ركلة آب تشاجي ونهايتها؟', 'Which movement is repeated in both the preparatory and the final phase of Ap Chagi?'],
-        a: ['ثني ركبة الرجل الضاربة', 'Bending the kicking-leg knee'],
-        w: [['ثني ركبة رجل الارتكاز', 'Bending the standing-foot knee'], ['فرد ركبة رجل الارتكاز', 'Straightening the standing-foot knee'], ['فرد ركبة الرجل الضاربة', 'Straightening the kicking-leg knee']] },
+        a: ['ثني ركبة القدم الضاربة', 'Bending the kicking-leg knee'],
+        w: [['ثني ركبة قدم الارتكاز', 'Bending the standing-foot knee'], ['فرد ركبة قدم الارتكاز', 'Straightening the standing-foot knee'], ['فرد ركبة القدم الضاربة', 'Straightening the kicking-leg knee']] },
       { q: ['الركلة الأمامية المستقيمة التي تصيب الرأس تمنح اللاعب:', 'A straight front kick to the head scores:'],
         a: ['ثلاث نقاط', 'Three points'],
         w: [['نقطتين', 'Two points'], ['خمس نقاط', 'Five points'], ['أربع نقاط', 'Four points']] },
@@ -6187,17 +6187,17 @@ class QuizBlastSystem {
         w: [['١٨٠° كاملة', 'A full 180°'], ['360°', '360°'], ['لا تلف إطلاقًا', 'It does not pivot']] },
       { q: ['ما المرحلة الأولى في آب تشاجي؟', 'What is the first phase of Ap Chagi?'],
         a: ['وضع الاستعداد (جونبي)', 'Ready stance (Junbi)'],
-        w: [['رفع الركبة', 'Knee lift'], ['مد الرجل', 'Kick extension'], ['سحب الرجل', 'Recoil']] },
+        w: [['رفع الركبة', 'Knee lift'], ['مد القدم', 'Kick extension'], ['سحب القدم', 'Recoil']] },
       { q: ['كم مرحلة أساسية في ركلة آب تشاجي الكاملة؟', 'How many main phases does a complete Ap Chagi have?'],
         a: ['٥ مراحل', '5 phases'],
         w: [['٣ مراحل', '3 phases'], ['٤ مراحل', '4 phases'], ['٦ مراحل', '6 phases']] },
-      { q: ['إلى أين نرفع الركبة قبل أن نفرد الرجل؟', 'How high is the knee lifted before the leg extends?'],
+      { q: ['إلى أين نرفع الركبة قبل أن نفرد القدم؟', 'How high is the knee lifted before the leg extends?'],
         a: ['إلى مستوى الصدر', 'To chest level'],
         w: [['إلى مستوى الكاحل', 'To ankle level'], ['إلى مستوى الركبة الأخرى', 'To the level of the other knee'], ['فوق الرأس', 'Above the head']] },
       { q: ['ماذا نفعل بأصابع القدم ونحن نضرب آب تشاجي؟', 'What do you do with your toes when striking in Ap Chagi?'],
         a: ['نسحبها إلى الخلف', 'Pull them back'],
         w: [['نفردها إلى الأمام', 'Point them forward'], ['نثنيها إلى أسفل', 'Curl them down'], ['نفتحها إلى الجانبين', 'Spread them apart']] },
-      { q: ['لماذا نسحب الرجل بسرعة بعد الضربة؟', 'Why do we pull the leg back quickly after the strike?'],
+      { q: ['لماذا نسحب القدم بسرعة بعد الضربة؟', 'Why do we pull the leg back quickly after the strike?'],
         a: ['لنحافظ على التوازن والحراسة', 'To keep balance and guard'],
         w: [['لنحصل على نقاط أكثر', 'To score more points'], ['ليبدو شكل الحركة أجمل', 'To make it look nicer'], ['لأن الحكم يريد ذلك', 'Because the referee asks for it']] }
     ],
@@ -6223,18 +6223,18 @@ class QuizBlastSystem {
         a: ['من ٤٥° إلى ٩٠° للخارج', '45°–90° outward'],
         w: [['90°', '90°'], ['180°', '180°'], ['360°', '360°']] },
       { q: ['ما المرحلة الثانية في نارو تشاجي؟', 'What is the second phase of Naeryeo Chagi?'],
-        a: ['رفع الرجل لأعلى', 'Vertical rise'],
-        w: [['إنزال الكعب على الهدف', 'Heel drop'], ['سحب الرجل', 'Recoil'], ['الرجوع لوضع الاستعداد', 'Return to stance']] },
+        a: ['رفع القدم لأعلى', 'Vertical rise'],
+        w: [['إنزال الكعب على الهدف', 'Heel drop'], ['سحب القدم', 'Recoil'], ['الرجوع لوضع الاستعداد', 'Return to stance']] },
       { q: ['ما اسم مرحلة الضربة في نارو تشاجي؟', 'What is the striking phase of Naeryeo Chagi called?'],
         a: ['إنزال الكعب على الهدف', 'Heel drop'],
-        w: [['رفع الرجل لأعلى', 'Vertical rise'], ['وضع الاستعداد', 'Ready stance'], ['رفع الركبة', 'Knee lift']] },
-      { q: ['كيف ترتفع الرجل قبل أن تنزل؟', 'How does the leg rise before it drops?'],
+        w: [['رفع القدم لأعلى', 'Vertical rise'], ['وضع الاستعداد', 'Ready stance'], ['رفع الركبة', 'Knee lift']] },
+      { q: ['كيف ترتفع القدم قبل أن تنزل؟', 'How does the leg rise before it drops?'],
         a: ['إلى أعلى وهي مستقيمة', 'Straight up, vertically'],
         w: [['في لفّة دائرية إلى الخارج', 'In a circle to the outside'], ['بالعرض إلى الأمام', 'Horizontally forward'], ['إلى الخلف مع ثني الركبة', 'Backward with a bent knee']] },
-      { q: ['لماذا يجب أن تبقى الرجل مفرودة تمامًا وهي ترتفع؟', 'Why must the leg stay straight during the rise?'],
+      { q: ['لماذا يجب أن تبقى القدم مفرودة تمامًا وهي ترتفع؟', 'Why must the leg stay straight during the rise?'],
         a: ['لتكون الضربة النازلة قوية', 'To generate a powerful downward strike'],
         w: [['ليكون شكلها أجمل', 'Because it looks better'], ['لأنها أسهل في الأداء', 'Because it is easier'], ['ليس ذلك مطلوبًا أصلًا', 'It is not required']] },
-      { q: ['ماذا يفعل الجذع والرجل ترتفع إلى أعلى؟', 'What does the torso do while the leg rises?'],
+      { q: ['ماذا يفعل الجذع والقدم ترتفع إلى أعلى؟', 'What does the torso do while the leg rises?'],
         a: ['يميل إلى الخلف قليلًا للتوازن', 'Leans back slightly for balance'],
         w: [['ينحني إلى الأمام كثيرًا', 'Bends far forward'], ['يلف ١٨٠°', 'Turns 180°'], ['ينثني إلى الجانب', 'Folds to the side']] }
     ],
@@ -6253,7 +6253,7 @@ class QuizBlastSystem {
       { q: ['كم تلف قدم الارتكاز في بيك تشاجي؟', 'How far does the standing foot pivot in Bik Chagi?'],
         a: ['حوالي ١٣٥°', 'About 135°'],
         w: [['360°', '360°'], ['من ٠° إلى ٤٥°', '0°–45°'], ['لا تلف', 'No pivot']] },
-      { q: ['كيف تتجه رجل الركلة إلى الهدف في بيك تشاجي؟', 'How does the kicking leg travel in Bik Chagi?'],
+      { q: ['كيف تتجه قدم الركلة إلى الهدف في بيك تشاجي؟', 'How does the kicking leg travel in Bik Chagi?'],
         a: ['في لفّة دائرية أفقية', 'Round in a level circle'],
         w: [['من أعلى لأسفل', 'From top to bottom'], ['إلى أعلى مباشرة', 'Straight up'], ['لا تتحرك', 'It does not move']] },
       { q: ['كيف يكون جسمك وقت الضربة؟', 'How is your body at the strike?'],
@@ -6261,11 +6261,11 @@ class QuizBlastSystem {
         w: [['واقف مستقيم تمامًا', 'Standing fully upright'], ['منحنٍ إلى الأمام', 'Bent forward'], ['جالس على الأرض', 'Sitting on the floor']] },
       { q: ['ماذا نفعل في المرحلة الثانية من بيك تشاجي؟', 'What happens in the second phase of Bik Chagi?'],
         a: ['نرفع الركبة ونلفّها', 'Lift the knee and turn it over'],
-        w: [['نفرد الرجل مباشرة', 'Extend the leg straight away'], ['نجلس على الأرض', 'Sit on the floor'], ['نقفز إلى الخلف', 'Jump backward']] },
+        w: [['نفرد القدم مباشرة', 'Extend the leg straight away'], ['نجلس على الأرض', 'Sit on the floor'], ['نقفز إلى الخلف', 'Jump backward']] },
       { q: ['لماذا نبقي أيدينا مرفوعة ونحن نلف؟', 'Why do we keep the hands up while turning?'],
         a: ['لأن الجسم يكون مكشوفًا أكثر وهو يلف', 'The body is more exposed while turning'],
         w: [['لأن ذلك اختياري', 'Because it is optional'], ['لأنها تبطئ الركلة', 'Because it slows the kick'], ['لا يوجد سبب', 'There is no reason']] },
-      { q: ['كيف نُرجع الرجل بعد ضربة بيك تشاجي؟', 'How do you pull the leg back after a Bik Chagi strike?'],
+      { q: ['كيف نُرجع القدم بعد ضربة بيك تشاجي؟', 'How do you pull the leg back after a Bik Chagi strike?'],
         a: ['نطويها مباشرة والركبة مرفوعة', 'Fold it straight back, knee up'],
         w: [['نتركها في الخارج', 'Leave it out'], ['نتركها متدلية', 'Let it dangle'], ['نضربها بقوة في الأرض', 'Stamp it down hard']] },
       { q: ['ركلة دائرية ضعيفة وغير متوازنة — ما السبب الأكثر احتمالًا؟', 'A roundhouse kick lands weak and off-balance. What is the most likely cause?'],
@@ -6284,8 +6284,8 @@ class QuizBlastSystem {
       a: ['كيورجي جونبي', 'Kyorugi Junbi'],
       w: [['تشاريوت', 'Charyeot'], ['شيجاك', 'Shijak'], ['كومان', 'Keuman']] },
     { q: ['في الركلات الهجومية، يحدث رجوع القدم الضاربة وثني الركبة مرة أخرى في مرحلة:', 'Pulling the kicking foot back and re-bending the knee happens in the:'],
-      a: ['سحب الرجل', 'Pulling the leg back'],
-      w: [['وضع الاستعداد', 'The ready stance'], ['رفع الركبة', 'The knee lift'], ['مد الرجل للهدف', 'Extending the leg to the target']] },
+      a: ['سحب القدم', 'Pulling the leg back'],
+      w: [['وضع الاستعداد', 'The ready stance'], ['رفع الركبة', 'The knee lift'], ['مد القدم للهدف', 'Extending the leg to the target']] },
     { q: ['اسم الزي الرسمي للاعبي التايكوندو:', 'The official uniform of Taekwondo players is called:'],
       a: ['الدوبوك', 'Dobok'],
       w: [['الكيمونو', 'Kimono'], ['الهاكاما', 'Hakama'], ['الكيغوجي', 'Keikogi']] },
@@ -6917,11 +6917,11 @@ class QuizSystem {
         correctText: "Ready",
         get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 0); },
         explanation: "\"Junbi\" means ready.", explanationAr: "«جونبي» تعني استعد." },
-      { question: "Where is the kicking leg in the ready stance (Kyorugi Junbi)?", questionAr: "أين تكون الرجل الضاربة أثناء وضع الاستعداد (كيورجي جونبي)؟",
+      { question: "Where is the kicking leg in the ready stance (Kyorugi Junbi)?", questionAr: "أين تكون القدم الضاربة أثناء وضع الاستعداد (كيورجي جونبي)؟",
         options: ["Behind", "In front", "In the middle", "Up"], optionsAr: ["الخلف", "الأمام", "المنتصف", "الأعلى"],
         correctText: "Behind",
         get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 0); },
-        explanation: "The kicking leg is behind.", explanationAr: "الرجل الضاربة تكون في الخلف." },
+        explanation: "The kicking leg is behind.", explanationAr: "القدم الضاربة تكون في الخلف." },
       { question: "How are the arms during Ap Chagi?", questionAr: "كيف تكون الذراعان أثناء أداء ركلة آب تشاجي؟",
         options: ["Fists in front of the chest", "By the sides", "Behind the back", "On the hips"], optionsAr: ["مقبوضتان أمام الصدر", "بجانب الجسم", "خلف الظهر", "على الوسط"],
         correctText: "Fists in front of the chest",
@@ -6938,7 +6938,7 @@ class QuizSystem {
         get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
         explanation: "The standing foot turns outward 45°.", explanationAr: "تلف قدم الارتكاز للخارج بزاوية ٤٥°." },
       { question: "What do we do after the Ap Chagi strike?", questionAr: "ماذا نفعل بعد توجيه ركلة آب تشاجي نحو المنافس؟",
-        options: ["Bend the knee back toward the chest", "Drop the foot to the floor", "Stretch the arms forward", "Step the leg back"], optionsAr: ["ثني الركبة نحو الصدر", "هبوط القدم للأرض", "فرد الذراعين أمامًا", "رجوع الرجل خلفًا"],
+        options: ["Bend the knee back toward the chest", "Drop the foot to the floor", "Stretch the arms forward", "Step the leg back"], optionsAr: ["ثني الركبة نحو الصدر", "هبوط القدم للأرض", "فرد الذراعين أمامًا", "رجوع القدم خلفًا"],
         correctText: "Bend the knee back toward the chest",
         get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 3); },
         explanation: "After the strike, bend the knee back toward the chest.", explanationAr: "بعد الضربة نثني الركبة نحو الصدر." }
@@ -6964,21 +6964,21 @@ class QuizSystem {
         correctText: "The head and face",
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 2); },
         explanation: "Naeryeo Chagi goes to the head and face.", explanationAr: "هدف نارو تشاجي الرأس والوجه." },
-      { question: "Where is the kicking leg in the ready stance?", questionAr: "أين تكون الرجل الضاربة أثناء وضع الاستعداد للركلة؟",
+      { question: "Where is the kicking leg in the ready stance?", questionAr: "أين تكون القدم الضاربة أثناء وضع الاستعداد للركلة؟",
         options: ["Behind", "In front", "In the middle", "Up"], optionsAr: ["الخلف", "الأمام", "المنتصف", "الأعلى"],
         correctText: "Behind",
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 0); },
-        explanation: "The kicking leg is behind.", explanationAr: "الرجل الضاربة تكون في الخلف." },
+        explanation: "The kicking leg is behind.", explanationAr: "القدم الضاربة تكون في الخلف." },
       { question: "Where are the arms in Naeryeo Chagi?", questionAr: "أين تكون الذراعان في ركلة نارو تشاجي؟",
         options: ["Fists in front of the chest", "By the sides", "Behind the back", "On the hips"], optionsAr: ["مقبوضتان أمام الصدر", "بجانب الجسم", "خلف الظهر", "على الوسط"],
         correctText: "Fists in front of the chest",
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 1); },
         explanation: "The fists stay in front of the chest.", explanationAr: "الذراعان مقبوضتان أمام الصدر." },
-      { question: "How high do you raise the kicking leg in Naeryeo Chagi?", questionAr: "إلى أي ارتفاع ترفع الرجل الضاربة في ركلة نارو تشاجي؟",
+      { question: "How high do you raise the kicking leg in Naeryeo Chagi?", questionAr: "إلى أي ارتفاع ترفع القدم الضاربة في ركلة نارو تشاجي؟",
         options: ["Higher than the target", "To the abdomen", "To the knee", "To the belt"], optionsAr: ["أعلى من مستوى الهدف", "إلى مستوى البطن", "إلى مستوى الركبة", "إلى مستوى الحزام"],
         correctText: "Higher than the target",
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 1); },
-        explanation: "Raise the leg higher than the target.", explanationAr: "ترفع الرجل أعلى من مستوى الهدف." },
+        explanation: "Raise the leg higher than the target.", explanationAr: "ترفع القدم أعلى من مستوى الهدف." },
       { question: "How far does the standing foot turn outward in Naeryeo Chagi?", questionAr: "بأي زاوية تلف قدم الارتكاز للخارج في نارو تشاجي؟",
         options: ["45° to 90°", "120°", "360°", "180°"], optionsAr: ["من ٤٥° إلى ٩٠°", "١٢٠°", "٣٦٠°", "١٨٠°"],
         correctText: "45° to 90°",
@@ -7021,13 +7021,13 @@ class QuizSystem {
         correctText: "Leaning back",
         get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 1); },
         explanation: "The upper body leans back.", explanationAr: "يميل الجذع للخلف." },
-      { question: "After the Bik Chagi strike, what does the kicking leg do?", questionAr: "بعد توجيه ركلة بيك تشاجي، ماذا تفعل الرجل الضاربة؟",
+      { question: "After the Bik Chagi strike, what does the kicking leg do?", questionAr: "بعد توجيه ركلة بيك تشاجي، ماذا تفعل القدم الضاربة؟",
         options: ["The knee bends back toward the body", "It falls to the floor", "It stays straight", "It turns forward"], optionsAr: ["تُثنى الركبة ناحية الجسم", "تسقط على الأرض", "تبقى مفرودة", "تلف للأمام"],
         correctText: "The knee bends back toward the body",
         get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 3); },
         explanation: "After the strike the knee bends back toward the body.", explanationAr: "بعد الضربة تُثنى الركبة ناحية الجسم." },
       { question: "What do you do in the last phase of Bik Chagi?", questionAr: "ماذا تفعل في المرحلة النهائية من ركلة بيك تشاجي؟",
-        options: ["Turn the standing foot back inward", "Keep my leg up", "Jump back", "Sit on the floor"], optionsAr: ["ألفّ قدم الارتكاز للداخل", "أبقي رجلي مرفوعة", "أقفز للخلف", "أجلس على الأرض"],
+        options: ["Turn the standing foot back inward", "Keep my leg up", "Jump back", "Sit on the floor"], optionsAr: ["ألفّ قدم الارتكاز للداخل", "أبقي قدمي مرفوعة", "أقفز للخلف", "أجلس على الأرض"],
         correctText: "Turn the standing foot back inward",
         get image() { return PoseShots.phase(PoseShots.mine(), 'bakchagi3', 4); },
         explanation: "In the last phase, turn the standing foot back inward.", explanationAr: "في المرحلة الأخيرة تلف قدم الارتكاز للداخل." }
@@ -7473,19 +7473,19 @@ class CooldownSystem {
       icon: '🦵', secs: 20, video: null,
       nameEn: 'Standing Quad Stretch', nameAr: 'إطالة العضلة الأمامية للفخذ',
       descEn: 'Hold a wall, pull one heel gently toward your bottom and hold. Then the other leg.',
-      descAr: 'استند إلى الحائط، واسحب كعبك بهدوء نحو مقعدتك واثبت. ثم الرجل الأخرى.'
+      descAr: 'استند إلى الحائط، واسحب كعبك بهدوء نحو مقعدتك واثبت. ثم القدم الأخرى.'
     },
     {
       icon: '🧘', secs: 20, video: 'assets/videos/warmup/double_leg_hamstring.mp4',
       nameEn: 'Seated Hamstring Stretch', nameAr: 'إطالة العضلة الخلفية للفخذ',
       descEn: 'Sit with straight legs and reach slowly toward your toes. No bouncing — breathe slowly.',
-      descAr: 'اجلس ورجلاك مفرودتان، ومُدّ يديك بهدوء نحو أصابع قدميك. دون اهتزاز، وتنفّس بهدوء.'
+      descAr: 'اجلس وقدماك مفرودتان، ومُدّ يديك بهدوء نحو أصابع قدميك. دون اهتزاز، وتنفّس بهدوء.'
     },
     {
       icon: '🦶', secs: 20, video: null,
       nameEn: 'Calf Stretch & Ankle Circles', nameAr: 'إطالة عضلة السمانة ولف الكاحل',
       descEn: 'Lean on a wall with one leg back, heel down. Then draw slow circles with each ankle.',
-      descAr: 'استند إلى الحائط ومُدّ رجلًا إلى الخلف والكعب على الأرض. ثم لُفّ كل كاحل لفّات بطيئة.'
+      descAr: 'استند إلى الحائط ومُدّ قدمًا إلى الخلف والكعب على الأرض. ثم لُفّ كل كاحل لفّات بطيئة.'
     },
     {
       icon: '🌬️', secs: 40, breathe: true,
@@ -8201,7 +8201,7 @@ class WarmupSystem {
         descEn: '(Standing, feet apart — hands on the hips) Lunge forward, one leg then the other.',
         descAr: '(وقوف فتحاً - ذراعين ثبات وسط) الطعن اماماً للجانبين بالتبادل.',
         tipEn: 'Builds the strong standing leg and balance that holds you up while you kick.',
-        tipAr: 'يقوّي رجل الارتكاز والتوازن اللذين يحملانك وأنت تركل.',
+        tipAr: 'يقوّي قدم الارتكاز والتوازن اللذين يحملانك وأنت تركل.',
         key: ['apchagi']
       },
       {
@@ -8219,9 +8219,9 @@ class WarmupSystem {
         nameEn: 'Wide-Leg Forward Bend', nameAr: 'تباعد القدمين جانباً مع ميل الجذع اماماً',
         video: 'assets/videos/warmup/straddle_fold.mp4',
         descEn: '(Standing, feet apart) Spread your feet wide to the sides, bend your trunk forward and put your hands on the floor.',
-        descAr: '(وقوف فتحاً) تباعد القدمين جانباً مع ميل الجذع اماماً و السند باليدين على الأرض. (برجل)',
+        descAr: '(وقوف فتحاً) تباعد القدمين جانباً مع ميل الجذع اماماً و السند باليدين على الأرض. (بقدم)',
         tipEn: 'Stretches the back of your legs and inner thighs for higher, cleaner kicks.',
-        tipAr: 'يطيل عضلات خلف الرجل والفخذ من الداخل لتكون ركلتك أعلى وأنظف.',
+        tipAr: 'يطيل عضلات خلف القدم والفخذ من الداخل لتكون ركلتك أعلى وأنظف.',
         key: ['narochagi']
       },
       {
@@ -8231,17 +8231,17 @@ class WarmupSystem {
         descEn: '(Long sitting, legs apart) Bend your trunk to one side and then the other, touching the front of your feet.',
         descAr: '(جلوس طويل فتحاً) ميل الجذع للجانبين بالتبادل مع لمس الأمشاط.',
         tipEn: 'Keep both legs straight and your chest open — this loosens the side of the hip.',
-        tipAr: 'أبقِ رجليك مفرودتين وصدرك مفتوحًا — فهذا يُرخي جانب الورك.',
+        tipAr: 'أبقِ قدميك مفرودتين وصدرك مفتوحًا — فهذا يُرخي جانب الورك.',
         key: ['bakchagi3', 'narochagi']
       },
       {
         id: 'single_leg_hamstring', icon: '🦶', duration: 20, color: '#43aa8b', type: 'stretch', side: true,
-        nameEn: 'One-Leg Forward Reach', nameAr: 'مد ركبة إحدى الرجلين اماماً',
+        nameEn: 'One-Leg Forward Reach', nameAr: 'مد ركبة إحدى القدمين اماماً',
         video: 'assets/videos/warmup/single_leg_hamstring.mp4',
         descEn: '(Half cross-legged sitting) Straighten one knee forward and bend your trunk forward and down to touch the front of that foot.',
-        descAr: '(جلوس تربيع نصفاً) مد ركبة إحدى الرجلين اماماً وميل الجذع اماماً أسفل للمس مشط الرجل.',
+        descAr: '(جلوس تربيع نصفاً) مد ركبة إحدى القدمين اماماً وميل الجذع اماماً أسفل للمس مشط القدم.',
         tipEn: 'Reach with a long, straight back — tight hamstrings stop your leg from rising high.',
-        tipAr: 'تمدّد إلى الأمام وظهرك مستقيم — العضلة الخلفية للفخذ إذا كانت مشدودة تمنع رجلك من الارتفاع.',
+        tipAr: 'تمدّد إلى الأمام وظهرك مستقيم — العضلة الخلفية للفخذ إذا كانت مشدودة تمنع قدمك من الارتفاع.',
         key: ['narochagi', 'apchagi']
       },
       {
@@ -8251,7 +8251,7 @@ class WarmupSystem {
         descEn: '(Long sitting — arms forward) Bend your trunk forward and down and hold the front of both feet.',
         descAr: '(جلوس طويل - ذراعان اماماً) ميل الجذع اماماً ولأسفل ومسك مشطي القدمين.',
         tipEn: 'A calm finisher — your legs are now warm and ready to kick.',
-        tipAr: 'ختام هادئ — رجلاك الآن دافئتان وجاهزتان للركل.',
+        tipAr: 'ختام هادئ — قدماك الآن دافئتان وجاهزتان للركل.',
         key: ['narochagi']
       }
     ];
@@ -8456,7 +8456,7 @@ class WarmupSystem {
       const ex = this.exercises[this.currentIdx];
       if (ex?.side && !this.switchCued && this.timeLeft === Math.floor(ex.duration / 2)) {
         this.switchCued = true;
-        this.cue(this.ar ? '🔄 بدّل الرجل!' : '🔄 Switch legs!');
+        this.cue(this.ar ? '🔄 بدّل القدم!' : '🔄 Switch legs!');
       }
       if (this.timeLeft > 0 && this.timeLeft <= 3) this.gameState.playSound('click');
       this.updateTimerDisplay();
@@ -11906,7 +11906,7 @@ class BalanceHoldGame extends ArenaGameBase {
   static COPY = {
     title: { en: '⚖️ Balance Hold', ar: '⚖️ اثبت وتوازن' },
     how: {
-      all: { en: 'Stand on one leg. Tap ◀ ▶ to keep the marker in the green.', ar: 'قف على رجل واحدة، واضغط ◀ ▶ ليبقى المؤشر في المنطقة الخضراء.' }
+      all: { en: 'Stand on one leg. Tap ◀ ▶ to keep the marker in the green.', ar: 'قف على قدم واحدة، واضغط ◀ ▶ ليبقى المؤشر في المنطقة الخضراء.' }
     }
   };
 
@@ -13212,11 +13212,11 @@ const RigSupport = {
 // lands ~45° from vertical). The lesson's 📐 view shows each one live against its target.
 const KickSpec = {
   NAMES: {
-    knee:    ['Kicking knee', 'ركبة الرجل الضاربة'],
-    supKnee: ['Standing knee', 'ركبة رجل الارتكاز'],
-    legs:    ['Angle between the legs', 'الزاوية بين الرجلين'],
+    knee:    ['Kicking knee', 'ركبة القدم الضاربة'],
+    supKnee: ['Standing knee', 'ركبة قدم الارتكاز'],
+    legs:    ['Angle between the legs', 'الزاوية بين القدمين'],
     thigh:   ['Thigh above level', 'الفخذ فوق الأفقي'],
-    drop:    ['Leg from vertical', 'الرجل من الوضع الرأسي'],
+    drop:    ['Leg from vertical', 'القدم من الوضع الرأسي'],
     pivot:   ['Standing-foot pivot', 'لفّة قدم الارتكاز'],
     hips:    ['Hips turned', 'لفّة الوسط'],
     lean:    ['Body lean back', 'ميل الجسم إلى الخلف'],
@@ -13588,7 +13588,7 @@ class RigView {
     row.className = 'rig-controls rig-4d rig-adv';
     row.innerHTML = `<button type="button" class="rig-btn" data-a="path">〰️ ${ar ? 'مسار القدم' : 'Foot path'}</button>
       <button type="button" class="rig-btn" data-a="strobe">🎞️ ${ar ? 'كل المراحل' : 'All phases'}</button>
-      <button type="button" class="rig-btn" data-a="feel" aria-label="${ar ? 'إحساس الضربة: اهتزاز وصوت لحظة وصول الرجل' : 'Feel the kick: a buzz and a snap the moment it lands'}">📳 4D</button>`;
+      <button type="button" class="rig-btn" data-a="feel" aria-label="${ar ? 'إحساس الضربة: اهتزاز وصوت لحظة وصول القدم' : 'Feel the kick: a buzz and a snap the moment it lands'}">📳 4D</button>`;
     this.host.appendChild(row);
     const btn = (a, on) => { const x = row.querySelector(`[data-a="${a}"]`); x.setAttribute('aria-pressed', String(!!on)); x.classList.toggle('on', !!on); return x; };
     const path = btn('path', this.path), feel = btn('feel', Kick4D.feelOn());
@@ -13729,7 +13729,7 @@ class RigView {
     const knee = { at: 'RightLeg', a: 'RightUpLeg', b: 'RightFoot', col: '#ffd166', label: this.ar ? 'الركبة' : 'Knee' };
     // v50: the hip arc is the angle BETWEEN THE LEGS (standing thigh → kicking thigh), the
     // number the lessons and the angle panel use
-    const hip = { at: 'RightUpLeg', a: 'LeftThigh', b: 'RightLeg', col: '#5ee6c8', label: this.ar ? 'بين الرجلين' : 'Legs' };
+    const hip = { at: 'RightUpLeg', a: 'LeftThigh', b: 'RightLeg', col: '#5ee6c8', label: this.ar ? 'بين القدمين' : 'Legs' };
     const M = this._m || sk.measure?.();
     g.save(); g.lineCap = 'round'; g.font = '800 13px Cairo, Roboto, sans-serif'; g.textBaseline = 'middle';
     for (const J of [hip, knee]) {
@@ -14338,7 +14338,7 @@ const DashboardSystem = {
     if (sessions) {
       const wuDays = new Set(S.list.filter(a => a.gameId === 'warmup').map(a => this.day(a.ts))).size;
       const pct = Math.round((wuDays / sessions) * 100);
-      out.push({ icon: '🔥', tone: pct >= 70 ? 'good' : 'warn', title: this.t('Warm-up habit', 'عادة الإحماء'), text: this.t(`Warmed up on ${wuDays} of ${sessions} training days (${pct}%).`, `أدّى الإحماء في ${TKD.num(wuDays)} من ${TKD.count(sessions, 'trainDay', 'ar')} (${pct}%).`) + (pct < 70 ? this.t(' Warming up first protects the legs.', ' الإحماء أولًا يحمي الرجلين.') : '') });
+      out.push({ icon: '🔥', tone: pct >= 70 ? 'good' : 'warn', title: this.t('Warm-up habit', 'عادة الإحماء'), text: this.t(`Warmed up on ${wuDays} of ${sessions} training days (${pct}%).`, `أدّى الإحماء في ${TKD.num(wuDays)} من ${TKD.count(sessions, 'trainDay', 'ar')} (${pct}%).`) + (pct < 70 ? this.t(' Warming up first protects the legs.', ' الإحماء أولًا يحمي القدمين.') : '') });
     }
     // reaction time
     const pr = S.list.filter(a => a.gameId === 'paddle-reflex' && a.meta?.avgReaction);
@@ -16196,7 +16196,7 @@ const Coach = {
         <summary>👧👦 ${TKD.t('Pace for each player', 'إيقاع لكل لاعب')}</summary>
         <p class="tkd-muted">${TKD.t('Overrides the pace above for one child. Saved straight away.', 'يتقدّم على الإيقاع العام لطفل واحد فقط. يُحفظ مباشرة.')}</p>
         <div class="co-pace-list">${PlayerSystem.getPlayers().map(p => this.paceRow(p)).join('') || `<p class="tkd-muted">${TKD.t('No players yet.', 'لا يوجد لاعبون بعد.')}</p>`}</div>
-        <p class="tkd-muted">${TKD.t('⚡ = average reaction time in the quick games (Sparring, Target Paddles, Quiz Blast, Mistake Hunter). 🦵 = the leg the child kicks with — the 3D character mirrors for left-footers.', '⚡ = متوسط سرعة رد الفعل في الألعاب السريعة (النزال، مضارب الأهداف، كويز الفضاء، صيّاد الأخطاء). 🦵 = الرجل التي يركل بها الطفل — تنعكس الشخصية ثلاثية الأبعاد لمن يركل باليسرى.')}</p>
+        <p class="tkd-muted">${TKD.t('⚡ = average reaction time in the quick games (Sparring, Target Paddles, Quiz Blast, Mistake Hunter). 🦵 = the leg the child kicks with — the 3D character mirrors for left-footers.', '⚡ = متوسط سرعة رد الفعل في الألعاب السريعة (النزال، مضارب الأهداف، كويز الفضاء، صيّاد الأخطاء). 🦵 = القدم التي يركل بها الطفل — تنعكس الشخصية ثلاثية الأبعاد لمن يركل باليسرى.')}</p>
       </details>
       <p class="co-autosave">✅ ${TKD.t('Every change is saved straight away.', 'يُحفظ أي تغيير مباشرة.')} · ${TKD.t('Version', 'الإصدار')} ${APP_VERSION}</p>
       <p class="co-autosave co-pics" id="co-pics">${this.picsLine()}</p>
@@ -16253,7 +16253,7 @@ const Coach = {
     }
     return `<div class="co-pace-row">${TKD.avatar(p, 'sm')}<span>${TKD.esc(p.name)}</span>
           <select data-pace-pid="${p.id}" aria-label="${TKD.t('Pace', 'الإيقاع')}"><option value="">${TKD.t('Same as device', 'مثل الجهاز')}</option>${TKDPace.LIST.map(([v, en, ar]) => `<option value="${v}" ${p.pace === v ? 'selected' : ''}>${TKD.t(en, ar)}</option>`).join('')}</select>
-          <select data-leg-pid="${p.id}" aria-label="${TKD.t('Kicking leg', 'رجل الركل')}"><option value="right">🦵 ${TKD.t('Right', 'يمين')}</option><option value="left" ${p.kickLeg === 'left' ? 'selected' : ''}>🦵 ${TKD.t('Left', 'يسار')}</option></select>
+          <select data-leg-pid="${p.id}" aria-label="${TKD.t('Kicking leg', 'قدم الركل')}"><option value="right">🦵 ${TKD.t('Right', 'يمين')}</option><option value="left" ${p.kickLeg === 'left' ? 'selected' : ''}>🦵 ${TKD.t('Left', 'يسار')}</option></select>
           ${info}</div>`;
   },
   bind_settings() {
@@ -16863,7 +16863,7 @@ const Profile = {
     { id: 'duels',      icon: '⚔️', en: 'Duelist',        ar: 'مقاتل',           den: 'duels won',       dar: 'مواجهة فاز بها',   t: [1, 8, 25],    scale: true, v: c => c.duelWins },
     { id: 'titles',     icon: '👑', en: 'Champion',       ar: 'البطل',            den: 'tournaments won', dar: 'بطولة',          t: [1, 2, 4],     v: c => c.titles.length },
     { id: 'awards',     icon: '🎖️', en: 'Decorated',      ar: 'مُكرَّم',           den: 'weekly awards',   dar: 'جائزة أسبوعية',  t: [1, 3, 6],     scale: true, v: c => c.awards.length },
-    { id: 'power',      icon: '💥', en: 'Power Kicker',   ar: 'رجل حديدي',         den: 'power points',    dar: 'نقطة قوة',          t: [450, 650, 850], v: c => Profile.metaBest(c, ['heavy-bag'], 'bestPower')?.v || 0 },
+    { id: 'power',      icon: '💥', en: 'Power Kicker',   ar: 'قدم حديدية',         den: 'power points',    dar: 'نقطة قوة',          t: [450, 650, 850], v: c => Profile.metaBest(c, ['heavy-bag'], 'bestPower')?.v || 0 },
     { id: 'reflex',     icon: '⚡', en: 'Lightning',      ar: 'البرق',            den: 's reaction',      dar: 'ث رد فعل',       t: [1.1, 0.85, 0.65], lower: true, v: c => Profile.metaBest(c, ['paddle-reflex', 'sparring-duel'], 'avgReaction', true)?.v || 0, fmt: v => v ? v.toFixed(2) : '—' }
   ],
   // coach setting: easier ×0.7 · normal ×1 · harder ×1.4 (count medals only)
@@ -19528,14 +19528,14 @@ const RealPractice = {
     ov.innerHTML = `<div class="rp-card">
       <button type="button" class="rp-x" data-a="close" aria-label="${this.t('Close', 'إغلاق')}">✕</button>
       <h3>🥋 ${this.t('Train for real', 'تمرّن بجدية')} — ${TKD.esc(TKD.skillName(this.skill))}</h3>
-      <p class="rp-sub">${done ? this.t('Both legs done — you are a real fighter! 🏆', 'أنهيت الرجلين — أنت بطل حقًّا! 🏆')
-        : this.t(`Stand up, make some room, and do ${this.GOAL} real kicks with your ${this.side === 'right' ? 'RIGHT' : 'LEFT'} leg — like the fighter.`, `قف، وأفسح مكانًا حولك، وأدِّ ${TKD.count(this.GOAL, 'kick', 'ar')} حقيقية برجلك ${this.side === 'right' ? 'اليمنى' : 'اليسرى'} مثل اللاعب.`)}</p>
+      <p class="rp-sub">${done ? this.t('Both legs done — you are a real fighter! 🏆', 'أنهيت القدمين — أنت بطل حقًّا! 🏆')
+        : this.t(`Stand up, make some room, and do ${this.GOAL} real kicks with your ${this.side === 'right' ? 'RIGHT' : 'LEFT'} leg — like the fighter.`, `قف، وأفسح مكانًا حولك، وأدِّ ${TKD.count(this.GOAL, 'kick', 'ar')} حقيقية بقدمك ${this.side === 'right' ? 'اليمنى' : 'اليسرى'} مثل اللاعب.`)}</p>
       <div class="rp-stage">
         <canvas class="rp-cv" id="rp-cv" aria-hidden="true"></canvas>
         <video class="rp-cam" id="rp-cam" playsinline muted ${this._cam ? '' : 'hidden'}></video>
       </div>
       <div class="rp-count" aria-live="polite"><b>${TKD.num(n)}</b><span>/ ${TKD.num(this.GOAL)}</span>
-        <small>${this.side === 'right' ? this.t('right leg', 'الرجل اليمنى') : this.t('left leg', 'الرجل اليسرى')}</small></div>
+        <small>${this.side === 'right' ? this.t('right leg', 'القدم اليمنى') : this.t('left leg', 'القدم اليسرى')}</small></div>
       <div class="rp-meter" id="rp-meter" ${this._mic ? '' : 'hidden'}><i id="rp-level"></i></div>
       <div class="rp-btns">
         ${done ? `<button type="button" class="btn btn-success" data-a="close">✓ ${this.t('Done', 'حسنًا')}</button>`
@@ -19563,7 +19563,7 @@ const RealPractice = {
     try { navigator.vibrate?.(30); } catch (e) {}
     this._flash = performance.now();
     if (this.count[this.side] >= this.GOAL) {
-      if (this.side === 'right') { this.side = 'left'; TKD.toast(this.t('Great! Now the LEFT leg 🦵', 'رائع! الآن بالرجل اليسرى 🦵'), 'success'); window.Voice?.cue('great'); }
+      if (this.side === 'right') { this.side = 'left'; TKD.toast(this.t('Great! Now the LEFT leg 🦵', 'رائع! الآن بالقدم اليسرى 🦵'), 'success'); window.Voice?.cue('great'); }
       else { gs?.playSound('win'); window.Voice?.cue('bravo'); this.stopMic(); }
     }
     this.render();

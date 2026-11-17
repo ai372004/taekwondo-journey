@@ -597,12 +597,12 @@
   {
    "group": "phase",
    "priority": 2,
-   "ar": "الرجل الضاربة خلفًا والرجل الحرة (الارتكاز) أمامًا.",
+   "ar": "القدم الضاربة خلفًا والقدم الحرة (الارتكاز) أمامًا.",
    "en": "The kicking leg behind and the free (standing) leg in front.",
    "note": "شرح المرحلة",
-   "key": "1rgl44j",
+   "key": "wtd3wn",
    "keyEn": "17wd73u",
-   "file": "phase-003-1rgl44j.mp3",
+   "file": "phase-003-wtd3wn.mp3",
    "fileEn": "phase-003-17wd73u.mp3"
   },
   {
@@ -641,23 +641,23 @@
   {
    "group": "phase",
    "priority": 2,
-   "ar": "ارفع واثني ركبة الرجل الضاربة عاليًا ناحية الصدر.",
+   "ar": "ارفع واثني ركبة القدم الضاربة عاليًا ناحية الصدر.",
    "en": "Lift and bend the kicking knee high toward the chest.",
    "note": "شرح المرحلة",
-   "key": "zhgwl0",
+   "key": "q3ieod",
    "keyEn": "bup9th",
-   "file": "phase-007-zhgwl0.mp3",
+   "file": "phase-007-q3ieod.mp3",
    "fileEn": "phase-007-bup9th.mp3"
   },
   {
    "group": "phase",
    "priority": 3,
-   "ar": "ملحوظة: كلما زاد ارتفاع ركبة الرجل، ارتفع مستوى الضرب.",
+   "ar": "ملحوظة: كلما زاد ارتفاع ركبة القدم، ارتفع مستوى الضرب.",
    "en": "Note: the higher the knee, the higher the kick lands.",
    "note": "نصيحة",
-   "key": "z9chq0",
+   "key": "l6ma49",
    "keyEn": "1bbulzm",
-   "file": "phase-008-z9chq0.mp3",
+   "file": "phase-008-l6ma49.mp3",
    "fileEn": "phase-008-1bbulzm.mp3"
   },
   {
@@ -674,34 +674,34 @@
   {
    "group": "phase",
    "priority": 1,
-   "ar": "3 مد الرجل للهدف",
+   "ar": "3 مد القدم للهدف",
    "en": "3 Extend the Leg to the Target",
    "note": "عنوان مرحلة",
-   "key": "aonco1",
+   "key": "fi14d4",
    "keyEn": "s3s8s6",
-   "file": "phase-010-aonco1.mp3",
+   "file": "phase-010-fi14d4.mp3",
    "fileEn": "phase-010-s3s8s6.mp3"
   },
   {
    "group": "phase",
    "priority": 1,
-   "ar": "مد الرجل للهدف",
+   "ar": "مد القدم للهدف",
    "en": "Extend the Leg to the Target",
    "note": "اسم مرحلة",
-   "key": "12cwg4m",
+   "key": "1wuje2z",
    "keyEn": "1vu99v1",
-   "file": "phase-011-12cwg4m.mp3",
+   "file": "phase-011-1wuje2z.mp3",
    "fileEn": "phase-011-1vu99v1.mp3"
   },
   {
    "group": "phase",
    "priority": 2,
-   "ar": "افرد ركبة الرجل الضاربة بقوة وسرعة إلى الأمام في اتجاه المنافس (الصدر أو الوجه).",
+   "ar": "افرد ركبة القدم الضاربة بقوة وسرعة إلى الأمام في اتجاه المنافس (الصدر أو الوجه).",
    "en": "Straighten the kicking knee with power and speed forward toward the opponent (chest or face).",
    "note": "شرح المرحلة",
-   "key": "g8o8lc",
+   "key": "10xlhkt",
    "keyEn": "utacp4",
-   "file": "phase-012-g8o8lc.mp3",
+   "file": "phase-012-10xlhkt.mp3",
    "fileEn": "phase-012-utacp4.mp3"
   },
   {
@@ -718,34 +718,34 @@
   {
    "group": "phase",
    "priority": 1,
-   "ar": "4 سحب الرجل",
+   "ar": "4 سحب القدم",
    "en": "4 Pull the Leg Back",
    "note": "عنوان مرحلة",
-   "key": "116dh49",
+   "key": "zywixc",
    "keyEn": "s4f2wk",
-   "file": "phase-014-116dh49.mp3",
+   "file": "phase-014-zywixc.mp3",
    "fileEn": "phase-014-s4f2wk.mp3"
   },
   {
    "group": "phase",
    "priority": 1,
-   "ar": "سحب الرجل",
+   "ar": "سحب القدم",
    "en": "Pull the Leg Back",
    "note": "اسم مرحلة",
-   "key": "1xan6yt",
+   "key": "1us6gq4",
    "keyEn": "135lfrc",
-   "file": "phase-015-1xan6yt.mp3",
+   "file": "phase-015-1us6gq4.mp3",
    "fileEn": "phase-015-135lfrc.mp3"
   },
   {
    "group": "phase",
    "priority": 2,
-   "ar": "اثني ركبة الرجل الضاربة مرة ثانية إلى الجسم بسرعة عقب الانتهاء من الركل.",
+   "ar": "اثني ركبة القدم الضاربة مرة ثانية إلى الجسم بسرعة عقب الانتهاء من الركل.",
    "en": "Bend the kicking knee back to the body again, quickly, right after the kick.",
    "note": "شرح المرحلة",
-   "key": "2pgpbf",
+   "key": "1plykb2",
    "keyEn": "1cx6xx6",
-   "file": "phase-016-2pgpbf.mp3",
+   "file": "phase-016-1plykb2.mp3",
    "fileEn": "phase-016-1cx6xx6.mp3"
   },
   {
@@ -773,12 +773,12 @@
   {
    "group": "phase",
    "priority": 2,
-   "ar": "نزّل الرجل سريعًا إلى الأرض.",
+   "ar": "نزّل القدم سريعًا إلى الأرض.",
    "en": "Bring the leg down to the floor quickly.",
    "note": "شرح المرحلة",
-   "key": "1veueuc",
+   "key": "1kj6wwl",
    "keyEn": "16b6x98",
-   "file": "phase-019-1veueuc.mp3",
+   "file": "phase-019-1kj6wwl.mp3",
    "fileEn": "phase-019-16b6x98.mp3"
   },
   {
@@ -795,45 +795,45 @@
   {
    "group": "phase",
    "priority": 1,
-   "ar": "2 رفع الرجل لأعلى",
+   "ar": "2 رفع القدم لأعلى",
    "en": "2 Raise the Leg High",
    "note": "عنوان مرحلة",
-   "key": "1755kx1",
+   "key": "9moir4",
    "keyEn": "1reqhga",
-   "file": "phase-021-1755kx1.mp3",
+   "file": "phase-021-9moir4.mp3",
    "fileEn": "phase-021-1reqhga.mp3"
   },
   {
    "group": "phase",
    "priority": 1,
-   "ar": "رفع الرجل لأعلى",
+   "ar": "رفع القدم لأعلى",
    "en": "Raise the Leg High",
    "note": "اسم مرحلة",
-   "key": "92opyf",
+   "key": "1pjxo4a",
    "keyEn": "cylsjk",
-   "file": "phase-022-92opyf.mp3",
+   "file": "phase-022-1pjxo4a.mp3",
    "fileEn": "phase-022-cylsjk.mp3"
   },
   {
    "group": "phase",
    "priority": 2,
-   "ar": "ارفع الرجل الضاربة عاليًا.",
+   "ar": "ارفع القدم الضاربة عاليًا.",
    "en": "Lift the kicking leg high.",
    "note": "شرح المرحلة",
-   "key": "tk3gke",
+   "key": "1b1oy27",
    "keyEn": "d5ckf7",
-   "file": "phase-023-tk3gke.mp3",
+   "file": "phase-023-1b1oy27.mp3",
    "fileEn": "phase-023-d5ckf7.mp3"
   },
   {
    "group": "phase",
    "priority": 3,
-   "ar": "ملحوظة: لازم الرجل تبقى أعلى من مستوى الهدف (رأس المنافس).",
+   "ar": "ملحوظة: لازم القدم تبقى أعلى من مستوى الهدف (رأس المنافس).",
    "en": "Note: the leg must go higher than the target (the opponent's head).",
    "note": "نصيحة",
-   "key": "vhohh0",
+   "key": "1d348l3",
    "keyEn": "1aaygjq",
-   "file": "phase-024-vhohh0.mp3",
+   "file": "phase-024-1d348l3.mp3",
    "fileEn": "phase-024-1aaygjq.mp3"
   },
   {
@@ -872,12 +872,12 @@
   {
    "group": "phase",
    "priority": 2,
-   "ar": "مرجح الرجل الضاربة من أعلى لأسفل.",
+   "ar": "مرجح القدم الضاربة من أعلى لأسفل.",
    "en": "Swing the kicking leg from top to bottom.",
    "note": "شرح المرحلة",
-   "key": "1gn9muf",
+   "key": "xlww9u",
    "keyEn": "103e723",
-   "file": "phase-028-1gn9muf.mp3",
+   "file": "phase-028-xlww9u.mp3",
    "fileEn": "phase-028-103e723.mp3"
   },
   {
@@ -894,12 +894,12 @@
   {
    "group": "phase",
    "priority": 2,
-   "ar": "اسحب الرجل الضاربة ونزّلها على الأرض.",
+   "ar": "اسحب القدم الضاربة ونزّلها على الأرض.",
    "en": "Pull the kicking leg back and bring it down to the floor.",
    "note": "شرح المرحلة",
-   "key": "1fw9ewd",
+   "key": "danmle",
    "keyEn": "k00jpg",
-   "file": "phase-030-1fw9ewd.mp3",
+   "file": "phase-030-danmle.mp3",
    "fileEn": "phase-030-k00jpg.mp3"
   },
   {
@@ -916,23 +916,23 @@
   {
    "group": "phase",
    "priority": 2,
-   "ar": "ارفع ركبة الرجل الضاربة عاليًا وللأمام ناحية الصدر.",
+   "ar": "ارفع ركبة القدم الضاربة عاليًا وللأمام ناحية الصدر.",
    "en": "Lift the kicking knee high and forward toward the chest.",
    "note": "شرح المرحلة",
-   "key": "1f7ie9u",
+   "key": "1eilvob",
    "keyEn": "5m4ogt",
-   "file": "phase-032-1f7ie9u.mp3",
+   "file": "phase-032-1eilvob.mp3",
    "fileEn": "phase-032-5m4ogt.mp3"
   },
   {
    "group": "phase",
    "priority": 3,
-   "ar": "شد مشط رجلك لأسفل.",
+   "ar": "شد مشط قدمك لأسفل.",
    "en": "Point your foot down.",
    "note": "نصيحة",
-   "key": "157d4bx",
+   "key": "ihemem",
    "keyEn": "k8gljs",
-   "file": "phase-033-157d4bx.mp3",
+   "file": "phase-033-ihemem.mp3",
    "fileEn": "phase-033-k8gljs.mp3"
   },
   {
@@ -960,12 +960,12 @@
   {
    "group": "phase",
    "priority": 2,
-   "ar": "افرد ركبة الرجل الضاربة لقدام بقوة وسرعة.",
+   "ar": "افرد ركبة القدم الضاربة لقدام بقوة وسرعة.",
    "en": "Straighten the kicking knee forward with power and speed.",
    "note": "شرح المرحلة",
-   "key": "u04ufc",
+   "key": "1h8hdz7",
    "keyEn": "3rzm6w",
-   "file": "phase-036-u04ufc.mp3",
+   "file": "phase-036-1h8hdz7.mp3",
    "fileEn": "phase-036-3rzm6w.mp3"
   },
   {
@@ -982,23 +982,23 @@
   {
    "group": "phase",
    "priority": 2,
-   "ar": "اثني ركبة الرجل الضاربة تاني ناحية جسمك بسرعة بعد الركل.",
+   "ar": "اثني ركبة القدم الضاربة تاني ناحية جسمك بسرعة بعد الركل.",
    "en": "Bend the kicking knee back toward your body quickly after the kick.",
    "note": "شرح المرحلة",
-   "key": "lpsr8e",
+   "key": "c886r3",
    "keyEn": "1lfi7rm",
-   "file": "phase-038-lpsr8e.mp3",
+   "file": "phase-038-c886r3.mp3",
    "fileEn": "phase-038-1lfi7rm.mp3"
   },
   {
    "group": "phase",
    "priority": 2,
-   "ar": "نزّل رجلك بسرعة على الأرض.",
+   "ar": "نزّل قدمك بسرعة على الأرض.",
    "en": "Bring your leg down to the floor quickly.",
    "note": "شرح المرحلة",
-   "key": "1eajt0",
+   "key": "z2wwvn",
    "keyEn": "1jkhyhi",
-   "file": "phase-039-1eajt0.mp3",
+   "file": "phase-039-z2wwvn.mp3",
    "fileEn": "phase-039-1jkhyhi.mp3"
   },
   {
@@ -1103,12 +1103,12 @@
   {
    "group": "warmup",
    "priority": 2,
-   "ar": "(برجل)",
+   "ar": "(بقدم)",
    "en": "",
    "note": "شرح التمرين",
-   "key": "56g5a2",
+   "key": "5j0inz",
    "keyEn": "",
-   "file": "warmup-009-56g5a2.mp3",
+   "file": "warmup-009-5j0inz.mp3",
    "fileEn": ""
   },
   {
@@ -1136,23 +1136,23 @@
   {
    "group": "warmup",
    "priority": 1,
-   "ar": "مد ركبة إحدى الرجلين اماماً",
+   "ar": "مد ركبة إحدى القدمين اماماً",
    "en": "One-Leg Forward Reach",
    "note": "اسم التمرين، بحماس",
-   "key": "hn6wvp",
+   "key": "1pstxd0",
    "keyEn": "17fiot",
-   "file": "warmup-012-hn6wvp.mp3",
+   "file": "warmup-012-1pstxd0.mp3",
    "fileEn": "warmup-012-17fiot.mp3"
   },
   {
    "group": "warmup",
    "priority": 2,
-   "ar": "(جلوس تربيع نصفاً) مد ركبة إحدى الرجلين اماماً وميل الجذع اماماً أسفل للمس مشط الرجل.",
+   "ar": "(جلوس تربيع نصفاً) مد ركبة إحدى القدمين اماماً وميل الجذع اماماً أسفل للمس مشط القدم.",
    "en": "(Half cross-legged sitting) Straighten one knee forward and bend your trunk forward and down to touch the front of that foot.",
    "note": "شرح التمرين",
-   "key": "6j693c",
+   "key": "9v3qp6",
    "keyEn": "1v4ftk",
-   "file": "warmup-013-6j693c.mp3",
+   "file": "warmup-013-9v3qp6.mp3",
    "fileEn": "warmup-013-1v4ftk.mp3"
   },
   {
@@ -1180,12 +1180,12 @@
   {
    "group": "warmup",
    "priority": 1,
-   "ar": "بدّل الرجل!",
+   "ar": "بدّل القدم!",
    "en": "Switch legs!",
    "note": "تنبيه وسط التمرين",
-   "key": "1bxrgoi",
+   "key": "7f38mv",
    "keyEn": "vrb9m",
-   "file": "warmup-016-1bxrgoi.mp3",
+   "file": "warmup-016-7f38mv.mp3",
    "fileEn": "warmup-016-vrb9m.mp3"
   },
   {
@@ -1213,12 +1213,12 @@
   {
    "group": "cooldown",
    "priority": 2,
-   "ar": "ثم الرجل الأخرى.",
+   "ar": "ثم القدم الأخرى.",
    "en": "Then the other leg.",
    "note": "شرح الإطالة، بهدوء",
-   "key": "1oh4mlh",
+   "key": "hhdv9q",
    "keyEn": "1su6cnj",
-   "file": "cooldown-003-1oh4mlh.mp3",
+   "file": "cooldown-003-hhdv9q.mp3",
    "fileEn": "cooldown-003-1su6cnj.mp3"
   },
   {
@@ -1235,12 +1235,12 @@
   {
    "group": "cooldown",
    "priority": 2,
-   "ar": "اجلس ورجلاك مفرودتان، ومُدّ يديك بهدوء نحو أصابع قدميك.",
+   "ar": "اجلس وقدماك مفرودتان، ومُدّ يديك بهدوء نحو أصابع قدميك.",
    "en": "Sit with straight legs and reach slowly toward your toes.",
    "note": "شرح الإطالة، بهدوء",
-   "key": "1eyfe7w",
+   "key": "9xl8ip",
    "keyEn": "1vjmuzd",
-   "file": "cooldown-005-1eyfe7w.mp3",
+   "file": "cooldown-005-9xl8ip.mp3",
    "fileEn": "cooldown-005-1vjmuzd.mp3"
   },
   {
@@ -1268,12 +1268,12 @@
   {
    "group": "cooldown",
    "priority": 2,
-   "ar": "استند إلى الحائط ومُدّ رجلًا إلى الخلف والكعب على الأرض.",
+   "ar": "استند إلى الحائط ومُدّ قدمًا إلى الخلف والكعب على الأرض.",
    "en": "Lean on a wall with one leg back, heel down.",
    "note": "شرح الإطالة، بهدوء",
-   "key": "r143a2",
+   "key": "q7lclb",
    "keyEn": "1t2x3pi",
-   "file": "cooldown-008-r143a2.mp3",
+   "file": "cooldown-008-q7lclb.mp3",
    "fileEn": "cooldown-008-1t2x3pi.mp3"
   },
   {
@@ -1334,12 +1334,12 @@
   {
    "group": "error-hunt",
    "priority": 2,
-   "ar": "انظر إلى رجل الركلة: هل هي مفرودة تمامًا؟",
+   "ar": "انظر إلى قدم الركلة: هل هي مفرودة تمامًا؟",
    "en": "Look at the kicking leg — is it fully straight?",
    "note": "تلميح بعد الغلطة",
-   "key": "1sz46et",
+   "key": "14cihnc",
    "keyEn": "4e0bsn",
-   "file": "error-hunt-003-1sz46et.mp3",
+   "file": "error-hunt-003-14cihnc.mp3",
    "fileEn": "error-hunt-003-4e0bsn.mp3"
   },
   {
@@ -1378,23 +1378,23 @@
   {
    "group": "error-hunt",
    "priority": 2,
-   "ar": "انظر إلى رجل الركلة: إلى أيّ هدف تتجه؟",
+   "ar": "انظر إلى قدم الركلة: إلى أيّ هدف تتجه؟",
    "en": "Look at the kicking leg — which target is it going to?",
    "note": "تلميح بعد الغلطة",
-   "key": "efr7l9",
+   "key": "17b6f3i",
    "keyEn": "hesgrc",
-   "file": "error-hunt-007-efr7l9.mp3",
+   "file": "error-hunt-007-17b6f3i.mp3",
    "fileEn": "error-hunt-007-hesgrc.mp3"
   },
   {
    "group": "error-hunt",
    "priority": 2,
-   "ar": "انظر إلى رجل الركلة وهي ترتفع: هل هي مفرودة؟",
+   "ar": "انظر إلى قدم الركلة وهي ترتفع: هل هي مفرودة؟",
    "en": "Look at the kicking leg on its way up — is it straight?",
    "note": "تلميح بعد الغلطة",
-   "key": "8dboq1",
+   "key": "zcd880",
    "keyEn": "1oftokg",
-   "file": "error-hunt-008-8dboq1.mp3",
+   "file": "error-hunt-008-zcd880.mp3",
    "fileEn": "error-hunt-008-1oftokg.mp3"
   },
   {
@@ -1444,12 +1444,12 @@
   {
    "group": "error-hunt",
    "priority": 2,
-   "ar": "انظر إلى رجل الركلة: هل فُردت تمامًا؟",
+   "ar": "انظر إلى قدم الركلة: هل فُردت تمامًا؟",
    "en": "Look at the kicking leg — fully straight?",
    "note": "تلميح بعد الغلطة",
-   "key": "1xpbjac",
+   "key": "1sgzt8z",
    "keyEn": "1mf408c",
-   "file": "error-hunt-013-1xpbjac.mp3",
+   "file": "error-hunt-013-1sgzt8z.mp3",
    "fileEn": "error-hunt-013-1mf408c.mp3"
   },
   {
@@ -1994,12 +1994,12 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "اثبت على رجل واحدة دون أن تسقط",
+   "ar": "اثبت على قدم واحدة دون أن تسقط",
    "en": "Stand on one leg without falling",
    "note": "تعليمات الشاشة",
-   "key": "o8bhua",
+   "key": "d5js9f",
    "keyEn": "1g38tsn",
-   "file": "screen-050-o8bhua.mp3",
+   "file": "screen-050-d5js9f.mp3",
    "fileEn": "screen-050-1g38tsn.mp3"
   },
   {
@@ -2258,12 +2258,12 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "قف على رجل واحدة، واضغط ◀ ▶ ليبقى المؤشر في المنطقة الخضراء.",
+   "ar": "قف على قدم واحدة، واضغط ◀ ▶ ليبقى المؤشر في المنطقة الخضراء.",
    "en": "",
    "note": "تعليمات الشاشة",
-   "key": "1vowynk",
+   "key": "1gcel7p",
    "keyEn": "",
-   "file": "screen-074-1vowynk.mp3",
+   "file": "screen-074-1gcel7p.mp3",
    "fileEn": ""
   },
   {
@@ -2555,12 +2555,12 @@
   {
    "group": "screen",
    "priority": 2,
-   "ar": "١) اسحب لأعلى على اللاعب في خط مستقيم، فترتفع رجله مفرودة مع إصبعك (إذا اهتز الخط فركبتك انثنت).",
+   "ar": "١) اسحب لأعلى على اللاعب في خط مستقيم، فترتفع قدمه مفرودة مع إصبعك (إذا اهتز الخط فركبتك انثنت).",
    "en": "1) Drag UP on your fighter in a straight line — the straight leg rises with your finger (a wobble means a bent knee).",
    "note": "تعليمات الشاشة",
-   "key": "1n7ofvj",
+   "key": "15qdmoq",
    "keyEn": "1qosxfk",
-   "file": "screen-101-1n7ofvj.mp3",
+   "file": "screen-101-15qdmoq.mp3",
    "fileEn": "screen-101-1qosxfk.mp3"
   },
   {
@@ -3083,12 +3083,12 @@
   {
    "group": "quiz",
    "priority": 3,
-   "ar": "أين تكون الرجل الضاربة أثناء وضع الاستعداد (كيورجي جونبي)؟",
+   "ar": "أين تكون القدم الضاربة أثناء وضع الاستعداد (كيورجي جونبي)؟",
    "en": "Where is the kicking leg in the ready stance (Kyorugi Junbi)?",
    "note": "سؤال",
-   "key": "150y8ax",
+   "key": "tdv6y",
    "keyEn": "10b0c2w",
-   "file": "quiz-036-150y8ax.mp3",
+   "file": "quiz-036-tdv6y.mp3",
    "fileEn": "quiz-036-10b0c2w.mp3"
   },
   {
@@ -3347,12 +3347,12 @@
   {
    "group": "quiz",
    "priority": 3,
-   "ar": "رجوع الرجل خلفًا",
+   "ar": "رجوع القدم خلفًا",
    "en": "Step the leg back",
    "note": "إجابة",
-   "key": "m02gdx",
+   "key": "1ud44ki",
    "keyEn": "ay39zn",
-   "file": "quiz-060-m02gdx.mp3",
+   "file": "quiz-060-1ud44ki.mp3",
    "fileEn": "quiz-060-ay39zn.mp3"
   },
   {
@@ -3523,12 +3523,12 @@
   {
    "group": "quiz",
    "priority": 3,
-   "ar": "أين تكون الرجل الضاربة أثناء وضع الاستعداد للركلة؟",
+   "ar": "أين تكون القدم الضاربة أثناء وضع الاستعداد للركلة؟",
    "en": "Where is the kicking leg in the ready stance?",
    "note": "سؤال",
-   "key": "ibcdo2",
+   "key": "srzh19",
    "keyEn": "1y6lmq0",
-   "file": "quiz-076-ibcdo2.mp3",
+   "file": "quiz-076-srzh19.mp3",
    "fileEn": "quiz-076-1y6lmq0.mp3"
   },
   {
@@ -3545,12 +3545,12 @@
   {
    "group": "quiz",
    "priority": 3,
-   "ar": "إلى أي ارتفاع ترفع الرجل الضاربة في ركلة نارو تشاجي؟",
+   "ar": "إلى أي ارتفاع ترفع القدم الضاربة في ركلة نارو تشاجي؟",
    "en": "How high do you raise the kicking leg in Naeryeo Chagi?",
    "note": "سؤال",
-   "key": "wtnezz",
+   "key": "mf4c4",
    "keyEn": "j1ixhi",
-   "file": "quiz-078-wtnezz.mp3",
+   "file": "quiz-078-mf4c4.mp3",
    "fileEn": "quiz-078-j1ixhi.mp3"
   },
   {
@@ -3820,12 +3820,12 @@
   {
    "group": "quiz",
    "priority": 3,
-   "ar": "بعد توجيه ركلة بيك تشاجي، ماذا تفعل الرجل الضاربة؟",
+   "ar": "بعد توجيه ركلة بيك تشاجي، ماذا تفعل القدم الضاربة؟",
    "en": "After the Bik Chagi strike, what does the kicking leg do?",
    "note": "سؤال",
-   "key": "1duxgq2",
+   "key": "1o77s6b",
    "keyEn": "1uq8ec3",
-   "file": "quiz-103-1duxgq2.mp3",
+   "file": "quiz-103-1o77s6b.mp3",
    "fileEn": "quiz-103-1uq8ec3.mp3"
   },
   {
@@ -3897,12 +3897,12 @@
   {
    "group": "quiz",
    "priority": 3,
-   "ar": "أبقي رجلي مرفوعة",
+   "ar": "أبقي قدمي مرفوعة",
    "en": "Keep my leg up",
    "note": "إجابة",
-   "key": "4ng6g2",
+   "key": "1crqmnf",
    "keyEn": "o96c23",
-   "file": "quiz-110-4ng6g2.mp3",
+   "file": "quiz-110-1crqmnf.mp3",
    "fileEn": "quiz-110-o96c23.mp3"
   },
   {

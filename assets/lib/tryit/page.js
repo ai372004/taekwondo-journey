@@ -49,8 +49,8 @@
       const best = this.best()[this.kick];
       const bik = this.kick === 'bakchagi3';
       const steps = snapKick(this.kick)
-        ? [[1, T('1 — Lift and fold the knee', '١ — ارفع الرجل واثنِ الركبة')], [2, bik ? T('2 — Turn the standing foot and extend', '٢ — لفّ قدم الارتكاز ومدّ الرجل') : T('2 — Extend the leg', '٢ — مدّ الرجل')], [3, T('3 — Pull back, then land', '٣ — اسحب الرجل ثم انزل')]]
-        : [[2, T('Lift the leg and extend it', 'ارفع الرجل ومدّها')]];
+        ? [[1, T('1 — Lift and fold the knee', '١ — ارفع القدم واثنِ الركبة')], [2, bik ? T('2 — Turn the standing foot and extend', '٢ — لفّ قدم الارتكاز ومدّ القدم') : T('2 — Extend the leg', '٢ — مدّ القدم')], [3, T('3 — Pull back, then land', '٣ — اسحب القدم ثم انزل')]]
+        : [[2, T('Lift the leg and extend it', 'ارفع القدم ومدّها')]];
       r.innerHTML = `
         <h2>🎥 ${T('Try it yourself', 'جرّب بنفسك')}</h2>
         <p class="description">${T('Kick in front of the camera and get a score out of 100. Put the phone far enough to see your whole body, from head to feet, and stand sideways.', 'اركل أمام الكاميرا واحصل على درجة من ١٠٠. ضع الهاتف بعيدًا ليظهر جسمك كله من الرأس إلى القدمين، وقف بالجانب.')}</p>
@@ -289,9 +289,9 @@
           if (an.note) { this.noteUntil = now + 2200; an.note = ''; }
           const h = an.hint();
           hud.push([an.landed ? 'ok' : 'info', { stand: T('Stand ready, both feet down', 'قف مستعدًّا والقدمان على الأرض'), ready: T('Ready — start the kick!', 'جاهز — ابدأ الركلة!'),
-            chamber: T('Lift the leg and fold the knee', 'ارفع الرجل واثنِ الركبة'), snap: this.kick === 'bakchagi3' ? T('Turn the standing foot and extend the leg!', 'لفّ قدم الارتكاز ومدّ الرجل!') : T('Extend the leg fully!', 'مدّ الرجل تمامًا!'), retract: T('Pull the knee back, then land', 'اسحب الركبة ثم انزل'),
-            lift_extend: T('Lift the leg straight, then bring it down', 'ارفع الرجل مفرودة ثم أنزلها'), done: T('Kick complete!', 'اكتملت الركلة!') }[h]]);
-          if (an.live_warn) hud.push(['bad', T('Keep the leg STRAIGHT!', 'أبقِ الرجل مفرودة!')]);
+            chamber: T('Lift the leg and fold the knee', 'ارفع القدم واثنِ الركبة'), snap: this.kick === 'bakchagi3' ? T('Turn the standing foot and extend the leg!', 'لفّ قدم الارتكاز ومدّ القدم!') : T('Extend the leg fully!', 'مدّ القدم تمامًا!'), retract: T('Pull the knee back, then land', 'اسحب الركبة ثم انزل'),
+            lift_extend: T('Lift the leg straight, then bring it down', 'ارفع القدم مفرودة ثم أنزلها'), done: T('Kick complete!', 'اكتملت الركلة!') }[h]]);
+          if (an.live_warn) hud.push(['bad', T('Keep the leg STRAIGHT!', 'أبقِ القدم مفرودة!')]);
           if (now < this.noteUntil) hud.push(['bad', T('The kick was not completed — try again', 'لم تكتمل الركلة — حاول مرة أخرى')]);
           if (an.landed && this.live && !this.autoAt) this.autoAt = now + 500;      // the foot landed: the score comes by itself
         }
@@ -299,7 +299,7 @@
         const s = CV.stepCheck(this.kick, this.step, m, 0, this.stepState);
         const fill = this.$('#ty-acc-fill'), n = this.$('#ty-acc-n'); if (fill) fill.style.width = `${Math.round(s.acc * 100)}%`; if (n) n.textContent = `${N(Math.round(s.acc * 100))}%`;
         if (s.ok) { this.stepDone = true; TKD.gs()?.playSound('success'); }
-        else hud.push(['info', { fold: T('Lift the leg and fold the knee', 'ارفع الرجل واثنِ الركبة'), extend: T('Lift the leg and extend the knee', 'ارفع الرجل ومدّ الركبة'), pivot: T('Turn the standing foot: the heel toward the target', 'لفّ قدم الارتكاز: الكعب في اتجاه الهدف'),
+        else hud.push(['info', { fold: T('Lift the leg and fold the knee', 'ارفع القدم واثنِ الركبة'), extend: T('Lift the leg and extend the knee', 'ارفع القدم ومدّ الركبة'), pivot: T('Turn the standing foot: the heel toward the target', 'لفّ قدم الارتكاز: الكعب في اتجاه الهدف'),
           pull_back: T('Pull the knee back (folded), then land', 'اسحب الركبة (مثنيّة) ثم انزل'), land: T('Now land the foot', 'الآن أنزل القدم') }[s.msg]]);
       }
       if (!full && this.stepDone) hud.push(['ok big', T('Well done! ✓', 'أحسنت! ✓')]);
@@ -348,17 +348,17 @@
     },
     itemWhy(it, f) {
       const v = it.value === null || it.value === undefined ? null : Math.round(it.value), deg = (x) => `${N(Math.round(x))}°`;
-      const name = { c_knee: T('Folding the leg before the extension', 'ثني الرجل قبل المدّ'), p_knee: T('Knee angle at full extension', 'زاوية الركبة عند تمام المدّ'), r_knee: T('The knee after the kick', 'الركبة بعد الركلة'),
-        support: T('The standing knee (average)', 'ركبة رجل الارتكاز (المتوسط)'), pivot: T('The standing foot\'s turn at the extension', 'لفّة قدم الارتكاز عند المدّ'), stance: T('Ready stance', 'وقفة الاستعداد'), guard: T('Guard and fist (the whole movement)', 'الحراسة والقبضة (طوال الحركة)') }[it.key];
+      const name = { c_knee: T('Folding the leg before the extension', 'ثني القدم قبل المدّ'), p_knee: T('Knee angle at full extension', 'زاوية الركبة عند تمام المدّ'), r_knee: T('The knee after the kick', 'الركبة بعد الركلة'),
+        support: T('The standing knee (average)', 'ركبة قدم الارتكاز (المتوسط)'), pivot: T('The standing foot\'s turn at the extension', 'لفّة قدم الارتكاز عند المدّ'), stance: T('Ready stance', 'وقفة الاستعداد'), guard: T('Guard and fist (the whole movement)', 'الحراسة والقبضة (طوال الحركة)') }[it.key];
       let why = '';
       if (it.status === 'ok') why = T('Correct.', 'سليم.');
-      else if (it.status === 'not_folded') why = T('The leg was not folded before extending. Lift the thigh and bend the knee first.', 'لم تُثنَ الرجل قبل المدّ. ارفع الفخذ واثنِ الركبة أولًا.');
-      else if (it.status === 'no_retract') why = T(`The leg did not come back folded after the kick (${deg(it.value)}). Bend the knee again before putting the foot down.`, `لم ترجع الرجل مثنيّة بعد الركلة (${deg(it.value)}). اثنِ الركبة مرة أخرى قبل إنزال القدم.`);
+      else if (it.status === 'not_folded') why = T('The leg was not folded before extending. Lift the thigh and bend the knee first.', 'لم تُثنَ القدم قبل المدّ. ارفع الفخذ واثنِ الركبة أولًا.');
+      else if (it.status === 'no_retract') why = T(`The leg did not come back folded after the kick (${deg(it.value)}). Bend the knee again before putting the foot down.`, `لم ترجع القدم مثنيّة بعد الركلة (${deg(it.value)}). اثنِ الركبة مرة أخرى قبل إنزال القدم.`);
       else if (it.key === 'pivot' && it.status === 'low') why = T(`${deg(it.value)}: the standing foot did not turn enough. Turn it until the heel points at the target (${deg(it.lo)} or more; the lesson says about 135°).`, `${deg(it.value)}: قدم الارتكاز لم تلفّ كفاية. لفّها حتى يتّجه الكعب إلى الهدف (${deg(it.lo)} أو أكثر، وفي الدرس حوالي ١٣٥°).`);
       else if (it.key === 'pivot' && it.status === 'not_measured') why = T('The standing foot was not seen well enough to measure its turn.', 'لم تظهر قدم الارتكاز جيدًا لقياس لفّتها.');
       else if (it.status === 'not_reached') why = T('The movement did not get this far.', 'لم تصل الحركة إلى هذه النقطة.');
       else if (it.status === 'not_measured') why = T('Could not be measured (the body was not seen well enough).', 'تعذّر القياس (لم يظهر الجسم جيدًا).');
-      else if (it.status === 'low') why = it.key === 'support' ? T(`${deg(it.value)}: the standing leg was bent. Keep it straight and steady (${deg(it.lo)} or more).`, `${deg(it.value)}: رجل الارتكاز مثنيّة. أبقِها مفرودة وثابتة (${deg(it.lo)} أو أكثر).`)
+      else if (it.status === 'low') why = it.key === 'support' ? T(`${deg(it.value)}: the standing leg was bent. Keep it straight and steady (${deg(it.lo)} or more).`, `${deg(it.value)}: قدم الارتكاز مثنيّة. أبقِها مفرودة وثابتة (${deg(it.lo)} أو أكثر).`)
         : it.key === 'r_knee' ? T(`${deg(it.value)}: the knee folded too tightly (${deg(it.lo)} or more).`, `${deg(it.value)}: الركبة مثنيّة أكثر من اللازم (${deg(it.lo)} أو أكثر).`)
         : T(`${deg(it.value)}: not fully extended. Straighten the knee more (${deg(it.lo)} or more).`, `${deg(it.value)}: المدّ ناقص. افرد الركبة أكثر (${deg(it.lo)} أو أكثر).`);
       else if (it.key === 'stance') why = T('No ready stance was seen before the kick.', 'لم نرَ وقفة استعداد قبل الركلة.');
@@ -376,10 +376,10 @@
       if (!f) { box.hidden = true; box.innerHTML = ''; return; }
       const R1 = (x) => N(Math.round(x * 10) / 10), g = GRADE[f.grade];
       const pens = f.penalties || [];
-      const penWhy = (p) => ({ no_extend: T(`The leg was never straight while lifted. The kick is a straight leg going up.`, `لم تُفرد الرجل وهي مرفوعة. المطلوب رجل مفرودة ترتفع إلى أعلى.`),
-        bend_before: T('The leg was bent before the extension. It must go up straight.', 'ثُنيت الرجل قبل المدّ. يجب أن ترتفع مفرودة.'),
-        bend_after: T('The leg was bent after the extension. It must come down straight.', 'ثُنيت الرجل بعد المدّ. يجب أن تنزل مفرودة.'),
-        extra_move: T('The leg went up more than once before landing. One straight lift, then down.', 'ارتفعت الرجل أكثر من مرة قبل النزول. المطلوب رفعة واحدة مفرودة ثم نزول.') }[p.key]);
+      const penWhy = (p) => ({ no_extend: T(`The leg was never straight while lifted. The kick is a straight leg going up.`, `لم تُفرد القدم وهي مرفوعة. المطلوب قدم مفرودة ترتفع إلى أعلى.`),
+        bend_before: T('The leg was bent before the extension. It must go up straight.', 'ثُنيت القدم قبل المدّ. يجب أن ترتفع مفرودة.'),
+        bend_after: T('The leg was bent after the extension. It must come down straight.', 'ثُنيت القدم بعد المدّ. يجب أن تنزل مفرودة.'),
+        extra_move: T('The leg went up more than once before landing. One straight lift, then down.', 'ارتفعت القدم أكثر من مرة قبل النزول. المطلوب رفعة واحدة مفرودة ثم نزول.') }[p.key]);
       const lostBy = { stance: T('the ready stance', 'وقفة الاستعداد'), guard: T('the hand (guard / fist)', 'اليد (الحراسة / القبضة)') };
       const lines = f.groups.map(G => {
         const title = TKD.ar ? G.name.ar : G.name.en;
