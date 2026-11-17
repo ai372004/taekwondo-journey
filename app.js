@@ -906,7 +906,7 @@ function watchVideoLoading(video) {
 // Arabic or English voice, degrees and ranges in words)
 // v63.4 — the version a tester can read on the start screen and in Coach → Settings (bump it
 // together with CACHE_VERSION in sw.js)
-const APP_VERSION = '66.2';
+const APP_VERSION = '66.3';
 
 const SpeechVoice = {
   KEY: 'taekwondoJourneyVoice',
@@ -2502,8 +2502,7 @@ class LearningSystem {
           <h3>🥋 ${ar ? `شاهد لاعبًا حقيقيًا يؤدي ${skillName}` : `Watch a real player do ${skillName}`}</h3>
           <video class="rv-video" id="real-video" controls preload="none" playsinline poster="${skill.realVideo.replace(/\.mp4$/, '.webp')}">
             <source src="${skill.realVideo}" type="video/mp4">
-            ${FILE_MODE ? '' : `<track kind="subtitles" srclang="ar" label="العربية" src="${skill.realVideo.replace(/\.mp4$/, '.ar.vtt')}"${ar ? ' default' : ''}>
-            <track kind="subtitles" srclang="en" label="English" src="${skill.realVideo.replace(/\.mp4$/, '.en.vtt')}"${ar ? '' : ' default'}>`}
+            ${FILE_MODE ? '' : `<track kind="subtitles" srclang="${ar ? 'ar' : 'en'}" label="${ar ? 'العربية' : 'English'}" src="${skill.realVideo.replace(/\.mp4$/, ar ? '.ar.vtt' : '.en.vtt')}" default>`}
           </video>
         </section>` : ''}
         <button class="btn" id="back-to-phases-btn" style="margin-top:10px">
@@ -2541,6 +2540,10 @@ class LearningSystem {
   // text burned into the picture, so the same video works in both languages
   static captionTracks(src, ar) {
     // (opened straight from the folder, browsers refuse to load caption files → no tracks then)
+    // v66.3: no caption tracks on the lesson video at all — the testers asked for no words on it, and
+    // iPhone Safari showed the ENGLISH track by itself (it follows the phone's caption setting, not ours)
+    return '';
+    // eslint-disable-next-line no-unreachable
     if (!/-tutorial\.mp4$/.test(src || '') || (typeof FILE_MODE !== 'undefined' && FILE_MODE)) return '';
     const base = src.replace(/\.mp4$/, '');
     return [['ar', 'العربية'], ['en', 'English']].map(([l, label]) =>
