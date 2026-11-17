@@ -906,7 +906,7 @@ function watchVideoLoading(video) {
 // Arabic or English voice, degrees and ranges in words)
 // v63.4 — the version a tester can read on the start screen and in Coach → Settings (bump it
 // together with CACHE_VERSION in sw.js)
-const APP_VERSION = '66.3';
+const APP_VERSION = '66.4';
 
 const SpeechVoice = {
   KEY: 'taekwondoJourneyVoice',
@@ -6890,11 +6890,6 @@ class QuizSystem {
         correctText: "Ap Chagi",
         get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
         explanation: "Ap Chagi is the straight front kick.", explanationAr: "آب تشاجي هي الركلة الأمامية المستقيمة." },
-      { question: "What does the Korean word \"Ap\" mean?", questionAr: "ماذا تعني كلمة «آب» باللغة الكورية؟",
-        options: ["Front", "Side", "Back", "Down"], optionsAr: ["أمام", "جانب", "خلف", "أسفل"],
-        correctText: "Front",
-        get image() { return PoseShots.phase(PoseShots.mine(), 'apchagi', 2); },
-        explanation: "\"Ap\" means front.", explanationAr: "«آب» تعني أمام." },
       { question: "What does the Korean word \"Chagi\" mean?", questionAr: "ماذا تعني كلمة «تشاجي» باللغة الكورية؟",
         options: ["Kick", "Block", "Punch", "Stance"], optionsAr: ["ركلة", "صدّ", "لكمة", "وضعية"],
         correctText: "Kick",
@@ -6978,10 +6973,10 @@ class QuizSystem {
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 1); },
         explanation: "The fists stay in front of the chest.", explanationAr: "الذراعان مقبوضتان أمام الصدر." },
       { question: "How high do you raise the kicking leg in Naeryeo Chagi?", questionAr: "إلى أي ارتفاع ترفع القدم الضاربة في ركلة نارو تشاجي؟",
-        options: ["Higher than the target", "To the abdomen", "To the knee", "To the belt"], optionsAr: ["أعلى من مستوى الهدف", "إلى مستوى البطن", "إلى مستوى الركبة", "إلى مستوى الحزام"],
-        correctText: "Higher than the target",
+        options: ["Higher than the head", "To the abdomen", "To the knee", "To the belt"], optionsAr: ["أعلى من مستوى الرأس", "إلى مستوى البطن", "إلى مستوى الركبة", "إلى مستوى الحزام"],
+        correctText: "Higher than the head",
         get image() { return PoseShots.phase(PoseShots.mine(), 'narochagi', 1); },
-        explanation: "Raise the leg higher than the target.", explanationAr: "ترفع القدم أعلى من مستوى الهدف." },
+        explanation: "Raise the leg higher than the head.", explanationAr: "ترفع القدم أعلى من مستوى الرأس." },
       { question: "How far does the standing foot turn outward in Naeryeo Chagi?", questionAr: "بأي زاوية تلف قدم الارتكاز للخارج في نارو تشاجي؟",
         options: ["45° to 90°", "120°", "360°", "180°"], optionsAr: ["من ٤٥° إلى ٩٠°", "١٢٠°", "٣٦٠°", "١٨٠°"],
         correctText: "45° to 90°",
