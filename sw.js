@@ -11,7 +11,7 @@
    whenever anything changes so players get the update.
    ===================================================================== */
 
-const CACHE_VERSION = 'tkd-v67.4';
+const CACHE_VERSION = 'tkd-v67.5';
 const APP_SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const ASSET_CACHE = `${CACHE_VERSION}-assets`;     // precached images + videos, never trimmed
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;  // anything else same-origin, trimmed
@@ -21,7 +21,7 @@ const RUNTIME_MAX_ENTRIES = 250;
 const ML_CACHE = 'tkdml-v1';
 // v66: the recorded voice lines (18 MB) in their own cache too, kept across app updates: a clip's file
 // name carries its sentence's key, so a changed sentence is a new file (bump only to drop old clips)
-const VOICE_CACHE = 'tkdvoice-v5';   // v67.3: v5 = the «Ruby Roo» clips (ElevenLabs) for the main lines;   // v66.8: v4 = louder clips (-14 LUFS); v3 = «تشاجي» with a hard g (same file names → a new cache)
+const VOICE_CACHE = 'tkdvoice-v6';   // v67.3: v5 = the «Ruby Roo» clips (ElevenLabs) for the main lines;   // v66.8: v4 = louder clips (-14 LUFS); v3 = «تشاجي» with a hard g (same file names → a new cache)
 // v2 note: v2 = the «Zariyah» voice (v1 was «Hamed»: same file names, so a new cache)
 const NAV_TIMEOUT_MS = 4000;
 
