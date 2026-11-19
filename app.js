@@ -906,7 +906,7 @@ function watchVideoLoading(video) {
 // Arabic or English voice, degrees and ranges in words)
 // v63.4 — the version a tester can read on the start screen and in Coach → Settings (bump it
 // together with CACHE_VERSION in sw.js)
-const APP_VERSION = '66.5';
+const APP_VERSION = '66.6';
 
 const SpeechVoice = {
   KEY: 'taekwondoJourneyVoice',
@@ -953,7 +953,10 @@ const SpeechVoice = {
       .replace(/\s*[—·|]\s*/g, ar ? '، ' : ', ')
       .replace(/\(\s*\)|«\s*»/g, '').replace(/\s+/g, ' ')
       // v66.5 (the coach): «أب» (앞) is said short — «أَبْ» — not «آب» or «أبٌ» (father)
-      .replace(/(^|[\s«(])أب(?=\s+(تشاجي|تشوك|أوليو))/g, '$1أَبْ').trim();
+      .replace(/(^|[\s«(])أب(?=\s+(تشاجي|تشوك|أوليو))/g, '$1أَبْ')
+      // v66.6 (the coach): «تشاجي» is said with a hard g, like the Egyptian «جميل» (차기 = chagi) —
+      // the Arabic voices say «ج» as «j», so the voice is given «تشاغي» (the screen keeps «تشاجي»)
+      .replace(/تشاجي/g, ar ? 'تشاغي' : 'تشاجي').trim();
   },
   // no Arabic voice on this device → say once how a grown-up can add one
   warned: false,
