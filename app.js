@@ -906,7 +906,7 @@ function watchVideoLoading(video) {
 // Arabic or English voice, degrees and ranges in words)
 // v63.4 — the version a tester can read on the start screen and in Coach → Settings (bump it
 // together with CACHE_VERSION in sw.js)
-const APP_VERSION = '66.6';
+const APP_VERSION = '66.7';
 
 const SpeechVoice = {
   KEY: 'taekwondoJourneyVoice',
@@ -7568,7 +7568,7 @@ class CooldownSystem {
     const ar = this.ar;
     list.innerHTML = `<div class="cd-card cd-finish"><div class="cd-emoji">🙇</div>
       <h3>${ar ? 'أحسنت! جسمك هادئ ومرتاح.' : 'Well done! Your body is calm and relaxed.'}</h3>
-      <p>${ar ? 'في نهاية التمرين نؤدي التحية (كيونجنيه) للمدرب وللصالة.' : 'At the end of training we bow (Gyeongnye) to the coach and the dojang.'}</p></div>`;
+      <p>${ar ? 'في نهاية التمرين نؤدي التحية (كونجريه) للمدرب وللصالة.' : 'At the end of training we bow (Gyeongnye) to the coach and the dojang.'}</p></div>`;
     try { window.KoreanCall?.show?.('gyeongnye', list.querySelector('.cd-finish')); } catch (e) {}
   }
 }
@@ -9118,7 +9118,7 @@ function switchScreen(screenId) {
 const KoreanCall = {
   LINES: {
     charyeot:  { ko: '차렷', ar: 'تشاريوت', en: 'Charyeot', mean: { ar: 'انتباه', en: 'Attention' } },
-    gyeongnye: { ko: '경례', ar: 'كيونجنيه', en: 'Gyeongnye', mean: { ar: 'تحية', en: 'Bow' } },
+    gyeongnye: { ko: '경례', ar: 'كونجريه', en: 'Gyeongnye', mean: { ar: 'تحية', en: 'Bow' } },
     junbi:     { ko: '준비', ar: 'جونبي', en: 'Junbi', mean: { ar: 'استعد', en: 'Ready' } },
     sijak:     { ko: '시작', ar: 'شيجاك', en: 'Shijak', mean: { ar: 'ابدأ', en: 'Begin' } }
   },
@@ -11624,7 +11624,7 @@ class SparringDuelGame extends ArenaGameBase {
     this.state = 'intro';
     this.layout();
     this.setAction(this.ar ? '🦶 اركل!' : '🦶 KICK!');
-    this.stage.text(this.stage.W / 2, this.stage.H * 0.42, this.ar ? 'كيونجنيه!' : 'Gyeongnye!', { color: '#fff', size: 34, ttl: 1.2, rise: 10 });
+    this.stage.text(this.stage.W / 2, this.stage.H * 0.42, this.ar ? 'كونجريه!' : 'Gyeongnye!', { color: '#fff', size: 34, ttl: 1.2, rise: 10 });
     window.Voice?.cue('gyeongnye');
     this.later(() => window.Voice?.cue('sijak'), 1100);
     this.later(() => this.stage && this.stage.text(this.stage.W / 2, this.stage.H * 0.42, this.ar ? 'شيجاك! 🔔' : 'Shijak! 🔔', { color: '#ffd166', size: 40, ttl: 1.1, rise: 10 }), 1100);
@@ -18440,7 +18440,7 @@ const Voice = {
     ready: { ar: 'استعد…', en: 'Get ready…' }, go: { ar: 'هيا!', en: 'Go!' }, kihap: { ar: 'كيهاب!', en: 'Kihap!' },
     welcome: { ar: 'أهلًا بك يا بطل!', en: 'Welcome, champion!' }, warmupDone: { ar: 'أحسنت، أنهيت الإحماء!', en: 'Warm-up done — great job!' },
     // v43: the dojang commands (record them in Coach → Record voice)
-    charyeot: { ar: 'تشاريوت!', en: 'Charyeot!' }, gyeongnye: { ar: 'كيونجنيه!', en: 'Gyeongnye!' },
+    charyeot: { ar: 'تشاريوت!', en: 'Charyeot!' }, gyeongnye: { ar: 'كونجريه!', en: 'Gyeongnye!' },
     junbi: { ar: 'جونبي!', en: 'Junbi!' }, sijak: { ar: 'شيجاك!', en: 'Shijak!' },
     keuman: { ar: 'كومان!', en: 'Keuman!' }, baro: { ar: 'باروه!', en: 'Baro!' }
   },
@@ -20162,7 +20162,7 @@ const Boss = {
       <ol class="boss-rounds">${this.ROUNDS.map((g, i) => `<li><span>${TKD.gameIcon(g)}</span>${TKD.t(`Round ${i + 1}`, `الجولة ${TKD.num(i + 1)}`)}: <b>${TKD.esc(this.roundName(g))}</b></li>`).join('')}</ol>
       ${this.beaten(sk) ? `<p class="boss-done">✅ ${TKD.t('You beat this champion already — a rematch?', 'لقد تغلّبت على هذا البطل من قبل — مباراة أخرى؟')}</p>` : ''}
       <div class="tkd-row"><button type="button" class="btn" data-a="no">${TKD.t('Later', 'لاحقًا')}</button>
-        <button type="button" class="btn btn-success" data-a="go">🙇 ${TKD.t('Gyeongnye! Shijak!', 'كيونجنيه! شيجاك!')}</button></div></div>`;
+        <button type="button" class="btn btn-success" data-a="go">🙇 ${TKD.t('Gyeongnye! Shijak!', 'كونجريه! شيجاك!')}</button></div></div>`;
     document.body.appendChild(ov);
     const me = new RigSprite(ov.querySelector('#boss-me'), { ch: gs?.playerCharacter === 'girl' ? 'girl' : 'boy', anim: 'bounce', tap: 'win', height: 140 });
     const them = new RigSprite(ov.querySelector('#boss-them'), { ch: B.ch, anim: 'bounce', tap: 'win', height: 140 });
@@ -20284,7 +20284,7 @@ const Exam = {
         : `<li>🎯 ${TKD.t(`${need} right answers to pass`, `${TKD.num(need)} إجابات صحيحة للنجاح`)}</li>`}
         <li>🎗️ ${TKD.t('Pass → a new stripe on your white belt', 'إذا نجحت ← شريط جديد على حزامك الأبيض')}${next ? ` · 🔓 ${TKD.t(next.name.en, next.name.ar)}` : ` · 🏆 ${TKD.t('all kicks done!', 'أنهيت كل الركلات!')}`}</li>
       </ul>
-      <button type="button" class="btn btn-success" data-a="go">🙇 ${TKD.t('Gyeongnye! Start', 'كيونجنيه! هيا نبدأ')}</button></div>`;
+      <button type="button" class="btn btn-success" data-a="go">🙇 ${TKD.t('Gyeongnye! Start', 'كونجريه! هيا نبدأ')}</button></div>`;
     document.body.appendChild(ov);
     const sp = new RigSprite(ov.querySelector('#exam-coach'), { ch: 'coach', anim: 'coach_idle', intro: 'bow', tap: 'bow', height: 150 });
     sp.start();
