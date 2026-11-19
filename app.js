@@ -906,7 +906,7 @@ function watchVideoLoading(video) {
 // Arabic or English voice, degrees and ranges in words)
 // v63.4 — the version a tester can read on the start screen and in Coach → Settings (bump it
 // together with CACHE_VERSION in sw.js)
-const APP_VERSION = '67.3';
+const APP_VERSION = '67.4';
 
 const SpeechVoice = {
   KEY: 'taekwondoJourneyVoice',
@@ -18423,10 +18423,13 @@ const Voice = {
         const a = new Audio(u); this.el = a; let went = false;
         const go = () => { if (went) return; went = true; next(); };
         a.addEventListener('ended', go); a.addEventListener('error', go); a.play().catch(go);
-      } else this.tts(p, lang, next);
+      } else if (this.ONLY_RECORDED) next(); else this.tts(p, lang, next);
     };
     next();
   },
+  // v67.4 (the club): ONE voice in the game — the recorded ElevenLabs clips. A line with no clip is
+  // not read by the phone's voice (or any other voice); it stays silent until it is recorded.
+  ONLY_RECORDED: true,
   tts(text, lang, done) {
     let went = false; const go = () => { if (went) return; went = true; clearTimeout(t); done(); };
     const t = setTimeout(go, 1200 + String(text).length * 95);    // some phones never fire onend
@@ -18459,6 +18462,7 @@ const Voice = {
     const orig = SpeechHelper.speak.bind(SpeechHelper);
     SpeechHelper.speak = (text, lang = 'en-US', btn = null) => {
       if (this.play(text, lang, btn)) return;
+      if (this.ONLY_RECORDED) return;
       // phone voice: duck the music while it talks
       try {
         Music.duck(true);
