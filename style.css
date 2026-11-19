@@ -6817,3 +6817,24 @@ details.jr-kick-info > summary > b { flex: 1 1 auto; }
 .jki-arrow { flex: 0 0 auto; font-size: 1.1em; transition: transform .2s; }
 details.jr-kick-info[open] .jki-arrow { transform: rotate(180deg); }
 details.jr-kick-info > p { margin-top: 8px; }
+
+/* v67 — less on each screen */
+.header .header-controls { position: relative; }
+.hc-gear { width: 46px; height: 46px; border-radius: 50%; border: 2px solid var(--primary-color, #ff6b35); background: rgba(0,0,0,.35); color: #fff; font-size: 1.35rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
+.hc-gear[aria-expanded="true"] { background: var(--primary-color, #ff6b35); }
+.hc-menu { position: absolute; top: calc(100% + 8px); inset-inline-end: 0; z-index: 60; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; width: max-content; max-width: min(92vw, 320px);
+  padding: 10px; border-radius: 16px; background: rgba(15,22,32,.97); border: 1px solid rgba(255,255,255,.18); box-shadow: 0 12px 30px rgba(0,0,0,.5); }
+.hc-menu[hidden] { display: none; }
+.hc-menu > * { margin: 0 !important; }
+#hub-profile[hidden] { display: none !important; }
+.hub-switch-icon { width: 44px; min-width: 44px; height: 44px; padding: 0 !important; border-radius: 50% !important; justify-content: center; font-size: 1.2rem; }
+#home-screen .jr-units { display: none; }
+.unit-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 6px 0 14px; position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; padding: 6px 0; background: linear-gradient(rgba(12,20,28,.95), rgba(12,20,28,.85)); border-radius: 14px; }
+.unit-tab { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 4px; min-height: 64px; border-radius: 14px; border: 2px solid rgba(255,255,255,.16); background: rgba(255,255,255,.06); color: #fff; font: inherit; cursor: pointer; }
+.unit-tab span { font-size: 1.2rem; line-height: 1; }
+.unit-tab b { font-size: .9rem; }
+.unit-tab small { font-size: .74rem; opacity: .8; line-height: 1.25; text-align: center; }
+.unit-tab.on { border-color: #ffd166; background: rgba(255,209,102,.16); }
+.unit-tab.is-locked { opacity: .7; }
+.unit-sec[hidden] { display: none !important; }
+.unit-tabs ~ .unit-sec .unit-sec-title { display: none; }

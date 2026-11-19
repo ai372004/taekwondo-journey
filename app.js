@@ -906,7 +906,7 @@ function watchVideoLoading(video) {
 // Arabic or English voice, degrees and ranges in words)
 // v63.4 — the version a tester can read on the start screen and in Coach → Settings (bump it
 // together with CACHE_VERSION in sw.js)
-const APP_VERSION = '66.7';
+const APP_VERSION = '67.0';
 
 const SpeechVoice = {
   KEY: 'taekwondoJourneyVoice',
@@ -21391,4 +21391,66 @@ document.addEventListener('tkd:lang', () => { if (document.querySelector('#law-s
     if (e.detail?.screenId !== 'games') return;
     setTimeout(() => { const gc = document.querySelector('#games-screen .game-container'); const last = gc && [...gc.querySelectorAll('.unit-sec[data-unit]')].pop(); put(gc, last); }, 50);
   });
+})();
+
+// =====================================================================
+// v67 — less on each screen (the club asked for UI/UX standards: no crowding; tools in a menu,
+// the games in tabs). Nothing is removed — it is grouped:
+//  • the top bar: the language / sound / music / voice buttons are inside one ⚙️ button
+//  • the home screen: «صفحتي» is the avatar (and the tab bar), «غيّر اللاعب» is a small icon;
+//    the three unit chips are shown on the map itself
+//  • the games screen: one unit at a time, in tabs (الوحدة ١ / ٢ / ٣)
+// =====================================================================
+(function declutter() {
+  // ---- the top bar: one ⚙️ that opens the four buttons
+  const wrapTools = () => {
+    const ctrls = document.querySelector('.header .header-controls'); if (!ctrls || ctrls.dataset.grouped) return;
+    ctrls.dataset.grouped = '1';
+    const menu = document.createElement('div'); menu.className = 'hc-menu'; menu.hidden = true; menu.setAttribute('role', 'menu');
+    const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'hc-gear'; btn.setAttribute('aria-haspopup', 'true'); btn.setAttribute('aria-expanded', 'false');
+    const label = () => { btn.setAttribute('aria-label', TKD.t('Settings: language and sound', 'الإعدادات: اللغة والصوت')); btn.title = btn.getAttribute('aria-label'); };
+    btn.innerHTML = '<span aria-hidden="true">⚙️</span>'; label();
+    const move = () => [...ctrls.children].forEach(c => { if (c !== menu && c !== btn) menu.appendChild(c); });
+    move(); ctrls.append(btn, menu);
+    new MutationObserver(move).observe(ctrls, { childList: true });     // the music / voice buttons arrive later
+    const close = () => { menu.hidden = true; btn.setAttribute('aria-expanded', 'false'); };
+    btn.addEventListener('click', (e) => { e.stopPropagation(); menu.hidden = !menu.hidden; btn.setAttribute('aria-expanded', String(!menu.hidden)); TKD.gs()?.playSound?.('click'); });
+    document.addEventListener('click', (e) => { if (!menu.hidden && !e.target.closest('.hc-menu, .hc-gear')) close(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    document.addEventListener('tkd:screen', close);
+    document.addEventListener('tkd:lang', label);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => setTimeout(wrapTools, 0)); else setTimeout(wrapTools, 0);
+
+  // ---- the home screen
+  const r = HomeHub.render.bind(HomeHub);
+  HomeHub.render = (...a) => {
+    const out = r(...a);
+    try {
+      document.getElementById('hub-profile')?.setAttribute('hidden', '');            // = tap the avatar, or «صفحتي» in the tab bar
+      const sw = document.getElementById('hub-switch');
+      if (sw) { sw.innerHTML = '<span aria-hidden="true">👥</span>'; sw.setAttribute('aria-label', TKD.t('Switch player', 'غيّر اللاعب')); sw.title = sw.getAttribute('aria-label'); sw.classList.add('hub-switch-icon'); }
+    } catch (e) {}
+    return out;
+  };
+
+  // ---- the games screen: the units in tabs
+  let tab = null;                                   // the unit shown (null = the first one not finished)
+  const paintTabs = () => {
+    const scr = document.getElementById('games-screen'), gc = scr?.querySelector('.game-container'); if (!gc) return;
+    const secs = [...gc.querySelectorAll('.unit-sec[data-unit]')]; if (!secs.length) return;
+    let bar = gc.querySelector('.unit-tabs');
+    if (!bar) {
+      bar = document.createElement('div'); bar.className = 'unit-tabs'; bar.setAttribute('role', 'tablist'); secs[0].before(bar);
+      bar.addEventListener('click', (e) => { const b = e.target.closest('[data-tab]'); if (!b) return; tab = +b.dataset.tab; TKD.gs()?.playSound?.('click'); paintTabs(); bar.scrollIntoView({ block: 'nearest' }); });
+    }
+    if (tab === null || !secs.some(s => +s.dataset.unit === tab)) { const first = secs.find(s => !s.classList.contains('is-done') && !s.classList.contains('is-locked')) || secs.find(s => !s.classList.contains('is-done')) || secs[0]; tab = +first.dataset.unit; }
+    bar.innerHTML = secs.map(s => { const n = +s.dataset.unit, U = Units.get(n), st = s.classList.contains('is-done') ? '✓' : s.classList.contains('is-locked') ? '🔒' : U.icon;
+      return `<button type="button" role="tab" class="unit-tab${n === tab ? ' on' : ''}${s.classList.contains('is-locked') ? ' is-locked' : ''}" aria-selected="${n === tab}" data-tab="${n}"><span>${st}</span><b>${TKD.t(`Unit ${n}`, `الوحدة ${TKD.num(n)}`)}</b><small>${TKD.esc(TKD.t(U.en, U.ar))}</small></button>`; }).join('');
+    secs.forEach(s => { s.hidden = +s.dataset.unit !== tab; });
+  };
+  const p = UnitGames.paint.bind(UnitGames);
+  UnitGames.paint = (...a) => { const out = p(...a); try { paintTabs(); } catch (e) {} return out; };
+  document.addEventListener('tkd:screen', (e) => { if (e.detail?.screenId === 'games') { tab = null; setTimeout(() => { try { paintTabs(); } catch (er) {} }, 30); } });
+  document.addEventListener('tkd:lang', () => { try { paintTabs(); } catch (e) {} });
 })();
