@@ -6838,3 +6838,22 @@ details.jr-kick-info > p { margin-top: 8px; }
 .unit-tab.is-locked { opacity: .7; }
 .unit-sec[hidden] { display: none !important; }
 .unit-tabs ~ .unit-sec .unit-sec-title { display: none; }
+@media (max-width: 420px) { .pf-tabs button { font-size: 12px; padding: 0 2px; } }
+
+/* v67.2 — easy to read and to tap: no text under 12px, no tap target under 40px */
+.game-status, .card-next-tag, .us-c, .trophy-how, .cd-count, .report-skill-avg, .lb-stat-label, .db-ppts, .db-kpi-label, .db-kpi-sub,
+.tech-info-label, .tech-info-value, .rig-btn, .pl-rec-n, .cu-chip, .cu-name, .desc-more, .ty-pane figcaption, .ty-privacy,
+.wu2-kick-chip, .wu2-quick, .wu2-media-tag, .wu2-ex-count, .wu2-timer-label, .hub-player small, .jr-title small, .pf-hero small,
+.screen small, .screen em, .db-msub { font-size: max(12px, .85em) !important; }
+.game-status, .card-next-tag, .us-c, .cd-count, .lb-stat-label, .db-kpi-label, .db-kpi-sub, .rig-btn, .cu-chip, .ty-pane figcaption,
+.wu2-media-tag, .wu2-ex-count, .db-ppts, .trophy-how { font-size: 12px !important; }
+.jr-board .jr-dot + b, .jr-board b, .jr-board small { font-size: max(12px, .78rem) !important; }
+.say-mini { width: 40px !important; height: 40px !important; min-width: 40px; }
+.say-fab { width: 44px !important; height: 44px !important; }
+.rig-btn, .phase-image-col.has-rig > .rig-controls-3d .rig-btn { min-height: 40px !important; }
+.ds-gift { min-height: 44px; min-width: 44px; }
+#dashboard-root [hidden] { display: none !important; }
+.db-mstatus, .db-mbar span, .db-mbar b, .jr-lbl, .ds-more, .dq-n, .daily-hint, .pf-tabs button { font-size: max(12px, 1em) !important; }
+.db-mstatus, .db-mbar span, .db-mbar b, .jr-lbl, .ds-more, .dq-n, .daily-hint { font-size: 12px !important; }
+.hub-player .hub-switch-icon { width: 44px !important; max-width: 44px !important; min-width: 44px !important; flex: 0 0 44px !important; align-self: center; margin: 0 !important; }
+.hub-player { flex-direction: row !important; flex-wrap: nowrap !important; align-items: center !important; } .hub-player .hub-player-txt { flex: 1 1 auto; min-width: 0; }
