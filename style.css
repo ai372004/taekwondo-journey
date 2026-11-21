@@ -6857,3 +6857,15 @@ details.jr-kick-info > p { margin-top: 8px; }
 .db-mstatus, .db-mbar span, .db-mbar b, .jr-lbl, .ds-more, .dq-n, .daily-hint { font-size: 12px !important; }
 .hub-player .hub-switch-icon { width: 44px !important; max-width: 44px !important; min-width: 44px !important; flex: 0 0 44px !important; align-self: center; margin: 0 !important; }
 .hub-player { flex-direction: row !important; flex-wrap: nowrap !important; align-items: center !important; } .hub-player .hub-player-txt { flex: 1 1 auto; min-width: 0; }
+
+/* v67.6 (the club): on a tablet or a computer the home, the games, «صفحتي» and «جرّب بنفسك» keep a
+   phone-like column (like the phone, which looked clear) instead of stretching across the screen; the
+   text stays a little larger there so it reads easily */
+@media (min-width: 700px) {
+  .home-hub { max-width: 560px; }
+  .home-hub .jr-board { max-width: 440px; }
+  #games-screen .game-container, #profile-screen .game-container, #try-screen .game-container,
+  #law-screen .game-container, #trophy-room-screen .game-container { max-width: 620px; margin-inline: auto; }
+  .home-hub, #games-screen .game-container, #profile-screen .game-container { font-size: 1.02rem; }
+  #tabbar, .tabbar { max-width: 560px; margin-inline: auto; }
+}
