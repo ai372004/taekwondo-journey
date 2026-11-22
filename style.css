@@ -6908,3 +6908,14 @@ details.jr-kick-info > p { margin-top: 8px; }
   .jr-map > * + * { margin-top: 6px; }
 
 }
+
+/* v67.8 — the final check: no text under 12px inside the games either, and bigger read-aloud buttons */
+.rival-chip, .rival-chip b, .ju-t b, .jr-num, .trophy-card p, .pl-stats span, .gc-test-tag, .cp-tag, .piece-label,
+.eh-chip, .eh-3d-hint, .eh-3d-part, .knee-angle-badge, .game-controls .btn, .game-controls .btn span,
+.hub-switch-icon span { font-size: max(12px, 1em) !important; }
+.rival-chip, .ju-t b, .jr-num, .trophy-card p, .pl-stats span, .gc-test-tag, .cp-tag, .piece-label, .eh-chip, .eh-3d-hint,
+.knee-angle-badge { font-size: 12px !important; }
+.eh-3d-part { font-size: 12.5px !important; }
+.game-controls .btn, .game-controls .btn span { font-size: 12.5px !important; }
+.speak-btn { min-width: 40px !important; min-height: 40px !important; }
+.tkd-diff button, .ag-practice button, .ag-surface-btn, .ag-surface-btn span { font-size: 12.5px !important; }

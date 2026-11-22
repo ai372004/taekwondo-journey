@@ -733,7 +733,7 @@ const Curriculum = (() => {
         I('sonnal-mok-chigi', 'strike', 'Sonnal Mok Chigi', '손날목치기', 'Knife-hand neck strike', 'ضربة حد اليد للرقبة', {
           points: [['Hit with the edge of the open hand', 'اضرب بحرف يدك وهي مفتوحة'], ['Palm faces up at the end', 'كف يدك إلى أعلى في النهاية']] }),
         I('dollyo-chagi', 'kick', 'Dollyeo Chagi', '돌려차기', 'Roundhouse kick', 'الركلة الدائرية', { skillId: 'bakchagi3', folder: 'bikchagi', video: 'assets/videos/bikchagi-tutorial.mp4', aka: P('In the game: Bik Chagi', 'في اللعبة: بيك تشاجي'),
-          points: [['Pivot the standing foot and turn the hip over', 'لف قدم الارتكاز ولف وسطك'], ['Hit with the instep (top of the foot)', 'اضرب بوش القدم']],
+          points: [['Pivot the standing foot and turn the hip over', 'لف قدم الارتكاز ولف وسطك'], ['Hit with the instep (top of the foot)', 'اضرب بوجه القدم']],
           mistakes: [['Kicking without turning the hip', 'أن تركل دون أن تلف وسطك']] }),
         I('bandal-chagi', 'kick', 'Bandal Chagi', '반달차기', 'Half-moon (crescent) kick', 'ركلة نصف القمر', {
           points: [['Halfway between front and roundhouse kick', 'بين الأمامية والدائرية'], ['Fast and short — great for sparring', 'سريعة وقصيرة — ممتازة في القتال']] }),
@@ -906,7 +906,7 @@ function watchVideoLoading(video) {
 // Arabic or English voice, degrees and ranges in words)
 // v63.4 — the version a tester can read on the start screen and in Coach → Settings (bump it
 // together with CACHE_VERSION in sw.js)
-const APP_VERSION = '67.7';
+const APP_VERSION = '67.8';
 
 const SpeechVoice = {
   KEY: 'taekwondoJourneyVoice',
@@ -2313,7 +2313,7 @@ class LearningSystem {
     bakchagi3: [
       { ar: 'القدم الضاربة خلفًا والقدم الحرة (الارتكاز) أمامًا.', en: 'The kicking leg behind and the free (standing) leg in front.' },
       { ar: 'ارفع ركبتك ولفّها، والقدم مطوية مستوية.', en: 'Knee up and turned over, leg folded level.' },
-      { ar: 'اضرب البطن بالبال دونج (وش القدم) وصوابعك ممدودة.', en: 'Hit the stomach with the instep, toes pointed.' },
+      { ar: 'اضرب البطن بالبال دونج (وجه القدم) وأصابعك ممدودة.', en: 'Hit the stomach with the instep, toes pointed.' },
       { ar: 'اطوي قدمك على طول بعد الضربة.', en: 'Fold the leg straight back.' },
       { ar: 'انزل بالراحة، وإيديك فوق.', en: 'Land softly, hands up.' }
     ]
@@ -3078,11 +3078,11 @@ class FormControlSystem {
     const F = { ball: ['كلوة القدم', 'ball'], instep: ['وجه القدم', 'instep'] }[surf] || ['الكعب', 'heel'];
     const hand = (isLeft) => (isLeft !== mirror) ? ['اليد اليسرى', 'L hand'] : ['اليد اليمنى', 'R hand'];
     const N = {
-      knee: [`ركبة ${K[0]}`, `${K[1]} knee`],
+      knee: [`الركبة ${K[0]}`, `${K[1]} knee`],
       foot: [`${F[0]} ${K[0]}`, `${K[1]} ${F[1]}`],
       guard: ['اليدان', 'fists'],
       'hand-left': hand(true), 'hand-right': hand(false),
-      pivot: [`قدم ${S[0]}`, `${S[1]} foot`]
+      pivot: [`القدم ${S[0]}`, `${S[1]} foot`]
     }[part];
     return N ? N[ar ? 0 : 1] : '';
   }
@@ -6180,7 +6180,7 @@ class QuizBlastSystem {
         w: [['نارو تشاجي', 'Naeryeo Chagi'], ['أب أوليو تشاجي', 'Ap Ollyeo Chagi'], ['دوليو تشاجي', 'Dollyeo Chagi']] },
       { q: ['تُوجَّه الركلة الأمامية المستقيمة إلى المنافس بـ:', 'The straight front kick is delivered to the opponent with the:'],
         a: ['قاعدة الأصابع (كلوة القدم)', 'Ball of the foot'],
-        w: [['الكعب', 'Heel'], ['باطن القدم', 'Sole of the foot'], ['وش القدم', 'Instep']] },
+        w: [['الكعب', 'Heel'], ['باطن القدم', 'Sole of the foot'], ['وجه القدم', 'Instep']] },
       { q: ['أيّ هذه الحركات تتكرر في بداية ركلة أب تشاجي ونهايتها؟', 'Which movement is repeated in both the preparatory and the final phase of Ap Chagi?'],
         a: ['ثني ركبة القدم الضاربة', 'Bending the kicking-leg knee'],
         w: [['ثني ركبة قدم الارتكاز', 'Bending the standing-foot knee'], ['فرد ركبة قدم الارتكاز', 'Straightening the standing-foot knee'], ['فرد ركبة القدم الضاربة', 'Straightening the kicking-leg knee']] },
@@ -6223,7 +6223,7 @@ class QuizBlastSystem {
         w: [['أب تشاجي', 'Ap Chagi'], ['أب أوليو تشاجي', 'Ap Ollyeo Chagi'], ['دوليو تشاجي', 'Dollyeo Chagi']] },
       { q: ['بأيّ جزء من القدم تُؤدّى ضربة نارو تشاجي؟', 'Which part of the foot lands the strike in Naeryeo Chagi?'],
         a: ['الكعب', 'The heel'],
-        w: [['قاعدة الأصابع (كلوة القدم)', 'Ball of the foot'], ['أصابع القدم', 'Toes'], ['وش القدم', 'Instep']] },
+        w: [['قاعدة الأصابع (كلوة القدم)', 'Ball of the foot'], ['أصابع القدم', 'Toes'], ['وجه القدم', 'Instep']] },
       { q: ['ما الهدف الأساسي لركلة نارو تشاجي؟', 'What is the main target of Naeryeo Chagi?'],
         a: ['الرأس والوجه', 'The head and the face'],
         w: [['الركبة', 'Knee'], ['البطن', 'Abdomen'], ['القدم', 'Foot']] },
@@ -6253,7 +6253,7 @@ class QuizBlastSystem {
         a: ['بيك تشاجي', 'Bik Chagi'],
         w: [['أب تشاجي', 'Ap Chagi'], ['نارو تشاجي', 'Naeryeo Chagi'], ['دوي تشاجي', 'Dwi Chagi']] },
       { q: ['بأيّ جزء من القدم تُؤدّى ضربة بيك تشاجي؟', 'Which part of the foot strikes in Bik Chagi?'],
-        a: ['وش القدم (ظهر القدم)', 'Instep (top of the foot)'],
+        a: ['وجه القدم (ظهر القدم)', 'Instep (top of the foot)'],
         w: [['قاعدة الأصابع (كلوة القدم)', 'Ball of the foot'], ['الكعب', 'Heel'], ['أصابع القدم', 'Toes']] },
       { q: ['ما الهدف الأساسي لركلة بيك تشاجي؟', 'What are the main targets of Bik Chagi?'],
         a: ['البطن', 'The stomach'],
@@ -10615,7 +10615,7 @@ class BoardBreakGame extends ArenaGameBase {
     sole:   { en: 'Sole of the foot', ar: 'باطن القدم' },
     heel:   { en: 'Heel', ar: 'الكعب' },
     ball:   { en: 'Ball of the foot', ar: 'قاعدة الأصابع (كلوة القدم)' },
-    instep: { en: 'Top of the foot (instep)', ar: 'وش القدم' }
+    instep: { en: 'Top of the foot (instep)', ar: 'وجه القدم' }
   };
   // full = 1, partial = 0.6
   static SURFACE_OK = {
@@ -10626,7 +10626,7 @@ class BoardBreakGame extends ArenaGameBase {
   static SURFACE_WHY = {
     apchagi:   { en: 'Ap Chagi strikes with the ball of the foot — toes pulled back.', ar: 'تُوجَّه أب تشاجي بقاعدة الأصابع (كلوة القدم)، مع سحب الأصابع للخلف.' },
     narochagi: { en: 'Naeryeo Chagi brings the heel or the sole straight down onto the target.', ar: 'تُنزِل نارو تشاجي الكعب أو باطن القدم مباشرةً على الهدف.' },
-    bakchagi3: { en: 'Bik Chagi lands with the instep (the top of the foot).', ar: 'تُوجَّه بيك تشاجي بوش القدم (ظهر القدم من أعلى).' }
+    bakchagi3: { en: 'Bik Chagi lands with the instep (the top of the foot).', ar: 'تُوجَّه بيك تشاجي بوجه القدم (ظهر القدم من أعلى).' }
   };
 
   static setupUI() {
@@ -20448,7 +20448,7 @@ const Stickers = {
     ['naeryeo', '🪓', '내려차기', 'Naeryeo Chagi', 'Axe kick (from above)', 'الركلة النازلة من أعلى'],
     ['yeop', '🌀', '돌려차기', 'Dollyeo Chagi', 'Roundhouse kick', 'الركلة الدائرية'],
     ['apchuk', '👣', '앞축', 'Ap-chuk', 'Ball of the foot', 'قاعدة الأصابع (كلوة القدم)'],
-    ['baldeung', '🦵', '발등', 'Bal-deung', 'Instep (top of the foot)', 'وش القدم'],
+    ['baldeung', '🦵', '발등', 'Bal-deung', 'Instep (top of the foot)', 'وجه القدم'],
     ['dwikkumchi', '🦶', '뒤꿈치', 'Dwi-kkumchi', 'Heel', 'الكعب'],
     ['eolgul', '🙂', '얼굴', 'Eolgul', 'Face level (high)', 'مستوى الوجه (أعلى)'],
     ['momtong', '👕', '몸통', 'Momtong', 'Body level (middle)', 'مستوى الجسم (الوسط)'],
