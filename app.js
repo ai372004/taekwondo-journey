@@ -906,7 +906,7 @@ function watchVideoLoading(video) {
 // Arabic or English voice, degrees and ranges in words)
 // v63.4 — the version a tester can read on the start screen and in Coach → Settings (bump it
 // together with CACHE_VERSION in sw.js)
-const APP_VERSION = '67.8';
+const APP_VERSION = '68';
 
 const SpeechVoice = {
   KEY: 'taekwondoJourneyVoice',
@@ -16947,7 +16947,7 @@ const Profile = {
   },
 
   // ------------------------------------------------------------ open / render
-  open(pid) { this.pid = pid || PlayerSystem.getCurrentPlayerId(); this.month = 0; this.showAllTimeline = false; this.tab = 'me'; switchScreen('profile'); },
+  open(pid) { this.pid = pid || PlayerSystem.getCurrentPlayerId(); this.month = 0; this.showAllTimeline = false; this.showAllRank = false; this.tab = 'me'; switchScreen('profile'); },
   init() { if (!this.pid || !PlayerSystem.getPlayers().find(p => p.id === this.pid)) this.pid = PlayerSystem.getCurrentPlayerId() || PlayerSystem.getPlayers()[0]?.id; this.render(); },
   render() {
     const root = TKD.$('profile-root'); if (!root) return;
@@ -16956,34 +16956,80 @@ const Profile = {
     const achs = this.achievements(c), trophies = this.trophies(c), lv = this.level(achs, trophies);
     const me = c.p.id === PlayerSystem.getCurrentPlayerId();
     const medals = [0, 1, 2].map(i => achs.filter(a => a.tier > i).length);
-    const recs = this.records(c);
-    // v55: one long page became three short tabs — me · my achievements · my calendar
-    const tab = ['me', 'prog', 'ach', 'cal'].includes(this.tab) ? this.tab : 'me';
-    const tabs = [['me', '🧑', TKD.t('Me', 'أنا')], ['prog', '📈', TKD.t('My week', 'أسبوعي')], ['ach', '🏅', TKD.t('Achievements', 'إنجازاتي')], ['cal', '🗓️', TKD.t('Calendar', 'تقويمي')]];
-    const got = trophies.filter(t => t.ok).length;
-    const body = {
-      // v67.2: the week's numbers and the family reports have their own tab (less on «me»)
-      prog: () => `${this.compareHTML(c)}`,
-      me: () => `
-      ${(() => { const w = window.Review ? Review.weakest(c.p.id, 3) : []; return w.length ? `<section class="pf-sec pf-review"><h3>🧠 ${TKD.t('Worth reviewing', 'يحتاج إلى مراجعة')}</h3><ul>${w.map(x => `<li>${TKD.esc(Review.label(x))}</li>`).join('')}</ul></section>` : ''; })()}
-      <section class="pf-sec"><h3>🥋 ${TKD.t('Kicks', 'الركلات')}</h3>${window.DashboardSystem ? DashboardSystem.masteryHTML(c.p.id) : ''}</section>`,
-      ach: () => `<section class="pf-sec pf-troph-sum"><h3>🏆 ${TKD.t('Trophies', 'الكؤوس')} <small>${TKD.num(got)} / ${TKD.num(trophies.length)}</small></h3>
-        <div class="pf-troph-row">${trophies.filter(t => t.ok).map(t => `<span title="${TKD.esc(TKD.ar ? t.name.ar : t.name.en)}">${t.icon}</span>`).join('') || `<small>${TKD.t('No trophies yet — they are waiting for you!', 'لا توجد كؤوس بعد — إنها في انتظارك!')}</small>`}</div>
-        ${me ? `<button type="button" class="btn btn-small" id="pf-trophy-room">🏆 ${TKD.t('Open the trophy room', 'افتح خزانة الكؤوس')}</button>` : ''}</section>
-      <section class="pf-sec"><h3>🏅 ${TKD.t('Achievements', 'الإنجازات')} <small>${TKD.t(`${medals[0]} bronze – ${medals[1]} silver – ${medals[2]} gold`, `${TKD.num(medals[0])} برونزي – ${TKD.num(medals[1])} فضي – ${TKD.num(medals[2])} ذهبي`)}</small></h3>
-        <div class="pf-ach">${achs.map(a => this.achHTML(a)).join('')}</div></section>
-      <section class="pf-sec"><h3>📊 ${TKD.t('Personal records', 'أرقامي القياسية')}</h3>
-        <div class="pf-recs">${recs.map(r => `<div class="pf-rec ${r.v === null ? 'empty' : ''}"><span class="pf-rec-i">${r.icon}</span><span class="pf-rec-l">${r.label}</span><b>${r.text}</b>${r.ts ? `<small>${new Date(r.ts).toLocaleDateString(TKD.ar ? 'ar-EG' : 'en-GB', { day: 'numeric', month: 'short' })}</small>` : ''}</div>`).join('')}</div></section>`,
-      cal: () => `<section class="pf-sec">${this.calendarHTML(c)}</section>
-      <section class="pf-sec">${this.timelineHTML(c)}</section>`
-    };
+    // v68 (the testers): «صفحتي» is two things a child understands at a glance — where they stand among
+    // their friends (⭐ stars) and how far they got in every kick. The week, the achievements, the
+    // records and the calendar are not shown any more (their code stays; the coach sees the numbers).
     root.innerHTML = `
       ${this.heroHTML(c, lv, medals, trophies, me)}
-      <div class="pf-tabs" role="tablist">${tabs.map(([id, ic, label]) => `<button type="button" role="tab" aria-selected="${id === tab}" class="${id === tab ? 'on' : ''}" data-pf-tab="${id}">${ic} ${label}</button>`).join('')}</div>
-      <div class="pf-tabbody" role="tabpanel">${body[tab]()}</div>`;
+      ${this.rankHTML(c)}
+      <section class="pf-sec"><h3>🥋 ${me ? TKD.t('My kicks', 'مستواي في الركلات') : TKD.t('Kicks', 'المستوى في الركلات')}</h3>
+        <div class="pf-kicks">${GameConfig.SKILL_ORDER.map(sk => this.kickHTML(c, sk)).join('')}${this.lawHTML(c)}</div></section>`;
     this.bind(root, c, achs, trophies, lv, medals);
-    root.querySelectorAll('[data-pf-tab]').forEach(b => b.addEventListener('click', () => { this.tab = b.dataset.pfTab; TKD.gs()?.playSound('click'); this.render(); }));
-    TKD.$('pf-trophy-room')?.addEventListener('click', () => switchScreen('trophy-room'));
+    root.querySelectorAll('[data-rank-pid]').forEach(b => b.addEventListener('click', () => { if (b.dataset.rankPid === this.pid) return; TKD.gs()?.playSound('click'); this.pid = b.dataset.rankPid; this.showAllRank = false; this.render(); window.scrollTo(0, 0); }));
+    TKD.$('pf-rank-all')?.addEventListener('click', () => { this.showAllRank = true; TKD.gs()?.playSound('click'); this.render(); });
+  },
+  // ⭐ the stars a player has: the lesson (3) + every game of the road (0–3 each, like on the map) + the rules of sparring
+  starsOf(pid, save) {
+    save = save || TKD.read(GameState.storageKey(pid), null) || PlayerSystem.rebuildState(pid) || {};
+    let n = 0;
+    GameConfig.SKILL_ORDER.forEach(sk => {
+      const s = save.skillGameScores?.[sk] || {};
+      if ((s.learning || 0) > 0) n += 3;
+      Units.all(sk).forEach(g => { n += Journey.starsFor(s[Units.keyOf(g)] || 0); });
+    });
+    return n + (window.Law ? Law.progFor(pid).reduce((a, b) => a + b, 0) : 0);
+  },
+  rankHTML(c) {
+    const players = PlayerSystem.getPlayers();
+    const rows = players.map(p => ({ p, stars: this.starsOf(p.id, p.id === c.p.id ? c.save : null) })).sort((a, b) => b.stars - a.stars || String(a.p.name).localeCompare(String(b.p.name), 'ar'));
+    rows.forEach(r => { r.pos = 1 + rows.filter(x => x.stars > r.stars).length; });   // equal stars → the same place
+    const meId = PlayerSystem.getCurrentPlayerId(), mine = rows.find(r => r.p.id === c.p.id);
+    const pos = (n) => n <= 3 ? ['🥇', '🥈', '🥉'][n - 1] : TKD.num(n);
+    if (rows.length < 2) {
+      return `<section class="pf-sec pf-rank"><h3>🏆 ${TKD.t('My place', 'ترتيبي')}</h3>
+        <p class="pf-rank-big">⭐ ${TKD.num(mine?.stars || 0)} <small>${TKD.t('stars', 'نجمة')}</small></p>
+        <p class="pf-rank-hint">${TKD.t('When your friends play on this device, you will see your place among them here.', 'عندما يلعب زملاؤك على هذا الجهاز سترى ترتيبك بينهم هنا.')}</p></section>`;
+    }
+    const LIMIT = 5;
+    let list = this.showAllRank ? rows : rows.slice(0, LIMIT);
+    if (!list.includes(mine)) list = list.concat(mine);
+    const row = r => `<li><button type="button" class="pf-rank-row ${r.p.id === c.p.id ? 'me' : ''}" data-rank-pid="${r.p.id}">
+        <span class="pf-rank-pos">${pos(r.pos)}</span>${TKD.avatar(r.p)}<span class="pf-rank-name">${TKD.esc(r.p.name)}${r.p.id === meId ? ` <em>${TKD.t('(you)', '(أنت)')}</em>` : ''}</span>
+        <span class="pf-rank-stars">⭐ ${TKD.num(r.stars)}</span></button></li>`;
+    return `<section class="pf-sec pf-rank"><h3>🏆 ${c.p.id === meId ? TKD.t('My place', 'ترتيبي') : TKD.t('Place', 'الترتيب')}</h3>
+      <p class="pf-rank-big">${TKD.t(`Place ${mine.pos} of ${rows.length}`, `المركز ${TKD.num(mine.pos)} من ${TKD.num(rows.length)}`)}</p>
+      <ol class="pf-rank-list">${list.map(row).join('')}</ol>
+      ${!this.showAllRank && rows.length > LIMIT ? `<button type="button" class="btn btn-small" id="pf-rank-all">${TKD.t(`Show everyone (${rows.length})`, `اعرض الجميع (${TKD.num(rows.length)})`)}</button>` : ''}
+      <p class="pf-rank-hint">${TKD.t('Every game gives up to 3 ⭐ — more stars, higher place.', 'كل لعبة تعطيك حتى ٣ ⭐ — نجوم أكثر يعني مركزًا أعلى.')}</p></section>`;
+  },
+  kickHTML(c, sk) {
+    const save = c.save || {}, s = save.skillGameScores?.[sk] || {};
+    const games = Units.all(sk), passed = games.filter(g => Units.passed(s, g)).length;
+    const learnt = (s.learning || 0) > 0, test = GameState.quizPassed(s);
+    const done = (save.completedSkills || []).includes(sk), open = done || (save.unlockedSkills || ['apchagi']).includes(sk);
+    const pct = done ? 100 : Math.round(100 * ((learnt ? 1 : 0) + passed) / (1 + games.length));
+    const stars = (learnt ? 3 : 0) + games.reduce((a, g) => a + Journey.starsFor(s[Units.keyOf(g)] || 0), 0);
+    const col = window.DashboardSystem?.SKILL_COLORS?.[sk] || '#ff6b35';
+    const me = c.p.id === PlayerSystem.getCurrentPlayerId();
+    const status = done ? `🏆 ${TKD.t('Done', me ? 'أتممتها' : 'أتمّها')}` : !open ? `🔒 ${TKD.t('Locked', 'مقفولة')}` : pct > 0 ? `💪 ${TKD.t('Learning it', me ? 'تتعلّمها الآن' : 'يتعلّمها الآن')}` : TKD.t('Not started', me ? 'لم تبدأ بعد' : 'لم يبدأ بعد');
+    const tick = (ok, ic, label) => `<span class="pf-kick-chip ${ok ? 'ok' : ''}">${ic} ${label} ${ok ? '✓' : ''}</span>`;
+    const tryBest = (TKD.read(`taekwondoJourneyTryIt:${c.p.id || 'guest'}`, {}) || {})[sk];
+    return `<div class="pf-kick ${done ? 'done' : ''} ${!open ? 'locked' : ''}" style="--kc:${col}">
+      <div class="pf-kick-top"><b>${TKD.esc(TKD.skillName(sk))}</b><span class="pf-kick-st">${status}</span></div>
+      <div class="pf-kick-bar" role="img" aria-label="${TKD.esc(TKD.skillName(sk))} ${pct}%"><i style="width:${pct}%"></i><span>${TKD.num(pct)}%</span></div>
+      <div class="pf-kick-chips">${tick(learnt, '🎓', TKD.t('Lesson', 'الدرس'))}
+        <span class="pf-kick-chip ${passed === games.length ? 'ok' : ''}">🎮 ${TKD.t('Games', 'الألعاب')} ${TKD.num(passed)} / ${TKD.num(games.length)}</span>
+        ${tick(test, '📝', TKD.t('Test', 'الاختبار'))}
+        <span class="pf-kick-chip">⭐ ${TKD.num(stars)}</span>
+        ${tryBest ? `<span class="pf-kick-chip">🎥 ${TKD.num(Math.round(tryBest))}</span>` : ''}</div></div>`;
+  },
+  lawHTML(c) {
+    if (!window.Law) return '';
+    const P = Law.progFor(c.p.id), stars = P.reduce((a, b) => a + b, 0), lv = P.filter(x => x >= 5).length, pct = Math.round(100 * stars / 30);
+    return `<div class="pf-kick law" style="--kc:#79aef0">
+      <div class="pf-kick-top"><b>⚖️ ${TKD.t('Rules of sparring', 'قانون النزال')}</b><span class="pf-kick-st">${lv >= 6 ? `🏆 ${TKD.t('Done', c.p.id === PlayerSystem.getCurrentPlayerId() ? 'أتممته' : 'أتمّه')}` : `${TKD.num(lv)} / ${TKD.num(6)} ${TKD.t('levels', 'مستويات')}`}</span></div>
+      <div class="pf-kick-bar"><i style="width:${pct}%"></i><span>${TKD.num(pct)}%</span></div>
+      <div class="pf-kick-chips"><span class="pf-kick-chip">⭐ ${TKD.num(stars)} / ${TKD.num(30)}</span></div></div>`;
   },
   heroHTML(c, lv, medals, trophies, me) {
     const belt = c.belt;
@@ -16992,19 +17038,11 @@ const Profile = {
       <div class="pf-hero-main">
         <h2>${TKD.esc(c.p.name)}${me ? ` <em>${TKD.t('(you)', '(أنت)')}</em>` : ''}</h2>
         <div class="pf-tags">
-          <span class="pf-belt"><i style="background:${belt.color};border-color:${belt.accent}">${'<b></b>'.repeat(belt.stripes)}</i>${TKD.esc(TKD.ar ? belt.name.ar : belt.name.en)}</span></div>
-        <div class="pf-xp"><span>${TKD.t(`Level ${lv.level}`, `المستوى ${TKD.num(lv.level)}`)}</span><div class="pf-xp-bar"><i style="width:${(lv.into / 3) * 100}%"></i></div><small>${TKD.t(`${3 - lv.into} more medals to level ${lv.level + 1}`, `تبقّى ${TKD.count(3 - lv.into, 'medal', 'ar')} للمستوى ${TKD.num(lv.level + 1)}`)}</small></div>
-      </div>
-      <div class="pf-tiles">
-        <div><b>🔥 ${TKD.num(c.weekStreak)}</b><small>${TKD.t('weeks in a row', 'أسبوع متتالٍ')}</small></div>
-        <div><b>${TKD.num(League.pointsFor(c.p.id).total)}</b><small>${TKD.t('pts this week', 'نقطة هذا الأسبوع')}</small></div>
-        <div><b>🥇 ${TKD.num(medals[2])}</b><small>${TKD.t('gold medals', 'ميدالية ذهبية')}</small></div>
-        <div><b>🏆 ${TKD.num(trophies.filter(t => t.ok).length)}</b><small>${TKD.t('trophies', 'كأس')}</small></div>
+          <span class="pf-belt"><i style="background:${belt.color};border-color:${belt.accent}">${'<b></b>'.repeat(belt.stripes)}</i>${TKD.esc(TKD.ar ? belt.name.ar : belt.name.en)}</span><span class="pf-lvl-chip">${TKD.t(`Level ${lv.level}`, `المستوى ${TKD.num(lv.level)}`)}</span></div>
       </div>
       <div class="pf-hero-btns">
-        <button type="button" class="btn btn-success btn-small" id="pf-share">🖼️ ${TKD.t('Save my card', 'احفظ بطاقتي')}</button>
-        ${!me ? `<button type="button" class="btn btn-small" id="pf-duel">⚔️ ${TKD.t('Challenge', 'تحدَّه')}</button>` : ''}
-        <button type="button" class="btn btn-small" id="pf-all">👥 ${TKD.t('All players', 'كل اللاعبين')}</button>
+        ${me ? `<button type="button" class="btn btn-success btn-small" id="pf-share">🖼️ ${TKD.t('Save my card', 'احفظ بطاقتي')}</button>`
+          : `<button type="button" class="btn btn-small" id="pf-duel">⚔️ ${TKD.t('Challenge', 'تحدَّه')}</button>`}
       </div></section>`;
   },
   compareHTML(c) {
@@ -17750,7 +17788,7 @@ const Journey = {
       const done = Units.done(sco, U.n, skillId), open = Units.open(sco, U.n, skillId), [d, t] = Units.count(sco, U.n, skillId);
       const state = done ? 'done' : open ? 'open' : 'locked';
       return `<li class="jr-unit is-${state}${U.n === u ? ' is-view' : ''}${U.n === curU && !done ? ' is-cur' : ''}"><button type="button" class="jr-unit-btn" data-unit="${U.n}" aria-pressed="${U.n === u}"${open ? '' : ' aria-disabled="true"'}>
-        <span class="ju-n">${done ? '✓' : open ? TKD.num(U.n) : '🔒'}</span><span class="ju-t"><b>${U.icon} ${TKD.esc(TKD.t(U.en, U.ar))}</b><small>${TKD.num(d)}/${TKD.num(t)}</small></span></button></li>`;
+        <span class="ju-n">${done ? '✓' : open ? TKD.num(U.n) : '🔒'}</span><span class="ju-t"><b><i class="ju-ic" aria-hidden="true">${U.icon} </i>${TKD.esc(TKD.t(U.en, U.ar))}</b><small>${TKD.num(d)}/${TKD.num(t)}</small></span></button></li>`;
     }).join('');
     const nextU = u < 3 ? Units.get(u + 1) : null, nextUOpen = nextU && Units.open(sco, u + 1, skillId);
     return `<section class="jr jr-map" aria-label="${TKD.t('My journey', 'رحلتي')}" data-skill="${skillId}" data-unit="${u}">
@@ -21025,13 +21063,13 @@ window.Certificate = Certificate;
     const r = pr(...a);
     try {
       const root = TKD.$('profile-root'), gs = TKD.gs();
-      if (!root || !gs || Profile.pid !== PlayerSystem.getCurrentPlayerId() || Profile.tab !== 'prog') return r;
+      if (!root || !gs || Profile.pid !== PlayerSystem.getCurrentPlayerId()) return r;   // v68: one page (no tabs) — this sits at its bottom
       const done = GameConfig.SKILL_ORDER.filter(sk => gs.completedSkills?.has(sk));
       const sec = document.createElement('section'); sec.className = 'pf-sec pf-share';
       sec.innerHTML = `<h3>📤 ${TKD.t('For the family', 'لأولياء الأمور')}</h3><div class="pf-share-row">
         <button type="button" class="btn btn-success" data-share="week">📊 ${TKD.t("This week's report", 'تقرير الأسبوع')}</button>
         ${done.map(sk => `<button type="button" class="btn" data-cert="${sk}">🎓 ${TKD.t(`${TKD.skillName(sk)} certificate`, `شهادة ${TKD.skillName(sk)}`)}</button>`).join('')}</div>`;
-      (root.querySelector('.pf-tabbody') || root).prepend(sec);
+      root.appendChild(sec);
       sec.addEventListener('click', (e) => {
         const b = e.target.closest('button'); if (!b) return; gs.playSound('click');
         if (b.dataset.share) ParentReport.open(); else if (b.dataset.cert) Certificate.open(b.dataset.cert);
@@ -21386,8 +21424,10 @@ document.addEventListener('tkd:lang', () => { if (document.querySelector('#law-s
   const btn = () => `<button type="button" class="law-entry" data-law-open><span class="ld-ic">⚖️</span><span><b>${TKD.t('The rules of sparring', 'قانون النزال')}</b><small>${TKD.t('Cards + the Little Referee', 'البطاقات + الحكم الصغير')}</small></span><span aria-hidden="true">${TKD.ar ? '←' : '→'}</span></button>`;
   const put = (host, after) => { if (!host || host.querySelector('[data-law-open]')) return; const w = document.createElement('div'); w.className = 'law-entry-wrap'; w.innerHTML = btn(); (after ? after.after(w) : host.appendChild(w)); w.querySelector('button').addEventListener('click', () => { TKD.gs()?.playSound('click'); switchScreen('law'); }); };
   // v65.6 (the testers): not under the map any more (too crowded) — in the Play tab and under the games only
+  // v68 (the testers): one way in only — the «العب» tab; the games screen is the games and nothing else
+  const UNDER_GAMES = false;
   document.addEventListener('tkd:screen', (e) => {
-    if (e.detail?.screenId !== 'games') return;
+    if (!UNDER_GAMES || e.detail?.screenId !== 'games') return;
     setTimeout(() => { const gc = document.querySelector('#games-screen .game-container'); const last = gc && [...gc.querySelectorAll('.unit-sec[data-unit]')].pop(); put(gc, last); }, 60);
   });
 })();
@@ -21397,8 +21437,10 @@ document.addEventListener('tkd:lang', () => { if (document.querySelector('#law-s
   const btn = () => `<button type="button" class="law-entry try-entry" data-try-open><span class="ld-ic">🎥</span><span><b>${TKD.t('Try it yourself', 'جرّب بنفسك')}</b><small>${TKD.t('Kick in front of the camera and get a score', 'اركل أمام الكاميرا واحصل على درجة')}</small></span><span aria-hidden="true">${TKD.ar ? '←' : '→'}</span></button>`;
   const put = (host, after) => { if (!host || host.querySelector('[data-try-open]')) return; const w = document.createElement('div'); w.className = 'law-entry-wrap'; w.innerHTML = btn(); (after ? after.after(w) : host.appendChild(w)); w.querySelector('button').addEventListener('click', () => { TKD.gs()?.playSound('click'); switchScreen('try'); }); };
   // v65.6 (the testers): not under the map any more (too crowded) — in the Play tab and under the games only
+  // v68 (the testers): one way in only — the «العب» tab; the games screen is the games and nothing else
+  const UNDER_GAMES = false;
   document.addEventListener('tkd:screen', (e) => {
-    if (e.detail?.screenId !== 'games') return;
+    if (!UNDER_GAMES || e.detail?.screenId !== 'games') return;
     setTimeout(() => { const gc = document.querySelector('#games-screen .game-container'); const last = gc && [...gc.querySelectorAll('.unit-sec[data-unit]')].pop(); put(gc, last); }, 50);
   });
 })();

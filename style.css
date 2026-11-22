@@ -6919,3 +6919,48 @@ details.jr-kick-info > p { margin-top: 8px; }
 .game-controls .btn, .game-controls .btn span { font-size: 12.5px !important; }
 .speak-btn { min-width: 40px !important; min-height: 40px !important; }
 .tkd-diff button, .ag-practice button, .ag-surface-btn, .ag-surface-btn span { font-size: 12.5px !important; }
+
+/* v68 — «صفحتي» is two things: my place among my friends (⭐) and my level in every kick */
+.pf-hero .pf-tags { margin-bottom: 0; }
+.pf-hero .pf-hero-btns:empty { display: none; }
+.pf-lvl-chip { color: #ffd166; }
+.pf-rank-big { margin: 0 0 10px; font-size: 1.35rem; font-weight: 900; color: #ffd166; }
+.pf-rank-big small { font-size: .95rem; color: var(--tkd-ink-2); font-weight: 700; }
+.pf-rank-hint { margin: 10px 0 0; color: var(--tkd-ink-2); font-size: .9rem; line-height: 1.5; }
+.pf-rank-list { list-style: none; margin: 0 0 10px; padding: 0; display: grid; gap: 6px; }
+.pf-rank-row { width: 100%; min-height: 52px; display: flex; align-items: center; gap: 10px; padding: 6px 12px; border-radius: 14px;
+  border: 1px solid var(--tkd-line); background: rgba(0,0,0,.22); color: var(--text-white, #fff); font: inherit; text-align: start; cursor: pointer; }
+.pf-rank-row.me { border-color: #ffd166; background: rgba(255, 209, 102, .14); }
+.pf-rank-pos { min-width: 30px; text-align: center; font-weight: 900; font-size: 1.15rem; }
+.pf-rank-row .tkd-avatar, .pf-rank-row img { width: 36px; height: 36px; flex: none; }
+.pf-rank-name { flex: 1 1 auto; min-width: 0; font-weight: 800; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pf-rank-name em { font-style: normal; font-weight: 600; color: var(--tkd-ink-3); font-size: .85em; }
+.pf-rank-stars { flex: none; font-weight: 900; color: #ffd166; }
+.pf-kicks { display: grid; gap: 10px; }
+.pf-kick { border-radius: 16px; padding: 12px 14px; background: rgba(0,0,0,.22); border: 1px solid var(--tkd-line); border-inline-start: 5px solid var(--kc); }
+.pf-kick.locked { opacity: .7; }
+.pf-kick.done { background: rgba(255, 209, 102, .10); }
+.pf-kick-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+.pf-kick-top b { font-size: 1.1rem; }
+.pf-kick-st { font-size: .9rem; font-weight: 800; color: var(--tkd-ink-2); white-space: nowrap; }
+.pf-kick.done .pf-kick-st { color: #ffd166; }
+.pf-kick-bar { position: relative; height: 22px; border-radius: 999px; background: rgba(255,255,255,.10); overflow: hidden; }
+.pf-kick-bar i { position: absolute; inset-block: 0; inset-inline-start: 0; background: var(--kc); border-radius: 999px; }
+.pf-kick-bar span { position: relative; display: block; text-align: center; line-height: 22px; font-size: 12.5px; font-weight: 900; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.6); }
+.pf-kick-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.pf-kick-chip { font-size: 12.5px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,.08); color: var(--tkd-ink-2); }
+.pf-kick-chip.ok { background: rgba(46, 204, 113, .18); color: #b8f5cf; }
+.pf-share h3 { font-size: 1rem; }
+/* v68: the three unit buttons above the map always fit the screen (the third one was cut off on phones) */
+.jr-units { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+.jr-unit, .jr-unit-btn { min-width: 0; }
+.jr-unit .ju-ic { font-style: normal; }
+/* on a phone the name may take two lines; the small step count goes (the stations on the map show it) */
+@media (max-width: 480px) {
+  .jr-unit .ju-ic, .jr-unit .ju-t small { display: none; }
+  .jr-unit-btn { padding-inline: 6px !important; }
+  .jr-unit .ju-t b { white-space: normal; overflow: visible; line-height: 1.15; }
+}
+/* v68: the rhythm pads' names are not under 12px either (they may take two lines) */
+.rh-pad-name { font-size: max(12px, .72rem) !important; }
+@media (max-width: 340px) { .rh-pad-name { font-size: 11px !important; } }   /* the oldest small phones: whole words, not cut ones */
