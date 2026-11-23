@@ -6964,3 +6964,34 @@ details.jr-kick-info > p { margin-top: 8px; }
 /* v68: the rhythm pads' names are not under 12px either (they may take two lines) */
 .rh-pad-name { font-size: max(12px, .72rem) !important; }
 @media (max-width: 340px) { .rh-pad-name { font-size: 11px !important; } }   /* the oldest small phones: whole words, not cut ones */
+
+/* v68 — a brand-new child sees the title, the big button and the road only; the kick buttons, the unit
+   buttons and today's missions appear after the first lesson (a short tour shows them then) */
+.jr-map.jr-fresh .jr-kicks-top, .jr-map.jr-fresh .jr-units, .jr-map.jr-fresh .daily-fold { display: none !important; }
+
+/* v68 — short phones (iPhone SE/8 375×667, many Androids 360×740): the whole home fits above the tab bar.
+   Less empty space, slimmer bars and a smaller map (it keeps its shape — the stations do not overlap). */
+@media (max-width: 760px) and (max-height: 800px) {
+  .header { padding-block: 4px !important; }
+  .header .logo { height: 40px; }
+  #home-screen { padding-top: 4px !important; }
+  #home-screen .game-container { padding-top: 2px !important; }
+  #home-screen .home-hub { gap: 6px !important; }
+  .hub-player { min-height: 0 !important; padding-block: 2px !important; }
+  #home-screen .jr-map { padding-block: 8px !important; }
+  #home-screen .jr-head { margin-bottom: 6px; }
+  #home-screen .jr-stars { min-height: 38px; padding-block: 4px; }
+  #home-screen .jr-kicks-top { margin: 2px 0 6px; }
+  #home-screen .jr-kick-info { margin: 4px 0 6px; padding-block: 6px; }
+  #home-screen .jr-units { margin: 4px 0 !important; }
+  #home-screen .jr-unit-btn { min-height: 40px !important; padding-block: 2px !important; }
+  #home-screen .jr-go { min-height: 46px !important; padding-block: 4px !important; margin-bottom: 4px; }
+  #home-screen .jr-go-ico { font-size: 1.6rem; }
+  #home-screen .jr-board { max-width: 262px !important; margin-top: 0; }
+  #home-screen .daily-fold { margin: 6px 0 0; }
+  #home-screen .daily-fold > summary { min-height: 40px; padding-block: 2px; }
+}
+@media (max-width: 760px) and (max-height: 700px) {
+  /* the shortest phones only: the kick's one-line description (it is in the lesson too) makes room for the map */
+  #home-screen .jr-kick-info { display: none; }
+}

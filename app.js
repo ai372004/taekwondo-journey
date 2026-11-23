@@ -906,7 +906,7 @@ function watchVideoLoading(video) {
 // Arabic or English voice, degrees and ranges in words)
 // v63.4 — the version a tester can read on the start screen and in Coach → Settings (bump it
 // together with CACHE_VERSION in sw.js)
-const APP_VERSION = '68';
+const APP_VERSION = '68.1';
 
 const SpeechVoice = {
   KEY: 'taekwondoJourneyVoice',
@@ -17765,6 +17765,7 @@ const Journey = {
   },
 
   // ------------------------------------------------------------------ home: the map
+  isFresh(gs = TKD.gs()) { return !!gs && !gs.completedSkills?.size && !GameConfig.SKILL_ORDER.some(sk => (gs.skillGameScores?.[sk]?.learning || 0) > 0); },
   html() {
     const skillId = this.skill(), u = this.unit(skillId), st = this.steps(skillId, u), n = this.next(), gs = TKD.gs();
     const order = GameConfig.SKILL_ORDER, ki = Math.max(0, order.indexOf(skillId));
@@ -17791,7 +17792,10 @@ const Journey = {
         <span class="ju-n">${done ? '✓' : open ? TKD.num(U.n) : '🔒'}</span><span class="ju-t"><b><i class="ju-ic" aria-hidden="true">${U.icon} </i>${TKD.esc(TKD.t(U.en, U.ar))}</b><small>${TKD.num(d)}/${TKD.num(t)}</small></span></button></li>`;
     }).join('');
     const nextU = u < 3 ? Units.get(u + 1) : null, nextUOpen = nextU && Units.open(sco, u + 1, skillId);
-    return `<section class="jr jr-map" aria-label="${TKD.t('My journey', 'رحلتي')}" data-skill="${skillId}" data-unit="${u}">
+    // v68: a brand-new child (no lesson yet) sees only the title, the big button and the road — the kick
+    // buttons, the unit buttons and today's missions appear once the first lesson is done
+    const fresh = this.isFresh();
+    return `<section class="jr jr-map${fresh ? ' jr-fresh' : ''}" aria-label="${TKD.t('My journey', 'رحلتي')}" data-skill="${skillId}" data-unit="${u}">
       <header class="jr-head">
         <div class="jr-title"><b>🗺️ ${TKD.t(`${TKD.skillName(skillId)} adventure`, `مغامرة ${TKD.skillName(skillId)}`)}</b>
           <small>${window.Stages ? Stages.label(skillId) : TKD.t(`Kick ${ki + 1} of ${order.length}`, `الركلة ${TKD.num(ki + 1)} من ${TKD.num(order.length)}`)}</small></div>
@@ -20759,9 +20763,9 @@ const FirstTour = {
     { sel: '.jr-go', en: "Ready? Tap the big button and let's start!", ar: 'هل أنت مستعد؟ اضغط على الزر الكبير، وهيا نبدأ!' }
   ],
   done() { return !!TKD.read(this.key(), false); },
-  start(force = false) {
-    if ((!force && this.done()) || !document.querySelector('#home-screen.active') || document.querySelector('body > .tkd-modal')) return;
-    TKD.write(this.key(), true);
+  start(force = false, only = null) {
+    if ((!force && !only && this.done()) || !document.querySelector('#home-screen.active') || document.querySelector('body > .tkd-modal, .ft-ov')) return false;
+    if (!only) TKD.write(this.key(), true);
     this.close();
     // the tour takes the place of the old one-bubble welcome on the map
     try { TKD.write(Journey.welcomeKey(), true); } catch (e) {}
@@ -20773,7 +20777,7 @@ const FirstTour = {
         <div class="ft-row"><button type="button" class="ft-skip">${TKD.t('Skip', 'تخطَّ')}</button><span class="ft-dots"></span>
         <button type="button" class="ft-say" aria-label="${TKD.t('Hear it again', 'استمع إليها مرة أخرى')}">🔊</button><button type="button" class="btn btn-success ft-next"></button></div></div></div>`;
     document.body.appendChild(ov);
-    this.ov = ov; this.i = -1;
+    this.ov = ov; this.i = -1; this.only = only;
     // v63: Coach Seif shows the child around (his picture when 3D is off)
     const heroBox = ov.querySelector('.ft-hero');
     this.hero = new RigSprite(heroBox, { ch: 'coach', anim: 'coach_idle', intro: 'bow', tap: 'bow', height: 124 });
@@ -20788,8 +20792,9 @@ const FirstTour = {
     this._mo = new MutationObserver(() => { if (document.querySelector('body > .tkd-modal')) this.close(); });
     this._mo.observe(document.body, { childList: true });
     this.next();
+    return true;
   },
-  steps() { return this.STEPS.filter(s => !s.sel || document.querySelector(s.sel)?.getClientRects().length); },
+  steps() { return (this.only || this.STEPS).filter(s => !s.sel || document.querySelector(s.sel)?.getClientRects().length); },
   next() {
     if (!this.ov) return;
     const S = this.steps();
@@ -20829,7 +20834,7 @@ const FirstTour = {
   close() {
     if (this.ov) { try { window.speechSynthesis?.cancel(); window.Voice?.stop?.(); } catch (e) {} }
     this.hero?.dispose?.(); this.hero = null;
-    this.ov?.remove(); this.ov = null; this.step = null;
+    this.ov?.remove(); this.ov = null; this.step = null; this.only = null;
     if (this._re) { removeEventListener('resize', this._re); removeEventListener('scroll', this._re, true); }
     clearInterval(this._iv); this._mo?.disconnect(); this._mo = null;
   }
@@ -20847,6 +20852,24 @@ window.FirstTour = FirstTour;
     return r;
   };
   document.addEventListener('tkd:screen', (e) => { if (e.detail?.screenId !== 'home') FirstTour.close(); });
+  // v68: a child who started with the simple map (no lesson yet) is shown the units and today's missions
+  // the first time they appear — with the same words (and the same recorded voice) as the first tour
+  const freshKey = () => `taekwondoJourneyFresh:${TKD.pid() || 'guest'}`;
+  let timer = 0;
+  document.addEventListener('tkd:screen', (e) => {
+    clearTimeout(timer);
+    if (e.detail?.screenId !== 'home') return;
+    if (Journey.isFresh()) { TKD.write(freshKey(), true); return; }
+    if (!TKD.read(freshKey(), false)) return;
+    const only = FirstTour.STEPS.filter(s => s.sel === '.jr-units' || s.sel === '.daily-fold');
+    let tries = 0;
+    const go = () => {
+      if (!document.querySelector('#home-screen.active') || !TKD.read(freshKey(), false)) return;
+      if (FirstTour.start(false, only)) { TKD.write(freshKey(), false); return; }
+      if (++tries < 12) timer = setTimeout(go, 1500);                 // a window is open (a gift, a unit done …) — wait for it
+    };
+    timer = setTimeout(go, 1800);
+  });
 })();
 
 // =====================================================================
