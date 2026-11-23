@@ -6995,3 +6995,27 @@ details.jr-kick-info > p { margin-top: 8px; }
   /* the shortest phones only: the kick's one-line description (it is in the lesson too) makes room for the map */
   #home-screen .jr-kick-info { display: none; }
 }
+
+/* v68.2 (the testers: the lesson cards became very long on a phone) — the three tools sit on ONE row,
+   and the bar under the card («قرأتها» + «التالي») is one slim row instead of two, so it no longer
+   covers half of the fighter while it stays pinned above the tab bar */
+#learning-screen .phase-image-col.has-rig > .rig-controls.rig-main,
+#learning-screen .phase-image-col.has-rig > .rig-controls.rig-4d { flex: 0 0 auto !important; width: auto !important; inset: auto !important; }
+/* the fighter's box is a ROW that wraps (fighter on top, the tools under it). As a column, «100%» was read
+   as a height on a tablet or a computer and the fighter grew to ~2000px — the very long cards */
+#learning-screen .phase-image-col.has-rig { flex-direction: row !important; flex-wrap: wrap !important; justify-content: center !important; align-items: center !important; align-content: flex-start !important; column-gap: 6px !important; row-gap: 6px !important; }
+@media (min-width: 761px) {
+  #learning-screen .phase-image-col.has-rig > .phase-rig { height: clamp(240px, 40vh, 420px) !important; max-height: none !important; aspect-ratio: auto !important; }
+  #learning-screen .phase-card-footer { display: flex !important; align-items: center; justify-content: center; gap: 10px !important; padding: 8px 14px !important; }
+  #learning-screen .phase-card-footer > .phase-read-badge { flex: 0 0 auto; order: -1; margin: 0 !important; }
+  #learning-screen .phase-card-footer > .btn { flex: 0 1 260px; margin: 0 !important; }
+}
+@media (max-width: 760px) and (max-height: 760px) {
+  #learning-screen .phase-image-col.has-rig > .phase-rig { height: clamp(150px, 27dvh, 330px) !important; }
+}
+@media (max-width: 760px) {
+  #learning-screen .phase-image-col.has-rig > .rig-controls .rig-btn { padding: 6px 10px !important; }
+  .phase-card-footer { display: flex !important; align-items: center; gap: 8px !important; padding: 6px 10px !important; }
+  .phase-card-footer > .phase-read-badge { flex: 0 0 auto; order: -1; margin: 0 !important; padding: 4px 10px !important; }
+  .phase-card-footer > .btn { flex: 1 1 0; min-width: 0; min-height: 44px; padding-block: 8px !important; }
+}
