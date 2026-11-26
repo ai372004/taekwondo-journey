@@ -5979,9 +5979,8 @@ html.lite .winner-visual::before, html.lite .celebration-icon { animation-iterat
 .pf-tabs button.on { background: var(--primary-color); box-shadow: 0 4px 14px rgba(255, 107, 53, .35); }
 .pf-troph-row { display: flex; flex-wrap: wrap; gap: 8px; font-size: 1.8rem; margin: 6px 0 10px; }
 .pf-troph-row small { font-size: .9rem; opacity: .8; }
-/* v55 — fighter names for kids who can't type yet */
+/* v55 — ready fighter names under the name box (v68.3: no label over them) */
 .ss-names { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; justify-content: center; margin: -2px 0 6px; }
-.ss-names small { width: 100%; text-align: center; opacity: .8; font-size: .8rem; }
 .ss-name-chip { min-height: 38px; padding: 4px 12px; border-radius: 99px; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
 .ss-name-chip:hover, .ss-name-chip:focus-visible { border-color: var(--primary-color); background: rgba(255,107,53,.18); }
 .game-cards-bonus.bonus-folded { display: none; }

@@ -906,7 +906,7 @@ function watchVideoLoading(video) {
 // Arabic or English voice, degrees and ranges in words)
 // v63.4 — the version a tester can read on the start screen and in Coach → Settings (bump it
 // together with CACHE_VERSION in sw.js)
-const APP_VERSION = '68.2';
+const APP_VERSION = '68.3';
 
 const SpeechVoice = {
   KEY: 'taekwondoJourneyVoice',
@@ -15446,7 +15446,7 @@ const StartScreen = {
         <div class="ss-new">
           <label class="ss-name"><span>${TKD.t('Your name', 'اسمك')}</span>
             <input id="ss-name-input" type="text" maxlength="18" autocomplete="off" placeholder="${TKD.t('Type your name', 'اكتب اسمك')}"></label>
-          <div class="ss-names" aria-label="${TKD.t('Or pick a fighter name', 'أو اختر اسم بطل')}"><small>${TKD.t('Can’t type yet? Pick a fighter name:', 'لا تعرف الكتابة بعد؟ اختر اسم بطل:')}</small>
+          <div class="ss-names" aria-label="${TKD.t('Or pick a fighter name', 'أو اختر اسم بطل')}">
             ${(TKD.ar ? ['🐯 النمر', '🦅 الصقر', '🐉 التنين', '⚡ البرق'] : ['🐯 Tiger', '🦅 Eagle', '🐉 Dragon', '⚡ Lightning']).map(n => `<button type="button" class="ss-name-chip" data-name="${n.replace(/^\S+\s/, '')}">${n}</button>`).join('')}</div>
           <div class="ss-chars" role="radiogroup" aria-label="${TKD.t('Character', 'الشخصية')}">
             ${['boy', 'girl'].map(c => `<button type="button" role="radio" aria-checked="${this.newChar === c}" class="ss-char ${this.newChar === c ? 'on' : ''}" data-ch="${c}">
